@@ -141,9 +141,8 @@ uniform_meta <- data.frame(
 
 # Step 3: Manually Add Information from the Publication
 
-Some information (e.g., Sex, PCR primers, study title, disease status)
-must be manually extracted from the publication and added to the
-metadata.
+Some information (e.g. PCR primers, study title, disease status) must be
+manually extracted from the publication and added to the metadata.
 
 ``` r
 # Add information obtained from the publication
@@ -179,22 +178,29 @@ print(paste("Number of unique sample names:", length(unique(uniform_meta$sample_
 ``` r
 # Select columns for visualization
 plot_data <- uniform_meta %>%
-  select(-BioProject, -Run, -sample_name, -title, -PCR_primers, -Age, -BMI, -Sex)
+  select(-BioProject, -Run, -sample_name, -title)
 
 # Function to create simple plots for each column
 create_simple_plots <- function(data) {
   plots <- list()
   
   for (col in colnames(data)) {
-    if (is.numeric(data[[col]])) {
+    # Check if the column is all NA
+    if (all(is.na(data[[col]]))) {
+      # Create an empty plot with text indicating all NA
+      p <- ggplot() +
+        annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
+        labs(title = col) +
+        theme_void()
+    } else if (is.numeric(data[[col]])) {
       # Numeric variable: histogram
       p <- ggplot(data, aes(x = .data[[col]])) +
-        geom_histogram(fill = "blue", alpha = 0.6, bins = 20) +
+        geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
         labs(title = col) +
         theme_minimal()
     } else {
-      # Categorical variable: bar plot
-      count_data <- as.data.frame(table(data[[col]]))
+      # Categorical variable: bar plot (remove NA values)
+      count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
       p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
         geom_col(fill = "red", alpha = 0.6) +
         labs(title = col, x = NULL, y = "Count") +
@@ -231,8 +237,8 @@ write.csv(uniform_meta, file = "uniform_meta.csv", quote = FALSE)
 
 1.  **Metadata Accuracy**: Always cross-check the metadata with the
     original publication to ensure accuracy.
-2.  **Manual Entries**: Columns like `Age`, `BMI`, `Sex`, `PCR_primers`,
-    and `Status` often require manual entry based on the publication.
+2.  **Manual Entries**: Columns like `PCR_primers`, and `Status` often
+    require manual entry based on the publication.
 3.  **Disease Status**: Be careful when assigning `Status`—some studies
     include both disease and healthy samples.
 4.  **Visualization**: The plots help quickly identify the distribution

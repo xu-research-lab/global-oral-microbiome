@@ -1,0 +1,85 @@
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status
+1,PRJEB4953,ERR368845,p108C,39,NA,F,V4,Illumina MiSeq,USA,Right lateral tongue corner,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+2,PRJEB4953,ERR368846,p108N,39,NA,F,V4,Illumina MiSeq,USA,Left lateral  tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+3,PRJEB4953,ERR368847,p104C,55,NA,F,V4,Illumina MiSeq,USA,Right lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+4,PRJEB4953,ERR368848,p104N,55,NA,F,V4,Illumina MiSeq,USA,Left lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+5,PRJEB4953,ERR368849,p113C1,62,NA,M,V4,Illumina MiSeq,USA,Right buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+6,PRJEB4953,ERR368850,p113N1,62,NA,M,V4,Illumina MiSeq,USA,Left buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+7,PRJEB4953,ERR368851,p114N,48,NA,M,V4,Illumina MiSeq,USA,Right post maxilla ging,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+8,PRJEB4953,ERR368852,p114C1,48,NA,M,V4,Illumina MiSeq,USA,Left post mandible ging,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+9,PRJEB4953,ERR368853,p114C2,48,NA,M,V4,Illumina MiSeq,USA,Left post mandible ging,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+10,PRJEB4953,ERR368854,p115CIS,82,NA,F,V4,Illumina MiSeq,USA,floor of mouth,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,C
+11,PRJEB4953,ERR368855,p115N,82,NA,F,V4,Illumina MiSeq,USA,Left buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+12,PRJEB4953,ERR368856,p117C,68,NA,M,V4,Illumina MiSeq,USA,Left posterior lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+13,PRJEB4953,ERR368857,p117N,68,NA,M,V4,Illumina MiSeq,USA,Right posterior lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+14,PRJEB4953,ERR368858,p116C,84,NA,F,V4,Illumina MiSeq,USA,Right retromolar trigone,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+15,PRJEB4953,ERR368859,p116N,84,NA,F,V4,Illumina MiSeq,USA,Left retromolar trigone,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+16,PRJEB4953,ERR368860,p128C1,71,NA,M,V4,Illumina MiSeq,USA,Left alveolar ridge,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+17,PRJEB4953,ERR368861,p128N1,71,NA,M,V4,Illumina MiSeq,USA,Right alveolar ridge,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+18,PRJEB4953,ERR368862,p131C,75,NA,M,V4,Illumina MiSeq,USA,Right posterior base of tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+19,PRJEB4953,ERR368863,p136C,68,NA,M,V4,Illumina MiSeq,USA,Left lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+20,PRJEB4953,ERR368864,p136N,68,NA,M,V4,Illumina MiSeq,USA,Right lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+21,PRJEB4953,ERR368865,p142C,64,NA,M,V4,Illumina MiSeq,USA,Right dorsum of tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+22,PRJEB4953,ERR368866,p142N,64,NA,M,V4,Illumina MiSeq,USA,Left dorsum of tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+23,PRJEB4953,ERR368867,p143C1,61,NA,M,V4,Illumina MiSeq,USA,Right floor of mouth,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+24,PRJEB4953,ERR368868,p143N1,61,NA,M,V4,Illumina MiSeq,USA,Left floor of mouth,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+25,PRJEB4953,ERR368869,p144C,70,NA,M,V4,Illumina MiSeq,USA,Left floor of mouth,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+26,PRJEB4953,ERR368870,p144N,70,NA,M,V4,Illumina MiSeq,USA,Right floor of mouth,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+27,PRJEB4953,ERR368871,p146C,78,NA,M,V4,Illumina MiSeq,USA,Right retromolar trigone,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+28,PRJEB4953,ERR368872,p146N,78,NA,M,V4,Illumina MiSeq,USA,Left retromolar trigone,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+29,PRJEB4953,ERR368873,p147C,51,NA,M,V4,Illumina MiSeq,USA,Left lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+30,PRJEB4953,ERR368874,p147N,51,NA,M,V4,Illumina MiSeq,USA,Right lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+31,PRJEB4953,ERR368875,p153C,51,NA,F,V4,Illumina MiSeq,USA,Left ventral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+32,PRJEB4953,ERR368876,p153N,51,NA,F,V4,Illumina MiSeq,USA,Right ventral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+33,PRJEB4953,ERR368877,p156C,69,NA,F,V4,Illumina MiSeq,USA,Right mandibular gingiva,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+34,PRJEB4953,ERR368878,156N,69,NA,F,V4,Illumina MiSeq,USA,Left mandibular gingiva,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+35,PRJEB4953,ERR368879,p105D1,79,NA,F,V4,Illumina MiSeq,USA,Lower right labial mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,C
+36,PRJEB4953,ERR368880,p105N1,79,NA,F,V4,Illumina MiSeq,USA,Right upper buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+37,PRJEB4953,ERR368881,p105D3,79,NA,F,V4,Illumina MiSeq,USA,Lower right labial mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,C
+38,PRJEB4953,ERR368882,p105N2,79,NA,F,V4,Illumina MiSeq,USA,Right upper buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+39,PRJEB4953,ERR368883,p107D,53,NA,F,V4,Illumina MiSeq,USA,Midline hard palate,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,C
+40,PRJEB4953,ERR368884,p107N,53,NA,F,V4,Illumina MiSeq,USA,hard palate 1 cm lateral to lesion,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+41,PRJEB4953,ERR368885,p109D1,53,NA,F,V4,Illumina MiSeq,USA,Left lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,C
+42,PRJEB4953,ERR368886,p109N1,53,NA,F,V4,Illumina MiSeq,USA,Right lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+43,PRJEB4953,ERR368887,p111D1,50,NA,M,V4,Illumina MiSeq,USA,Right buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,C
+44,PRJEB4953,ERR368888,p111N1,50,NA,M,V4,Illumina MiSeq,USA,Left buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+45,PRJEB4953,ERR368889,p118D1,68,NA,F,V4,Illumina MiSeq,USA,Left lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,C
+46,PRJEB4953,ERR368890,p118N1,68,NA,F,V4,Illumina MiSeq,USA,Right lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+47,PRJEB4953,ERR368891,p135D,52,NA,M,V4,Illumina MiSeq,USA,Right lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,C
+48,PRJEB4953,ERR368892,p135N,52,NA,M,V4,Illumina MiSeq,USA,Left lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+49,PRJEB4953,ERR368893,p139D,64,NA,F,V4,Illumina MiSeq,USA,Right buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,C
+50,PRJEB4953,ERR368894,p139N,64,NA,F,V4,Illumina MiSeq,USA,Left buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+51,PRJEB4953,ERR368895,p150D,49,NA,M,V4,Illumina MiSeq,USA,Left labial mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Precancer
+52,PRJEB4953,ERR368896,p150N,49,NA,M,V4,Illumina MiSeq,USA,Right labial mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+53,PRJEB4953,ERR368897,p113C2,62,NA,M,V4,Illumina MiSeq,USA,Right buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+54,PRJEB4953,ERR368898,p113N2,62,NA,M,V4,Illumina MiSeq,USA,Left buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+55,PRJEB4953,ERR368899,p128C2,71,NA,M,V4,Illumina MiSeq,USA,Left alveolar ridge,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+56,PRJEB4953,ERR368900,p128N2,71,NA,M,V4,Illumina MiSeq,USA,Right alveolar ridge,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+57,PRJEB4953,ERR368901,p143C2,61,NA,M,V4,Illumina MiSeq,USA,Right floor of mouth,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Cancer
+58,PRJEB4953,ERR368902,p143N2,61,NA,M,V4,Illumina MiSeq,USA,Left floor of mouth,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+59,PRJEB4953,ERR368903,p105D2,79,NA,F,V4,Illumina MiSeq,USA,Lower right labial mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Precancer
+60,PRJEB4953,ERR368904,p105D4,79,NA,F,V4,Illumina MiSeq,USA,Lower right labial mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Precancer
+61,PRJEB4953,ERR368905,p109D2,53,NA,F,V4,Illumina MiSeq,USA,Left lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Precancer
+62,PRJEB4953,ERR368906,p109N2,53,NA,F,V4,Illumina MiSeq,USA,Right lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+63,PRJEB4953,ERR368907,p111D2,50,NA,M,V4,Illumina MiSeq,USA,Right buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,Precancer
+64,PRJEB4953,ERR368908,p111N2,50,NA,M,V4,Illumina MiSeq,USA,Left buccal mucosa,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+65,PRJEB4953,ERR368909,hn159FR,30,NA,M,V4,Illumina MiSeq,USA,FOM,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+66,PRJEB4953,ERR368910,hn159FL,30,NA,M,V4,Illumina MiSeq,USA,FOM,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+67,PRJEB4953,ERR368911,hn160FR,24,NA,F,V4,Illumina MiSeq,USA,FOM,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+68,PRJEB4953,ERR368912,hn160FL,24,NA,F,V4,Illumina MiSeq,USA,FOM,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+69,PRJEB4953,ERR368913,hn161FR,29,NA,M,V4,Illumina MiSeq,USA,FOM,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+70,PRJEB4953,ERR368914,hn161FL,29,NA,M,V4,Illumina MiSeq,USA,FOM,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+71,PRJEB4953,ERR368915,hn162FR,23,NA,F,V4,Illumina MiSeq,USA,FOM,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+72,PRJEB4953,ERR368916,hn162FL,23,NA,F,V4,Illumina MiSeq,USA,FOM,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+73,PRJEB4953,ERR368917,hn163FR,62,NA,F,V4,Illumina MiSeq,USA,Lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+74,PRJEB4953,ERR368918,hn163FL,62,NA,F,V4,Illumina MiSeq,USA,Lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+75,PRJEB4953,ERR368919,hn164FR,29,NA,F,V4,Illumina MiSeq,USA,FOM,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+76,PRJEB4953,ERR368920,hn164FL,29,NA,F,V4,Illumina MiSeq,USA,FOM,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+77,PRJEB4953,ERR368921,hn159TR,30,NA,M,V4,Illumina MiSeq,USA,Lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+78,PRJEB4953,ERR368922,hn159TL,30,NA,M,V4,Illumina MiSeq,USA,Lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+79,PRJEB4953,ERR368923,hn160TR,24,NA,F,V4,Illumina MiSeq,USA,Lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+80,PRJEB4953,ERR368924,hn161TR,29,NA,M,V4,Illumina MiSeq,USA,Lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+81,PRJEB4953,ERR368925,hn161TL,29,NA,M,V4,Illumina MiSeq,USA,Lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+82,PRJEB4953,ERR368926,hn164TR,29,NA,F,V4,Illumina MiSeq,USA,Lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+83,PRJEB4953,ERR368927,hn164TL,29,NA,F,V4,Illumina MiSeq,USA,Lateral tongue,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,HC
+84,PRJEB4953,ERR368928,NA,NA,NA,NA,V4,454 GS Junior,USA,NA,2014-11-16T00:00:00Z,515F-806R,Changes in Abundance of Oral Microbiota Associated with Oral Cancer,YES,C

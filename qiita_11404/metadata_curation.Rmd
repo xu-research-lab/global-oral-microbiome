@@ -17,20 +17,20 @@ library(ggplot2)
 library(gridExtra)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/oral_project/PRJNA782768")
+setwd("D:/metadata/qiita_11404")
 
 # Read the initial metadata files
-initial_meta <- read.csv("SraRunTable.csv", header = TRUE)
-initial_meta1 <- read.csv("SraRunTable1.csv", header = TRUE)
+initial_meta <- read.csv("SraRunTable.tsv", header = TRUE ,sep = "\t", stringsAsFactors = FALSE)
+#initial_meta1 <- read.csv("SraRunTable1.csv", header = TRUE)
 
 # Combine the two metadata files
-meta <- rbind(initial_meta, initial_meta1)
-
+meta <- rbind(initial_meta)
+head(meta)
 # Remove entries where Organism is "gut metagenome" (non-oral samples)
-meta <- subset(meta, Organism != "gut metagenome")
+meta <- subset(meta, scientific_name == "human oral metagenome")
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
-nrow(subset(meta, grepl("HT", Sample.Name)))
+#nrow(subset(meta, grepl("HT", Sample.Name)))
 
 # Display the first few rows of the metadata
 head(meta)
@@ -58,17 +58,17 @@ The uniform metadata should include the following columns:
 ```{r}
 # Create a uniform metadata dataframe
 metadata <- data.frame(
-  BioProject = meta$BioProject,
-  Run = meta$Run,
-  sample_name = meta$Sample.Name,
-  Age = NA,  # To be filled Update based on you metadata
-  BMI = NA,  # To be filled based on you metadata
-  Sex = NA,  # To be filled based on you metadata
-  Region = "V3-V4",  # Update if different for your study
-  Platform = meta$Instrument,
-  Country = meta$geo_loc_name_country,
-  Site = meta$isolation_source, # other names of this columns such as env_median, env_material
-  public_time = meta$ReleaseDate,
+  BioProject = "qiita_11404",
+  Run = NA,
+  sample_name = meta$sample_name,
+  Age = meta$age_years,  # To be filled Update based on you metadata
+  BMI = meta$bmi,  # To be filled based on you metadata
+  Sex = meta$sex,  # To be filled based on you metadata
+  Region = "V4",  # Update if different for your study
+  Platform = "Illumina MiSeq",
+  Country = meta$country,
+  Site = meta$env_material, # other names of this columns such as env_median, env_material
+  public_time = "2017-11-8",
   stringsAsFactors = FALSE
 )
 ```
@@ -77,16 +77,19 @@ metadata <- data.frame(
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
-metadata$PCR_primers <- "338F-806R"  # Update based on the publication
-metadata$title <- "Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus"
-metadata$Disease_study <- "YES"
-
+metadata$PCR_primers <- "515F-806R"  # Update based on the publication
+metadata$title <- "A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling"
+metadata$Disease_study <- "NO"
+metadata$Status <- "H"
 # Assign disease status based on sample_name patterns
-metadata <- metadata %>%
-  mutate(Status = case_when(
-    grepl("DT", sample_name) ~ "T2DM",
-    grepl("HT|Tb", sample_name) ~ "HC"
-  ))
+#metadata <- metadata %>%
+#  mutate(Status = case_when(
+#    meta$qiita_bdi_total_category == "low" & meta$qiita_bmi_category %in% c("healthy", "overweight")        ~ "H",
+#    meta$qiita_bdi_total_category == "low" & meta$qiita_bmi_category %in% c("obese", "morbidly obese")      ~ "Ob/lower-Dep",
+#    meta$qiita_bdi_total_category == "high" & meta$qiita_bmi_category %in% c("healthy", "overweight")     ~ "Non-ob/higher-Dep",
+#    meta$qiita_bdi_total_category == "high" & meta$qiita_bmi_category %in% c("obese", "morbidly obese")   ~ "Ob/higher-Dep",
+#    TRUE ~ NA_character_   # 其余情况留空
+#  ))
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

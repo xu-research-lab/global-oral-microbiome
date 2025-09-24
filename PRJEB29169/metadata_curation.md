@@ -63,7 +63,7 @@ metadata <- data.frame(
   sample_name = meta$Sample.Name,
   Age = meta$host_age,  # To be filled Update based on you metadata
   BMI = meta$BMI,  # To be filled based on you metadata
-  Sex = meta$sex,  # To be filled based on you metadata
+#  Sex = meta$sex,  # To be filled based on you metadata
   Region = "V4",  # Update if different for your study
   Platform = meta$Instrument,
   Country = meta$geo_loc_name_country,
@@ -82,11 +82,11 @@ metadata$title <- "Establishing microbial composition measurement standards with
 metadata$Disease_study <- "NO"
 metadata$Status <- "NA"
 # Assign disease status based on sample_name patterns
-#metadata <- metadata %>%
-#  mutate(Status = case_when(
-#    meta$medical_conditions == "Negative Chagas" ~ "H",
-#    meta$medical_conditions == "Chronic Chagas" ~ "Chagas"
-#  ))
+metadata <- metadata %>%
+  mutate(Sex = case_when(
+    meta$sex == "0" ~ "female",
+    meta$sex == "1" ~ "male"
+  ))
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

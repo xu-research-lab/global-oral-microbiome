@@ -78,7 +78,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 ```{r}
 # Add information obtained from the publication
 metadata$PCR_primers <- "515fbc-806r"  # Update based on the publication
-metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal, Saliva, and Skin Microbiome Composition"
+metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition"
 metadata$Disease_study <- "NO"
 metadata$Status <- "H"
 # Assign disease status based on sample_name patterns

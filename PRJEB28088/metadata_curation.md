@@ -66,7 +66,7 @@ metadata <- data.frame(
   Sex = meta$sex,  # To be filled based on you metadata
   Region = "V4",  # Update if different for your study
   Platform = meta$Instrument,
-  Country = "Venezuelan",
+  Country = meta$geo_loc_name,
   Site = meta$env_material, # other names of this columns such as env_median, env_material
   public_time = meta$ReleaseDate,
   stringsAsFactors = FALSE

@@ -61,7 +61,7 @@ metadata <- data.frame(
   BioProject = meta$BioProject,
   Run = meta$Run,
   sample_name = meta$Sample.Name,
-  Age = meta$Host_age,  # To be filled Update based on you metadata
+  Age = meta$Host_age / 365,  # To be filled Update based on you metadata
   BMI = NA,  # To be filled based on you metadata
   Sex = NA,  # To be filled based on you metadata
   Region = "V4",  # Update if different for your study

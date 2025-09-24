@@ -82,11 +82,11 @@ metadata$title <- "Early microbial markers of periodontal and cardiometabolic di
 metadata$Disease_study <- "YES"
 metadata$Status <- "H"
 # Assign disease status based on sample_name patterns
-#metadata <- metadata %>%
-#  mutate(Status = case_when(
-#    meta$medical_conditions == "Negative Chagas" ~ "H",
-#    meta$medical_conditions == "Chronic Chagas" ~ "Chagas"
-#  ))
+metadata <- metadata %>%
+  mutate(Sex = case_when(
+    meta$sex == "0" ~ "female",
+    meta$sex == "1" ~ "male"
+  ))
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

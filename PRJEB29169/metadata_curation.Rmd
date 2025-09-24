@@ -63,7 +63,7 @@ metadata <- data.frame(
   sample_name = meta$Sample.Name,
   Age = meta$host_age,  # To be filled Update based on you metadata
   BMI = meta$BMI,  # To be filled based on you metadata
-#  Sex = meta$sex,  # To be filled based on you metadata
+  Sex = meta$sex,  # To be filled based on you metadata
   Region = "V4",  # Update if different for your study
   Platform = meta$Instrument,
   Country = meta$geo_loc_name_country,

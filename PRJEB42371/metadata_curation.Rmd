@@ -69,8 +69,6 @@ metadata <- data.frame(
 )
 
 # Use abbreviations to indicate gender
-# Remove the rows where the target_gene (exp) column equals "16S rRNA"
-# At the same time, keep the original filter env_material != "sterile water"
 metadata <- metadata %>%
   mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
 ```
@@ -201,4 +199,5 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 2. **Manual Entries**: Columns like `PCR_primers`, and `Status` often require manual entry based on the publication.
 3. **Disease Status**: Be careful when assigning `Status`—some studies include both disease and healthy samples.
 4. **Visualization**: The plots help quickly identify the distribution of values in each column, which is useful for quality control.
+
 5. **Reproducibility**: Update the working directory and file paths to match your local environment.

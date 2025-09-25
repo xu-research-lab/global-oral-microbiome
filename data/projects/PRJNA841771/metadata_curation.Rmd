@@ -75,7 +75,8 @@ metadata <- data.frame(
 
 # Step 3: Manually Add Information from the Publication
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
-```{r,fig.width=8, fig.height=6, fig.align='center',include=FALSE}
+
+```{r}
 # Add information obtained from the publication
 metadata$PCR_primers <- NA
 metadata$title <- "Oral Microbial Signature of Rheumatoid Arthritis in
@@ -97,7 +98,7 @@ print(paste("Number of unique runs:", length(unique(metadata$Run))))
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 # Step 5: Visualize the Metadata
-```{r,fig.width=8, fig.height=6, fig.align='center'}
+```{r,fig.width=8, fig.height=6, fig.align='center',include=FALSE}
 # Select columns for visualization
 plot_data <- metadata %>%
   select(-BioProject, -Run, -sample_name, -title)

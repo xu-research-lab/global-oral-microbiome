@@ -156,6 +156,22 @@ metadata <- data.frame(
 Some information (e.g. PCR primers, study title, disease status) must be
 manually extracted from the publication and added to the metadata.
 
+``` r
+# Add information obtained from the publication
+metadata$PCR_primers <- NA
+metadata$title <- "Oral Microbial Signature of Rheumatoid Arthritis in
+Female Patients"
+metadata$Disease_study <- "YES"
+# Assign disease status based on sample_name patterns
+metadata<-metadata%>%
+  mutate(Status=case_when(grepl("C|c",sample_name)~"HC",
+                          TRUE~"RA"
+                          ))
+
+metadata$matched_samples="NO"
+metadata$BMI[which.max(metadata$BMI)] <- NA
+```
+
 # Step 4: Summarize and Validate the Metadata
 
 ``` r
@@ -172,62 +188,6 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
     ## [1] "Number of unique sample names: 189"
 
 # Step 5: Visualize the Metadata
-
-``` r
-# Select columns for visualization
-plot_data <- metadata %>%
-  select(-BioProject, -Run, -sample_name, -title)
-
-# Function to create simple plots for each column
-create_simple_plots <- function(data) {
-  plots <- list()
-  
-  for (col in colnames(data)) {
-    # Check if the column is all NA
-    if (all(is.na(data[[col]]))) {
-      # Create an empty plot with text indicating all NA
-      p <- ggplot() +
-        annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
-        labs(title = col) +
-        theme_void()
-    } else if (is.numeric(data[[col]])) {
-      # Numeric variable: histogram
-      p <- ggplot(data, aes(x = .data[[col]])) +
-        geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
-        labs(title = col) +
-        theme_minimal()
-    } else {
-      # Categorical variable: bar plot (remove NA values)
-      count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
-      p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
-        geom_col(fill = "red", alpha = 0.6) +
-        labs(title = col, x = NULL, y = "Count") +
-        theme_minimal() +
-        theme(axis.text.x = element_text(angle = 15, hjust = 1))
-    }
-    plots[[col]] <- p
-  }
-  
-  return(plots)
-}
-
-# Generate and arrange plots
-plots <- create_simple_plots(plot_data)
-p<-plot_grid(plots$Age, 
-          plots$BMI, 
-          plots$Sex, 
-          plots$Region, 
-          plots$Platform, 
-          plots$Country, 
-          plots$Site,
-          plots$public_time, 
-          plots$PCR_primers,
-          plots$Disease_study,
-          plots$Status,
-          plots$matched_samples,
-          ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
-```
 
 ``` r
 knitr::include_graphics("Metadata_Summary.png")

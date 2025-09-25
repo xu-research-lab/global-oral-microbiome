@@ -255,7 +255,7 @@ create_simple_plots <- function(data) {
 plots <- create_simple_plots(plot_data)
 # grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary", align = "hv")
 plot_grid(plots$Age, plots$BMI, plots$Sex, plots$Region, plots$Platform, plots$Country, plots$Site,
-          plots$public_time, plots$PCR_primers,
+          plots$public_time, plots$PCR_primers, plots$Disease_study, plots$Status, plots$matched_samples,
           ncol = 3, align = "hv", axis = "lb")
 ```
 
@@ -270,7 +270,39 @@ metadata <- metadata[, c(
   "Region", "Platform", "Country", "Site", "public_time", 
   "PCR_primers", "title", "Disease_study", "Status", "matched_samples"
 )]
+head(metadata)
+```
 
+    ##   BioProject        Run         sample_name Age BMI Sex Region       Platform
+    ## 1 PRJEB28369 ERR2757873 OMB_Patient2_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ## 2 PRJEB28369 ERR2757874 OMB_Patient3_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ## 3 PRJEB28369 ERR2757875 OMB_Patient4_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ## 4 PRJEB28369 ERR2757876 OMB_Patient5_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ## 5 PRJEB28369 ERR2757877 OMB_Patient6_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ## 6 PRJEB28369 ERR2757878 OMB_Patient7_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ##   Country                 Site          public_time PCR_primers
+    ## 1 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ## 2 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ## 3 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ## 4 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ## 5 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ## 6 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ##                                                                                                                                         title
+    ## 1 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ## 2 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ## 3 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ## 4 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ## 5 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ## 6 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ##   Disease_study Status matched_samples
+    ## 1           YES   T2DM              NO
+    ## 2           YES   T2DM              NO
+    ## 3           YES   T2DM              NO
+    ## 4           YES   T2DM              NO
+    ## 5           YES   T2DM              NO
+    ## 6           YES   T2DM              NO
+
+``` r
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
 ```

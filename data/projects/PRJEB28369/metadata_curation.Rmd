@@ -137,7 +137,7 @@ create_simple_plots <- function(data) {
 plots <- create_simple_plots(plot_data)
 # grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary", align = "hv")
 plot_grid(plots$Age, plots$BMI, plots$Sex, plots$Region, plots$Platform, plots$Country, plots$Site,
-          plots$public_time, plots$PCR_primers,
+          plots$public_time, plots$PCR_primers, plots$Disease_study, plots$Status, plots$matched_samples,
           ncol = 3, align = "hv", axis = "lb")
 ```
 
@@ -149,7 +149,7 @@ metadata <- metadata[, c(
   "Region", "Platform", "Country", "Site", "public_time", 
   "PCR_primers", "title", "Disease_study", "Status", "matched_samples"
 )]
-
+head(metadata)
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
 ```

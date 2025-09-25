@@ -14,26 +14,25 @@ To obtain the initial metadata:
 # Load necessary libraries
 library(dplyr)
 library(ggplot2)
-library(gridExtra)
+library(cowplot)
 
 # Set working directory (update this path to your local directory)
 setwd("D:/metadata/PRJEB23323")
 
 # Read the initial metadata files
-initial_meta <- read.csv("SraRunTable.csv", header = TRUE)
-#initial_meta1 <- read.csv("SraRunTable1.csv", header = TRUE)
+initial_meta<-read.csv("SraRunTable.csv",header = T)
 
 # Combine the two metadata files
-meta <- rbind(initial_meta)
+#meta <- rbind(initial_meta, initial_meta1)
 
-# Remove entries where Organism is "gut metagenome" (non-oral samples)
-meta <- subset(meta, Organism == "human oral metagenome")
+#Remove entries non-oral samples
+#initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
-nrow(subset(meta, grepl("HT", Sample.Name)))
+#nrow(subset(meta, grepl("HT", Sample.Name)))
 
 # Display the first few rows of the metadata
-head(meta)
+head(initial_meta)
 ```
 
 # Step 2: Create a Uniform Metadata Template
@@ -55,20 +54,21 @@ The uniform metadata should include the following columns:
 13. **title**: Title of the associated publication
 14. **Disease_study**: Whether the study involves a disease ("YES" or "NO")
 15. **Status**: Disease status (e.g., "T2DM", "HC"). Note: If the study includes both disease and healthy samples, this must be specified per sample.
+16. **matched_samples**: matched samples ("YES" or "NO")
 ```{r}
 # Create a uniform metadata dataframe
 metadata <- data.frame(
-  BioProject = meta$BioProject,
-  Run = meta$Run,
-  sample_name = meta$Sample.Name,
-  Age = NA,  # To be filled Update based on you metadata
-  BMI = NA,  # To be filled based on you metadata
-  Sex = NA,  # To be filled based on you metadata
-  Region = "V4",  # Update if different for your study
-  Platform = meta$Instrument,
-  Country = meta$geo_loc_name_country,
-  Site = meta$env_material, # other names of this columns such as env_median, env_material
-  public_time = meta$ReleaseDate,
+  BioProject = initial_meta$BioProject,
+  Run = initial_meta$Run,
+  sample_name = initial_meta$Sample.Name,
+  Age = NA,
+  BMI = NA,
+  Sex=NA,
+  Region = "V4",
+  Platform = initial_meta$Instrument,
+  Country = initial_meta$geo_loc_name_country,
+  Site = initial_meta$env_material,
+  public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
 ```
@@ -77,16 +77,48 @@ metadata <- data.frame(
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
-metadata$PCR_primers <- "515F-806R"  # Update based on the publication
+metadata$PCR_primers <- "515F-806R"
 metadata$title <- "Comparison of Oral Collection Methods for Studies of Microbiota"
 metadata$Disease_study <- "NO"
-metadata$Status <- "H"
 # Assign disease status based on sample_name patterns
-#metadata <- metadata %>%
-#  mutate(Status = case_when(
-#    grepl("DT", sample_name) ~ "T2DM",
-#    grepl("HT|Tb", sample_name) ~ "HC"
-#  ))
+metadata$Status<-"H"
+
+#extract subject id by remove prefix of sample_name
+metadata$sample_name <- gsub("T|CR|CS|C|N|S", "", metadata$sample_name)
+
+# Check initial data distribution
+cat("Initial sample distribution:\n")
+table(metadata$sample_name)
+table(metadata$Site)
+
+# Calculate sampling frequency per subject
+sample_counts <- table(metadata$sample_name)
+cat("\nNumber of samples per subject:\n")
+print(sample_counts)
+
+# Create matched_samples column
+metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
+
+cat("\nMatched samples distribution:\n")
+table(metadata$matched_samples)
+
+# Identify samples for removal: single samples excluding saliva and tongue coat
+single_samples <- names(sample_counts[sample_counts == 1])
+samples_to_remove <- metadata$sample_name %in% single_samples & 
+                     !(metadata$Site %in% c("saliva", "tongue coat"))
+
+cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
+
+# Remove identified samples
+metadata_clean <- metadata[!samples_to_remove, ]
+
+cat("\nFinal sample distribution after cleaning:\n")
+table(metadata_clean$sample_name)
+table(metadata_clean$Site)
+table(metadata_clean$matched_samples)
+
+# Use cleaned dataset for subsequent analysis
+metadata <- metadata_clean
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}
@@ -95,7 +127,7 @@ print(paste("Number of unique runs:", length(unique(metadata$Run))))
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 # Step 5: Visualize the Metadata
-```{r}
+```{r,fig.width=8, fig.height=6, fig.align='center',include=FALSE}
 # Select columns for visualization
 plot_data <- metadata %>%
   select(-BioProject, -Run, -sample_name, -title)
@@ -125,7 +157,7 @@ create_simple_plots <- function(data) {
         geom_col(fill = "red", alpha = 0.6) +
         labs(title = col, x = NULL, y = "Count") +
         theme_minimal() +
-        theme(axis.text.x = element_text(angle = 45, hjust = 1))
+        theme(axis.text.x = element_text(angle = 15, hjust = 1))
     }
     plots[[col]] <- p
   }
@@ -135,7 +167,25 @@ create_simple_plots <- function(data) {
 
 # Generate and arrange plots
 plots <- create_simple_plots(plot_data)
-grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
+p<-plot_grid(plots$Age, 
+          plots$BMI, 
+          plots$Sex, 
+          plots$Region, 
+          plots$Platform, 
+          plots$Country, 
+          plots$Site,
+          plots$public_time, 
+          plots$PCR_primers,
+          plots$Disease_study,
+          plots$Status,
+          plots$matched_samples,# add 
+          ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+```
+
+
+```{r}
+knitr::include_graphics("Metadata_Summary.png")
 ```
 
 # Step 6: Finalize and Export the Metadata
@@ -144,11 +194,12 @@ grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
 metadata <- metadata[, c(
   "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
   "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status"
+  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
 )]
 
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
+head(metadata)
 ```
 ## Notes for Students:
 

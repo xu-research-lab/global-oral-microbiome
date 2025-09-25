@@ -72,8 +72,8 @@ metadata <- data.frame(
   stringsAsFactors = FALSE
 )
 ```
-# Step 3: Manually Add Information from the Publication
 
+# Step 3: Manually Add Information from the Publication
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r,fig.width=8, fig.height=6, fig.align='center',include=FALSE}
 # Add information obtained from the publication
@@ -88,6 +88,7 @@ metadata<-metadata%>%
                           ))
 
 metadata$matched_samples="NO"
+metadata$BMI[which.max(metadata$BMI)] <- NA
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

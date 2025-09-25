@@ -80,13 +80,14 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 metadata$PCR_primers <- "515F-806R"  # Update based on the publication
 metadata$title <- "Patterns of salivary microbiota injury and oral mucositis in recipients of allogeneic hematopoietic stem cell transplantation"
 metadata$Disease_study <- "YES"
-metadata$Status <- "HSCT-hematologic malignancy"
+#metadata$Status <- "HSCT-hematologic malignancy"
 # Assign disease status based on sample_name patterns
-#metadata <- metadata %>%
-#  mutate(Status = case_when(
-#    meta$medical_conditions == "Negative Chagas" ~ "H",
-#    meta$medical_conditions == "Chronic Chagas" ~ "Chagas"
-#  ))
+metadata <- metadata %>%
+  mutate(Status = case_when(
+    meta$oral_mucositis_grade == "0" ~ "H",
+    meta$oral_mucositis_grade == "1" ~ "OM",
+    meta$oral_mucositis_grade %in% c("2", "3", "4") ~ "severe-OM"
+  ))
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

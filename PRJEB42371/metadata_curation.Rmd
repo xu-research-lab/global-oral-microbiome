@@ -205,6 +205,7 @@ metadata <- metadata[, c(
 
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
+head(metadata)
 ```
 
 ## Notes for Students:
@@ -215,6 +216,7 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 4. **Visualization**: The plots help quickly identify the distribution of values in each column, which is useful for quality control.
 
 5. **Reproducibility**: Update the working directory and file paths to match your local environment.
+
 
 
 

@@ -135,7 +135,7 @@ print(paste("Number of unique runs:", length(unique(metadata$Run))))
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 # Step 5: Visualize the Metadata
-```{r, fig.width=6, fig.height=6, fig.align='center'}
+```{r,fig.width=8, fig.height=6, fig.align='center',include=FALSE}
 # Select columns for visualization
 plot_data <- metadata %>%
   select(-BioProject, -Run, -sample_name, -title)
@@ -175,10 +175,19 @@ create_simple_plots <- function(data) {
 
 # Generate and arrange plots
 plots <- create_simple_plots(plot_data)
-# grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary", align = "hv")
-plot_grid(plots$Age, plots$BMI, plots$Sex, plots$Region, plots$Platform, 
-          plots$Country, plots$Site, plots$public_time, 
+p<-plot_grid(plots$Age, 
+          plots$BMI, 
+          plots$Sex, 
+          plots$Region, 
+          plots$Platform, 
+          plots$Country, 
+          plots$Site,
+          plots$public_time, 
+          plots$Disease_study,
+          plots$Status,
+          plots$matched_samples,# add 
           ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 # Step 6: Finalize and Export the Metadata
 ```{r}
@@ -201,4 +210,5 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 4. **Visualization**: The plots help quickly identify the distribution of values in each column, which is useful for quality control.
 
 5. **Reproducibility**: Update the working directory and file paths to match your local environment.
+
 

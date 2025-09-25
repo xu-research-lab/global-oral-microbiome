@@ -16,21 +16,11 @@ library(dplyr)
 library(ggplot2)
 library(cowplot)
 # Set working directory (update this path to your local directory)
-setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJEB28369")
+setwd("/Users/dongbiao/Documents/oral/global-oral-microbiome/data/projects/PRJEB28369/")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.csv",header = T)
 
-# Combine the two metadata files
-#meta <- rbind(initial_meta, initial_meta1)
-
-# Remove entries where Organism is "gut metagenome" (non-oral samples)
-#meta <- subset(meta, Organism != "gut metagenome")
-
-# Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
-#nrow(subset(meta, grepl("HT", Sample.Name)))
-
-# Display the first few rows of the metadata
 head(initial_meta)
 ```
 
@@ -156,7 +146,7 @@ The uniform metadata should include the following columns:
 15. **Status**: Disease status (e.g., “T2DM”, “HC”). Note: If the study
     includes both disease and healthy samples, this must be specified
     per sample.
-16. **matched_samples** : Matched samples across sites
+16. **matched_samples** : matched samples (“YES” or “NO”)
 
 ``` r
 # Create a uniform metadata dataframe
@@ -193,8 +183,74 @@ metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "T2DM"
 
+# Create matched_samples column
 metadata$matched_samples <- "NO"
+
+# Check initial data distribution
+cat("Initial sample distribution:\n")
 ```
+
+    ## Initial sample distribution:
+
+``` r
+table(metadata$sample_name)
+```
+
+    ## 
+    ##       OMB_DD_Saliva_20(t=2)         OMB_DD_Saliva_Pat10 
+    ##                           1                           1 
+    ##         OMB_DD_Saliva_Pat11         OMB_DD_Saliva_Pat12 
+    ##                           1                           1 
+    ##         OMB_DD_Saliva_Pat13         OMB_DD_Saliva_Pat14 
+    ##                           1                           1 
+    ##   OMB_DD_Saliva_Pat14 (t=2)         OMB_DD_Saliva_Pat15 
+    ##                           1                           1 
+    ##   OMB_DD_Saliva_Pat15 (t=2)         OMB_DD_Saliva_Pat16 
+    ##                           1                           1 
+    ##         OMB_DD_Saliva_Pat17         OMB_DD_Saliva_Pat18 
+    ##                           1                           1 
+    ##         OMB_DD_Saliva_Pat19    OMB_DD_Saliva_Pat19(t=2) 
+    ##                           1                           1 
+    ##          OMB_DD_Saliva_Pat2         OMB_DD_Saliva_Pat20 
+    ##                           1                           1 
+    ##          OMB_DD_Saliva_Pat3    OMB_DD_Saliva_Pat3 (t=2) 
+    ##                           1                           1 
+    ##          OMB_DD_Saliva_Pat4          OMB_DD_Saliva_Pat5 
+    ##                           1                           1 
+    ##          OMB_DD_Saliva_Pat6    OMB_DD_Saliva_Pat6 (t=2) 
+    ##                           1                           1 
+    ##          OMB_DD_Saliva_Pat7          OMB_DD_Saliva_Pat8 
+    ##                           1                           1 
+    ##        OMB_Patient10_plaque        OMB_Patient11_plaque 
+    ##                           1                           1 
+    ##        OMB_Patient12_plaque        OMB_Patient13_plaque 
+    ##                           1                           1 
+    ##        OMB_Patient14_plaque OMB_Patient14_plaque (t =2) 
+    ##                           1                           1 
+    ##        OMB_Patient15_plaque OMB_Patient15_plaque (t =2) 
+    ##                           1                           1 
+    ##        OMB_Patient16_plaque        OMB_Patient18_plaque 
+    ##                           1                           2 
+    ##        OMB_Patient19_plaque OMB_Patient19_plaque (t =2) 
+    ##                           1                           1 
+    ##         OMB_Patient2_plaque        OMB_Patient20_plaque 
+    ##                           1                           1 
+    ## OMB_Patient20_plaque (t =2)         OMB_Patient3_plaque 
+    ##                           1                           1 
+    ##  OMB_Patient3_plaque (t =2)         OMB_Patient4_plaque 
+    ##                           1                           1 
+    ##         OMB_Patient5_plaque         OMB_Patient6_plaque 
+    ##                           1                           1 
+    ##  OMB_Patient6_plaque (t =2)         OMB_Patient7_plaque 
+    ##                           1                           1
+
+``` r
+table(metadata$Site)
+```
+
+    ## 
+    ##               Saliva Supragingival plaque 
+    ##                   24                   23
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -253,13 +309,27 @@ create_simple_plots <- function(data) {
 
 # Generate and arrange plots
 plots <- create_simple_plots(plot_data)
-# grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary", align = "hv")
-plot_grid(plots$Age, plots$BMI, plots$Sex, plots$Region, plots$Platform, plots$Country, plots$Site,
-          plots$public_time, plots$PCR_primers,
+p<-plot_grid(plots$Age, 
+          plots$BMI, 
+          plots$Sex, 
+          plots$Region, 
+          plots$Platform, 
+          plots$Country, 
+          plots$Site,
+          plots$public_time, 
+          plots$PCR_primers,
+          plots$Disease_study,
+          plots$Status,
+          plots$matched_samples,# add 
           ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
-<img src="metadata_curation_files/figure-gfm/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+``` r
+knitr::include_graphics("Metadata_Summary.png")
+```
+
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -268,12 +338,42 @@ plot_grid(plots$Age, plots$BMI, plots$Sex, plots$Region, plots$Platform, plots$C
 metadata <- metadata[, c(
   "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
   "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status", "matched_samples"
+  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
 )]
 
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
+head(metadata)
 ```
+
+    ##   BioProject        Run         sample_name Age BMI Sex Region       Platform
+    ## 1 PRJEB28369 ERR2757873 OMB_Patient2_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ## 2 PRJEB28369 ERR2757874 OMB_Patient3_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ## 3 PRJEB28369 ERR2757875 OMB_Patient4_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ## 4 PRJEB28369 ERR2757876 OMB_Patient5_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ## 5 PRJEB28369 ERR2757877 OMB_Patient6_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ## 6 PRJEB28369 ERR2757878 OMB_Patient7_plaque  NA  NA  NA  V3-V4 Illumina MiSeq
+    ##   Country                 Site          public_time PCR_primers
+    ## 1 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ## 2 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ## 3 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ## 4 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ## 5 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ## 6 Germany Supragingival plaque 2018-09-10T00:00:00Z   341F-806R
+    ##                                                                                                                                         title
+    ## 1 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ## 2 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ## 3 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ## 4 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ## 5 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ## 6 Obesity alters composition and diversity of the oral microbiota in patients with type 2 diabetes mellitus independently of glycemic control
+    ##   Disease_study Status matched_samples
+    ## 1           YES   T2DM              NO
+    ## 2           YES   T2DM              NO
+    ## 3           YES   T2DM              NO
+    ## 4           YES   T2DM              NO
+    ## 5           YES   T2DM              NO
+    ## 6           YES   T2DM              NO
 
 ## Notes for Students:
 

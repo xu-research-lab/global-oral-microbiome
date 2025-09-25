@@ -14,7 +14,7 @@ To obtain the initial metadata:
 # Load necessary libraries
 library(dplyr)
 library(ggplot2)
-library(gridExtra)
+library(cowplot)
 
 # Set working directory (update this path to your local directory)
 setwd("D:/oral_project/qiita_id1928")
@@ -54,12 +54,13 @@ The uniform metadata should include the following columns:
 13. **title**: Title of the associated publication
 14. **Disease_study**: Whether the study involves a disease ("YES" or "NO")
 15. **Status**: Disease status (e.g., "T2DM", "HC"). Note: If the study includes both disease and healthy samples, this must be specified per sample.
+16. **matched_samples**: matched samples ("YES" or "NO")
 ```{r}
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$Sample.Name,
+  sample_name = initial_meta$submitted_subject_id,
   Age = NA,
   BMI = NA,
   Sex=initial_meta$host_sex,
@@ -83,10 +84,59 @@ metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status<- NA
 
+# Check initial data distribution
+cat("Initial sample distribution:\n")
+table(metadata$sample_name)
 table(metadata$Site)
-### subset oral samples
 
-metadata<-subset(metadata,Site %in% c("G_DNA_Saliva","G_DNA_Supragingival plaque","G_DNA_Hard palate","G_DNA_Attached/Keratinized gingiva","G_DNA_Subgingival plaque","G_DNA_Tongue dorsum"))
+# Define oral sampling sites
+oral_sites <- c("G_DNA_Saliva","G_DNA_Supragingival plaque","G_DNA_Hard palate",
+                "G_DNA_Attached/Keratinized gingiva","G_DNA_Subgingival plaque",
+                "G_DNA_Tongue dorsum")
+
+# Identify subjects with at least one oral sample
+subjects_with_oral <- unique(metadata$sample_name[metadata$Site %in% oral_sites])
+cat("\nSubjects with oral sampling:", length(subjects_with_oral), "\n")
+
+# Keep only subjects that have at least one oral sample
+metadata_clean <- metadata[metadata$sample_name %in% subjects_with_oral, ]
+
+# Recalculate sample counts after filtering
+sample_counts_clean <- table(metadata_clean$sample_name)
+
+# For each subject, check if they have both oral and non-oral samples
+metadata_clean$matched_samples <- "NO"
+
+for (subject in unique(metadata_clean$sample_name)) {
+    subject_data <- metadata_clean[metadata_clean$sample_name == subject, ]
+    
+    has_oral <- any(subject_data$Site %in% oral_sites)
+    has_non_oral <- any(!subject_data$Site %in% oral_sites)
+    
+    if (has_oral && has_non_oral) {
+        metadata_clean$matched_samples[metadata_clean$sample_name == subject] <- "YES"
+    }
+}
+
+cat("\nFinal sample distribution after cleaning:\n")
+cat("Number of subjects:", length(unique(metadata_clean$sample_name)), "\n")
+cat("Total samples:", nrow(metadata_clean), "\n")
+
+cat("\nSample distribution by subject:\n")
+print(table(metadata_clean$sample_name))
+
+cat("\nSite distribution:\n")
+print(table(metadata_clean$Site))
+
+cat("\nMatched samples distribution:\n")
+print(table(metadata_clean$matched_samples))
+
+# Use cleaned dataset for subsequent analysis
+metadata <- metadata_clean
+# renames sequencing regions
+metadata$Region<-gsub("16s rRNA | region|16S rRNA |16S ","",metadata$Region)
+metadata$Region<-gsub(",","/",metadata$Region)
+metadata$Site<-gsub("G_DNA_","",metadata$Site)
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}
@@ -95,7 +145,7 @@ print(paste("Number of unique runs:", length(unique(metadata$Run))))
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 # Step 5: Visualize the Metadata
-```{r}
+```{r,fig.width=8, fig.height=6, fig.align='center'}
 # Select columns for visualization
 plot_data <- metadata %>%
   select(-BioProject, -Run, -sample_name, -title)
@@ -125,7 +175,7 @@ create_simple_plots <- function(data) {
         geom_col(fill = "red", alpha = 0.6) +
         labs(title = col, x = NULL, y = "Count") +
         theme_minimal() +
-        theme(axis.text.x = element_text(angle = 45, hjust = 1))
+        theme(axis.text.x = element_text(angle = 35, hjust = 1))
     }
     plots[[col]] <- p
   }
@@ -135,7 +185,18 @@ create_simple_plots <- function(data) {
 
 # Generate and arrange plots
 plots <- create_simple_plots(plot_data)
-grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
+row1 <- plot_grid(plots$Age, plots$BMI, plots$Sex, nrow = 1, rel_widths = c(1, 1, 1))
+row2 <- plot_grid(plots$Region, plots$Platform, plots$Country, nrow = 1, rel_widths = c(3, 1, 1))
+row3 <- plot_grid(plots$Site, plots$public_time, plots$PCR_primers, nrow = 1, rel_widths = c(2, 2, 1))
+row4<- plot_grid(plots$Disease_study, plots$Status, plots$matched_samples,nrow = 1, rel_widths = c(1,1,1))
+
+p <- plot_grid(row1, row2, row3, row4,ncol = 1)
+ggsave("Metadata_Summary.png", plot = p, width = 10, height = 8, dpi = 150)
+```
+
+
+```{r}
+knitr::include_graphics("Metadata_Summary.png")
 ```
 
 # Step 6: Finalize and Export the Metadata
@@ -144,11 +205,12 @@ grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
 metadata <- metadata[, c(
   "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
   "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status"
+  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
 )]
 
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
+head(metadata)
 ```
 ## Notes for Students:
 

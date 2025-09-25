@@ -14,7 +14,7 @@ project.
 # Load necessary libraries
 library(dplyr)
 library(ggplot2)
-library(gridExtra)
+library(cowplot)
 
 # Set working directory (update this path to your local directory)
 setwd("D:/oral_project/PRJNA866676")
@@ -26,7 +26,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 #meta <- rbind(initial_meta, initial_meta1)
 
 #Remove entries non-oral samples
-initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
+#initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
@@ -136,6 +136,7 @@ The uniform metadata should include the following columns:
 15. **Status**: Disease status (e.g., “T2DM”, “HC”). Note: If the study
     includes both disease and healthy samples, this must be specified
     per sample.
+16. **matched_samples**: matched samples (“YES” or “NO”)
 
 ``` r
 # Create a uniform metadata dataframe
@@ -167,6 +168,136 @@ metadata$title <- "Characteristics of Microbial Distribution in Different Oral N
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status<-"OSCC"
+
+#extract subject id by remove prefix of sample_name
+metadata$sample_name <- gsub("T|CR|CS|C|N|S", "", metadata$sample_name)
+
+# Check initial data distribution
+cat("Initial sample distribution:\n")
+```
+
+    ## Initial sample distribution:
+
+``` r
+table(metadata$sample_name)
+```
+
+    ## 
+    ##  1 10 11 12 13 14 15 16 17 18 19  2 20 21 22 23 24 25 26 27 28 29  3 30 31 32 
+    ##  3  5  3  5  5  3  3  3  5  5  5  3  5  5  3  3  6  6  3  5  3  6  3  4  6  6 
+    ## 33 34 35 36 37 38 39  4 40 41 42 43 44 45 46 47 48 49  5 50 51 52 53 54 55 56 
+    ##  4  6  6  3  6  6  6  3  6  6  4  4  6  6  6  4  4  6  3  4  4  6  6  6  4  6 
+    ## 57 58 59  6 60 61 62 63 64 65 66 67  7  8  9 
+    ##  6  6  6  3  4  6  4  4  4  6  4  6  3  5  3
+
+``` r
+table(metadata$Site)
+```
+
+    ## 
+    ##              cancer surface contralateral normal mucosa 
+    ##                          66                          41 
+    ##        paracancerous tissue                      saliva 
+    ##                          36                          67 
+    ##                 tongue coat                tumor tissue 
+    ##                          66                          37
+
+``` r
+# Calculate sampling frequency per subject
+sample_counts <- table(metadata$sample_name)
+cat("\nNumber of samples per subject:\n")
+```
+
+    ## 
+    ## Number of samples per subject:
+
+``` r
+print(sample_counts)
+```
+
+    ## 
+    ##  1 10 11 12 13 14 15 16 17 18 19  2 20 21 22 23 24 25 26 27 28 29  3 30 31 32 
+    ##  3  5  3  5  5  3  3  3  5  5  5  3  5  5  3  3  6  6  3  5  3  6  3  4  6  6 
+    ## 33 34 35 36 37 38 39  4 40 41 42 43 44 45 46 47 48 49  5 50 51 52 53 54 55 56 
+    ##  4  6  6  3  6  6  6  3  6  6  4  4  6  6  6  4  4  6  3  4  4  6  6  6  4  6 
+    ## 57 58 59  6 60 61 62 63 64 65 66 67  7  8  9 
+    ##  6  6  6  3  4  6  4  4  4  6  4  6  3  5  3
+
+``` r
+# Create matched_samples column
+metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
+
+cat("\nMatched samples distribution:\n")
+```
+
+    ## 
+    ## Matched samples distribution:
+
+``` r
+table(metadata$matched_samples)
+```
+
+    ## 
+    ## YES 
+    ## 313
+
+``` r
+# Identify samples for removal: single samples excluding saliva and tongue coat
+single_samples <- names(sample_counts[sample_counts == 1])
+samples_to_remove <- metadata$sample_name %in% single_samples & 
+                     !(metadata$Site %in% c("saliva", "tongue coat"))
+
+cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
+```
+
+    ## 
+    ## Number of samples to be removed: 0
+
+``` r
+# Remove identified samples
+metadata_clean <- metadata[!samples_to_remove, ]
+
+cat("\nFinal sample distribution after cleaning:\n")
+```
+
+    ## 
+    ## Final sample distribution after cleaning:
+
+``` r
+table(metadata_clean$sample_name)
+```
+
+    ## 
+    ##  1 10 11 12 13 14 15 16 17 18 19  2 20 21 22 23 24 25 26 27 28 29  3 30 31 32 
+    ##  3  5  3  5  5  3  3  3  5  5  5  3  5  5  3  3  6  6  3  5  3  6  3  4  6  6 
+    ## 33 34 35 36 37 38 39  4 40 41 42 43 44 45 46 47 48 49  5 50 51 52 53 54 55 56 
+    ##  4  6  6  3  6  6  6  3  6  6  4  4  6  6  6  4  4  6  3  4  4  6  6  6  4  6 
+    ## 57 58 59  6 60 61 62 63 64 65 66 67  7  8  9 
+    ##  6  6  6  3  4  6  4  4  4  6  4  6  3  5  3
+
+``` r
+table(metadata_clean$Site)
+```
+
+    ## 
+    ##              cancer surface contralateral normal mucosa 
+    ##                          66                          41 
+    ##        paracancerous tissue                      saliva 
+    ##                          36                          67 
+    ##                 tongue coat                tumor tissue 
+    ##                          66                          37
+
+``` r
+table(metadata_clean$matched_samples)
+```
+
+    ## 
+    ## YES 
+    ## 313
+
+``` r
+# Use cleaned dataset for subsequent analysis
+metadata <- metadata_clean
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -176,60 +307,21 @@ metadata$Status<-"OSCC"
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 133"
+    ## [1] "Number of unique runs: 313"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 133"
+    ## [1] "Number of unique sample names: 67"
 
 # Step 5: Visualize the Metadata
 
 ``` r
-# Select columns for visualization
-plot_data <- metadata %>%
-  select(-BioProject, -Run, -sample_name, -title)
-
-# Function to create simple plots for each column
-create_simple_plots <- function(data) {
-  plots <- list()
-  
-  for (col in colnames(data)) {
-    # Check if the column is all NA
-    if (all(is.na(data[[col]]))) {
-      # Create an empty plot with text indicating all NA
-      p <- ggplot() +
-        annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
-        labs(title = col) +
-        theme_void()
-    } else if (is.numeric(data[[col]])) {
-      # Numeric variable: histogram
-      p <- ggplot(data, aes(x = .data[[col]])) +
-        geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
-        labs(title = col) +
-        theme_minimal()
-    } else {
-      # Categorical variable: bar plot (remove NA values)
-      count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
-      p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
-        geom_col(fill = "red", alpha = 0.6) +
-        labs(title = col, x = NULL, y = "Count") +
-        theme_minimal() +
-        theme(axis.text.x = element_text(angle = 45, hjust = 1))
-    }
-    plots[[col]] <- p
-  }
-  
-  return(plots)
-}
-
-# Generate and arrange plots
-plots <- create_simple_plots(plot_data)
-grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
+knitr::include_graphics("Metadata_Summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -238,12 +330,42 @@ grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
 metadata <- metadata[, c(
   "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
   "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status"
+  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
 )]
 
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
+head(metadata)
 ```
+
+    ##    BioProject         Run sample_name Age BMI Sex Region          Platform
+    ## 1 PRJNA866676 SRR20888871          64  NA  NA  NA  V3-V4 Ion Torrent S5 XL
+    ## 2 PRJNA866676 SRR20888872          63  NA  NA  NA  V3-V4 Ion Torrent S5 XL
+    ## 3 PRJNA866676 SRR20888873          62  NA  NA  NA  V3-V4 Ion Torrent S5 XL
+    ## 4 PRJNA866676 SRR20888874          61  NA  NA  NA  V3-V4 Ion Torrent S5 XL
+    ## 5 PRJNA866676 SRR20888875          60  NA  NA  NA  V3-V4 Ion Torrent S5 XL
+    ## 6 PRJNA866676 SRR20888876          59  NA  NA  NA  V3-V4 Ion Torrent S5 XL
+    ##   Country        Site          public_time PCR_primers
+    ## 1   China tongue coat 2022-08-06T00:00:00Z   341F-806R
+    ## 2   China tongue coat 2022-08-06T00:00:00Z   341F-806R
+    ## 3   China tongue coat 2022-08-06T00:00:00Z   341F-806R
+    ## 4   China tongue coat 2022-08-06T00:00:00Z   341F-806R
+    ## 5   China tongue coat 2022-08-06T00:00:00Z   341F-806R
+    ## 6   China tongue coat 2022-08-06T00:00:00Z   341F-806R
+    ##                                                                                                title
+    ## 1 Characteristics of Microbial Distribution in Different Oral Niches of Oral Squamous Cell Carcinoma
+    ## 2 Characteristics of Microbial Distribution in Different Oral Niches of Oral Squamous Cell Carcinoma
+    ## 3 Characteristics of Microbial Distribution in Different Oral Niches of Oral Squamous Cell Carcinoma
+    ## 4 Characteristics of Microbial Distribution in Different Oral Niches of Oral Squamous Cell Carcinoma
+    ## 5 Characteristics of Microbial Distribution in Different Oral Niches of Oral Squamous Cell Carcinoma
+    ## 6 Characteristics of Microbial Distribution in Different Oral Niches of Oral Squamous Cell Carcinoma
+    ##   Disease_study Status matched_samples
+    ## 1           YES   OSCC             YES
+    ## 2           YES   OSCC             YES
+    ## 3           YES   OSCC             YES
+    ## 4           YES   OSCC             YES
+    ## 5           YES   OSCC             YES
+    ## 6           YES   OSCC             YES
 
 ## Notes for Students:
 

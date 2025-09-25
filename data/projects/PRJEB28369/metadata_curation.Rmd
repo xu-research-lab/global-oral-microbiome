@@ -16,21 +16,11 @@ library(dplyr)
 library(ggplot2)
 library(cowplot)
 # Set working directory (update this path to your local directory)
-setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJEB28369")
+setwd("/Users/dongbiao/Documents/oral/global-oral-microbiome/data/projects/PRJEB28369/")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.csv",header = T)
 
-# Combine the two metadata files
-#meta <- rbind(initial_meta, initial_meta1)
-
-# Remove entries where Organism is "gut metagenome" (non-oral samples)
-#meta <- subset(meta, Organism != "gut metagenome")
-
-# Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
-#nrow(subset(meta, grepl("HT", Sample.Name)))
-
-# Display the first few rows of the metadata
 head(initial_meta)
 ```
 
@@ -53,7 +43,7 @@ The uniform metadata should include the following columns:
 13. **title**: Title of the associated publication
 14. **Disease_study**: Whether the study involves a disease ("YES" or "NO")
 15. **Status**: Disease status (e.g., "T2DM", "HC"). Note: If the study includes both disease and healthy samples, this must be specified per sample.
-16. **matched_samples** : Matched samples across sites
+16. **matched_samples** : matched samples ("YES" or "NO")
 ```{r}
 # Create a uniform metadata dataframe
 sites <- sapply(strsplit(initial_meta$Sample_name, "_"), function(x) x[3])
@@ -86,7 +76,13 @@ metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "T2DM"
 
+# Create matched_samples column
 metadata$matched_samples <- "NO"
+
+# Check initial data distribution
+cat("Initial sample distribution:\n")
+table(metadata$sample_name)
+table(metadata$Site)
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}
@@ -95,7 +91,7 @@ print(paste("Number of unique runs:", length(unique(metadata$Run))))
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 # Step 5: Visualize the Metadata
-```{r, fig.width=6, fig.height=6, fig.align='center'}
+```{r}
 # Select columns for visualization
 plot_data <- metadata %>%
   select(-BioProject, -Run, -sample_name, -title)
@@ -135,10 +131,24 @@ create_simple_plots <- function(data) {
 
 # Generate and arrange plots
 plots <- create_simple_plots(plot_data)
-# grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary", align = "hv")
-plot_grid(plots$Age, plots$BMI, plots$Sex, plots$Region, plots$Platform, plots$Country, plots$Site,
-          plots$public_time, plots$PCR_primers,
+p<-plot_grid(plots$Age, 
+          plots$BMI, 
+          plots$Sex, 
+          plots$Region, 
+          plots$Platform, 
+          plots$Country, 
+          plots$Site,
+          plots$public_time, 
+          plots$PCR_primers,
+          plots$Disease_study,
+          plots$Status,
+          plots$matched_samples,# add 
           ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+```
+
+```{r}
+knitr::include_graphics("Metadata_Summary.png")
 ```
 
 # Step 6: Finalize and Export the Metadata
@@ -147,11 +157,12 @@ plot_grid(plots$Age, plots$BMI, plots$Sex, plots$Region, plots$Platform, plots$C
 metadata <- metadata[, c(
   "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
   "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status", "matched_samples"
+  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
 )]
 
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
+head(metadata)
 ```
 ## Notes for Students:
 

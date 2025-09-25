@@ -371,7 +371,7 @@ table(metadata$matched_samples)
 # Identify samples for removal: single samples excluding saliva and tongue coat
 single_samples <- names(sample_counts[sample_counts == 1])
 samples_to_remove <- metadata$sample_name %in% single_samples & 
-                     !(metadata$Site %in% c("saliva", "tongue coat", "Tongue coating"))
+                     !(metadata$Site %in% c("saliva", "tongue coat"))
 
 cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
 ```
@@ -520,4 +520,5 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
     of values in each column, which is useful for quality control.
 5.  **Reproducibility**: Update the working directory and file paths to
     match your local environment.
+
 

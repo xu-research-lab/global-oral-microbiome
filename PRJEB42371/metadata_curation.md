@@ -258,8 +258,6 @@ metadata <- data.frame(
 )
 
 # Use abbreviations to indicate gender
-# Remove the rows where the target_gene (exp) column equals "16S rRNA"
-# At the same time, keep the original filter env_material != "sterile water"
 metadata <- metadata %>%
   mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
 ```
@@ -522,3 +520,4 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
     of values in each column, which is useful for quality control.
 5.  **Reproducibility**: Update the working directory and file paths to
     match your local environment.
+

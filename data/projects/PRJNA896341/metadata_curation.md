@@ -14,7 +14,7 @@ project.
 # Load necessary libraries
 library(dplyr)
 library(ggplot2)
-library(gridExtra)
+library(cowplot)
 
 # Set working directory (update this path to your local directory)
 setwd("D:/oral_project/PRJNA896341")
@@ -115,6 +115,7 @@ The uniform metadata should include the following columns:
 15. **Status**: Disease status (e.g., “T2DM”, “HC”). Note: If the study
     includes both disease and healthy samples, this must be specified
     per sample.
+16. **matched_samples**: matched samples (“YES” or “NO”)
 
 ``` r
 # Create a uniform metadata dataframe
@@ -146,6 +147,7 @@ metadata$title <- "Diversity, composition, and networking of saliva microbiota d
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status<- "COVID-19"
+metadata$matched_samples<-"NO"
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -195,7 +197,7 @@ create_simple_plots <- function(data) {
         geom_col(fill = "red", alpha = 0.6) +
         labs(title = col, x = NULL, y = "Count") +
         theme_minimal() +
-        theme(axis.text.x = element_text(angle = 45, hjust = 1))
+        theme(axis.text.x = element_text(angle = 15, hjust = 1))
     }
     plots[[col]] <- p
   }
@@ -205,10 +207,27 @@ create_simple_plots <- function(data) {
 
 # Generate and arrange plots
 plots <- create_simple_plots(plot_data)
-grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
+p<-plot_grid(plots$Age, 
+          plots$BMI, 
+          plots$Sex, 
+          plots$Region, 
+          plots$Platform, 
+          plots$Country, 
+          plots$Site,
+          plots$public_time, 
+          plots$PCR_primers,
+          plots$Disease_study,
+          plots$Status,
+          plots$matched_samples,
+          ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
-![](Metadata_Summary.png)<!-- -->
+``` r
+knitr::include_graphics("Metadata_Summary.png")
+```
+
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -217,12 +236,42 @@ grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
 metadata <- metadata[, c(
   "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
   "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status"
+  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
 )]
 
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
+head(metadata)
 ```
+
+    ##    BioProject         Run                                sample_name Age BMI
+    ## 1 PRJNA896341 SRR22118524 Saliva microbiota hospitalized positive 80  39  NA
+    ## 2 PRJNA896341 SRR22118525 Saliva microbiota hospitalized positive 79  83  NA
+    ## 3 PRJNA896341 SRR22118526 Saliva microbiota hospitalized positive 78  57  NA
+    ## 4 PRJNA896341 SRR22118527 Saliva microbiota hospitalized positive 76  68  NA
+    ## 5 PRJNA896341 SRR22118528 Saliva microbiota hospitalized positive 75  32  NA
+    ## 6 PRJNA896341 SRR22118529 Saliva microbiota hospitalized positive 74  66  NA
+    ##      Sex Region       Platform Country   Site          public_time PCR_primers
+    ## 1   male  V1-V3 Illumina MiSeq  Mexico Saliva 2023-06-08T00:00:00Z          NA
+    ## 2   male  V1-V3 Illumina MiSeq  Mexico Saliva 2023-06-08T00:00:00Z          NA
+    ## 3   male  V1-V3 Illumina MiSeq  Mexico Saliva 2023-06-08T00:00:00Z          NA
+    ## 4   male  V1-V3 Illumina MiSeq  Mexico Saliva 2023-06-08T00:00:00Z          NA
+    ## 5   male  V1-V3 Illumina MiSeq  Mexico Saliva 2023-06-08T00:00:00Z          NA
+    ## 6 female  V1-V3 Illumina MiSeq  Mexico Saliva 2023-06-08T00:00:00Z          NA
+    ##                                                                                                                                                                              title
+    ## 1 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ## 2 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ## 3 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ## 4 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ## 5 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ## 6 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ##   Disease_study   Status matched_samples
+    ## 1           YES COVID-19              NO
+    ## 2           YES COVID-19              NO
+    ## 3           YES COVID-19              NO
+    ## 4           YES COVID-19              NO
+    ## 5           YES COVID-19              NO
+    ## 6           YES COVID-19              NO
 
 ## Notes for Students:
 

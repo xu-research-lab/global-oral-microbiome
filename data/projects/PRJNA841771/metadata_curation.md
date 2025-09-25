@@ -14,7 +14,7 @@ project.
 # Load necessary libraries
 library(dplyr)
 library(ggplot2)
-library(gridExtra)
+library(cowplot)
 
 # Set working directory (update this path to your local directory)
 setwd("D:/oral_project/PRJNA841771")
@@ -26,7 +26,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 #meta <- rbind(initial_meta, initial_meta1)
 
 #Remove entries where Organism is "gut metagenome" (non-oral samples)
-initial_meta <- subset(initial_meta,host_body_product=="oral cavity")
+#initial_meta <- subset(initial_meta,host_body_product=="oral cavity")
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
@@ -112,8 +112,9 @@ The uniform metadata should include the following columns:
 
 1.  **BioProject**: Project ID (e.g., “PRJNA339212”)
 2.  **Run**: Sample ID (e.g., “ERRXXXXXX” or “SRRXXXXXX”)
-3.  **sample_name**: Original sample name submitted by the authors (not
-    the database-assigned ID)
+3.  **sample_name**: Original sample name (if subject id is available,
+    use subject id) submitted by the authors (not the database-assigned
+    ID)
 4.  **Age**: Age of the subject (if available)
 5.  **BMI**: Body Mass Index (if available)
 6.  **Sex**: Sex of the subject (“F” or “M”)
@@ -129,6 +130,8 @@ The uniform metadata should include the following columns:
 15. **Status**: Disease status (e.g., “T2DM”, “HC”). Note: If the study
     includes both disease and healthy samples, this must be specified
     per sample.
+16. **matched_samples**: whether the study have matched samples from
+    oral and other sites (“YES”,“NO”)
 
 ``` r
 # Create a uniform metadata dataframe
@@ -152,19 +155,6 @@ metadata <- data.frame(
 
 Some information (e.g. PCR primers, study title, disease status) must be
 manually extracted from the publication and added to the metadata.
-
-``` r
-# Add information obtained from the publication
-metadata$PCR_primers <- NA
-metadata$title <- "Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients"
-metadata$Disease_study <- "YES"
-# Assign disease status based on sample_name patterns
-metadata<-metadata%>%
-  mutate(Status=case_when(grepl("C|c",sample_name)~"HC",
-                          TRUE~"RA"
-                          ))
-```
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -213,7 +203,7 @@ create_simple_plots <- function(data) {
         geom_col(fill = "red", alpha = 0.6) +
         labs(title = col, x = NULL, y = "Count") +
         theme_minimal() +
-        theme(axis.text.x = element_text(angle = 45, hjust = 1))
+        theme(axis.text.x = element_text(angle = 15, hjust = 1))
     }
     plots[[col]] <- p
   }
@@ -223,10 +213,27 @@ create_simple_plots <- function(data) {
 
 # Generate and arrange plots
 plots <- create_simple_plots(plot_data)
-grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
+p<-plot_grid(plots$Age, 
+          plots$BMI, 
+          plots$Sex, 
+          plots$Region, 
+          plots$Platform, 
+          plots$Country, 
+          plots$Site,
+          plots$public_time, 
+          plots$PCR_primers,
+          plots$Disease_study,
+          plots$Status,
+          plots$matched_samples,
+          ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
-![](Metadata_Summary.png)<!-- -->
+``` r
+knitr::include_graphics("Metadata_Summary.png")
+```
+
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -235,12 +242,42 @@ grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
 metadata <- metadata[, c(
   "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
   "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status"
+  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
 )]
 
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
+head(metadata)
 ```
+
+    ##    BioProject         Run sample_name Age      BMI Sex Region
+    ## 1 PRJNA841771 SRR19370359      RA116C  33 20.44914   F  V3-V4
+    ## 2 PRJNA841771 SRR19370361      RA114C  39 21.64412   F  V3-V4
+    ## 3 PRJNA841771 SRR19370362      RA113C  54 21.35991   F  V3-V4
+    ## 4 PRJNA841771 SRR19370363      RA112C  51 23.03005   F  V3-V4
+    ## 5 PRJNA841771 SRR19370365      RA111C  55 29.51594   F  V3-V4
+    ## 6 PRJNA841771 SRR19370366      RA110C  48 27.00513   F  V3-V4
+    ##                Platform    Country      Site          public_time PCR_primers
+    ## 1 Illumina NovaSeq 6000 Kazakhstan Oral Swab 2022-05-24T00:00:00Z          NA
+    ## 2 Illumina NovaSeq 6000 Kazakhstan Oral Swab 2022-05-24T00:00:00Z          NA
+    ## 3 Illumina NovaSeq 6000 Kazakhstan Oral Swab 2022-05-24T00:00:00Z          NA
+    ## 4 Illumina NovaSeq 6000 Kazakhstan Oral Swab 2022-05-24T00:00:00Z          NA
+    ## 5 Illumina NovaSeq 6000 Kazakhstan Oral Swab 2022-05-24T00:00:00Z          NA
+    ## 6 Illumina NovaSeq 6000 Kazakhstan Oral Swab 2022-05-24T00:00:00Z          NA
+    ##                                                                  title
+    ## 1 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
+    ## 2 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
+    ## 3 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
+    ## 4 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
+    ## 5 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
+    ## 6 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
+    ##   Disease_study Status matched_samples
+    ## 1           YES     HC              NO
+    ## 2           YES     HC              NO
+    ## 3           YES     HC              NO
+    ## 4           YES     HC              NO
+    ## 5           YES     HC              NO
+    ## 6           YES     HC              NO
 
 ## Notes for Students:
 

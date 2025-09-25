@@ -1,379 +1,379 @@
-,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
 1,PRJNA841771,SRR19370359,RA116C,33,20.4491374182035,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 2,PRJNA841771,SRR19370361,RA114C,39,21.6441207075963,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 3,PRJNA841771,SRR19370362,RA113C,54,21.3599145603418,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 4,PRJNA841771,SRR19370363,RA112C,51,23.0300453514739,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 5,PRJNA841771,SRR19370365,RA111C,55,29.5159386068477,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 6,PRJNA841771,SRR19370366,RA110C,48,27.0051309748852,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 7,PRJNA841771,SRR19370367,RA109C,34,25.4523578138738,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 8,PRJNA841771,SRR19370368,RA108C,32,28.125,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 9,PRJNA841771,SRR19370369,RA107C,46,21.875,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 10,PRJNA841771,SRR19370370,RA106C,41,23.0300453514739,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 11,PRJNA841771,SRR19370371,RA105C,35,20.3125,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 12,PRJNA841771,SRR19370372,RA104C,34,24.2382271468144,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 13,PRJNA841771,SRR19370373,RA103C,30,18.1320165117087,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 14,PRJNA841771,SRR19370374,RA102C,44,28.125,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 15,PRJNA841771,SRR19370376,RA101C,50,26.2984878369494,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 16,PRJNA841771,SRR19370377,RA100C,48,318.367346938776,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 17,PRJNA841771,SRR19370281,RA013C,38,22.0719117123531,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 18,PRJNA841771,SRR19370282,RA011C,31,27.3677468192273,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 19,PRJNA841771,SRR19370283,RA009C,47,20.8325296091972,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 20,PRJNA841771,SRR19370284,RA008C,55,28.0467574553451,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 21,PRJNA841771,SRR19370285,RA007C,33,22.0317256849864,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 22,PRJNA841771,SRR19370286,RA006C,36,22.8183386424001,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 23,PRJNA841771,SRR19370287,RA009,53,27.1816300864132,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 24,PRJNA841771,SRR19370288,RA005C,48,34.0176417072109,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 25,PRJNA841771,SRR19370289,RA004C,37,22.4996371026274,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 26,PRJNA841771,SRR19370290,RA003C,39,26.291723822588,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 27,PRJNA841771,SRR19370291,RA002C,34,32.8824141519251,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 28,PRJNA841771,SRR19370292,RA001C,41,23.051754907793,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 29,PRJNA841771,SRR19370293,RA082,35,17.1467764060357,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 30,PRJNA841771,SRR19370294,RA080,36,19.53125,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 31,PRJNA841771,SRR19370295,RA079,35,27.5312294543064,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 32,PRJNA841771,SRR19370296,RA078,39,31.6442857722423,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 33,PRJNA841771,SRR19370297,RA077,54,23.941119808471,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 34,PRJNA841771,SRR19370298,RA008,38,31.0170490379545,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 35,PRJNA841771,SRR19370299,RA075,39,24.092970521542,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 36,PRJNA841771,SRR19370300,RA074,45,23.6652443615762,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 37,PRJNA841771,SRR19370301,RA073,42,23.4375,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 38,PRJNA841771,SRR19370302,RA072,38,23.7332384003797,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 39,PRJNA841771,SRR19370303,RA071,56,36.2122788761707,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 40,PRJNA841771,SRR19370304,RA070,53,29.9967126890204,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 41,PRJNA841771,SRR19370305,RA069,44,30.4878048780488,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 42,PRJNA841771,SRR19370306,RA068,33,20.703125,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 43,PRJNA841771,SRR19370307,RA067,47,21.7192501143118,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 44,PRJNA841771,SRR19370308,RA066,37,17.4817898022893,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 45,PRJNA841771,SRR19370309,RA007,39,26.346494034401,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 46,PRJNA841771,SRR19370310,RA065,43,21.2585034013605,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 47,PRJNA841771,SRR19370311,RA064,42,26.5731292517007,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 48,PRJNA841771,SRR19370312,RA063,38,32.2420634920635,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 49,PRJNA841771,SRR19370313,RA062,46,20.0692041522491,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 50,PRJNA841771,SRR19370314,RA061,52,26.3702381435352,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 51,PRJNA841771,SRR19370315,RA059,55,24.5243463470591,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 52,PRJNA841771,SRR19370316,RA058,54,29.4758426246316,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 53,PRJNA841771,SRR19370317,RA057,49,22.6799524092802,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 54,PRJNA841771,SRR19370318,RA056,52,33.802055164954,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 55,PRJNA841771,SRR19370319,RA055,49,22.8373702422145,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 56,PRJNA841771,SRR19370320,RA006,36,19.4869614512472,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 57,PRJNA841771,SRR19370321,RA054,48,18.724173553719,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 58,PRJNA841771,SRR19370322,RA053,54,35.3798126951093,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 59,PRJNA841771,SRR19370323,RA052,54,16.4444444444444,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 60,PRJNA841771,SRR19370324,RA051,47,23.3066800530675,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 61,PRJNA841771,SRR19370325,RA049,31,19.3821446936434,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 62,PRJNA841771,SRR19370326,RA048,57,25.8477682188187,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 63,PRJNA841771,SRR19370327,RA047,32,24.8015873015873,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 64,PRJNA841771,SRR19370328,RA046,47,19.6070163602631,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 65,PRJNA841771,SRR19370329,RA045,30,28.256989886972,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 66,PRJNA841771,SRR19370330,RA044,31,27.281746031746,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 67,PRJNA841771,SRR19370331,RA005,30,24.9770431588613,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 68,PRJNA841771,SRR19370332,RA043,49,23.8054016620499,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 69,PRJNA841771,SRR19370333,RA042,48,26.0261748958953,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 70,PRJNA841771,SRR19370334,RA041,47,21.6311488543503,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 71,PRJNA841771,SRR19370335,RA040,47,24.3865264441396,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 72,PRJNA841771,SRR19370336,RA037,35,20.7008167413151,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 73,PRJNA841771,SRR19370337,RA036,44,18.491124260355,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 74,PRJNA841771,SRR19370338,RA035,52,29.8649584487535,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 75,PRJNA841771,SRR19370339,RA034,41,26.0226442658875,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 76,PRJNA841771,SRR19370340,RA033,48,23.3354661447552,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 77,PRJNA841771,SRR19370341,RA032,42,16.4365548980934,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 78,PRJNA841771,SRR19370342,RA004,69,20.0288415318058,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 79,PRJNA841771,SRR19370343,RA031,38,23.4375,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 80,PRJNA841771,SRR19370344,RA030,53,31.6455696202532,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 81,PRJNA841771,SRR19370345,RA029,44,37.6542220797949,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 82,PRJNA841771,SRR19370346,RA028,50,27.9421433267587,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 83,PRJNA841771,SRR19370347,RA026,46,21.0480476121353,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 84,PRJNA841771,SRR19370348,RA025,55,28.6726260752235,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 85,PRJNA841771,SRR19370349,RA024,47,22.8373702422145,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 86,PRJNA841771,SRR19370350,RA023,31,30.8539944903581,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 87,PRJNA841771,SRR19370351,RA022,34,18.491124260355,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 88,PRJNA841771,SRR19370352,RA021,38,20.7503228441187,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 89,PRJNA841771,SRR19370353,RA003,50,27.8876170655567,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 90,PRJNA841771,SRR19370354,RA020,48,27.5312294543064,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 91,PRJNA841771,SRR19370355,RA120C,31,24.4646016033724,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 92,PRJNA841771,SRR19370356,RA119C,45,25.7116620752984,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 93,PRJNA841771,SRR19370357,RA118C,33,23.0300453514739,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 94,PRJNA841771,SRR19370358,RA117C,36,25.6055363321799,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 95,PRJNA841771,SRR19370360,RA115C,34,21.3039485766759,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 96,PRJNA841771,SRR19370364,RA019,51,33.6484537734337,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 97,PRJNA841771,SRR19370375,RA018,48,24.0882231171666,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 98,PRJNA841771,SRR19370378,RA099C,45,25.9701155481953,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 99,PRJNA841771,SRR19370379,RA098C,42,21.5645449137418,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 100,PRJNA841771,SRR19370380,RA097C,51,25.4766600920447,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 101,PRJNA841771,SRR19370381,RA096C,49,23.6340330075308,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 102,PRJNA841771,SRR19370382,RA095C,34,16.9550173010381,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 103,PRJNA841771,SRR19370383,RA094C,55,36.8084473527662,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 104,PRJNA841771,SRR19370384,RA027C,51,26.078971533517,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 105,PRJNA841771,SRR19370385,RA093C,33,24.4696397077349,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 106,PRJNA841771,SRR19370386,RA026C,47,26.8544055741036,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 107,PRJNA841771,SRR19370387,RA025C,37,34.8898535437543,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 108,PRJNA841771,SRR19370388,RA024C,46,33.2986472424558,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 109,PRJNA841771,SRR19370389,RA023C,54,25.0780785246877,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 110,PRJNA841771,SRR19370390,RA022C,52,22.6799524092802,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 111,PRJNA841771,SRR19370391,RA021C,49,24.3465165477428,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 112,PRJNA841771,SRR19370392,RA020C,53,25.6129117143985,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 113,PRJNA841771,SRR19370393,RA019C,50,33.9493075112843,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 114,PRJNA841771,SRR19370394,RA018C,53,30.486657382664,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 115,PRJNA841771,SRR19370395,RA010,49,29.757785467128,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 116,PRJNA841771,SRR19370396,RA017C,43,24.034609838167,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 117,PRJNA841771,SRR19370397,RA016C,35,21.7864923747277,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 118,PRJNA841771,SRR19370398,RA015C,42,30.7242429097901,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 119,PRJNA841771,SRR19370399,RA014C,50,40.326179561037,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 120,PRJNA841771,SRR19370400,RA092C,39,21.9898923652637,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 121,PRJNA841771,SRR19370401,RA017,34,21.6311488543503,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 122,PRJNA841771,SRR19370402,RA091C,33,28.1373569198751,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 123,PRJNA841771,SRR19370403,RA090C,32,28.4798860804557,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 124,PRJNA841771,SRR19370404,RA088C,35,32.7693949093126,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 125,PRJNA841771,SRR19370405,RA087C,43,27.9421433267587,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 126,PRJNA841771,SRR19370406,RA086C,48,34.8898535437543,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 127,PRJNA841771,SRR19370407,RA084C,45,23.0680507497116,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 128,PRJNA841771,SRR19370408,RA083C,53,25.6055363321799,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 129,PRJNA841771,SRR19370409,RA081C,41,22.1367397300044,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 130,PRJNA841771,SRR19370410,RA080C,39,20.8325296091972,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 131,PRJNA841771,SRR19370411,RA079C,54,35.9245152354571,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 132,PRJNA841771,SRR19370412,RA016,44,25.9701155481953,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 133,PRJNA841771,SRR19370413,RA078C,36,24.1632653061224,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 134,PRJNA841771,SRR19370414,RA077C,34,25.6640625,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 135,PRJNA841771,SRR19370415,RA076C,36,28.5779606767261,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 136,PRJNA841771,SRR19370416,RA075C,51,34.1058514135437,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 137,PRJNA841771,SRR19370417,RA074C,41,22.65625,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 138,PRJNA841771,SRR19370418,RA073C,55,33.984375,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 139,PRJNA841771,SRR19370419,RA072C,50,25.0657462195924,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 140,PRJNA841771,SRR19370420,RA071C,46,25.6369171607114,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 141,PRJNA841771,SRR19370421,RA070C,42,24.7248661511005,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 142,PRJNA841771,SRR19370422,RA069C,53,22.6757369614512,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 143,PRJNA841771,SRR19370423,RA015,50,23.828125,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 144,PRJNA841771,SRR19370424,RA068C,42,32.7449282998984,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 145,PRJNA841771,SRR19370425,RA067C,31,22.5895514360501,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 146,PRJNA841771,SRR19370426,RA066C,44,24.6663150634914,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 147,PRJNA841771,SRR19370427,RA065C,36,22.047760503067,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 148,PRJNA841771,SRR19370428,RA064C,52,35.2536848072562,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 149,PRJNA841771,SRR19370429,RA062C,35,23.6926264582676,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 150,PRJNA841771,SRR19370430,RA061C,35,26.6031797563329,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 151,PRJNA841771,SRR19370431,RA060C,55,29.1337935568705,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 152,PRJNA841771,SRR19370432,RA059C,32,21.4158239143367,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 153,PRJNA841771,SRR19370433,RA058C,30,19.5783132530121,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 154,PRJNA841771,SRR19370434,RA014,31,31.4359113034073,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 155,PRJNA841771,SRR19370435,RA057C,30,22.6799524092802,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 156,PRJNA841771,SRR19370436,RA056C,41,23.2249762650158,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 157,PRJNA841771,SRR19370437,RA055C,34,30.2958579881657,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 158,PRJNA841771,SRR19370438,RA054C,34,18.7304890738814,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 159,PRJNA841771,SRR19370439,RA053C,37,23.6127508854782,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 160,PRJNA841771,SRR19370440,RA052C,43,30.0432622977087,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 161,PRJNA841771,SRR19370441,RA051C,30,19.9167657550535,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 162,PRJNA841771,SRR19370442,RA050C,38,30.1109905115367,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 163,PRJNA841771,SRR19370443,RA049C,52,28.4520778801678,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 164,PRJNA841771,SRR19370444,RA048C,33,23.8340192043896,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 165,PRJNA841771,SRR19370445,RA013,47,26.8116169709157,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 166,PRJNA841771,SRR19370446,RA047C,37,43.1290898274836,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 167,PRJNA841771,SRR19370447,RA046C,42,28.4409549751642,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 168,PRJNA841771,SRR19370448,RA045C,30,23.5078053259871,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 169,PRJNA841771,SRR19370449,RA044C,37,28.084332107116,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 170,PRJNA841771,SRR19370450,RA043C,38,31.244992789617,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 171,PRJNA841771,SRR19370451,RA042C,39,26.7697798929209,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 172,PRJNA841771,SRR19370452,RA041C,36,27.2932241604367,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 173,PRJNA841771,SRR19370453,RA040C,43,28.2828282828283,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 174,PRJNA841771,SRR19370454,RA039C,53,35.1066702673508,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 175,PRJNA841771,SRR19370455,RA038C,42,29.4582185491276,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 176,PRJNA841771,SRR19370456,RA012,51,29.218407596786,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 177,PRJNA841771,SRR19370457,RA037C,31,17.6611796982167,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 178,PRJNA841771,SRR19370458,RA036C,38,23.397017523041,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 179,PRJNA841771,SRR19370459,RA035C,30,20.0796012764889,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 180,PRJNA841771,SRR19370460,RA034C,31,22.4913494809689,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 181,PRJNA841771,SRR19370461,RA033C,39,27.4756294930182,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 182,PRJNA841771,SRR19370462,RA032C,42,27.5133848899465,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 183,PRJNA841771,SRR19370463,RA031C,42,18.1786703601108,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 184,PRJNA841771,SRR19370464,RA030C,34,26.5021162137574,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 185,PRJNA841771,SRR19370465,RA029C,35,27.0169129526017,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 186,PRJNA841771,SRR19370466,RA028C,35,22.0317256849864,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,HC
+Female Patients,YES,HC,NO
 187,PRJNA841771,SRR19370467,RA011,42,22.265625,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 188,PRJNA841771,SRR19370468,RA002,40,30.4779662232421,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO
 189,PRJNA841771,SRR19370469,RA001,52,27.734375,F,V3-V4,Illumina NovaSeq 6000,Kazakhstan,Oral Swab,2022-05-24T00:00:00Z,NA,Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients,YES,RA
+Female Patients,YES,RA,NO

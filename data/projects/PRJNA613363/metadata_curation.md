@@ -11,7 +11,7 @@ project.
     library(ggplot2)
     library(cowplot)
 
-    setwd("C:/Users/zyc/Desktop/oral_project/PRJNA613363")
+    setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA613363")
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
@@ -22,41 +22,34 @@ project.
     ## 4 SRR11348551   AMPLICON        602 32707864 PRJNA613363 SAMN14402257 Metagenome or environmental 19049986
     ## 5 SRR11348552   AMPLICON        602 30655044 PRJNA613363 SAMN14402204 Metagenome or environmental 16355855
     ## 6 SRR11348553   AMPLICON        602 29573852 PRJNA613363 SAMN14402177 Metagenome or environmental 15753848
-    ##                                              Center.Name Collection_Date Consent DATASTORE.filetype
-    ## 1 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra
-    ## 2 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra
-    ## 3 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra
-    ## 4 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra
-    ## 5 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra
-    ## 6 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra
-    ##   DATASTORE.provider                     DATASTORE.region Experiment geo_loc_name_country
-    ## 1         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950576         uncalculated
-    ## 2         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950575         uncalculated
-    ## 3         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950574         uncalculated
-    ## 4         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950533         uncalculated
-    ## 5         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950573         uncalculated
-    ## 6         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950572         uncalculated
-    ##   geo_loc_name_country_continent geo_loc_name         host     Instrument isolation_source lat_lon Library.Name
-    ## 1                   uncalculated      missing Homo sapiens Illumina MiSeq           saliva missing         TH25
-    ## 2                   uncalculated      missing Homo sapiens Illumina MiSeq           saliva missing         TH28
-    ## 3                   uncalculated      missing Homo sapiens Illumina MiSeq           saliva missing         CT02
-    ## 4                   uncalculated      missing Homo sapiens Illumina MiSeq           saliva missing         TH27
-    ## 5                   uncalculated      missing Homo sapiens Illumina MiSeq           saliva missing         CT01
-    ## 6                   uncalculated      missing Homo sapiens Illumina MiSeq           saliva missing         CH04
-    ##   LibraryLayout LibrarySelection LibrarySource              Organism Platform          ReleaseDate
-    ## 1        PAIRED              PCR         OTHER human oral metagenome ILLUMINA 2023-04-01T00:00:00Z
-    ## 2        PAIRED              PCR         OTHER human oral metagenome ILLUMINA 2023-04-01T00:00:00Z
-    ## 3        PAIRED              PCR         OTHER human oral metagenome ILLUMINA 2023-04-01T00:00:00Z
-    ## 4        PAIRED              PCR         OTHER human oral metagenome ILLUMINA 2023-04-01T00:00:00Z
-    ## 5        PAIRED              PCR         OTHER human oral metagenome ILLUMINA 2023-04-01T00:00:00Z
-    ## 6        PAIRED              PCR         OTHER human oral metagenome ILLUMINA 2023-04-01T00:00:00Z
-    ##            create_date version Sample.Name SRA.Study tmp
-    ## 1 2020-03-19T02:58:00Z       1        TH25 SRP253289  82
-    ## 2 2020-03-19T02:57:00Z       1        TH28 SRP253289  85
-    ## 3 2020-03-19T02:57:00Z       1        CT02 SRP253289  32
-    ## 4 2020-03-19T02:57:00Z       1        TH27 SRP253289  84
-    ## 5 2020-03-19T02:57:00Z       1        CT01 SRP253289  31
-    ## 6 2020-03-19T02:57:00Z       1        CH04 SRP253289   4
+    ##                                              Center.Name Collection_Date Consent DATASTORE.filetype DATASTORE.provider
+    ## 1 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 2 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 3 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 4 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 5 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 6 WEST CHINA HOSPITAL OF STOMATOLOGY, SICHUAN UNIVERSITY      2019-05-10  public   fastq,run.zq,sra         gs,ncbi,s3
+    ##                       DATASTORE.region Experiment geo_loc_name_country geo_loc_name_country_continent geo_loc_name         host
+    ## 1 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950576         uncalculated                   uncalculated      missing Homo sapiens
+    ## 2 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950575         uncalculated                   uncalculated      missing Homo sapiens
+    ## 3 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950574         uncalculated                   uncalculated      missing Homo sapiens
+    ## 4 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950533         uncalculated                   uncalculated      missing Homo sapiens
+    ## 5 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950573         uncalculated                   uncalculated      missing Homo sapiens
+    ## 6 gs.us-east1,ncbi.public,s3.us-east-1 SRX7950572         uncalculated                   uncalculated      missing Homo sapiens
+    ##       Instrument isolation_source lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource              Organism Platform
+    ## 1 Illumina MiSeq           saliva missing         TH25        PAIRED              PCR         OTHER human oral metagenome ILLUMINA
+    ## 2 Illumina MiSeq           saliva missing         TH28        PAIRED              PCR         OTHER human oral metagenome ILLUMINA
+    ## 3 Illumina MiSeq           saliva missing         CT02        PAIRED              PCR         OTHER human oral metagenome ILLUMINA
+    ## 4 Illumina MiSeq           saliva missing         TH27        PAIRED              PCR         OTHER human oral metagenome ILLUMINA
+    ## 5 Illumina MiSeq           saliva missing         CT01        PAIRED              PCR         OTHER human oral metagenome ILLUMINA
+    ## 6 Illumina MiSeq           saliva missing         CH04        PAIRED              PCR         OTHER human oral metagenome ILLUMINA
+    ##            ReleaseDate          create_date version Sample.Name SRA.Study tmp
+    ## 1 2023-04-01T00:00:00Z 2020-03-19T02:58:00Z       1        TH25 SRP253289  82
+    ## 2 2023-04-01T00:00:00Z 2020-03-19T02:57:00Z       1        TH28 SRP253289  85
+    ## 3 2023-04-01T00:00:00Z 2020-03-19T02:57:00Z       1        CT02 SRP253289  32
+    ## 4 2023-04-01T00:00:00Z 2020-03-19T02:57:00Z       1        TH27 SRP253289  84
+    ## 5 2023-04-01T00:00:00Z 2020-03-19T02:57:00Z       1        CT01 SRP253289  31
+    ## 6 2023-04-01T00:00:00Z 2020-03-19T02:57:00Z       1        CH04 SRP253289   4
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -118,34 +111,20 @@ manually extracted from the publication and added to the metadata.
     metadata$PCR_primers <- "515F-907R"
     head(metadata)
 
-    ##    BioProject         Run sample_name Age BMI Sex       Platform   Site          public_time Country Status
-    ## 1 PRJNA613363 SRR11348548        TH25  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC
-    ## 2 PRJNA613363 SRR11348549        TH28  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC
-    ## 3 PRJNA613363 SRR11348550        CT02  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC
-    ## 4 PRJNA613363 SRR11348551        TH27  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC
-    ## 5 PRJNA613363 SRR11348552        CT01  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC
-    ## 6 PRJNA613363 SRR11348553        CH04  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC
-    ##   matched_samples Region
-    ## 1              NO  V4-V5
-    ## 2              NO  V4-V5
-    ## 3              NO  V4-V5
-    ## 4              NO  V4-V5
-    ## 5              NO  V4-V5
-    ## 6              NO  V4-V5
-    ##                                                                                                 title Disease_study
-    ## 1 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO
-    ## 2 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO
-    ## 3 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO
-    ## 4 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO
-    ## 5 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO
-    ## 6 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO
-    ##   PCR_primers
-    ## 1   515F-907R
-    ## 2   515F-907R
-    ## 3   515F-907R
-    ## 4   515F-907R
-    ## 5   515F-907R
-    ## 6   515F-907R
+    ##    BioProject         Run sample_name Age BMI Sex       Platform   Site          public_time Country Status matched_samples Region
+    ## 1 PRJNA613363 SRR11348548        TH25  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC              NO  V4-V5
+    ## 2 PRJNA613363 SRR11348549        TH28  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC              NO  V4-V5
+    ## 3 PRJNA613363 SRR11348550        CT02  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC              NO  V4-V5
+    ## 4 PRJNA613363 SRR11348551        TH27  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC              NO  V4-V5
+    ## 5 PRJNA613363 SRR11348552        CT01  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC              NO  V4-V5
+    ## 6 PRJNA613363 SRR11348553        CH04  NA  NA  NA Illumina MiSeq saliva 2023-04-01T00:00:00Z   China     HC              NO  V4-V5
+    ##                                                                                                 title Disease_study PCR_primers
+    ## 1 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO   515F-907R
+    ## 2 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO   515F-907R
+    ## 3 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO   515F-907R
+    ## 4 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO   515F-907R
+    ## 5 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO   515F-907R
+    ## 6 Comparative analysis of oral microbiome from Zang and Han populations living at different altitudes            NO   515F-907R
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -210,11 +189,11 @@ manually extracted from the publication and added to the metadata.
               plots$Status,
               plots$matched_samples,# add 
               ncol = 3, align = "hv", axis = "lb")
-    ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+    ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 
-    knitr::include_graphics("Metadata_Summary.png")
+    knitr::include_graphics("metadata_summary.png")
 
-![](Metadata_Summary.png) \# Step 6: Finalize and Export the Metadata
+![](metadata_summary.png) \# Step 6: Finalize and Export the Metadata
 
     metadata <- metadata[, c(
       "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 

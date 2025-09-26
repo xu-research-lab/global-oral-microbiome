@@ -11,45 +11,38 @@ project.
     library(ggplot2)
     library(cowplot)
 
-    setwd("C:/Users/zyc/Desktop/oral_project/PRJNA555622")
+    setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA555622")
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
-    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample              BioSampleModel    Bytes
-    ## 1 SRR9727013   AMPLICON        600 25494719 PRJNA555622 SAMN12324795 Metagenome or environmental 18467971
-    ## 2 SRR9727014   AMPLICON        600 67829409 PRJNA555622 SAMN12324796 Metagenome or environmental 48716396
-    ## 3 SRR9727015   AMPLICON        600 63297026 PRJNA555622 SAMN12324793 Metagenome or environmental 45383418
-    ## 4 SRR9727016   AMPLICON        600 62271299 PRJNA555622 SAMN12324794 Metagenome or environmental 44601290
-    ## 5 SRR9727017   AMPLICON        600 55261546 PRJNA555622 SAMN12324791 Metagenome or environmental 39674354
-    ## 6 SRR9727018   AMPLICON        600 45523636 PRJNA555622 SAMN12324792 Metagenome or environmental 32674536
-    ##                 Center.Name Collection_Date Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region
-    ## 1 UNIVERSITY OF CONNECTICUT              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 2 UNIVERSITY OF CONNECTICUT              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 3 UNIVERSITY OF CONNECTICUT              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 4 UNIVERSITY OF CONNECTICUT              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 5 UNIVERSITY OF CONNECTICUT              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 6 UNIVERSITY OF CONNECTICUT              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ##   Experiment geo_loc_name_country geo_loc_name_country_continent geo_loc_name         HOST     Instrument lat_lon Library.Name
-    ## 1 SRX6484551         uncalculated                   uncalculated           NA Homo sapiens Illumina MiSeq      NA           C4
-    ## 2 SRX6484550         uncalculated                   uncalculated           NA Homo sapiens Illumina MiSeq      NA           C5
-    ## 3 SRX6484549         uncalculated                   uncalculated           NA Homo sapiens Illumina MiSeq      NA           C2
-    ## 4 SRX6484548         uncalculated                   uncalculated           NA Homo sapiens Illumina MiSeq      NA           C3
-    ## 5 SRX6484547         uncalculated                   uncalculated           NA Homo sapiens Illumina MiSeq      NA          B20
-    ## 6 SRX6484546         uncalculated                   uncalculated           NA Homo sapiens Illumina MiSeq      NA           C1
-    ##   LibraryLayout LibrarySelection LibrarySource              Organism Platform          ReleaseDate          create_date version
-    ## 1        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1
-    ## 2        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1
-    ## 3        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1
-    ## 4        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1
-    ## 5        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1
-    ## 6        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1
-    ##   Sample.Name source_material_id SRA.Study
-    ## 1          C4                 49 SRP215893
-    ## 2          C5                 50 SRP215893
-    ## 3          C2                 47 SRP215893
-    ## 4          C3                 48 SRP215893
-    ## 5         B20                 45 SRP215893
-    ## 6          C1                 46 SRP215893
+    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample              BioSampleModel    Bytes               Center.Name
+    ## 1 SRR9727013   AMPLICON        600 25494719 PRJNA555622 SAMN12324795 Metagenome or environmental 18467971 UNIVERSITY OF CONNECTICUT
+    ## 2 SRR9727014   AMPLICON        600 67829409 PRJNA555622 SAMN12324796 Metagenome or environmental 48716396 UNIVERSITY OF CONNECTICUT
+    ## 3 SRR9727015   AMPLICON        600 63297026 PRJNA555622 SAMN12324793 Metagenome or environmental 45383418 UNIVERSITY OF CONNECTICUT
+    ## 4 SRR9727016   AMPLICON        600 62271299 PRJNA555622 SAMN12324794 Metagenome or environmental 44601290 UNIVERSITY OF CONNECTICUT
+    ## 5 SRR9727017   AMPLICON        600 55261546 PRJNA555622 SAMN12324791 Metagenome or environmental 39674354 UNIVERSITY OF CONNECTICUT
+    ## 6 SRR9727018   AMPLICON        600 45523636 PRJNA555622 SAMN12324792 Metagenome or environmental 32674536 UNIVERSITY OF CONNECTICUT
+    ##   Collection_Date Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region Experiment geo_loc_name_country
+    ## 1              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6484551         uncalculated
+    ## 2              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6484550         uncalculated
+    ## 3              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6484549         uncalculated
+    ## 4              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6484548         uncalculated
+    ## 5              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6484547         uncalculated
+    ## 6              NA  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6484546         uncalculated
+    ##   geo_loc_name_country_continent geo_loc_name         HOST     Instrument lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource
+    ## 1                   uncalculated           NA Homo sapiens Illumina MiSeq      NA           C4        PAIRED              PCR   METAGENOMIC
+    ## 2                   uncalculated           NA Homo sapiens Illumina MiSeq      NA           C5        PAIRED              PCR   METAGENOMIC
+    ## 3                   uncalculated           NA Homo sapiens Illumina MiSeq      NA           C2        PAIRED              PCR   METAGENOMIC
+    ## 4                   uncalculated           NA Homo sapiens Illumina MiSeq      NA           C3        PAIRED              PCR   METAGENOMIC
+    ## 5                   uncalculated           NA Homo sapiens Illumina MiSeq      NA          B20        PAIRED              PCR   METAGENOMIC
+    ## 6                   uncalculated           NA Homo sapiens Illumina MiSeq      NA           C1        PAIRED              PCR   METAGENOMIC
+    ##                Organism Platform          ReleaseDate          create_date version Sample.Name source_material_id SRA.Study
+    ## 1 human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1          C4                 49 SRP215893
+    ## 2 human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1          C5                 50 SRP215893
+    ## 3 human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1          C2                 47 SRP215893
+    ## 4 human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1          C3                 48 SRP215893
+    ## 5 human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1         B20                 45 SRP215893
+    ## 6 human oral metagenome ILLUMINA 2019-12-31T00:00:00Z 2019-07-22T12:50:00Z       1          C1                 46 SRP215893
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -112,20 +105,20 @@ manually extracted from the publication and added to the metadata.
     metadata$PCR_primers <- "F:TCGTCGGCAGCGTCAGATGTGTATAAGAGACAGCCTACGGGNGGCWGCAG;R:GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAGGACTACHVGGGTATCTAATCC"
     head(metadata)
 
-    ##    BioProject        Run sample_name Age BMI Sex       Platform          public_time Country                  Site Status
-    ## 1 PRJNA555622 SRR9727013          C4  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA
-    ## 2 PRJNA555622 SRR9727014          C5  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA
-    ## 3 PRJNA555622 SRR9727015          C2  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA
-    ## 4 PRJNA555622 SRR9727016          C3  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA
-    ## 5 PRJNA555622 SRR9727017         B20  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA
-    ## 6 PRJNA555622 SRR9727018          C1  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA
-    ##   matched_samples Region                                           title Disease_study
-    ## 1              NO  V3-V4 Ethnic variation of oral microbiota in children            NO
-    ## 2              NO  V3-V4 Ethnic variation of oral microbiota in children            NO
-    ## 3              NO  V3-V4 Ethnic variation of oral microbiota in children            NO
-    ## 4              NO  V3-V4 Ethnic variation of oral microbiota in children            NO
-    ## 5              NO  V3-V4 Ethnic variation of oral microbiota in children            NO
-    ## 6              NO  V3-V4 Ethnic variation of oral microbiota in children            NO
+    ##    BioProject        Run sample_name Age BMI Sex       Platform          public_time Country                  Site Status matched_samples
+    ## 1 PRJNA555622 SRR9727013          C4  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA              NO
+    ## 2 PRJNA555622 SRR9727014          C5  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA              NO
+    ## 3 PRJNA555622 SRR9727015          C2  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA              NO
+    ## 4 PRJNA555622 SRR9727016          C3  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA              NO
+    ## 5 PRJNA555622 SRR9727017         B20  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA              NO
+    ## 6 PRJNA555622 SRR9727018          C1  NA  NA  NA Illumina MiSeq 2019-12-31T00:00:00Z America Supragingival plaques     NA              NO
+    ##   Region                                           title Disease_study
+    ## 1  V3-V4 Ethnic variation of oral microbiota in children            NO
+    ## 2  V3-V4 Ethnic variation of oral microbiota in children            NO
+    ## 3  V3-V4 Ethnic variation of oral microbiota in children            NO
+    ## 4  V3-V4 Ethnic variation of oral microbiota in children            NO
+    ## 5  V3-V4 Ethnic variation of oral microbiota in children            NO
+    ## 6  V3-V4 Ethnic variation of oral microbiota in children            NO
     ##                                                                                                      PCR_primers
     ## 1 F:TCGTCGGCAGCGTCAGATGTGTATAAGAGACAGCCTACGGGNGGCWGCAG;R:GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAGGACTACHVGGGTATCTAATCC
     ## 2 F:TCGTCGGCAGCGTCAGATGTGTATAAGAGACAGCCTACGGGNGGCWGCAG;R:GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAGGACTACHVGGGTATCTAATCC
@@ -197,11 +190,11 @@ manually extracted from the publication and added to the metadata.
               plots$Status,
               plots$matched_samples,# add 
               ncol = 3, align = "hv", axis = "lb")
-    ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+    ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 
-    knitr::include_graphics("Metadata_Summary.png")
+    knitr::include_graphics("metadata_summary.png")
 
-![](Metadata_Summary.png) \# Step 6: Finalize and Export the Metadata
+![](metadata_summary.png) \# Step 6: Finalize and Export the Metadata
 
     metadata <- metadata[, c(
       "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 

@@ -11,45 +11,38 @@ project.
     library(ggplot2)
     library(cowplot)
 
-    setwd("C:/Users/zyc/Desktop/oral_project/PRJNA412445")
+    setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA412445")
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
-    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample              BioSampleModel   Bytes        Center.Name
-    ## 1 SRR6110868   AMPLICON        502  8895440 PRJNA412445 SAMN07714275 Metagenome or environmental 5147904 SICHUAN UNIVERSITY
-    ## 2 SRR6110869   AMPLICON        502 11343192 PRJNA412445 SAMN07714274 Metagenome or environmental 6815670 SICHUAN UNIVERSITY
-    ## 3 SRR6110870   AMPLICON        502 10845710 PRJNA412445 SAMN07714269 Metagenome or environmental 6278837 SICHUAN UNIVERSITY
-    ## 4 SRR6110871   AMPLICON        502 11606742 PRJNA412445 SAMN07714268 Metagenome or environmental 6672423 SICHUAN UNIVERSITY
-    ## 5 SRR6110872   AMPLICON        502  9961186 PRJNA412445 SAMN07714267 Metagenome or environmental 5859940 SICHUAN UNIVERSITY
-    ## 6 SRR6110873   AMPLICON        502 10642400 PRJNA412445 SAMN07714266 Metagenome or environmental 6030339 SICHUAN UNIVERSITY
-    ##   Collection_Date Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region Experiment
-    ## 1            2015  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225824
-    ## 2            2015  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225823
-    ## 3            2015  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225822
-    ## 4            2015  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225821
-    ## 5            2015  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225820
-    ## 6            2015  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225819
-    ##   geo_loc_name_country geo_loc_name_country_continent geo_loc_name         HOST     Instrument isolation_source          lat_lon
-    ## 1                China                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.55 E
-    ## 2                China                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.54 E
-    ## 3                China                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.48 E
-    ## 4                China                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.46 E
-    ## 5                China                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.45 E
-    ## 6                China                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.43 E
-    ##   Library.Name LibraryLayout LibrarySelection LibrarySource              Organism Platform          ReleaseDate
-    ## 1          25b        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z
-    ## 2          24b        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z
-    ## 3          18b        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z
-    ## 4          16b        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z
-    ## 5          15b        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z
-    ## 6          13b        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z
-    ##            create_date version Sample.Name SRA.Study
-    ## 1 2017-09-28T04:21:00Z       1         25b SRP119028
-    ## 2 2017-09-28T04:21:00Z       1         24b SRP119028
-    ## 3 2017-09-28T04:21:00Z       1         18b SRP119028
-    ## 4 2017-09-28T04:21:00Z       1         16b SRP119028
-    ## 5 2017-09-28T04:21:00Z       1         15b SRP119028
-    ## 6 2017-09-28T04:21:00Z       1         13b SRP119028
+    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample              BioSampleModel   Bytes        Center.Name Collection_Date
+    ## 1 SRR6110868   AMPLICON        502  8895440 PRJNA412445 SAMN07714275 Metagenome or environmental 5147904 SICHUAN UNIVERSITY            2015
+    ## 2 SRR6110869   AMPLICON        502 11343192 PRJNA412445 SAMN07714274 Metagenome or environmental 6815670 SICHUAN UNIVERSITY            2015
+    ## 3 SRR6110870   AMPLICON        502 10845710 PRJNA412445 SAMN07714269 Metagenome or environmental 6278837 SICHUAN UNIVERSITY            2015
+    ## 4 SRR6110871   AMPLICON        502 11606742 PRJNA412445 SAMN07714268 Metagenome or environmental 6672423 SICHUAN UNIVERSITY            2015
+    ## 5 SRR6110872   AMPLICON        502  9961186 PRJNA412445 SAMN07714267 Metagenome or environmental 5859940 SICHUAN UNIVERSITY            2015
+    ## 6 SRR6110873   AMPLICON        502 10642400 PRJNA412445 SAMN07714266 Metagenome or environmental 6030339 SICHUAN UNIVERSITY            2015
+    ##   Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region Experiment geo_loc_name_country
+    ## 1  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225824                China
+    ## 2  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225823                China
+    ## 3  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225822                China
+    ## 4  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225821                China
+    ## 5  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225820                China
+    ## 6  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX3225819                China
+    ##   geo_loc_name_country_continent geo_loc_name         HOST     Instrument isolation_source          lat_lon Library.Name LibraryLayout
+    ## 1                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.55 E          25b        PAIRED
+    ## 2                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.54 E          24b        PAIRED
+    ## 3                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.48 E          18b        PAIRED
+    ## 4                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.46 E          16b        PAIRED
+    ## 5                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.45 E          15b        PAIRED
+    ## 6                           Asia        China Homo sapiens Illumina MiSeq           mucous 30.67 N 104.43 E          13b        PAIRED
+    ##   LibrarySelection LibrarySource              Organism Platform          ReleaseDate          create_date version Sample.Name SRA.Study
+    ## 1              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z 2017-09-28T04:21:00Z       1         25b SRP119028
+    ## 2              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z 2017-09-28T04:21:00Z       1         24b SRP119028
+    ## 3              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z 2017-09-28T04:21:00Z       1         18b SRP119028
+    ## 4              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z 2017-09-28T04:21:00Z       1         16b SRP119028
+    ## 5              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z 2017-09-28T04:21:00Z       1         15b SRP119028
+    ## 6              PCR   METAGENOMIC human oral metagenome ILLUMINA 2017-09-28T00:00:00Z 2017-09-28T04:21:00Z       1         13b SRP119028
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -112,27 +105,20 @@ manually extracted from the publication and added to the metadata.
     metadata$PCR_primers <- "515F-907R"
     head(metadata)
 
-    ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site          public_time matched_samples
-    ## 1 PRJNA412445 SRR6110868         25b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO
-    ## 2 PRJNA412445 SRR6110869         24b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO
-    ## 3 PRJNA412445 SRR6110870         18b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO
-    ## 4 PRJNA412445 SRR6110871         16b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO
-    ## 5 PRJNA412445 SRR6110872         15b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO
-    ## 6 PRJNA412445 SRR6110873         13b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO
-    ##   Status                                                                                           title Disease_study
-    ## 1   OSCC The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES
-    ## 2   OSCC The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES
-    ## 3   OSCC The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES
-    ## 4   OSCC The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES
-    ## 5   OSCC The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES
-    ## 6   OSCC The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES
-    ##   PCR_primers
-    ## 1   515F-907R
-    ## 2   515F-907R
-    ## 3   515F-907R
-    ## 4   515F-907R
-    ## 5   515F-907R
-    ## 6   515F-907R
+    ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site          public_time matched_samples Status
+    ## 1 PRJNA412445 SRR6110868         25b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO   OSCC
+    ## 2 PRJNA412445 SRR6110869         24b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO   OSCC
+    ## 3 PRJNA412445 SRR6110870         18b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO   OSCC
+    ## 4 PRJNA412445 SRR6110871         16b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO   OSCC
+    ## 5 PRJNA412445 SRR6110872         15b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO   OSCC
+    ## 6 PRJNA412445 SRR6110873         13b  NA  NA  NA  V4-V5 Illumina MiSeq   China mucous 2017-09-28T00:00:00Z              NO   OSCC
+    ##                                                                                             title Disease_study PCR_primers
+    ## 1 The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES   515F-907R
+    ## 2 The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES   515F-907R
+    ## 3 The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES   515F-907R
+    ## 4 The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES   515F-907R
+    ## 5 The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES   515F-907R
+    ## 6 The Clinical Potential of Oral Microbiota as a Screening Tool for Oral Squamous Cell Carcinomas           YES   515F-907R
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -197,11 +183,11 @@ manually extracted from the publication and added to the metadata.
               plots$Status,
               plots$matched_samples,# add 
               ncol = 3, align = "hv", axis = "lb")
-    ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+    ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 
-    knitr::include_graphics("Metadata_Summary.png")
+    knitr::include_graphics("metadata_summary.png")
 
-![](Metadata_Summary.png) \# Step 6: Finalize and Export the Metadata
+![](metadata_summary.png) \# Step 6: Finalize and Export the Metadata
 
     metadata <- metadata[, c(
       "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 

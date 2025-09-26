@@ -11,7 +11,7 @@ project.
     library(ggplot2)
     library(cowplot)
 
-    setwd("C:/Users/zyc/Desktop/oral_project/PRJNA495719")
+    setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA495719")
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
@@ -29,27 +29,27 @@ project.
     ## 4 COLLEGE OF STOMATOLOGY, CHONGQING MEDICAL UNIVERSITY, CHONGQING, CHINA      2017-04-09  public   fastq,run.zq,sra         gs,ncbi,s3
     ## 5 COLLEGE OF STOMATOLOGY, CHONGQING MEDICAL UNIVERSITY, CHONGQING, CHINA      2017-04-09  public   fastq,run.zq,sra         gs,ncbi,s3
     ## 6 COLLEGE OF STOMATOLOGY, CHONGQING MEDICAL UNIVERSITY, CHONGQING, CHINA      2017-04-09  public   fastq,run.zq,sra         gs,ncbi,s3
-    ##                       DATASTORE.region Experiment geo_loc_name_country geo_loc_name_country_continent geo_loc_name         HOST     Instrument
-    ## 1 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833941         uncalculated                   uncalculated      missing Homo sapiens Illumina MiSeq
-    ## 2 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833940         uncalculated                   uncalculated      missing Homo sapiens Illumina MiSeq
-    ## 3 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833939         uncalculated                   uncalculated      missing Homo sapiens Illumina MiSeq
-    ## 4 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833938         uncalculated                   uncalculated      missing Homo sapiens Illumina MiSeq
-    ## 5 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833937         uncalculated                   uncalculated      missing Homo sapiens Illumina MiSeq
-    ## 6 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833936         uncalculated                   uncalculated      missing Homo sapiens Illumina MiSeq
-    ##   isolation_source lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource         Organism Platform          ReleaseDate Sample.Name SRA.Study
-    ## 1          missing missing         TP18        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA 2018-10-11T00:00:00Z        TP18 SRP165148
-    ## 2          missing missing         TP17        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA 2018-10-11T00:00:00Z        TP17 SRP165148
-    ## 3          missing missing         TP12        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA 2018-10-11T00:00:00Z        TP12 SRP165148
-    ## 4          missing missing         TP11        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA 2018-10-11T00:00:00Z        TP11 SRP165148
-    ## 5          missing missing         TP10        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA 2018-10-11T00:00:00Z        TP10 SRP165148
-    ## 6          missing missing          TP9        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA 2018-10-11T00:00:00Z         TP9 SRP165148
-    ##   tmp          create_date version
-    ## 1  40 2018-10-11T04:56:00Z       1
-    ## 2  39 2018-10-11T04:57:00Z       1
-    ## 3  34 2018-10-11T04:57:00Z       1
-    ## 4  33 2018-10-11T04:57:00Z       1
-    ## 5  32 2018-10-11T04:57:00Z       1
-    ## 6  31 2018-10-11T04:57:00Z       1
+    ##                       DATASTORE.region Experiment geo_loc_name_country geo_loc_name_country_continent geo_loc_name         HOST
+    ## 1 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833941         uncalculated                   uncalculated      missing Homo sapiens
+    ## 2 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833940         uncalculated                   uncalculated      missing Homo sapiens
+    ## 3 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833939         uncalculated                   uncalculated      missing Homo sapiens
+    ## 4 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833938         uncalculated                   uncalculated      missing Homo sapiens
+    ## 5 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833937         uncalculated                   uncalculated      missing Homo sapiens
+    ## 6 gs.us-east1,ncbi.public,s3.us-east-1 SRX4833936         uncalculated                   uncalculated      missing Homo sapiens
+    ##       Instrument isolation_source lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource         Organism Platform
+    ## 1 Illumina MiSeq          missing missing         TP18        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
+    ## 2 Illumina MiSeq          missing missing         TP17        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
+    ## 3 Illumina MiSeq          missing missing         TP12        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
+    ## 4 Illumina MiSeq          missing missing         TP11        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
+    ## 5 Illumina MiSeq          missing missing         TP10        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
+    ## 6 Illumina MiSeq          missing missing          TP9        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
+    ##            ReleaseDate Sample.Name SRA.Study tmp          create_date version
+    ## 1 2018-10-11T00:00:00Z        TP18 SRP165148  40 2018-10-11T04:56:00Z       1
+    ## 2 2018-10-11T00:00:00Z        TP17 SRP165148  39 2018-10-11T04:57:00Z       1
+    ## 3 2018-10-11T00:00:00Z        TP12 SRP165148  34 2018-10-11T04:57:00Z       1
+    ## 4 2018-10-11T00:00:00Z        TP11 SRP165148  33 2018-10-11T04:57:00Z       1
+    ## 5 2018-10-11T00:00:00Z        TP10 SRP165148  32 2018-10-11T04:57:00Z       1
+    ## 6 2018-10-11T00:00:00Z         TP9 SRP165148  31 2018-10-11T04:57:00Z       1
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -118,20 +118,20 @@ manually extracted from the publication and added to the metadata.
     metadata$PCR_primers <- "338F-806R"
     head(metadata)
 
-    ##    BioProject        Run sample_name Age BMI Sex       Platform          public_time        Status          Site Country matched_samples Region
-    ## 1 PRJNA495719 SRR8003020        TP18  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO  V3-V4
-    ## 2 PRJNA495719 SRR8003021        TP17  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO  V3-V4
-    ## 3 PRJNA495719 SRR8003022        TP12  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO  V3-V4
-    ## 4 PRJNA495719 SRR8003023        TP11  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO  V3-V4
-    ## 5 PRJNA495719 SRR8003024        TP10  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO  V3-V4
-    ## 6 PRJNA495719 SRR8003025         TP9  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO  V3-V4
-    ##                                                              title Disease_study PCR_primers
-    ## 1 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
-    ## 2 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
-    ## 3 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
-    ## 4 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
-    ## 5 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
-    ## 6 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
+    ##    BioProject        Run sample_name Age BMI Sex       Platform          public_time        Status          Site Country matched_samples
+    ## 1 PRJNA495719 SRR8003020        TP18  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO
+    ## 2 PRJNA495719 SRR8003021        TP17  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO
+    ## 3 PRJNA495719 SRR8003022        TP12  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO
+    ## 4 PRJNA495719 SRR8003023        TP11  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO
+    ## 5 PRJNA495719 SRR8003024        TP10  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO
+    ## 6 PRJNA495719 SRR8003025         TP9  NA  NA  NA Illumina MiSeq 2018-10-11T00:00:00Z caries-active dental plaque   China              NO
+    ##   Region                                                            title Disease_study PCR_primers
+    ## 1  V3-V4 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
+    ## 2  V3-V4 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
+    ## 3  V3-V4 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
+    ## 4  V3-V4 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
+    ## 5  V3-V4 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
+    ## 6  V3-V4 The Oral Microbiome in the Elderly With Dental Caries and Health           YES   338F-806R
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -196,11 +196,11 @@ manually extracted from the publication and added to the metadata.
               plots$Status,
               plots$matched_samples,# add 
               ncol = 3, align = "hv", axis = "lb")
-    ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+    ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 
-    knitr::include_graphics("Metadata_Summary.png")
+    knitr::include_graphics("metadata_summary.png")
 
-![](Metadata_Summary.png) \# Step 6: Finalize and Export the Metadata
+![](metadata_summary.png) \# Step 6: Finalize and Export the Metadata
 
     metadata <- metadata[, c(
       "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 

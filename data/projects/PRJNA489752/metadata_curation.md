@@ -11,7 +11,7 @@ project.
     library(ggplot2)
     library(cowplot)
 
-    setwd("C:/Users/zyc/Desktop/oral_project/PRJNA489752")
+    setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA489752")
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
@@ -194,11 +194,11 @@ manually extracted from the publication and added to the metadata.
               plots$Status,
               plots$matched_samples,# add 
               ncol = 3, align = "hv", axis = "lb")
-    ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+    ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 
-    knitr::include_graphics("Metadata_Summary.png")
+    knitr::include_graphics("metadata_summary.png")
 
-![](Metadata_Summary.png) \# Step 6: Finalize and Export the Metadata
+![](metadata_summary.png) \# Step 6: Finalize and Export the Metadata
 
     metadata <- metadata[, c(
       "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 

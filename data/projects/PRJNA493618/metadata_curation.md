@@ -11,7 +11,7 @@ project.
     library(ggplot2)
     library(cowplot)
 
-    setwd("C:/Users/zyc/Desktop/oral_project/PRJNA493618")
+    setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA493618")
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
@@ -22,27 +22,27 @@ project.
     ## 4 SRR7908912  64   AMPLICON        602 41397734       not applicable PRJNA493618 SAMN10138345          Human 27004247
     ## 5 SRR7908913  63   AMPLICON        602 42242942       not applicable PRJNA493618 SAMN10138342          Human 27555846
     ## 6 SRR7908914  68   AMPLICON        602 43717240       not applicable PRJNA493618 SAMN10138343          Human 29248087
-    ##                                            Center.Name Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region Experiment
-    ## 1 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX4745116
-    ## 2 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX4745115
-    ## 3 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX4745114
-    ## 4 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX4745113
-    ## 5 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX4745112
-    ## 6 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX4745111
-    ##       Instrument               isolate Library.Name LibraryLayout LibrarySelection LibrarySource     Organism Platform          ReleaseDate
-    ## 1 Illumina MiSeq Non ECC recurrence T2         2-28        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA 2018-09-27T00:00:00Z
-    ## 2 Illumina MiSeq Non ECC recurrence T2         2-77        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA 2018-09-27T00:00:00Z
-    ## 3 Illumina MiSeq     ECC recurrence T3         3-88        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA 2018-09-27T00:00:00Z
-    ## 4 Illumina MiSeq     ECC recurrence T3        3-109        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA 2018-09-27T00:00:00Z
-    ## 5 Illumina MiSeq  Non ECC recurrenceT3         3-77        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA 2018-09-27T00:00:00Z
-    ## 6 Illumina MiSeq     ECC recurrence T3         3-79        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA 2018-09-27T00:00:00Z
-    ##            create_date version Sample.Name    sex SRA.Study tissue
-    ## 1 2018-09-27T12:36:00Z       1       C28M2 female SRP162752 saliva
-    ## 2 2018-09-27T12:36:00Z       1       C77M2 female SRP162752 saliva
-    ## 3 2018-09-27T12:37:00Z       1       C88M3 female SRP162752 saliva
-    ## 4 2018-09-27T12:37:00Z       1      C109M3   male SRP162752 saliva
-    ## 5 2018-09-27T12:36:00Z       1       C77M3 female SRP162752 saliva
-    ## 6 2018-09-27T12:37:00Z       1       C79M3   male SRP162752 saliva
+    ##                                            Center.Name Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region
+    ## 1 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 2 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 3 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 4 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 5 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 6 PEKING UNIVERSITY SCHOOL AND HOSPITAL OF STOMATOLOGY  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ##   Experiment     Instrument               isolate Library.Name LibraryLayout LibrarySelection LibrarySource     Organism Platform
+    ## 1 SRX4745116 Illumina MiSeq Non ECC recurrence T2         2-28        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA
+    ## 2 SRX4745115 Illumina MiSeq Non ECC recurrence T2         2-77        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA
+    ## 3 SRX4745114 Illumina MiSeq     ECC recurrence T3         3-88        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA
+    ## 4 SRX4745113 Illumina MiSeq     ECC recurrence T3        3-109        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA
+    ## 5 SRX4745112 Illumina MiSeq  Non ECC recurrenceT3         3-77        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA
+    ## 6 SRX4745111 Illumina MiSeq     ECC recurrence T3         3-79        PAIRED              PCR       GENOMIC Homo sapiens ILLUMINA
+    ##            ReleaseDate          create_date version Sample.Name    sex SRA.Study tissue
+    ## 1 2018-09-27T00:00:00Z 2018-09-27T12:36:00Z       1       C28M2 female SRP162752 saliva
+    ## 2 2018-09-27T00:00:00Z 2018-09-27T12:36:00Z       1       C77M2 female SRP162752 saliva
+    ## 3 2018-09-27T00:00:00Z 2018-09-27T12:37:00Z       1       C88M3 female SRP162752 saliva
+    ## 4 2018-09-27T00:00:00Z 2018-09-27T12:37:00Z       1      C109M3   male SRP162752 saliva
+    ## 5 2018-09-27T00:00:00Z 2018-09-27T12:36:00Z       1       C77M3 female SRP162752 saliva
+    ## 6 2018-09-27T00:00:00Z 2018-09-27T12:37:00Z       1       C79M3   male SRP162752 saliva
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -108,20 +108,20 @@ manually extracted from the publication and added to the metadata.
     metadata$PCR_primers <- "338F-806R"
     head(metadata)
 
-    ##    BioProject        Run sample_name Age BMI Sex       Platform             Status   Site          public_time Country matched_samples Region
-    ## 1 PRJNA493618 SRR7908909       C28M2  65  NA   F Illumina MiSeq Non ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO  V3-V4
-    ## 2 PRJNA493618 SRR7908910       C77M2  57  NA   F Illumina MiSeq Non ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO  V3-V4
-    ## 3 PRJNA493618 SRR7908911       C88M3  61  NA   F Illumina MiSeq     ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO  V3-V4
-    ## 4 PRJNA493618 SRR7908912      C109M3  64  NA   M Illumina MiSeq     ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO  V3-V4
-    ## 5 PRJNA493618 SRR7908913       C77M3  63  NA   F Illumina MiSeq Non ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO  V3-V4
-    ## 6 PRJNA493618 SRR7908914       C79M3  68  NA   M Illumina MiSeq     ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO  V3-V4
-    ##                                                                                             title Disease_study PCR_primers
-    ## 1 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
-    ## 2 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
-    ## 3 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
-    ## 4 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
-    ## 5 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
-    ## 6 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
+    ##    BioProject        Run sample_name Age BMI Sex       Platform             Status   Site          public_time Country matched_samples
+    ## 1 PRJNA493618 SRR7908909       C28M2  65  NA   F Illumina MiSeq Non ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO
+    ## 2 PRJNA493618 SRR7908910       C77M2  57  NA   F Illumina MiSeq Non ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO
+    ## 3 PRJNA493618 SRR7908911       C88M3  61  NA   F Illumina MiSeq     ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO
+    ## 4 PRJNA493618 SRR7908912      C109M3  64  NA   M Illumina MiSeq     ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO
+    ## 5 PRJNA493618 SRR7908913       C77M3  63  NA   F Illumina MiSeq Non ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO
+    ## 6 PRJNA493618 SRR7908914       C79M3  68  NA   M Illumina MiSeq     ECC recurrence saliva 2018-09-27T00:00:00Z   China              NO
+    ##   Region                                                                                           title Disease_study PCR_primers
+    ## 1  V3-V4 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
+    ## 2  V3-V4 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
+    ## 3  V3-V4 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
+    ## 4  V3-V4 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
+    ## 5  V3-V4 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
+    ## 6  V3-V4 The Predictive Potentiality of Salivary Microbiome for the Recurrence of Early Childhood Caries           YES   338F-806R
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -186,11 +186,11 @@ manually extracted from the publication and added to the metadata.
               plots$Status,
               plots$matched_samples,# add 
               ncol = 3, align = "hv", axis = "lb")
-    ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+    ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 
-    knitr::include_graphics("Metadata_Summary.png")
+    knitr::include_graphics("metadata_summary.png")
 
-![](Metadata_Summary.png) \# Step 6: Finalize and Export the Metadata
+![](metadata_summary.png) \# Step 6: Finalize and Export the Metadata
 
     metadata <- metadata[, c(
       "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 

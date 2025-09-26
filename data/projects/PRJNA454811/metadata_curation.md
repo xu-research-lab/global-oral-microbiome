@@ -11,7 +11,7 @@ project.
     library(ggplot2)
     library(cowplot)
 
-    setwd("C:/Users/zyc/Desktop/oral_project/PRJNA454811")
+    setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA454811")
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
@@ -22,41 +22,34 @@ project.
     ## 4 SRR7647540   AMPLICON        500 290694000 PRJNA454811 SAMN09708708 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 134577411
     ## 5 SRR7647541   AMPLICON        500 330119000 PRJNA454811 SAMN09708708 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 150855247
     ## 6 SRR7647542   AMPLICON        500 381763000 PRJNA454811 SAMN09708708 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 179278545
-    ##                           Center.Name Collection_Date Consent DATASTORE.filetype DATASTORE.provider
-    ## 1 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3
-    ## 2 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3
-    ## 3 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3
-    ## 4 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3
-    ## 5 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3
-    ## 6 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3
-    ##                       DATASTORE.region   env_biome   env_feature  env_material Experiment geo_loc_name_country
-    ## 1 gs.us-east1,ncbi.public,s3.us-east-1 Oral cavity Teeth surface Dental Plaque SRX4510507                India
-    ## 2 gs.us-east1,ncbi.public,s3.us-east-1 Oral cavity Teeth surface Dental Plaque SRX4510506                India
-    ## 3 gs.us-east1,ncbi.public,s3.us-east-1 Oral cavity Teeth surface Dental Plaque SRX4510505                India
-    ## 4 gs.us-east1,ncbi.public,s3.us-east-1 Oral cavity Teeth surface Dental Plaque SRX4510504                India
-    ## 5 gs.us-east1,ncbi.public,s3.us-east-1 Oral cavity Teeth surface Dental Plaque SRX4510503                India
-    ## 6 gs.us-east1,ncbi.public,s3.us-east-1 Oral cavity Teeth surface Dental Plaque SRX4510502                India
-    ##   geo_loc_name_country_continent                   geo_loc_name         HOST     Instrument       lat_lon Library.Name
-    ## 1                           Asia India:Tiruchengode\\,TamilNadu Homo sapiens Illumina MiSeq 11.2 N 77.1 E          SC5
-    ## 2                           Asia India:Tiruchengode\\,TamilNadu Homo sapiens Illumina MiSeq 11.2 N 77.1 E          CF7
-    ## 3                           Asia India:Tiruchengode\\,TamilNadu Homo sapiens Illumina MiSeq 11.2 N 77.1 E          SC7
-    ## 4                           Asia India:Tiruchengode\\,TamilNadu Homo sapiens Illumina MiSeq 11.2 N 77.1 E          SC6
-    ## 5                           Asia India:Tiruchengode\\,TamilNadu Homo sapiens Illumina MiSeq 11.2 N 77.1 E          CF9
-    ## 6                           Asia India:Tiruchengode\\,TamilNadu Homo sapiens Illumina MiSeq 11.2 N 77.1 E          CF8
-    ##   LibraryLayout LibrarySelection LibrarySource              Organism Platform          ReleaseDate          create_date version
-    ## 1        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1
-    ## 2        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1
-    ## 3        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1
-    ## 4        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1
-    ## 5        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1
-    ## 6        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1
-    ##          Sample.Name SRA.Study
-    ## 1 16s V3-V4 amplicon SRP156445
-    ## 2 16s V3-V4 amplicon SRP156445
-    ## 3 16s V3-V4 amplicon SRP156445
-    ## 4 16s V3-V4 amplicon SRP156445
-    ## 5 16s V3-V4 amplicon SRP156445
-    ## 6 16s V3-V4 amplicon SRP156445
+    ##                           Center.Name Collection_Date Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region
+    ## 1 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 2 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 3 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 4 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 5 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 6 K.S.RANGASAMY COLLEGE OF TECHNOLOGY      2017-11-17  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ##     env_biome   env_feature  env_material Experiment geo_loc_name_country geo_loc_name_country_continent                   geo_loc_name
+    ## 1 Oral cavity Teeth surface Dental Plaque SRX4510507                India                           Asia India:Tiruchengode\\,TamilNadu
+    ## 2 Oral cavity Teeth surface Dental Plaque SRX4510506                India                           Asia India:Tiruchengode\\,TamilNadu
+    ## 3 Oral cavity Teeth surface Dental Plaque SRX4510505                India                           Asia India:Tiruchengode\\,TamilNadu
+    ## 4 Oral cavity Teeth surface Dental Plaque SRX4510504                India                           Asia India:Tiruchengode\\,TamilNadu
+    ## 5 Oral cavity Teeth surface Dental Plaque SRX4510503                India                           Asia India:Tiruchengode\\,TamilNadu
+    ## 6 Oral cavity Teeth surface Dental Plaque SRX4510502                India                           Asia India:Tiruchengode\\,TamilNadu
+    ##           HOST     Instrument       lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource              Organism Platform
+    ## 1 Homo sapiens Illumina MiSeq 11.2 N 77.1 E          SC5        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA
+    ## 2 Homo sapiens Illumina MiSeq 11.2 N 77.1 E          CF7        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA
+    ## 3 Homo sapiens Illumina MiSeq 11.2 N 77.1 E          SC7        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA
+    ## 4 Homo sapiens Illumina MiSeq 11.2 N 77.1 E          SC6        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA
+    ## 5 Homo sapiens Illumina MiSeq 11.2 N 77.1 E          CF9        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA
+    ## 6 Homo sapiens Illumina MiSeq 11.2 N 77.1 E          CF8        PAIRED              PCR   METAGENOMIC human oral metagenome ILLUMINA
+    ##            ReleaseDate          create_date version        Sample.Name SRA.Study
+    ## 1 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1 16s V3-V4 amplicon SRP156445
+    ## 2 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1 16s V3-V4 amplicon SRP156445
+    ## 3 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1 16s V3-V4 amplicon SRP156445
+    ## 4 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1 16s V3-V4 amplicon SRP156445
+    ## 5 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1 16s V3-V4 amplicon SRP156445
+    ## 6 2019-08-01T00:00:00Z 2018-08-06T09:48:00Z       1 16s V3-V4 amplicon SRP156445
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -121,27 +114,27 @@ manually extracted from the publication and added to the metadata.
     metadata$PCR_primers <- "341F-805R"
     head(metadata)
 
-    ##    BioProject        Run sample_name Age BMI Sex       Platform Country          Site          public_time
-    ## 1 PRJNA454811 SRR7647537         SC5  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z
-    ## 2 PRJNA454811 SRR7647538         CF7  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z
-    ## 3 PRJNA454811 SRR7647539         SC7  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z
-    ## 4 PRJNA454811 SRR7647540         SC6  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z
-    ## 5 PRJNA454811 SRR7647541         CF9  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z
-    ## 6 PRJNA454811 SRR7647542         CF8  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z
-    ##                          Status matched_samples Region
-    ## 1 Severe Early Childhood Caries              NO  V3-V4
-    ## 2                   Caries-Free              NO  V3-V4
-    ## 3 Severe Early Childhood Caries              NO  V3-V4
-    ## 4 Severe Early Childhood Caries              NO  V3-V4
-    ## 5                   Caries-Free              NO  V3-V4
-    ## 6                   Caries-Free              NO  V3-V4
-    ##                                                                                                  title Disease_study PCR_primers
-    ## 1 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES   341F-805R
-    ## 2 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES   341F-805R
-    ## 3 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES   341F-805R
-    ## 4 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES   341F-805R
-    ## 5 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES   341F-805R
-    ## 6 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES   341F-805R
+    ##    BioProject        Run sample_name Age BMI Sex       Platform Country          Site          public_time                        Status
+    ## 1 PRJNA454811 SRR7647537         SC5  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z Severe Early Childhood Caries
+    ## 2 PRJNA454811 SRR7647538         CF7  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z                   Caries-Free
+    ## 3 PRJNA454811 SRR7647539         SC7  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z Severe Early Childhood Caries
+    ## 4 PRJNA454811 SRR7647540         SC6  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z Severe Early Childhood Caries
+    ## 5 PRJNA454811 SRR7647541         CF9  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z                   Caries-Free
+    ## 6 PRJNA454811 SRR7647542         CF8  NA  NA  NA Illumina MiSeq   India Dental Plaque 2019-08-01T00:00:00Z                   Caries-Free
+    ##   matched_samples Region                                                                                                title Disease_study
+    ## 1              NO  V3-V4 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES
+    ## 2              NO  V3-V4 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES
+    ## 3              NO  V3-V4 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES
+    ## 4              NO  V3-V4 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES
+    ## 5              NO  V3-V4 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES
+    ## 6              NO  V3-V4 Bacterial diversity and functional analysis of severe early childhood caries and recurrence in India           YES
+    ##   PCR_primers
+    ## 1   341F-805R
+    ## 2   341F-805R
+    ## 3   341F-805R
+    ## 4   341F-805R
+    ## 5   341F-805R
+    ## 6   341F-805R
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -206,11 +199,11 @@ manually extracted from the publication and added to the metadata.
               plots$Status,
               plots$matched_samples,# add 
               ncol = 3, align = "hv", axis = "lb")
-    ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+    ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 
-    knitr::include_graphics("Metadata_Summary.png")
+    knitr::include_graphics("metadata_summary.png")
 
-![](Metadata_Summary.png) \# Step 6: Finalize and Export the Metadata
+![](metadata_summary.png) \# Step 6: Finalize and Export the Metadata
 
     metadata <- metadata[, c(
       "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 

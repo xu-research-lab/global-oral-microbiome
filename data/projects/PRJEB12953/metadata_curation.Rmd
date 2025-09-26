@@ -81,4 +81,4 @@ p<-plot_grid(plots$Age,
 ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ## uniform the column order
 uniform_meta <- uniform_meta[, c("BioProject", "Run", "sample_name", "Age", "BMI", "Sex", "Region", "Platform", "Country", "Site", "public_time", "PCR_primers", "title", "Disease_study", "Status")]
-write.csv(uniform_meta, file = "/home/liuxuan/metadata/PRJEB12953/uniform_meta.csv", quote = F)
+write.csv(uniform_meta, file = "/home/liuxuan/metadata/PRJEB12953/metadata.csv", quote = F)

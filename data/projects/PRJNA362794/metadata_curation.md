@@ -15,53 +15,46 @@ library(tidyverse)
 library(ggplot2)
 library(cowplot)
 
-setwd("C:/Users/zyc/Desktop/oral_project/PRJNA362794")
+setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA362794")
 initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
 head(initial_meta)
 ```
 
-    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample                       BioSampleModel
-    ## 1 SRR5196235   AMPLICON        494 27033131 PRJNA362794 SAMN06240299 MIMS.me,MIGS/MIMS/MIMARKS.human-oral
-    ## 2 SRR5196236   AMPLICON        494 25527276 PRJNA362794 SAMN06241860 MIMS.me,MIGS/MIMS/MIMARKS.human-oral
-    ## 3 SRR5196237   AMPLICON        494 24645185 PRJNA362794 SAMN06240331 MIMS.me,MIGS/MIMS/MIMARKS.human-oral
-    ## 4 SRR5196238   AMPLICON        494 29796878 PRJNA362794 SAMN06240332 MIMS.me,MIGS/MIMS/MIMARKS.human-oral
-    ## 5 SRR5196239   AMPLICON        494 24372247 PRJNA362794 SAMN06240339 MIMS.me,MIGS/MIMS/MIMARKS.human-oral
-    ## 6 SRR5196240   AMPLICON        494 26370965 PRJNA362794 SAMN06240348 MIMS.me,MIGS/MIMS/MIMARKS.human-oral
-    ##      Bytes                                                                Center.Name Collection_Date
-    ## 1 17324281 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-03-18
-    ## 2 16271666 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-03-22
-    ## 3 15571251 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-03-30
-    ## 4 18771287 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-04-01
-    ## 5 15726825 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-04-02
-    ## 6 16891834 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-04-03
-    ##   Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region env_biome
-    ## 1  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1      oral
-    ## 2  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1      oral
-    ## 3  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1      oral
-    ## 4  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1      oral
-    ## 5  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1      oral
-    ## 6  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1      oral
-    ##   env_feature env_material Experiment geo_loc_name_country geo_loc_name_country_continent   geo_loc_name
-    ## 1      mucosa suface swabs SRX2511896                China                           Asia China:Shanghai
-    ## 2      mucosa suface swabs SRX2511897                China                           Asia China:Shanghai
-    ## 3      mucosa suface swabs SRX2511898                China                           Asia China:Shanghai
-    ## 4      mucosa suface swabs SRX2511899                China                           Asia China:Shanghai
-    ## 5      mucosa suface swabs SRX2511900                China                           Asia China:Shanghai
-    ## 6      mucosa suface swabs SRX2511901                China                           Asia China:Shanghai
-    ##           HOST     Instrument       lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource
-    ## 1 Homo sapiens Illumina MiSeq not collected          1_N        PAIRED              PCR   METAGENOMIC
-    ## 2 Homo sapiens Illumina MiSeq not collected          3_N        PAIRED              PCR   METAGENOMIC
-    ## 3 Homo sapiens Illumina MiSeq not collected          4_N        PAIRED              PCR   METAGENOMIC
-    ## 4 Homo sapiens Illumina MiSeq not collected          5_N        PAIRED              PCR   METAGENOMIC
-    ## 5 Homo sapiens Illumina MiSeq not collected          6_N        PAIRED              PCR   METAGENOMIC
-    ## 6 Homo sapiens Illumina MiSeq not collected          7_N        PAIRED              PCR   METAGENOMIC
-    ##                Organism Platform          ReleaseDate          create_date version Sample.Name SRA.Study
-    ## 1 human oral metagenome ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         1_N SRP097643
-    ## 2 human oral metagenome ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         3_N SRP097643
-    ## 3 human oral metagenome ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         4_N SRP097643
-    ## 4 human oral metagenome ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         5_N SRP097643
-    ## 5 human oral metagenome ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         6_N SRP097643
-    ## 6 human oral metagenome ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         7_N SRP097643
+    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample                       BioSampleModel    Bytes
+    ## 1 SRR5196235   AMPLICON        494 27033131 PRJNA362794 SAMN06240299 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 17324281
+    ## 2 SRR5196236   AMPLICON        494 25527276 PRJNA362794 SAMN06241860 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 16271666
+    ## 3 SRR5196237   AMPLICON        494 24645185 PRJNA362794 SAMN06240331 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 15571251
+    ## 4 SRR5196238   AMPLICON        494 29796878 PRJNA362794 SAMN06240332 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 18771287
+    ## 5 SRR5196239   AMPLICON        494 24372247 PRJNA362794 SAMN06240339 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 15726825
+    ## 6 SRR5196240   AMPLICON        494 26370965 PRJNA362794 SAMN06240348 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 16891834
+    ##                                                                  Center.Name Collection_Date Consent DATASTORE.filetype DATASTORE.provider
+    ## 1 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-03-18  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 2 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-03-22  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 3 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-03-30  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 4 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-04-01  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 5 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-04-02  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 6 NINTH PEOPLE'S HOSPITAL, SCHOOL OF MEDICINE, SHANGHAI JIAO TONG UNIVERSITY      2016-04-03  public   fastq,run.zq,sra         gs,ncbi,s3
+    ##                       DATASTORE.region env_biome env_feature env_material Experiment geo_loc_name_country geo_loc_name_country_continent
+    ## 1 gs.us-east1,ncbi.public,s3.us-east-1      oral      mucosa suface swabs SRX2511896                China                           Asia
+    ## 2 gs.us-east1,ncbi.public,s3.us-east-1      oral      mucosa suface swabs SRX2511897                China                           Asia
+    ## 3 gs.us-east1,ncbi.public,s3.us-east-1      oral      mucosa suface swabs SRX2511898                China                           Asia
+    ## 4 gs.us-east1,ncbi.public,s3.us-east-1      oral      mucosa suface swabs SRX2511899                China                           Asia
+    ## 5 gs.us-east1,ncbi.public,s3.us-east-1      oral      mucosa suface swabs SRX2511900                China                           Asia
+    ## 6 gs.us-east1,ncbi.public,s3.us-east-1      oral      mucosa suface swabs SRX2511901                China                           Asia
+    ##     geo_loc_name         HOST     Instrument       lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource              Organism
+    ## 1 China:Shanghai Homo sapiens Illumina MiSeq not collected          1_N        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ## 2 China:Shanghai Homo sapiens Illumina MiSeq not collected          3_N        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ## 3 China:Shanghai Homo sapiens Illumina MiSeq not collected          4_N        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ## 4 China:Shanghai Homo sapiens Illumina MiSeq not collected          5_N        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ## 5 China:Shanghai Homo sapiens Illumina MiSeq not collected          6_N        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ## 6 China:Shanghai Homo sapiens Illumina MiSeq not collected          7_N        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ##   Platform          ReleaseDate          create_date version Sample.Name SRA.Study
+    ## 1 ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         1_N SRP097643
+    ## 2 ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         3_N SRP097643
+    ## 3 ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         4_N SRP097643
+    ## 4 ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         5_N SRP097643
+    ## 5 ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         6_N SRP097643
+    ## 6 ILLUMINA 2017-01-28T00:00:00Z 2017-01-23T21:18:00Z       1         7_N SRP097643
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -127,34 +120,27 @@ metadata <- metadata%>%mutate(Status = sapply(str_split(sample_name, "_"), funct
 head(metadata)
 ```
 
-    ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site
-    ## 1 PRJNA362794 SRR5196235         1_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa
-    ## 2 PRJNA362794 SRR5196236         3_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa
-    ## 3 PRJNA362794 SRR5196237         4_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa
-    ## 4 PRJNA362794 SRR5196238         5_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa
-    ## 5 PRJNA362794 SRR5196239         6_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa
-    ## 6 PRJNA362794 SRR5196240         7_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa
-    ##            public_time matched_samples
-    ## 1 2017-01-28T00:00:00Z              NO
-    ## 2 2017-01-28T00:00:00Z              NO
-    ## 3 2017-01-28T00:00:00Z              NO
-    ## 4 2017-01-28T00:00:00Z              NO
-    ## 5 2017-01-28T00:00:00Z              NO
-    ## 6 2017-01-28T00:00:00Z              NO
-    ##                                                                                                     title
-    ## 1 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model
-    ## 2 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model
-    ## 3 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model
-    ## 4 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model
-    ## 5 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model
-    ## 6 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model
-    ##   Disease_study PCR_primers      Status
-    ## 1           YES   341F-806R OSCC_normal
-    ## 2           YES   341F-806R OSCC_normal
-    ## 3           YES   341F-806R OSCC_normal
-    ## 4           YES   341F-806R OSCC_normal
-    ## 5           YES   341F-806R OSCC_normal
-    ## 6           YES   341F-806R OSCC_normal
+    ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site          public_time matched_samples
+    ## 1 PRJNA362794 SRR5196235         1_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa 2017-01-28T00:00:00Z              NO
+    ## 2 PRJNA362794 SRR5196236         3_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa 2017-01-28T00:00:00Z              NO
+    ## 3 PRJNA362794 SRR5196237         4_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa 2017-01-28T00:00:00Z              NO
+    ## 4 PRJNA362794 SRR5196238         5_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa 2017-01-28T00:00:00Z              NO
+    ## 5 PRJNA362794 SRR5196239         6_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa 2017-01-28T00:00:00Z              NO
+    ## 6 PRJNA362794 SRR5196240         7_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa 2017-01-28T00:00:00Z              NO
+    ##                                                                                                     title Disease_study PCR_primers
+    ## 1 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model           YES   341F-806R
+    ## 2 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model           YES   341F-806R
+    ## 3 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model           YES   341F-806R
+    ## 4 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model           YES   341F-806R
+    ## 5 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model           YES   341F-806R
+    ## 6 Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model           YES   341F-806R
+    ##        Status
+    ## 1 OSCC_normal
+    ## 2 OSCC_normal
+    ## 3 OSCC_normal
+    ## 4 OSCC_normal
+    ## 5 OSCC_normal
+    ## 6 OSCC_normal
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -224,15 +210,16 @@ p<-plot_grid(plots$Age,
           plots$Status,
           plots$matched_samples,# add 
           ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ``` r
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("metadata_summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- --> \# Step 6: Finalize and Export the
-Metadata
+![](metadata_summary.png)<!-- -->
+
+# Step 6: Finalize and Export the Metadata
 
 ``` r
 metadata <- metadata[, c(

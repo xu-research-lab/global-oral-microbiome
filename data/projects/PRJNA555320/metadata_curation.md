@@ -11,45 +11,52 @@ project.
     library(ggplot2)
     library(cowplot)
 
-    setwd("C:/Users/zyc/Desktop/oral_project/PRJNA555320")
+    setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA555320")
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
-    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample              BioSampleModel    Bytes            Center.Name       Collection_Date
-    ## 1 SRR9712101   AMPLICON        500 48941500 PRJNA555320 SAMN12315831 Metagenome or environmental 33731586 UNIVERSITY OF MANITOBA 2017-12-13/2018-08-14
-    ## 2 SRR9712102   AMPLICON        500 53358500 PRJNA555320 SAMN12315832 Metagenome or environmental 36837880 UNIVERSITY OF MANITOBA 2017-12-13/2018-08-14
-    ## 3 SRR9712103   AMPLICON        500 61944500 PRJNA555320 SAMN12315829 Metagenome or environmental 42734452 UNIVERSITY OF MANITOBA 2017-12-13/2018-08-14
-    ## 4 SRR9712104   AMPLICON        500 52753500 PRJNA555320 SAMN12315830 Metagenome or environmental 35919270 UNIVERSITY OF MANITOBA 2017-12-13/2018-08-14
-    ## 5 SRR9712105   AMPLICON        500 53674000 PRJNA555320 SAMN12315827 Metagenome or environmental 36352205 UNIVERSITY OF MANITOBA 2017-12-13/2018-08-14
-    ## 6 SRR9712106   AMPLICON        500 61955000 PRJNA555320 SAMN12315828 Metagenome or environmental 42090802 UNIVERSITY OF MANITOBA 2017-12-13/2018-08-14
-    ##   Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region Experiment geo_loc_name_country geo_loc_name_country_continent
-    ## 1  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470174               Canada                  North America
-    ## 2  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470173               Canada                  North America
-    ## 3  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470172               Canada                  North America
-    ## 4  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470171               Canada                  North America
-    ## 5  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470170               Canada                  North America
-    ## 6  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470169               Canada                  North America
-    ##       geo_loc_name Host_disease         HOST host_sex     Instrument         lat_lon    Library.Name LibraryLayout LibrarySelection LibrarySource
-    ## 1 Canada: Winnipeg  Caries-free Homo sapiens   female Illumina MiSeq 49.89 N 97.14 W 16S_FLD0110.P62        PAIRED              PCR   METAGENOMIC
-    ## 2 Canada: Winnipeg  Caries-free Homo sapiens   female Illumina MiSeq 49.89 N 97.14 W 16S_FLD0118.P63        PAIRED              PCR   METAGENOMIC
-    ## 3 Canada: Winnipeg  Caries-free Homo sapiens     male Illumina MiSeq 49.89 N 97.14 W 16S_FLD0189.P60        PAIRED              PCR   METAGENOMIC
-    ## 4 Canada: Winnipeg  Caries-free Homo sapiens     male Illumina MiSeq 49.89 N 97.14 W 16S_FLD0102.P61        PAIRED              PCR   METAGENOMIC
-    ## 5 Canada: Winnipeg  Caries-free Homo sapiens   female Illumina MiSeq 49.89 N 97.14 W 16S_FLD0181.P59        PAIRED              PCR   METAGENOMIC
-    ## 6 Canada: Winnipeg        S-ECC Homo sapiens   female Illumina MiSeq 49.89 N 97.14 W  16S_FLD0137.P6        PAIRED              PCR   METAGENOMIC
-    ##          Organism Platform          ReleaseDate          create_date version     Sample.Name SRA.Study env_broad_scale env_local_scale env_medium Host_Age
-    ## 1 oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:07:00Z       3 16S_FLD0110.P62 SRP215323                                                  NA
-    ## 2 oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:06:00Z       3 16S_FLD0118.P63 SRP215323                                                  NA
-    ## 3 oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:06:00Z       3 16S_FLD0189.P60 SRP215323                                                  NA
-    ## 4 oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:06:00Z       3 16S_FLD0102.P61 SRP215323                                                  NA
-    ## 5 oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:06:00Z       3 16S_FLD0181.P59 SRP215323                                                  NA
-    ## 6 oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:06:00Z       3  16S_FLD0137.P6 SRP215323                                                  NA
-    ##   host_subject_id sequencing_run Barcode_ID host_age_in_months     isolation_source
-    ## 1                                   FLD0110                 51 Supragingival plaque
-    ## 2                                   FLD0118                 69 Supragingival plaque
-    ## 3                                   FLD0189                 18 Supragingival plaque
-    ## 4                                   FLD0102                 44 Supragingival plaque
-    ## 5                                   FLD0181                 20 Supragingival plaque
-    ## 6                                   FLD0137                 68 Supragingival plaque
+    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample              BioSampleModel    Bytes            Center.Name
+    ## 1 SRR9712101   AMPLICON        500 48941500 PRJNA555320 SAMN12315831 Metagenome or environmental 33731586 UNIVERSITY OF MANITOBA
+    ## 2 SRR9712102   AMPLICON        500 53358500 PRJNA555320 SAMN12315832 Metagenome or environmental 36837880 UNIVERSITY OF MANITOBA
+    ## 3 SRR9712103   AMPLICON        500 61944500 PRJNA555320 SAMN12315829 Metagenome or environmental 42734452 UNIVERSITY OF MANITOBA
+    ## 4 SRR9712104   AMPLICON        500 52753500 PRJNA555320 SAMN12315830 Metagenome or environmental 35919270 UNIVERSITY OF MANITOBA
+    ## 5 SRR9712105   AMPLICON        500 53674000 PRJNA555320 SAMN12315827 Metagenome or environmental 36352205 UNIVERSITY OF MANITOBA
+    ## 6 SRR9712106   AMPLICON        500 61955000 PRJNA555320 SAMN12315828 Metagenome or environmental 42090802 UNIVERSITY OF MANITOBA
+    ##         Collection_Date Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region Experiment geo_loc_name_country
+    ## 1 2017-12-13/2018-08-14  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470174               Canada
+    ## 2 2017-12-13/2018-08-14  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470173               Canada
+    ## 3 2017-12-13/2018-08-14  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470172               Canada
+    ## 4 2017-12-13/2018-08-14  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470171               Canada
+    ## 5 2017-12-13/2018-08-14  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470170               Canada
+    ## 6 2017-12-13/2018-08-14  public         run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6470169               Canada
+    ##   geo_loc_name_country_continent     geo_loc_name Host_disease         HOST host_sex     Instrument         lat_lon    Library.Name
+    ## 1                  North America Canada: Winnipeg  Caries-free Homo sapiens   female Illumina MiSeq 49.89 N 97.14 W 16S_FLD0110.P62
+    ## 2                  North America Canada: Winnipeg  Caries-free Homo sapiens   female Illumina MiSeq 49.89 N 97.14 W 16S_FLD0118.P63
+    ## 3                  North America Canada: Winnipeg  Caries-free Homo sapiens     male Illumina MiSeq 49.89 N 97.14 W 16S_FLD0189.P60
+    ## 4                  North America Canada: Winnipeg  Caries-free Homo sapiens     male Illumina MiSeq 49.89 N 97.14 W 16S_FLD0102.P61
+    ## 5                  North America Canada: Winnipeg  Caries-free Homo sapiens   female Illumina MiSeq 49.89 N 97.14 W 16S_FLD0181.P59
+    ## 6                  North America Canada: Winnipeg        S-ECC Homo sapiens   female Illumina MiSeq 49.89 N 97.14 W  16S_FLD0137.P6
+    ##   LibraryLayout LibrarySelection LibrarySource        Organism Platform          ReleaseDate          create_date version     Sample.Name
+    ## 1        PAIRED              PCR   METAGENOMIC oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:07:00Z       3 16S_FLD0110.P62
+    ## 2        PAIRED              PCR   METAGENOMIC oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:06:00Z       3 16S_FLD0118.P63
+    ## 3        PAIRED              PCR   METAGENOMIC oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:06:00Z       3 16S_FLD0189.P60
+    ## 4        PAIRED              PCR   METAGENOMIC oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:06:00Z       3 16S_FLD0102.P61
+    ## 5        PAIRED              PCR   METAGENOMIC oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:06:00Z       3 16S_FLD0181.P59
+    ## 6        PAIRED              PCR   METAGENOMIC oral metagenome ILLUMINA 2019-08-01T00:00:00Z 2019-07-22T12:06:00Z       3  16S_FLD0137.P6
+    ##   SRA.Study env_broad_scale env_local_scale env_medium Host_Age host_subject_id sequencing_run Barcode_ID host_age_in_months
+    ## 1 SRP215323                                                  NA                                   FLD0110                 51
+    ## 2 SRP215323                                                  NA                                   FLD0118                 69
+    ## 3 SRP215323                                                  NA                                   FLD0189                 18
+    ## 4 SRP215323                                                  NA                                   FLD0102                 44
+    ## 5 SRP215323                                                  NA                                   FLD0181                 20
+    ## 6 SRP215323                                                  NA                                   FLD0137                 68
+    ##       isolation_source
+    ## 1 Supragingival plaque
+    ## 2 Supragingival plaque
+    ## 3 Supragingival plaque
+    ## 4 Supragingival plaque
+    ## 5 Supragingival plaque
+    ## 6 Supragingival plaque
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -111,20 +118,27 @@ manually extracted from the publication and added to the metadata.
     metadata$PCR_primers <- "515F-806R"
     head(metadata)
 
-    ##    BioProject        Run     sample_name      Age BMI Sex       Platform Country      Status                 Site          public_time matched_samples
-    ## 1 PRJNA555320 SRR9712101 16S_FLD0110.P62 4.250000  NA   F Illumina MiSeq  Canada Caries-free Supragingival plaque 2019-08-01T00:00:00Z              NO
-    ## 2 PRJNA555320 SRR9712102 16S_FLD0118.P63 5.750000  NA   F Illumina MiSeq  Canada Caries-free Supragingival plaque 2019-08-01T00:00:00Z              NO
-    ## 3 PRJNA555320 SRR9712103 16S_FLD0189.P60 1.500000  NA   M Illumina MiSeq  Canada Caries-free Supragingival plaque 2019-08-01T00:00:00Z              NO
-    ## 4 PRJNA555320 SRR9712104 16S_FLD0102.P61 3.666667  NA   M Illumina MiSeq  Canada Caries-free Supragingival plaque 2019-08-01T00:00:00Z              NO
-    ## 5 PRJNA555320 SRR9712105 16S_FLD0181.P59 1.666667  NA   F Illumina MiSeq  Canada Caries-free Supragingival plaque 2019-08-01T00:00:00Z              NO
-    ## 6 PRJNA555320 SRR9712106  16S_FLD0137.P6 5.666667  NA   F Illumina MiSeq  Canada       S-ECC Supragingival plaque 2019-08-01T00:00:00Z              NO
-    ##   Region                                                                                                             title Disease_study PCR_primers
-    ## 1     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries           YES   515F-806R
-    ## 2     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries           YES   515F-806R
-    ## 3     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries           YES   515F-806R
-    ## 4     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries           YES   515F-806R
-    ## 5     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries           YES   515F-806R
-    ## 6     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries           YES   515F-806R
+    ##    BioProject        Run     sample_name      Age BMI Sex       Platform Country      Status                 Site          public_time
+    ## 1 PRJNA555320 SRR9712101 16S_FLD0110.P62 4.250000  NA   F Illumina MiSeq  Canada Caries-free Supragingival plaque 2019-08-01T00:00:00Z
+    ## 2 PRJNA555320 SRR9712102 16S_FLD0118.P63 5.750000  NA   F Illumina MiSeq  Canada Caries-free Supragingival plaque 2019-08-01T00:00:00Z
+    ## 3 PRJNA555320 SRR9712103 16S_FLD0189.P60 1.500000  NA   M Illumina MiSeq  Canada Caries-free Supragingival plaque 2019-08-01T00:00:00Z
+    ## 4 PRJNA555320 SRR9712104 16S_FLD0102.P61 3.666667  NA   M Illumina MiSeq  Canada Caries-free Supragingival plaque 2019-08-01T00:00:00Z
+    ## 5 PRJNA555320 SRR9712105 16S_FLD0181.P59 1.666667  NA   F Illumina MiSeq  Canada Caries-free Supragingival plaque 2019-08-01T00:00:00Z
+    ## 6 PRJNA555320 SRR9712106  16S_FLD0137.P6 5.666667  NA   F Illumina MiSeq  Canada       S-ECC Supragingival plaque 2019-08-01T00:00:00Z
+    ##   matched_samples Region                                                                                                             title
+    ## 1              NO     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries
+    ## 2              NO     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries
+    ## 3              NO     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries
+    ## 4              NO     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries
+    ## 5              NO     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries
+    ## 6              NO     V4 Characterization of Supragingival Plaque and Oral Swab Microbiomes in Children With Severe Early Childhood Caries
+    ##   Disease_study PCR_primers
+    ## 1           YES   515F-806R
+    ## 2           YES   515F-806R
+    ## 3           YES   515F-806R
+    ## 4           YES   515F-806R
+    ## 5           YES   515F-806R
+    ## 6           YES   515F-806R
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -189,11 +203,11 @@ manually extracted from the publication and added to the metadata.
               plots$Status,
               plots$matched_samples,# add 
               ncol = 3, align = "hv", axis = "lb")
-    ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+    ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 
-    knitr::include_graphics("Metadata_Summary.png")
+    knitr::include_graphics("metadata_summary.png")
 
-![](Metadata_Summary.png) \# Step 6: Finalize and Export the Metadata
+![](metadata_summary.png) \# Step 6: Finalize and Export the Metadata
 
     metadata <- metadata[, c(
       "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 

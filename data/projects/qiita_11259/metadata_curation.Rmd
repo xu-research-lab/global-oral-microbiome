@@ -26,7 +26,7 @@ initial_meta<-read.csv("SraRunTable.tsv", header = TRUE ,sep = "\t", stringsAsFa
 #meta <- rbind(initial_meta, initial_meta1)
 
 #Remove entries non-oral samples
-#initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
+initial_meta <- subset(initial_meta, scientific_name == "Human Oral Metagenome")
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))

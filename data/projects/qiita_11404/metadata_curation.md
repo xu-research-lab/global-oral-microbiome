@@ -26,7 +26,7 @@ initial_meta<-read.csv("SraRunTable.tsv", header = TRUE ,sep = "\t", stringsAsFa
 #meta <- rbind(initial_meta, initial_meta1)
 
 #Remove entries non-oral samples
-#initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
+initial_meta <- subset(initial_meta, scientific_name == "human oral metagenome")
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
@@ -81,14 +81,13 @@ metadata$PCR_primers <- "515F-806R"
 metadata$title <- "A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
-metadata$Status<-"H"
+#metadata$Status<-"H"
 
-#metadata <- metadata %>%
-#  mutate(Status = case_when(
-#    initial_meta$oral_mucositis_grade == "0" ~ "H",
-#    initial_meta$oral_mucositis_grade == "1" ~ "OM",
-#    initial_meta$oral_mucositis_grade %in% c("2", "3", "4") ~ "severe-OM"
-#  ))
+metadata <- metadata %>%
+  mutate(Status = case_when(
+    initial_meta$subset_healthy == "TRUE" ~ "H",
+    initial_meta$subset_healthy == "FALSE" ~ "C"
+  ))
 
 #extract subject id by remove prefix of sample_name
 metadata$sample_name <- gsub("T|CR|CS|C|N|S", "", metadata$sample_name)

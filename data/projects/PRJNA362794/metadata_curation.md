@@ -210,14 +210,14 @@ p<-plot_grid(plots$Age,
           plots$Status,
           plots$matched_samples,# add 
           ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ``` r
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("metadata_summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+![](metadata_summary.png)<!-- -->
 
 # Step 6: Finalize and Export the Metadata
 

@@ -28,52 +28,54 @@ head(uniform_meta)
 print(length(unique(uniform_meta$Run)))
 
 print(length(unique(uniform_meta$sample_name)))
-# 只选择需要绘制的列
 plot_data <- uniform_meta %>%
-    select(-BioProject, -Run, -sample_name, -title, -PCR_primers)
-# 改进的可视化函数
+  select(-BioProject, -Run, -sample_name, -title)
 create_simple_plots <- function(data) {
-    plots <- list()
-    
-    for (col in colnames(data)) {
-        # 跳过全为NA的列
-        if (all(is.na(data[[col]]))) {
-            plots[[col]] <- ggplot() + 
-                annotate("text", x = 0.5, y = 0.5, label = paste("All values in", col, "are NA")) +
-                labs(title = col) +
-                theme_void()
-            next
-        }
-        
-        if (is.numeric(data[[col]])) {
-            # 数值变量：直方图
-            p <- ggplot(data, aes_string(x = col)) +
-                geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
-                labs(title = col) +
-                theme_minimal()
-        } else {
-            # 分类变量：柱状图
-            count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
-            colnames(count_data) <- c("Category", "Count")
-            
-            # 按计数排序
-            count_data <- count_data[order(-count_data$Count), ]
-            
-            p <- ggplot(count_data, aes(x = reorder(Category, -Count), y = Count)) +
-                geom_col(fill = "red", alpha = 0.6) +
-                labs(title = col, x = NULL, y = "Count") +
-                theme_minimal() +
-                theme(axis.text.x = element_text(angle = 45, hjust = 1))
-        }
-        plots[[col]] <- p
+  plots <- list()
+  
+  for (col in colnames(data)) {
+    # Check if the column is all NA
+    if (all(is.na(data[[col]]))) {
+      # Create an empty plot with text indicating all NA
+      p <- ggplot() +
+        annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
+        labs(title = col) +
+        theme_void()
+    } else if (is.numeric(data[[col]])) {
+      # Numeric variable: histogram
+      p <- ggplot(data, aes(x = .data[[col]])) +
+        geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
+        labs(title = col) +
+        theme_minimal()
+    } else {
+      # Categorical variable: bar plot (remove NA values)
+      count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
+      p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
+        geom_col(fill = "red", alpha = 0.6) +
+        labs(title = col, x = NULL, y = "Count") +
+        theme_minimal() +
+        theme(axis.text.x = element_text(angle = 15, hjust = 1))
     }
-    
-    return(plots)
+    plots[[col]] <- p
+  }
+  
+  return(plots)
 }
-
-# 生成图形并排列
 plots <- create_simple_plots(plot_data)
-grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
+p<-plot_grid(plots$Age, 
+          plots$BMI, 
+          plots$Sex, 
+          plots$Region, 
+          plots$Platform, 
+          plots$Country, 
+          plots$Site,
+          plots$public_time, 
+          plots$PCR_primers,
+          plots$Disease_study,
+          plots$Status,
+          plots$matched_samples,# add 
+          ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary.png", plot = p, width = 8, height = 12, dpi = 150)
 ## uniform the column order
 uniform_meta <- uniform_meta[, c("BioProject", "Run", "sample_name", "Age", "BMI", "Sex", "Region", "Platform", "Country", "Site", "public_time", "PCR_primers", "title", "Disease_study", "Status")]
 write.csv(uniform_meta, file = "/home/liuxuan/metadata/PRJEB20213/uniform_meta.csv", quote = F)

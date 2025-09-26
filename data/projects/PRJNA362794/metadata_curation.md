@@ -1,3 +1,6 @@
+R Notebook: Metadata Processing Workflow
+================
+
 # Step 1: Obtain Initial Metadata from Each Project
 
 To obtain the initial metadata: 1. Search for the BioProject ID (e.g.,
@@ -7,13 +10,15 @@ table, click on “Metadata” and download the file. 3. The downloaded file
 is typically named “SraRunTable.csv” and contains metadata for the
 project.
 
-    library(tidyverse)
-    library(ggplot2)
-    library(cowplot)
+``` r
+library(tidyverse)
+library(ggplot2)
+library(cowplot)
 
-    setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA362794")
-    initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
-    head(initial_meta)
+setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA362794")
+initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
+head(initial_meta)
+```
 
     ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample                       BioSampleModel    Bytes
     ## 1 SRR5196235   AMPLICON        494 27033131 PRJNA362794 SAMN06240299 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 17324281
@@ -57,7 +62,7 @@ The uniform metadata should include the following columns:
 
 1.  **BioProject**: Project ID (e.g., “PRJNA339212”)
 2.  **Run**: Sample ID (e.g., “ERRXXXXXX” or “SRRXXXXXX”)
-3.  **sample\_name**: Original sample name submitted by the authors (not
+3.  **sample_name**: Original sample name submitted by the authors (not
     the database-assigned ID)
 4.  **Age**: Age of the subject (if available)
 5.  **BMI**: Body Mass Index (if available)
@@ -66,50 +71,54 @@ The uniform metadata should include the following columns:
 8.  **Platform**: Sequencing platform (e.g., “Illumina MiSeq”)
 9.  **Country**: Country of sample origin (e.g., “China”)
 10. **Site**: Sample site (e.g., “saliva”, “dental plaque”)
-11. **public\_time**: Data release date (format: “YYYY-MM-DD”)
-12. **PCR\_primers**: PCR primers used (e.g., “515F-806R”)
+11. **public_time**: Data release date (format: “YYYY-MM-DD”)
+12. **PCR_primers**: PCR primers used (e.g., “515F-806R”)
 13. **title**: Title of the associated publication
-14. **Disease\_study**: Whether the study involves a disease (“YES” or
+14. **Disease_study**: Whether the study involves a disease (“YES” or
     “NO”)
 15. **Status**: Disease status (e.g., “T2DM”, “HC”). Note: If the study
     includes both disease and healthy samples, this must be specified
     per sample.
-16. **matched\_samples**: matched samples (“YES” or “NO”)
+16. **matched_samples**: matched samples (“YES” or “NO”)
 
-<!-- -->
-
-    metadata <- data.frame(
-      BioProject = initial_meta$BioProject,
-      Run = initial_meta$Run,
-      sample_name = initial_meta$Sample.Name,
-      Age = NA, 
-      BMI = NA,  
-      Sex = NA,
-      Region = "V3-V4",
-      Platform = initial_meta$Instrument,
-      Country = initial_meta$geo_loc_name_country,
-      Site = initial_meta$env_feature,
-      public_time = initial_meta$ReleaseDate,
-      matched_samples = "NO",
-      stringsAsFactors = FALSE
-    )
+``` r
+metadata <- data.frame(
+  BioProject = initial_meta$BioProject,
+  Run = initial_meta$Run,
+  sample_name = initial_meta$Sample.Name,
+  Age = NA, 
+  BMI = NA,  
+  Sex = NA,
+  Region = "V3-V4",
+  Platform = initial_meta$Instrument,
+  Country = initial_meta$geo_loc_name_country,
+  Site = initial_meta$env_feature,
+  public_time = initial_meta$ReleaseDate,
+  matched_samples = "NO",
+  stringsAsFactors = FALSE
+)
+```
 
 # Step 3: Manually Add Information from the Publication
 
 Some information (e.g. PCR primers, study title, disease status) must be
 manually extracted from the publication and added to the metadata.
 
-    # metadata <- metadata %>%
-    #  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+``` r
+# metadata <- metadata %>%
+#  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+```
 
-    metadata$title <- "Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model"
-    metadata$Disease_study <- "YES"
-    metadata$PCR_primers <- "341F-806R"
-    metadata <- metadata%>%mutate(Status = sapply(str_split(sample_name, "_"), function(x) tail(x, 1)))%>% mutate(Status = case_when(
-        Status == "N" ~ "OSCC_normal",
-        TRUE ~ "OSCC_tumor" # 其他所有情况
-      ))
-    head(metadata)
+``` r
+metadata$title <- "Signatures of Mucosal Microbiome in Oral Squamous Cell Carcinoma Identified Using a Random Forest Model"
+metadata$Disease_study <- "YES"
+metadata$PCR_primers <- "341F-806R"
+metadata <- metadata%>%mutate(Status = sapply(str_split(sample_name, "_"), function(x) tail(x, 1)))%>% mutate(Status = case_when(
+    Status == "N" ~ "OSCC_normal",
+    TRUE ~ "OSCC_tumor" # 其他所有情况
+  ))
+head(metadata)
+```
 
     ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site          public_time matched_samples
     ## 1 PRJNA362794 SRR5196235         1_N  NA  NA  NA  V3-V4 Illumina MiSeq   China mucosa 2017-01-28T00:00:00Z              NO
@@ -135,77 +144,88 @@ manually extracted from the publication and added to the metadata.
 
 # Step 4: Summarize and Validate the Metadata
 
-    print(paste("Number of unique runs:", length(unique(metadata$Run))))
+``` r
+print(paste("Number of unique runs:", length(unique(metadata$Run))))
+```
 
     ## [1] "Number of unique runs: 80"
 
-    print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
+``` r
+print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
+```
 
     ## [1] "Number of unique sample names: 80"
 
 # Step 5: Visualize the Metadata
 
-    plot_data <- metadata %>%
-      select(-BioProject, -Run, -sample_name, -title)
+``` r
+plot_data <- metadata %>%
+  select(-BioProject, -Run, -sample_name, -title)
 
-    # Function to create simple plots for each column
-    create_simple_plots <- function(data) {
-      plots <- list()
-      
-      for (col in colnames(data)) {
-        # Check if the column is all NA
-        if (all(is.na(data[[col]]))) {
-          # Create an empty plot with text indicating all NA
-          p <- ggplot() +
-            annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
-            labs(title = col) +
-            theme_void()
-        } else if (is.numeric(data[[col]])) {
-          # Numeric variable: histogram
-          p <- ggplot(data, aes(x = .data[[col]])) +
-            geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
-            labs(title = col) +
-            theme_minimal()
-        } else {
-          # Categorical variable: bar plot (remove NA values)
-          count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
-          p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
-            geom_col(fill = "red", alpha = 0.6) +
-            labs(title = col, x = NULL, y = "Count") +
-            theme_minimal() +
-            theme(axis.text.x = element_text(angle = 15, hjust = 1))
-        }
-        plots[[col]] <- p
-      }
-      
-      return(plots)
+# Function to create simple plots for each column
+create_simple_plots <- function(data) {
+  plots <- list()
+  
+  for (col in colnames(data)) {
+    # Check if the column is all NA
+    if (all(is.na(data[[col]]))) {
+      # Create an empty plot with text indicating all NA
+      p <- ggplot() +
+        annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
+        labs(title = col) +
+        theme_void()
+    } else if (is.numeric(data[[col]])) {
+      # Numeric variable: histogram
+      p <- ggplot(data, aes(x = .data[[col]])) +
+        geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
+        labs(title = col) +
+        theme_minimal()
+    } else {
+      # Categorical variable: bar plot (remove NA values)
+      count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
+      p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
+        geom_col(fill = "red", alpha = 0.6) +
+        labs(title = col, x = NULL, y = "Count") +
+        theme_minimal() +
+        theme(axis.text.x = element_text(angle = 15, hjust = 1))
     }
+    plots[[col]] <- p
+  }
+  
+  return(plots)
+}
 
 
-    plots <- create_simple_plots(plot_data)
-    p<-plot_grid(plots$Age, 
-              plots$BMI, 
-              plots$Sex, 
-              plots$Region, 
-              plots$Platform, 
-              plots$Country, 
-              plots$Site,
-              plots$public_time, 
-              plots$PCR_primers,
-              plots$Disease_study,
-              plots$Status,
-              plots$matched_samples,# add 
-              ncol = 3, align = "hv", axis = "lb")
-    ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+plots <- create_simple_plots(plot_data)
+p<-plot_grid(plots$Age, 
+          plots$BMI, 
+          plots$Sex, 
+          plots$Region, 
+          plots$Platform, 
+          plots$Country, 
+          plots$Site,
+          plots$public_time, 
+          plots$PCR_primers,
+          plots$Disease_study,
+          plots$Status,
+          plots$matched_samples,# add 
+          ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+```
 
-    knitr::include_graphics("./Metadata_Summary.png")
+``` r
+knitr::include_graphics("./Metadata_Summary.png")
+```
 
-![](./Metadata_Summary.png) \# Step 6: Finalize and Export the Metadata
+![](./Metadata_Summary.png)<!-- --> \# Step 6: Finalize and Export the
+Metadata
 
-    metadata <- metadata[, c(
-      "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
-      "Region", "Platform", "Country", "Site", "public_time", 
-      "PCR_primers", "title", "Disease_study", "Status","matched_samples"
-    )]
+``` r
+metadata <- metadata[, c(
+  "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
+  "Region", "Platform", "Country", "Site", "public_time", 
+  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
+)]
 
-    write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = FALSE)
+```

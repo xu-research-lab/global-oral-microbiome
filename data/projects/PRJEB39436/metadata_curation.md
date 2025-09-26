@@ -17,7 +17,7 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/metadata/PRJEB28088")
+setwd("D:/metadata/PRJEB39436")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.csv",header = T)
@@ -26,7 +26,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 #meta <- rbind(initial_meta, initial_meta1)
 
 #Remove entries non-oral samples
-initial_meta <- subset(initial_meta, Organism == "human oral metagenome")
+#initial_meta <- subset(initial_meta, Organism == "human oral metagenome")
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
@@ -61,13 +61,13 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Sample.Name,
-  Age = initial_meta$AGE,
-  BMI = initial_meta$BMI,
-  Sex= initial_meta$sex,
+  Age = initial_meta$Host_age / 365,
+  BMI = NA,
+  Sex=NA,
   Region = "V4",
   Platform = initial_meta$Instrument,
-  Country = initial_meta$geo_loc_name,
-  Site = initial_meta$env_material,
+  Country = NA,
+  Site = "oral",
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
@@ -78,10 +78,16 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 ```{r}
 # Add information obtained from the publication
 metadata$PCR_primers <- "515F-806R"
-metadata$title <- "Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village"
-metadata$Disease_study <- "NO"
+metadata$title <- "Multiomic Analyses of Nascent Preterm Infant Microbiomes Differentiation Suggest Opportunities for Targeted Intervention"
+metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
-metadata$Status<-"H"
+metadata$Status<-"preterm infant"
+#metadata <- metadata %>%
+#  mutate(Status = case_when(
+#    initial_meta$oral_mucositis_grade == "0" ~ "H",
+#    initial_meta$oral_mucositis_grade == "1" ~ "OM",
+#    initial_meta$oral_mucositis_grade %in% c("2", "3", "4") ~ "severe-OM"
+#  ))
 
 #extract subject id by remove prefix of sample_name
 metadata$sample_name <- gsub("T|CR|CS|C|N|S", "", metadata$sample_name)
@@ -105,7 +111,7 @@ table(metadata$matched_samples)
 # Identify samples for removal: single samples excluding saliva and tongue coat
 single_samples <- names(sample_counts[sample_counts == 1])
 samples_to_remove <- metadata$sample_name %in% single_samples & 
-                     !(metadata$Site %in% c("saliva", "tongue coat"))
+                     !(initial_meta$Organism %in% c("human oral metagenome"))
 
 cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
 

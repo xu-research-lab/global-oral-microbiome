@@ -17,7 +17,7 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/metadata/PRJEB29169")
+setwd("D:/metadata/PRJEB28088")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.csv",header = T)
@@ -26,7 +26,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 #meta <- rbind(initial_meta, initial_meta1)
 
 #Remove entries non-oral samples
-initial_meta <- subset(initial_meta, Organism == "human oral metagenome")
+#initial_meta <- subset(initial_meta, Organism == "human oral metagenome")
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
@@ -61,12 +61,12 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Sample.Name,
-  Age = initial_meta$host_age,
+  Age = initial_meta$AGE,
   BMI = initial_meta$BMI,
   Sex= initial_meta$sex,
   Region = "V4",
   Platform = initial_meta$Instrument,
-  Country = initial_meta$geo_loc_name_country,
+  Country = initial_meta$geo_loc_name,
   Site = initial_meta$env_material,
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
@@ -78,18 +78,14 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 ```{r}
 # Add information obtained from the publication
 metadata$PCR_primers <- "515F-806R"
-metadata$title <- "Establishing microbial composition measurement standards with reference frames"
+metadata$title <- "Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
-metadata$Status<-"NA"
+metadata$Status<-"H"
 
 #extract subject id by remove prefix of sample_name
 metadata$sample_name <- gsub("T|CR|CS|C|N|S", "", metadata$sample_name)
-metadata <- metadata %>%
-  mutate(Sex = case_when(
-    initial_meta$sex == "0" ~ "female",
-    initial_meta$sex == "1" ~ "male"
-  ))
+
 # Check initial data distribution
 cat("Initial sample distribution:\n")
 table(metadata$sample_name)

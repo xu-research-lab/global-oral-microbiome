@@ -272,12 +272,12 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$Sample.Name,
+  sample_name = initial_meta$anonymized_name,
   Age = initial_meta$AGE,
   BMI = NA,
   Sex = initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,
-  Platform = initial_meta$Instrument,
+  Platform = initial_meta$platform..exp.,
   Country = initial_meta$geo_loc_name_country,
   Site = "tongue",
   public_time = "2013-04-26",
@@ -317,64 +317,38 @@ table(metadata$sample_name)
 ```
 
     ## 
-    ## SAMEA1878869 SAMEA1878881 SAMEA1878895 SAMEA1878897 SAMEA1878899 SAMEA1878909 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1878915 SAMEA1878917 SAMEA1878923 SAMEA1878931 SAMEA1878933 SAMEA1878937 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1878939 SAMEA1878941 SAMEA1878945 SAMEA1878947 SAMEA1878957 SAMEA1878965 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1878977 SAMEA1878987 SAMEA1878995 SAMEA1879005 SAMEA1879013 SAMEA1879015 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879047 SAMEA1879051 SAMEA1879061 SAMEA1879085 SAMEA1879095 SAMEA1879097 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879103 SAMEA1879118 SAMEA1879120 SAMEA1879124 SAMEA1879136 SAMEA1879182 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879192 SAMEA1879202 SAMEA1879212 SAMEA1879226 SAMEA1879240 SAMEA1879260 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879264 SAMEA1879282 SAMEA1879287 SAMEA1879289 SAMEA1879303 SAMEA1879344 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879357 SAMEA1879376 SAMEA1879390 SAMEA1879414 SAMEA1879420 SAMEA1879432 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879435 SAMEA1879455 SAMEA1879500 SAMEA1879504 SAMEA1879506 SAMEA1879512 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879534 SAMEA1879554 SAMEA1879574 SAMEA1879588 SAMEA1879590 SAMEA1879646 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879683 SAMEA1879711 SAMEA1879749 SAMEA1879760 SAMEA1879772 SAMEA1879837 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879864 SAMEA1879886 SAMEA1879890 SAMEA1879929 SAMEA1879937 SAMEA1879988 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879991 SAMEA1879994 SAMEA1880006 SAMEA1880009 SAMEA1880050 SAMEA1880058 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880062 SAMEA1880094 SAMEA1880097 SAMEA1880154 SAMEA1880162 SAMEA1880203 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880207 SAMEA1880211 SAMEA1880231 SAMEA1880251 SAMEA1880286 SAMEA1880289 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880298 SAMEA1880304 SAMEA1880335 SAMEA1880365 SAMEA1880367 SAMEA1880373 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880440 SAMEA1880490 SAMEA1880502 SAMEA1880516 SAMEA1880524 SAMEA1880533 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880583 SAMEA1880591 SAMEA1880631 SAMEA1880637 SAMEA1880679 SAMEA1880685 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880693 SAMEA1880703 SAMEA1880711 SAMEA1880713 SAMEA1880725 SAMEA1880737 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880749 SAMEA1880753 SAMEA1880759 SAMEA1880785 SAMEA1880789 SAMEA1880815 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880819 SAMEA1880827 SAMEA1880828 SAMEA1880858 SAMEA1880878 SAMEA1880890 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880892 SAMEA1880902 SAMEA1880909 SAMEA1880917 SAMEA1880921 SAMEA1880927 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880947 SAMEA1880949 SAMEA1881003 SAMEA1881005 SAMEA1881009 SAMEA1881015 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1881037 SAMEA1881061 SAMEA1881099 SAMEA1881103 SAMEA1881113 SAMEA1881121 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1881163 SAMEA1881183 SAMEA1881185 SAMEA1881210 SAMEA1881222 SAMEA1881242 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1881244 SAMEA1881256 SAMEA1881262 SAMEA1881276 SAMEA1881288 SAMEA1881290 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1881292 SAMEA1881296 SAMEA1881330 SAMEA1881336 SAMEA1881347 SAMEA1881348 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1881359 SAMEA1881393 
-    ##            1            1
+    ##  FS_01  FS_03  FS_04  FS_05  FS_06  FS_07  FS_08  FS_09  FS_10 FS_100 FS_101 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_102 FS_103 FS_104 FS_105 FS_106 FS_107 FS_108 FS_109  FS_11 FS_110 FS_111 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_112 FS_113 FS_114 FS_115 FS_116 FS_117 FS_118 FS_119  FS_12 FS_120 FS_121 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_122 FS_123 FS_124 FS_125 FS_126 FS_127 FS_128 FS_129  FS_13 FS_130 FS_131 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_132 FS_133 FS_134 FS_135 FS_136 FS_137 FS_138 FS_139  FS_14 FS_140 FS_141 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_142 FS_143 FS_144 FS_145 FS_146 FS_147  FS_15 FS_151 FS_152 FS_153 FS_154 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_155 FS_156 FS_157 FS_158 FS_159  FS_16 FS_160 FS_161 FS_162 FS_163 FS_164 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_165 FS_166 FS_167 FS_168 FS_169  FS_17 FS_171 FS_172 FS_173 FS_174 FS_175 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_18  FS_19  FS_20  FS_21  FS_22  FS_23  FS_24  FS_25  FS_26  FS_27  FS_28 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_29  FS_30  FS_31  FS_32  FS_33  FS_34  FS_35  FS_36  FS_37  FS_38  FS_39 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_40  FS_41  FS_42  FS_43  FS_44  FS_45  FS_46  FS_47  FS_48  FS_49  FS_50 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_51  FS_52  FS_53  FS_54  FS_55  FS_56  FS_57  FS_58  FS_59  FS_60  FS_61 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_62  FS_63  FS_64  FS_65  FS_66  FS_67  FS_68  FS_69  FS_70  FS_71  FS_72 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_73  FS_74  FS_75  FS_76  FS_77  FS_78  FS_79  FS_80  FS_81  FS_82  FS_83 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_84  FS_85  FS_86  FS_87  FS_88  FS_89  FS_90  FS_91  FS_92  FS_93  FS_94 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_95  FS_96  FS_97  FS_98  FS_99 
+    ##      1      1      1      1      1
 
 ``` r
 table(metadata$Site)
@@ -398,64 +372,38 @@ print(sample_counts)
 ```
 
     ## 
-    ## SAMEA1878869 SAMEA1878881 SAMEA1878895 SAMEA1878897 SAMEA1878899 SAMEA1878909 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1878915 SAMEA1878917 SAMEA1878923 SAMEA1878931 SAMEA1878933 SAMEA1878937 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1878939 SAMEA1878941 SAMEA1878945 SAMEA1878947 SAMEA1878957 SAMEA1878965 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1878977 SAMEA1878987 SAMEA1878995 SAMEA1879005 SAMEA1879013 SAMEA1879015 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879047 SAMEA1879051 SAMEA1879061 SAMEA1879085 SAMEA1879095 SAMEA1879097 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879103 SAMEA1879118 SAMEA1879120 SAMEA1879124 SAMEA1879136 SAMEA1879182 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879192 SAMEA1879202 SAMEA1879212 SAMEA1879226 SAMEA1879240 SAMEA1879260 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879264 SAMEA1879282 SAMEA1879287 SAMEA1879289 SAMEA1879303 SAMEA1879344 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879357 SAMEA1879376 SAMEA1879390 SAMEA1879414 SAMEA1879420 SAMEA1879432 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879435 SAMEA1879455 SAMEA1879500 SAMEA1879504 SAMEA1879506 SAMEA1879512 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879534 SAMEA1879554 SAMEA1879574 SAMEA1879588 SAMEA1879590 SAMEA1879646 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879683 SAMEA1879711 SAMEA1879749 SAMEA1879760 SAMEA1879772 SAMEA1879837 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879864 SAMEA1879886 SAMEA1879890 SAMEA1879929 SAMEA1879937 SAMEA1879988 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1879991 SAMEA1879994 SAMEA1880006 SAMEA1880009 SAMEA1880050 SAMEA1880058 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880062 SAMEA1880094 SAMEA1880097 SAMEA1880154 SAMEA1880162 SAMEA1880203 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880207 SAMEA1880211 SAMEA1880231 SAMEA1880251 SAMEA1880286 SAMEA1880289 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880298 SAMEA1880304 SAMEA1880335 SAMEA1880365 SAMEA1880367 SAMEA1880373 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880440 SAMEA1880490 SAMEA1880502 SAMEA1880516 SAMEA1880524 SAMEA1880533 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880583 SAMEA1880591 SAMEA1880631 SAMEA1880637 SAMEA1880679 SAMEA1880685 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880693 SAMEA1880703 SAMEA1880711 SAMEA1880713 SAMEA1880725 SAMEA1880737 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880749 SAMEA1880753 SAMEA1880759 SAMEA1880785 SAMEA1880789 SAMEA1880815 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880819 SAMEA1880827 SAMEA1880828 SAMEA1880858 SAMEA1880878 SAMEA1880890 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880892 SAMEA1880902 SAMEA1880909 SAMEA1880917 SAMEA1880921 SAMEA1880927 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1880947 SAMEA1880949 SAMEA1881003 SAMEA1881005 SAMEA1881009 SAMEA1881015 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1881037 SAMEA1881061 SAMEA1881099 SAMEA1881103 SAMEA1881113 SAMEA1881121 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1881163 SAMEA1881183 SAMEA1881185 SAMEA1881210 SAMEA1881222 SAMEA1881242 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1881244 SAMEA1881256 SAMEA1881262 SAMEA1881276 SAMEA1881288 SAMEA1881290 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1881292 SAMEA1881296 SAMEA1881330 SAMEA1881336 SAMEA1881347 SAMEA1881348 
-    ##            1            1            1            1            1            1 
-    ## SAMEA1881359 SAMEA1881393 
-    ##            1            1
+    ##  FS_01  FS_03  FS_04  FS_05  FS_06  FS_07  FS_08  FS_09  FS_10 FS_100 FS_101 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_102 FS_103 FS_104 FS_105 FS_106 FS_107 FS_108 FS_109  FS_11 FS_110 FS_111 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_112 FS_113 FS_114 FS_115 FS_116 FS_117 FS_118 FS_119  FS_12 FS_120 FS_121 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_122 FS_123 FS_124 FS_125 FS_126 FS_127 FS_128 FS_129  FS_13 FS_130 FS_131 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_132 FS_133 FS_134 FS_135 FS_136 FS_137 FS_138 FS_139  FS_14 FS_140 FS_141 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_142 FS_143 FS_144 FS_145 FS_146 FS_147  FS_15 FS_151 FS_152 FS_153 FS_154 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_155 FS_156 FS_157 FS_158 FS_159  FS_16 FS_160 FS_161 FS_162 FS_163 FS_164 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## FS_165 FS_166 FS_167 FS_168 FS_169  FS_17 FS_171 FS_172 FS_173 FS_174 FS_175 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_18  FS_19  FS_20  FS_21  FS_22  FS_23  FS_24  FS_25  FS_26  FS_27  FS_28 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_29  FS_30  FS_31  FS_32  FS_33  FS_34  FS_35  FS_36  FS_37  FS_38  FS_39 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_40  FS_41  FS_42  FS_43  FS_44  FS_45  FS_46  FS_47  FS_48  FS_49  FS_50 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_51  FS_52  FS_53  FS_54  FS_55  FS_56  FS_57  FS_58  FS_59  FS_60  FS_61 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_62  FS_63  FS_64  FS_65  FS_66  FS_67  FS_68  FS_69  FS_70  FS_71  FS_72 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_73  FS_74  FS_75  FS_76  FS_77  FS_78  FS_79  FS_80  FS_81  FS_82  FS_83 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_84  FS_85  FS_86  FS_87  FS_88  FS_89  FS_90  FS_91  FS_92  FS_93  FS_94 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  FS_95  FS_96  FS_97  FS_98  FS_99 
+    ##      1      1      1      1      1
 
 ``` r
 # Create matched_samples column
@@ -500,20 +448,20 @@ write.csv(metadata, file = "metadata.csv", quote = TRUE, row.names = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject       Run  sample_name Age BMI Sex Region    Platform Country
-    ## 1  PRJEB1799 ERR261871 SAMEA1881262  69  NA   F     V2 unspecified     USA
-    ## 2  PRJEB1799 ERR261875 SAMEA1878909  78  NA   F     V2 unspecified     USA
-    ## 3  PRJEB1799 ERR261880 SAMEA1879886  35  NA   M     V2 unspecified     USA
-    ## 4  PRJEB1799 ERR261883 SAMEA1880711  46  NA   M     V2 unspecified     USA
-    ## 5  PRJEB1799 ERR261887 SAMEA1880524  29  NA   M     V2 unspecified     USA
-    ## 6  PRJEB1799 ERR261893 SAMEA1878915  40  NA   M     V2 unspecified     USA
-    ##     Site public_time
-    ## 1 tongue  2013-04-26
-    ## 2 tongue  2013-04-26
-    ## 3 tongue  2013-04-26
-    ## 4 tongue  2013-04-26
-    ## 5 tongue  2013-04-26
-    ## 6 tongue  2013-04-26
+    ##   BioProject       Run sample_name Age BMI Sex Region Platform Country   Site
+    ## 1  PRJEB1799 ERR261871      FS_174  69  NA   F     V2 Illumina     USA tongue
+    ## 2  PRJEB1799 ERR261875      FS_153  78  NA   F     V2 Illumina     USA tongue
+    ## 3  PRJEB1799 ERR261880       FS_10  35  NA   M     V2 Illumina     USA tongue
+    ## 4  PRJEB1799 ERR261883       FS_28  46  NA   M     V2 Illumina     USA tongue
+    ## 5  PRJEB1799 ERR261887      FS_141  29  NA   M     V2 Illumina     USA tongue
+    ## 6  PRJEB1799 ERR261893      FS_105  40  NA   M     V2 Illumina     USA tongue
+    ##   public_time
+    ## 1  2013-04-26
+    ## 2  2013-04-26
+    ## 3  2013-04-26
+    ## 4  2013-04-26
+    ## 5  2013-04-26
+    ## 6  2013-04-26
     ##                                                             PCR_primers
     ## 1 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT
     ## 2 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT

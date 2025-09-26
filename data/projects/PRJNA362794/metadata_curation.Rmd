@@ -138,6 +138,9 @@ ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```{r}
 knitr::include_graphics("./Metadata_Summary.png")
 ```
+
+
+
 # Step 6: Finalize and Export the Metadata
 ```{r}
 metadata <- metadata[, c(

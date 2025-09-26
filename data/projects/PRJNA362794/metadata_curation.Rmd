@@ -136,7 +136,7 @@ ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
-knitr::include_graphics("./Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary.png")
 ```
 
 

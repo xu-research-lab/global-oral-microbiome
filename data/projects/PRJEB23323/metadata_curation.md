@@ -288,172 +288,24 @@ metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status<-"H"
 
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("T|CR|CS|C|N|S", "", metadata$sample_name)
+keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
+metadata <- subset(metadata, sample_name %in% keep_subjects)
 
-# Check initial data distribution
-cat("Initial sample distribution:\n")
-```
-
-    ## Initial sample distribution:
-
-``` r
-table(metadata$sample_name)
-```
-
-    ## 
-    ## AMEA104368491 AMEA104368492 AMEA104368493 AMEA104368494 AMEA104368495 
-    ##             1             1             1             1             1 
-    ## AMEA104368496 AMEA104368497 AMEA104368498 AMEA104368499 AMEA104368500 
-    ##             1             1             1             1             1 
-    ## AMEA104368501 AMEA104368502 AMEA104368503 AMEA104368504 AMEA104368505 
-    ##             1             1             1             1             1 
-    ## AMEA104368506 AMEA104368507 AMEA104368508 AMEA104368509 AMEA104368510 
-    ##             1             1             1             1             1 
-    ## AMEA104368511 AMEA104368512 AMEA104368513 AMEA104368514 AMEA104368515 
-    ##             1             1             1             1             1 
-    ## AMEA104368516 AMEA104368517 AMEA104368518 AMEA104368519 AMEA104368520 
-    ##             1             1             1             1             1 
-    ## AMEA104368521 AMEA104368522 AMEA104368523 AMEA104368524 AMEA104368525 
-    ##             1             1             1             1             1 
-    ## AMEA104368526 AMEA104368527 AMEA104368528 AMEA104368529 AMEA104368530 
-    ##             1             1             1             1             1 
-    ## AMEA104368531 AMEA104368532 AMEA104368533 AMEA104368534 AMEA104368535 
-    ##             1             1             1             1             1 
-    ## AMEA104368536 AMEA104368537 AMEA104368538 AMEA104368539 AMEA104368540 
-    ##             1             1             1             1             1 
-    ## AMEA104368541 AMEA104368542 AMEA104368543 AMEA104368544 AMEA104368545 
-    ##             1             1             1             1             1 
-    ## AMEA104368546 AMEA104368547 AMEA104368548 AMEA104368549 AMEA104368550 
-    ##             1             1             1             1             1 
-    ## AMEA104368551 AMEA104368552 AMEA104368553 AMEA104368554 AMEA104368555 
-    ##             1             1             1             1             1 
-    ## AMEA104368556 AMEA104368557 AMEA104368558 AMEA104368559 AMEA104368560 
-    ##             1             1             1             1             1 
-    ## AMEA104368561 AMEA104368562 AMEA104368563 AMEA104368564 AMEA104368565 
-    ##             1             1             1             1             1 
-    ## AMEA104368566 AMEA104368567 AMEA104368568 AMEA104368569 AMEA104368570 
-    ##             1             1             1             1             1 
-    ## AMEA104368571 AMEA104368572 AMEA104368573 AMEA104368574 AMEA104368575 
-    ##             1             1             1             1             1 
-    ## AMEA104368576 AMEA104368577 AMEA104368578 AMEA104368579 AMEA104368580 
-    ##             1             1             1             1             1 
-    ## AMEA104368581 AMEA104368582 AMEA104368583 AMEA104368584 AMEA104368585 
-    ##             1             1             1             1             1 
-    ## AMEA104368586 AMEA104368587 AMEA104368588 AMEA104368589 AMEA104368590 
-    ##             1             1             1             1             1 
-    ## AMEA104368591 AMEA104368592 AMEA104368593 AMEA104368594 AMEA104368595 
-    ##             1             1             1             1             1 
-    ## AMEA104368596 AMEA104368597 AMEA104368598 AMEA104368599 AMEA104368600 
-    ##             1             1             1             1             1 
-    ## AMEA104368601 AMEA104368602 AMEA104368603 AMEA104368604 AMEA104368605 
-    ##             1             1             1             1             1 
-    ## AMEA104368606 AMEA104368607 AMEA104368608 AMEA104368609 AMEA104368610 
-    ##             1             1             1             1             1 
-    ## AMEA104368611 AMEA104368612 AMEA104368613 AMEA104368614 AMEA104368615 
-    ##             1             1             1             1             1 
-    ## AMEA104368616 AMEA104368617 AMEA104368618 AMEA104368619 AMEA104368620 
-    ##             1             1             1             1             1 
-    ## AMEA104368621 AMEA104368622 AMEA104368623 AMEA104368624 AMEA104368625 
-    ##             1             1             1             1             1 
-    ## AMEA104368626 AMEA104368627 AMEA104368628 AMEA104368629 AMEA104368630 
-    ##             1             1             1             1             1 
-    ## AMEA104368631 AMEA104368632 AMEA104368633 AMEA104368634 AMEA104368635 
-    ##             1             1             1             1             1 
-    ## AMEA104368636 AMEA104368637 AMEA104368638 AMEA104368639 AMEA104368640 
-    ##             1             1             1             1             1
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## saliva 
-    ##    150
-
-``` r
-# Calculate sampling frequency per subject
 sample_counts <- table(metadata$sample_name)
-cat("\nNumber of samples per subject:\n")
+
+metadata$matched_samples <-
+  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
+         "YES", "NO")
+
+cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
 ```
 
-    ## 
-    ## Number of samples per subject:
+    ## Subjects retained: 150
 
 ``` r
-print(sample_counts)
+cat("Matched samples distribution:\n")
 ```
 
-    ## 
-    ## AMEA104368491 AMEA104368492 AMEA104368493 AMEA104368494 AMEA104368495 
-    ##             1             1             1             1             1 
-    ## AMEA104368496 AMEA104368497 AMEA104368498 AMEA104368499 AMEA104368500 
-    ##             1             1             1             1             1 
-    ## AMEA104368501 AMEA104368502 AMEA104368503 AMEA104368504 AMEA104368505 
-    ##             1             1             1             1             1 
-    ## AMEA104368506 AMEA104368507 AMEA104368508 AMEA104368509 AMEA104368510 
-    ##             1             1             1             1             1 
-    ## AMEA104368511 AMEA104368512 AMEA104368513 AMEA104368514 AMEA104368515 
-    ##             1             1             1             1             1 
-    ## AMEA104368516 AMEA104368517 AMEA104368518 AMEA104368519 AMEA104368520 
-    ##             1             1             1             1             1 
-    ## AMEA104368521 AMEA104368522 AMEA104368523 AMEA104368524 AMEA104368525 
-    ##             1             1             1             1             1 
-    ## AMEA104368526 AMEA104368527 AMEA104368528 AMEA104368529 AMEA104368530 
-    ##             1             1             1             1             1 
-    ## AMEA104368531 AMEA104368532 AMEA104368533 AMEA104368534 AMEA104368535 
-    ##             1             1             1             1             1 
-    ## AMEA104368536 AMEA104368537 AMEA104368538 AMEA104368539 AMEA104368540 
-    ##             1             1             1             1             1 
-    ## AMEA104368541 AMEA104368542 AMEA104368543 AMEA104368544 AMEA104368545 
-    ##             1             1             1             1             1 
-    ## AMEA104368546 AMEA104368547 AMEA104368548 AMEA104368549 AMEA104368550 
-    ##             1             1             1             1             1 
-    ## AMEA104368551 AMEA104368552 AMEA104368553 AMEA104368554 AMEA104368555 
-    ##             1             1             1             1             1 
-    ## AMEA104368556 AMEA104368557 AMEA104368558 AMEA104368559 AMEA104368560 
-    ##             1             1             1             1             1 
-    ## AMEA104368561 AMEA104368562 AMEA104368563 AMEA104368564 AMEA104368565 
-    ##             1             1             1             1             1 
-    ## AMEA104368566 AMEA104368567 AMEA104368568 AMEA104368569 AMEA104368570 
-    ##             1             1             1             1             1 
-    ## AMEA104368571 AMEA104368572 AMEA104368573 AMEA104368574 AMEA104368575 
-    ##             1             1             1             1             1 
-    ## AMEA104368576 AMEA104368577 AMEA104368578 AMEA104368579 AMEA104368580 
-    ##             1             1             1             1             1 
-    ## AMEA104368581 AMEA104368582 AMEA104368583 AMEA104368584 AMEA104368585 
-    ##             1             1             1             1             1 
-    ## AMEA104368586 AMEA104368587 AMEA104368588 AMEA104368589 AMEA104368590 
-    ##             1             1             1             1             1 
-    ## AMEA104368591 AMEA104368592 AMEA104368593 AMEA104368594 AMEA104368595 
-    ##             1             1             1             1             1 
-    ## AMEA104368596 AMEA104368597 AMEA104368598 AMEA104368599 AMEA104368600 
-    ##             1             1             1             1             1 
-    ## AMEA104368601 AMEA104368602 AMEA104368603 AMEA104368604 AMEA104368605 
-    ##             1             1             1             1             1 
-    ## AMEA104368606 AMEA104368607 AMEA104368608 AMEA104368609 AMEA104368610 
-    ##             1             1             1             1             1 
-    ## AMEA104368611 AMEA104368612 AMEA104368613 AMEA104368614 AMEA104368615 
-    ##             1             1             1             1             1 
-    ## AMEA104368616 AMEA104368617 AMEA104368618 AMEA104368619 AMEA104368620 
-    ##             1             1             1             1             1 
-    ## AMEA104368621 AMEA104368622 AMEA104368623 AMEA104368624 AMEA104368625 
-    ##             1             1             1             1             1 
-    ## AMEA104368626 AMEA104368627 AMEA104368628 AMEA104368629 AMEA104368630 
-    ##             1             1             1             1             1 
-    ## AMEA104368631 AMEA104368632 AMEA104368633 AMEA104368634 AMEA104368635 
-    ##             1             1             1             1             1 
-    ## AMEA104368636 AMEA104368637 AMEA104368638 AMEA104368639 AMEA104368640 
-    ##             1             1             1             1             1
-
-``` r
-# Create matched_samples column
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
-
-cat("\nMatched samples distribution:\n")
-```
-
-    ## 
     ## Matched samples distribution:
 
 ``` r
@@ -465,113 +317,18 @@ table(metadata$matched_samples)
     ## 150
 
 ``` r
-# Identify samples for removal: single samples excluding saliva and tongue coat
-single_samples <- names(sample_counts[sample_counts == 1])
-samples_to_remove <- metadata$sample_name %in% single_samples & 
-                     !(metadata$Site %in% c("saliva", "tongue coat"))
-
-cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
+cat("Sample distribution by Site:\n")
 ```
 
-    ## 
-    ## Number of samples to be removed: 0
+    ## Sample distribution by Site:
 
 ``` r
-# Remove identified samples
-metadata_clean <- metadata[!samples_to_remove, ]
-
-cat("\nFinal sample distribution after cleaning:\n")
-```
-
-    ## 
-    ## Final sample distribution after cleaning:
-
-``` r
-table(metadata_clean$sample_name)
-```
-
-    ## 
-    ## AMEA104368491 AMEA104368492 AMEA104368493 AMEA104368494 AMEA104368495 
-    ##             1             1             1             1             1 
-    ## AMEA104368496 AMEA104368497 AMEA104368498 AMEA104368499 AMEA104368500 
-    ##             1             1             1             1             1 
-    ## AMEA104368501 AMEA104368502 AMEA104368503 AMEA104368504 AMEA104368505 
-    ##             1             1             1             1             1 
-    ## AMEA104368506 AMEA104368507 AMEA104368508 AMEA104368509 AMEA104368510 
-    ##             1             1             1             1             1 
-    ## AMEA104368511 AMEA104368512 AMEA104368513 AMEA104368514 AMEA104368515 
-    ##             1             1             1             1             1 
-    ## AMEA104368516 AMEA104368517 AMEA104368518 AMEA104368519 AMEA104368520 
-    ##             1             1             1             1             1 
-    ## AMEA104368521 AMEA104368522 AMEA104368523 AMEA104368524 AMEA104368525 
-    ##             1             1             1             1             1 
-    ## AMEA104368526 AMEA104368527 AMEA104368528 AMEA104368529 AMEA104368530 
-    ##             1             1             1             1             1 
-    ## AMEA104368531 AMEA104368532 AMEA104368533 AMEA104368534 AMEA104368535 
-    ##             1             1             1             1             1 
-    ## AMEA104368536 AMEA104368537 AMEA104368538 AMEA104368539 AMEA104368540 
-    ##             1             1             1             1             1 
-    ## AMEA104368541 AMEA104368542 AMEA104368543 AMEA104368544 AMEA104368545 
-    ##             1             1             1             1             1 
-    ## AMEA104368546 AMEA104368547 AMEA104368548 AMEA104368549 AMEA104368550 
-    ##             1             1             1             1             1 
-    ## AMEA104368551 AMEA104368552 AMEA104368553 AMEA104368554 AMEA104368555 
-    ##             1             1             1             1             1 
-    ## AMEA104368556 AMEA104368557 AMEA104368558 AMEA104368559 AMEA104368560 
-    ##             1             1             1             1             1 
-    ## AMEA104368561 AMEA104368562 AMEA104368563 AMEA104368564 AMEA104368565 
-    ##             1             1             1             1             1 
-    ## AMEA104368566 AMEA104368567 AMEA104368568 AMEA104368569 AMEA104368570 
-    ##             1             1             1             1             1 
-    ## AMEA104368571 AMEA104368572 AMEA104368573 AMEA104368574 AMEA104368575 
-    ##             1             1             1             1             1 
-    ## AMEA104368576 AMEA104368577 AMEA104368578 AMEA104368579 AMEA104368580 
-    ##             1             1             1             1             1 
-    ## AMEA104368581 AMEA104368582 AMEA104368583 AMEA104368584 AMEA104368585 
-    ##             1             1             1             1             1 
-    ## AMEA104368586 AMEA104368587 AMEA104368588 AMEA104368589 AMEA104368590 
-    ##             1             1             1             1             1 
-    ## AMEA104368591 AMEA104368592 AMEA104368593 AMEA104368594 AMEA104368595 
-    ##             1             1             1             1             1 
-    ## AMEA104368596 AMEA104368597 AMEA104368598 AMEA104368599 AMEA104368600 
-    ##             1             1             1             1             1 
-    ## AMEA104368601 AMEA104368602 AMEA104368603 AMEA104368604 AMEA104368605 
-    ##             1             1             1             1             1 
-    ## AMEA104368606 AMEA104368607 AMEA104368608 AMEA104368609 AMEA104368610 
-    ##             1             1             1             1             1 
-    ## AMEA104368611 AMEA104368612 AMEA104368613 AMEA104368614 AMEA104368615 
-    ##             1             1             1             1             1 
-    ## AMEA104368616 AMEA104368617 AMEA104368618 AMEA104368619 AMEA104368620 
-    ##             1             1             1             1             1 
-    ## AMEA104368621 AMEA104368622 AMEA104368623 AMEA104368624 AMEA104368625 
-    ##             1             1             1             1             1 
-    ## AMEA104368626 AMEA104368627 AMEA104368628 AMEA104368629 AMEA104368630 
-    ##             1             1             1             1             1 
-    ## AMEA104368631 AMEA104368632 AMEA104368633 AMEA104368634 AMEA104368635 
-    ##             1             1             1             1             1 
-    ## AMEA104368636 AMEA104368637 AMEA104368638 AMEA104368639 AMEA104368640 
-    ##             1             1             1             1             1
-
-``` r
-table(metadata_clean$Site)
+table(metadata$Site)
 ```
 
     ## 
     ## saliva 
     ##    150
-
-``` r
-table(metadata_clean$matched_samples)
-```
-
-    ## 
-    ##  NO 
-    ## 150
-
-``` r
-# Use cleaned dataset for subsequent analysis
-metadata <- metadata_clean
-```
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -611,13 +368,13 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject        Run   sample_name Age BMI Sex Region            Platform
-    ## 1 PRJEB23323 ERR2190627 AMEA104368491  NA  NA  NA     V4 Illumina HiSeq 2500
-    ## 2 PRJEB23323 ERR2190630 AMEA104368494  NA  NA  NA     V4 Illumina HiSeq 2500
-    ## 3 PRJEB23323 ERR2190641 AMEA104368505  NA  NA  NA     V4 Illumina HiSeq 2500
-    ## 4 PRJEB23323 ERR2190651 AMEA104368515  NA  NA  NA     V4 Illumina HiSeq 2500
-    ## 5 PRJEB23323 ERR2190652 AMEA104368516  NA  NA  NA     V4 Illumina HiSeq 2500
-    ## 6 PRJEB23323 ERR2190686 AMEA104368550  NA  NA  NA     V4 Illumina HiSeq 2500
+    ##   BioProject        Run    sample_name Age BMI Sex Region            Platform
+    ## 1 PRJEB23323 ERR2190627 SAMEA104368491  NA  NA  NA     V4 Illumina HiSeq 2500
+    ## 2 PRJEB23323 ERR2190630 SAMEA104368494  NA  NA  NA     V4 Illumina HiSeq 2500
+    ## 3 PRJEB23323 ERR2190641 SAMEA104368505  NA  NA  NA     V4 Illumina HiSeq 2500
+    ## 4 PRJEB23323 ERR2190651 SAMEA104368515  NA  NA  NA     V4 Illumina HiSeq 2500
+    ## 5 PRJEB23323 ERR2190652 SAMEA104368516  NA  NA  NA     V4 Illumina HiSeq 2500
+    ## 6 PRJEB23323 ERR2190686 SAMEA104368550  NA  NA  NA     V4 Illumina HiSeq 2500
     ##   Country   Site          public_time PCR_primers
     ## 1     USA saliva 2018-08-03T00:00:00Z   515F-806R
     ## 2     USA saliva 2018-08-03T00:00:00Z   515F-806R

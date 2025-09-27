@@ -400,7 +400,7 @@ metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts
 sample_counts <- table(metadata$sample_name)
 # Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
+metadata$matched_samples="No"
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -463,12 +463,12 @@ head(metadata)
     ## 5 Temporal variability is a personalized feature of the human microbiome
     ## 6 Temporal variability is a personalized feature of the human microbiome
     ##   Disease_study Status matched_samples
-    ## 1            NO     HC             YES
-    ## 2            NO     HC             YES
-    ## 3            NO     HC             YES
-    ## 4            NO     HC             YES
-    ## 5            NO     HC             YES
-    ## 6            NO     HC             YES
+    ## 1            NO     HC              No
+    ## 2            NO     HC              No
+    ## 3            NO     HC              No
+    ## 4            NO     HC              No
+    ## 5            NO     HC              No
+    ## 6            NO     HC              No
 
 ## Notes for Students:
 

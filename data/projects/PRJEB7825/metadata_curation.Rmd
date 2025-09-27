@@ -27,8 +27,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 
 #Remove entries non-oral samples
 #initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
-initial_meta <- initial_meta[initial_meta$Organism != "human gut metagenome", ]
-initial_meta <- initial_meta[initial_meta$Organism != "human skin metagenome", ]
+
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
 
@@ -68,7 +67,7 @@ metadata <- data.frame(
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$COUNTRY,
-  Site = initial_meta$Organism,
+  Site = gsub("UBERON:", "", initial_meta$body_site),
   public_time = "2015-04-17",
   PCR_primers = "27F-338R",
   stringsAsFactors = FALSE
@@ -77,7 +76,7 @@ metadata <- data.frame(
 
 ```{r}
 metadata <- metadata %>%
-  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+  mutate(Sex = recode(Sex, "female" = "F", "male" = "M",.default = NA_character_))
 ```
 
 # Step 3: Manually Add Information from the Publication
@@ -90,23 +89,14 @@ metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
 
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("SAMEA", "", metadata$sample_name)
-
-# Check initial data distribution
-cat("Initial sample distribution:\n")
-table(metadata$sample_name)
-table(metadata$Site)
-
-# Calculate sampling frequency per subject
+#get subjects id with Saliva available
+keep_subjects<-subset(metadata,Site %in% "mouth")
+#remove subjects without Saliva samples
+metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
+#get subjects sampling counts
 sample_counts <- table(metadata$sample_name)
-cat("\nNumber of samples per subject:\n")
-print(sample_counts)
-
-# Create matched_samples column
+# Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
 metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
-
-
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

@@ -27,8 +27,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 
 #Remove entries non-oral samples
 #initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
-initial_meta <- initial_meta[initial_meta$Organism != "human gut metagenome", ]
-initial_meta <- initial_meta[initial_meta$Organism != "human skin metagenome", ]
+
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
 
@@ -36,202 +35,202 @@ initial_meta <- initial_meta[initial_meta$Organism != "human skin metagenome", ]
 head(initial_meta)
 ```
 
-    ##          Run age_unit altitude anonymized_name Assay.Type assigned_from_geo
-    ## 40 ERR687975    years        0          MG.O10      OTHER             False
-    ## 41 ERR687976    years        0          MG.O11      OTHER             False
-    ## 42 ERR687977    years        0          MG.O12      OTHER             False
-    ## 43 ERR687978    years        0          MG.O13      OTHER             False
-    ## 44 ERR687979    years        0          MG.O14      OTHER             False
-    ## 45 ERR687980    years        0          MG.O16      OTHER             False
-    ##    AvgSpotLen barcodesequence..exp.    Bases BioProject    BioSample
-    ## 40        127          AGTTCAGACGCT  1825000  PRJEB7825 SAMEA3139776
-    ## 41        126          ATCACGTAGCGG  1872743  PRJEB7825 SAMEA3139777
-    ## 42        128          ATCTGGTGCTAT  4107688  PRJEB7825 SAMEA3139778
-    ## 43        128          ATGGCGTGCACA  4795309  PRJEB7825 SAMEA3139779
-    ## 44        128          CAAGTGAGAGAG  7549485  PRJEB7825 SAMEA3139780
-    ## 45        130          CACTCTGATTAG 14038609  PRJEB7825 SAMEA3139781
-    ##          body_habitat  body_product    body_site    Bytes center_name..exp.
-    ## 40 UBERON:oral cavity UBERON:saliva UBERON:mouth  1510817              CCME
-    ## 41 UBERON:oral cavity UBERON:saliva UBERON:mouth  1548981              CCME
-    ## 42 UBERON:oral cavity UBERON:saliva UBERON:mouth  3308666              CCME
-    ## 43 UBERON:oral cavity UBERON:saliva UBERON:mouth  3844150              CCME
-    ## 44 UBERON:oral cavity UBERON:saliva UBERON:mouth  5854868              CCME
-    ## 45 UBERON:oral cavity UBERON:saliva UBERON:mouth 11064456              CCME
-    ##                                           Center.Name
-    ## 40 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
-    ## 41 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
-    ## 42 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
-    ## 43 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
-    ## 44 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
-    ## 45 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
-    ##                center_project_name..exp. Collection_Date collection_timestamp
-    ## 40 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
-    ## 41 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
-    ## 42 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
-    ## 43 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
-    ## 44 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
-    ## 45 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
-    ##              common_name Consent        COUNTRY DATASTORE.filetype
-    ## 40 human oral metagenome  public Venezuela: GAZ   fastq,run.zq,sra
-    ## 41 human oral metagenome  public Venezuela: GAZ   fastq,run.zq,sra
-    ## 42 human oral metagenome  public Venezuela: GAZ   fastq,run.zq,sra
-    ## 43 human oral metagenome  public Venezuela: GAZ   fastq,run.zq,sra
-    ## 44 human oral metagenome  public Venezuela: GAZ   fastq,run.zq,sra
-    ## 45 human oral metagenome  public Venezuela: GAZ   fastq,run.zq,sra
-    ##    DATASTORE.provider                         DATASTORE.region Depth
-    ## 40     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
-    ## 41     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
-    ## 42     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
-    ## 43     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
-    ## 44     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
-    ## 45     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
-    ##    dna_extracted elevation emp_status..exp. ENA.FIRST.PUBLIC..run.
-    ## 40          True  89.84744          NOT_EMP             2015-04-16
-    ## 41          True  89.84744          NOT_EMP             2015-04-16
-    ## 42          True  89.84744          NOT_EMP             2015-04-16
-    ## 43          True  89.84744          NOT_EMP             2015-04-16
-    ## 44          True  89.84744          NOT_EMP             2015-04-16
-    ## 45          True  89.84744          NOT_EMP             2015-04-16
-    ##        ENA_first_public ENA.LAST.UPDATE..run.      ENA_last_update
-    ## 40 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:10:32Z
-    ## 41 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:10:32Z
-    ## 42 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:10:32Z
-    ## 43 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:10:32Z
-    ## 44 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:10:32Z
-    ## 45 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:10:32Z
-    ##             env_biome                   env_feature  env_matter
-    ## 40 ENVO:village biome ENVO:human-associated habitat ENVO:saliva
-    ## 41 ENVO:village biome ENVO:human-associated habitat ENVO:saliva
-    ## 42 ENVO:village biome ENVO:human-associated habitat ENVO:saliva
-    ## 43 ENVO:village biome ENVO:human-associated habitat ENVO:saliva
-    ## 44 ENVO:village biome ENVO:human-associated habitat ENVO:saliva
-    ## 45 ENVO:village biome ENVO:human-associated habitat ENVO:saliva
-    ##                                                           experiment_design_description..exp.
-    ## 40 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
-    ## 41 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
-    ## 42 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
-    ## 43 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
-    ## 44 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
-    ## 45 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
-    ##    Experiment  external_id
-    ## 40  ERX632969 SAMEA3139776
-    ## 41  ERX632970 SAMEA3139777
-    ## 42  ERX632971 SAMEA3139778
-    ## 43  ERX632972 SAMEA3139779
-    ## 44  ERX632973 SAMEA3139780
-    ## 45  ERX632974 SAMEA3139781
+    ##         Run age_unit altitude anonymized_name Assay.Type assigned_from_geo
+    ## 1 ERR687936    years        0          MG.BI1      OTHER             False
+    ## 2 ERR687937    years        0         MG.BI10      OTHER             False
+    ## 3 ERR687938    years        0         MG.BI11      OTHER             False
+    ## 4 ERR687939    years        0         MG.BI12      OTHER             False
+    ## 5 ERR687940    years        0         MG.BI13      OTHER             False
+    ## 6 ERR687941    years        0         MG.BI14      OTHER             False
+    ##   AvgSpotLen barcodesequence..exp.   Bases BioProject    BioSample body_habitat
+    ## 1        127          ATGTACGGCGAC 3709214  PRJEB7825 SAMEA3139737  UBERON:skin
+    ## 2        126          CACAGTGGACGT 1633394  PRJEB7825 SAMEA3139738  UBERON:skin
+    ## 3        125          CAGACATTGCGT  383127  PRJEB7825 SAMEA3139739  UBERON:skin
+    ## 4        125          CAGTCGAAGCTG  223509  PRJEB7825 SAMEA3139740  UBERON:skin
+    ## 5        125          CATCTGTAGCGA 1288167  PRJEB7825 SAMEA3139741  UBERON:skin
+    ## 6        126          ATACAGAGCTCC  533478  PRJEB7825 SAMEA3139742  UBERON:skin
+    ##   body_product          body_site   Bytes center_name..exp.
+    ## 1 UBERON:sebum UBERON:skin of arm 3011281              CCME
+    ## 2 UBERON:sebum UBERON:skin of arm 1366731              CCME
+    ## 3 UBERON:sebum UBERON:skin of arm  364364              CCME
+    ## 4 UBERON:sebum UBERON:skin of arm  233457              CCME
+    ## 5 UBERON:sebum UBERON:skin of arm 1096639              CCME
+    ## 6 UBERON:sebum UBERON:skin of arm  486421              CCME
+    ##                                          Center.Name
+    ## 1 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
+    ## 2 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
+    ## 3 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
+    ## 4 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
+    ## 5 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
+    ## 6 COLORADO CENTER FOR MICROBIAL ECOLOGY, UNIVERSITY 
+    ##               center_project_name..exp. Collection_Date collection_timestamp
+    ## 1 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
+    ## 2 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
+    ## 3 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
+    ## 4 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
+    ## 5 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
+    ## 6 Dominguez_Perisipiwei_skin_oral_fecal         4/25/09  2009-04-25 00:00:00
+    ##             common_name Consent        COUNTRY DATASTORE.filetype
+    ## 1 human skin metagenome  public Venezuela: GAZ   fastq,run.zq,sra
+    ## 2 human skin metagenome  public Venezuela: GAZ   fastq,run.zq,sra
+    ## 3 human skin metagenome  public Venezuela: GAZ   fastq,run.zq,sra
+    ## 4 human skin metagenome  public Venezuela: GAZ   fastq,run.zq,sra
+    ## 5 human skin metagenome  public Venezuela: GAZ   fastq,run.zq,sra
+    ## 6 human skin metagenome  public Venezuela: GAZ   fastq,run.zq,sra
+    ##   DATASTORE.provider                         DATASTORE.region Depth
+    ## 1     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
+    ## 2     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
+    ## 3     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
+    ## 4     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
+    ## 5     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
+    ## 6     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0
+    ##   dna_extracted elevation emp_status..exp. ENA.FIRST.PUBLIC..run.
+    ## 1          True  89.84744          NOT_EMP             2015-04-16
+    ## 2          True  89.84744          NOT_EMP             2015-04-16
+    ## 3          True  89.84744          NOT_EMP             2015-04-16
+    ## 4          True  89.84744          NOT_EMP             2015-04-16
+    ## 5          True  89.84744          NOT_EMP             2015-04-16
+    ## 6          True  89.84744          NOT_EMP             2015-04-16
+    ##       ENA_first_public ENA.LAST.UPDATE..run.      ENA_last_update
+    ## 1 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:15:49Z
+    ## 2 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:15:49Z
+    ## 3 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:15:49Z
+    ## 4 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:15:49Z
+    ## 5 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:15:49Z
+    ## 6 2015-04-16T17:02:02Z            2018-11-16 2018-03-09T12:15:49Z
+    ##            env_biome                   env_feature env_matter
+    ## 1 ENVO:village biome ENVO:human-associated habitat ENVO:sebum
+    ## 2 ENVO:village biome ENVO:human-associated habitat ENVO:sebum
+    ## 3 ENVO:village biome ENVO:human-associated habitat ENVO:sebum
+    ## 4 ENVO:village biome ENVO:human-associated habitat ENVO:sebum
+    ## 5 ENVO:village biome ENVO:human-associated habitat ENVO:sebum
+    ## 6 ENVO:village biome ENVO:human-associated habitat ENVO:sebum
+    ##                                                          experiment_design_description..exp.
+    ## 1 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
+    ## 2 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
+    ## 3 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
+    ## 4 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
+    ## 5 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
+    ## 6 samples of, skin, saliva and feces from Perisipiwei as part of western acculturation study
+    ##   Experiment  external_id
+    ## 1  ERX632930 SAMEA3139737
+    ## 2  ERX632931 SAMEA3139738
+    ## 3  ERX632932 SAMEA3139739
+    ## 4  ERX632933 SAMEA3139740
+    ## 5  ERX632934 SAMEA3139741
+    ## 6  ERX632935 SAMEA3139742
     ##                                                  file_path..exp.
-    ## 40 /projects/qiita_data/working_dir/6jcIl1/10052.MG.O10.fastq.gz
-    ## 41 /projects/qiita_data/working_dir/6jcIl1/10052.MG.O11.fastq.gz
-    ## 42 /projects/qiita_data/working_dir/6jcIl1/10052.MG.O12.fastq.gz
-    ## 43 /projects/qiita_data/working_dir/6jcIl1/10052.MG.O13.fastq.gz
-    ## 44 /projects/qiita_data/working_dir/6jcIl1/10052.MG.O14.fastq.gz
-    ## 45 /projects/qiita_data/working_dir/6jcIl1/10052.MG.O16.fastq.gz
-    ##    file_type..exp. host_common_name host_subject_id host_taxid
-    ## 40           fastq            human               9       9606
-    ## 41           fastq            human              10       9606
-    ## 42           fastq            human              11       9606
-    ## 43           fastq            human              12       9606
-    ## 44           fastq            human              13       9606
-    ## 45           fastq            human              14       9606
-    ##    illumina_technology..exp. INSDC_center_name   INSDC_first_public
-    ## 40                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
-    ## 41                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
-    ## 42                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
-    ## 43                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
-    ## 44                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
-    ## 45                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
-    ##       INSDC_last_update INSDC_status  Instrument key_seq..exp. LATITUDE
-    ## 40 2018-03-09T12:10:32Z       public unspecified           NaN  6.42375
-    ## 41 2018-03-09T12:10:32Z       public unspecified           NaN  6.42375
-    ## 42 2018-03-09T12:10:32Z       public unspecified           NaN  6.42375
-    ## 43 2018-03-09T12:10:32Z       public unspecified           NaN  6.42375
-    ## 44 2018-03-09T12:10:32Z       public unspecified           NaN  6.42375
-    ## 45 2018-03-09T12:10:32Z       public unspecified           NaN  6.42375
-    ##    library_construction_protocol..exp. Library.Name LibraryLayout
-    ## 40                      Illumina GAIIx 10052.MG.O10        SINGLE
-    ## 41                      Illumina GAIIx 10052.MG.O11        SINGLE
-    ## 42                      Illumina GAIIx 10052.MG.O12        SINGLE
-    ## 43                      Illumina GAIIx 10052.MG.O13        SINGLE
-    ## 44                      Illumina GAIIx 10052.MG.O14        SINGLE
-    ## 45                      Illumina GAIIx 10052.MG.O16        SINGLE
-    ##    LibrarySelection LibrarySource linker..exp. linkerprimersequence..exp.
-    ## 40      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
-    ## 41      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
-    ## 42      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
-    ## 43      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
-    ## 44      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
-    ## 45      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
-    ##    LONGITUDE              Organism
-    ## 40 -66.58973 human oral metagenome
-    ## 41 -66.58973 human oral metagenome
-    ## 42 -66.58973 human oral metagenome
-    ## 43 -66.58973 human oral metagenome
-    ## 44 -66.58973 human oral metagenome
-    ## 45 -66.58973 human oral metagenome
-    ##                                    pcr_primers..exp. physical_specimen_location
-    ## 40 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
-    ## 41 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
-    ## 42 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
-    ## 43 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
-    ## 44 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
-    ## 45 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
-    ##    physical_specimen_remaining platform..exp. Platform public region..exp.
-    ## 40                        True       Illumina ILLUMINA   True          NaN
-    ## 41                        True       Illumina ILLUMINA   True          NaN
-    ## 42                        True       Illumina ILLUMINA   True          NaN
-    ## 43                        True       Illumina ILLUMINA   True          NaN
-    ## 44                        True       Illumina ILLUMINA   True          NaN
-    ## 45                        True       Illumina ILLUMINA   True          NaN
-    ##             ReleaseDate required_sample_info_status run_center..exp.
-    ## 40 2015-04-17T00:00:00Z                   completed             CCME
-    ## 41 2015-04-17T00:00:00Z                   completed             CCME
-    ## 42 2015-04-17T00:00:00Z                   completed             CCME
-    ## 43 2015-04-17T00:00:00Z                   completed             CCME
-    ## 44 2015-04-17T00:00:00Z                   completed             CCME
-    ## 45 2015-04-17T00:00:00Z                   completed             CCME
-    ##    run_date..exp.          create_date version run_prefix..exp. samp_size..exp.
-    ## 40        5/14/11 2017-08-03T12:06:00Z       1     s_4_sequence            .1,g
-    ## 41        5/14/11 2017-08-03T12:12:00Z       1     s_4_sequence            .1,g
-    ## 42        5/14/11 2017-08-03T12:13:00Z       1     s_4_sequence            .1,g
-    ## 43        5/14/11 2017-08-03T12:14:00Z       1     s_4_sequence            .1,g
-    ## 44        5/14/11 2016-02-10T22:40:00Z       1     s_4_sequence            .1,g
-    ## 45        5/14/11 2017-08-03T12:15:00Z       1     s_4_sequence            .1,g
-    ##          sample_center..exp.  Sample.Name                Sample_name
-    ## 40 University of Puerto Rico SAMEA3139776 qiime_ppdid_4:10052.MG.O10
-    ## 41 University of Puerto Rico SAMEA3139777 qiime_ppdid_4:10052.MG.O11
-    ## 42 University of Puerto Rico SAMEA3139778 qiime_ppdid_4:10052.MG.O12
-    ## 43 University of Puerto Rico SAMEA3139779 qiime_ppdid_4:10052.MG.O13
-    ## 44 University of Puerto Rico SAMEA3139780 qiime_ppdid_4:10052.MG.O14
-    ## 45 University of Puerto Rico SAMEA3139781 qiime_ppdid_4:10052.MG.O16
-    ##    sample_type       scientific_name   sequencing_meth..exp. SRA.Study
-    ## 40      Saliva human oral metagenome sequencing by synthesis ERP008799
-    ## 41      Saliva human oral metagenome sequencing by synthesis ERP008799
-    ## 42      Saliva human oral metagenome sequencing by synthesis ERP008799
-    ## 43      Saliva human oral metagenome sequencing by synthesis ERP008799
-    ## 44      Saliva human oral metagenome sequencing by synthesis ERP008799
-    ## 45      Saliva human oral metagenome sequencing by synthesis ERP008799
-    ##           study_center..exp.               Submitter_Id target_gene..exp.
-    ## 40 University of Puerto Rico qiime_ppdid_4:10052.MG.O10          16S rRNA
-    ## 41 University of Puerto Rico qiime_ppdid_4:10052.MG.O11          16S rRNA
-    ## 42 University of Puerto Rico qiime_ppdid_4:10052.MG.O12          16S rRNA
-    ## 43 University of Puerto Rico qiime_ppdid_4:10052.MG.O13          16S rRNA
-    ## 44 University of Puerto Rico qiime_ppdid_4:10052.MG.O14          16S rRNA
-    ## 45 University of Puerto Rico qiime_ppdid_4:10052.MG.O16          16S rRNA
-    ##    target_subfragment..exp.                                         diet_type
-    ## 40                       V2 hunter gatherer diet, cassava crops, local fruits
-    ## 41                       V2 hunter gatherer diet, cassava crops, local fruits
-    ## 42                       V2 hunter gatherer diet, cassava crops, local fruits
-    ## 43                       V2 hunter gatherer diet, cassava crops, local fruits
-    ## 44                       V2 hunter gatherer diet, cassava crops, local fruits
-    ## 45                       V2 hunter gatherer diet, cassava crops, local fruits
-    ##    ethnic_group village_shabono_name AGE    sex
-    ## 40     Yanomami        Yanomani 2008  40   male
-    ## 41     Yanomami        Yanomani 2008  11   male
-    ## 42     Yanomami        Yanomani 2008  45 female
-    ## 43     Yanomami        Yanomani 2008  48 female
-    ## 44     Yanomami        Yanomani 2008  47 female
-    ## 45     Yanomami        Yanomani 2008  45 female
+    ## 1  /projects/qiita_data/working_dir/6jcIl1/10052.MG.BI1.fastq.gz
+    ## 2 /projects/qiita_data/working_dir/6jcIl1/10052.MG.BI10.fastq.gz
+    ## 3 /projects/qiita_data/working_dir/6jcIl1/10052.MG.BI11.fastq.gz
+    ## 4 /projects/qiita_data/working_dir/6jcIl1/10052.MG.BI12.fastq.gz
+    ## 5 /projects/qiita_data/working_dir/6jcIl1/10052.MG.BI13.fastq.gz
+    ## 6 /projects/qiita_data/working_dir/6jcIl1/10052.MG.BI14.fastq.gz
+    ##   file_type..exp. host_common_name host_subject_id host_taxid
+    ## 1           fastq            human               1       9606
+    ## 2           fastq            human              10       9606
+    ## 3           fastq            human              11       9606
+    ## 4           fastq            human              12       9606
+    ## 5           fastq            human              13       9606
+    ## 6           fastq            human              14       9606
+    ##   illumina_technology..exp. INSDC_center_name   INSDC_first_public
+    ## 1                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
+    ## 2                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
+    ## 3                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
+    ## 4                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
+    ## 5                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
+    ## 6                     GAIIx     CCME-COLORADO 2015-04-16T17:02:02Z
+    ##      INSDC_last_update INSDC_status  Instrument key_seq..exp. LATITUDE
+    ## 1 2018-03-09T12:15:49Z       public unspecified           NaN  6.42375
+    ## 2 2018-03-09T12:15:49Z       public unspecified           NaN  6.42375
+    ## 3 2018-03-09T12:15:49Z       public unspecified           NaN  6.42375
+    ## 4 2018-03-09T12:15:49Z       public unspecified           NaN  6.42375
+    ## 5 2018-03-09T12:15:49Z       public unspecified           NaN  6.42375
+    ## 6 2018-03-09T12:15:49Z       public unspecified           NaN  6.42375
+    ##   library_construction_protocol..exp.  Library.Name LibraryLayout
+    ## 1                      Illumina GAIIx  10052.MG.BI1        SINGLE
+    ## 2                      Illumina GAIIx 10052.MG.BI10        SINGLE
+    ## 3                      Illumina GAIIx 10052.MG.BI11        SINGLE
+    ## 4                      Illumina GAIIx 10052.MG.BI12        SINGLE
+    ## 5                      Illumina GAIIx 10052.MG.BI13        SINGLE
+    ## 6                      Illumina GAIIx 10052.MG.BI14        SINGLE
+    ##   LibrarySelection LibrarySource linker..exp. linkerprimersequence..exp.
+    ## 1      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
+    ## 2      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
+    ## 3      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
+    ## 4      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
+    ## 5      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
+    ## 6      unspecified   METAGENOMIC           TC       AGAGTTTGATCCTGGCTCAG
+    ##   LONGITUDE              Organism
+    ## 1 -66.58973 human skin metagenome
+    ## 2 -66.58973 human skin metagenome
+    ## 3 -66.58973 human skin metagenome
+    ## 4 -66.58973 human skin metagenome
+    ## 5 -66.58973 human skin metagenome
+    ## 6 -66.58973 human skin metagenome
+    ##                                   pcr_primers..exp. physical_specimen_location
+    ## 1 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
+    ## 2 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
+    ## 3 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
+    ## 4 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
+    ## 5 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
+    ## 6 FWD:AGAGTTTGATCCTGGCTCAG; REV:TGCTGCCTCCCGTAGGAGT                        UPR
+    ##   physical_specimen_remaining platform..exp. Platform public region..exp.
+    ## 1                        True       Illumina ILLUMINA   True          NaN
+    ## 2                        True       Illumina ILLUMINA   True          NaN
+    ## 3                        True       Illumina ILLUMINA   True          NaN
+    ## 4                        True       Illumina ILLUMINA   True          NaN
+    ## 5                        True       Illumina ILLUMINA   True          NaN
+    ## 6                        True       Illumina ILLUMINA   True          NaN
+    ##            ReleaseDate required_sample_info_status run_center..exp.
+    ## 1 2015-04-17T00:00:00Z                   completed             CCME
+    ## 2 2015-04-17T00:00:00Z                   completed             CCME
+    ## 3 2015-04-17T00:00:00Z                   completed             CCME
+    ## 4 2015-04-17T00:00:00Z                   completed             CCME
+    ## 5 2015-04-17T00:00:00Z                   completed             CCME
+    ## 6 2015-04-17T00:00:00Z                   completed             CCME
+    ##   run_date..exp.          create_date version run_prefix..exp. samp_size..exp.
+    ## 1        5/14/11 2017-08-03T11:37:00Z       1     s_4_sequence            .1,g
+    ## 2        5/14/11 2017-08-03T12:16:00Z       1     s_4_sequence            .1,g
+    ## 3        5/14/11 2017-08-03T11:52:00Z       1     s_4_sequence            .1,g
+    ## 4        5/14/11 2017-08-03T11:52:00Z       1     s_4_sequence            .1,g
+    ## 5        5/14/11 2017-08-03T11:55:00Z       1     s_4_sequence            .1,g
+    ## 6        5/14/11 2017-08-03T11:55:00Z       1     s_4_sequence            .1,g
+    ##         sample_center..exp.  Sample.Name                 Sample_name
+    ## 1 University of Puerto Rico SAMEA3139737  qiime_ppdid_4:10052.MG.BI1
+    ## 2 University of Puerto Rico SAMEA3139738 qiime_ppdid_4:10052.MG.BI10
+    ## 3 University of Puerto Rico SAMEA3139739 qiime_ppdid_4:10052.MG.BI11
+    ## 4 University of Puerto Rico SAMEA3139740 qiime_ppdid_4:10052.MG.BI12
+    ## 5 University of Puerto Rico SAMEA3139741 qiime_ppdid_4:10052.MG.BI13
+    ## 6 University of Puerto Rico SAMEA3139742 qiime_ppdid_4:10052.MG.BI14
+    ##   sample_type       scientific_name   sequencing_meth..exp. SRA.Study
+    ## 1        Skin human skin metagenome sequencing by synthesis ERP008799
+    ## 2        Skin human skin metagenome sequencing by synthesis ERP008799
+    ## 3        Skin human skin metagenome sequencing by synthesis ERP008799
+    ## 4        Skin human skin metagenome sequencing by synthesis ERP008799
+    ## 5        Skin human skin metagenome sequencing by synthesis ERP008799
+    ## 6        Skin human skin metagenome sequencing by synthesis ERP008799
+    ##          study_center..exp.                Submitter_Id target_gene..exp.
+    ## 1 University of Puerto Rico  qiime_ppdid_4:10052.MG.BI1          16S rRNA
+    ## 2 University of Puerto Rico qiime_ppdid_4:10052.MG.BI10          16S rRNA
+    ## 3 University of Puerto Rico qiime_ppdid_4:10052.MG.BI11          16S rRNA
+    ## 4 University of Puerto Rico qiime_ppdid_4:10052.MG.BI12          16S rRNA
+    ## 5 University of Puerto Rico qiime_ppdid_4:10052.MG.BI13          16S rRNA
+    ## 6 University of Puerto Rico qiime_ppdid_4:10052.MG.BI14          16S rRNA
+    ##   target_subfragment..exp.                                         diet_type
+    ## 1                       V2 hunter gatherer diet, cassava crops, local fruits
+    ## 2                       V2 hunter gatherer diet, cassava crops, local fruits
+    ## 3                       V2 hunter gatherer diet, cassava crops, local fruits
+    ## 4                       V2 hunter gatherer diet, cassava crops, local fruits
+    ## 5                       V2 hunter gatherer diet, cassava crops, local fruits
+    ## 6                       V2 hunter gatherer diet, cassava crops, local fruits
+    ##   ethnic_group village_shabono_name AGE    sex
+    ## 1     Yanomami        Yanomani 2008  10   male
+    ## 2     Yanomami        Yanomani 2008  40   male
+    ## 3     Yanomami        Yanomani 2008  11   male
+    ## 4     Yanomami        Yanomani 2008  45 female
+    ## 5     Yanomami        Yanomani 2008  48 female
+    ## 6     Yanomami        Yanomani 2008  47 female
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -270,7 +269,7 @@ metadata <- data.frame(
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$COUNTRY,
-  Site = initial_meta$Organism,
+  Site = gsub("UBERON:", "", initial_meta$body_site),
   public_time = "2015-04-17",
   PCR_primers = "27F-338R",
   stringsAsFactors = FALSE
@@ -279,7 +278,7 @@ metadata <- data.frame(
 
 ``` r
 metadata <- metadata %>%
-  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+  mutate(Sex = recode(Sex, "female" = "F", "male" = "M",.default = NA_character_))
 ```
 
 # Step 3: Manually Add Information from the Publication
@@ -294,66 +293,13 @@ metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
 
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("SAMEA", "", metadata$sample_name)
-
-# Check initial data distribution
-cat("Initial sample distribution:\n")
-```
-
-    ## Initial sample distribution:
-
-``` r
-table(metadata$sample_name)
-```
-
-    ## 
-    ## 10052.MG.O10 10052.MG.O11 10052.MG.O12 10052.MG.O13 10052.MG.O14 10052.MG.O16 
-    ##            1            1            1            1            1            1 
-    ## 10052.MG.O17 10052.MG.O18 10052.MG.O19  10052.MG.O2 10052.MG.O20 10052.MG.O21 
-    ##            1            1            1            1            1            1 
-    ## 10052.MG.O22 10052.MG.O23 10052.MG.O24 10052.MG.O25  10052.MG.O3  10052.MG.O4 
-    ##            1            1            1            1            1            1 
-    ## 10052.MG.O49  10052.MG.O5 10052.MG.O50 10052.MG.O51 10052.MG.O54  10052.MG.O6 
-    ##            1            1            1            1            1            1 
-    ##  10052.MG.O7  10052.MG.O8  10052.MG.O9 
-    ##            1            1            1
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## human oral metagenome 
-    ##                    27
-
-``` r
-# Calculate sampling frequency per subject
+#get subjects id with Saliva available
+keep_subjects<-subset(metadata,Site %in% "mouth")
+#remove subjects without Saliva samples
+metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
+#get subjects sampling counts
 sample_counts <- table(metadata$sample_name)
-cat("\nNumber of samples per subject:\n")
-```
-
-    ## 
-    ## Number of samples per subject:
-
-``` r
-print(sample_counts)
-```
-
-    ## 
-    ## 10052.MG.O10 10052.MG.O11 10052.MG.O12 10052.MG.O13 10052.MG.O14 10052.MG.O16 
-    ##            1            1            1            1            1            1 
-    ## 10052.MG.O17 10052.MG.O18 10052.MG.O19  10052.MG.O2 10052.MG.O20 10052.MG.O21 
-    ##            1            1            1            1            1            1 
-    ## 10052.MG.O22 10052.MG.O23 10052.MG.O24 10052.MG.O25  10052.MG.O3  10052.MG.O4 
-    ##            1            1            1            1            1            1 
-    ## 10052.MG.O49  10052.MG.O5 10052.MG.O50 10052.MG.O51 10052.MG.O54  10052.MG.O6 
-    ##            1            1            1            1            1            1 
-    ##  10052.MG.O7  10052.MG.O8  10052.MG.O9 
-    ##            1            1            1
-
-``` r
-# Create matched_samples column
+# Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
 metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
 ```
 
@@ -395,34 +341,27 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject       Run  sample_name Age BMI Sex Region Platform        Country
-    ## 1  PRJEB7825 ERR687975 10052.MG.O10  40  NA   M     V2 Illumina Venezuela: GAZ
-    ## 2  PRJEB7825 ERR687976 10052.MG.O11  11  NA   M     V2 Illumina Venezuela: GAZ
-    ## 3  PRJEB7825 ERR687977 10052.MG.O12  45  NA   F     V2 Illumina Venezuela: GAZ
-    ## 4  PRJEB7825 ERR687978 10052.MG.O13  48  NA   F     V2 Illumina Venezuela: GAZ
-    ## 5  PRJEB7825 ERR687979 10052.MG.O14  47  NA   F     V2 Illumina Venezuela: GAZ
-    ## 6  PRJEB7825 ERR687980 10052.MG.O16  45  NA   F     V2 Illumina Venezuela: GAZ
-    ##                    Site public_time PCR_primers
-    ## 1 human oral metagenome  2015-04-17    27F-338R
-    ## 2 human oral metagenome  2015-04-17    27F-338R
-    ## 3 human oral metagenome  2015-04-17    27F-338R
-    ## 4 human oral metagenome  2015-04-17    27F-338R
-    ## 5 human oral metagenome  2015-04-17    27F-338R
-    ## 6 human oral metagenome  2015-04-17    27F-338R
-    ##                                       title Disease_study Status
-    ## 1 The microbiome of uncontacted Amerindians            NO     HC
-    ## 2 The microbiome of uncontacted Amerindians            NO     HC
-    ## 3 The microbiome of uncontacted Amerindians            NO     HC
-    ## 4 The microbiome of uncontacted Amerindians            NO     HC
-    ## 5 The microbiome of uncontacted Amerindians            NO     HC
-    ## 6 The microbiome of uncontacted Amerindians            NO     HC
-    ##   matched_samples
-    ## 1              NO
-    ## 2              NO
-    ## 3              NO
-    ## 4              NO
-    ## 5              NO
-    ## 6              NO
+    ##    BioProject       Run  sample_name Age BMI Sex Region Platform        Country
+    ## 40  PRJEB7825 ERR687975 10052.MG.O10  40  NA   M     V2 Illumina Venezuela: GAZ
+    ## 41  PRJEB7825 ERR687976 10052.MG.O11  11  NA   M     V2 Illumina Venezuela: GAZ
+    ## 42  PRJEB7825 ERR687977 10052.MG.O12  45  NA   F     V2 Illumina Venezuela: GAZ
+    ## 43  PRJEB7825 ERR687978 10052.MG.O13  48  NA   F     V2 Illumina Venezuela: GAZ
+    ## 44  PRJEB7825 ERR687979 10052.MG.O14  47  NA   F     V2 Illumina Venezuela: GAZ
+    ## 45  PRJEB7825 ERR687980 10052.MG.O16  45  NA   F     V2 Illumina Venezuela: GAZ
+    ##     Site public_time PCR_primers                                     title
+    ## 40 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
+    ## 41 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
+    ## 42 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
+    ## 43 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
+    ## 44 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
+    ## 45 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
+    ##    Disease_study Status matched_samples
+    ## 40            NO     HC              NO
+    ## 41            NO     HC              NO
+    ## 42            NO     HC              NO
+    ## 43            NO     HC              NO
+    ## 44            NO     HC              NO
+    ## 45            NO     HC              NO
 
 ## Notes for Students:
 

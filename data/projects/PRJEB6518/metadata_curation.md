@@ -27,7 +27,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 
 #Remove entries non-oral samples
 #initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
-initial_meta <- initial_meta[initial_meta$Organism != "human gut metagenome", ]
+
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
 
@@ -35,167 +35,167 @@ initial_meta <- initial_meta[initial_meta$Organism != "human gut metagenome", ]
 head(initial_meta)
 ```
 
-    ##          Run AGE age_unit altitude anonymized_name Assay.Type assigned_from_geo
-    ## 14 ERR531454  26       78        0       Saliva184   AMPLICON                 n
-    ## 15 ERR531455  26       78        0        Saliva84   AMPLICON                 n
-    ## 16 ERR531456  26       78        0       Saliva207   AMPLICON                 n
-    ## 23 ERR531463  26       78        0        Saliva64   AMPLICON                 n
-    ## 26 ERR531466  26       78        0       Saliva209   AMPLICON                 n
-    ## 27 ERR531467  26       78        0       Saliva144   AMPLICON                 n
-    ##    AvgSpotLen    Bases BioProject    BioSample       body_habitat
-    ## 14         95 33467043  PRJEB6518 SAMEA2592382 UBERON:oral cavity
-    ## 15         94 25870569  PRJEB6518 SAMEA2592383 UBERON:oral cavity
-    ## 16         94 26819099  PRJEB6518 SAMEA2592384 UBERON:oral cavity
-    ## 23         94 38150985  PRJEB6518 SAMEA2592391 UBERON:oral cavity
-    ## 26         95 33897562  PRJEB6518 SAMEA2592394 UBERON:oral cavity
-    ## 27         94 24561716  PRJEB6518 SAMEA2592395 UBERON:oral cavity
-    ##    body_mass_index  body_product     body_site    Bytes   Center.Name
-    ## 14            19.4 UBERON:tongue UBERON:saliva 28545774 CCME-COLORADO
-    ## 15            19.4 UBERON:tongue UBERON:saliva 22003680 CCME-COLORADO
-    ## 16            19.4 UBERON:tongue UBERON:saliva 23197124 CCME-COLORADO
-    ## 23            19.4 UBERON:tongue UBERON:saliva 32488994 CCME-COLORADO
-    ## 26            19.4 UBERON:tongue UBERON:saliva 29065101 CCME-COLORADO
-    ## 27            19.4 UBERON:tongue UBERON:saliva 21241844 CCME-COLORADO
-    ##    Collection_Date           common_name Consent DATASTORE.filetype
-    ## 14            2011 human oral metagenome  public   fastq,run.zq,sra
-    ## 15            2011 human oral metagenome  public   fastq,run.zq,sra
-    ## 16            2011 human oral metagenome  public   fastq,run.zq,sra
-    ## 23            2011 human oral metagenome  public   fastq,run.zq,sra
-    ## 26            2011 human oral metagenome  public   fastq,run.zq,sra
-    ## 27            2011 human oral metagenome  public   fastq,run.zq,sra
-    ##    DATASTORE.provider                         DATASTORE.region Depth     Diet
-    ## 14     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore
-    ## 15     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore
-    ## 16     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore
-    ## 23     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore
-    ## 26     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore
-    ## 27     ena,gs,ncbi,s3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore
-    ##    elevation ENA.FIRST.PUBLIC..run.     ENA_first_public ENA.LAST.UPDATE..run.
-    ## 14    256.05             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
-    ## 15    256.05             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
-    ## 16    256.05             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
-    ## 23    256.05             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
-    ## 26    256.05             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
-    ## 27    256.05             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
-    ##         ENA_last_update        env_biome                   env_feature
-    ## 14 2018-03-09T11:14:40Z ENVO:urban biome ENVO:human-associated habitat
-    ## 15 2018-03-09T11:14:40Z ENVO:urban biome ENVO:human-associated habitat
-    ## 16 2018-03-09T11:14:40Z ENVO:urban biome ENVO:human-associated habitat
-    ## 23 2018-03-09T11:14:55Z ENVO:urban biome ENVO:human-associated habitat
-    ## 26 2018-03-09T11:14:55Z ENVO:urban biome ENVO:human-associated habitat
-    ## 27 2018-03-09T11:14:56Z ENVO:urban biome ENVO:human-associated habitat
-    ##     env_matter experiment_center..exp. experiment_design_description..exp.
-    ## 14 ENVO:saliva                    CCME        daily microbiota time-series
-    ## 15 ENVO:saliva                    CCME        daily microbiota time-series
-    ## 16 ENVO:saliva                    CCME        daily microbiota time-series
-    ## 23 ENVO:saliva                    CCME        daily microbiota time-series
-    ## 26 ENVO:saliva                    CCME        daily microbiota time-series
-    ## 27 ENVO:saliva                    CCME        daily microbiota time-series
-    ##    Experiment                 experiment_title..exp.  external_id
-    ## 14  ERX496657 MIT daily human microbiota time-series SAMEA2592382
-    ## 15  ERX496658 MIT daily human microbiota time-series SAMEA2592383
-    ## 16  ERX496659 MIT daily human microbiota time-series SAMEA2592384
-    ## 23  ERX496666 MIT daily human microbiota time-series SAMEA2592391
-    ## 26  ERX496669 MIT daily human microbiota time-series SAMEA2592394
-    ## 27  ERX496670 MIT daily human microbiota time-series SAMEA2592395
-    ##    geo_loc_name_country geo_loc_name_country_continent
-    ## 14                  USA                  North America
-    ## 15                  USA                  North America
-    ## 16                  USA                  North America
-    ## 23                  USA                  North America
-    ## 26                  USA                  North America
-    ## 27                  USA                  North America
-    ##    geographic_location_.country_and.or_sea. host_subject_id host_taxid
-    ## 14                                 USA: GAZ     2202:DonorA       9606
-    ## 15                                 USA: GAZ     2202:DonorA       9606
-    ## 16                                 USA: GAZ     2202:DonorA       9606
-    ## 23                                 USA: GAZ     2202:DonorA       9606
-    ## 26                                 USA: GAZ     2202:DonorA       9606
-    ## 27                                 USA: GAZ     2202:DonorA       9606
-    ##    illumina_technology INSDC_center_name   INSDC_first_public
-    ## 14               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
-    ## 15               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
-    ## 16               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
-    ## 23               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
-    ## 26               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
-    ## 27               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
-    ##       INSDC_last_update INSDC_status  Instrument LATITUDE  Library.Name
-    ## 14 2018-03-09T11:14:40Z       public unspecified    37.09  Saliva184:94
-    ## 15 2018-03-09T11:14:40Z       public unspecified    37.09  Saliva84:269
-    ## 16 2018-03-09T11:14:40Z       public unspecified    37.09 Saliva207:120
-    ## 23 2018-03-09T11:14:55Z       public unspecified    37.09  Saliva64:247
-    ## 26 2018-03-09T11:14:55Z       public unspecified    37.09 Saliva209:122
-    ## 27 2018-03-09T11:14:56Z       public unspecified    37.09  Saliva144:50
-    ##    LibraryLayout LibrarySelection LibrarySource LONGITUDE num_sequences..exp.
-    ## 14        SINGLE              PCR   METAGENOMIC    -95.71              350892
-    ## 15        SINGLE              PCR   METAGENOMIC    -95.71              273301
-    ## 16        SINGLE              PCR   METAGENOMIC    -95.71              284116
-    ## 23        SINGLE              PCR   METAGENOMIC    -95.71              404290
-    ## 26        SINGLE              PCR   METAGENOMIC    -95.71              355993
-    ## 27        SINGLE              PCR   METAGENOMIC    -95.71              259008
-    ##                 Organism                                 pcr_primers..exp.
-    ## 14 human oral metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 15 human oral metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 16 human oral metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 23 human oral metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 26 human oral metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 27 human oral metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ##    platform..exp. Platform public          ReleaseDate row_number..exp.
-    ## 14       Illumina ILLUMINA      n 2014-06-14T00:00:00Z               94
-    ## 15       Illumina ILLUMINA      n 2014-06-14T00:00:00Z              269
-    ## 16       Illumina ILLUMINA      n 2014-06-14T00:00:00Z              120
-    ## 23       Illumina ILLUMINA      n 2014-06-14T00:00:00Z              247
-    ## 26       Illumina ILLUMINA      n 2014-06-14T00:00:00Z              122
-    ## 27       Illumina ILLUMINA      n 2014-06-14T00:00:00Z               50
-    ##    run_center..exp. run_date..exp. samp_size sample_center..exp. Sample_ID
-    ## 14           CGS-GL        5/14/11    .1\\,g                 MIT   1247334
-    ## 15           CGS-GL        5/14/11    .1\\,g                 MIT   1247335
-    ## 16           CGS-GL        5/14/11    .1\\,g                 MIT   1247336
-    ## 23           CGS-GL        5/14/11    .1\\,g                 MIT   1247343
-    ## 26           CGS-GL        5/14/11    .1\\,g                 MIT   1247346
-    ## 27           CGS-GL        5/14/11    .1\\,g                 MIT   1247347
-    ##     Sample.Name Sample_name       scientific_name   sequencing_meth..exp. sex
-    ## 14 SAMEA2592382   Saliva184 human oral metagenome sequencing by synthesis  47
-    ## 15 SAMEA2592383    Saliva84 human oral metagenome sequencing by synthesis  47
-    ## 16 SAMEA2592384   Saliva207 human oral metagenome sequencing by synthesis  47
-    ## 23 SAMEA2592391    Saliva64 human oral metagenome sequencing by synthesis  47
-    ## 26 SAMEA2592394   Saliva209 human oral metagenome sequencing by synthesis  47
-    ## 27 SAMEA2592395   Saliva144 human oral metagenome sequencing by synthesis  47
-    ##    SRA.Study study_center..exp.               Submitter_Id target_gene..exp.
-    ## 14 ERP006059                MIT qiime_study_2202:Saliva184          16S rRNA
-    ## 15 ERP006059                MIT  qiime_study_2202:Saliva84          16S rRNA
-    ## 16 ERP006059                MIT qiime_study_2202:Saliva207          16S rRNA
-    ## 23 ERP006059                MIT  qiime_study_2202:Saliva64          16S rRNA
-    ## 26 ERP006059                MIT qiime_study_2202:Saliva209          16S rRNA
-    ## 27 ERP006059                MIT qiime_study_2202:Saliva144          16S rRNA
-    ##    target_subfragment..exp. taxon_id collection_day          create_date
-    ## 14                       V4   447426            240 2014-06-15T00:00:00Z
-    ## 15                       V4   447426            131 2014-06-15T00:21:00Z
-    ## 16                       V4   447426            275 2014-06-15T00:21:00Z
-    ## 23                       V4   447426            108 2014-06-15T00:28:00Z
-    ## 26                       V4   447426            276 2014-06-15T00:11:00Z
-    ## 27                       V4   447426            200 2014-06-15T00:20:00Z
-    ##    version nutrition_calcium nutrition_calorie nutrition_carb
-    ## 14       1                NA                NA             NA
-    ## 15       1            220.58           2413.26       241.6760
-    ## 16       1                NA                NA             NA
-    ## 23       1                NA                NA             NA
-    ## 26       1                NA                NA             NA
-    ## 27       1            920.80           1961.47       287.2226
-    ##    nutrition_cholesterol nutrition_fat nutrition_fiber nutrition_protein
-    ## 14                    NA            NA              NA                NA
-    ## 15                148.60       98.8840          10.056          138.6180
-    ## 16                    NA            NA              NA                NA
-    ## 23                    NA            NA              NA                NA
-    ## 26                    NA            NA              NA                NA
-    ## 27                166.64       48.6578          22.848           67.5906
-    ##    nutrition_satfat nutrition_sodium nutrition_sugar
-    ## 14               NA               NA              NA
-    ## 15         25.08556          2611.52         67.9378
-    ## 16               NA               NA              NA
-    ## 23               NA               NA              NA
-    ## 26               NA               NA              NA
-    ## 27         21.39772          3861.58        102.1968
+    ##         Run AGE age_unit altitude anonymized_name Assay.Type assigned_from_geo
+    ## 1 ERR531441  26       78        0        Stool314   AMPLICON                 n
+    ## 2 ERR531442  36       78        0        Stool499   AMPLICON                 n
+    ## 3 ERR531443  26       78        0        Stool129   AMPLICON                 n
+    ## 4 ERR531444  26       78        0        Stool348   AMPLICON                 n
+    ## 5 ERR531445  36       78        0        Stool437   AMPLICON                 n
+    ## 6 ERR531446  36       78        0        Stool417   AMPLICON                 n
+    ##   AvgSpotLen    Bases BioProject    BioSample body_habitat body_mass_index
+    ## 1         98 28485870  PRJEB6518 SAMEA2592369 UBERON:feces            19.4
+    ## 2         98  9782737  PRJEB6518 SAMEA2592370 UBERON:feces            21.5
+    ## 3         97 24212559  PRJEB6518 SAMEA2592371 UBERON:feces            19.4
+    ## 4         98  8517721  PRJEB6518 SAMEA2592372 UBERON:feces            19.4
+    ## 5         99  7849894  PRJEB6518 SAMEA2592373 UBERON:feces            21.5
+    ## 6         99  7643232  PRJEB6518 SAMEA2592374 UBERON:feces            21.5
+    ##   body_product    body_site    Bytes   Center.Name Collection_Date
+    ## 1 UBERON:feces UBERON:feces 22725729 CCME-COLORADO            2011
+    ## 2 UBERON:feces UBERON:feces  7714083 CCME-COLORADO            2011
+    ## 3 UBERON:feces UBERON:feces 20031948 CCME-COLORADO            2011
+    ## 4 UBERON:feces UBERON:feces  6761782 CCME-COLORADO            2011
+    ## 5 UBERON:feces UBERON:feces  6131123 CCME-COLORADO            2011
+    ## 6 UBERON:feces UBERON:feces  5967749 CCME-COLORADO            2011
+    ##            common_name Consent DATASTORE.filetype DATASTORE.provider
+    ## 1 human gut metagenome  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 2 human gut metagenome  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 3 human gut metagenome  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 4 human gut metagenome  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 5 human gut metagenome  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 6 human gut metagenome  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ##                           DATASTORE.region Depth     Diet elevation
+    ## 1 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore    256.05
+    ## 2 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore    256.05
+    ## 3 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore    256.05
+    ## 4 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore    256.05
+    ## 5 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore    256.05
+    ## 6 ena,gs.us-east1,ncbi.public,s3.us-east-1     0 omnivore    256.05
+    ##   ENA.FIRST.PUBLIC..run.     ENA_first_public ENA.LAST.UPDATE..run.
+    ## 1             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
+    ## 2             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
+    ## 3             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
+    ## 4             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
+    ## 5             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
+    ## 6             2014-06-14 2014-06-14T17:03:01Z            2018-11-16
+    ##        ENA_last_update        env_biome                   env_feature
+    ## 1 2018-03-09T11:14:32Z ENVO:urban biome ENVO:human-associated habitat
+    ## 2 2018-03-09T11:14:32Z ENVO:urban biome ENVO:human-associated habitat
+    ## 3 2018-03-09T11:14:32Z ENVO:urban biome ENVO:human-associated habitat
+    ## 4 2018-03-09T11:14:32Z ENVO:urban biome ENVO:human-associated habitat
+    ## 5 2018-03-09T11:14:32Z ENVO:urban biome ENVO:human-associated habitat
+    ## 6 2018-03-09T11:14:32Z ENVO:urban biome ENVO:human-associated habitat
+    ##   env_matter experiment_center..exp. experiment_design_description..exp.
+    ## 1 ENVO:feces                    CCME        daily microbiota time-series
+    ## 2 ENVO:feces                    CCME        daily microbiota time-series
+    ## 3 ENVO:feces                    CCME        daily microbiota time-series
+    ## 4 ENVO:feces                    CCME        daily microbiota time-series
+    ## 5 ENVO:feces                    CCME        daily microbiota time-series
+    ## 6 ENVO:feces                    CCME        daily microbiota time-series
+    ##   Experiment                 experiment_title..exp.  external_id
+    ## 1  ERX496644 MIT daily human microbiota time-series SAMEA2592369
+    ## 2  ERX496645 MIT daily human microbiota time-series SAMEA2592370
+    ## 3  ERX496646 MIT daily human microbiota time-series SAMEA2592371
+    ## 4  ERX496647 MIT daily human microbiota time-series SAMEA2592372
+    ## 5  ERX496648 MIT daily human microbiota time-series SAMEA2592373
+    ## 6  ERX496649 MIT daily human microbiota time-series SAMEA2592374
+    ##   geo_loc_name_country geo_loc_name_country_continent
+    ## 1                  USA                  North America
+    ## 2                  USA                  North America
+    ## 3                  USA                  North America
+    ## 4                  USA                  North America
+    ## 5                  USA                  North America
+    ## 6                  USA                  North America
+    ##   geographic_location_.country_and.or_sea. host_subject_id host_taxid
+    ## 1                                 USA: GAZ     2202:DonorA       9606
+    ## 2                                 USA: GAZ     2202:DonorB       9606
+    ## 3                                 USA: GAZ     2202:DonorA       9606
+    ## 4                                 USA: GAZ     2202:DonorA       9606
+    ## 5                                 USA: GAZ     2202:DonorB       9606
+    ## 6                                 USA: GAZ     2202:DonorB       9606
+    ##   illumina_technology INSDC_center_name   INSDC_first_public
+    ## 1               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
+    ## 2               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
+    ## 3               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
+    ## 4               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
+    ## 5               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
+    ## 6               GAIIx     CCME-COLORADO 2014-06-14T17:03:01Z
+    ##      INSDC_last_update INSDC_status  Instrument LATITUDE Library.Name
+    ## 1 2018-03-09T11:14:32Z       public unspecified    37.09 Stool314:511
+    ## 2 2018-03-09T11:14:32Z       public unspecified    37.09 Stool499:715
+    ## 3 2018-03-09T11:14:32Z       public unspecified    37.09 Stool129:319
+    ## 4 2018-03-09T11:14:32Z       public unspecified    37.09 Stool348:548
+    ## 5 2018-03-09T11:14:32Z       public unspecified    37.09 Stool437:647
+    ## 6 2018-03-09T11:14:32Z       public unspecified    37.09 Stool417:625
+    ##   LibraryLayout LibrarySelection LibrarySource LONGITUDE num_sequences..exp.
+    ## 1        SINGLE              PCR   METAGENOMIC    -95.71              289890
+    ## 2        SINGLE              PCR   METAGENOMIC    -95.71               98906
+    ## 3        SINGLE              PCR   METAGENOMIC    -95.71              248353
+    ## 4        SINGLE              PCR   METAGENOMIC    -95.71               86568
+    ## 5        SINGLE              PCR   METAGENOMIC    -95.71               78520
+    ## 6        SINGLE              PCR   METAGENOMIC    -95.71               76721
+    ##               Organism                                 pcr_primers..exp.
+    ## 1 human gut metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 2 human gut metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 3 human gut metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 4 human gut metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 5 human gut metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 6 human gut metagenome FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ##   platform..exp. Platform public          ReleaseDate row_number..exp.
+    ## 1       Illumina ILLUMINA      n 2014-06-14T00:00:00Z              511
+    ## 2       Illumina ILLUMINA      n 2014-06-14T00:00:00Z              715
+    ## 3       Illumina ILLUMINA      n 2014-06-14T00:00:00Z              319
+    ## 4       Illumina ILLUMINA      n 2014-06-14T00:00:00Z              548
+    ## 5       Illumina ILLUMINA      n 2014-06-14T00:00:00Z              647
+    ## 6       Illumina ILLUMINA      n 2014-06-14T00:00:00Z              625
+    ##   run_center..exp. run_date..exp. samp_size sample_center..exp. Sample_ID
+    ## 1           CGS-GL        5/14/11    .1\\,g                 MIT   1247321
+    ## 2           CGS-GL        5/14/11    .1\\,g                 MIT   1247322
+    ## 3           CGS-GL        5/14/11    .1\\,g                 MIT   1247323
+    ## 4           CGS-GL        5/14/11    .1\\,g                 MIT   1247324
+    ## 5           CGS-GL        5/14/11    .1\\,g                 MIT   1247325
+    ## 6           CGS-GL        5/14/11    .1\\,g                 MIT   1247326
+    ##    Sample.Name Sample_name      scientific_name   sequencing_meth..exp. sex
+    ## 1 SAMEA2592369    Stool314 human gut metagenome sequencing by synthesis  47
+    ## 2 SAMEA2592370    Stool499 human gut metagenome sequencing by synthesis  47
+    ## 3 SAMEA2592371    Stool129 human gut metagenome sequencing by synthesis  47
+    ## 4 SAMEA2592372    Stool348 human gut metagenome sequencing by synthesis  47
+    ## 5 SAMEA2592373    Stool437 human gut metagenome sequencing by synthesis  47
+    ## 6 SAMEA2592374    Stool417 human gut metagenome sequencing by synthesis  47
+    ##   SRA.Study study_center..exp.              Submitter_Id target_gene..exp.
+    ## 1 ERP006059                MIT qiime_study_2202:Stool314          16S rRNA
+    ## 2 ERP006059                MIT qiime_study_2202:Stool499          16S rRNA
+    ## 3 ERP006059                MIT qiime_study_2202:Stool129          16S rRNA
+    ## 4 ERP006059                MIT qiime_study_2202:Stool348          16S rRNA
+    ## 5 ERP006059                MIT qiime_study_2202:Stool437          16S rRNA
+    ## 6 ERP006059                MIT qiime_study_2202:Stool417          16S rRNA
+    ##   target_subfragment..exp. taxon_id collection_day          create_date version
+    ## 1                       V4   408170            233 2014-06-15T00:01:00Z       1
+    ## 2                       V4   408170            169 2014-06-15T00:00:00Z       1
+    ## 3                       V4   408170            138 2014-06-15T00:20:00Z       1
+    ## 4                       V4   408170            267 2014-06-15T00:20:00Z       1
+    ## 5                       V4   408170             96 2014-06-15T00:00:00Z       1
+    ## 6                       V4   408170             63 2014-06-15T00:00:00Z       1
+    ##   nutrition_calcium nutrition_calorie nutrition_carb nutrition_cholesterol
+    ## 1                NA                NA             NA                    NA
+    ## 2                NA                NA             NA                    NA
+    ## 3           1820.42          1124.263       158.2823                    82
+    ## 4                NA                NA             NA                    NA
+    ## 5                NA                NA             NA                    NA
+    ## 6                NA                NA             NA                    NA
+    ##   nutrition_fat nutrition_fiber nutrition_protein nutrition_satfat
+    ## 1            NA              NA                NA               NA
+    ## 2            NA              NA                NA               NA
+    ## 3       30.8004          21.481          40.98985         12.10026
+    ## 4            NA              NA                NA               NA
+    ## 5            NA              NA                NA               NA
+    ## 6            NA              NA                NA               NA
+    ##   nutrition_sodium nutrition_sugar
+    ## 1               NA              NA
+    ## 2               NA              NA
+    ## 3         1609.289        25.36069
+    ## 4               NA              NA
+    ## 5               NA              NA
+    ## 6               NA              NA
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -234,7 +234,7 @@ metadata <- data.frame(
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$geo_loc_name_country,
-  Site = "saliva",
+  Site = gsub("UBERON:", "", initial_meta$body_site),
   public_time = "2014-06-14",
   PCR_primers = initial_meta$pcr_primers..exp.,
   stringsAsFactors = FALSE
@@ -258,115 +258,14 @@ metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
 
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("Saliva", "", metadata$sample_name)
-
-# Check initial data distribution
-cat("Initial sample distribution:\n")
-```
-
-    ## Initial sample distribution:
-
-``` r
-table(metadata$sample_name)
-```
-
-    ## 
-    ## 2202:DonorA 
-    ##         286
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## saliva 
-    ##    286
-
-``` r
-# Calculate sampling frequency per subject
+#get subjects id with Saliva available
+keep_subjects<-subset(metadata,Site %in% "saliva")
+#remove subjects without Saliva samples
+metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
+#get subjects sampling counts
 sample_counts <- table(metadata$sample_name)
-cat("\nNumber of samples per subject:\n")
-```
-
-    ## 
-    ## Number of samples per subject:
-
-``` r
-print(sample_counts)
-```
-
-    ## 
-    ## 2202:DonorA 
-    ##         286
-
-``` r
-# Create matched_samples column
+# Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
 metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
-
-cat("\nMatched samples distribution:\n")
-```
-
-    ## 
-    ## Matched samples distribution:
-
-``` r
-table(metadata$matched_samples)
-```
-
-    ## 
-    ## YES 
-    ## 286
-
-``` r
-# Identify samples for removal: single samples excluding saliva and tongue coat
-single_samples <- names(sample_counts[sample_counts == 1])
-samples_to_remove <- metadata$sample_name %in% single_samples & 
-                     !(metadata$Site %in% c("saliva", "tongue coat"))
-
-cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
-```
-
-    ## 
-    ## Number of samples to be removed: 0
-
-``` r
-# Remove identified samples
-metadata_clean <- metadata[!samples_to_remove, ]
-
-cat("\nFinal sample distribution after cleaning:\n")
-```
-
-    ## 
-    ## Final sample distribution after cleaning:
-
-``` r
-table(metadata_clean$sample_name)
-```
-
-    ## 
-    ## 2202:DonorA 
-    ##         286
-
-``` r
-table(metadata_clean$Site)
-```
-
-    ## 
-    ## saliva 
-    ##    286
-
-``` r
-table(metadata_clean$matched_samples)
-```
-
-    ## 
-    ## YES 
-    ## 286
-
-``` r
-# Use cleaned dataset for subsequent analysis
-metadata <- metadata_clean
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -376,7 +275,7 @@ metadata <- metadata_clean
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 286"
+    ## [1] "Number of unique runs: 628"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
@@ -407,34 +306,34 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject       Run sample_name Age BMI Sex Region Platform Country   Site
-    ## 1  PRJEB6518 ERR531454 2202:DonorA  26  NA   M     V4 Illumina     USA saliva
-    ## 2  PRJEB6518 ERR531455 2202:DonorA  26  NA   M     V4 Illumina     USA saliva
-    ## 3  PRJEB6518 ERR531456 2202:DonorA  26  NA   M     V4 Illumina     USA saliva
-    ## 4  PRJEB6518 ERR531463 2202:DonorA  26  NA   M     V4 Illumina     USA saliva
-    ## 5  PRJEB6518 ERR531466 2202:DonorA  26  NA   M     V4 Illumina     USA saliva
-    ## 6  PRJEB6518 ERR531467 2202:DonorA  26  NA   M     V4 Illumina     USA saliva
+    ##   BioProject       Run sample_name Age BMI Sex Region Platform Country  Site
+    ## 1  PRJEB6518 ERR531441 2202:DonorA  26  NA   M     V4 Illumina     USA feces
+    ## 3  PRJEB6518 ERR531443 2202:DonorA  26  NA   M     V4 Illumina     USA feces
+    ## 4  PRJEB6518 ERR531444 2202:DonorA  26  NA   M     V4 Illumina     USA feces
+    ## 7  PRJEB6518 ERR531447 2202:DonorA  26  NA   M     V4 Illumina     USA feces
+    ## 8  PRJEB6518 ERR531448 2202:DonorA  26  NA   M     V4 Illumina     USA feces
+    ## 9  PRJEB6518 ERR531449 2202:DonorA  26  NA   M     V4 Illumina     USA feces
     ##   public_time                                       PCR_primers
     ## 1  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 2  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
     ## 3  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
     ## 4  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 5  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 6  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 7  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 8  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 9  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
     ##                                                         title Disease_study
     ## 1 Host lifestyle affects human microbiota on daily timescales            NO
-    ## 2 Host lifestyle affects human microbiota on daily timescales            NO
     ## 3 Host lifestyle affects human microbiota on daily timescales            NO
     ## 4 Host lifestyle affects human microbiota on daily timescales            NO
-    ## 5 Host lifestyle affects human microbiota on daily timescales            NO
-    ## 6 Host lifestyle affects human microbiota on daily timescales            NO
+    ## 7 Host lifestyle affects human microbiota on daily timescales            NO
+    ## 8 Host lifestyle affects human microbiota on daily timescales            NO
+    ## 9 Host lifestyle affects human microbiota on daily timescales            NO
     ##   Status matched_samples
     ## 1     HC             YES
-    ## 2     HC             YES
     ## 3     HC             YES
     ## 4     HC             YES
-    ## 5     HC             YES
-    ## 6     HC             YES
+    ## 7     HC             YES
+    ## 8     HC             YES
+    ## 9     HC             YES
 
 ## Notes for Students:
 

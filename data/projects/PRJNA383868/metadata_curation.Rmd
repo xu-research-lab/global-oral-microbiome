@@ -40,6 +40,7 @@ The uniform metadata should include the following columns:
 16. **matched_samples**: matched samples ("YES" or "NO")
 ```{r}
 metadata <- data.frame(
+  assaytype = initial_meta$Assay.Type,
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Library.Name,
@@ -60,7 +61,8 @@ metadata <- data.frame(
 
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
- metadata <- metadata %>%
+metadata <- metadata %>%filter(assaytype == "AMPLICON")
+metadata <- metadata %>%
   mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
 metadata <- metadata %>%mutate(Age = as.numeric(sapply(str_split(Age, " "), function(x) head(x, 1))))%>%mutate(Age = Age/12)
 

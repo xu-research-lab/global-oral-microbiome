@@ -150,19 +150,16 @@ metadata$Region <- "V3-V4"
 metadata$PCR_primers <- "341F-806R"
 metadata$title <- "Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis"
 metadata$Disease_study <- "YES"
+metadata$matched_samples <- "No"
 
-
-# extract subject id by remove prefix of sample_name
-metadata$subject_id <- metadata$sample_name
-all_oral_sites <- c("saliva", "tongue coat", "buccal mucosa", "lower jaw mucosa", "lower labial mucosa", "upper jaw mucosa", "tongue", "buccal")
-# Check initial data distribution
-cat("Initial sample distribution:\n")
+cat("\nFinal sample distribution:\n")
 ```
 
-    ## Initial sample distribution:
+    ## 
+    ## Final sample distribution:
 
 ``` r
-table(metadata$subject_id)
+table(metadata$sample_name)
 ```
 
     ## 
@@ -180,60 +177,12 @@ table(metadata$Site)
     ##                 102                  32                 104                  80                  32
 
 ``` r
-subjects_with_oral_samples <- metadata %>%
-  filter(Site %in% all_oral_sites) %>%
-  distinct(subject_id) %>%
-  pull(subject_id)
-
-metadata_clean <- metadata %>%
-  filter(subject_id %in% subjects_with_oral_samples)
-
-
-sample_counts <- metadata_clean %>%
-  group_by(subject_id) %>%
-  summarise(n_samples = n(), .groups = "drop")
-
-metadata_clean <- merge(metadata_clean, sample_counts, by = "subject_id")
-
-# Create matched_samples column
-metadata_clean$matched_samples <- ifelse(metadata_clean$n_samples >= 2, "YES", "NO")
-
-cat("\nFinal sample distribution after cleaning:\n")
+table(metadata$matched_samples)
 ```
 
     ## 
-    ## Final sample distribution after cleaning:
-
-``` r
-print(table(metadata_clean$Site))
-```
-
-    ## 
-    ##       buccal mucosa    lower jaw mucosa lower labial mucosa              tongue    upper jaw mucosa 
-    ##                 102                  32                 104                  80                  32
-
-``` r
-cat("\nFinal sample distribution after cleaning:\n")
-```
-
-    ## 
-    ## Final sample distribution after cleaning:
-
-``` r
-print(table(metadata_clean$matched_samples))
-```
-
-    ## 
-    ## YES 
+    ##  No 
     ## 350
-
-``` r
-metadata_clean$subject_id <- NULL
-metadata_clean$n_samples <- NULL
-
-# Use cleaned dataset for subsequent analysis
-metadata <- metadata_clean
-```
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -274,19 +223,19 @@ head(metadata)
 ```
 
     ##    BioProject        Run sample_name Age BMI Sex Region       Platform        Country                Site          public_time PCR_primers
-    ## 1 PRJNA521448 SRR8555721           1  NA  NA   F  V3-V4 Illumina MiSeq Czech Republic    lower jaw mucosa 2020-01-07T00:00:00Z   341F-806R
-    ## 2 PRJNA521448 SRR8555865           1  49  NA   F  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
-    ## 3 PRJNA521448 SRR8555947           1  NA  NA   F  V3-V4 Illumina MiSeq Czech Republic    lower jaw mucosa 2020-01-07T00:00:00Z   341F-806R
-    ## 4 PRJNA521448 SRR8555942           1  49  NA   F  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
-    ## 5 PRJNA521448 SRR8555722           2  30  NA   M  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
-    ## 6 PRJNA521448 SRR8555866           2  34  NA   M  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 1 PRJNA521448 SRR8555713          32  NA  NA   F  V3-V4 Illumina MiSeq Czech Republic       buccal mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 2 PRJNA521448 SRR8555714          33  34  NA   F  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 3 PRJNA521448 SRR8555715          76  42  NA   F  V3-V4 Illumina MiSeq Czech Republic    upper jaw mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 4 PRJNA521448 SRR8555716          74  38  NA   M  V3-V4 Illumina MiSeq Czech Republic    lower jaw mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 5 PRJNA521448 SRR8555717           3  37  NA   F  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 6 PRJNA521448 SRR8555718           4  NA  NA   M  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
     ##                                                                                                            title Disease_study Status matched_samples
-    ## 1 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS             YES
-    ## 2 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS             YES
-    ## 3 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS             YES
-    ## 4 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS             YES
-    ## 5 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS             YES
-    ## 6 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS             YES
+    ## 1 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS              No
+    ## 2 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS              No
+    ## 3 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS              No
+    ## 4 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS              No
+    ## 5 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS              No
+    ## 6 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS              No
 
 ## Notes for Students:
 

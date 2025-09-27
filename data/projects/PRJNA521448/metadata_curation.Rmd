@@ -99,44 +99,12 @@ metadata$Region <- "V3-V4"
 metadata$PCR_primers <- "341F-806R"
 metadata$title <- "Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis"
 metadata$Disease_study <- "YES"
+metadata$matched_samples <- "No"
 
-
-# extract subject id by remove prefix of sample_name
-metadata$subject_id <- metadata$sample_name
-all_oral_sites <- c("saliva", "tongue coat", "buccal mucosa", "lower jaw mucosa", "lower labial mucosa", "upper jaw mucosa", "tongue", "buccal")
-# Check initial data distribution
-cat("Initial sample distribution:\n")
-table(metadata$subject_id)
+cat("\nFinal sample distribution:\n")
+table(metadata$sample_name)
 table(metadata$Site)
-
-subjects_with_oral_samples <- metadata %>%
-  filter(Site %in% all_oral_sites) %>%
-  distinct(subject_id) %>%
-  pull(subject_id)
-
-metadata_clean <- metadata %>%
-  filter(subject_id %in% subjects_with_oral_samples)
-
-
-sample_counts <- metadata_clean %>%
-  group_by(subject_id) %>%
-  summarise(n_samples = n(), .groups = "drop")
-
-metadata_clean <- merge(metadata_clean, sample_counts, by = "subject_id")
-
-# Create matched_samples column
-metadata_clean$matched_samples <- ifelse(metadata_clean$n_samples >= 2, "YES", "NO")
-
-cat("\nFinal sample distribution after cleaning:\n")
-print(table(metadata_clean$Site))
-cat("\nFinal sample distribution after cleaning:\n")
-print(table(metadata_clean$matched_samples))
-
-metadata_clean$subject_id <- NULL
-metadata_clean$n_samples <- NULL
-
-# Use cleaned dataset for subsequent analysis
-metadata <- metadata_clean
+table(metadata$matched_samples)
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

@@ -148,7 +148,7 @@ manually extracted from the publication and added to the metadata.
 # Add information obtained from the publication
 metadata$PCR_primers <- NA
 metadata$title <- "Alterations in Gut Microbiome Composition and Barrier Function Are Associated with Reproductive and Metabolic Defects in Women with Polycystic Ovary Syndrome (PCOS): A Pilot Study"
-metadata$Disease_study <- "PCOS"
+metadata$Disease_study <- "YES"
 
 # Assign disease status based on sample_name patterns
 status <- substr(subject_id, 1, 1)
@@ -303,12 +303,12 @@ head(metadata)
     ## 5 Alterations in Gut Microbiome Composition and Barrier Function Are Associated with Reproductive and Metabolic Defects in Women with Polycystic Ovary Syndrome (PCOS): A Pilot Study
     ## 6 Alterations in Gut Microbiome Composition and Barrier Function Are Associated with Reproductive and Metabolic Defects in Women with Polycystic Ovary Syndrome (PCOS): A Pilot Study
     ##   Disease_study Status matched_samples
-    ## 1          PCOS      H             YES
-    ## 2          PCOS   PCOS             YES
-    ## 3          PCOS   PCOS             YES
-    ## 4          PCOS   PCOS             YES
-    ## 5          PCOS   PCOS             YES
-    ## 6          PCOS   PCOS             YES
+    ## 1           YES      H             YES
+    ## 2           YES   PCOS             YES
+    ## 3           YES   PCOS             YES
+    ## 4           YES   PCOS             YES
+    ## 5           YES   PCOS             YES
+    ## 6           YES   PCOS             YES
 
 ## Notes for Students:
 

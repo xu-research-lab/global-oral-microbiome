@@ -71,7 +71,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 # Add information obtained from the publication
 metadata$PCR_primers <- "F: 5′-AGAGTTTGATCCTGGCTCAG-3′; R: 5′-TGCTGCCTCCCGTAGGAGT-3′"
 metadata$title <- "Subgingival microbiota in individuals with severe chronic periodontitis"
-metadata$Disease_study <- "periodontitis"
+metadata$Disease_study <- "YES"
 
 # Assign disease status based on sample_name patterns
 metadata$Status <- NA

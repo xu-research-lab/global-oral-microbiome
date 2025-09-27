@@ -15,55 +15,62 @@ project.
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
-    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample                       BioSampleModel    Bytes               Center.Name
-    ## 1 SRR5467622   AMPLICON        502 12991258 PRJNA383868 SAMN06818328 MIMS.me,MIGS/MIMS/MIMARKS.human-oral  8392295 J. CRAIG VENTER INSTITUTE
-    ## 2 SRR5467623   AMPLICON        502 21643228 PRJNA383868 SAMN06818327 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 13831072 J. CRAIG VENTER INSTITUTE
-    ## 3 SRR5467624   AMPLICON        502 21135706 PRJNA383868 SAMN06818326 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 13491196 J. CRAIG VENTER INSTITUTE
-    ## 4 SRR5467625   AMPLICON        502  7511928 PRJNA383868 SAMN06818325 MIMS.me,MIGS/MIMS/MIMARKS.human-oral  4718731 J. CRAIG VENTER INSTITUTE
-    ## 5 SRR5467626   AMPLICON        502  6295582 PRJNA383868 SAMN06818324 MIMS.me,MIGS/MIMS/MIMARKS.human-oral  3970507 J. CRAIG VENTER INSTITUTE
-    ## 6 SRR5467627   AMPLICON        502 15582582 PRJNA383868 SAMN06818323 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 10037418 J. CRAIG VENTER INSTITUTE
-    ##   chem_administration Collection_Date Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region     env_biome
-    ## 1      not applicable      2014-10-27  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418
-    ## 2      not applicable      2014-11-24  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418
-    ## 3      not applicable      2014-11-24  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418
-    ## 4      not applicable      2014-06-25  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418
-    ## 5      not applicable      2014-06-25  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418
-    ## 6      not applicable      2014-12-17  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418
-    ##     env_feature  env_material Experiment geo_loc_name_country geo_loc_name_country_continent                geo_loc_name  Host_Age
-    ## 1 ENVO:00002034 ENVO:01000156 SRX2752978            Australia                        Oceania Australia: Melbourne\\, VIC 78 months
-    ## 2 ENVO:00002034 ENVO:01000156 SRX2752979            Australia                        Oceania Australia: Melbourne\\, VIC 79 months
-    ## 3 ENVO:00002034 ENVO:01000156 SRX2752980            Australia                        Oceania Australia: Melbourne\\, VIC 79 months
-    ## 4 ENVO:00002034 ENVO:01000156 SRX2752981            Australia                        Oceania Australia: Melbourne\\, VIC 77 months
-    ## 5 ENVO:00002034 ENVO:01000156 SRX2752982            Australia                        Oceania Australia: Melbourne\\, VIC 77 months
-    ## 6 ENVO:00002034 ENVO:01000156 SRX2752983            Australia                        Oceania Australia: Melbourne\\, VIC 80 months
-    ##         Host_disease host_family_relationship         HOST host_sex host_subject_id host_tissue_sampled     Instrument isolation_source
-    ## 1      dental caries           sibling 2028.2 Homo sapiens   female          2028.1       dental plaque Illumina MiSeq            teeth
-    ## 2      dental caries           sibling 2026.1 Homo sapiens   female          2026.2       dental plaque Illumina MiSeq            teeth
-    ## 3      dental caries           sibling 2026.2 Homo sapiens   female          2026.1       dental plaque Illumina MiSeq            teeth
-    ## 4 dental caries free           sibling 2023.1 Homo sapiens     male          2023.2       dental plaque Illumina MiSeq            teeth
-    ## 5 dental caries free           sibling 2023.2 Homo sapiens     male          2023.1       dental plaque Illumina MiSeq            teeth
-    ## 6 dental caries free           sibling 2020.1 Homo sapiens     male          2020.2       dental plaque Illumina MiSeq            teeth
-    ##                   lat_lon   Library.Name LibraryLayout LibrarySelection LibrarySource nose_mouth_teeth_throat_disord              Organism
-    ## 1 37.793742 S 144.94921 E CAR_2028.1_RD1        PAIRED              PCR   METAGENOMIC                 not applicable human oral metagenome
-    ## 2 37.793742 S 144.94921 E CAR_2026.2_RD1        PAIRED              PCR   METAGENOMIC                          cleft human oral metagenome
-    ## 3 37.793742 S 144.94921 E CAR_2026.1_RD1        PAIRED              PCR   METAGENOMIC                 not applicable human oral metagenome
-    ## 4 37.793742 S 144.94921 E CAR_2023.2_RD1        PAIRED              PCR   METAGENOMIC                 not applicable human oral metagenome
-    ## 5 37.793742 S 144.94921 E CAR_2023.1_RD1        PAIRED              PCR   METAGENOMIC                 not applicable human oral metagenome
-    ## 6 37.793742 S 144.94921 E CAR_2020.2_RD1        PAIRED              PCR   METAGENOMIC                 not applicable human oral metagenome
-    ##   Platform          ReleaseDate samp_collect_device    samp_store_temp samp_vol_we_dna_ext Sample.Name SRA.Study          create_date
-    ## 1 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2028.1_RD1 SRP104798 2017-04-22T00:07:00Z
-    ## 2 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2026.2_RD1 SRP104798 2017-04-22T00:07:00Z
-    ## 3 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2026.1_RD1 SRP104798 2017-04-22T00:07:00Z
-    ## 4 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2023.2_RD1 SRP104798 2017-04-22T00:06:00Z
-    ## 5 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2023.1_RD1 SRP104798 2017-04-22T00:07:00Z
-    ## 6 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2020.2_RD1 SRP104798 2017-04-22T00:07:00Z
-    ##   version  host_body_site host_body_product misc_param source_material_id
-    ## 1       1 right dentition                                                
-    ## 2       1 right dentition                                                
-    ## 3       1 right dentition                                                
-    ## 4       1 right dentition                                                
-    ## 5       1 right dentition                                                
-    ## 6       1 right dentition
+    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample                       BioSampleModel    Bytes
+    ## 1 SRR5467622   AMPLICON        502 12991258 PRJNA383868 SAMN06818328 MIMS.me,MIGS/MIMS/MIMARKS.human-oral  8392295
+    ## 2 SRR5467623   AMPLICON        502 21643228 PRJNA383868 SAMN06818327 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 13831072
+    ## 3 SRR5467624   AMPLICON        502 21135706 PRJNA383868 SAMN06818326 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 13491196
+    ## 4 SRR5467625   AMPLICON        502  7511928 PRJNA383868 SAMN06818325 MIMS.me,MIGS/MIMS/MIMARKS.human-oral  4718731
+    ## 5 SRR5467626   AMPLICON        502  6295582 PRJNA383868 SAMN06818324 MIMS.me,MIGS/MIMS/MIMARKS.human-oral  3970507
+    ## 6 SRR5467627   AMPLICON        502 15582582 PRJNA383868 SAMN06818323 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 10037418
+    ##                 Center.Name chem_administration Collection_Date Consent DATASTORE.filetype DATASTORE.provider
+    ## 1 J. CRAIG VENTER INSTITUTE      not applicable      2014-10-27  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 2 J. CRAIG VENTER INSTITUTE      not applicable      2014-11-24  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 3 J. CRAIG VENTER INSTITUTE      not applicable      2014-11-24  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 4 J. CRAIG VENTER INSTITUTE      not applicable      2014-06-25  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 5 J. CRAIG VENTER INSTITUTE      not applicable      2014-06-25  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 6 J. CRAIG VENTER INSTITUTE      not applicable      2014-12-17  public   fastq,run.zq,sra         gs,ncbi,s3
+    ##                       DATASTORE.region     env_biome   env_feature  env_material Experiment geo_loc_name_country
+    ## 1 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418 ENVO:00002034 ENVO:01000156 SRX2752978            Australia
+    ## 2 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418 ENVO:00002034 ENVO:01000156 SRX2752979            Australia
+    ## 3 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418 ENVO:00002034 ENVO:01000156 SRX2752980            Australia
+    ## 4 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418 ENVO:00002034 ENVO:01000156 SRX2752981            Australia
+    ## 5 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418 ENVO:00002034 ENVO:01000156 SRX2752982            Australia
+    ## 6 gs.us-east1,ncbi.public,s3.us-east-1 ENVO:01000418 ENVO:00002034 ENVO:01000156 SRX2752983            Australia
+    ##   geo_loc_name_country_continent                geo_loc_name  Host_Age       Host_disease host_family_relationship
+    ## 1                        Oceania Australia: Melbourne\\, VIC 78 months      dental caries           sibling 2028.2
+    ## 2                        Oceania Australia: Melbourne\\, VIC 79 months      dental caries           sibling 2026.1
+    ## 3                        Oceania Australia: Melbourne\\, VIC 79 months      dental caries           sibling 2026.2
+    ## 4                        Oceania Australia: Melbourne\\, VIC 77 months dental caries free           sibling 2023.1
+    ## 5                        Oceania Australia: Melbourne\\, VIC 77 months dental caries free           sibling 2023.2
+    ## 6                        Oceania Australia: Melbourne\\, VIC 80 months dental caries free           sibling 2020.1
+    ##           HOST host_sex host_subject_id host_tissue_sampled     Instrument isolation_source                 lat_lon
+    ## 1 Homo sapiens   female          2028.1       dental plaque Illumina MiSeq            teeth 37.793742 S 144.94921 E
+    ## 2 Homo sapiens   female          2026.2       dental plaque Illumina MiSeq            teeth 37.793742 S 144.94921 E
+    ## 3 Homo sapiens   female          2026.1       dental plaque Illumina MiSeq            teeth 37.793742 S 144.94921 E
+    ## 4 Homo sapiens     male          2023.2       dental plaque Illumina MiSeq            teeth 37.793742 S 144.94921 E
+    ## 5 Homo sapiens     male          2023.1       dental plaque Illumina MiSeq            teeth 37.793742 S 144.94921 E
+    ## 6 Homo sapiens     male          2020.2       dental plaque Illumina MiSeq            teeth 37.793742 S 144.94921 E
+    ##     Library.Name LibraryLayout LibrarySelection LibrarySource nose_mouth_teeth_throat_disord              Organism
+    ## 1 CAR_2028.1_RD1        PAIRED              PCR   METAGENOMIC                 not applicable human oral metagenome
+    ## 2 CAR_2026.2_RD1        PAIRED              PCR   METAGENOMIC                          cleft human oral metagenome
+    ## 3 CAR_2026.1_RD1        PAIRED              PCR   METAGENOMIC                 not applicable human oral metagenome
+    ## 4 CAR_2023.2_RD1        PAIRED              PCR   METAGENOMIC                 not applicable human oral metagenome
+    ## 5 CAR_2023.1_RD1        PAIRED              PCR   METAGENOMIC                 not applicable human oral metagenome
+    ## 6 CAR_2020.2_RD1        PAIRED              PCR   METAGENOMIC                 not applicable human oral metagenome
+    ##   Platform          ReleaseDate samp_collect_device    samp_store_temp samp_vol_we_dna_ext Sample.Name SRA.Study
+    ## 1 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2028.1_RD1 SRP104798
+    ## 2 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2026.2_RD1 SRP104798
+    ## 3 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2026.1_RD1 SRP104798
+    ## 4 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2023.2_RD1 SRP104798
+    ## 5 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2023.1_RD1 SRP104798
+    ## 6 ILLUMINA 2017-04-22T00:00:00Z          oral swabs -80 degree Celsius              750 uL  2020.2_RD1 SRP104798
+    ##            create_date version  host_body_site host_body_product misc_param source_material_id
+    ## 1 2017-04-22T00:07:00Z       1 right dentition                                                
+    ## 2 2017-04-22T00:07:00Z       1 right dentition                                                
+    ## 3 2017-04-22T00:07:00Z       1 right dentition                                                
+    ## 4 2017-04-22T00:06:00Z       1 right dentition                                                
+    ## 5 2017-04-22T00:07:00Z       1 right dentition                                                
+    ## 6 2017-04-22T00:07:00Z       1 right dentition
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -93,6 +100,7 @@ The uniform metadata should include the following columns:
 <!-- -->
 
     metadata <- data.frame(
+      assaytype = initial_meta$Assay.Type,
       BioProject = initial_meta$BioProject,
       Run = initial_meta$Run,
       sample_name = initial_meta$Library.Name,
@@ -114,7 +122,8 @@ The uniform metadata should include the following columns:
 Some information (e.g. PCR primers, study title, disease status) must be
 manually extracted from the publication and added to the metadata.
 
-     metadata <- metadata %>%
+    metadata <- metadata %>%filter(assaytype == "AMPLICON")
+    metadata <- metadata %>%
       mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
     metadata <- metadata %>%mutate(Age = as.numeric(sapply(str_split(Age, " "), function(x) head(x, 1))))%>%mutate(Age = Age/12)
 
@@ -124,30 +133,37 @@ manually extracted from the publication and added to the metadata.
 
     head(metadata)
 
-    ##    BioProject        Run    sample_name      Age BMI Sex Region       Platform   Country          Site          public_time matched_samples
-    ## 1 PRJNA383868 SRR5467622 CAR_2028.1_RD1 6.500000  NA   F     V4 Illumina MiSeq Australia dental plaque 2017-04-22T00:00:00Z              NO
-    ## 2 PRJNA383868 SRR5467623 CAR_2026.2_RD1 6.583333  NA   F     V4 Illumina MiSeq Australia dental plaque 2017-04-22T00:00:00Z              NO
-    ## 3 PRJNA383868 SRR5467624 CAR_2026.1_RD1 6.583333  NA   F     V4 Illumina MiSeq Australia dental plaque 2017-04-22T00:00:00Z              NO
-    ## 4 PRJNA383868 SRR5467625 CAR_2023.2_RD1 6.416667  NA   M     V4 Illumina MiSeq Australia dental plaque 2017-04-22T00:00:00Z              NO
-    ## 5 PRJNA383868 SRR5467626 CAR_2023.1_RD1 6.416667  NA   M     V4 Illumina MiSeq Australia dental plaque 2017-04-22T00:00:00Z              NO
-    ## 6 PRJNA383868 SRR5467627 CAR_2020.2_RD1 6.666667  NA   M     V4 Illumina MiSeq Australia dental plaque 2017-04-22T00:00:00Z              NO
-    ##               Status                                                             title Disease_study PCR_primers
-    ## 1      dental caries Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
-    ## 2      dental caries Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
-    ## 3      dental caries Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
-    ## 4 dental caries free Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
-    ## 5 dental caries free Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
-    ## 6 dental caries free Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
+    ##   assaytype  BioProject        Run    sample_name      Age BMI Sex Region       Platform   Country          Site
+    ## 1  AMPLICON PRJNA383868 SRR5467622 CAR_2028.1_RD1 6.500000  NA   F     V4 Illumina MiSeq Australia dental plaque
+    ## 2  AMPLICON PRJNA383868 SRR5467623 CAR_2026.2_RD1 6.583333  NA   F     V4 Illumina MiSeq Australia dental plaque
+    ## 3  AMPLICON PRJNA383868 SRR5467624 CAR_2026.1_RD1 6.583333  NA   F     V4 Illumina MiSeq Australia dental plaque
+    ## 4  AMPLICON PRJNA383868 SRR5467625 CAR_2023.2_RD1 6.416667  NA   M     V4 Illumina MiSeq Australia dental plaque
+    ## 5  AMPLICON PRJNA383868 SRR5467626 CAR_2023.1_RD1 6.416667  NA   M     V4 Illumina MiSeq Australia dental plaque
+    ## 6  AMPLICON PRJNA383868 SRR5467627 CAR_2020.2_RD1 6.666667  NA   M     V4 Illumina MiSeq Australia dental plaque
+    ##            public_time matched_samples             Status
+    ## 1 2017-04-22T00:00:00Z              NO      dental caries
+    ## 2 2017-04-22T00:00:00Z              NO      dental caries
+    ## 3 2017-04-22T00:00:00Z              NO      dental caries
+    ## 4 2017-04-22T00:00:00Z              NO dental caries free
+    ## 5 2017-04-22T00:00:00Z              NO dental caries free
+    ## 6 2017-04-22T00:00:00Z              NO dental caries free
+    ##                                                               title Disease_study PCR_primers
+    ## 1 Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
+    ## 2 Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
+    ## 3 Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
+    ## 4 Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
+    ## 5 Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
+    ## 6 Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
 
 # Step 4: Summarize and Validate the Metadata
 
     print(paste("Number of unique runs:", length(unique(metadata$Run))))
 
-    ## [1] "Number of unique runs: 719"
+    ## [1] "Number of unique runs: 540"
 
     print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 
-    ## [1] "Number of unique sample names: 719"
+    ## [1] "Number of unique sample names: 540"
 
 # Step 5: Visualize the Metadata
 

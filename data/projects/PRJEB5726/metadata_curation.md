@@ -27,7 +27,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 
 #Remove entries non-oral samples
 #initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
-initial_meta <- initial_meta[initial_meta$Organism != "metagenomes", ]
+
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
 
@@ -374,7 +374,7 @@ metadata <- data.frame(
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$geo_loc_name_country,
-  Site = "tongue",
+  Site = gsub("UBERON:", "", initial_meta$body_site),
   public_time = "2014-12-09",
   PCR_primers = "515F-806R",
   stringsAsFactors = FALSE
@@ -393,225 +393,14 @@ metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
 
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("T", "", metadata$sample_name)
-
-# Check initial data distribution
-cat("Initial sample distribution:\n")
-```
-
-    ## Initial sample distribution:
-
-``` r
-table(metadata$sample_name)
-```
-
-    ## 
-    ## 2148:CUB000 2148:CUB002 2148:CUB003 2148:CUB004 2148:CUB005 2148:CUB007 
-    ##          10           1          10          10          10          10 
-    ## 2148:CUB008 2148:CUB009 2148:CUB010 2148:CUB011 2148:CUB012 2148:CUB013 
-    ##          13          11          10           8          10           1 
-    ## 2148:CUB015 2148:CUB016 2148:CUB017 2148:CUB018 2148:CUB019 2148:CUB021 
-    ##           9           9           9           1          10           1 
-    ## 2148:CUB024 2148:CUB026 2148:CUB027 2148:CUB028 2148:CUB029 2148:CUB032 
-    ##           1           8           9           9           9           8 
-    ## 2148:CUB033 2148:CUB034 2148:CUB035 2148:CUB036 2148:CUB037 2148:CUB038 
-    ##          10           1           1          10          10           9 
-    ## 2148:CUB039 2148:CUB040 2148:CUB042 2148:CUB044 2148:CUB047 2148:CUB048 
-    ##           1          10          10          12           2          11 
-    ## 2148:CUB049 2148:CUB050 2148:CUB051 2148:CUB052 2148:CUB053 2148:CUB055 
-    ##          12          10           7          10          10           1 
-    ## 2148:CUB056 2148:CUB061 2148:NAU100 2148:NAU101 2148:NAU102 2148:NAU103 
-    ##           8           7           1          10           7           8 
-    ## 2148:NAU105 2148:NAU106 2148:NAU107 2148:NAU108 2148:NAU109 2148:NAU110 
-    ##           7          10           9           7          10          10 
-    ## 2148:NAU111 2148:NAU112 2148:NAU113 2148:NAU114 2148:NAU115 2148:NAU116 
-    ##           1           3           2          10           9           1 
-    ## 2148:NAU117 2148:NAU119 2148:NAU121 2148:NAU123 2148:NAU124 2148:NAU128 
-    ##           9           9          12          11          10           1 
-    ## 2148:NAU129 2148:NAU130 2148:NAU132 2148:NAU133 2148:NAU134 2148:NAU136 
-    ##          12          11          10          10           7          10 
-    ## 2148:NAU137 2148:NAU138 2148:NAU139 2148:NAU140 2148:NAU141 2148:NAU144 
-    ##          10           1          11           2           1          12 
-    ## 2148:NAU146 2148:NAU147 2148:NAU148 2148:NAU149 2148:NAU150 2148:NAU151 
-    ##           9          12          13          13          11           1 
-    ## 2148:NAU153 2148:NAU154 2148:NAU155 2148:NAU156 2148:NAU157 2148:NAU159 
-    ##           9          10          10           7          14          10 
-    ## 2148:NAU160 2148:NAU161 2148:NAU164 2148:NCS202 2148:NCS203 2148:NCS204 
-    ##          11          10           7           1          10          10 
-    ## 2148:NCS207 2148:NCS208 2148:NCS210 2148:NCS212 2148:NCS213 2148:NCS214 
-    ##           1           1           9           9           9           9 
-    ## 2148:NCS221 2148:NCS229 2148:NCS232 2148:NCS233 2148:NCS234 2148:NCS236 
-    ##           1           1           1           9          10          10 
-    ## 2148:NCS237 2148:NCS238 2148:NCS241 2148:NCS242 2148:NCS243 2148:NCS244 
-    ##           8           1           1           1           8           6 
-    ## 2148:NCS245 2148:NCS247 2148:NCS248 2148:NCS253 2148:NCS255 2148:NCS262 
-    ##           1           1           9          10          10           1 
-    ## 2148:NCS263 
-    ##           9
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## tongue 
-    ##    897
-
-``` r
-# Calculate sampling frequency per subject
+#get subjects id with Saliva available
+keep_subjects<-subset(metadata,Site %in% "tongue")
+#remove subjects without Saliva samples
+metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
+#get subjects sampling counts
 sample_counts <- table(metadata$sample_name)
-cat("\nNumber of samples per subject:\n")
-```
-
-    ## 
-    ## Number of samples per subject:
-
-``` r
-print(sample_counts)
-```
-
-    ## 
-    ## 2148:CUB000 2148:CUB002 2148:CUB003 2148:CUB004 2148:CUB005 2148:CUB007 
-    ##          10           1          10          10          10          10 
-    ## 2148:CUB008 2148:CUB009 2148:CUB010 2148:CUB011 2148:CUB012 2148:CUB013 
-    ##          13          11          10           8          10           1 
-    ## 2148:CUB015 2148:CUB016 2148:CUB017 2148:CUB018 2148:CUB019 2148:CUB021 
-    ##           9           9           9           1          10           1 
-    ## 2148:CUB024 2148:CUB026 2148:CUB027 2148:CUB028 2148:CUB029 2148:CUB032 
-    ##           1           8           9           9           9           8 
-    ## 2148:CUB033 2148:CUB034 2148:CUB035 2148:CUB036 2148:CUB037 2148:CUB038 
-    ##          10           1           1          10          10           9 
-    ## 2148:CUB039 2148:CUB040 2148:CUB042 2148:CUB044 2148:CUB047 2148:CUB048 
-    ##           1          10          10          12           2          11 
-    ## 2148:CUB049 2148:CUB050 2148:CUB051 2148:CUB052 2148:CUB053 2148:CUB055 
-    ##          12          10           7          10          10           1 
-    ## 2148:CUB056 2148:CUB061 2148:NAU100 2148:NAU101 2148:NAU102 2148:NAU103 
-    ##           8           7           1          10           7           8 
-    ## 2148:NAU105 2148:NAU106 2148:NAU107 2148:NAU108 2148:NAU109 2148:NAU110 
-    ##           7          10           9           7          10          10 
-    ## 2148:NAU111 2148:NAU112 2148:NAU113 2148:NAU114 2148:NAU115 2148:NAU116 
-    ##           1           3           2          10           9           1 
-    ## 2148:NAU117 2148:NAU119 2148:NAU121 2148:NAU123 2148:NAU124 2148:NAU128 
-    ##           9           9          12          11          10           1 
-    ## 2148:NAU129 2148:NAU130 2148:NAU132 2148:NAU133 2148:NAU134 2148:NAU136 
-    ##          12          11          10          10           7          10 
-    ## 2148:NAU137 2148:NAU138 2148:NAU139 2148:NAU140 2148:NAU141 2148:NAU144 
-    ##          10           1          11           2           1          12 
-    ## 2148:NAU146 2148:NAU147 2148:NAU148 2148:NAU149 2148:NAU150 2148:NAU151 
-    ##           9          12          13          13          11           1 
-    ## 2148:NAU153 2148:NAU154 2148:NAU155 2148:NAU156 2148:NAU157 2148:NAU159 
-    ##           9          10          10           7          14          10 
-    ## 2148:NAU160 2148:NAU161 2148:NAU164 2148:NCS202 2148:NCS203 2148:NCS204 
-    ##          11          10           7           1          10          10 
-    ## 2148:NCS207 2148:NCS208 2148:NCS210 2148:NCS212 2148:NCS213 2148:NCS214 
-    ##           1           1           9           9           9           9 
-    ## 2148:NCS221 2148:NCS229 2148:NCS232 2148:NCS233 2148:NCS234 2148:NCS236 
-    ##           1           1           1           9          10          10 
-    ## 2148:NCS237 2148:NCS238 2148:NCS241 2148:NCS242 2148:NCS243 2148:NCS244 
-    ##           8           1           1           1           8           6 
-    ## 2148:NCS245 2148:NCS247 2148:NCS248 2148:NCS253 2148:NCS255 2148:NCS262 
-    ##           1           1           9          10          10           1 
-    ## 2148:NCS263 
-    ##           9
-
-``` r
-# Create matched_samples column
+# Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
 metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
-
-cat("\nMatched samples distribution:\n")
-```
-
-    ## 
-    ## Matched samples distribution:
-
-``` r
-table(metadata$matched_samples)
-```
-
-    ## 
-    ##  NO YES 
-    ##  28 869
-
-``` r
-# Identify samples for removal: single samples excluding saliva and tongue coat
-single_samples <- names(sample_counts[sample_counts == 1])
-samples_to_remove <- metadata$sample_name %in% single_samples & 
-                     !(metadata$Site %in% c("saliva", "tongue coat"))
-
-cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
-```
-
-    ## 
-    ## Number of samples to be removed: 28
-
-``` r
-# Remove identified samples
-metadata_clean <- metadata[!samples_to_remove, ]
-
-cat("\nFinal sample distribution after cleaning:\n")
-```
-
-    ## 
-    ## Final sample distribution after cleaning:
-
-``` r
-table(metadata_clean$sample_name)
-```
-
-    ## 
-    ## 2148:CUB000 2148:CUB003 2148:CUB004 2148:CUB005 2148:CUB007 2148:CUB008 
-    ##          10          10          10          10          10          13 
-    ## 2148:CUB009 2148:CUB010 2148:CUB011 2148:CUB012 2148:CUB015 2148:CUB016 
-    ##          11          10           8          10           9           9 
-    ## 2148:CUB017 2148:CUB019 2148:CUB026 2148:CUB027 2148:CUB028 2148:CUB029 
-    ##           9          10           8           9           9           9 
-    ## 2148:CUB032 2148:CUB033 2148:CUB036 2148:CUB037 2148:CUB038 2148:CUB040 
-    ##           8          10          10          10           9          10 
-    ## 2148:CUB042 2148:CUB044 2148:CUB047 2148:CUB048 2148:CUB049 2148:CUB050 
-    ##          10          12           2          11          12          10 
-    ## 2148:CUB051 2148:CUB052 2148:CUB053 2148:CUB056 2148:CUB061 2148:NAU101 
-    ##           7          10          10           8           7          10 
-    ## 2148:NAU102 2148:NAU103 2148:NAU105 2148:NAU106 2148:NAU107 2148:NAU108 
-    ##           7           8           7          10           9           7 
-    ## 2148:NAU109 2148:NAU110 2148:NAU112 2148:NAU113 2148:NAU114 2148:NAU115 
-    ##          10          10           3           2          10           9 
-    ## 2148:NAU117 2148:NAU119 2148:NAU121 2148:NAU123 2148:NAU124 2148:NAU129 
-    ##           9           9          12          11          10          12 
-    ## 2148:NAU130 2148:NAU132 2148:NAU133 2148:NAU134 2148:NAU136 2148:NAU137 
-    ##          11          10          10           7          10          10 
-    ## 2148:NAU139 2148:NAU140 2148:NAU144 2148:NAU146 2148:NAU147 2148:NAU148 
-    ##          11           2          12           9          12          13 
-    ## 2148:NAU149 2148:NAU150 2148:NAU153 2148:NAU154 2148:NAU155 2148:NAU156 
-    ##          13          11           9          10          10           7 
-    ## 2148:NAU157 2148:NAU159 2148:NAU160 2148:NAU161 2148:NAU164 2148:NCS203 
-    ##          14          10          11          10           7          10 
-    ## 2148:NCS204 2148:NCS210 2148:NCS212 2148:NCS213 2148:NCS214 2148:NCS233 
-    ##          10           9           9           9           9           9 
-    ## 2148:NCS234 2148:NCS236 2148:NCS237 2148:NCS243 2148:NCS244 2148:NCS248 
-    ##          10          10           8           8           6           9 
-    ## 2148:NCS253 2148:NCS255 2148:NCS263 
-    ##          10          10           9
-
-``` r
-table(metadata_clean$Site)
-```
-
-    ## 
-    ## tongue 
-    ##    869
-
-``` r
-table(metadata_clean$matched_samples)
-```
-
-    ## 
-    ## YES 
-    ## 869
-
-``` r
-# Use cleaned dataset for subsequent analysis
-metadata <- metadata_clean
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -621,13 +410,13 @@ metadata <- metadata_clean
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 869"
+    ## [1] "Number of unique runs: 897"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 93"
+    ## [1] "Number of unique sample names: 121"
 
 # Step 5: Visualize the Metadata
 

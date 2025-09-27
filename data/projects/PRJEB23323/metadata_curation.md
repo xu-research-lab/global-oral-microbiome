@@ -591,10 +591,10 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
 # Step 5: Visualize the Metadata
 
 ``` r
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("metadata_summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+![](metadata_summary.png)<!-- -->
 
 # Step 6: Finalize and Export the Metadata
 

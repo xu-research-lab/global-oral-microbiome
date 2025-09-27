@@ -71,7 +71,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 # Add information obtained from the publication
 metadata$PCR_primers <- "338F-806R"
 metadata$title <- "Comparative Analyses of the Subgingival Microbiome in Chronic Periodontitis Patients with and without Gingival Erosive Oral Lichen Planus Based on 16S rRNA Gene Sequencing"
-metadata$Disease_study <- "chronic_periodontitis"
+metadata$Disease_study <- "YES"
 
 # Assign disease status based on sample_name patterns
 metadata$Status <- gsub("[0-9]", "", initial_meta$Sample.Name)

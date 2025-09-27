@@ -143,7 +143,7 @@ manually extracted from the publication and added to the metadata.
 # Add information obtained from the publication
 metadata$PCR_primers <- "338F-806R"
 metadata$title <- "Comparative Analyses of the Subgingival Microbiome in Chronic Periodontitis Patients with and without Gingival Erosive Oral Lichen Planus Based on 16S rRNA Gene Sequencing"
-metadata$Disease_study <- "chronic_periodontitis"
+metadata$Disease_study <- "YES"
 
 # Assign disease status based on sample_name patterns
 metadata$Status <- gsub("[0-9]", "", initial_meta$Sample.Name)
@@ -292,13 +292,13 @@ head(metadata)
     ## 4 Comparative Analyses of the Subgingival Microbiome in Chronic Periodontitis Patients with and without Gingival Erosive Oral Lichen Planus Based on 16S rRNA Gene Sequencing
     ## 5 Comparative Analyses of the Subgingival Microbiome in Chronic Periodontitis Patients with and without Gingival Erosive Oral Lichen Planus Based on 16S rRNA Gene Sequencing
     ## 6 Comparative Analyses of the Subgingival Microbiome in Chronic Periodontitis Patients with and without Gingival Erosive Oral Lichen Planus Based on 16S rRNA Gene Sequencing
-    ##           Disease_study Status matched_samples
-    ## 1 chronic_periodontitis    OLP              NO
-    ## 2 chronic_periodontitis    OLP              NO
-    ## 3 chronic_periodontitis    OLP              NO
-    ## 4 chronic_periodontitis    OLP              NO
-    ## 5 chronic_periodontitis    OLP              NO
-    ## 6 chronic_periodontitis    OLP              NO
+    ##   Disease_study Status matched_samples
+    ## 1           YES    OLP              NO
+    ## 2           YES    OLP              NO
+    ## 3           YES    OLP              NO
+    ## 4           YES    OLP              NO
+    ## 5           YES    OLP              NO
+    ## 6           YES    OLP              NO
 
 ## Notes for Students:
 

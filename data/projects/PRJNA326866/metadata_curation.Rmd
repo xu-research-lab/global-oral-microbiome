@@ -76,7 +76,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 # Add information obtained from the publication
 metadata$PCR_primers <- NA
 metadata$title <- "Alterations in Gut Microbiome Composition and Barrier Function Are Associated with Reproductive and Metabolic Defects in Women with Polycystic Ovary Syndrome (PCOS): A Pilot Study"
-metadata$Disease_study <- "PCOS"
+metadata$Disease_study <- "YES"
 
 # Assign disease status based on sample_name patterns
 status <- substr(subject_id, 1, 1)

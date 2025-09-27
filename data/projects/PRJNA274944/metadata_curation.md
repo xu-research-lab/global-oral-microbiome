@@ -143,7 +143,7 @@ manually extracted from the publication and added to the metadata.
 # Add information obtained from the publication
 metadata$PCR_primers <- "F: 5′-AGAGTTTGATCCTGGCTCAG-3′; R: 5′-TGCTGCCTCCCGTAGGAGT-3′"
 metadata$title <- "Subgingival microbiota in individuals with severe chronic periodontitis"
-metadata$Disease_study <- "periodontitis"
+metadata$Disease_study <- "YES"
 
 # Assign disease status based on sample_name patterns
 metadata$Status <- NA
@@ -369,12 +369,12 @@ head(metadata)
     ## 5 Subgingival microbiota in individuals with severe chronic periodontitis
     ## 6 Subgingival microbiota in individuals with severe chronic periodontitis
     ##   Disease_study Status matched_samples
-    ## 1 periodontitis     NA              NO
-    ## 2 periodontitis     NA              NO
-    ## 3 periodontitis     NA              NO
-    ## 4 periodontitis     NA              NO
-    ## 5 periodontitis     NA              NO
-    ## 6 periodontitis     NA              NO
+    ## 1           YES     NA              NO
+    ## 2           YES     NA              NO
+    ## 3           YES     NA              NO
+    ## 4           YES     NA              NO
+    ## 5           YES     NA              NO
+    ## 6           YES     NA              NO
 
 ## Notes for Students:
 

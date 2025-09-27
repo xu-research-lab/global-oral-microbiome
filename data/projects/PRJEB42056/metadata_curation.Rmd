@@ -82,49 +82,21 @@ metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal， Saliv
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status<-"H"
-#metadata <- metadata %>%
-#  mutate(Status = case_when(
-#    initial_meta$oral_mucositis_grade == "0" ~ "H",
-#    initial_meta$oral_mucositis_grade == "1" ~ "OM",
-#    initial_meta$oral_mucositis_grade %in% c("2", "3", "4") ~ "severe-OM"
-#  ))
 
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("T|CR|CS|C|N|S", "", metadata$sample_name)
+keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
+metadata <- subset(metadata, sample_name %in% keep_subjects)
 
-# Check initial data distribution
-cat("Initial sample distribution:\n")
-table(metadata$sample_name)
-table(metadata$Site)
-
-# Calculate sampling frequency per subject
 sample_counts <- table(metadata$sample_name)
-cat("\nNumber of samples per subject:\n")
-print(sample_counts)
 
-# Create matched_samples column
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
+metadata$matched_samples <-
+  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
+         "YES", "NO")
 
-cat("\nMatched samples distribution:\n")
+cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
+cat("Matched samples distribution:\n")
 table(metadata$matched_samples)
-
-# Identify samples for removal: single samples excluding saliva and tongue coat
-single_samples <- names(sample_counts[sample_counts == 1])
-samples_to_remove <- metadata$sample_name %in% single_samples & 
-                     !(metadata$Site %in% c("saliva", "tongue coat"))
-
-cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
-
-# Remove identified samples
-metadata_clean <- metadata[!samples_to_remove, ]
-
-cat("\nFinal sample distribution after cleaning:\n")
-table(metadata_clean$sample_name)
-table(metadata_clean$Site)
-table(metadata_clean$matched_samples)
-
-# Use cleaned dataset for subsequent analysis
-metadata <- metadata_clean
+cat("Sample distribution by Site:\n")
+table(metadata$Site)
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}
@@ -191,7 +163,7 @@ ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 
 
 ```{r}
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("metadata_summary.png")
 ```
 
 # Step 6: Finalize and Export the Metadata

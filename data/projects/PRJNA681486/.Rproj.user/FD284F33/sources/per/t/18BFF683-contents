@@ -1,0 +1,139 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+Step 1 obtain initial metadata from each project
+
+search "PRJEBXXXX" in website:<https://www.ncbi.nlm.nih.gov/Traces/study/> , then click Metadata item in the "Select" table and download it and you will obtain a table named "SraRunTable.csv", which contains the metadata information
+
+```{r}
+library(dplyr)
+setwd("D:/oral_project/PRJEB11425")
+initial_meta<-read.csv("SraRunTable.csv",header = T)
+head(initial_meta)
+```
+
+Step 2 make a uniform metadata by selecting columns from the initial_meta dataframe
+
+#每列格式说明
+
+1、BioProject：Project ID like "PRJNA339212"
+
+2、Run：sample id with a name such as "ERRXXXXXX" or "SRRXXXXXX"
+
+3、sample_name： 数据提交时的样品编号，不是数据库分配的编号 4
+
+4、Age
+
+5、BMI
+
+6、Sex：fill with "F", "M"
+
+7、PCR_primers such as: 515F-806R,514F-805R,341F-785R,8F-926R,515F-926R, this usually can be found in method section of a paper
+
+8、Region such as V2,V4,V3-V4,V1-V5,V6-V8,V3-V5
+
+9、Platform "such as: 454,Illumina MiSeq,Illumina HiSeq 2000,Illumina HiSeq,Illumi MiSeq,Illumina,Illumina HiSeq 2500,Illumina NovaSeq 6000,Illumina MiniSeq,Illumi HiSeq 2500,ILLUMINANextSeq2000"
+
+10、Country：China,USA,Brazil
+
+11、Site ："saliva,tongue,oral mucosa,dental plaque,oral swab,tooth,subgingival plaque,tongue coating,oral wash,buccal mucosa,lower jaw mucosa,lower labial mucosa,upper jaw mucosa,Spain,oral cavity,hard palate swab,keratinized gingiva swab,palatine tonsils swab,tongue dorsum swab,supragingival plaque,gingival sulcus,periodontal pocket,carious material,Swab,Attached_Keratinized_gingiva,hard palate,tongue dorsum"
+
+12、public_time ：第一次数据提交的时间 格式：2015-10-15 13
+
+13、title： paper title
+
+14、 Disease_study fill with "YES" if the paper related to disease study,otherwise fill with "NO"
+
+15、Status： if ”Disease_study“ is YES, fill with the exact disease information such as "PD", "IBD", "Dential caries"
+
+```{r}
+### create a uniform dataframe
+uniform_meta <- data.frame(
+  BioProject = initial_meta$BioProject,
+  Run = initial_meta$Run,
+  sample_name = initial_meta$Sample_name,
+  Age = initial_meta$AGE,
+  BMI = initial_meta$BMI,
+  Sex=initial_meta$sex,
+  Region = initial_meta$target_subfragment..exp.,
+  Platform = initial_meta$Instrument,
+  Country = initial_meta$COUNTRY,
+  Site = initial_meta$env_material,
+  public_time = initial_meta$ENA.FIRST.PUBLIC..run.,
+  stringsAsFactors = FALSE
+)
+```
+
+```{r}
+library(ggplot2)
+```
+
+Step 3 find the other needed information by read the paper, and fill the left columns
+
+```{r}
+# 查阅对应文献，补齐其他列信息
+uniform_meta$PCR_primers <- NA_character_
+uniform_meta$title <- "Extreme Dysbiosis of the Microbiome in Critical Illness"
+uniform_meta$Disease_study <- "YES"
+##STatus列收集要特别注意，有些研究中同时有疾病样本和健康对照样本，疾病信息要对应到每个样本。
+uniform_meta$Status <- "ICU patients"
+```
+
+summrize
+
+```{r}
+print(length(unique(uniform_meta$Run)))
+print(length(unique(uniform_meta$sample_name)))
+```
+
+```{r}
+##visualization
+library(ggplot2)
+library(gridExtra)
+
+# 只选择需要绘制的列
+plot_data <- uniform_meta %>%
+  select(-BioProject, -Run, -sample_name, -title,-PCR_primers)
+
+# 自动创建图形
+create_simple_plots <- function(data) {
+  plots <- list()
+  
+  for (col in colnames(data)) {
+    if (is.numeric(data[[col]])) {
+      # 数值变量：直方图
+      p <- ggplot(data, aes(x = .data[[col]])) +
+        geom_histogram(fill = "blue", alpha = 0.6, bins = 20) +
+        labs(title = col) +
+        theme_minimal()
+    } else {
+      # 分类变量：柱状图
+      count_data <- as.data.frame(table(data[[col]]))
+      p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
+        geom_col(fill = "red", alpha = 0.6) +
+        labs(title = col, x = NULL, y = "Count") +
+        theme_minimal() +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    }
+    plots[[col]] <- p
+  }
+  
+  return(plots)
+}
+
+# 生成图形并排列
+plots <- create_simple_plots(plot_data)
+grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
+print(plots)
+```
+
+```{r}
+##uniform the column order
+uniform_meta<-uniform_meta[,c("BioProject","Run","sample_name","Age","BMI","Sex","Region","Platform","Country","Site","public_time","PCR_primers","title","Disease_study","Status")]
+write.csv(uniform_meta,file="uniform_meta.csv",quote = F)
+```

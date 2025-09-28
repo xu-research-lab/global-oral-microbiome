@@ -55,7 +55,7 @@ metadata <- data.frame(
   sample_name = initial_meta$Library.Name,
   Age = NA,
   BMI = NA,
-  Sex = initial_meta$sex,
+  Sex = initial_meta$host_sex,
   Region = "V3-V4",
   Platform = initial_meta$Instrument,
   Site = initial_meta$qiita_sample_type,
@@ -80,6 +80,9 @@ metadata$PCR_primers <- "341F-805R"
 metadata$title <- "Single-tooth resolved, whole-mouth prediction of early childhood caries
 via spatiotemporal variations of plaque microbiota"
 metadata$Disease_study <- "YES"
+# Assign disease status based on sample_name patterns
+metadata <- metadata %>%
+  mutate(Status = recode(Status, "C" = "C", "H" = "HC"))
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")

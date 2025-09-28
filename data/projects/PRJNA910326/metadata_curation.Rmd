@@ -87,9 +87,6 @@ metadata <- metadata %>%
       TRUE ~ NA)
     )
 
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("DT|HT", "", metadata$sample_name)
-
 # Check initial data distribution
 cat("Initial sample distribution:\n")
 table(metadata$sample_name)

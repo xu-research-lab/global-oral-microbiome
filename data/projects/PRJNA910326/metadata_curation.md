@@ -152,9 +152,6 @@ metadata <- metadata %>%
       TRUE ~ NA)
     )
 
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("DT|HT", "", metadata$sample_name)
-
 # Check initial data distribution
 cat("Initial sample distribution:\n")
 ```
@@ -166,56 +163,60 @@ table(metadata$sample_name)
 ```
 
     ## 
-    ##   001   002   003   004   005   006   007   008   009   010   011   012   013 
-    ##     2     1     2     2     2     2     2     2     1     2     2     2     2 
-    ##   014   015   016   017   018   019   020   021   022   023   024   025   026 
-    ##     2     2     2     2     2     2     2     2     1     2     2     1     2 
-    ##   027   028   029   030   031   032   033   034   035   036   037   038   039 
-    ##     2     2     2     2     2     2     1     2     1     1     1     1     1 
-    ##   040   041   042   043   045   046   047   048   050   051   052   053   054 
+    ## DF001 DF003 DF004 DF005 DF006 DF007 DF008 DF010 DF011 DF012 DF013 DF014 DF015 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   055   057   058   061   062   063   064   065   066   067   068   069   070 
+    ## DF016 DF017 DF018 DF019 DF020 DF021 DF023 DF024 DF026 DF027 DF029 DF030 DF031 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   071   073   074   075   076   077   079   082   083   085   086   087   088 
+    ## DF032 DF035 DF036 DF037 DF038 DF039 DF041 DF042 DF043 DF045 DF046 DF048 DF050 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   089   090   091   092   093   094   095   096   097   098   099   100   101 
+    ## DF051 DF052 DF053 DF058 DF061 DF062 DF063 DF064 DF066 DF067 DF068 DF069 DF070 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   103   104   105   106   107   109   110   111   112   113   114   115   116 
+    ## DF071 DF073 DF074 DF075 DF079 DF083 DF085 DF086 DF090 DF091 DF092 DF094 DF095 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   118   119   120   122   123   124   125   126   127   128   129   131   132 
+    ## DF096 DF098 DF100 DF106 DF107 DF109 DF111 DF112 DF113 DF119 DF122 DF129 DF131 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   133   134   135   136   137   138   139   140   143   144   145   147   148 
+    ## DF132 DF133 DF134 DF135 DF136 DF137 DF138 DF140 DF145 DF147 DF148 DF150 DF152 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   150   152   154   155   156   157   159   160   161   162   163   165   166 
+    ## DF153 DF156 DF157 DF160 DF161 DF163 DF165 DF166 DF168 DF172 DF173 DF174 DF175 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   167   168   169   170   171   172   173   174   175   176   177   178   179 
+    ## DF176 DF179 DF181 DF182 DF183 DF186 DF187 DF191 DF193 DF194 DF197 DF199 DF200 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   181   182   183   185   186   187   188   191   192   193   194   195   197 
+    ## DF201 DF202 DF203 DF206 DF207 DF208 DF210 DF212 DF213 DF217 DF218 DF219 DT001 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   198   199   200   201   202   203   205   206   207   208   209   210   212 
+    ## DT003 DT004 DT005 DT006 DT007 DT008 DT010 DT011 DT012 DT013 DT014 DT015 DT016 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   213   215   216   217   218   219   225 DF001 DF003 DF004 DF005 DF006 DF007 
+    ## DT017 DT018 DT019 DT020 DT021 DT023 DT024 DT026 DT027 DT028 DT029 DT030 DT031 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF008 DF010 DF011 DF012 DF013 DF014 DF015 DF016 DF017 DF018 DF019 DF020 DF021 
+    ## DT032 DT034 DT035 DT036 DT037 DT038 DT039 DT040 DT041 DT042 DT043 DT045 DT046 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF023 DF024 DF026 DF027 DF029 DF030 DF031 DF032 DF035 DF036 DF037 DF038 DF039 
+    ## DT047 DT048 DT050 DT051 DT052 DT053 DT054 DT055 DT057 DT058 DT061 DT062 DT063 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF041 DF042 DF043 DF045 DF046 DF048 DF050 DF051 DF052 DF053 DF058 DF061 DF062 
+    ## DT064 DT065 DT066 DT067 DT068 DT069 DT070 DT071 DT073 DT074 DT075 DT076 DT077 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF063 DF064 DF066 DF067 DF068 DF069 DF070 DF071 DF073 DF074 DF075 DF079 DF083 
+    ## DT079 DT082 DT083 DT085 DT086 DT087 DT088 DT089 DT090 DT091 DT092 DT093 DT094 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF085 DF086 DF090 DF091 DF092 DF094 DF095 DF096 DF098 DF100 DF106 DF107 DF109 
+    ## DT095 DT096 DT097 DT098 DT099 DT100 DT101 DT103 DT104 DT105 DT106 DT107 DT109 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF111 DF112 DF113 DF119 DF122 DF129 DF131 DF132 DF133 DF134 DF135 DF136 DF137 
+    ## DT110 DT111 DT112 DT113 DT114 DT115 DT116 DT118 DT119 DT120 DT122 DT123 DT124 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF138 DF140 DF145 DF147 DF148 DF150 DF152 DF153 DF156 DF157 DF160 DF161 DF163 
+    ## DT125 DT126 DT127 DT128 DT129 DT131 DT132 DT133 DT134 DT135 DT136 DT137 DT138 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF165 DF166 DF168 DF172 DF173 DF174 DF175 DF176 DF179 DF181 DF182 DF183 DF186 
+    ## DT139 DT140 DT143 DT144 DT145 DT147 DT148 DT150 DT152 DT154 DT155 DT156 DT157 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF187 DF191 DF193 DF194 DF197 DF199 DF200 DF201 DF202 DF203 DF206 DF207 DF208 
+    ## DT159 DT160 DT161 DT162 DT163 DT165 DT166 DT167 DT168 DT169 DT170 DT171 DT172 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF210 DF212 DF213 DF217 DF218 DF219 
-    ##     1     1     1     1     1     1
+    ## DT173 DT174 DT175 DT176 DT177 DT178 DT179 DT181 DT182 DT183 DT185 DT186 DT187 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT188 DT191 DT192 DT193 DT194 DT195 DT197 DT198 DT199 DT200 DT201 DT202 DT203 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT205 DT206 DT207 DT208 DT209 DT210 DT212 DT213 DT215 DT216 DT217 DT218 DT219 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT225 HT001 HT002 HT003 HT004 HT005 HT006 HT007 HT008 HT009 HT010 HT011 HT012 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## HT013 HT014 HT015 HT016 HT017 HT018 HT019 HT020 HT021 HT022 HT023 HT024 HT025 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## HT026 HT027 HT028 HT029 HT030 HT031 HT032 HT033 HT034 
+    ##     1     1     1     1     1     1     1     1     1
 
 ``` r
 table(metadata$Site)
@@ -239,56 +240,60 @@ print(sample_counts)
 ```
 
     ## 
-    ##   001   002   003   004   005   006   007   008   009   010   011   012   013 
-    ##     2     1     2     2     2     2     2     2     1     2     2     2     2 
-    ##   014   015   016   017   018   019   020   021   022   023   024   025   026 
-    ##     2     2     2     2     2     2     2     2     1     2     2     1     2 
-    ##   027   028   029   030   031   032   033   034   035   036   037   038   039 
-    ##     2     2     2     2     2     2     1     2     1     1     1     1     1 
-    ##   040   041   042   043   045   046   047   048   050   051   052   053   054 
+    ## DF001 DF003 DF004 DF005 DF006 DF007 DF008 DF010 DF011 DF012 DF013 DF014 DF015 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   055   057   058   061   062   063   064   065   066   067   068   069   070 
+    ## DF016 DF017 DF018 DF019 DF020 DF021 DF023 DF024 DF026 DF027 DF029 DF030 DF031 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   071   073   074   075   076   077   079   082   083   085   086   087   088 
+    ## DF032 DF035 DF036 DF037 DF038 DF039 DF041 DF042 DF043 DF045 DF046 DF048 DF050 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   089   090   091   092   093   094   095   096   097   098   099   100   101 
+    ## DF051 DF052 DF053 DF058 DF061 DF062 DF063 DF064 DF066 DF067 DF068 DF069 DF070 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   103   104   105   106   107   109   110   111   112   113   114   115   116 
+    ## DF071 DF073 DF074 DF075 DF079 DF083 DF085 DF086 DF090 DF091 DF092 DF094 DF095 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   118   119   120   122   123   124   125   126   127   128   129   131   132 
+    ## DF096 DF098 DF100 DF106 DF107 DF109 DF111 DF112 DF113 DF119 DF122 DF129 DF131 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   133   134   135   136   137   138   139   140   143   144   145   147   148 
+    ## DF132 DF133 DF134 DF135 DF136 DF137 DF138 DF140 DF145 DF147 DF148 DF150 DF152 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   150   152   154   155   156   157   159   160   161   162   163   165   166 
+    ## DF153 DF156 DF157 DF160 DF161 DF163 DF165 DF166 DF168 DF172 DF173 DF174 DF175 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   167   168   169   170   171   172   173   174   175   176   177   178   179 
+    ## DF176 DF179 DF181 DF182 DF183 DF186 DF187 DF191 DF193 DF194 DF197 DF199 DF200 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   181   182   183   185   186   187   188   191   192   193   194   195   197 
+    ## DF201 DF202 DF203 DF206 DF207 DF208 DF210 DF212 DF213 DF217 DF218 DF219 DT001 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   198   199   200   201   202   203   205   206   207   208   209   210   212 
+    ## DT003 DT004 DT005 DT006 DT007 DT008 DT010 DT011 DT012 DT013 DT014 DT015 DT016 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##   213   215   216   217   218   219   225 DF001 DF003 DF004 DF005 DF006 DF007 
+    ## DT017 DT018 DT019 DT020 DT021 DT023 DT024 DT026 DT027 DT028 DT029 DT030 DT031 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF008 DF010 DF011 DF012 DF013 DF014 DF015 DF016 DF017 DF018 DF019 DF020 DF021 
+    ## DT032 DT034 DT035 DT036 DT037 DT038 DT039 DT040 DT041 DT042 DT043 DT045 DT046 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF023 DF024 DF026 DF027 DF029 DF030 DF031 DF032 DF035 DF036 DF037 DF038 DF039 
+    ## DT047 DT048 DT050 DT051 DT052 DT053 DT054 DT055 DT057 DT058 DT061 DT062 DT063 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF041 DF042 DF043 DF045 DF046 DF048 DF050 DF051 DF052 DF053 DF058 DF061 DF062 
+    ## DT064 DT065 DT066 DT067 DT068 DT069 DT070 DT071 DT073 DT074 DT075 DT076 DT077 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF063 DF064 DF066 DF067 DF068 DF069 DF070 DF071 DF073 DF074 DF075 DF079 DF083 
+    ## DT079 DT082 DT083 DT085 DT086 DT087 DT088 DT089 DT090 DT091 DT092 DT093 DT094 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF085 DF086 DF090 DF091 DF092 DF094 DF095 DF096 DF098 DF100 DF106 DF107 DF109 
+    ## DT095 DT096 DT097 DT098 DT099 DT100 DT101 DT103 DT104 DT105 DT106 DT107 DT109 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF111 DF112 DF113 DF119 DF122 DF129 DF131 DF132 DF133 DF134 DF135 DF136 DF137 
+    ## DT110 DT111 DT112 DT113 DT114 DT115 DT116 DT118 DT119 DT120 DT122 DT123 DT124 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF138 DF140 DF145 DF147 DF148 DF150 DF152 DF153 DF156 DF157 DF160 DF161 DF163 
+    ## DT125 DT126 DT127 DT128 DT129 DT131 DT132 DT133 DT134 DT135 DT136 DT137 DT138 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF165 DF166 DF168 DF172 DF173 DF174 DF175 DF176 DF179 DF181 DF182 DF183 DF186 
+    ## DT139 DT140 DT143 DT144 DT145 DT147 DT148 DT150 DT152 DT154 DT155 DT156 DT157 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF187 DF191 DF193 DF194 DF197 DF199 DF200 DF201 DF202 DF203 DF206 DF207 DF208 
+    ## DT159 DT160 DT161 DT162 DT163 DT165 DT166 DT167 DT168 DT169 DT170 DT171 DT172 
     ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## DF210 DF212 DF213 DF217 DF218 DF219 
-    ##     1     1     1     1     1     1
+    ## DT173 DT174 DT175 DT176 DT177 DT178 DT179 DT181 DT182 DT183 DT185 DT186 DT187 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT188 DT191 DT192 DT193 DT194 DT195 DT197 DT198 DT199 DT200 DT201 DT202 DT203 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT205 DT206 DT207 DT208 DT209 DT210 DT212 DT213 DT215 DT216 DT217 DT218 DT219 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT225 HT001 HT002 HT003 HT004 HT005 HT006 HT007 HT008 HT009 HT010 HT011 HT012 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## HT013 HT014 HT015 HT016 HT017 HT018 HT019 HT020 HT021 HT022 HT023 HT024 HT025 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## HT026 HT027 HT028 HT029 HT030 HT031 HT032 HT033 HT034 
+    ##     1     1     1     1     1     1     1     1     1
 
 ``` r
 # Create matched_samples column
@@ -305,8 +310,8 @@ table(metadata$matched_samples)
 ```
 
     ## 
-    ##  NO YES 
-    ## 289  58
+    ##  NO 
+    ## 347
 
 ``` r
 # Identify samples for removal: single samples excluding saliva and tongue coat
@@ -335,26 +340,40 @@ table(metadata_clean$sample_name)
 ```
 
     ## 
-    ## 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017 018 019 020 
-    ##   2   1   2   2   2   2   2   2   1   2   2   2   2   2   2   2   2   2   2   2 
-    ## 021 022 023 024 025 026 027 028 029 030 031 032 033 034 035 036 037 038 039 040 
-    ##   2   1   2   2   1   2   2   2   2   2   2   2   1   2   1   1   1   1   1   1 
-    ## 041 042 043 045 046 047 048 050 051 052 053 054 055 057 058 061 062 063 064 065 
-    ##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
-    ## 066 067 068 069 070 071 073 074 075 076 077 079 082 083 085 086 087 088 089 090 
-    ##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
-    ## 091 092 093 094 095 096 097 098 099 100 101 103 104 105 106 107 109 110 111 112 
-    ##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
-    ## 113 114 115 116 118 119 120 122 123 124 125 126 127 128 129 131 132 133 134 135 
-    ##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
-    ## 136 137 138 139 140 143 144 145 147 148 150 152 154 155 156 157 159 160 161 162 
-    ##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
-    ## 163 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 181 182 183 185 
-    ##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
-    ## 186 187 188 191 192 193 194 195 197 198 199 200 201 202 203 205 206 207 208 209 
-    ##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 
-    ## 210 212 213 215 216 217 218 219 225 
-    ##   1   1   1   1   1   1   1   1   1
+    ## DT001 DT003 DT004 DT005 DT006 DT007 DT008 DT010 DT011 DT012 DT013 DT014 DT015 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT016 DT017 DT018 DT019 DT020 DT021 DT023 DT024 DT026 DT027 DT028 DT029 DT030 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT031 DT032 DT034 DT035 DT036 DT037 DT038 DT039 DT040 DT041 DT042 DT043 DT045 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT046 DT047 DT048 DT050 DT051 DT052 DT053 DT054 DT055 DT057 DT058 DT061 DT062 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT063 DT064 DT065 DT066 DT067 DT068 DT069 DT070 DT071 DT073 DT074 DT075 DT076 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT077 DT079 DT082 DT083 DT085 DT086 DT087 DT088 DT089 DT090 DT091 DT092 DT093 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT094 DT095 DT096 DT097 DT098 DT099 DT100 DT101 DT103 DT104 DT105 DT106 DT107 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT109 DT110 DT111 DT112 DT113 DT114 DT115 DT116 DT118 DT119 DT120 DT122 DT123 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT124 DT125 DT126 DT127 DT128 DT129 DT131 DT132 DT133 DT134 DT135 DT136 DT137 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT138 DT139 DT140 DT143 DT144 DT145 DT147 DT148 DT150 DT152 DT154 DT155 DT156 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT157 DT159 DT160 DT161 DT162 DT163 DT165 DT166 DT167 DT168 DT169 DT170 DT171 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT172 DT173 DT174 DT175 DT176 DT177 DT178 DT179 DT181 DT182 DT183 DT185 DT186 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT187 DT188 DT191 DT192 DT193 DT194 DT195 DT197 DT198 DT199 DT200 DT201 DT202 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT203 DT205 DT206 DT207 DT208 DT209 DT210 DT212 DT213 DT215 DT216 DT217 DT218 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## DT219 DT225 HT001 HT002 HT003 HT004 HT005 HT006 HT007 HT008 HT009 HT010 HT011 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## HT012 HT013 HT014 HT015 HT016 HT017 HT018 HT019 HT020 HT021 HT022 HT023 HT024 
+    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
+    ## HT025 HT026 HT027 HT028 HT029 HT030 HT031 HT032 HT033 HT034 
+    ##     1     1     1     1     1     1     1     1     1     1
 
 ``` r
 table(metadata_clean$Site)
@@ -369,8 +388,8 @@ table(metadata_clean$matched_samples)
 ```
 
     ## 
-    ##  NO YES 
-    ## 160  58
+    ##  NO 
+    ## 218
 
 ``` r
 # Use cleaned dataset for subsequent analysis
@@ -390,7 +409,7 @@ print(paste("Number of unique runs:", length(unique(metadata$Run))))
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 189"
+    ## [1] "Number of unique sample names: 218"
 
 # Step 5: Visualize the Metadata
 
@@ -416,12 +435,12 @@ head(metadata)
 ```
 
     ##    BioProject         Run sample_name   Age BMI Sex Region
-    ## 1 PRJNA910326 SRR22711069         094 18-75  NA  NA  V3-V4
-    ## 2 PRJNA910326 SRR22711070         093 18-75  NA  NA  V3-V4
-    ## 3 PRJNA910326 SRR22711071         092 18-75  NA  NA  V3-V4
-    ## 4 PRJNA910326 SRR22711072         091 18-75  NA  NA  V3-V4
-    ## 5 PRJNA910326 SRR22711073         090 18-75  NA  NA  V3-V4
-    ## 6 PRJNA910326 SRR22711074         089 18-75  NA  NA  V3-V4
+    ## 1 PRJNA910326 SRR22711069       DT094 18-75  NA  NA  V3-V4
+    ## 2 PRJNA910326 SRR22711070       DT093 18-75  NA  NA  V3-V4
+    ## 3 PRJNA910326 SRR22711071       DT092 18-75  NA  NA  V3-V4
+    ## 4 PRJNA910326 SRR22711072       DT091 18-75  NA  NA  V3-V4
+    ## 5 PRJNA910326 SRR22711073       DT090 18-75  NA  NA  V3-V4
+    ## 6 PRJNA910326 SRR22711074       DT089 18-75  NA  NA  V3-V4
     ##                Platform Country           Site          public_time PCR_primers
     ## 1 Illumina NovaSeq 6000   China Tongue coating 2023-02-02T00:00:00Z   338F-806R
     ## 2 Illumina NovaSeq 6000   China Tongue coating 2023-02-02T00:00:00Z   338F-806R

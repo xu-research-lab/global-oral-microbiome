@@ -22,9 +22,6 @@ setwd("E:/bioproject/PRJEB48040")
 # Read the initial metadata files
 initial_meta <- read.csv("SraRunTable.csv", header = T)
 
-# Remove entries non-oral samples
-initial_meta <- initial_meta[initial_meta$env_material != "", ]
-
 # Display the first few rows of the metadata
 head(initial_meta)
 ```
@@ -78,12 +75,8 @@ metadata$Country <- "USA"
 metadata$PCR_primers <- "338F-518R"
 metadata$title <- "Assessing saliva microbiome collection and processing methods"
 metadata$Disease_study <- "NO"
-
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
-
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("FN|SP|FP|SN", "", metadata$sample_name)
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")
@@ -119,6 +112,7 @@ table(metadata_clean$matched_samples)
 # Use cleaned dataset for subsequent analysis
 metadata <- metadata_clean
 ```
+
 # Step 4: Summarize and Validate the Metadata
 ```{r}
 # Check the number of unique runs and sample names

@@ -26,6 +26,9 @@ initial_meta <- read.csv("SraRunTable.csv", header = T)
 initial_meta <- initial_meta %>%
   mutate(across(c(cancer_type, ibd_type), ~ na_if(.x, "")))
 
+# Extract "human" and "metagenome"
+initial_meta $Organism <- sub("human (\\w+) metagenome", "\\1", initial_meta$Organism)
+
 # Display the first few rows of the metadata
 head(initial_meta)
 ```
@@ -59,7 +62,7 @@ metadata <- data.frame(
   Age = "35-70", 
   BMI = NA, 
   Sex = NA, 
-  Region = initial_meta$Organism,
+  Region = "V4–V5",
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$Organism,
@@ -88,11 +91,8 @@ metadata <- metadata %>%
       ibd_type == "Crohns" ~ "Crohns disease",
       ibd_type == "UC"~ "Ulcerative colitis",
       ibd_type == "Crohns_UC" ~ "Crohns disease_Ul",
-      TRUE ~ "H")
+      TRUE ~ "HC")
     )
-
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("10", "", metadata$sample_name)
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")

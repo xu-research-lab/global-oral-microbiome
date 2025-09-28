@@ -17,19 +17,15 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("E:/bioproject/PRJEB42371")
+setwd("E:/bioproject/PRJNA1149521")
 
 # Read the initial metadata files
 initial_meta <- read.csv("SraRunTable.csv", header = T) 
 
-# Remove entries non-oral samples
-initial_meta <- initial_meta %>%
-  filter(target_gene..exp. != "ITS",
-         env_material != "sterile water")
-
 # Display the first few rows of the metadata
 head(initial_meta)
 ```
+
 # Step 2: Create a Uniform Metadata Template
 
 The uniform metadata should include the following columns:
@@ -55,44 +51,35 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$host_subject_id,
-  Age = initial_meta$age_category, 
+  sample_name = initial_meta$Sample.Name,
+  Age = "18-50", 
   BMI = NA,  
-  Sex = initial_meta$sex,
-  Region = initial_meta$target_subfragment..exp.,
+  Sex = NA,
   Platform = initial_meta$Instrument,
-  Country = initial_meta$COUNTRY,
-  Site = initial_meta$env_material,
+  Country = initial_meta$geo_loc_name_country,
+  Site = initial_meta$isolation_source,
   public_time = initial_meta$ReleaseDate,
-  Status = initial_meta$perio_4_categories,
   stringsAsFactors = FALSE
 )
 
-# Use abbreviations to indicate gender
-metadata <- metadata %>%
-  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+# Remove entries non-oral samples
+metadata <- metadata %>% 
+  filter(Site != "missing" | is.na(Site))
 ```
 # Step 3: Manually Add Information from the Publication
 
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
-metadata$PCR_primers <- "F:5'-GTGYCAGCMGCCGCGGTAA-3'; R:5'-GGACTACNVGGGTWTCTAAT-3'"
-metadata$title <- "Ecological competition in the oral mycobiome of Hispanic adults living in Puerto Rico associates with periodontitis"
-metadata$Disease_study <- "YES"
+metadata$Region <- "V3-V4"
+metadata$PCR_primers <- "338F-806R"
+metadata$title <- "hTAS2R38 polymorphisms modulate oral microbiota and influence the prevalence and treatment outcome of halitosis"
+metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
-metadata <- metadata %>%
-  mutate(
-    Status = case_when(
-      Status %in% c("moderate", "mild", "severe") ~ "PD",
-      Status == "no" ~ "HC",
-      Status == "" ~ NA_character_,
-      TRUE ~ Status
-    )
-  )
+metadata$Status <- "HC"
 
 #extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("O", "", metadata$sample_name)
+metadata$sample_name <- gsub("C|Co|CS", "", metadata$sample_name)
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")
@@ -183,6 +170,7 @@ p<-plot_grid(plots$Age,
           plots$Country, 
           plots$Site,
           plots$public_time, 
+          plots$PCR_primers,
           plots$Disease_study,
           plots$Status,
           plots$matched_samples,# add 
@@ -200,14 +188,13 @@ knitr::include_graphics("Metadata_Summary.png")
 metadata <- metadata[, c(
   "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
   "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
+  "PCR_primers", "title", "Disease_study", "Status", "matched_samples"
 )]
 
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
-
 ## Notes for Students:
 
 1. **Metadata Accuracy**: Always cross-check the metadata with the original publication to ensure accuracy.

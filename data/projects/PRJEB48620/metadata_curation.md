@@ -218,9 +218,9 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$Library.Name,
-  Age = initial_meta$Host_age,
-  BMI = initial_meta$host_body_mass_index,  
+  sample_name = initial_meta$host_subject_id,
+  Age = "40",
+  BMI = "23.1",  
   Sex = initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$Instrument,
@@ -248,9 +248,6 @@ metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
 
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("M11", "", metadata$sample_name)
-
 # Check initial data distribution
 cat("Initial sample distribution:\n")
 ```
@@ -262,70 +259,8 @@ table(metadata$sample_name)
 ```
 
     ## 
-    ##  14058.1..saliva.1168567 14058.10..saliva.1168573 14058.11..saliva.1168556 
-    ##                        1                        1                        1 
-    ## 14058.12..saliva.1168590 14058.13..saliva.1168512 14058.14..saliva.1168536 
-    ##                        1                        1                        1 
-    ## 14058.15..saliva.1168584 14058.16..saliva.1168539 14058.17..saliva.1168511 
-    ##                        1                        1                        1 
-    ## 14058.18..saliva.1168552 14058.19..saliva.1168553  14058.2..saliva.1168561 
-    ##                        1                        1                        1 
-    ## 14058.20..saliva.1168525 14058.21..saliva.1168555 14058.22..saliva.1168530 
-    ##                        1                        1                        1 
-    ## 14058.23..saliva.1168571 14058.24..saliva.1168580 14058.25..saliva.1168514 
-    ##                        1                        1                        1 
-    ## 14058.26..saliva.1168526 14058.27..saliva.1168540 14058.28..saliva.1168583 
-    ##                        1                        1                        1 
-    ## 14058.29..saliva.1168547  14058.3..saliva.1168562 14058.30..saliva.1168505 
-    ##                        1                        1                        1 
-    ## 14058.32..saliva.1168576 14058.33..saliva.1168515 14058.34..saliva.1168559 
-    ##                        1                        1                        1 
-    ## 14058.36..saliva.1168554 14058.37..saliva.1168581 14058.38..saliva.1168521 
-    ##                        1                        1                        1 
-    ## 14058.39..saliva.1168566  14058.4..saliva.1168558 14058.40..saliva.1168503 
-    ##                        1                        1                        1 
-    ## 14058.41..saliva.1168551 14058.42..saliva.1168518 14058.43..saliva.1168545 
-    ##                        1                        1                        1 
-    ## 14058.44..saliva.1168542 14058.45..saliva.1168519 14058.46..saliva.1168574 
-    ##                        1                        1                        1 
-    ## 14058.47..saliva.1168544 14058.48..saliva.1168560 14058.49..saliva.1168596 
-    ##                        1                        1                        1 
-    ##  14058.5..saliva.1168507 14058.50..saliva.1168588 14058.51..saliva.1168537 
-    ##                        1                        1                        1 
-    ## 14058.52..saliva.1168529 14058.53..saliva.1168508 14058.54..saliva.1168582 
-    ##                        1                        1                        1 
-    ## 14058.55..saliva.1168509 14058.56..saliva.1168538 14058.57..saliva.1168522 
-    ##                        1                        1                        1 
-    ## 14058.58..saliva.1168541 14058.59..saliva.1168535  14058.6..saliva.1168502 
-    ##                        1                        1                        1 
-    ## 14058.60..saliva.1168546 14058.61..saliva.1168585 14058.62..saliva.1168528 
-    ##                        1                        1                        1 
-    ## 14058.63..saliva.1168520 14058.64..saliva.1168516 14058.65..saliva.1168597 
-    ##                        1                        1                        1 
-    ## 14058.66..saliva.1168550 14058.67..saliva.1168593 14058.68..saliva.1168510 
-    ##                        1                        1                        1 
-    ## 14058.69..saliva.1168557  14058.7..saliva.1168517 14058.70..saliva.1168568 
-    ##                        1                        1                        1 
-    ## 14058.71..saliva.1168595 14058.72..saliva.1168586 14058.73..saliva.1168533 
-    ##                        1                        1                        1 
-    ## 14058.74..saliva.1168592 14058.75..saliva.1168524 14058.76..saliva.1168549 
-    ##                        1                        1                        1 
-    ## 14058.77..saliva.1168548 14058.78..saliva.1168563 14058.79..saliva.1168578 
-    ##                        1                        1                        1 
-    ##  14058.8..saliva.1168543 14058.80..saliva.1168513 14058.81..saliva.1168564 
-    ##                        1                        1                        1 
-    ## 14058.82..saliva.1168589 14058.83..saliva.1168504 14058.84..saliva.1168577 
-    ##                        1                        1                        1 
-    ## 14058.85..saliva.1168506 14058.86..saliva.1168570 14058.87..saliva.1168587 
-    ##                        1                        1                        1 
-    ## 14058.88..saliva.1168591 14058.89..saliva.1168572  14058.9..saliva.1168569 
-    ##                        1                        1                        1 
-    ## 14058.90..saliva.1168575 14058.91..saliva.1168527 14058.92..saliva.1168523 
-    ##                        1                        1                        1 
-    ## 14058.93..saliva.1168531 14058.94..saliva.1168565 14058.95..saliva.1168579 
-    ##                        1                        1                        1 
-    ## 14058.96..saliva.1168594 
-    ##                        1
+    ## 2052:M11 
+    ##       94
 
 ``` r
 table(metadata$Site)
@@ -349,70 +284,8 @@ print(sample_counts)
 ```
 
     ## 
-    ##  14058.1..saliva.1168567 14058.10..saliva.1168573 14058.11..saliva.1168556 
-    ##                        1                        1                        1 
-    ## 14058.12..saliva.1168590 14058.13..saliva.1168512 14058.14..saliva.1168536 
-    ##                        1                        1                        1 
-    ## 14058.15..saliva.1168584 14058.16..saliva.1168539 14058.17..saliva.1168511 
-    ##                        1                        1                        1 
-    ## 14058.18..saliva.1168552 14058.19..saliva.1168553  14058.2..saliva.1168561 
-    ##                        1                        1                        1 
-    ## 14058.20..saliva.1168525 14058.21..saliva.1168555 14058.22..saliva.1168530 
-    ##                        1                        1                        1 
-    ## 14058.23..saliva.1168571 14058.24..saliva.1168580 14058.25..saliva.1168514 
-    ##                        1                        1                        1 
-    ## 14058.26..saliva.1168526 14058.27..saliva.1168540 14058.28..saliva.1168583 
-    ##                        1                        1                        1 
-    ## 14058.29..saliva.1168547  14058.3..saliva.1168562 14058.30..saliva.1168505 
-    ##                        1                        1                        1 
-    ## 14058.32..saliva.1168576 14058.33..saliva.1168515 14058.34..saliva.1168559 
-    ##                        1                        1                        1 
-    ## 14058.36..saliva.1168554 14058.37..saliva.1168581 14058.38..saliva.1168521 
-    ##                        1                        1                        1 
-    ## 14058.39..saliva.1168566  14058.4..saliva.1168558 14058.40..saliva.1168503 
-    ##                        1                        1                        1 
-    ## 14058.41..saliva.1168551 14058.42..saliva.1168518 14058.43..saliva.1168545 
-    ##                        1                        1                        1 
-    ## 14058.44..saliva.1168542 14058.45..saliva.1168519 14058.46..saliva.1168574 
-    ##                        1                        1                        1 
-    ## 14058.47..saliva.1168544 14058.48..saliva.1168560 14058.49..saliva.1168596 
-    ##                        1                        1                        1 
-    ##  14058.5..saliva.1168507 14058.50..saliva.1168588 14058.51..saliva.1168537 
-    ##                        1                        1                        1 
-    ## 14058.52..saliva.1168529 14058.53..saliva.1168508 14058.54..saliva.1168582 
-    ##                        1                        1                        1 
-    ## 14058.55..saliva.1168509 14058.56..saliva.1168538 14058.57..saliva.1168522 
-    ##                        1                        1                        1 
-    ## 14058.58..saliva.1168541 14058.59..saliva.1168535  14058.6..saliva.1168502 
-    ##                        1                        1                        1 
-    ## 14058.60..saliva.1168546 14058.61..saliva.1168585 14058.62..saliva.1168528 
-    ##                        1                        1                        1 
-    ## 14058.63..saliva.1168520 14058.64..saliva.1168516 14058.65..saliva.1168597 
-    ##                        1                        1                        1 
-    ## 14058.66..saliva.1168550 14058.67..saliva.1168593 14058.68..saliva.1168510 
-    ##                        1                        1                        1 
-    ## 14058.69..saliva.1168557  14058.7..saliva.1168517 14058.70..saliva.1168568 
-    ##                        1                        1                        1 
-    ## 14058.71..saliva.1168595 14058.72..saliva.1168586 14058.73..saliva.1168533 
-    ##                        1                        1                        1 
-    ## 14058.74..saliva.1168592 14058.75..saliva.1168524 14058.76..saliva.1168549 
-    ##                        1                        1                        1 
-    ## 14058.77..saliva.1168548 14058.78..saliva.1168563 14058.79..saliva.1168578 
-    ##                        1                        1                        1 
-    ##  14058.8..saliva.1168543 14058.80..saliva.1168513 14058.81..saliva.1168564 
-    ##                        1                        1                        1 
-    ## 14058.82..saliva.1168589 14058.83..saliva.1168504 14058.84..saliva.1168577 
-    ##                        1                        1                        1 
-    ## 14058.85..saliva.1168506 14058.86..saliva.1168570 14058.87..saliva.1168587 
-    ##                        1                        1                        1 
-    ## 14058.88..saliva.1168591 14058.89..saliva.1168572  14058.9..saliva.1168569 
-    ##                        1                        1                        1 
-    ## 14058.90..saliva.1168575 14058.91..saliva.1168527 14058.92..saliva.1168523 
-    ##                        1                        1                        1 
-    ## 14058.93..saliva.1168531 14058.94..saliva.1168565 14058.95..saliva.1168579 
-    ##                        1                        1                        1 
-    ## 14058.96..saliva.1168594 
-    ##                        1
+    ## 2052:M11 
+    ##       94
 
 ``` r
 # Create matched_samples column
@@ -429,8 +302,8 @@ table(metadata$matched_samples)
 ```
 
     ## 
-    ## NO 
-    ## 94
+    ## YES 
+    ##  94
 
 ``` r
 # Identify samples for removal: single samples excluding saliva and tongue coat
@@ -459,70 +332,8 @@ table(metadata_clean$sample_name)
 ```
 
     ## 
-    ##  14058.1..saliva.1168567 14058.10..saliva.1168573 14058.11..saliva.1168556 
-    ##                        1                        1                        1 
-    ## 14058.12..saliva.1168590 14058.13..saliva.1168512 14058.14..saliva.1168536 
-    ##                        1                        1                        1 
-    ## 14058.15..saliva.1168584 14058.16..saliva.1168539 14058.17..saliva.1168511 
-    ##                        1                        1                        1 
-    ## 14058.18..saliva.1168552 14058.19..saliva.1168553  14058.2..saliva.1168561 
-    ##                        1                        1                        1 
-    ## 14058.20..saliva.1168525 14058.21..saliva.1168555 14058.22..saliva.1168530 
-    ##                        1                        1                        1 
-    ## 14058.23..saliva.1168571 14058.24..saliva.1168580 14058.25..saliva.1168514 
-    ##                        1                        1                        1 
-    ## 14058.26..saliva.1168526 14058.27..saliva.1168540 14058.28..saliva.1168583 
-    ##                        1                        1                        1 
-    ## 14058.29..saliva.1168547  14058.3..saliva.1168562 14058.30..saliva.1168505 
-    ##                        1                        1                        1 
-    ## 14058.32..saliva.1168576 14058.33..saliva.1168515 14058.34..saliva.1168559 
-    ##                        1                        1                        1 
-    ## 14058.36..saliva.1168554 14058.37..saliva.1168581 14058.38..saliva.1168521 
-    ##                        1                        1                        1 
-    ## 14058.39..saliva.1168566  14058.4..saliva.1168558 14058.40..saliva.1168503 
-    ##                        1                        1                        1 
-    ## 14058.41..saliva.1168551 14058.42..saliva.1168518 14058.43..saliva.1168545 
-    ##                        1                        1                        1 
-    ## 14058.44..saliva.1168542 14058.45..saliva.1168519 14058.46..saliva.1168574 
-    ##                        1                        1                        1 
-    ## 14058.47..saliva.1168544 14058.48..saliva.1168560 14058.49..saliva.1168596 
-    ##                        1                        1                        1 
-    ##  14058.5..saliva.1168507 14058.50..saliva.1168588 14058.51..saliva.1168537 
-    ##                        1                        1                        1 
-    ## 14058.52..saliva.1168529 14058.53..saliva.1168508 14058.54..saliva.1168582 
-    ##                        1                        1                        1 
-    ## 14058.55..saliva.1168509 14058.56..saliva.1168538 14058.57..saliva.1168522 
-    ##                        1                        1                        1 
-    ## 14058.58..saliva.1168541 14058.59..saliva.1168535  14058.6..saliva.1168502 
-    ##                        1                        1                        1 
-    ## 14058.60..saliva.1168546 14058.61..saliva.1168585 14058.62..saliva.1168528 
-    ##                        1                        1                        1 
-    ## 14058.63..saliva.1168520 14058.64..saliva.1168516 14058.65..saliva.1168597 
-    ##                        1                        1                        1 
-    ## 14058.66..saliva.1168550 14058.67..saliva.1168593 14058.68..saliva.1168510 
-    ##                        1                        1                        1 
-    ## 14058.69..saliva.1168557  14058.7..saliva.1168517 14058.70..saliva.1168568 
-    ##                        1                        1                        1 
-    ## 14058.71..saliva.1168595 14058.72..saliva.1168586 14058.73..saliva.1168533 
-    ##                        1                        1                        1 
-    ## 14058.74..saliva.1168592 14058.75..saliva.1168524 14058.76..saliva.1168549 
-    ##                        1                        1                        1 
-    ## 14058.77..saliva.1168548 14058.78..saliva.1168563 14058.79..saliva.1168578 
-    ##                        1                        1                        1 
-    ##  14058.8..saliva.1168543 14058.80..saliva.1168513 14058.81..saliva.1168564 
-    ##                        1                        1                        1 
-    ## 14058.82..saliva.1168589 14058.83..saliva.1168504 14058.84..saliva.1168577 
-    ##                        1                        1                        1 
-    ## 14058.85..saliva.1168506 14058.86..saliva.1168570 14058.87..saliva.1168587 
-    ##                        1                        1                        1 
-    ## 14058.88..saliva.1168591 14058.89..saliva.1168572  14058.9..saliva.1168569 
-    ##                        1                        1                        1 
-    ## 14058.90..saliva.1168575 14058.91..saliva.1168527 14058.92..saliva.1168523 
-    ##                        1                        1                        1 
-    ## 14058.93..saliva.1168531 14058.94..saliva.1168565 14058.95..saliva.1168579 
-    ##                        1                        1                        1 
-    ## 14058.96..saliva.1168594 
-    ##                        1
+    ## 2052:M11 
+    ##       94
 
 ``` r
 table(metadata_clean$Site)
@@ -537,8 +348,8 @@ table(metadata_clean$matched_samples)
 ```
 
     ## 
-    ## NO 
-    ## 94
+    ## YES 
+    ##  94
 
 ``` r
 # Use cleaned dataset for subsequent analysis
@@ -558,7 +369,7 @@ print(paste("Number of unique runs:", length(unique(metadata$Run))))
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 94"
+    ## [1] "Number of unique sample names: 1"
 
 # Step 5: Visualize the Metadata
 
@@ -583,20 +394,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject        Run              sample_name Age  BMI Sex Region
-    ## 1 PRJEB48620 ERR7247035  14058.1..saliva.1168567  40 23.1   M     V4
-    ## 2 PRJEB48620 ERR7247036 14058.10..saliva.1168573  40 23.1   M     V4
-    ## 3 PRJEB48620 ERR7247037 14058.11..saliva.1168556  40 23.1   M     V4
-    ## 4 PRJEB48620 ERR7247038 14058.12..saliva.1168590  40 23.1   M     V4
-    ## 5 PRJEB48620 ERR7247039 14058.13..saliva.1168512  40 23.1   M     V4
-    ## 6 PRJEB48620 ERR7247040 14058.14..saliva.1168536  40 23.1   M     V4
-    ##              Platform Country   Site          public_time PCR_primers
-    ## 1 Illumina HiSeq 4000     USA saliva 2021-12-02T00:00:00Z   515F-806R
-    ## 2 Illumina HiSeq 4000     USA saliva 2021-12-02T00:00:00Z   515F-806R
-    ## 3 Illumina HiSeq 4000     USA saliva 2021-12-02T00:00:00Z   515F-806R
-    ## 4 Illumina HiSeq 4000     USA saliva 2021-12-02T00:00:00Z   515F-806R
-    ## 5 Illumina HiSeq 4000     USA saliva 2021-12-02T00:00:00Z   515F-806R
-    ## 6 Illumina HiSeq 4000     USA saliva 2021-12-02T00:00:00Z   515F-806R
+    ##   BioProject        Run sample_name Age  BMI Sex Region            Platform
+    ## 1 PRJEB48620 ERR7247035    2052:M11  40 23.1   M     V4 Illumina HiSeq 4000
+    ## 2 PRJEB48620 ERR7247036    2052:M11  40 23.1   M     V4 Illumina HiSeq 4000
+    ## 3 PRJEB48620 ERR7247037    2052:M11  40 23.1   M     V4 Illumina HiSeq 4000
+    ## 4 PRJEB48620 ERR7247038    2052:M11  40 23.1   M     V4 Illumina HiSeq 4000
+    ## 5 PRJEB48620 ERR7247039    2052:M11  40 23.1   M     V4 Illumina HiSeq 4000
+    ## 6 PRJEB48620 ERR7247040    2052:M11  40 23.1   M     V4 Illumina HiSeq 4000
+    ##   Country   Site          public_time PCR_primers
+    ## 1     USA saliva 2021-12-02T00:00:00Z   515F-806R
+    ## 2     USA saliva 2021-12-02T00:00:00Z   515F-806R
+    ## 3     USA saliva 2021-12-02T00:00:00Z   515F-806R
+    ## 4     USA saliva 2021-12-02T00:00:00Z   515F-806R
+    ## 5     USA saliva 2021-12-02T00:00:00Z   515F-806R
+    ## 6     USA saliva 2021-12-02T00:00:00Z   515F-806R
     ##                                                                                          title
     ## 1 Diurnal and eating-associated microbial patterns revealed via high-frequency saliva sampling
     ## 2 Diurnal and eating-associated microbial patterns revealed via high-frequency saliva sampling
@@ -605,12 +416,12 @@ head(metadata)
     ## 5 Diurnal and eating-associated microbial patterns revealed via high-frequency saliva sampling
     ## 6 Diurnal and eating-associated microbial patterns revealed via high-frequency saliva sampling
     ##   Disease_study Status matched_samples
-    ## 1            NO     HC              NO
-    ## 2            NO     HC              NO
-    ## 3            NO     HC              NO
-    ## 4            NO     HC              NO
-    ## 5            NO     HC              NO
-    ## 6            NO     HC              NO
+    ## 1            NO     HC             YES
+    ## 2            NO     HC             YES
+    ## 3            NO     HC             YES
+    ## 4            NO     HC             YES
+    ## 5            NO     HC             YES
+    ## 6            NO     HC             YES
 
 ## Notes for Students:
 

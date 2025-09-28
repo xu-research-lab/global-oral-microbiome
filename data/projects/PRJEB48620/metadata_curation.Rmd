@@ -51,9 +51,9 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$Library.Name,
-  Age = initial_meta$Host_age,
-  BMI = initial_meta$host_body_mass_index,  
+  sample_name = initial_meta$host_subject_id,
+  Age = "40",
+  BMI = "23.1",  
   Sex = initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$Instrument,
@@ -77,9 +77,6 @@ metadata$title <- "Diurnal and eating-associated microbial patterns revealed via
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
-
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("M11", "", metadata$sample_name)
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")
@@ -144,7 +141,8 @@ create_simple_plots <- function(data) {
       p <- ggplot(data, aes(x = .data[[col]])) +
         geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
         labs(title = col) +
-        theme_minimal()
+        theme_minimal() + 
+        scale_x_continuous(labels = as.integer)
     } else {
       # Categorical variable: bar plot (remove NA values)
       count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))

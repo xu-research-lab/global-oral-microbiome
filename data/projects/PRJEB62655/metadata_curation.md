@@ -208,7 +208,7 @@ metadata <- data.frame(
   Age = initial_meta$Host_age,
   BMI = NA, 
   Sex = initial_meta$sex,
-  Region = initial_meta$target_subfragment..exp.,
+  Region = "V4",
   Platform = initial_meta$Instrument,
   Site = initial_meta$env_material,
   public_time = initial_meta$ReleaseDate,
@@ -961,12 +961,12 @@ head(metadata)
 ```
 
     ##   BioProject         Run sample_name Age BMI Sex Region       Platform Country
-    ## 1 PRJEB62655 ERR11484361   00029.w00 60+  NA   F   V514 Illumina MiSeq     USA
-    ## 2 PRJEB62655 ERR11484362   00029.w02 60+  NA   F   V250 Illumina MiSeq     USA
-    ## 3 PRJEB62655 ERR11484363   00029.w04 60+  NA   F   V521 Illumina MiSeq     USA
-    ## 4 PRJEB62655 ERR11484364   00029.w08 60+  NA   F   V144 Illumina MiSeq     USA
-    ## 5 PRJEB62655 ERR11484365   00029.w16 60+  NA   F   V432 Illumina MiSeq     USA
-    ## 6 PRJEB62655 ERR11484366   00029.w24 60+  NA   F   V122 Illumina MiSeq     USA
+    ## 1 PRJEB62655 ERR11484361   00029.w00 60+  NA   F     V4 Illumina MiSeq     USA
+    ## 2 PRJEB62655 ERR11484362   00029.w02 60+  NA   F     V4 Illumina MiSeq     USA
+    ## 3 PRJEB62655 ERR11484363   00029.w04 60+  NA   F     V4 Illumina MiSeq     USA
+    ## 4 PRJEB62655 ERR11484364   00029.w08 60+  NA   F     V4 Illumina MiSeq     USA
+    ## 5 PRJEB62655 ERR11484365   00029.w16 60+  NA   F     V4 Illumina MiSeq     USA
+    ## 6 PRJEB62655 ERR11484366   00029.w24 60+  NA   F     V4 Illumina MiSeq     USA
     ##     Site          public_time PCR_primers
     ## 1 saliva 2023-09-19T00:00:00Z   338F-518R
     ## 2 saliva 2023-09-19T00:00:00Z   338F-518R

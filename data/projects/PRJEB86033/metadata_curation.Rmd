@@ -56,9 +56,9 @@ metadata <- data.frame(
   Age = NA,
   BMI = NA,
   Sex = initial_meta$sex,
-  Region = initial_meta$target_subfragment..exp.,
+  Region = "V3-V4",
   Platform = initial_meta$Instrument,
-  Site = initial_meta$env_material,
+  Site = initial_meta$qiita_sample_type,
   public_time = initial_meta$ReleaseDate,
   Status = initial_meta$status_host,
   matched_samples = NA,
@@ -68,8 +68,7 @@ metadata <- data.frame(
 # Remove all occurrences of "region" at the end of the Region column
 # Use abbreviations to indicate gender
 metadata <- metadata %>%
-  mutate(Region = str_replace(Region, "region$", ""),
-         Sex = recode(Sex, "female" = "F", "male" = "M"))
+  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
 ```
 # Step 3: Manually Add Information from the Publication
 
@@ -81,9 +80,6 @@ metadata$PCR_primers <- "341F-805R"
 metadata$title <- "Single-tooth resolved, whole-mouth prediction of early childhood caries
 via spatiotemporal variations of plaque microbiota"
 metadata$Disease_study <- "YES"
-
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("14341", "", metadata$sample_name)
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")

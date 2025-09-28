@@ -1,0 +1,15 @@
+library(dplyr)
+setwd("D:/PRJNA700849")
+initial_meta<-read.csv("SraRunTable (7).csv",header = T)
+head(initial_meta)
+
+
+uniform_meta <- data.frame(
+  BioProject = initial_meta$BioProject,
+  Run = initial_meta$Run,
+  sample_name = initial_meta$Sample.Name,
+  Age = initial_meta$age,
+  
+  
+  uniform_meta$BMI <- NA_character_
+  uniform_meta$SEX <- NA_character_

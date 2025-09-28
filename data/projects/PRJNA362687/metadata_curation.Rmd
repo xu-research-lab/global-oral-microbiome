@@ -78,7 +78,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 # Add information obtained from the publication
 metadata$Country <- "China"
 metadata$Region <- "V3-V4"
-metadata$PCR_primers <- "338F(5'-ACTCCTACGGGAGGCAGCA-3')-806R(5'-GGACTACHVGGGTWTCTAAT-3')"
+metadata$PCR_primers <- "338F-806R"
 metadata$title <- "Alterations of oral microbiota distinguish children with autism spectrum disorders from healthy controls"
 metadata$Disease_study <- "YES"
 metadata$matched_samples <- "No"
@@ -138,6 +138,7 @@ p <- plot_grid(plots$Age,
   plots$Country,
   plots$Site,
   plots$public_time,
+  plots$PCR_primers,
   plots$Disease_study,
   plots$Status,
   plots$matched_samples, # add

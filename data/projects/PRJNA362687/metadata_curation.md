@@ -108,7 +108,7 @@ manually extracted from the publication and added to the metadata.
 # Add information obtained from the publication
 metadata$Country <- "China"
 metadata$Region <- "V3-V4"
-metadata$PCR_primers <- "338F(5'-ACTCCTACGGGAGGCAGCA-3')-806R(5'-GGACTACHVGGGTWTCTAAT-3')"
+metadata$PCR_primers <- "338F-806R"
 metadata$title <- "Alterations of oral microbiota distinguish children with autism spectrum disorders from healthy controls"
 metadata$Disease_study <- "YES"
 metadata$matched_samples <- "No"
@@ -152,13 +152,13 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site          public_time                                                      PCR_primers
-    ## 1 PRJNA362687 SRR5196331     H33-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z 338F(5'-ACTCCTACGGGAGGCAGCA-3')-806R(5'-GGACTACHVGGGTWTCTAAT-3')
-    ## 2 PRJNA362687 SRR5196332     H32-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z 338F(5'-ACTCCTACGGGAGGCAGCA-3')-806R(5'-GGACTACHVGGGTWTCTAAT-3')
-    ## 3 PRJNA362687 SRR5196333     H31-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z 338F(5'-ACTCCTACGGGAGGCAGCA-3')-806R(5'-GGACTACHVGGGTWTCTAAT-3')
-    ## 4 PRJNA362687 SRR5196334     H30-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z 338F(5'-ACTCCTACGGGAGGCAGCA-3')-806R(5'-GGACTACHVGGGTWTCTAAT-3')
-    ## 5 PRJNA362687 SRR5196335     H29-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z 338F(5'-ACTCCTACGGGAGGCAGCA-3')-806R(5'-GGACTACHVGGGTWTCTAAT-3')
-    ## 6 PRJNA362687 SRR5196336     H28-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z 338F(5'-ACTCCTACGGGAGGCAGCA-3')-806R(5'-GGACTACHVGGGTWTCTAAT-3')
+    ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site          public_time PCR_primers
+    ## 1 PRJNA362687 SRR5196331     H33-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z   338F-806R
+    ## 2 PRJNA362687 SRR5196332     H32-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z   338F-806R
+    ## 3 PRJNA362687 SRR5196333     H31-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z   338F-806R
+    ## 4 PRJNA362687 SRR5196334     H30-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z   338F-806R
+    ## 5 PRJNA362687 SRR5196335     H29-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z   338F-806R
+    ## 6 PRJNA362687 SRR5196336     H28-Sal  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva 2017-01-28T00:00:00Z   338F-806R
     ##                                                                                                      title Disease_study Status matched_samples
     ## 1 Alterations of oral microbiota distinguish children with autism spectrum disorders from healthy controls           YES      H              No
     ## 2 Alterations of oral microbiota distinguish children with autism spectrum disorders from healthy controls           YES      H              No

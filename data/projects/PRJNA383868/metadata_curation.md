@@ -123,6 +123,10 @@ Some information (e.g. PCR primers, study title, disease status) must be
 manually extracted from the publication and added to the metadata.
 
     metadata <- metadata %>%filter(assaytype == "AMPLICON")
+    metadata <- metadata %>%mutate(Status = case_when(
+      Status == "dental caries free" ~ "HC",
+      TRUE ~ "dental caries"
+    ))
     metadata <- metadata %>%
       mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
     metadata <- metadata %>%mutate(Age = as.numeric(sapply(str_split(Age, " "), function(x) head(x, 1))))%>%mutate(Age = Age/12)
@@ -140,13 +144,13 @@ manually extracted from the publication and added to the metadata.
     ## 4  AMPLICON PRJNA383868 SRR5467625 CAR_2023.2_RD1 6.416667  NA   M     V4 Illumina MiSeq Australia dental plaque
     ## 5  AMPLICON PRJNA383868 SRR5467626 CAR_2023.1_RD1 6.416667  NA   M     V4 Illumina MiSeq Australia dental plaque
     ## 6  AMPLICON PRJNA383868 SRR5467627 CAR_2020.2_RD1 6.666667  NA   M     V4 Illumina MiSeq Australia dental plaque
-    ##            public_time matched_samples             Status
-    ## 1 2017-04-22T00:00:00Z              NO      dental caries
-    ## 2 2017-04-22T00:00:00Z              NO      dental caries
-    ## 3 2017-04-22T00:00:00Z              NO      dental caries
-    ## 4 2017-04-22T00:00:00Z              NO dental caries free
-    ## 5 2017-04-22T00:00:00Z              NO dental caries free
-    ## 6 2017-04-22T00:00:00Z              NO dental caries free
+    ##            public_time matched_samples        Status
+    ## 1 2017-04-22T00:00:00Z              NO dental caries
+    ## 2 2017-04-22T00:00:00Z              NO dental caries
+    ## 3 2017-04-22T00:00:00Z              NO dental caries
+    ## 4 2017-04-22T00:00:00Z              NO            HC
+    ## 5 2017-04-22T00:00:00Z              NO            HC
+    ## 6 2017-04-22T00:00:00Z              NO            HC
     ##                                                               title Disease_study PCR_primers
     ## 1 Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R
     ## 2 Host Genetic Control of the Oral Microbiome in Health and Disease           YES   515F-806R

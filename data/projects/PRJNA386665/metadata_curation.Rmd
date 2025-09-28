@@ -60,7 +60,12 @@ metadata <- data.frame(
 
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
- metadata <- metadata %>%
+metadata <- metadata %>%mutate(Status = case_when(
+  Status == "Oral Neoplasm (Healthy Control)" ~ "HC",
+  Status == "Oral Neoplasm (OSCC)" ~ "OSCC",
+  TRUE ~ "Precancer"
+))
+metadata <- metadata %>%
   mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
 metadata <-metadata%>%
   mutate(Country = case_when(Country == "Taiwan" ~ "China"))

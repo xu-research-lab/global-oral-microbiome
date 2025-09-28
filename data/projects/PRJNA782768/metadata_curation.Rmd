@@ -89,7 +89,7 @@ metadata <- metadata %>%
   ))
 #get subjects id according to sample id
 metadata<-metadata%>%
-  mutate(Site=case_when(grepl("F",sample_name)~"Gut",grepl("T",sample_name)~"Tongue coating"))
+  mutate(Site=case_when(grepl("F",sample_name)~"Stool",grepl("T",sample_name)~"Tongue coating"))
 
 metadata$sample_name<-gsub("DT|DF|T|F","",metadata$sample_name)
 #get subjects id with Saliva available

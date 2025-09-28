@@ -148,7 +148,7 @@ manually extracted from the publication and added to the metadata.
 
 ``` r
 # Add information obtained from the publication
-metadata$PCR_primers <- "V3-V4"
+metadata$PCR_primers <- NA
 metadata$title <- "Diversity of the gut, vaginal and oral microbiome among pregnant women in South Africa with and without pre-eclampsia"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
@@ -217,12 +217,12 @@ head(metadata)
     ## 5 PRJNA798597 SRR17660549          P6  28  NA  NA  V3-V4 Illumina MiSeq
     ## 6 PRJNA798597 SRR17660550          P7  23  NA  NA  V3-V4 Illumina MiSeq
     ##        Country  Site          public_time PCR_primers
-    ## 1 South Africa Stool 2022-01-19T00:00:00Z       V3-V4
-    ## 2 South Africa Stool 2022-01-19T00:00:00Z       V3-V4
-    ## 3 South Africa Stool 2022-01-19T00:00:00Z       V3-V4
-    ## 4 South Africa Stool 2022-01-19T00:00:00Z       V3-V4
-    ## 5 South Africa Stool 2022-01-19T00:00:00Z       V3-V4
-    ## 6 South Africa Stool 2022-01-19T00:00:00Z       V3-V4
+    ## 1 South Africa Stool 2022-01-19T00:00:00Z          NA
+    ## 2 South Africa Stool 2022-01-19T00:00:00Z          NA
+    ## 3 South Africa Stool 2022-01-19T00:00:00Z          NA
+    ## 4 South Africa Stool 2022-01-19T00:00:00Z          NA
+    ## 5 South Africa Stool 2022-01-19T00:00:00Z          NA
+    ## 6 South Africa Stool 2022-01-19T00:00:00Z          NA
     ##                                                                                                                   title
     ## 1 Diversity of the gut, vaginal and oral microbiome among pregnant women in South Africa with and without pre-eclampsia
     ## 2 Diversity of the gut, vaginal and oral microbiome among pregnant women in South Africa with and without pre-eclampsia

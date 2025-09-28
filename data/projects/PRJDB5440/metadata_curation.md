@@ -139,6 +139,7 @@ metadata <- data.frame(
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
+metadata$Site<-gsub("human","",metadata$Site)
 ```
 
 # Step 3: Manually Add Information from the Publication
@@ -203,13 +204,13 @@ head(metadata)
     ## 4  PRJDB5440 DRR082913       L3013 10.86±1.48  NA  NA  V3-V4 Illumina MiSeq
     ## 5  PRJDB5440 DRR082914       L3014 10.86±1.48  NA  NA  V3-V4 Illumina MiSeq
     ## 6  PRJDB5440 DRR082915       L3015 10.86±1.48  NA  NA  V3-V4 Illumina MiSeq
-    ##    Country         Site          public_time PCR_primers
-    ## 1 Thailand human saliva 2017-09-22T00:00:00Z          NA
-    ## 2 Thailand human saliva 2017-09-22T00:00:00Z          NA
-    ## 3 Thailand human saliva 2017-09-22T00:00:00Z          NA
-    ## 4 Thailand human saliva 2017-09-22T00:00:00Z          NA
-    ## 5 Thailand human saliva 2017-09-22T00:00:00Z          NA
-    ## 6 Thailand human saliva 2017-09-22T00:00:00Z          NA
+    ##    Country    Site          public_time PCR_primers
+    ## 1 Thailand  saliva 2017-09-22T00:00:00Z          NA
+    ## 2 Thailand  saliva 2017-09-22T00:00:00Z          NA
+    ## 3 Thailand  saliva 2017-09-22T00:00:00Z          NA
+    ## 4 Thailand  saliva 2017-09-22T00:00:00Z          NA
+    ## 5 Thailand  saliva 2017-09-22T00:00:00Z          NA
+    ## 6 Thailand  saliva 2017-09-22T00:00:00Z          NA
     ##                                                                                title
     ## 1 Exploring the salivary microbiome of children stratified by the oral hygiene index
     ## 2 Exploring the salivary microbiome of children stratified by the oral hygiene index

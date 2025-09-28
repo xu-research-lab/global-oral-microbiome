@@ -332,7 +332,7 @@ metadata <- data.frame(
   Platform = initial_meta$Instrument,
   Country = initial_meta$COUNTRY,
   Site = initial_meta$env_material,
-  public_time = initial_meta$ENA.FIRST.PUBLIC..run.,
+  public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
 ```
@@ -404,13 +404,13 @@ head(metadata)
     ## 4 PRJEB11425 ERR1076086       980-1  67 42.1 female     V4 Illumina MiSeq
     ## 5 PRJEB11425 ERR1076087       980-1  67 42.1 female     V4 Illumina MiSeq
     ## 6 PRJEB11425 ERR1076088       980-2  29 40.8 female     V4 Illumina MiSeq
-    ##   Country   Site public_time PCR_primers
-    ## 1     USA saliva  2015-10-15        <NA>
-    ## 2     USA  sebum  2015-10-15        <NA>
-    ## 3     USA  feces  2015-10-15        <NA>
-    ## 4     USA saliva  2015-10-15        <NA>
-    ## 5     USA  sebum  2015-10-15        <NA>
-    ## 6     USA saliva  2015-10-15        <NA>
+    ##   Country   Site          public_time PCR_primers
+    ## 1     USA saliva 2015-10-28T00:00:00Z        <NA>
+    ## 2     USA  sebum 2015-10-28T00:00:00Z        <NA>
+    ## 3     USA  feces 2015-10-28T00:00:00Z        <NA>
+    ## 4     USA saliva 2015-10-28T00:00:00Z        <NA>
+    ## 5     USA  sebum 2015-10-28T00:00:00Z        <NA>
+    ## 6     USA saliva 2015-10-28T00:00:00Z        <NA>
     ##                                                     title Disease_study
     ## 1 Extreme Dysbiosis of the Microbiome in Critical Illness           YES
     ## 2 Extreme Dysbiosis of the Microbiome in Critical Illness           YES

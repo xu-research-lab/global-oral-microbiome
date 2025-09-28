@@ -26,7 +26,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 #meta <- rbind(initial_meta, initial_meta1)
 
 #Remove entries non-oral samples
-#initial_meta <- subset(initial_meta, Organism == "human oral metagenome")
+initial_meta <- subset(initial_meta, Organism != "metagenome")
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
@@ -35,160 +35,167 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 head(initial_meta)
 ```
 
-    ##          Run Assay.Type Barcode..exp. BioProject    BioSample center_name..exp.
-    ## 1 ERR4345071      OTHER  AGCCTTCGTCGC PRJEB39420 SAMEA7062799            UCSDMI
-    ## 2 ERR4345072      OTHER  CGTATAAATGCG PRJEB39420 SAMEA7062800            UCSDMI
-    ## 3 ERR4345073      OTHER  TGACTAATGGCC PRJEB39420 SAMEA7062801            UCSDMI
-    ## 4 ERR4345074      OTHER  GTGGAGTCTCAT PRJEB39420 SAMEA7062802            UCSDMI
-    ## 5 ERR4345075      OTHER  TGATGTGCTAAG PRJEB39420 SAMEA7062803            UCSDMI
-    ## 6 ERR4345076      OTHER  TGTGCACGCCAT PRJEB39420 SAMEA7062804            UCSDMI
-    ##                                          Center.Name center_project_name..exp.
-    ## 1 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                Megan_Doty
-    ## 2 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                Megan_Doty
-    ## 3 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                Megan_Doty
-    ## 4 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                Megan_Doty
-    ## 5 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                Megan_Doty
-    ## 6 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                Megan_Doty
-    ##   Consent ENA_FIRST_PUBLIC     ENA_first_public ENA.LAST.UPDATE..run.
-    ## 1  public        2020/7/16 2020-07-16T17:05:32Z             2020/7/16
-    ## 2  public        2020/7/16 2020-07-16T17:05:32Z             2020/7/16
-    ## 3  public        2020/7/16 2020-07-16T17:05:32Z             2020/7/16
-    ## 4  public        2020/7/16 2020-07-16T17:05:32Z             2020/7/16
-    ## 5  public        2020/7/16 2020-07-16T17:05:32Z             2020/7/16
-    ## 6  public        2020/7/16 2020-07-16T17:05:32Z             2020/7/16
-    ##        ENA_last_update Experiment  external_id extraction_robot..exp.
-    ## 1 2020-07-16T09:42:09Z ERX4289735 SAMEA7062799               HOWE_KF3
-    ## 2 2020-07-16T09:42:09Z ERX4289736 SAMEA7062800               HOWE_KF3
-    ## 3 2020-07-16T09:42:09Z ERX4289737 SAMEA7062801               HOWE_KF3
-    ## 4 2020-07-16T09:42:09Z ERX4289738 SAMEA7062802               HOWE_KF3
-    ## 5 2020-07-16T09:42:09Z ERX4289739 SAMEA7062803               HOWE_KF3
-    ## 6 2020-07-16T09:42:09Z ERX4289740 SAMEA7062804               HOWE_KF3
-    ##   extractionkit_lot..exp. host_subject_id INSDC_center_name
-    ## 1               154050095       BLANK1.1A            UCSDMI
-    ## 2               154050095       BLANK1.1B            UCSDMI
-    ## 3               154050095       BLANK1.1C            UCSDMI
-    ## 4               154050095       BLANK1.1D            UCSDMI
-    ## 5               154050095       BLANK1.1E            UCSDMI
-    ## 6               154050095       BLANK1.1F            UCSDMI
-    ##     INSDC_first_public    INSDC_last_update INSDC_status          Instrument
-    ## 1 2020-07-16T17:05:32Z 2020-07-16T09:42:09Z       public Illumina HiSeq 2500
-    ## 2 2020-07-16T17:05:32Z 2020-07-16T09:42:09Z       public Illumina HiSeq 2500
-    ## 3 2020-07-16T17:05:32Z 2020-07-16T09:42:09Z       public Illumina HiSeq 2500
-    ## 4 2020-07-16T17:05:32Z 2020-07-16T09:42:09Z       public Illumina HiSeq 2500
-    ## 5 2020-07-16T17:05:32Z 2020-07-16T09:42:09Z       public Illumina HiSeq 2500
-    ## 6 2020-07-16T17:05:32Z 2020-07-16T09:42:09Z       public Illumina HiSeq 2500
-    ##   lane..exp.    Library.Name LibraryLayout LibrarySelection LibrarySource
-    ## 1          1 11712.BLANK1.1A        SINGLE              PCR   METAGENOMIC
-    ## 2          1 11712.BLANK1.1B        SINGLE              PCR   METAGENOMIC
-    ## 3          1 11712.BLANK1.1C        SINGLE              PCR   METAGENOMIC
-    ## 4          1 11712.BLANK1.1D        SINGLE              PCR   METAGENOMIC
-    ## 5          1 11712.BLANK1.1E        SINGLE              PCR   METAGENOMIC
-    ## 6          1 11712.BLANK1.1F        SINGLE              PCR   METAGENOMIC
-    ##   mastermix_lot..exp.   Organism orig_name..exp.
-    ## 1              443912 metagenome       BLANK1.1A
-    ## 2              443912 metagenome       BLANK1.1B
-    ## 3              443912 metagenome       BLANK1.1C
-    ## 4              443912 metagenome       BLANK1.1D
-    ## 5              443912 metagenome       BLANK1.1E
-    ## 6              443912 metagenome       BLANK1.1F
-    ##                                   pcr_primers..exp. Platform plating..exp.
-    ## 1 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA           LDG
-    ## 2 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA           LDG
-    ## 3 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA           LDG
-    ## 4 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA           LDG
-    ## 5 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA           LDG
-    ## 6 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA           LDG
-    ##   primer_date..exp.          primer..exp. primer_plate..exp.
-    ## 1           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
-    ## 2           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
-    ## 3           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
-    ## 4           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
-    ## 5           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
-    ## 6           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
-    ##   processing_robot..exp. project_name..exp.          ReleaseDate run_date..exp.
-    ## 1                   RIKE         Megan_Doty 2020-07-17T00:00:00Z      2003/7/17
-    ## 2                   RIKE         Megan_Doty 2020-07-17T00:00:00Z      2003/7/17
-    ## 3                   RIKE         Megan_Doty 2020-07-17T00:00:00Z      2003/7/17
-    ## 4                   RIKE         Megan_Doty 2020-07-17T00:00:00Z      2003/7/17
-    ## 5                   RIKE         Megan_Doty 2020-07-17T00:00:00Z      2003/7/17
-    ## 6                   RIKE         Megan_Doty 2020-07-17T00:00:00Z      2003/7/17
-    ##       run_prefix..exp.                          runid..exp.  Sample.Name
-    ## 1 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight SAMEA7062799
-    ## 2 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight SAMEA7062800
-    ## 3 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight SAMEA7062801
-    ## 4 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight SAMEA7062802
-    ## 5 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight SAMEA7062803
-    ## 6 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight SAMEA7062804
-    ##                       Sample_name sample_plate..exp. Scientific_Name
-    ## 1 qiita_sid_11712:11712.BLANK1.1A       Megan_Doty_1      metagenome
-    ## 2 qiita_sid_11712:11712.BLANK1.1B       Megan_Doty_1      metagenome
-    ## 3 qiita_sid_11712:11712.BLANK1.1C       Megan_Doty_1      metagenome
-    ## 4 qiita_sid_11712:11712.BLANK1.1D       Megan_Doty_1      metagenome
-    ## 5 qiita_sid_11712:11712.BLANK1.1E       Megan_Doty_1      metagenome
-    ## 6 qiita_sid_11712:11712.BLANK1.1F       Megan_Doty_1      metagenome
-    ##     sequencing_meth..exp. SRA.Study                    Submitter_Id
-    ## 1 Sequencing by synthesis ERP122936 qiita_sid_11712:11712.BLANK1.1A
-    ## 2 Sequencing by synthesis ERP122936 qiita_sid_11712:11712.BLANK1.1B
-    ## 3 Sequencing by synthesis ERP122936 qiita_sid_11712:11712.BLANK1.1C
-    ## 4 Sequencing by synthesis ERP122936 qiita_sid_11712:11712.BLANK1.1D
-    ## 5 Sequencing by synthesis ERP122936 qiita_sid_11712:11712.BLANK1.1E
-    ## 6 Sequencing by synthesis ERP122936 qiita_sid_11712:11712.BLANK1.1F
-    ##   target_gene..exp. target_subfragment tm1000_8_tool..exp. tm300_8_tool..exp.
-    ## 1          16S rRNA                 V4             108379Z            311318B
-    ## 2          16S rRNA                 V4             108379Z            311318B
-    ## 3          16S rRNA                 V4             108379Z            311318B
-    ## 4          16S rRNA                 V4             108379Z            311318B
-    ## 5          16S rRNA                 V4             108379Z            311318B
-    ## 6          16S rRNA                 V4             108379Z            311318B
-    ##   tm50_8_tool..exp. water_lot..exp. AvgSpotLen  Bases  Bytes DATASTORE.filetype
-    ## 1           311426B         1798402        150   2250  29663         run.zq,sra
-    ## 2           311426B         1798402        150    750  28938         run.zq,sra
-    ## 3           311426B         1798402        150   2700  29820         run.zq,sra
-    ## 4           311426B         1798402        150   1500  29368         run.zq,sra
-    ## 5           311426B         1798402        150   2100  29892         run.zq,sra
-    ## 6           311426B         1798402        150 607950 331978         run.zq,sra
-    ##   DATASTORE.provider                     DATASTORE.region          create_date
-    ## 1         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-31T15:45:00Z
-    ## 2         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-31T15:44:00Z
-    ## 3         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-19T18:21:00Z
-    ## 4         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-19T18:23:00Z
-    ## 5         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-19T18:24:00Z
-    ## 6         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-19T18:24:00Z
-    ##   version birth_length birth_weight Collection_time dc_wt dhm_wk1 formula_wk1
-    ## 1       1           NA           NA                    NA      NA          NA
-    ## 2       1           NA           NA                    NA      NA          NA
-    ## 3       1           NA           NA                    NA      NA          NA
-    ## 4       1           NA           NA                    NA      NA          NA
-    ## 5       1           NA           NA                    NA      NA          NA
-    ## 6       1           NA           NA                    NA      NA          NA
-    ##   Host_age host_body_mass_index hr_1stfeed maternal_age mbm_wk1 ml_dhm_wk1
-    ## 1       NA                   NA         NA           NA                 NA
-    ## 2       NA                   NA         NA           NA                 NA
-    ## 3       NA                   NA         NA           NA                 NA
-    ## 4       NA                   NA         NA           NA                 NA
-    ## 5       NA                   NA         NA           NA                 NA
-    ## 6       NA                   NA         NA           NA                 NA
-    ##   ml_formula_wk1 ml_mbm_wk1 nadir_wt pct_bw_lost pct_dc_wt_abovebw time_only_bm
-    ## 1             NA                  NA          NA                NA           NA
-    ## 2             NA                  NA          NA                NA           NA
-    ## 3             NA                  NA          NA                NA           NA
-    ## 4             NA                  NA          NA                NA           NA
-    ## 5             NA                  NA          NA                NA           NA
-    ## 6             NA                  NA          NA                NA           NA
-    ##   hm_only_wk1 pct_formula_wk1 LOS ms_plate_num dol_1stformula avg_hero_score
-    ## 1          NA              NA  NA           NA             NA             NA
-    ## 2          NA              NA  NA           NA             NA             NA
-    ## 3          NA              NA  NA           NA             NA             NA
-    ## 4          NA              NA  NA           NA             NA             NA
-    ## 5          NA              NA  NA           NA             NA             NA
-    ## 6          NA              NA  NA           NA             NA             NA
-    ##   high_hero_score
-    ## 1              NA
-    ## 2              NA
-    ## 3              NA
-    ## 4              NA
-    ## 5              NA
-    ## 6              NA
+    ##            Run Assay.Type Barcode..exp. BioProject    BioSample
+    ## 165 ERR4345235      OTHER  AAGAACTCATGA PRJEB39420 SAMEA7062963
+    ## 166 ERR4345236      OTHER  TTGCTGGACGCT PRJEB39420 SAMEA7062964
+    ## 167 ERR4345237      OTHER  TACCGAAGGTAT PRJEB39420 SAMEA7062965
+    ## 168 ERR4345238      OTHER  ACGCTTAACGAC PRJEB39420 SAMEA7062966
+    ## 169 ERR4345239      OTHER  AGCCCTGCTACA PRJEB39420 SAMEA7062967
+    ## 170 ERR4345240      OTHER  GTTGATACGATG PRJEB39420 SAMEA7062968
+    ##     center_name..exp.                                        Center.Name
+    ## 165            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ## 166            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ## 167            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ## 168            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ## 169            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ## 170            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ##     center_project_name..exp. Consent ENA_FIRST_PUBLIC     ENA_first_public
+    ## 165                Megan_Doty  public        2020/7/16 2020-07-16T17:05:32Z
+    ## 166                Megan_Doty  public        2020/7/16 2020-07-16T17:05:32Z
+    ## 167                Megan_Doty  public        2020/7/16 2020-07-16T17:05:32Z
+    ## 168                Megan_Doty  public        2020/7/16 2020-07-16T17:05:32Z
+    ## 169                Megan_Doty  public        2020/7/16 2020-07-16T17:05:32Z
+    ## 170                Megan_Doty  public        2020/7/16 2020-07-16T17:05:32Z
+    ##     ENA.LAST.UPDATE..run.      ENA_last_update Experiment  external_id
+    ## 165             2020/7/16 2020-07-16T09:42:11Z ERX4289899 SAMEA7062963
+    ## 166             2020/7/16 2020-07-16T09:42:11Z ERX4289900 SAMEA7062964
+    ## 167             2020/7/16 2020-07-16T09:42:11Z ERX4289901 SAMEA7062965
+    ## 168             2020/7/16 2020-07-16T09:42:11Z ERX4289902 SAMEA7062966
+    ## 169             2020/7/16 2020-07-16T09:42:11Z ERX4289903 SAMEA7062967
+    ## 170             2020/7/16 2020-07-16T09:42:11Z ERX4289904 SAMEA7062968
+    ##     extraction_robot..exp. extractionkit_lot..exp. host_subject_id
+    ## 165               HOWE_KF3               154050095         11712-1
+    ## 166               HOWE_KF3               154050095         11712-1
+    ## 167               HOWE_KF3               154050095         11712-1
+    ## 168               HOWE_KF3               154050095         11712-1
+    ## 169               HOWE_KF3               154050095         11712-1
+    ## 170               HOWE_KF3               154050095         11712-1
+    ##     INSDC_center_name   INSDC_first_public    INSDC_last_update INSDC_status
+    ## 165            UCSDMI 2020-07-16T17:05:32Z 2020-07-16T09:42:11Z       public
+    ## 166            UCSDMI 2020-07-16T17:05:32Z 2020-07-16T09:42:11Z       public
+    ## 167            UCSDMI 2020-07-16T17:05:32Z 2020-07-16T09:42:11Z       public
+    ## 168            UCSDMI 2020-07-16T17:05:32Z 2020-07-16T09:42:11Z       public
+    ## 169            UCSDMI 2020-07-16T17:05:32Z 2020-07-16T09:42:11Z       public
+    ## 170            UCSDMI 2020-07-16T17:05:32Z 2020-07-16T09:42:11Z       public
+    ##              Instrument lane..exp.           Library.Name LibraryLayout
+    ## 165 Illumina HiSeq 2500          1  11712.SUBJECT1.ORAL.1        SINGLE
+    ## 166 Illumina HiSeq 2500          1 11712.SUBJECT1.ORAL.10        SINGLE
+    ## 167 Illumina HiSeq 2500          1  11712.SUBJECT1.ORAL.2        SINGLE
+    ## 168 Illumina HiSeq 2500          1  11712.SUBJECT1.ORAL.3        SINGLE
+    ## 169 Illumina HiSeq 2500          1  11712.SUBJECT1.ORAL.4        SINGLE
+    ## 170 Illumina HiSeq 2500          1  11712.SUBJECT1.ORAL.5        SINGLE
+    ##     LibrarySelection LibrarySource mastermix_lot..exp.              Organism
+    ## 165              PCR   METAGENOMIC              443912 human oral metagenome
+    ## 166              PCR   METAGENOMIC              443912 human oral metagenome
+    ## 167              PCR   METAGENOMIC              443912 human oral metagenome
+    ## 168              PCR   METAGENOMIC              443912 human oral metagenome
+    ## 169              PCR   METAGENOMIC              443912 human oral metagenome
+    ## 170              PCR   METAGENOMIC              443912 human oral metagenome
+    ##      orig_name..exp.                                 pcr_primers..exp. Platform
+    ## 165  SUBJECT1.ORAL.1 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA
+    ## 166 SUBJECT1.ORAL.10 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA
+    ## 167  SUBJECT1.ORAL.2 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA
+    ## 168  SUBJECT1.ORAL.3 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA
+    ## 169  SUBJECT1.ORAL.4 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA
+    ## 170  SUBJECT1.ORAL.5 FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT ILLUMINA
+    ##     plating..exp. primer_date..exp.          primer..exp. primer_plate..exp.
+    ## 165           LDG           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
+    ## 166           LDG           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
+    ## 167           LDG           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
+    ## 168           LDG           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
+    ## 169           LDG           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
+    ## 170           LDG           1/19/17 GTGTGYCAGCMGCCGCGGTAA                  1
+    ##     processing_robot..exp. project_name..exp.          ReleaseDate
+    ## 165                   RIKE         Megan_Doty 2020-07-17T00:00:00Z
+    ## 166                   RIKE         Megan_Doty 2020-07-17T00:00:00Z
+    ## 167                   RIKE         Megan_Doty 2020-07-17T00:00:00Z
+    ## 168                   RIKE         Megan_Doty 2020-07-17T00:00:00Z
+    ## 169                   RIKE         Megan_Doty 2020-07-17T00:00:00Z
+    ## 170                   RIKE         Megan_Doty 2020-07-17T00:00:00Z
+    ##     run_date..exp.     run_prefix..exp.                          runid..exp.
+    ## 165      2003/7/17 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight
+    ## 166      2003/7/17 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight
+    ## 167      2003/7/17 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight
+    ## 168      2003/7/17 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight
+    ## 169      2003/7/17 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight
+    ## 170      2003/7/17 Megan_Doty_1_S1_L001 170307_D00611_0447_BHFFTFBCXY_Knight
+    ##      Sample.Name                            Sample_name sample_plate..exp.
+    ## 165 SAMEA7062963  qiita_sid_11712:11712.SUBJECT1.ORAL.1       Megan_Doty_1
+    ## 166 SAMEA7062964 qiita_sid_11712:11712.SUBJECT1.ORAL.10       Megan_Doty_1
+    ## 167 SAMEA7062965  qiita_sid_11712:11712.SUBJECT1.ORAL.2       Megan_Doty_1
+    ## 168 SAMEA7062966  qiita_sid_11712:11712.SUBJECT1.ORAL.3       Megan_Doty_1
+    ## 169 SAMEA7062967  qiita_sid_11712:11712.SUBJECT1.ORAL.4       Megan_Doty_1
+    ## 170 SAMEA7062968  qiita_sid_11712:11712.SUBJECT1.ORAL.5       Megan_Doty_1
+    ##           Scientific_Name   sequencing_meth..exp. SRA.Study
+    ## 165 human oral metagenome Sequencing by synthesis ERP122936
+    ## 166 human oral metagenome Sequencing by synthesis ERP122936
+    ## 167 human oral metagenome Sequencing by synthesis ERP122936
+    ## 168 human oral metagenome Sequencing by synthesis ERP122936
+    ## 169 human oral metagenome Sequencing by synthesis ERP122936
+    ## 170 human oral metagenome Sequencing by synthesis ERP122936
+    ##                               Submitter_Id target_gene..exp. target_subfragment
+    ## 165  qiita_sid_11712:11712.SUBJECT1.ORAL.1          16S rRNA                 V4
+    ## 166 qiita_sid_11712:11712.SUBJECT1.ORAL.10          16S rRNA                 V4
+    ## 167  qiita_sid_11712:11712.SUBJECT1.ORAL.2          16S rRNA                 V4
+    ## 168  qiita_sid_11712:11712.SUBJECT1.ORAL.3          16S rRNA                 V4
+    ## 169  qiita_sid_11712:11712.SUBJECT1.ORAL.4          16S rRNA                 V4
+    ## 170  qiita_sid_11712:11712.SUBJECT1.ORAL.5          16S rRNA                 V4
+    ##     tm1000_8_tool..exp. tm300_8_tool..exp. tm50_8_tool..exp. water_lot..exp.
+    ## 165             108379Z            311318B           311426B         1798402
+    ## 166             108379Z            311318B           311426B         1798402
+    ## 167             108379Z            311318B           311426B         1798402
+    ## 168             108379Z            311318B           311426B         1798402
+    ## 169             108379Z            311318B           311426B         1798402
+    ## 170             108379Z            311318B           311426B         1798402
+    ##     AvgSpotLen    Bases    Bytes DATASTORE.filetype DATASTORE.provider
+    ## 165        149   538891   309579         run.zq,sra         gs,ncbi,s3
+    ## 166        149 31959095 13301069         run.zq,sra         gs,ncbi,s3
+    ## 167        149 10957442  6196498         run.zq,sra         gs,ncbi,s3
+    ## 168        149 23639547  8834720         run.zq,sra         gs,ncbi,s3
+    ## 169        149 33551220 13579814         run.zq,sra         gs,ncbi,s3
+    ## 170        149 41877507 17052129         run.zq,sra         gs,ncbi,s3
+    ##                         DATASTORE.region          create_date version
+    ## 165 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-19T19:56:00Z       1
+    ## 166 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-19T19:59:00Z       1
+    ## 167 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-31T15:46:00Z       1
+    ## 168 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-19T20:01:00Z       1
+    ## 169 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-31T15:46:00Z       1
+    ## 170 gs.us-east1,ncbi.public,s3.us-east-1 2020-07-31T15:46:00Z       1
+    ##     birth_length birth_weight Collection_time dc_wt dhm_wk1 formula_wk1
+    ## 165           50         2990         8:11:00  2962       0    50.45389
+    ## 166           50         2990         6:00:00  2962       0    50.45389
+    ## 167           50         2990   not collected  2962       0    50.45389
+    ## 168           50         2990   not collected  2962       0    50.45389
+    ## 169           50         2990   not collected  2962       0    50.45389
+    ## 170           50         2990   not collected  2962       0    50.45389
+    ##     Host_age host_body_mass_index hr_1stfeed maternal_age     mbm_wk1
+    ## 165        2                11.96         22           34 11.56235069
+    ## 166       11                11.96         22           34 11.56235069
+    ## 167        3                11.96         22           34 11.56235069
+    ## 168        4                11.96         22           34 11.56235069
+    ## 169        5                11.96         22           34 11.56235069
+    ## 170        6                11.96         22           34 11.56235069
+    ##     ml_dhm_wk1 ml_formula_wk1 ml_mbm_wk1 nadir_wt pct_bw_lost pct_dc_wt_abovebw
+    ## 165          0           1056        242     2873    3.913043        -0.9364548
+    ## 166          0           1056        242     2873    3.913043        -0.9364548
+    ## 167          0           1056        242     2873    3.913043        -0.9364548
+    ## 168          0           1056        242     2873    3.913043        -0.9364548
+    ## 169          0           1056        242     2873    3.913043        -0.9364548
+    ## 170          0           1056        242     2873    3.913043        -0.9364548
+    ##     time_only_bm hm_only_wk1 pct_formula_wk1 LOS ms_plate_num dol_1stformula
+    ## 165            1    11.56235        81.35593  11           14              2
+    ## 166            1    11.56235        81.35593  11           14              2
+    ## 167            1    11.56235        81.35593  11           14              2
+    ## 168            1    11.56235        81.35593  11           14              2
+    ## 169            1    11.56235        81.35593  11           14              2
+    ## 170            1    11.56235        81.35593  11           14              2
+    ##     avg_hero_score high_hero_score
+    ## 165           0.34            1.45
+    ## 166           0.34            1.45
+    ## 167           0.34            1.45
+    ## 168           0.34            1.45
+    ## 169           0.34            1.45
+    ## 170           0.34            1.45
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -227,7 +234,7 @@ metadata <- data.frame(
   Region = "V4",
   Platform = initial_meta$Instrument,
   Country = NA,
-  Site = "oral",
+  #Site = initial_meta$Organism,
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
@@ -245,47 +252,46 @@ metadata$title <- "Multiomic Analyses of Nascent Preterm Infant Microbiomes Diff
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status<-"preterm infant"
-keep_subjects <- unique(subset(metadata, Site == "oral")$sample_name)
-metadata <- subset(metadata, sample_name %in% keep_subjects)
+metadata <- metadata %>%
+  mutate(Site = case_when(
+    initial_meta$Organism == "human oral metagenome" ~ "oral",
+    initial_meta$Organism == "human gut metagenome" ~ "stool",
+    initial_meta$Organism == "human skin metagenome" ~ "the skin of the axilla",
+  ))
+fields <- c("Age", "BMI")
 
-sample_counts <- table(metadata$sample_name)
+stopifnot(all(fields %in% colnames(metadata)))
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
 
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
+has_duplicate <- metadata %>% 
+  select(all_of(fields)) %>% 
+  na.omit() %>%                
+  duplicated() %>%             
+  any()                        
+
+metadata <- metadata %>% 
+  mutate(matched_samples = if (has_duplicate) "YES" else "NO")
+
+output_df <- metadata %>% 
+  filter(matched_samples == "YES" | 
+        (matched_samples == "NO" & Site == "oral"))
+
+cat("Total rows in output_df :", nrow(output_df), "\n")
 ```
 
-    ## Subjects retained: 1385
+    ## Total rows in output_df : 1221
 
 ``` r
-cat("Matched samples distribution:\n")
+cat("YES rows                :", sum(output_df$matched_samples == "YES"), "\n")
 ```
 
-    ## Matched samples distribution:
+    ## YES rows                : 1221
 
 ``` r
-table(metadata$matched_samples)
+cat("NO          :", sum(output_df$matched_samples == "NO"), "\n")
 ```
 
-    ## 
-    ##   NO 
-    ## 1385
-
-``` r
-cat("Sample distribution by Site:\n")
-```
-
-    ## Sample distribution by Site:
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## oral 
-    ## 1385
+    ## NO          : 0
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -294,13 +300,13 @@ table(metadata$Site)
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 1385"
+    ## [1] "Number of unique runs: 1221"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 1385"
+    ## [1] "Number of unique sample names: 1221"
 
 # Step 5: Visualize the Metadata
 
@@ -325,20 +331,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject        Run  sample_name Age BMI Sex Region            Platform
-    ## 1 PRJEB39420 ERR4345071 SAMEA7062799  NA  NA  NA     V4 Illumina HiSeq 2500
-    ## 2 PRJEB39420 ERR4345072 SAMEA7062800  NA  NA  NA     V4 Illumina HiSeq 2500
-    ## 3 PRJEB39420 ERR4345073 SAMEA7062801  NA  NA  NA     V4 Illumina HiSeq 2500
-    ## 4 PRJEB39420 ERR4345074 SAMEA7062802  NA  NA  NA     V4 Illumina HiSeq 2500
-    ## 5 PRJEB39420 ERR4345075 SAMEA7062803  NA  NA  NA     V4 Illumina HiSeq 2500
-    ## 6 PRJEB39420 ERR4345076 SAMEA7062804  NA  NA  NA     V4 Illumina HiSeq 2500
-    ##   Country Site          public_time PCR_primers
-    ## 1      NA oral 2020-07-17T00:00:00Z   515F-806R
-    ## 2      NA oral 2020-07-17T00:00:00Z   515F-806R
-    ## 3      NA oral 2020-07-17T00:00:00Z   515F-806R
-    ## 4      NA oral 2020-07-17T00:00:00Z   515F-806R
-    ## 5      NA oral 2020-07-17T00:00:00Z   515F-806R
-    ## 6      NA oral 2020-07-17T00:00:00Z   515F-806R
+    ##   BioProject        Run  sample_name         Age   BMI Sex Region
+    ## 1 PRJEB39420 ERR4345235 SAMEA7062963 0.005479452 11.96  NA     V4
+    ## 2 PRJEB39420 ERR4345236 SAMEA7062964 0.030136986 11.96  NA     V4
+    ## 3 PRJEB39420 ERR4345237 SAMEA7062965 0.008219178 11.96  NA     V4
+    ## 4 PRJEB39420 ERR4345238 SAMEA7062966 0.010958904 11.96  NA     V4
+    ## 5 PRJEB39420 ERR4345239 SAMEA7062967 0.013698630 11.96  NA     V4
+    ## 6 PRJEB39420 ERR4345240 SAMEA7062968 0.016438356 11.96  NA     V4
+    ##              Platform Country Site          public_time PCR_primers
+    ## 1 Illumina HiSeq 2500      NA oral 2020-07-17T00:00:00Z   515F-806R
+    ## 2 Illumina HiSeq 2500      NA oral 2020-07-17T00:00:00Z   515F-806R
+    ## 3 Illumina HiSeq 2500      NA oral 2020-07-17T00:00:00Z   515F-806R
+    ## 4 Illumina HiSeq 2500      NA oral 2020-07-17T00:00:00Z   515F-806R
+    ## 5 Illumina HiSeq 2500      NA oral 2020-07-17T00:00:00Z   515F-806R
+    ## 6 Illumina HiSeq 2500      NA oral 2020-07-17T00:00:00Z   515F-806R
     ##                                                                                                                      title
     ## 1 Multiomic Analyses of Nascent Preterm Infant Microbiomes Differentiation Suggest Opportunities for Targeted Intervention
     ## 2 Multiomic Analyses of Nascent Preterm Infant Microbiomes Differentiation Suggest Opportunities for Targeted Intervention
@@ -347,12 +353,12 @@ head(metadata)
     ## 5 Multiomic Analyses of Nascent Preterm Infant Microbiomes Differentiation Suggest Opportunities for Targeted Intervention
     ## 6 Multiomic Analyses of Nascent Preterm Infant Microbiomes Differentiation Suggest Opportunities for Targeted Intervention
     ##   Disease_study         Status matched_samples
-    ## 1           YES preterm infant              NO
-    ## 2           YES preterm infant              NO
-    ## 3           YES preterm infant              NO
-    ## 4           YES preterm infant              NO
-    ## 5           YES preterm infant              NO
-    ## 6           YES preterm infant              NO
+    ## 1           YES preterm infant             YES
+    ## 2           YES preterm infant             YES
+    ## 3           YES preterm infant             YES
+    ## 4           YES preterm infant             YES
+    ## 5           YES preterm infant             YES
+    ## 6           YES preterm infant             YES
 
 ## Notes for Students:
 

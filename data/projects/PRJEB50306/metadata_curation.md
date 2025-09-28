@@ -26,7 +26,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 #meta <- rbind(initial_meta, initial_meta1)
 
 #Remove entries non-oral samples
-initial_meta <- subset(initial_meta, env_material != "sterile water")
+
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
@@ -331,44 +331,9 @@ metadata <- metadata %>%
 keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
 metadata <- subset(metadata, sample_name %in% keep_subjects)
 
-sample_counts <- table(metadata$sample_name)
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
-
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
+metadata$matched_samples <- "NO"
 ```
-
-    ## Subjects retained: 319
-
-``` r
-cat("Matched samples distribution:\n")
-```
-
-    ## Matched samples distribution:
-
-``` r
-table(metadata$matched_samples)
-```
-
-    ## 
-    ##  NO YES 
-    ## 134 370
-
-``` r
-cat("Sample distribution by Site:\n")
-```
-
-    ## Sample distribution by Site:
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## saliva 
-    ##    504
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -430,12 +395,12 @@ head(metadata)
     ## 5 Early microbial markers of periodontal and cardiometabolic diseases in ORIGINS
     ## 6 Early microbial markers of periodontal and cardiometabolic diseases in ORIGINS
     ##   Disease_study Status matched_samples
-    ## 1           YES      H             YES
-    ## 2           YES      H             YES
-    ## 3           YES      H             YES
+    ## 1           YES      H              NO
+    ## 2           YES      H              NO
+    ## 3           YES      H              NO
     ## 4           YES      H              NO
-    ## 5           YES      H             YES
-    ## 6           YES      H             YES
+    ## 5           YES      H              NO
+    ## 6           YES      H              NO
 
 ## Notes for Students:
 

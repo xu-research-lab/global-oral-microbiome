@@ -91,17 +91,8 @@ metadata <- metadata %>%
 keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
 metadata <- subset(metadata, sample_name %in% keep_subjects)
 
-sample_counts <- table(metadata$sample_name)
+metadata$matched_samples <- "NO"
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
-
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
-cat("Matched samples distribution:\n")
-table(metadata$matched_samples)
-cat("Sample distribution by Site:\n")
-table(metadata$Site)
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

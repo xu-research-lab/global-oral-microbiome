@@ -994,54 +994,49 @@ metadata$title <- "A multi-cultural characterization of human-environmental inte
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 #metadata$Status<-"H"
-
+metadata$Site <- ifelse(is.na(metadata$Site),
+                        initial_meta$sample_type,
+                        metadata$Site)
 metadata <- metadata %>%
   mutate(Status = case_when(
     initial_meta$subset_healthy == "TRUE" ~ "H",
     initial_meta$subset_healthy == "FALSE" ~ "C"
   ))
 
-keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
-metadata <- subset(metadata, sample_name %in% keep_subjects)
+fields <- c("Age", "BMI", "Sex")
 
-sample_counts <- table(metadata$sample_name)
+stopifnot(all(fields %in% colnames(metadata)))
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
 
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
+has_duplicate <- metadata %>% 
+  select(all_of(fields)) %>% 
+  na.omit() %>%                
+  duplicated() %>%             
+  any()                        
+
+metadata <- metadata %>% 
+  mutate(matched_samples = if (has_duplicate) "YES" else "NO")
+
+output_df <- metadata %>% 
+  filter(matched_samples == "YES" | 
+        (matched_samples == "NO" & Site == "saliva"))
+
+cat("Total rows in output_df :", nrow(output_df), "\n")
 ```
 
-    ## Subjects retained: 50
+    ## Total rows in output_df : 538
 
 ``` r
-cat("Matched samples distribution:\n")
+cat("YES rows                :", sum(output_df$matched_samples == "YES"), "\n")
 ```
 
-    ## Matched samples distribution:
+    ## YES rows                : 538
 
 ``` r
-table(metadata$matched_samples)
+cat("NO          :", sum(output_df$matched_samples == "NO"), "\n")
 ```
 
-    ## 
-    ## NO 
-    ## 50
-
-``` r
-cat("Sample distribution by Site:\n")
-```
-
-    ## Sample distribution by Site:
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## saliva 
-    ##     50
+    ## NO          : 0
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -1056,7 +1051,7 @@ print(paste("Number of unique runs:", length(unique(metadata$Run))))
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 50"
+    ## [1] "Number of unique sample names: 538"
 
 # Step 5: Visualize the Metadata
 
@@ -1081,34 +1076,34 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##     BioProject Run sample_name Age   BMI    Sex Region       Platform
-    ## 5  qiita_11404  NA       11404  29 23.09   male     V4 Illumina MiSeq
-    ## 16 qiita_11404  NA       11404  25 19.14 female     V4 Illumina MiSeq
-    ## 27 qiita_11404  NA       11404  29 23.09   male     V4 Illumina MiSeq
-    ## 38 qiita_11404  NA       11404  NA    NA   <NA>     V4 Illumina MiSeq
-    ## 49 qiita_11404  NA       11404  38 22.22   male     V4 Illumina MiSeq
-    ## 60 qiita_11404  NA       11404  34 21.34   male     V4 Illumina MiSeq
-    ##           Country   Site public_time PCR_primers
-    ## 5             usa saliva   2017-11-8   515F-806R
-    ## 16        morocco saliva   2017-11-8   515F-806R
-    ## 27            usa saliva   2017-11-8   515F-806R
-    ## 38 united kingdom saliva   2017-11-8   515F-806R
-    ## 49 united kingdom saliva   2017-11-8   515F-806R
-    ## 60 united kingdom saliva   2017-11-8   515F-806R
-    ##                                                                                                                title
-    ## 5  A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
-    ## 16 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
-    ## 27 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
-    ## 38 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
-    ## 49 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
-    ## 60 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
-    ##    Disease_study Status matched_samples
-    ## 5             NO      H              NO
-    ## 16            NO      C              NO
-    ## 27            NO      H              NO
-    ## 38            NO      C              NO
-    ## 49            NO      C              NO
-    ## 60            NO      H              NO
+    ##    BioProject Run sample_name Age   BMI  Sex Region       Platform Country
+    ## 1 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ## 2 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ## 3 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ## 4 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ## 5 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ## 6 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ##      Site public_time PCR_primers
+    ## 1   sebum   2017-11-8   515F-806R
+    ## 2   tears   2017-11-8   515F-806R
+    ## 3   mucus   2017-11-8   515F-806R
+    ## 4 ear wax   2017-11-8   515F-806R
+    ## 5  saliva   2017-11-8   515F-806R
+    ## 6   Torso   2017-11-8   515F-806R
+    ##                                                                                                               title
+    ## 1 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
+    ## 2 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
+    ## 3 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
+    ## 4 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
+    ## 5 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
+    ## 6 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
+    ##   Disease_study Status matched_samples
+    ## 1            NO      H             YES
+    ## 2            NO      H             YES
+    ## 3            NO      H             YES
+    ## 4            NO      H             YES
+    ## 5            NO      H             YES
+    ## 6            NO      H             YES
 
 ## Notes for Students:
 

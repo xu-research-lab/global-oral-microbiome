@@ -26,7 +26,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 #meta <- rbind(initial_meta, initial_meta1)
 
 #Remove entries non-oral samples
-#initial_meta <- subset(initial_meta, Organism == "human oral metagenome")
+initial_meta <- subset(initial_meta, Organism != "metagenome")
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
@@ -241,7 +241,7 @@ metadata <- data.frame(
   Region = "V4",
   Platform = initial_meta$Instrument,
   Country = NA,
-  Site = "oral",
+  #Site = initial_meta$ms_sample_type_y,
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
@@ -260,48 +260,44 @@ metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status<-"preterm infant"
 
+metadata <- metadata %>%
+  mutate(Site = case_when(
+    initial_meta$Organism == "human oral metagenome" ~ "oral",
+    initial_meta$Organism == "human gut metagenome" ~ "gut",
+    initial_meta$Organism == "human skin metagenome" ~ "skin",
+    initial_meta$Organism == "human milk metagenome" ~ "milk",
+  ))
 
-keep_subjects <- unique(subset(metadata, Site == "oral")$sample_name)
-metadata <- subset(metadata, sample_name %in% keep_subjects)
+fields <- c("Host_age", "birth_length", "birth_weight",
+            "day_14_weight_wdn", "day_14_length_wdn")
+stopifnot(all(fields %in% colnames(initial_meta)))
 
-sample_counts <- table(metadata$sample_name)
+init_clean <- initial_meta[complete.cases(initial_meta[fields]), ]
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
+has_dup <- any(duplicated(init_clean[fields]))
 
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
+metadata$matched_samples <- ifelse(has_dup, "YES", "NO")
+
+output_df <- metadata %>% 
+  filter(matched_samples == "YES" | 
+        (matched_samples == "NO" & Site == "oral"))
+
+cat("Total rows in output_df :", nrow(output_df), "\n")
 ```
 
-    ## Subjects retained: 520
+    ## Total rows in output_df : 448
 
 ``` r
-cat("Matched samples distribution:\n")
+cat("YES rows                :", sum(output_df$matched_samples == "YES"), "\n")
 ```
 
-    ## Matched samples distribution:
+    ## YES rows                : 448
 
 ``` r
-table(metadata$matched_samples)
+cat("NO rows                 :", sum(output_df$matched_samples == "NO"), "\n")
 ```
 
-    ## 
-    ##  NO 
-    ## 520
-
-``` r
-cat("Sample distribution by Site:\n")
-```
-
-    ## Sample distribution by Site:
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## oral 
-    ##  520
+    ## NO rows                 : 0
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -310,13 +306,13 @@ table(metadata$Site)
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 520"
+    ## [1] "Number of unique runs: 448"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 520"
+    ## [1] "Number of unique sample names: 448"
 
 # Step 5: Visualize the Metadata
 
@@ -349,12 +345,12 @@ head(metadata)
     ## 5 PRJEB39436 ERR4350161 SAMEA7065362 0.005479452  NA  NA     V4 Illumina MiSeq
     ## 6 PRJEB39436 ERR4350162 SAMEA7065363 0.013698630  NA  NA     V4 Illumina MiSeq
     ##   Country Site          public_time PCR_primers
-    ## 1      NA oral 2020-07-19T00:00:00Z   515F-806R
-    ## 2      NA oral 2020-07-19T00:00:00Z   515F-806R
-    ## 3      NA oral 2020-07-19T00:00:00Z   515F-806R
-    ## 4      NA oral 2020-07-19T00:00:00Z   515F-806R
-    ## 5      NA oral 2020-07-19T00:00:00Z   515F-806R
-    ## 6      NA oral 2020-07-19T00:00:00Z   515F-806R
+    ## 1      NA milk 2020-07-19T00:00:00Z   515F-806R
+    ## 2      NA milk 2020-07-19T00:00:00Z   515F-806R
+    ## 3      NA milk 2020-07-19T00:00:00Z   515F-806R
+    ## 4      NA  gut 2020-07-19T00:00:00Z   515F-806R
+    ## 5      NA  gut 2020-07-19T00:00:00Z   515F-806R
+    ## 6      NA  gut 2020-07-19T00:00:00Z   515F-806R
     ##                                                                                                                      title
     ## 1 Multiomic Analyses of Nascent Preterm Infant Microbiomes Differentiation Suggest Opportunities for Targeted Intervention
     ## 2 Multiomic Analyses of Nascent Preterm Infant Microbiomes Differentiation Suggest Opportunities for Targeted Intervention
@@ -363,12 +359,12 @@ head(metadata)
     ## 5 Multiomic Analyses of Nascent Preterm Infant Microbiomes Differentiation Suggest Opportunities for Targeted Intervention
     ## 6 Multiomic Analyses of Nascent Preterm Infant Microbiomes Differentiation Suggest Opportunities for Targeted Intervention
     ##   Disease_study         Status matched_samples
-    ## 1           YES preterm infant              NO
-    ## 2           YES preterm infant              NO
-    ## 3           YES preterm infant              NO
-    ## 4           YES preterm infant              NO
-    ## 5           YES preterm infant              NO
-    ## 6           YES preterm infant              NO
+    ## 1           YES preterm infant             YES
+    ## 2           YES preterm infant             YES
+    ## 3           YES preterm infant             YES
+    ## 4           YES preterm infant             YES
+    ## 5           YES preterm infant             YES
+    ## 6           YES preterm infant             YES
 
 ## Notes for Students:
 

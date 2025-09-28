@@ -69,6 +69,7 @@ metadata <- data.frame(
   Site = initial_meta$SampleSite,
   public_time = initial_meta$ReleaseDate,
   Status = initial_meta$disease,
+  PCR_primers = initial_meta$primers,
   BMI = NA,
   stringsAsFactors = FALSE
 ) %>%
@@ -89,6 +90,15 @@ metadata <- data.frame(
       Site == "LM" ~ "lower jaw mucosa",
     )
   )
+metadata <- metadata %>%
+  mutate(
+    PCR_primers = case_when(
+      tolower(PCR_primers) == "341f/806r" ~ "341F-806R",
+      tolower(PCR_primers) == "341f-806r" ~ "341F-806R",
+      TRUE ~ PCR_primers
+    )
+  ) %>%
+  filter(PCR_primers == "341F-806R")
 ```
 # Step 3: Manually Add Information from the Publication
 
@@ -96,7 +106,6 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 ```{r}
 # Add information obtained from the publication
 metadata$Region <- "V3-V4"
-metadata$PCR_primers <- "341F-806R"
 metadata$title <- "Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis"
 metadata$Disease_study <- "YES"
 metadata$matched_samples <- "No"

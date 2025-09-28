@@ -117,6 +117,7 @@ metadata <- data.frame(
   Site = initial_meta$SampleSite,
   public_time = initial_meta$ReleaseDate,
   Status = initial_meta$disease,
+  PCR_primers = initial_meta$primers,
   BMI = NA,
   stringsAsFactors = FALSE
 ) %>%
@@ -137,6 +138,15 @@ metadata <- data.frame(
       Site == "LM" ~ "lower jaw mucosa",
     )
   )
+metadata <- metadata %>%
+  mutate(
+    PCR_primers = case_when(
+      tolower(PCR_primers) == "341f/806r" ~ "341F-806R",
+      tolower(PCR_primers) == "341f-806r" ~ "341F-806R",
+      TRUE ~ PCR_primers
+    )
+  ) %>%
+  filter(PCR_primers == "341F-806R")
 ```
 
 # Step 3: Manually Add Information from the Publication
@@ -147,7 +157,6 @@ manually extracted from the publication and added to the metadata.
 ``` r
 # Add information obtained from the publication
 metadata$Region <- "V3-V4"
-metadata$PCR_primers <- "341F-806R"
 metadata$title <- "Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis"
 metadata$Disease_study <- "YES"
 metadata$matched_samples <- "No"
@@ -164,9 +173,9 @@ table(metadata$sample_name)
 
     ## 
     ##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 
-    ##  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4 
+    ##  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2 
     ## 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 
-    ##  4  4  4  4  4  4  4  4  4  4  2  4  2  4  2  4  4  4  2  2  2  4  4  2  2  2  2  2  2  2  2  2  2  2
+    ##  2  2  2  2  2  2  2  2  2  2  1  2  1  2  1  2  2  2  1  1  1  2  2  1  1  1  1  1  1  1  1  1  1  1
 
 ``` r
 table(metadata$Site)
@@ -174,7 +183,7 @@ table(metadata$Site)
 
     ## 
     ##       buccal mucosa    lower jaw mucosa lower labial mucosa              tongue    upper jaw mucosa 
-    ##                 102                  32                 104                  80                  32
+    ##                  51                  16                  52                  40                  16
 
 ``` r
 table(metadata$matched_samples)
@@ -182,7 +191,7 @@ table(metadata$matched_samples)
 
     ## 
     ##  No 
-    ## 350
+    ## 175
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -191,7 +200,7 @@ table(metadata$matched_samples)
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 350"
+    ## [1] "Number of unique runs: 175"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
@@ -223,12 +232,12 @@ head(metadata)
 ```
 
     ##    BioProject        Run sample_name Age BMI Sex Region       Platform        Country                Site          public_time PCR_primers
-    ## 1 PRJNA521448 SRR8555713          32  NA  NA   F  V3-V4 Illumina MiSeq Czech Republic       buccal mucosa 2020-01-07T00:00:00Z   341F-806R
-    ## 2 PRJNA521448 SRR8555714          33  34  NA   F  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
-    ## 3 PRJNA521448 SRR8555715          76  42  NA   F  V3-V4 Illumina MiSeq Czech Republic    upper jaw mucosa 2020-01-07T00:00:00Z   341F-806R
-    ## 4 PRJNA521448 SRR8555716          74  38  NA   M  V3-V4 Illumina MiSeq Czech Republic    lower jaw mucosa 2020-01-07T00:00:00Z   341F-806R
-    ## 5 PRJNA521448 SRR8555717           3  37  NA   F  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
-    ## 6 PRJNA521448 SRR8555718           4  NA  NA   M  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 1 PRJNA521448 SRR8555715          76  42  NA   F  V3-V4 Illumina MiSeq Czech Republic    upper jaw mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 2 PRJNA521448 SRR8555716          74  38  NA   M  V3-V4 Illumina MiSeq Czech Republic    lower jaw mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 3 PRJNA521448 SRR8555717           3  37  NA   F  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 4 PRJNA521448 SRR8555718           4  NA  NA   M  V3-V4 Illumina MiSeq Czech Republic lower labial mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 5 PRJNA521448 SRR8555719          95  38  NA   M  V3-V4 Illumina MiSeq Czech Republic    lower jaw mucosa 2020-01-07T00:00:00Z   341F-806R
+    ## 6 PRJNA521448 SRR8555720          96  35  NA   F  V3-V4 Illumina MiSeq Czech Republic    lower jaw mucosa 2020-01-07T00:00:00Z   341F-806R
     ##                                                                                                            title Disease_study Status matched_samples
     ## 1 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS              No
     ## 2 Oral Microbiota Composition and Antimicrobial Antibody Response in Patients with Recurrent Aphthous Stomatitis           YES    RAS              No

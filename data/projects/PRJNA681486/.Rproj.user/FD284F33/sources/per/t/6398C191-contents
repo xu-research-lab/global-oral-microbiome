@@ -1,0 +1,68 @@
+library(dplyr)
+setwd("D:/PRJNA681486")
+initial_meta<-read.csv("SraRunTable (5).csv",header = T)
+head(initial_meta)
+
+
+uniform_meta <- data.frame(
+  BioProject = initial_meta$BioProject,
+  Run = initial_meta$Run,
+  sample_name = initial_meta$Sample.Name,
+  Platform = initial_meta$Platform,
+  Country = initial_meta$geo_loc_name_country,
+  public_time =initial_meta$ReleaseDate,  
+  stringsAsFactors = FALSE
+)
+
+library(ggplot2)
+  
+  uniform_meta$Age <-"14-18"
+  uniform_meta$BMI <- NA_character_
+  uniform_meta$Sex <- "F and M"
+  uniform_meta$PCR_primers <-"F:5'CCTACGGGNGGCWGCAG; R：5'GACTACHVGGGTATCTAATCC"
+  uniform_meta$Sex <- "V3-V4"
+  uniform_meta$Site <- "dental plaque"
+  uniform_meta$title <- "Bacterial Composition and Metabolomics of Dental Plaque From Adolescents"
+  uniform_meta$Disease_study <- "YES"
+  uniform_meta$Status <- "patients"
+ 
+  print(length(unique(uniform_meta$Run)))
+  print(length(unique(uniform_meta$sample_name)))
+  
+  library(ggplot2)
+  library(gridExtra)
+  
+  plot_data <- uniform_meta %>%
+    select(-BioProject, -Run, -sample_name, -title,-PCR_primers,-Age,-BMI,-Sex)
+  
+  create_simple_plots <- function(data) {
+    plots <- list()
+    
+    for (col in colnames(data)) {
+      if (is.numeric(data[[col]])) {
+        
+        p <- ggplot(data, aes(x = .data[[col]])) +
+          geom_histogram(fill = "blue", alpha = 0.6, bins = 20) +
+          labs(title = col) +
+          theme_minimal()
+      } else {
+        
+        count_data <- as.data.frame(table(data[[col]]))
+        p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
+          geom_col(fill = "red", alpha = 0.6) +
+          labs(title = col, x = NULL, y = "Count") +
+          theme_minimal() +
+          theme(axis.text.x = element_text(angle = 45, hjust = 1))
+      }
+      plots[[col]] <- p
+    }
+    
+    return(plots)
+  }
+  plots <- create_simple_plots(plot_data)
+  grid.arrange(grobs = plots, ncol = 3, top = "Metadata Summary")
+  print(plots)
+  
+  uniform_meta<-uniform_meta[,c("BioProject","Run","sample_name","Age","BMI","Sex","Region","Platform","Country","Site","public_time","PCR_primers","title","Disease_study","Status")]
+  write.csv(uniform_meta,file="uniform_meta.csv",quote = F)
+  

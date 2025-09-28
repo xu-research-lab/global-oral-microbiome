@@ -82,27 +82,36 @@ metadata$title <- "A multi-cultural characterization of human-environmental inte
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 #metadata$Status<-"H"
-
+metadata$Site <- ifelse(is.na(metadata$Site),
+                        initial_meta$sample_type,
+                        metadata$Site)
 metadata <- metadata %>%
   mutate(Status = case_when(
     initial_meta$subset_healthy == "TRUE" ~ "H",
     initial_meta$subset_healthy == "FALSE" ~ "C"
   ))
 
-keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
-metadata <- subset(metadata, sample_name %in% keep_subjects)
+fields <- c("Age", "BMI", "Sex")
 
-sample_counts <- table(metadata$sample_name)
+stopifnot(all(fields %in% colnames(metadata)))
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
 
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
-cat("Matched samples distribution:\n")
-table(metadata$matched_samples)
-cat("Sample distribution by Site:\n")
-table(metadata$Site)
+has_duplicate <- metadata %>% 
+  select(all_of(fields)) %>% 
+  na.omit() %>%                
+  duplicated() %>%             
+  any()                        
+
+metadata <- metadata %>% 
+  mutate(matched_samples = if (has_duplicate) "YES" else "NO")
+
+output_df <- metadata %>% 
+  filter(matched_samples == "YES" | 
+        (matched_samples == "NO" & Site == "saliva"))
+
+cat("Total rows in output_df :", nrow(output_df), "\n")
+cat("YES rows                :", sum(output_df$matched_samples == "YES"), "\n")
+cat("NO          :", sum(output_df$matched_samples == "NO"), "\n")
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

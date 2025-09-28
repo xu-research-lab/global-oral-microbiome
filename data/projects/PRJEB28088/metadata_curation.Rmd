@@ -84,20 +84,22 @@ metadata$Disease_study <- "NO"
 metadata$Status<-"H"
 
 
-keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
-metadata <- subset(metadata, sample_name %in% keep_subjects)
+fields <- c("Age", "BMI", "Sex")
 
-sample_counts <- table(metadata$sample_name)
+stopifnot(all(fields %in% colnames(metadata)))
+clean <- metadata[complete.cases(metadata[fields]), ]
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
+has_dup <- any(duplicated(clean[fields]))
 
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
-cat("Matched samples distribution:\n")
-table(metadata$matched_samples)
-cat("Sample distribution by Site:\n")
-table(metadata$Site)
+
+metadata$matched_samples <- ifelse(has_dup, "YES", "NO")
+
+output_df <- metadata[metadata$matched_samples == "YES" |
+                     (metadata$matched_samples == "NO" & metadata$Site == "saliva"), ]
+
+cat("Total rows in output_df :", nrow(output_df), "\n")
+cat("YES rows                :", sum(output_df$matched_samples == "YES"), "\n")
+cat("NO rows                 :", sum(output_df$matched_samples == "NO"), "\n")
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

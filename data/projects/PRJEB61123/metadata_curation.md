@@ -57,12 +57,12 @@ head(initial_meta)
     ## 5         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
     ## 6         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
     ##   ENA.FIRST.PUBLIC..run.      ena_first_public ENA.LAST.UPDATE..run.
-    ## 1             2023-04-15 2023-04-15,2023-04-15            2023-04-15
-    ## 2             2023-04-15 2023-04-15,2023-04-15            2023-04-15
-    ## 3             2023-04-15 2023-04-15,2023-04-15            2023-04-15
-    ## 4             2023-04-15 2023-04-15,2023-04-15            2023-04-15
-    ## 5             2023-04-15 2023-04-15,2023-04-15            2023-04-15
-    ## 6             2023-04-15 2023-04-15,2023-04-15            2023-04-15
+    ## 1              2023/4/15 2023-04-15,2023-04-15             2023/4/15
+    ## 2              2023/4/15 2023-04-15,2023-04-15             2023/4/15
+    ## 3              2023/4/15 2023-04-15,2023-04-15             2023/4/15
+    ## 4              2023/4/15 2023-04-15,2023-04-15             2023/4/15
+    ## 5              2023/4/15 2023-04-15,2023-04-15             2023/4/15
+    ## 6              2023/4/15 2023-04-15,2023-04-15             2023/4/15
     ##         ena_last_update  Experiment     Instrument
     ## 1 2023-04-15,2023-04-15 ERX10645023 Illumina MiSeq
     ## 2 2023-04-15,2023-04-15 ERX10645024 Illumina MiSeq
@@ -158,44 +158,9 @@ metadata$Status<-"NA"
 keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
 metadata <- subset(metadata, sample_name %in% keep_subjects)
 
-sample_counts <- table(metadata$sample_name)
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
-
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
+metadata$matched_samples <- "NO"
 ```
-
-    ## Subjects retained: 72
-
-``` r
-cat("Matched samples distribution:\n")
-```
-
-    ## Matched samples distribution:
-
-``` r
-table(metadata$matched_samples)
-```
-
-    ## 
-    ## NO 
-    ## 72
-
-``` r
-cat("Sample distribution by Site:\n")
-```
-
-    ## Sample distribution by Site:
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## saliva 
-    ##     72
 
 # Step 4: Summarize and Validate the Metadata
 

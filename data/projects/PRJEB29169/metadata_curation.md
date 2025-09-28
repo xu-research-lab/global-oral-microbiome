@@ -334,44 +334,8 @@ metadata <- metadata %>%
 keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
 metadata <- subset(metadata, sample_name %in% keep_subjects)
 
-sample_counts <- table(metadata$sample_name)
-
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
-
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
+metadata$matched_samples <- "NO"
 ```
-
-    ## Subjects retained: 319
-
-``` r
-cat("Matched samples distribution:\n")
-```
-
-    ## Matched samples distribution:
-
-``` r
-table(metadata$matched_samples)
-```
-
-    ## 
-    ##  NO YES 
-    ## 134 370
-
-``` r
-cat("Sample distribution by Site:\n")
-```
-
-    ## Sample distribution by Site:
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## saliva 
-    ##    504
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -433,12 +397,12 @@ head(metadata)
     ## 5 Establishing microbial composition measurement standards with reference frames
     ## 6 Establishing microbial composition measurement standards with reference frames
     ##   Disease_study Status matched_samples
-    ## 1            NO     NA             YES
-    ## 2            NO     NA             YES
-    ## 3            NO     NA             YES
+    ## 1            NO     NA              NO
+    ## 2            NO     NA              NO
+    ## 3            NO     NA              NO
     ## 4            NO     NA              NO
-    ## 5            NO     NA             YES
-    ## 6            NO     NA             YES
+    ## 5            NO     NA              NO
+    ## 6            NO     NA              NO
 
 ## Notes for Students:
 

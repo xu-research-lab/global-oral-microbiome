@@ -111,7 +111,7 @@ metadata<-metadata%>%
 metadata<-metadata%>%
   mutate(Site=case_when(grepl("TY",sample_name)~"Saliva",grepl("T|t",sample_name)~"Tumor",grepl("C",sample_name)~"Paracancerous Tissue"))
 
-metadata$sample_name<-gsub("C|T|TY|t","",metadata$sample_name)
+metadata$sample_name<-gsub("-C|-T|-TY|-t","",metadata$sample_name)
 #get subjects id with Saliva available
 keep_subjects<-subset(metadata,Site %in% "Saliva")
 #remove subjects without Saliva samples
@@ -120,6 +120,7 @@ metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 sample_counts <- table(metadata$sample_name)
 # Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
 metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
+rownames(metadata)<-1:nrow(metadata)
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -161,34 +162,34 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject         Run sample_name Age BMI Sex Region       Platform Country
-    ## 3   OEP000837 OER00043812       S002-  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 7   OEP000837 OER00043813       S003-  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 8   OEP000837 OER00043814       S004-  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 10  OEP000837 OER00043816       S006-  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 11  OEP000837 OER00043815       S005-  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 15  OEP000837 OER00043818       S006-  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ##                    Site public_time PCR_primers
-    ## 3                Saliva  2020-04-14   338F-806R
-    ## 7                Saliva  2020-04-14   338F-806R
-    ## 8                Saliva  2020-04-14   338F-806R
-    ## 10 Paracancerous Tissue  2020-04-14   338F-806R
-    ## 11               Saliva  2020-04-14   338F-806R
-    ## 15               Saliva  2020-04-14   338F-806R
-    ##                                                                                                                        title
-    ## 3  Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
-    ## 7  Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
-    ## 8  Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
-    ## 10 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
-    ## 11 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
-    ## 15 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
-    ##    Disease_study                    Status matched_samples
-    ## 3            YES               OSCC_Saliva              NO
-    ## 7            YES               OSCC_Saliva              NO
-    ## 8            YES               OSCC_Saliva              NO
-    ## 10           YES OSCC_Paracancerous Tissue             YES
-    ## 11           YES               OSCC_Saliva              NO
-    ## 15           YES               OSCC_Saliva             YES
+    ##   BioProject         Run sample_name Age BMI Sex Region       Platform Country
+    ## 1  OEP000837 OER00043812        S002  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 2  OEP000837 OER00043813        S003  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 3  OEP000837 OER00043814        S004  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 4  OEP000837 OER00043816        S006  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 5  OEP000837 OER00043815        S005  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 6  OEP000837 OER00043818        S006  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ##                   Site public_time PCR_primers
+    ## 1               Saliva  2020-04-14   338F-806R
+    ## 2               Saliva  2020-04-14   338F-806R
+    ## 3               Saliva  2020-04-14   338F-806R
+    ## 4 Paracancerous Tissue  2020-04-14   338F-806R
+    ## 5               Saliva  2020-04-14   338F-806R
+    ## 6               Saliva  2020-04-14   338F-806R
+    ##                                                                                                                       title
+    ## 1 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
+    ## 2 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
+    ## 3 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
+    ## 4 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
+    ## 5 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
+    ## 6 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
+    ##   Disease_study                    Status matched_samples
+    ## 1           YES               OSCC_Saliva              NO
+    ## 2           YES               OSCC_Saliva              NO
+    ## 3           YES               OSCC_Saliva              NO
+    ## 4           YES OSCC_Paracancerous Tissue             YES
+    ## 5           YES               OSCC_Saliva              NO
+    ## 6           YES               OSCC_Saliva             YES
 
 ## Notes for Students:
 

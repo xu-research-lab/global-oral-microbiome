@@ -70,6 +70,7 @@ metadata <- data.frame(
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
+metadata$Site<-gsub("human","",metadata$Site)
 ```
 # Step 3: Manually Add Information from the Publication
 

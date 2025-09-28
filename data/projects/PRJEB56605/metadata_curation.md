@@ -191,13 +191,13 @@ manually extracted from the publication and added to the metadata.
 # Add information obtained from the publication
 metadata$Region <- "V4-V5"
 metadata$PCR_primers <- "515F-926R"
-metadata$title <- "Investigating the oral microbiome in retrospective and prospective cases of prostate, colon, and breast cancer"
+metadata$title <- "Investigating the oral microbiome in retrospective and prospective cases of prostate colon and breast cancer"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "C"
 
 #extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("100", "", metadata$sample_name)
+metadata$sample_name <- gsub("^100", "", metadata$sample_name)
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")
@@ -242,9 +242,9 @@ table(metadata$sample_name)
     ##            1            1            1            1            1            1 
     ##    102019835    102026035    102038735    102070635  102077035-2  102077235-2 
     ##            1            1            1            1            1            1 
-    ##    102078235    102078635    102087935    102090935    102103835    102104835 
+    ##    102078235    102078635    102087935    102090935    102100135    102103835 
     ##            1            1            1            1            1            1 
-    ##    102115335    102119335    102125935    102127535       102135    102142135 
+    ##    102104835    102115335    102119335    102125935    102127535    102142135 
     ##            1            1            1            1            1            1 
     ##    102147835    102150335    102156735    102172335    102179335    102198735 
     ##            1            1            1            1            1            1 
@@ -256,7 +256,7 @@ table(metadata$sample_name)
     ##            1            1            1            1            1            1 
     ##       102435    102490535    102495535    102497235    102502435    102503335 
     ##            1            1            1            1            1            1 
-    ##    102510135    102512735    102517335    102518235    102527935       102535 
+    ##    102510035    102510135    102512735    102517335    102518235    102527935 
     ##            1            1            1            1            1            1 
     ##    102535735    102546335    102551135 102559435-2W  102562935-2    102565235 
     ##            1            1            1            1            1            1 
@@ -469,9 +469,9 @@ print(sample_counts)
     ##            1            1            1            1            1            1 
     ##    102019835    102026035    102038735    102070635  102077035-2  102077235-2 
     ##            1            1            1            1            1            1 
-    ##    102078235    102078635    102087935    102090935    102103835    102104835 
+    ##    102078235    102078635    102087935    102090935    102100135    102103835 
     ##            1            1            1            1            1            1 
-    ##    102115335    102119335    102125935    102127535       102135    102142135 
+    ##    102104835    102115335    102119335    102125935    102127535    102142135 
     ##            1            1            1            1            1            1 
     ##    102147835    102150335    102156735    102172335    102179335    102198735 
     ##            1            1            1            1            1            1 
@@ -483,7 +483,7 @@ print(sample_counts)
     ##            1            1            1            1            1            1 
     ##       102435    102490535    102495535    102497235    102502435    102503335 
     ##            1            1            1            1            1            1 
-    ##    102510135    102512735    102517335    102518235    102527935       102535 
+    ##    102510035    102510135    102512735    102517335    102518235    102527935 
     ##            1            1            1            1            1            1 
     ##    102535735    102546335    102551135 102559435-2W  102562935-2    102565235 
     ##            1            1            1            1            1            1 
@@ -699,13 +699,13 @@ head(metadata)
     ## 4 Saliva 2022-10-19T00:00:00Z   515F-926R
     ## 5 Saliva 2022-10-19T00:00:00Z   515F-926R
     ## 6 Saliva 2022-10-19T00:00:00Z   515F-926R
-    ##                                                                                                            title
-    ## 1 Investigating the oral microbiome in retrospective and prospective cases of prostate, colon, and breast cancer
-    ## 2 Investigating the oral microbiome in retrospective and prospective cases of prostate, colon, and breast cancer
-    ## 3 Investigating the oral microbiome in retrospective and prospective cases of prostate, colon, and breast cancer
-    ## 4 Investigating the oral microbiome in retrospective and prospective cases of prostate, colon, and breast cancer
-    ## 5 Investigating the oral microbiome in retrospective and prospective cases of prostate, colon, and breast cancer
-    ## 6 Investigating the oral microbiome in retrospective and prospective cases of prostate, colon, and breast cancer
+    ##                                                                                                          title
+    ## 1 Investigating the oral microbiome in retrospective and prospective cases of prostate colon and breast cancer
+    ## 2 Investigating the oral microbiome in retrospective and prospective cases of prostate colon and breast cancer
+    ## 3 Investigating the oral microbiome in retrospective and prospective cases of prostate colon and breast cancer
+    ## 4 Investigating the oral microbiome in retrospective and prospective cases of prostate colon and breast cancer
+    ## 5 Investigating the oral microbiome in retrospective and prospective cases of prostate colon and breast cancer
+    ## 6 Investigating the oral microbiome in retrospective and prospective cases of prostate colon and breast cancer
     ##   Disease_study Status matched_samples
     ## 1           YES      C              NO
     ## 2           YES      C              NO

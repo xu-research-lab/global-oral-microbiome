@@ -25,6 +25,21 @@ initial_meta <- read.csv("SraRunTable.csv", header = T)
 # Remove entries non-oral samples
 initial_meta <- initial_meta[initial_meta$sample_type != "control blank", ]
 
+# Convert the "Age" and "BMI" string columns into numeric columns
+initial_meta <- initial_meta %>%
+  mutate(
+    AGE = ifelse(AGE == "not collected", 
+                NA, 
+                round(as.numeric(as.character(AGE)), 0)),
+    BMI = ifelse(BMI == "not collected", 
+                NA, 
+                round(as.numeric(as.character(BMI)), 0))
+  ) %>%
+  mutate(
+    AGE = ifelse(is.na(AGE), "", AGE),
+    BMI = ifelse(is.na(BMI), "", BMI)
+  )
+
 # Display the first few rows of the metadata
 head(initial_meta)
 ```
@@ -90,9 +105,6 @@ metadata <- metadata %>%
   mutate(Status = 
            recode(Status, "disease" = "C", "healthy" = "HC", "not collected" = c())
          )
-
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("", "", metadata$sample_name)
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")

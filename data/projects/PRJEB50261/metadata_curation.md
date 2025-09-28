@@ -25,6 +25,21 @@ initial_meta <- read.csv("SraRunTable.csv", header = T)
 # Remove entries non-oral samples
 initial_meta <- initial_meta[initial_meta$sample_type != "control blank", ]
 
+# Convert the "Age" and "BMI" string columns into numeric columns
+initial_meta <- initial_meta %>%
+  mutate(
+    AGE = ifelse(AGE == "not collected", 
+                NA, 
+                round(as.numeric(as.character(AGE)), 0)),
+    BMI = ifelse(BMI == "not collected", 
+                NA, 
+                round(as.numeric(as.character(BMI)), 0))
+  ) %>%
+  mutate(
+    AGE = ifelse(is.na(AGE), "", AGE),
+    BMI = ifelse(is.na(BMI), "", BMI)
+  )
+
 # Display the first few rows of the metadata
 head(initial_meta)
 ```
@@ -169,40 +184,33 @@ head(initial_meta)
     ## 4         yes     1  1.12745098  1.62037037    12     1      0.1     0.11
     ## 5         yes     1         1.5 1.571428571    20     2     0.32     0.12
     ## 6         yes     1         1.5 1.571428571    20     2     0.32     0.12
-    ##   perpdge4      perbop  aapperio alge3 totbop         BMI         AGE
-    ## 1     0.01 0.218390805 none/mild     0     38  25.5991394 25.88364134
-    ## 2     0.01 0.218390805 none/mild     0     38  25.5991394 25.88364134
-    ## 3     0.01 0.351851852  moderate    10     38 29.95949604 52.20533881
-    ## 4     0.01 0.351851852  moderate    10     38 29.95949604 52.20533881
-    ## 5     0.01 0.130718954  moderate    54     20 30.86028545 53.59069131
-    ## 6     0.01 0.130718954  moderate    54     20 30.86028545 53.59069131
-    ##      Host_age    sex educ raceethn cigcurr description..exp.
-    ## 1 25.88364134   male    1        3       0                  
-    ## 2 25.88364134   male    1        3       0                  
-    ## 3 52.20533881   male    1        0       0                  
-    ## 4 52.20533881   male    1        0       0                  
-    ## 5 53.59069131 female    0        0       0                  
-    ## 6 53.59069131 female    0        0       0                  
-    ##   center_project_name..exp.  run_center..exp. sample_plate..exp.
-    ## 1     ORIGINS plaque wave 2 Forsyth Institute            plate 2
-    ## 2     ORIGINS plaque wave 2 Forsyth Institute            plate 2
-    ## 3     ORIGINS plaque wave 2 Forsyth Institute            plate 2
-    ## 4     ORIGINS plaque wave 2 Forsyth Institute            plate 2
-    ## 5     ORIGINS plaque wave 2 Forsyth Institute            plate 2
-    ## 6     ORIGINS plaque wave 2 Forsyth Institute            plate 2
-    ##   target_subfragment..exp. homair ena_first_public ena_last_update.1
-    ## 1                     V3V4                                          
-    ## 2                     V3V4                                          
-    ## 3                     V3V4                                          
-    ## 4                     V3V4                                          
-    ## 5                     V3V4                                          
-    ## 6                     V3V4                                          
-    ##   Scientific_Name
-    ## 1                
-    ## 2                
-    ## 3                
-    ## 4                
-    ## 5                
+    ##   perpdge4      perbop  aapperio alge3 totbop BMI AGE    Host_age    sex educ
+    ## 1     0.01 0.218390805 none/mild     0     38  26  26 25.88364134   male    1
+    ## 2     0.01 0.218390805 none/mild     0     38  26  26 25.88364134   male    1
+    ## 3     0.01 0.351851852  moderate    10     38  30  52 52.20533881   male    1
+    ## 4     0.01 0.351851852  moderate    10     38  30  52 52.20533881   male    1
+    ## 5     0.01 0.130718954  moderate    54     20  31  54 53.59069131 female    0
+    ## 6     0.01 0.130718954  moderate    54     20  31  54 53.59069131 female    0
+    ##   raceethn cigcurr description..exp. center_project_name..exp.
+    ## 1        3       0                       ORIGINS plaque wave 2
+    ## 2        3       0                       ORIGINS plaque wave 2
+    ## 3        0       0                       ORIGINS plaque wave 2
+    ## 4        0       0                       ORIGINS plaque wave 2
+    ## 5        0       0                       ORIGINS plaque wave 2
+    ## 6        0       0                       ORIGINS plaque wave 2
+    ##    run_center..exp. sample_plate..exp. target_subfragment..exp. homair
+    ## 1 Forsyth Institute            plate 2                     V3V4       
+    ## 2 Forsyth Institute            plate 2                     V3V4       
+    ## 3 Forsyth Institute            plate 2                     V3V4       
+    ## 4 Forsyth Institute            plate 2                     V3V4       
+    ## 5 Forsyth Institute            plate 2                     V3V4       
+    ## 6 Forsyth Institute            plate 2                     V3V4       
+    ##   ena_first_public ena_last_update.1 Scientific_Name
+    ## 1                                                   
+    ## 2                                                   
+    ## 3                                                   
+    ## 4                                                   
+    ## 5                                                   
     ## 6
 
 # Step 2: Create a Uniform Metadata Template
@@ -274,9 +282,6 @@ metadata <- metadata %>%
   mutate(Status = 
            recode(Status, "disease" = "C", "healthy" = "HC", "not collected" = c())
          )
-
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("", "", metadata$sample_name)
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")
@@ -788,20 +793,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject        Run sample_name         Age         BMI Sex Region
-    ## 1 PRJEB50261 ERR8049835        5791 25.88364134  25.5991394   M  V3-V4
-    ## 2 PRJEB50261 ERR8049836        5791 25.88364134  25.5991394   M  V3-V4
-    ## 3 PRJEB50261 ERR8049837        6411 52.20533881 29.95949604   M  V3-V4
-    ## 4 PRJEB50261 ERR8049838        6411 52.20533881 29.95949604   M  V3-V4
-    ## 5 PRJEB50261 ERR8049839        6455 53.59069131 30.86028545   F  V3-V4
-    ## 6 PRJEB50261 ERR8049840        6455 53.59069131 30.86028545   F  V3-V4
-    ##         Platform Country               Site          public_time PCR_primers
-    ## 1 Illumina MiSeq     USA subgingival plaque 2022-01-20T00:00:00Z   341F-806R
-    ## 2 Illumina MiSeq     USA subgingival plaque 2022-01-20T00:00:00Z   341F-806R
-    ## 3 Illumina MiSeq     USA subgingival plaque 2022-01-20T00:00:00Z   341F-806R
-    ## 4 Illumina MiSeq     USA subgingival plaque 2022-01-20T00:00:00Z   341F-806R
-    ## 5 Illumina MiSeq     USA subgingival plaque 2022-01-20T00:00:00Z   341F-806R
-    ## 6 Illumina MiSeq     USA subgingival plaque 2022-01-20T00:00:00Z   341F-806R
+    ##   BioProject        Run sample_name Age BMI Sex Region       Platform Country
+    ## 1 PRJEB50261 ERR8049835        5791  26  26   M  V3-V4 Illumina MiSeq     USA
+    ## 2 PRJEB50261 ERR8049836        5791  26  26   M  V3-V4 Illumina MiSeq     USA
+    ## 3 PRJEB50261 ERR8049837        6411  52  30   M  V3-V4 Illumina MiSeq     USA
+    ## 4 PRJEB50261 ERR8049838        6411  52  30   M  V3-V4 Illumina MiSeq     USA
+    ## 5 PRJEB50261 ERR8049839        6455  54  31   F  V3-V4 Illumina MiSeq     USA
+    ## 6 PRJEB50261 ERR8049840        6455  54  31   F  V3-V4 Illumina MiSeq     USA
+    ##                 Site          public_time PCR_primers
+    ## 1 subgingival plaque 2022-01-20T00:00:00Z   341F-806R
+    ## 2 subgingival plaque 2022-01-20T00:00:00Z   341F-806R
+    ## 3 subgingival plaque 2022-01-20T00:00:00Z   341F-806R
+    ## 4 subgingival plaque 2022-01-20T00:00:00Z   341F-806R
+    ## 5 subgingival plaque 2022-01-20T00:00:00Z   341F-806R
+    ## 6 subgingival plaque 2022-01-20T00:00:00Z   341F-806R
     ##                                                                            title
     ## 1 Early microbial markers of periodontal and cardiometabolic diseases in ORIGINS
     ## 2 Early microbial markers of periodontal and cardiometabolic diseases in ORIGINS

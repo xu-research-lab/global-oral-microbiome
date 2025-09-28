@@ -55,7 +55,7 @@ metadata <- data.frame(
   Age = initial_meta$Host_age,
   BMI = NA, 
   Sex = initial_meta$sex,
-  Region = initial_meta$target_subfragment..exp.,
+  Region = "V4",
   Platform = initial_meta$Instrument,
   Site = initial_meta$env_material,
   public_time = initial_meta$ReleaseDate,

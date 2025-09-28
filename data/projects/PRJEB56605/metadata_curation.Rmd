@@ -70,7 +70,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 # Add information obtained from the publication
 metadata$Region <- "V4-V5"
 metadata$PCR_primers <- "515F-926R"
-metadata$title <- "Investigating the oral microbiome in retrospective and prospective cases of prostate, colon, and breast cancer"
+metadata$title <- "Investigating the oral microbiome in retrospective and prospective cases of prostate colon and breast cancer"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "C"

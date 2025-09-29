@@ -302,7 +302,7 @@ metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts
 sample_counts <- table(metadata$sample_name)
 # Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
+metadata$matched_samples="No"
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -365,12 +365,12 @@ head(metadata)
     ## 5 Comparison of Oral Collection Methods for Studies of Microbiota            NO
     ## 6 Comparison of Oral Collection Methods for Studies of Microbiota            NO
     ##   Status matched_samples
-    ## 1     HC             YES
-    ## 2     HC             YES
-    ## 3     HC             YES
-    ## 4     HC             YES
-    ## 5     HC             YES
-    ## 6     HC             YES
+    ## 1     HC              No
+    ## 2     HC              No
+    ## 3     HC              No
+    ## 4     HC              No
+    ## 5     HC              No
+    ## 6     HC              No
 
 ## Notes for Students:
 

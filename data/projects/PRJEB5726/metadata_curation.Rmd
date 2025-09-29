@@ -61,14 +61,14 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$host_subject_id,
-  Age = initial_meta$age_unit,
+  Age = NA,
   BMI = NA,
   Sex = NA,
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$geo_loc_name_country,
   Site = gsub("UBERON:", "", initial_meta$body_site),
-  public_time = "2014-12-09",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = "515F-806R",
   stringsAsFactors = FALSE
 )

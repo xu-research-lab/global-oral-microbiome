@@ -60,15 +60,15 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$host_subject_id,
+  sample_name = initial_meta$Sample_name,
   Age = initial_meta$AGE,
-  BMI = NA,
+  BMI = initial_meta$body_mass_index,
   Sex=initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$geo_loc_name_country,
   Site = gsub("UBERON:", "", initial_meta$body_site),
-  public_time = "2014-06-14",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = initial_meta$pcr_primers..exp.,
   stringsAsFactors = FALSE
 )

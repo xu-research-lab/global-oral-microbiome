@@ -227,15 +227,15 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$host_subject_id,
+  sample_name = initial_meta$Sample_name,
   Age = initial_meta$AGE,
-  BMI = NA,
+  BMI = initial_meta$body_mass_index,
   Sex=initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$geo_loc_name_country,
   Site = gsub("UBERON:", "", initial_meta$body_site),
-  public_time = "2014-06-14",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = initial_meta$pcr_primers..exp.,
   stringsAsFactors = FALSE
 )
@@ -275,13 +275,13 @@ metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 628"
+    ## [1] "Number of unique runs: 286"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 1"
+    ## [1] "Number of unique sample names: 286"
 
 # Step 5: Visualize the Metadata
 
@@ -306,34 +306,34 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject       Run sample_name Age BMI Sex Region Platform Country  Site
-    ## 1  PRJEB6518 ERR531441 2202:DonorA  26  NA   M     V4 Illumina     USA feces
-    ## 3  PRJEB6518 ERR531443 2202:DonorA  26  NA   M     V4 Illumina     USA feces
-    ## 4  PRJEB6518 ERR531444 2202:DonorA  26  NA   M     V4 Illumina     USA feces
-    ## 7  PRJEB6518 ERR531447 2202:DonorA  26  NA   M     V4 Illumina     USA feces
-    ## 8  PRJEB6518 ERR531448 2202:DonorA  26  NA   M     V4 Illumina     USA feces
-    ## 9  PRJEB6518 ERR531449 2202:DonorA  26  NA   M     V4 Illumina     USA feces
-    ##   public_time                                       PCR_primers
-    ## 1  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 3  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 4  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 7  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 8  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ## 9  2014-06-14 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
-    ##                                                         title Disease_study
-    ## 1 Host lifestyle affects human microbiota on daily timescales            NO
-    ## 3 Host lifestyle affects human microbiota on daily timescales            NO
-    ## 4 Host lifestyle affects human microbiota on daily timescales            NO
-    ## 7 Host lifestyle affects human microbiota on daily timescales            NO
-    ## 8 Host lifestyle affects human microbiota on daily timescales            NO
-    ## 9 Host lifestyle affects human microbiota on daily timescales            NO
-    ##   Status matched_samples
-    ## 1     HC             YES
-    ## 3     HC             YES
-    ## 4     HC             YES
-    ## 7     HC             YES
-    ## 8     HC             YES
-    ## 9     HC             YES
+    ##    BioProject       Run sample_name Age  BMI Sex Region Platform Country   Site
+    ## 14  PRJEB6518 ERR531454   Saliva184  26 19.4   M     V4 Illumina     USA saliva
+    ## 15  PRJEB6518 ERR531455    Saliva84  26 19.4   M     V4 Illumina     USA saliva
+    ## 16  PRJEB6518 ERR531456   Saliva207  26 19.4   M     V4 Illumina     USA saliva
+    ## 23  PRJEB6518 ERR531463    Saliva64  26 19.4   M     V4 Illumina     USA saliva
+    ## 26  PRJEB6518 ERR531466   Saliva209  26 19.4   M     V4 Illumina     USA saliva
+    ## 27  PRJEB6518 ERR531467   Saliva144  26 19.4   M     V4 Illumina     USA saliva
+    ##             public_time                                       PCR_primers
+    ## 14 2014-06-14T00:00:00Z FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 15 2014-06-14T00:00:00Z FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 16 2014-06-14T00:00:00Z FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 23 2014-06-14T00:00:00Z FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 26 2014-06-14T00:00:00Z FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ## 27 2014-06-14T00:00:00Z FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
+    ##                                                          title Disease_study
+    ## 14 Host lifestyle affects human microbiota on daily timescales            NO
+    ## 15 Host lifestyle affects human microbiota on daily timescales            NO
+    ## 16 Host lifestyle affects human microbiota on daily timescales            NO
+    ## 23 Host lifestyle affects human microbiota on daily timescales            NO
+    ## 26 Host lifestyle affects human microbiota on daily timescales            NO
+    ## 27 Host lifestyle affects human microbiota on daily timescales            NO
+    ##    Status matched_samples
+    ## 14     HC              NO
+    ## 15     HC              NO
+    ## 16     HC              NO
+    ## 23     HC              NO
+    ## 26     HC              NO
+    ## 27     HC              NO
 
 ## Notes for Students:
 

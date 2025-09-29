@@ -1,4 +1,0 @@
-library(dplyr)
-setwd(“D:/PRJNA670573”)
-initial_meta<-read.csv("SraRunTable (4).csv",header = T)
-head(initial_meta)

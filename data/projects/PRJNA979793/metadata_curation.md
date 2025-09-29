@@ -136,7 +136,7 @@ metadata <- data.frame(
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$isolation_source,
-  public_time = "2024-03-18",
+  public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
 ```
@@ -214,13 +214,13 @@ head(metadata)
     ## 4 PRJNA979793 SRR24873463     K0423_4  NA  NA  NA  V3-V4 Illumina MiSeq   China
     ## 5 PRJNA979793 SRR24873464         CK9  NA  NA  NA  V3-V4 Illumina MiSeq   China
     ## 6 PRJNA979793 SRR24873465     K0423_2  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ##     Site public_time PCR_primers
-    ## 1 saliva  2024-03-18   338F-806R
-    ## 2 saliva  2024-03-18   338F-806R
-    ## 3 saliva  2024-03-18   338F-806R
-    ## 4 saliva  2024-03-18   338F-806R
-    ## 5 saliva  2024-03-18   338F-806R
-    ## 6 saliva  2024-03-18   338F-806R
+    ##     Site          public_time PCR_primers
+    ## 1 saliva 2024-03-18T00:00:00Z   338F-806R
+    ## 2 saliva 2024-03-18T00:00:00Z   338F-806R
+    ## 3 saliva 2024-03-18T00:00:00Z   338F-806R
+    ## 4 saliva 2024-03-18T00:00:00Z   338F-806R
+    ## 5 saliva 2024-03-18T00:00:00Z   338F-806R
+    ## 6 saliva 2024-03-18T00:00:00Z   338F-806R
     ##                                                                                                          title
     ## 1 Saliva icrobiome erived signatures: expected to become a potential biomarker for pulmonary nodules (MCEPN-1)
     ## 2 Saliva icrobiome erived signatures: expected to become a potential biomarker for pulmonary nodules (MCEPN-1)

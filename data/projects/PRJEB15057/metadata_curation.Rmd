@@ -68,7 +68,7 @@ metadata <- data.frame(
   Platform = initial_meta$Instrument,
   Country = initial_meta$COUNTRY,
   Site = initial_meta$env_material,
-  public_time = "2016-08-06",
+  public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
 ```

@@ -61,14 +61,14 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$host_subject_id,
-  Age = NA,
+  Age = initial_meta$age_in_years,
   BMI = NA,
   Sex = initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$env_material,
-  public_time = "2020-02-25",
+  public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
 ```

@@ -70,6 +70,7 @@ metadata <- data.frame(
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$env_material,
   public_time = initial_meta$ReleaseDate,
+  Status = NA,
   stringsAsFactors = FALSE
 )
 ```
@@ -82,7 +83,7 @@ metadata$PCR_primers <- "515F-806R"
 metadata$title <- "Establishing microbial composition measurement standards with reference frames"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
-metadata$Status<-"NA"
+#metadata$Status<-"NA"
 
 #extract subject id by remove prefix of sample_name
 

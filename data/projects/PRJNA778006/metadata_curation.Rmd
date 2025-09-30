@@ -92,7 +92,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 # Add information obtained from the publication
 metadata$Region <- "V1-V2"
 metadata$matched_samples <- "No"
-metadata$PCR_primers <- "27F-YM (5′-AGA GTT TGA TYM TGG CTC AG-3′) - 338R (5′-TGC TGC CTC CCG TAG GAG T-3′)"
+metadata$PCR_primers <- "27F-338R"
 metadata$title <- "Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults"
 metadata$Disease_study <- "No"
 ```
@@ -151,6 +151,7 @@ p <- plot_grid(plots$Age,
   plots$Country,
   plots$Site,
   plots$public_time,
+  plots$PCR_primers,
   plots$Disease_study,
   plots$Status,
   plots$matched_samples, # add

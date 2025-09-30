@@ -143,7 +143,7 @@ manually extracted from the publication and added to the metadata.
 # Add information obtained from the publication
 metadata$Region <- "V1-V2"
 metadata$matched_samples <- "No"
-metadata$PCR_primers <- "27F-YM (5′-AGA GTT TGA TYM TGG CTC AG-3′) - 338R (5′-TGC TGC CTC CCG TAG GAG T-3′)"
+metadata$PCR_primers <- "27F-338R"
 metadata$title <- "Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults"
 metadata$Disease_study <- "No"
 ```
@@ -186,27 +186,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject         Run sample_name Age BMI Sex Region       Platform Country       Site          public_time
-    ## 1 PRJNA778006 SRR16784789  TG1097-16S  45  NA   M  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z
-    ## 2 PRJNA778006 SRR16784800   TG109-16S  49  NA   F  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z
-    ## 3 PRJNA778006 SRR16784804   TG464-16S  25  NA   M  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z
-    ## 4 PRJNA778006 SRR16784805   TG463-16S  18  NA   F  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z
-    ## 5 PRJNA778006 SRR16784806   TG462-16S  22  NA   F  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z
-    ## 6 PRJNA778006 SRR16784807   TG100-16S  43  NA   F  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z
-    ##                                                                          PCR_primers                                                                                           title
-    ## 1 27F-YM (5′-AGA GTT TGA TYM TGG CTC AG-3′) - 338R (5′-TGC TGC CTC CCG TAG GAG T-3′) Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults
-    ## 2 27F-YM (5′-AGA GTT TGA TYM TGG CTC AG-3′) - 338R (5′-TGC TGC CTC CCG TAG GAG T-3′) Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults
-    ## 3 27F-YM (5′-AGA GTT TGA TYM TGG CTC AG-3′) - 338R (5′-TGC TGC CTC CCG TAG GAG T-3′) Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults
-    ## 4 27F-YM (5′-AGA GTT TGA TYM TGG CTC AG-3′) - 338R (5′-TGC TGC CTC CCG TAG GAG T-3′) Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults
-    ## 5 27F-YM (5′-AGA GTT TGA TYM TGG CTC AG-3′) - 338R (5′-TGC TGC CTC CCG TAG GAG T-3′) Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults
-    ## 6 27F-YM (5′-AGA GTT TGA TYM TGG CTC AG-3′) - 338R (5′-TGC TGC CTC CCG TAG GAG T-3′) Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults
-    ##   Disease_study Status matched_samples
-    ## 1            No      H              No
-    ## 2            No      H              No
-    ## 3            No      H              No
-    ## 4            No      H              No
-    ## 5            No      H              No
-    ## 6            No      H              No
+    ##    BioProject         Run sample_name Age BMI Sex Region       Platform Country       Site          public_time PCR_primers
+    ## 1 PRJNA778006 SRR16784789  TG1097-16S  45  NA   M  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z    27F-338R
+    ## 2 PRJNA778006 SRR16784800   TG109-16S  49  NA   F  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z    27F-338R
+    ## 3 PRJNA778006 SRR16784804   TG464-16S  25  NA   M  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z    27F-338R
+    ## 4 PRJNA778006 SRR16784805   TG463-16S  18  NA   F  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z    27F-338R
+    ## 5 PRJNA778006 SRR16784806   TG462-16S  22  NA   F  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z    27F-338R
+    ## 6 PRJNA778006 SRR16784807   TG100-16S  43  NA   F  V1-V2 Illumina MiSeq   China oral rinse 2021-12-01T00:00:00Z    27F-338R
+    ##                                                                                             title Disease_study Status matched_samples
+    ## 1 Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults            No      H              No
+    ## 2 Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults            No      H              No
+    ## 3 Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults            No      H              No
+    ## 4 Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults            No      H              No
+    ## 5 Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults            No      H              No
+    ## 6 Determinants and Interactions of Oral Bacterial and Fungal Microbiota in Healthy Chinese Adults            No      H              No
 
 ## Notes for Students:
 

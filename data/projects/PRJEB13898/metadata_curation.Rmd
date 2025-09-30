@@ -68,7 +68,7 @@ metadata <- data.frame(
   Platform = initial_meta$Instrument,
   Country = initial_meta$COUNTRY,
   Site = initial_meta$sample_type,
-  public_time = "2017-05-09",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = "515F-806R",
   stringsAsFactors = FALSE
 )

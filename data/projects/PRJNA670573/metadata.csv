@@ -1,0 +1,154 @@
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
+1,PRJNA670573,SRR12875167,AP_26,37,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+2,PRJNA670573,SRR12875168,AP_25,33,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+3,PRJNA670573,SRR12875169,AP_24,30,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+4,PRJNA670573,SRR12875170,AP_23,33,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+5,PRJNA670573,SRR12875171,AP_22,28,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+6,PRJNA670573,SRR12875172,AP_21,35,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+7,PRJNA670573,SRR12875173,AP_3,27,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+8,PRJNA670573,SRR12875174,AP_20,37,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+9,PRJNA670573,SRR12875175,AP_19,38,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+10,PRJNA670573,SRR12875176,AP_18,20,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+11,PRJNA670573,SRR12875177,AP_17,38,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+12,PRJNA670573,SRR12875178,HY_91,28,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+13,PRJNA670573,SRR12875179,HY_90,35,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+14,PRJNA670573,SRR12875180,HY_89,32,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+15,PRJNA670573,SRR12875181,AP_16,39,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+16,PRJNA670573,SRR12875182,HY_88,37,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+17,PRJNA670573,SRR12875183,HY_87,33,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+18,PRJNA670573,SRR12875184,HY_86,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+19,PRJNA670573,SRR12875185,HY_85,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+20,PRJNA670573,SRR12875186,HY_84,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+21,PRJNA670573,SRR12875187,HY_83,27,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+22,PRJNA670573,SRR12875188,HY_82,21,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+23,PRJNA670573,SRR12875189,HY_81,19,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+24,PRJNA670573,SRR12875190,HY_80,19,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+25,PRJNA670573,SRR12875191,HY_79,20,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+26,PRJNA670573,SRR12875192,AP_15,38,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+27,PRJNA670573,SRR12875193,HY_78,19,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+28,PRJNA670573,SRR12875194,HY_77,20,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+29,PRJNA670573,SRR12875195,HY_76,19,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+30,PRJNA670573,SRR12875196,HY_75,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+31,PRJNA670573,SRR12875197,HY_74,21,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+32,PRJNA670573,SRR12875198,HY_73,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+33,PRJNA670573,SRR12875199,HY_72,19,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+34,PRJNA670573,SRR12875200,HY_71,19,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+35,PRJNA670573,SRR12875201,HY_70,20,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+36,PRJNA670573,SRR12875202,HY_69,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+37,PRJNA670573,SRR12875203,HO_14,53,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+38,PRJNA670573,SRR12875204,HO_13,41,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+39,PRJNA670573,SRR12875205,HO_12,41,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+40,PRJNA670573,SRR12875206,HO_11,41,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+41,PRJNA670573,SRR12875207,HO_10,44,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+42,PRJNA670573,SRR12875208,HO_9,47,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+43,PRJNA670573,SRR12875209,HO_8,40,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+44,PRJNA670573,SRR12875210,HO_7,51,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+45,PRJNA670573,SRR12875211,HO_6,45,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+46,PRJNA670573,SRR12875212,AP_6,43,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+47,PRJNA670573,SRR12875213,HO_5,51,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+48,PRJNA670573,SRR12875214,HO_4,40,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+49,PRJNA670573,SRR12875215,HO_3,40,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+50,PRJNA670573,SRR12875216,HO_2,51,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+51,PRJNA670573,SRR12875217,HO_1,53,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+52,PRJNA670573,SRR12875218,AP_45,38,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+53,PRJNA670573,SRR12875219,AP_44,46,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+54,PRJNA670573,SRR12875220,AP_43,29,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+55,PRJNA670573,SRR12875221,AP_42,31,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+56,PRJNA670573,SRR12875222,AP_41,34,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+57,PRJNA670573,SRR12875223,AP_5,35,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+58,PRJNA670573,SRR12875224,AP_40,35,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+59,PRJNA670573,SRR12875225,AP_39,20,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+60,PRJNA670573,SRR12875226,AP_38,29,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+61,PRJNA670573,SRR12875227,AP_37,22,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+62,PRJNA670573,SRR12875228,AP_36,24,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+63,PRJNA670573,SRR12875229,AP_35,25,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+64,PRJNA670573,SRR12875230,AP_34,31,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+65,PRJNA670573,SRR12875231,AP_33,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+66,PRJNA670573,SRR12875232,AP_32,28,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+67,PRJNA670573,SRR12875233,AP_31,24,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+68,PRJNA670573,SRR12875234,AP_4,36,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+69,PRJNA670573,SRR12875235,AP_30,33,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+70,PRJNA670573,SRR12875236,AP_29,20,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+71,PRJNA670573,SRR12875237,AP_28,36,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+72,PRJNA670573,SRR12875238,AP_27,42,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+73,PRJNA670573,SRR12875239,HY_29,28,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+74,PRJNA670573,SRR12875240,AP_10,47,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+75,PRJNA670573,SRR12875241,HY_28,39,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+76,PRJNA670573,SRR12875242,HY_27,24,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+77,PRJNA670573,SRR12875243,HY_26,24,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+78,PRJNA670573,SRR12875244,HY_25,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+79,PRJNA670573,SRR12875245,HY_24,21,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+80,PRJNA670573,SRR12875246,HY_23,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+81,PRJNA670573,SRR12875247,HY_22,24,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+82,PRJNA670573,SRR12875248,HY_21,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+83,PRJNA670573,SRR12875249,HY_20,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+84,PRJNA670573,SRR12875250,HY_19,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+85,PRJNA670573,SRR12875251,AP_9,40,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+86,PRJNA670573,SRR12875252,HY_18,21,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+87,PRJNA670573,SRR12875253,HY_17,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+88,PRJNA670573,SRR12875254,HY_16,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+89,PRJNA670573,SRR12875255,HY_15,21,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+90,PRJNA670573,SRR12875256,HY_14,27,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+91,PRJNA670573,SRR12875257,HY_13,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+92,PRJNA670573,SRR12875258,HY_12,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+93,PRJNA670573,SRR12875259,HY_11,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+94,PRJNA670573,SRR12875260,HY_10,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+95,PRJNA670573,SRR12875261,HY_9,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+96,PRJNA670573,SRR12875262,AP_8,25,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+97,PRJNA670573,SRR12875263,HY_8,21,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+98,PRJNA670573,SRR12875264,HY_7,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+99,PRJNA670573,SRR12875265,HY_6,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+100,PRJNA670573,SRR12875266,HY_5,24,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+101,PRJNA670573,SRR12875267,HY_4,30,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+102,PRJNA670573,SRR12875268,HY_3,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+103,PRJNA670573,SRR12875269,HY_2,21,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+104,PRJNA670573,SRR12875270,HY_1,24,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+105,PRJNA670573,SRR12875271,HO_17,51,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+106,PRJNA670573,SRR12875272,HO_16,40,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+107,PRJNA670573,SRR12875273,AP_7,40,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+108,PRJNA670573,SRR12875274,HO_15,53,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+109,PRJNA670573,SRR12875275,HY_38,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+110,PRJNA670573,SRR12875276,HY_37,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+111,PRJNA670573,SRR12875277,HY_36,23,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+112,PRJNA670573,SRR12875278,HY_35,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+113,PRJNA670573,SRR12875279,HY_34,23,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+114,PRJNA670573,SRR12875280,HY_33,21,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+115,PRJNA670573,SRR12875281,HY_32,24,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+116,PRJNA670573,SRR12875282,HY_31,26,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+117,PRJNA670573,SRR12875283,HY_30,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+118,PRJNA670573,SRR12875284,AP_14,31,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+119,PRJNA670573,SRR12875285,HY_68,20,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+120,PRJNA670573,SRR12875286,HY_67,24,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+121,PRJNA670573,SRR12875287,HY_66,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+122,PRJNA670573,SRR12875288,HY_65,20,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+123,PRJNA670573,SRR12875289,HY_64,21,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+124,PRJNA670573,SRR12875290,HY_63,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+125,PRJNA670573,SRR12875291,HY_62,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+126,PRJNA670573,SRR12875292,HY_61,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+127,PRJNA670573,SRR12875293,HY_60,22,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+128,PRJNA670573,SRR12875294,HY_59,20,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+129,PRJNA670573,SRR12875295,AP_13,42,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+130,PRJNA670573,SRR12875296,HY_58,21,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+131,PRJNA670573,SRR12875297,HY_57,21,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+132,PRJNA670573,SRR12875298,HY_56,20,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+133,PRJNA670573,SRR12875299,HY_55,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+134,PRJNA670573,SRR12875300,HY_54,22,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+135,PRJNA670573,SRR12875301,HY_53,21,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+136,PRJNA670573,SRR12875302,HY_52,21,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+137,PRJNA670573,SRR12875303,HY_51,38,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+138,PRJNA670573,SRR12875304,HY_50,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+139,PRJNA670573,SRR12875305,HY_49,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+140,PRJNA670573,SRR12875306,AP_12,26,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+141,PRJNA670573,SRR12875307,HY_48,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+142,PRJNA670573,SRR12875308,HY_47,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+143,PRJNA670573,SRR12875309,HY_46,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+144,PRJNA670573,SRR12875310,HY_45,22,NA,M,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+145,PRJNA670573,SRR12875311,HY_44,22,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+146,PRJNA670573,SRR12875312,HY_43,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+147,PRJNA670573,SRR12875313,HY_42,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+148,PRJNA670573,SRR12875314,HY_41,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+149,PRJNA670573,SRR12875315,HY_40,28,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+150,PRJNA670573,SRR12875316,HY_39,23,NA,F,V4-V5,Illumina MiSeq,Czech Republic,fluid from the gingival sulcus,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,HC,NO
+151,PRJNA670573,SRR12875317,AP_11,40,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+152,PRJNA670573,SRR12875318,AP_2,31,NA,M,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO
+153,PRJNA670573,SRR12875319,AP_1,36,NA,F,V4-V5,Illumina MiSeq,Czech Republic,subgingival plaque,2020-11-16T00:00:00Z,530F-907R,The Oral Microbiome in Periodontal Health,YES,PD,NO

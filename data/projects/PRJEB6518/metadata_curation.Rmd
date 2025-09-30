@@ -61,7 +61,7 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Sample_name,
-  Age = initial_meta$AGE,
+  Age = "26",
   BMI = initial_meta$body_mass_index,
   Sex=initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,

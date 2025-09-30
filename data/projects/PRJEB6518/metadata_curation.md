@@ -228,7 +228,7 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Sample_name,
-  Age = initial_meta$AGE,
+  Age = "26",
   BMI = initial_meta$body_mass_index,
   Sex=initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,
@@ -289,7 +289,7 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
 knitr::include_graphics("Metadata_Summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 

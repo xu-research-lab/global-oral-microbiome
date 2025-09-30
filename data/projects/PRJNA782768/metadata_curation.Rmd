@@ -177,7 +177,7 @@ metadata <- metadata[, c(
   "Region", "Platform", "Country", "Site", "public_time", 
   "PCR_primers", "title", "Disease_study", "Status"
 )]
-
+rownames(metadata)<-1:nrow(metadata)
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)

@@ -143,7 +143,7 @@ manually extracted from the publication and added to the metadata.
 ``` r
 # Add information obtained from the publication
 metadata$PCR_primers <- NA
-metadata$title <- "Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences"
+metadata$title <- "Diversity composition and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status<- "COVID-19"
@@ -258,13 +258,13 @@ head(metadata)
     ## 4   male  V1-V3 Illumina MiSeq  Mexico Saliva 2023-06-08T00:00:00Z          NA
     ## 5   male  V1-V3 Illumina MiSeq  Mexico Saliva 2023-06-08T00:00:00Z          NA
     ## 6 female  V1-V3 Illumina MiSeq  Mexico Saliva 2023-06-08T00:00:00Z          NA
-    ##                                                                                                                                                                              title
-    ## 1 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
-    ## 2 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
-    ## 3 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
-    ## 4 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
-    ## 5 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
-    ## 6 Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ##                                                                                                                                                                            title
+    ## 1 Diversity composition and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ## 2 Diversity composition and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ## 3 Diversity composition and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ## 4 Diversity composition and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ## 5 Diversity composition and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
+    ## 6 Diversity composition and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences
     ##   Disease_study   Status matched_samples
     ## 1           YES COVID-19              NO
     ## 2           YES COVID-19              NO

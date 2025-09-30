@@ -79,8 +79,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 ```{r}
 # Add information obtained from the publication
 metadata$PCR_primers <- NA
-metadata$title <- "Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients"
+metadata$title <- "Oral Microbial Signature of Rheumatoid Arthritis in Female Patients"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata<-metadata%>%

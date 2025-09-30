@@ -159,8 +159,7 @@ manually extracted from the publication and added to the metadata.
 ``` r
 # Add information obtained from the publication
 metadata$PCR_primers <- NA
-metadata$title <- "Oral Microbial Signature of Rheumatoid Arthritis in
-Female Patients"
+metadata$title <- "Oral Microbial Signature of Rheumatoid Arthritis in Female Patients"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata<-metadata%>%
@@ -224,13 +223,13 @@ head(metadata)
     ## 4 Illumina NovaSeq 6000 Kazakhstan Oral Swab 2022-05-24T00:00:00Z          NA
     ## 5 Illumina NovaSeq 6000 Kazakhstan Oral Swab 2022-05-24T00:00:00Z          NA
     ## 6 Illumina NovaSeq 6000 Kazakhstan Oral Swab 2022-05-24T00:00:00Z          NA
-    ##                                                                  title
-    ## 1 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
-    ## 2 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
-    ## 3 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
-    ## 4 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
-    ## 5 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
-    ## 6 Oral Microbial Signature of Rheumatoid Arthritis in\nFemale Patients
+    ##                                                                 title
+    ## 1 Oral Microbial Signature of Rheumatoid Arthritis in Female Patients
+    ## 2 Oral Microbial Signature of Rheumatoid Arthritis in Female Patients
+    ## 3 Oral Microbial Signature of Rheumatoid Arthritis in Female Patients
+    ## 4 Oral Microbial Signature of Rheumatoid Arthritis in Female Patients
+    ## 5 Oral Microbial Signature of Rheumatoid Arthritis in Female Patients
+    ## 6 Oral Microbial Signature of Rheumatoid Arthritis in Female Patients
     ##   Disease_study Status matched_samples
     ## 1           YES     HC              NO
     ## 2           YES     HC              NO

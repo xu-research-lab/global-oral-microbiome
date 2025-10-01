@@ -51,12 +51,12 @@ head(initial_meta)
     ## 5            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
     ## 6            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
     ##   collection_timestamp Consent DATASTORE.filetype DATASTORE.provider
-    ## 1  2018-05-01 09:15:00  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ## 2  2018-05-01 09:40:00  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ## 3  2018-05-01 12:25:00  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ## 4  2018-05-01 13:40:00  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ## 5  2018-05-01 16:42:00  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ## 6  2018-05-01 18:47:00  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 1        2018/5/1 9:15  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 2        2018/5/1 9:40  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 3       2018/5/1 12:25  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 4       2018/5/1 13:40  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 5       2018/5/1 16:42  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 6       2018/5/1 18:47  public   fastq,run.zq,sra     ena,gs,ncbi,s3
     ##                           DATASTORE.region dna_extracted elevation
     ## 1 ena,gs.us-east1,ncbi.public,s3.us-east-1          TRUE       193
     ## 2 ena,gs.us-east1,ncbi.public,s3.us-east-1          TRUE       193
@@ -65,19 +65,19 @@ head(initial_meta)
     ## 5 ena,gs.us-east1,ncbi.public,s3.us-east-1          TRUE       193
     ## 6 ena,gs.us-east1,ncbi.public,s3.us-east-1          TRUE       193
     ##            empo_1 empo_2           empo_3 ENA.FIRST.PUBLIC..run.
-    ## 1 Host-associated Animal animal secretion             2018-10-13
-    ## 2 Host-associated Animal animal secretion             2018-10-13
-    ## 3 Host-associated Animal animal secretion             2018-10-13
-    ## 4 Host-associated Animal animal secretion             2018-10-13
-    ## 5 Host-associated Animal animal secretion             2018-10-13
-    ## 6 Host-associated Animal animal secretion             2018-10-13
+    ## 1 Host-associated Animal animal secretion             2018/10/13
+    ## 2 Host-associated Animal animal secretion             2018/10/13
+    ## 3 Host-associated Animal animal secretion             2018/10/13
+    ## 4 Host-associated Animal animal secretion             2018/10/13
+    ## 5 Host-associated Animal animal secretion             2018/10/13
+    ## 6 Host-associated Animal animal secretion             2018/10/13
     ##   ENA.LAST.UPDATE..run.   env_biome              env_feature env_material
-    ## 1            2018-11-16 urban biome human-associated habitat       saliva
-    ## 2            2018-11-16 urban biome human-associated habitat       saliva
-    ## 3            2018-11-16 urban biome human-associated habitat       saliva
-    ## 4            2018-11-16 urban biome human-associated habitat       saliva
-    ## 5            2018-11-16 urban biome human-associated habitat       saliva
-    ## 6            2018-11-16 urban biome human-associated habitat       saliva
+    ## 1            2018/11/16 urban biome human-associated habitat       saliva
+    ## 2            2018/11/16 urban biome human-associated habitat       saliva
+    ## 3            2018/11/16 urban biome human-associated habitat       saliva
+    ## 4            2018/11/16 urban biome human-associated habitat       saliva
+    ## 5            2018/11/16 urban biome human-associated habitat       saliva
+    ## 6            2018/11/16 urban biome human-associated habitat       saliva
     ##   env_package Experiment  external_id geo_loc_name_country
     ## 1  human-oral ERX2847785 SAMEA4973213                  USA
     ## 2  human-oral ERX2847786 SAMEA4973214                  USA

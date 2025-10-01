@@ -17,11 +17,11 @@
 16,PRJEB29169,ERR2840959,SAMEA4973228,6.42,NA,female,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 17,PRJEB29169,ERR2840960,SAMEA4973229,6.42,NA,female,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 18,PRJEB29169,ERR2840961,SAMEA4973230,6.42,NA,female,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
-19,PRJEB29169,ERR2840962,SAMEA4973231,NA,NA,,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
-20,PRJEB29169,ERR2840963,SAMEA4973232,NA,NA,,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
-21,PRJEB29169,ERR2840964,SAMEA4973233,NA,NA,,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
-22,PRJEB29169,ERR2840965,SAMEA4973234,NA,NA,,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
-23,PRJEB29169,ERR2840966,SAMEA4973235,NA,NA,,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
+19,PRJEB29169,ERR2840962,SAMEA4973231,NA,NA,NA,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
+20,PRJEB29169,ERR2840963,SAMEA4973232,NA,NA,NA,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
+21,PRJEB29169,ERR2840964,SAMEA4973233,NA,NA,NA,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
+22,PRJEB29169,ERR2840965,SAMEA4973234,NA,NA,NA,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
+23,PRJEB29169,ERR2840966,SAMEA4973235,NA,NA,NA,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 24,PRJEB29169,ERR2840967,SAMEA4973236,31.67,NA,female,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 25,PRJEB29169,ERR2840968,SAMEA4973237,31.67,NA,female,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 26,PRJEB29169,ERR2840969,SAMEA4973238,31.67,NA,female,V4,Illumina MiSeq,USA,saliva,2018-10-25T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
@@ -483,7 +483,7 @@
 504,PRJEB29169,ERR3510478,SAMEA5944316,6,NA,female,V4,Illumina MiSeq,USA,saliva,2019-09-08T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 505,PRJEB29169,ERR3510483,SAMEA5944328,6,NA,female,V4,Illumina MiSeq,USA,saliva,2019-09-08T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 506,PRJEB29169,ERR3510484,SAMEA5944330,6,NA,female,V4,Illumina MiSeq,USA,saliva,2019-09-08T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
-508,PRJEB29169,ERR3510488,SAMEA4973235,NA,NA,,V4,Illumina MiSeq,USA,saliva,2019-09-08T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
+508,PRJEB29169,ERR3510488,SAMEA4973235,NA,NA,NA,V4,Illumina MiSeq,USA,saliva,2019-09-08T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 510,PRJEB29169,ERR3510490,SAMEA5944343,32,NA,female,V4,Illumina MiSeq,USA,saliva,2019-09-08T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 511,PRJEB29169,ERR3510491,SAMEA5944345,32,NA,female,V4,Illumina MiSeq,USA,saliva,2019-09-08T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 512,PRJEB29169,ERR3510492,SAMEA5944347,32,NA,female,V4,Illumina MiSeq,USA,saliva,2019-09-08T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
@@ -517,7 +517,7 @@
 540,PRJEB29169,ERR5752235,SAMEA4973228,6.42,NA,female,V4,Illumina MiSeq,USA,saliva,2021-04-23T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 541,PRJEB29169,ERR5752236,SAMEA4973229,6.42,NA,female,V4,Illumina MiSeq,USA,saliva,2021-04-23T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 542,PRJEB29169,ERR5752237,SAMEA4973230,6.42,NA,female,V4,Illumina MiSeq,USA,saliva,2021-04-23T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
-543,PRJEB29169,ERR5752238,SAMEA4973232,NA,NA,,V4,Illumina MiSeq,USA,saliva,2021-04-23T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
+543,PRJEB29169,ERR5752238,SAMEA4973232,NA,NA,NA,V4,Illumina MiSeq,USA,saliva,2021-04-23T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 550,PRJEB29169,ERR5752245,SAMEA4973236,31.67,NA,female,V4,Illumina MiSeq,USA,saliva,2021-04-23T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 551,PRJEB29169,ERR5752246,SAMEA4973237,31.67,NA,female,V4,Illumina MiSeq,USA,saliva,2021-04-23T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO
 552,PRJEB29169,ERR5752247,SAMEA4973238,31.67,NA,female,V4,Illumina MiSeq,USA,saliva,2021-04-23T00:00:00Z,515F-806R,Establishing microbial composition measurement standards with reference frames,NO,NA,NO

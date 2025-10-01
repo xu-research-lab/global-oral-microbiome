@@ -85,7 +85,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 # Add information obtained from the publication
 metadata$PCR_primers <- "515F-806R"
 metadata$title <- "Whole-grain wheat consumption reduces inflammation in a randomized controlled trial on overweight and obese subjects with unhealthy dietary and lifestyle behaviors: role of polyphenols bound to cereal dietary fiber"
-metadata$Disease_study <- "YES"
+metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
 

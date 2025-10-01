@@ -36,237 +36,307 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 head(initial_meta)
 ```
 
-    ##          Run anonymized_name Assay.Type AvgSpotLen    Bases BioProject
-    ## 1 ERR8053779            3069        WGS        144 12659854 PRJEB50306
-    ## 2 ERR8053780            3070        WGS        149 14886248 PRJEB50306
-    ## 3 ERR8053781            3081        WGS        143 20183025 PRJEB50306
-    ## 4 ERR8053782            3092        WGS        148 40177124 PRJEB50306
-    ## 5 ERR8053783            3115        WGS        150 28967997 PRJEB50306
-    ## 6 ERR8053784            3137        WGS        149 18607692 PRJEB50306
-    ##       BioSample    Bytes center_name..exp.
-    ## 1 SAMEA12383654  5746998       U Minnesota
-    ## 2 SAMEA12383655  7056162       U Minnesota
-    ## 3 SAMEA12383656  8251734       U Minnesota
-    ## 4 SAMEA12383657 18724183       U Minnesota
-    ## 5 SAMEA12383658 11740720       U Minnesota
-    ## 6 SAMEA12383659  7607865       U Minnesota
-    ##                                          Center.Name center_project_name..exp.
-    ## 1 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                   Origins
-    ## 2 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                   Origins
-    ## 3 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                   Origins
-    ## 4 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                   Origins
-    ## 5 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                   Origins
-    ## 6 UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT                   Origins
+    ##          Run Assay.Type AvgSpotLen    Bases BioProject    BioSample   Bytes
+    ## 1 ERR2840944      OTHER        150 10548992 PRJEB29169 SAMEA4973213 6451557
+    ## 2 ERR2840945      OTHER        150  1145367 PRJEB29169 SAMEA4973214  722634
+    ## 3 ERR2840946      OTHER        150  8845464 PRJEB29169 SAMEA4973215 5340267
+    ## 4 ERR2840947      OTHER        150  9582428 PRJEB29169 SAMEA4973216 5901661
+    ## 5 ERR2840948      OTHER        150  8492254 PRJEB29169 SAMEA4973217 5157999
+    ## 6 ERR2840949      OTHER        150  8112082 PRJEB29169 SAMEA4973218 4833359
+    ##   center_name..exp.                                        Center.Name
+    ## 1            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ## 2            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ## 3            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ## 4            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ## 5            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
+    ## 6            UCSDMI UNIVERSITY OF CALIFORNIA SAN DIEGO MICROBIOME INIT
     ##   collection_timestamp Consent DATASTORE.filetype DATASTORE.provider
-    ## 1           2016/11/22  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 2           2016/11/22  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 3           2016/11/22  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 4           2016/11/22  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 5           2016/11/22  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 6           2016/11/22  public   fastq,run.zq,sra         gs,ncbi,s3
-    ##                       DATASTORE.region dna_extracted elevation          empo_1
-    ## 1 gs.us-east1,ncbi.public,s3.us-east-1          TRUE        75 Host-associated
-    ## 2 gs.us-east1,ncbi.public,s3.us-east-1          TRUE        75 Host-associated
-    ## 3 gs.us-east1,ncbi.public,s3.us-east-1          TRUE        75 Host-associated
-    ## 4 gs.us-east1,ncbi.public,s3.us-east-1          TRUE        75 Host-associated
-    ## 5 gs.us-east1,ncbi.public,s3.us-east-1          TRUE        75 Host-associated
-    ## 6 gs.us-east1,ncbi.public,s3.us-east-1          TRUE        75 Host-associated
-    ##   empo_2           empo_3 ENA_FIRST_PUBLIC ENA.LAST.UPDATE..run.   env_biome
-    ## 1 Animal Animal secretion        2022/1/20             2022/1/20 urban biome
-    ## 2 Animal Animal secretion        2022/1/20             2022/1/20 urban biome
-    ## 3 Animal Animal secretion        2022/1/20             2022/1/20 urban biome
-    ## 4 Animal Animal secretion        2022/1/20             2022/1/20 urban biome
-    ## 5 Animal Animal secretion        2022/1/20             2022/1/20 urban biome
-    ## 6 Animal Animal secretion        2022/1/20             2022/1/20 urban biome
-    ##                env_feature env_material env_package Experiment   external_id
-    ## 1 human-associated habitat       saliva  human-oral ERX7620500 SAMEA12383654
-    ## 2 human-associated habitat       saliva  human-oral ERX7620501 SAMEA12383655
-    ## 3 human-associated habitat       saliva  human-oral ERX7620502 SAMEA12383656
-    ## 4 human-associated habitat       saliva  human-oral ERX7620503 SAMEA12383657
-    ## 5 human-associated habitat       saliva  human-oral ERX7620504 SAMEA12383658
-    ## 6 human-associated habitat       saliva  human-oral ERX7620505 SAMEA12383659
-    ##   geo_loc_name_country geo_loc_name_country_continent geo_loc_name
-    ## 1                  USA                  North America       USA:NY
-    ## 2                  USA                  North America       USA:NY
-    ## 3                  USA                  North America       USA:NY
-    ## 4                  USA                  North America       USA:NY
-    ## 5                  USA                  North America       USA:NY
-    ## 6                  USA                  North America       USA:NY
-    ##    host_body_habitat host_body_product host_body_site host_common_name
-    ## 1 UBERON:oral cavity     UBERON:saliva  UBERON:tongue            human
-    ## 2 UBERON:oral cavity     UBERON:saliva  UBERON:tongue            human
-    ## 3 UBERON:oral cavity     UBERON:saliva  UBERON:tongue            human
-    ## 4 UBERON:oral cavity     UBERON:saliva  UBERON:tongue            human
-    ## 5 UBERON:oral cavity     UBERON:saliva  UBERON:tongue            human
-    ## 6 UBERON:oral cavity     UBERON:saliva  UBERON:tongue            human
-    ##   host_height_units host_scientific_name host_subject_id host_weight_units
-    ## 1                cm         Homo sapiens            3069                kg
-    ## 2                cm         Homo sapiens            3070                kg
-    ## 3                cm         Homo sapiens            3081                kg
-    ## 4                cm         Homo sapiens            3092                kg
-    ## 5                cm         Homo sapiens            3115                kg
-    ## 6                cm         Homo sapiens            3137                kg
-    ##                                          INSDC_center_name   INSDC_first_public
-    ## 1 University of California San Diego Microbiome Initiative 2022-01-20T20:48:41Z
-    ## 2 University of California San Diego Microbiome Initiative 2022-01-20T20:48:41Z
-    ## 3 University of California San Diego Microbiome Initiative 2022-01-20T20:48:41Z
-    ## 4 University of California San Diego Microbiome Initiative 2022-01-20T20:48:41Z
-    ## 5 University of California San Diego Microbiome Initiative 2022-01-20T20:48:41Z
-    ## 6 University of California San Diego Microbiome Initiative 2022-01-20T20:48:41Z
-    ##      INSDC_last_update INSDC_status          Instrument latitude
-    ## 1 2022-01-20T20:48:41Z       public Illumina HiSeq 4000    39.28
-    ## 2 2022-01-20T20:48:41Z       public Illumina HiSeq 4000    39.28
-    ## 3 2022-01-20T20:48:41Z       public Illumina HiSeq 4000    39.28
-    ## 4 2022-01-20T20:48:41Z       public Illumina HiSeq 4000    39.28
-    ## 5 2022-01-20T20:48:41Z       public Illumina HiSeq 4000    39.28
-    ## 6 2022-01-20T20:48:41Z       public Illumina HiSeq 4000    39.28
-    ##           Library.Name LibraryLayout LibrarySelection LibrarySource longitude
-    ## 1 11808.3069.SALB.W2V1        PAIRED              PCR   METAGENOMIC    -76.61
-    ## 2 11808.3070.SALB.W2V1        PAIRED              PCR   METAGENOMIC    -76.61
-    ## 3 11808.3081.SALB.W2V1        PAIRED              PCR   METAGENOMIC    -76.61
-    ## 4 11808.3092.SALB.W2V1        PAIRED              PCR   METAGENOMIC    -76.61
-    ## 5 11808.3115.SALB.W2V1        PAIRED              PCR   METAGENOMIC    -76.61
-    ## 6 11808.3137.SALB.W2V1        PAIRED              PCR   METAGENOMIC    -76.61
+    ## 1        2018/5/1 9:15  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 2        2018/5/1 9:40  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 3       2018/5/1 12:25  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 4       2018/5/1 13:40  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 5       2018/5/1 16:42  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ## 6       2018/5/1 18:47  public   fastq,run.zq,sra     ena,gs,ncbi,s3
+    ##                           DATASTORE.region dna_extracted elevation
+    ## 1 ena,gs.us-east1,ncbi.public,s3.us-east-1          TRUE       193
+    ## 2 ena,gs.us-east1,ncbi.public,s3.us-east-1          TRUE       193
+    ## 3 ena,gs.us-east1,ncbi.public,s3.us-east-1          TRUE       193
+    ## 4 ena,gs.us-east1,ncbi.public,s3.us-east-1          TRUE       193
+    ## 5 ena,gs.us-east1,ncbi.public,s3.us-east-1          TRUE       193
+    ## 6 ena,gs.us-east1,ncbi.public,s3.us-east-1          TRUE       193
+    ##            empo_1 empo_2           empo_3 ENA.FIRST.PUBLIC..run.
+    ## 1 Host-associated Animal animal secretion             2018/10/13
+    ## 2 Host-associated Animal animal secretion             2018/10/13
+    ## 3 Host-associated Animal animal secretion             2018/10/13
+    ## 4 Host-associated Animal animal secretion             2018/10/13
+    ## 5 Host-associated Animal animal secretion             2018/10/13
+    ## 6 Host-associated Animal animal secretion             2018/10/13
+    ##   ENA.LAST.UPDATE..run.   env_biome              env_feature env_material
+    ## 1            2018/11/16 urban biome human-associated habitat       saliva
+    ## 2            2018/11/16 urban biome human-associated habitat       saliva
+    ## 3            2018/11/16 urban biome human-associated habitat       saliva
+    ## 4            2018/11/16 urban biome human-associated habitat       saliva
+    ## 5            2018/11/16 urban biome human-associated habitat       saliva
+    ## 6            2018/11/16 urban biome human-associated habitat       saliva
+    ##   env_package Experiment  external_id geo_loc_name_country
+    ## 1  human-oral ERX2847785 SAMEA4973213                  USA
+    ## 2  human-oral ERX2847786 SAMEA4973214                  USA
+    ## 3  human-oral ERX2847787 SAMEA4973215                  USA
+    ## 4  human-oral ERX2847788 SAMEA4973216                  USA
+    ## 5  human-oral ERX2847789 SAMEA4973217                  USA
+    ## 6  human-oral ERX2847790 SAMEA4973218                  USA
+    ##   geo_loc_name_country_continent        geo_loc_name host_age_units
+    ## 1                  North America USA:CA\\, San Diego          years
+    ## 2                  North America USA:CA\\, San Diego          years
+    ## 3                  North America USA:CA\\, San Diego          years
+    ## 4                  North America USA:CA\\, San Diego          years
+    ## 5                  North America USA:CA\\, San Diego          years
+    ## 6                  North America USA:CA\\, San Diego          years
+    ##   host_height_units host_subject_id host_weight_units INSDC_center_name
+    ## 1                cm               A                kg            UCSDMI
+    ## 2                cm               A                kg            UCSDMI
+    ## 3                cm               A                kg            UCSDMI
+    ## 4                cm               A                kg            UCSDMI
+    ## 5                cm               A                kg            UCSDMI
+    ## 6                cm               A                kg            UCSDMI
+    ##     INSDC_first_public    INSDC_last_update INSDC_status     Instrument
+    ## 1 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z       public Illumina MiSeq
+    ## 2 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z       public Illumina MiSeq
+    ## 3 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z       public Illumina MiSeq
+    ## 4 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z       public Illumina MiSeq
+    ## 5 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z       public Illumina MiSeq
+    ## 6 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z       public Illumina MiSeq
+    ##   LATITUDE Library.Name LibraryLayout LibrarySelection LibrarySource longitude
+    ## 1   32.842     11896.A1        SINGLE              PCR   METAGENOMIC  -117.258
+    ## 2   32.842     11896.A2        SINGLE              PCR   METAGENOMIC  -117.258
+    ## 3   32.842     11896.A3        SINGLE              PCR   METAGENOMIC  -117.258
+    ## 4   32.842     11896.A4        SINGLE              PCR   METAGENOMIC  -117.258
+    ## 5   32.842     11896.A5        SINGLE              PCR   METAGENOMIC  -117.258
+    ## 6   32.842     11896.A6        SINGLE              PCR   METAGENOMIC  -117.258
     ##                Organism physical_specimen_location physical_specimen_remaining
-    ## 1 human oral metagenome                     UCSDMI                        TRUE
-    ## 2 human oral metagenome                     UCSDMI                        TRUE
-    ## 3 human oral metagenome                     UCSDMI                        TRUE
-    ## 4 human oral metagenome                     UCSDMI                        TRUE
-    ## 5 human oral metagenome                     UCSDMI                        TRUE
-    ## 6 human oral metagenome                     UCSDMI                        TRUE
-    ##   Platform                                 project_title          ReleaseDate
-    ## 1 ILLUMINA Saliva bacterial DNA, ORIGINS Wave 2, Visit 1 2022-01-21T00:00:00Z
-    ## 2 ILLUMINA Saliva bacterial DNA, ORIGINS Wave 2, Visit 1 2022-01-21T00:00:00Z
-    ## 3 ILLUMINA Saliva bacterial DNA, ORIGINS Wave 2, Visit 1 2022-01-21T00:00:00Z
-    ## 4 ILLUMINA Saliva bacterial DNA, ORIGINS Wave 2, Visit 1 2022-01-21T00:00:00Z
-    ## 5 ILLUMINA Saliva bacterial DNA, ORIGINS Wave 2, Visit 1 2022-01-21T00:00:00Z
-    ## 6 ILLUMINA Saliva bacterial DNA, ORIGINS Wave 2, Visit 1 2022-01-21T00:00:00Z
-    ##   run_center..exp.          create_date version         run_prefix..exp.
-    ## 1           UCSDMI 2022-07-28T01:35:00Z       1 3069_SALB_W2V1_S769_L005
-    ## 2           UCSDMI 2022-07-28T01:35:00Z       1 3070_SALB_W2V1_S770_L005
-    ## 3           UCSDMI 2022-07-21T19:08:00Z       1 3081_SALB_W2V1_S771_L005
-    ## 4           UCSDMI 2022-07-28T01:35:00Z       1 3092_SALB_W2V1_S772_L005
-    ## 5           UCSDMI 2022-07-28T01:35:00Z       1 3115_SALB_W2V1_S829_L005
-    ## 6           UCSDMI 2022-07-19T21:43:00Z       1 3137_SALB_W2V1_S917_L005
-    ##     Sample.Name                          Sample_name       sample_plate..exp.
-    ## 1 SAMEA12383654 qiita_sid_11808:11808.3069.SALB.W2V1 Origins_Cherrypicked_P11
-    ## 2 SAMEA12383655 qiita_sid_11808:11808.3070.SALB.W2V1 Origins_Cherrypicked_P11
-    ## 3 SAMEA12383656 qiita_sid_11808:11808.3081.SALB.W2V1 Origins_Cherrypicked_P11
-    ## 4 SAMEA12383657 qiita_sid_11808:11808.3092.SALB.W2V1 Origins_Cherrypicked_P11
-    ## 5 SAMEA12383658 qiita_sid_11808:11808.3115.SALB.W2V1 Origins_Cherrypicked_P11
-    ## 6 SAMEA12383659 qiita_sid_11808:11808.3137.SALB.W2V1 Origins_Cherrypicked_P12
-    ##   sample_type   sequencing_meth..exp. SRA.Study
-    ## 1      tongue sequencing by synthesis ERP134873
-    ## 2      tongue sequencing by synthesis ERP134873
-    ## 3      tongue sequencing by synthesis ERP134873
-    ## 4      tongue sequencing by synthesis ERP134873
-    ## 5      tongue sequencing by synthesis ERP134873
-    ## 6      tongue sequencing by synthesis ERP134873
-    ##                           Submitter_Id
-    ## 1 qiita_sid_11808:11808.3069.SALB.W2V1
-    ## 2 qiita_sid_11808:11808.3070.SALB.W2V1
-    ## 3 qiita_sid_11808:11808.3081.SALB.W2V1
-    ## 4 qiita_sid_11808:11808.3092.SALB.W2V1
-    ## 5 qiita_sid_11808:11808.3115.SALB.W2V1
-    ## 6 qiita_sid_11808:11808.3137.SALB.W2V1
-    ##                        well_description..exp. ENA_first_public ena_last_update
-    ## 1  Origins_Cherrypicked_P11_3069_SALB_W2V1_B1        2022/1/20       2022/1/20
-    ## 2  Origins_Cherrypicked_P11_3070_SALB_W2V1_D1        2022/1/20       2022/1/20
-    ## 3  Origins_Cherrypicked_P11_3081_SALB_W2V1_F1        2022/1/20       2022/1/20
-    ## 4  Origins_Cherrypicked_P11_3092_SALB_W2V1_H1        2022/1/20       2022/1/20
-    ## 5 Origins_Cherrypicked_P11_3115_SALB_W2V1_J15        2022/1/20       2022/1/20
-    ## 6 Origins_Cherrypicked_P12_3137_SALB_W2V1_J14        2022/1/20       2022/1/20
-    ##   INSDC_center_alias aapperio4 aapperio    ahei1    ahei2    ahei3    ahei4
-    ## 1             UCSDMI        NA       NA 45.55743 48.72504 45.55743 48.72504
-    ## 2             UCSDMI        NA       NA 44.17522 46.02022 44.17522 46.02022
-    ## 3             UCSDMI         2        1 29.10837 41.06662 29.10837 41.06662
-    ## 4             UCSDMI        NA       NA 61.15725 64.80207 61.15725 64.80207
-    ## 5             UCSDMI         2        1 29.47009 35.91997 29.47009 35.91997
-    ## 6             UCSDMI         0        0 47.63097 56.76485 47.63097 56.76485
-    ##   apdqs apdqst cigcurr CRP educ glucosecrc hba1c host_age host_age_units
-    ## 1    50      0       0 2.2    1         97   5.2 47.04997          years
-    ## 2    67      2      NA 1.3   NA         71   5.0       NA          years
-    ## 3    50      0       0 0.8    0         88   5.1 30.32991          years
-    ## 4    59      1       0 0.8    1         80   6.0 52.42710          years
-    ## 5    70      2       0 1.9    1         78   5.3 27.67146          years
-    ## 6    62      1       0 0.6    1         84   5.3 54.10267          years
-    ##   host_body_mass_index host_height host_life_stage host_taxid host_weight
-    ## 1             33.45565       185.5           adult       9606   115.12174
-    ## 2             24.41330       163.0           adult       9606    64.86371
-    ## 3             33.32175       165.0           adult       9606    90.71847
-    ## 4             21.59888       169.0           adult       9606    61.68856
-    ## 5                   NA          NA           adult       9606          NA
-    ## 6             20.13569       174.0           adult       9606    60.96281
-    ##   insulinv1 meanaloss meandbp   meanpd meansbp mets Original_ID    perbop
-    ## 1    13.010        NA    78.0       NA   120.5    0        3069        NA
-    ## 2     2.503        NA    71.0       NA   100.0   NA        3070        NA
-    ## 3    12.759 1.1851852    74.5 2.086420   135.0    0        3081 0.2469136
-    ## 4     4.487        NA    73.0       NA   115.5    0        3092        NA
-    ## 5     2.824 0.9761905    76.5 1.595238   112.5    0        3115 0.2619048
-    ## 6     4.248 0.4895833    67.0 2.062500   117.0    0        3137 0.1197917
-    ##   prediabetes raceethn sex totmisst height  WeightKG      BMI barcode..exp.
-    ## 1           0        1   0       32  185.5 115.12174 33.45565              
-    ## 2           0       NA  NA       32  163.0  64.86371 24.41330              
-    ## 3           0        2   1        5  165.0  90.71847 33.32175              
-    ## 4           1        3   1       32  169.0  61.68856 21.59888              
-    ## 5           0        0   1        4     NA        NA       NA              
-    ## 6           0        1   1        0  174.0  60.96281 20.13569              
-    ##   linker..exp. linkerprimersequence..exp. mastermix_lot..exp. orig_name..exp.
-    ## 1                                                          NA                
-    ## 2                                                          NA                
-    ## 3                                                          NA                
-    ## 4                                                          NA                
-    ## 5                                                          NA                
-    ## 6                                                          NA                
-    ##   pcr_primers..exp. primer_date..exp. primer_plate..exp. project_name..exp.
-    ## 1                                  NA                 NA                   
-    ## 2                                  NA                 NA                   
-    ## 3                                  NA                 NA                   
-    ## 4                                  NA                 NA                   
-    ## 5                                  NA                 NA                   
-    ## 6                                  NA                 NA                   
-    ##   target_gene..exp. target_subfragment..exp. water_lot..exp. well_id..exp.
-    ## 1                                                                         
-    ## 2                                                                         
-    ## 3                                                                         
-    ## 4                                                                         
-    ## 5                                                                         
-    ## 6                                                                         
-    ##   i5_index_id..exp. i7_index_id..exp. index2..exp. index..exp.
-    ## 1       iTru5_101_A      iTru7_205_08     CGGTTGTT    AGCCAAGT
-    ## 2       iTru5_102_A      iTru7_205_09     TCAGGCTT    TGACTGAC
-    ## 3       iTru5_103_A      iTru7_205_10     TGGTCCTT    CACCTGTT
-    ## 4       iTru5_104_A      iTru7_205_11     CACGTTGT    ATCCGGTA
-    ## 5       iTru5_101_F      iTru7_210_08     CAGTCCAA    CTTACAGC
-    ## 6       iTru5_117_E      iTru7_402_12     CTTACCTG    TCTCGTGT
-    ##   orig_sample_id..exp. run_date..exp.
-    ## 1       3069_SALB_W2V1        8/24/18
-    ## 2       3070_SALB_W2V1        8/24/18
-    ## 3       3081_SALB_W2V1        8/24/18
-    ## 4       3092_SALB_W2V1        8/24/18
-    ## 5       3115_SALB_W2V1        8/24/18
-    ## 6       3137_SALB_W2V1        8/24/18
-    ##                                                           runid..exp.
-    ## 1 180824_K00180_0664_AHW2LFBBXX_RKL_0030_Sarkis_UVA_Cheetah_BurkGold2
-    ## 2 180824_K00180_0664_AHW2LFBBXX_RKL_0030_Sarkis_UVA_Cheetah_BurkGold2
-    ## 3 180824_K00180_0664_AHW2LFBBXX_RKL_0030_Sarkis_UVA_Cheetah_BurkGold2
-    ## 4 180824_K00180_0664_AHW2LFBBXX_RKL_0030_Sarkis_UVA_Cheetah_BurkGold2
-    ## 5 180824_K00180_0664_AHW2LFBBXX_RKL_0030_Sarkis_UVA_Cheetah_BurkGold2
-    ## 6 180824_K00180_0664_AHW2LFBBXX_RKL_0030_Sarkis_UVA_Cheetah_BurkGold2
-    ##   sample_project..exp. sample_well..exp. V..exp. ena_first_public
-    ## 1        ORIGINS_11219                B1       5                 
-    ## 2        ORIGINS_11219                D1       5                 
-    ## 3        ORIGINS_11219                F1       5                 
-    ## 4        ORIGINS_11219                H1       5                 
-    ## 5        ORIGINS_11219               J15       5                 
-    ## 6        ORIGINS_11219               J14       5                 
-    ##   ena_last_update.1 Scientific_Name
-    ## 1                                  
-    ## 2                                  
-    ## 3                                  
-    ## 4                                  
-    ## 5                                  
-    ## 6
+    ## 1 human oral metagenome                       UCSD                        TRUE
+    ## 2 human oral metagenome                       UCSD                        TRUE
+    ## 3 human oral metagenome                       UCSD                        TRUE
+    ## 4 human oral metagenome                       UCSD                       FALSE
+    ## 5 human oral metagenome                       UCSD                        TRUE
+    ## 6 human oral metagenome                       UCSD                        TRUE
+    ##   Platform          ReleaseDate          create_date version  Sample.Name
+    ## 1 ILLUMINA 2018-10-25T00:00:00Z 2018-10-27T15:30:00Z       1 SAMEA4973213
+    ## 2 ILLUMINA 2018-10-25T00:00:00Z 2018-10-27T15:30:00Z       1 SAMEA4973214
+    ## 3 ILLUMINA 2018-10-25T00:00:00Z 2018-10-27T15:30:00Z       1 SAMEA4973215
+    ## 4 ILLUMINA 2018-10-25T00:00:00Z 2018-10-27T15:31:00Z       1 SAMEA4973216
+    ## 5 ILLUMINA 2018-10-25T00:00:00Z 2018-10-27T15:31:00Z       1 SAMEA4973217
+    ## 6 ILLUMINA 2018-10-25T00:00:00Z 2018-10-27T15:31:00Z       1 SAMEA4973218
+    ##                Sample_name sample_type   sequencing_meth..exp. SRA.Study
+    ## 1 qiita_sid_11896:11896.A1      saliva Sequencing by synthesis ERP111447
+    ## 2 qiita_sid_11896:11896.A2      saliva Sequencing by synthesis ERP111447
+    ## 3 qiita_sid_11896:11896.A3      saliva Sequencing by synthesis ERP111447
+    ## 4 qiita_sid_11896:11896.A4      saliva Sequencing by synthesis ERP111447
+    ## 5 qiita_sid_11896:11896.A5      saliva Sequencing by synthesis ERP111447
+    ## 6 qiita_sid_11896:11896.A6      saliva Sequencing by synthesis ERP111447
+    ##               Submitter_Id     ENA.FIRST.PUBLIC      ENA.LAST.UPDATE
+    ## 1 qiita_sid_11896:11896.A1 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z
+    ## 2 qiita_sid_11896:11896.A2 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z
+    ## 3 qiita_sid_11896:11896.A3 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z
+    ## 4 qiita_sid_11896:11896.A4 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z
+    ## 5 qiita_sid_11896:11896.A5 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z
+    ## 6 qiita_sid_11896:11896.A6 2018-10-13T17:03:43Z 2018-10-12T17:17:15Z
+    ##         Scientific_Name host_body_mass_index   host_height Host_Age
+    ## 1 human oral metagenome         not provided not collected    25.92
+    ## 2 human oral metagenome         not provided not collected    25.92
+    ## 3 human oral metagenome         not provided not collected    25.92
+    ## 4 human oral metagenome         not provided not collected    25.92
+    ## 5 human oral metagenome         not provided not collected    25.92
+    ## 6 human oral metagenome         not provided not collected    25.92
+    ##    host_body_habitat host_body_product host_body_site host_common_name
+    ## 1 UBERON:oral cavity     UBERON:saliva   UBERON:mouth            human
+    ## 2 UBERON:oral cavity     UBERON:saliva   UBERON:mouth            human
+    ## 3 UBERON:oral cavity     UBERON:saliva   UBERON:mouth            human
+    ## 4 UBERON:oral cavity     UBERON:saliva   UBERON:mouth            human
+    ## 5 UBERON:oral cavity     UBERON:saliva   UBERON:mouth            human
+    ## 6 UBERON:oral cavity     UBERON:saliva   UBERON:mouth            human
+    ##   host_scientific_name host_taxid   host_weight  sex timepoint toothbrush_type
+    ## 1         Homo sapiens       9606 not collected male         1        electric
+    ## 2         Homo sapiens       9606 not collected male         2        electric
+    ## 3         Homo sapiens       9606 not collected male         3        electric
+    ## 4         Homo sapiens       9606 not collected male         4        electric
+    ## 5         Homo sapiens       9606 not collected male         5        electric
+    ## 6         Homo sapiens       9606 not collected male         6        electric
+    ##   center_project_name..exp. run_date..exp. run_prefix..exp. runid..exp.
+    ## 1                                                                      
+    ## 2                                                                      
+    ## 3                                                                      
+    ## 4                                                                      
+    ## 5                                                                      
+    ## 6                                                                      
+    ##   barcode..exp. linker..exp.                                 pcr_primers..exp.
+    ## 1  TAGGACGGGAGT           GT FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT
+    ## 2  GTTTGGCCACAC           GT FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT
+    ## 3  TATATAGTATCC           GT FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT
+    ## 4  CATAAGGGAGGC           GT FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT
+    ## 5  GTGCAACCAATC           GT FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT
+    ## 6  CTCACCTAGGAA           GT FWD:GTGYCAGCMGCCGCGGTAA; REV:GGACTACNVGGGTWTCTAAT
+    ##            primer..exp. run_center..exp. target_gene..exp.
+    ## 1 GTGTGYCAGCMGCCGCGGTAA           UCSDMI          16S rRNA
+    ## 2 GTGTGYCAGCMGCCGCGGTAA           UCSDMI          16S rRNA
+    ## 3 GTGTGYCAGCMGCCGCGGTAA           UCSDMI          16S rRNA
+    ## 4 GTGTGYCAGCMGCCGCGGTAA           UCSDMI          16S rRNA
+    ## 5 GTGTGYCAGCMGCCGCGGTAA           UCSDMI          16S rRNA
+    ## 6 GTGTGYCAGCMGCCGCGGTAA           UCSDMI          16S rRNA
+    ##   target_subfragment..exp. anonymized_name floss_regularly food host_life_stage
+    ## 1                       V4                                                     
+    ## 2                       V4                                                     
+    ## 3                       V4                                                     
+    ## 4                       V4                                                     
+    ## 5                       V4                                                     
+    ## 6                       V4                                                     
+    ##   mouthwash_regularly Participant_ID
+    ## 1                                   
+    ## 2                                   
+    ## 3                                   
+    ## 4                                   
+    ## 5                                   
+    ## 6                                   
+    ##   percent_reads_aligning_to_chloroplast_seqeuneces processing
+    ## 1                                               NA           
+    ## 2                                               NA           
+    ## 3                                               NA           
+    ## 4                                               NA           
+    ## 5                                               NA           
+    ## 6                                               NA           
+    ##   saliva_flow_rate_ml_per_min saliva_sample_id
+    ## 1                          NA                 
+    ## 2                          NA                 
+    ## 3                          NA                 
+    ## 4                          NA                 
+    ## 5                          NA                 
+    ## 6                          NA                 
+    ##   saliva_volume_ml_collected_in_5_min saliva_weight_g
+    ## 1                                  NA              NA
+    ## 2                                  NA              NA
+    ## 3                                  NA              NA
+    ## 4                                  NA              NA
+    ## 5                                  NA              NA
+    ## 6                                  NA              NA
+    ##   self_reported_min_brushing fc_avg_cells_5_min fc_avg_cells_per_ul
+    ## 1                         NA                 NA                  NA
+    ## 2                         NA                 NA                  NA
+    ## 3                         NA                 NA                  NA
+    ## 4                         NA                 NA                  NA
+    ## 5                         NA                 NA                  NA
+    ## 6                         NA                 NA                  NA
+    ##   fc_cells_per_ul_r1 fc_cells_per_ul_r2 qpcr_median_16s_copies_per_2ul_dna
+    ## 1                 NA                 NA                                 NA
+    ## 2                 NA                 NA                                 NA
+    ## 3                 NA                 NA                                 NA
+    ## 4                 NA                 NA                                 NA
+    ## 5                 NA                 NA                                 NA
+    ## 6                 NA                 NA                                 NA
+    ##   sample_plate..exp.      well_description..exp. all_flow_cells_5min_avg_units
+    ## 1  Lisa_SMDS_Plate_1 Lisa_SMDS_Plate_1_A1.raw_A1                   cellsin5min
+    ## 2  Lisa_SMDS_Plate_1 Lisa_SMDS_Plate_1_A2.raw_B1                   cellsin5min
+    ## 3  Lisa_SMDS_Plate_1 Lisa_SMDS_Plate_1_A3.raw_C1                   cellsin5min
+    ## 4  Lisa_SMDS_Plate_1 Lisa_SMDS_Plate_1_A4.raw_D1                   cellsin5min
+    ## 5  Lisa_SMDS_Plate_1 Lisa_SMDS_Plate_1_A5.raw_E1                   cellsin5min
+    ## 6  Lisa_SMDS_Plate_1 Lisa_SMDS_Plate_1_A6.raw_F1                   cellsin5min
+    ##   all_flow_cellsperul_avg_units all_qpcr_cells_5min_avg_units
+    ## 1            cellspermicroliter                   cellsin5min
+    ## 2            cellspermicroliter                   cellsin5min
+    ## 3            cellspermicroliter                   cellsin5min
+    ## 4            cellspermicroliter                   cellsin5min
+    ## 5            cellspermicroliter                   cellsin5min
+    ## 6            cellspermicroliter                   cellsin5min
+    ##   all_qpcr_cellsperul_avg_units       collection_device
+    ## 1            cellspermicroliter funnel into 15mL falcon
+    ## 2            cellspermicroliter funnel into 15mL falcon
+    ## 3            cellspermicroliter funnel into 15mL falcon
+    ## 4            cellspermicroliter funnel into 15mL falcon
+    ## 5            cellspermicroliter funnel into 15mL falcon
+    ## 6            cellspermicroliter funnel into 15mL falcon
+    ##   live_flow_cells_5min_avg_units live_flow_cellsperul_avg_units
+    ## 1                   cellsper5min             cellspermicroliter
+    ## 2                   cellsper5min             cellspermicroliter
+    ## 3                   cellsper5min             cellspermicroliter
+    ## 4                   cellsper5min             cellspermicroliter
+    ## 5                   cellsper5min             cellspermicroliter
+    ## 6                   cellsper5min             cellspermicroliter
+    ##   live_qpcr_cells_5min_avg_units live_qpcr_cellsperul_avg_units
+    ## 1                    cellsin5min             cellspermicroliter
+    ## 2                    cellsin5min             cellspermicroliter
+    ## 3                    cellsin5min             cellspermicroliter
+    ## 4                    cellsin5min             cellspermicroliter
+    ## 5                    cellsin5min             cellspermicroliter
+    ## 6                    cellsin5min             cellspermicroliter
+    ##              collection_method   life_stage timepoint_units
+    ## 1 unstimulated drool 5 minutes not provided       timepoint
+    ## 2 unstimulated drool 5 minutes not provided       timepoint
+    ## 3 unstimulated drool 5 minutes not provided       timepoint
+    ## 4 unstimulated drool 5 minutes not provided       timepoint
+    ## 5 unstimulated drool 5 minutes not provided       timepoint
+    ## 6 unstimulated drool 5 minutes not provided       timepoint
+    ##   all_flow_cells_5min_avg all_flow_cellsperul_avg all_qpcr_cells_5min_avg
+    ## 1                22611875                 20556.5              1820798070
+    ## 2                 8636316                  7851.0                34584736
+    ## 3                 3366582                  1772.0               391609110
+    ## 4                 5952161                  4251.5                 8174983
+    ## 5                 6330939                  5276.0                94799048
+    ## 6                 4668222                  3334.5              2549818404
+    ##   all_qpcr_cellsperul_avg live_flow_cells_5min_avg live_flow_cellsperul_avg
+    ## 1             1655270.975                 13475607                  12250.5
+    ## 2               31440.669                 10747573                   9770.5
+    ## 3              206110.058                  3017004                   1588.0
+    ## 4                5839.274                  7144704                   5103.5
+    ## 5               78999.206                  6744380                   5620.5
+    ## 6             1821298.860                  4752993                   3395.0
+    ##   live_qpcr_cells_5min_avg live_qpcr_cellsperul_avg food_notes drink_notes
+    ## 1                189337568               172125.062                       
+    ## 2                  3393210                 3084.736                       
+    ## 3                 55262056                29085.293                       
+    ## 4                  2397970                 1712.835                       
+    ## 5                  8904149                 7420.124                       
+    ## 6                 60617233                43298.023                       
+    ##   i5_index_id..exp. i7_index_id..exp. index2..exp. index..exp. lane..exp.
+    ## 1                                                                      NA
+    ## 2                                                                      NA
+    ## 3                                                                      NA
+    ## 4                                                                      NA
+    ## 5                                                                      NA
+    ## 6                                                                      NA
+    ##   pool..exp. sample_project..exp. sample_sheet..exp. sample_well..exp.
+    ## 1                                                                     
+    ## 2                                                                     
+    ## 3                                                                     
+    ## 4                                                                     
+    ## 5                                                                     
+    ## 6                                                                     
+    ##   extraction_robot..exp. extractionkit_lot..exp. linkerprimersequence..exp.
+    ## 1        Carmen_HOWE_KF1               157035298      GTGTGYCAGCMGCCGCGGTAA
+    ## 2        Carmen_HOWE_KF1               157035298      GTGTGYCAGCMGCCGCGGTAA
+    ## 3        Carmen_HOWE_KF1               157035298      GTGTGYCAGCMGCCGCGGTAA
+    ## 4        Carmen_HOWE_KF1               157035298      GTGTGYCAGCMGCCGCGGTAA
+    ## 5        Carmen_HOWE_KF1               157035298      GTGTGYCAGCMGCCGCGGTAA
+    ## 6        Carmen_HOWE_KF1               157035298      GTGTGYCAGCMGCCGCGGTAA
+    ##   mastermix_lot..exp. orig_name..exp. plating..exp. primer_date..exp.
+    ## 1              533142          A1.raw            LM                NA
+    ## 2              533142          A2.raw            LM                NA
+    ## 3              533142          A3.raw            LM                NA
+    ## 4              533142          A4.raw            LM                NA
+    ## 5              533142          A5.raw            LM                NA
+    ## 6              533142          A6.raw            LM                NA
+    ##   primer_plate..exp. processing_robot..exp. processing_type..exp.
+    ## 1                  4                     NA                A1.raw
+    ## 2                  4                     NA                A2.raw
+    ## 3                  4                     NA                A3.raw
+    ## 4                  4                     NA                A4.raw
+    ## 5                  4                     NA                A5.raw
+    ## 6                  4                     NA                A6.raw
+    ##   project_name..exp.
+    ## 1          Lisa SMDS
+    ## 2          Lisa SMDS
+    ## 3          Lisa SMDS
+    ## 4          Lisa SMDS
+    ## 5          Lisa SMDS
+    ## 6          Lisa SMDS
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -299,8 +369,8 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Sample.Name,
-  Age = initial_meta$host_age,
-  BMI = initial_meta$BMI,
+  Age = initial_meta$Host_Age,
+  BMI = NA,
   Sex= initial_meta$sex,
   Region = "V4",
   Platform = initial_meta$Instrument,
@@ -327,11 +397,7 @@ metadata$Disease_study <- "NO"
 
 #extract subject id by remove prefix of sample_name
 
-metadata <- metadata %>%
-  mutate(Sex = case_when(
-    initial_meta$sex == "0" ~ "female",
-    initial_meta$sex == "1" ~ "male"
-  ))
+
 keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
 metadata <- subset(metadata, sample_name %in% keep_subjects)
 
@@ -345,13 +411,13 @@ metadata$matched_samples <- "NO"
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 504"
+    ## [1] "Number of unique runs: 590"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 319"
+    ## [1] "Number of unique sample names: 270"
 
 # Step 5: Visualize the Metadata
 
@@ -376,20 +442,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject        Run   sample_name      Age      BMI    Sex Region
-    ## 1 PRJEB50306 ERR8053779 SAMEA12383654 47.04997 33.45565 female     V4
-    ## 2 PRJEB50306 ERR8053780 SAMEA12383655       NA 24.41330   <NA>     V4
-    ## 3 PRJEB50306 ERR8053781 SAMEA12383656 30.32991 33.32175   male     V4
-    ## 4 PRJEB50306 ERR8053782 SAMEA12383657 52.42710 21.59888   male     V4
-    ## 5 PRJEB50306 ERR8053783 SAMEA12383658 27.67146       NA   male     V4
-    ## 6 PRJEB50306 ERR8053784 SAMEA12383659 54.10267 20.13569   male     V4
-    ##              Platform Country   Site          public_time PCR_primers
-    ## 1 Illumina HiSeq 4000     USA saliva 2022-01-21T00:00:00Z   515F-806R
-    ## 2 Illumina HiSeq 4000     USA saliva 2022-01-21T00:00:00Z   515F-806R
-    ## 3 Illumina HiSeq 4000     USA saliva 2022-01-21T00:00:00Z   515F-806R
-    ## 4 Illumina HiSeq 4000     USA saliva 2022-01-21T00:00:00Z   515F-806R
-    ## 5 Illumina HiSeq 4000     USA saliva 2022-01-21T00:00:00Z   515F-806R
-    ## 6 Illumina HiSeq 4000     USA saliva 2022-01-21T00:00:00Z   515F-806R
+    ##   BioProject        Run  sample_name   Age BMI  Sex Region       Platform
+    ## 1 PRJEB29169 ERR2840944 SAMEA4973213 25.92  NA male     V4 Illumina MiSeq
+    ## 2 PRJEB29169 ERR2840945 SAMEA4973214 25.92  NA male     V4 Illumina MiSeq
+    ## 3 PRJEB29169 ERR2840946 SAMEA4973215 25.92  NA male     V4 Illumina MiSeq
+    ## 4 PRJEB29169 ERR2840947 SAMEA4973216 25.92  NA male     V4 Illumina MiSeq
+    ## 5 PRJEB29169 ERR2840948 SAMEA4973217 25.92  NA male     V4 Illumina MiSeq
+    ## 6 PRJEB29169 ERR2840949 SAMEA4973218 25.92  NA male     V4 Illumina MiSeq
+    ##   Country   Site          public_time PCR_primers
+    ## 1     USA saliva 2018-10-25T00:00:00Z   515F-806R
+    ## 2     USA saliva 2018-10-25T00:00:00Z   515F-806R
+    ## 3     USA saliva 2018-10-25T00:00:00Z   515F-806R
+    ## 4     USA saliva 2018-10-25T00:00:00Z   515F-806R
+    ## 5     USA saliva 2018-10-25T00:00:00Z   515F-806R
+    ## 6     USA saliva 2018-10-25T00:00:00Z   515F-806R
     ##                                                                            title
     ## 1 Establishing microbial composition measurement standards with reference frames
     ## 2 Establishing microbial composition measurement standards with reference frames

@@ -64,7 +64,7 @@ metadata <- data.frame(
   Age = NA,
   BMI = "18.5-30",
   Sex = initial_meta$sex,
-  Region = initial_meta$target_subfragment..exp.,
+  Region = "v4",
   Platform = initial_meta$Instrument,
   Country = initial_meta$country_of_birth,
   Site = initial_meta$Organism,
@@ -75,8 +75,20 @@ metadata <- data.frame(
 ```
 
 ```{r}
+library(dplyr)
+
 metadata <- metadata %>%
-  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+  mutate(
+    Sex = trimws(Sex),                # 去掉首尾空格
+    Sex = tolower(Sex),               # 全部转小写，方便统一处理
+    Sex = case_when(
+      Sex == "female" ~ "F",
+      Sex == "male" ~ "M",
+      Sex %in% c("not provided", "unspecified", "other", "", NA) ~ NA_character_,
+      TRUE ~ NA_character_            # 其他未识别的情况也转成 NA
+    )
+  )
+
 ```
 
 # Step 3: Manually Add Information from the Publication
@@ -87,7 +99,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 metadata$title <- "American Gut: an Open Platform for Citizen Science Microbiome Research"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
-metadata$Status <- "HC"
+metadata$Status <- "NA"
 
 #get subjects id with Saliva available
 keep_subjects<-subset(metadata,Site %in% "human oral metagenome")
@@ -96,7 +108,7 @@ metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts
 sample_counts <- table(metadata$sample_name)
 # Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
+metadata$matched_samples="No"
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

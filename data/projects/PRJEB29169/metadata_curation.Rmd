@@ -62,8 +62,8 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Sample.Name,
-  Age = initial_meta$host_age,
-  BMI = initial_meta$BMI,
+  Age = initial_meta$Host_Age,
+  BMI = NA,
   Sex= initial_meta$sex,
   Region = "V4",
   Platform = initial_meta$Instrument,
@@ -87,11 +87,7 @@ metadata$Disease_study <- "NO"
 
 #extract subject id by remove prefix of sample_name
 
-metadata <- metadata %>%
-  mutate(Sex = case_when(
-    initial_meta$sex == "0" ~ "female",
-    initial_meta$sex == "1" ~ "male"
-  ))
+
 keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
 metadata <- subset(metadata, sample_name %in% keep_subjects)
 
@@ -157,7 +153,7 @@ p<-plot_grid(plots$Age,
           plots$Status,
           plots$matched_samples,# add 
           ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("metadata_summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 

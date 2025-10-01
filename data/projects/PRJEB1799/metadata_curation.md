@@ -284,7 +284,7 @@ metadata <- data.frame(
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$geo_loc_name_country,
   Site = gsub("UBERON:", "", initial_meta$body_site),
-  public_time = "2013-04-26",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = initial_meta$pcr_primers..exp.,
   stringsAsFactors = FALSE
 )
@@ -362,13 +362,13 @@ head(metadata)
     ## 4  PRJEB1799 ERR261872       FS_10  35  NA    M     V2 Illumina     USA
     ## 5  PRJEB1799 ERR261873      FS_106  49  NA    M     V2 Illumina     USA
     ## 6  PRJEB1799 ERR261874       FS_44  28  NA    M     V2 Illumina     USA
-    ##           Site public_time
-    ## 1         face  2013-04-26
-    ## 2         face  2013-04-26
-    ## 3       tongue  2013-04-26
-    ## 4        feces  2013-04-26
-    ## 5 skin of hand  2013-04-26
-    ## 6         face  2013-04-26
+    ##           Site          public_time
+    ## 1         face 2013-04-26T00:00:00Z
+    ## 2         face 2013-04-26T00:00:00Z
+    ## 3       tongue 2013-04-26T00:00:00Z
+    ## 4        feces 2013-04-26T00:00:00Z
+    ## 5 skin of hand 2013-04-26T00:00:00Z
+    ## 6         face 2013-04-26T00:00:00Z
     ##                                                             PCR_primers
     ## 1 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT
     ## 2 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT

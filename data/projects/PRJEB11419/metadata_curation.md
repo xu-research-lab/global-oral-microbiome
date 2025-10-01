@@ -385,10 +385,10 @@ metadata <- data.frame(
   Age = NA,
   BMI = "18.5-30",
   Sex = initial_meta$sex,
-  Region = initial_meta$target_subfragment..exp.,
+  Region = "v4",
   Platform = initial_meta$Instrument,
   Country = initial_meta$country_of_birth,
-  Site = initial_meta$Organism,
+  Site = replace(initial_meta$Organism, initial_meta$Organism == "human oral metagenome", "tongue"),
   public_time = initial_meta$ReleaseDate,
   PCR_primers = "515F-806R",
   stringsAsFactors = FALSE
@@ -396,8 +396,19 @@ metadata <- data.frame(
 ```
 
 ``` r
+library(dplyr)
+
 metadata <- metadata %>%
-  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+  mutate(
+    Sex = trimws(Sex),                # 去掉首尾空格
+    Sex = tolower(Sex),               # 全部转小写，方便统一处理
+    Sex = case_when(
+      Sex == "female" ~ "F",
+      Sex == "male" ~ "M",
+      Sex %in% c("not provided", "unspecified", "other", "", NA) ~ NA_character_,
+      TRUE ~ NA_character_            # 其他未识别的情况也转成 NA
+    )
+  )
 ```
 
 # Step 3: Manually Add Information from the Publication
@@ -410,16 +421,16 @@ manually extracted from the publication and added to the metadata.
 metadata$title <- "American Gut: an Open Platform for Citizen Science Microbiome Research"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
-metadata$Status <- "HC"
+metadata$Status <- "NA"
 
 #get subjects id with Saliva available
-keep_subjects<-subset(metadata,Site %in% "human oral metagenome")
+keep_subjects<-subset(metadata,Site %in% "tongue")
 #remove subjects without Saliva samples
 metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts
 sample_counts <- table(metadata$sample_name)
 # Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
+metadata$matched_samples="No"
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -443,7 +454,7 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
 knitr::include_graphics("Metadata_Summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -460,27 +471,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject        Run     sample_name Age     BMI          Sex Region
-    ## 2  PRJEB11419 ERR1077495 10317.000007751  NA 18.5-30 Not provided     V4
-    ## 4  PRJEB11419 ERR1077497 10317.000007753  NA 18.5-30            F     V4
-    ## 8  PRJEB11419 ERR1077501 10317.000007758  NA 18.5-30            F     V4
-    ## 9  PRJEB11419 ERR1077502 10317.000007759  NA 18.5-30            F     V4
-    ## 11 PRJEB11419 ERR1077504 10317.000007761  NA 18.5-30            M     V4
-    ## 16 PRJEB11419 ERR1077509 10317.000007767  NA 18.5-30            F     V4
-    ##          Platform Country                  Site          public_time
-    ## 2  Illumina MiSeq Belgium human oral metagenome 2015-10-28T00:00:00Z
-    ## 4  Illumina MiSeq Belgium human oral metagenome 2015-10-28T00:00:00Z
-    ## 8  Illumina MiSeq Belgium human oral metagenome 2015-10-28T00:00:00Z
-    ## 9  Illumina MiSeq Belgium human oral metagenome 2015-10-28T00:00:00Z
-    ## 11 Illumina MiSeq Belgium human oral metagenome 2015-10-28T00:00:00Z
-    ## 16 Illumina MiSeq Belgium human oral metagenome 2015-10-28T00:00:00Z
-    ##    PCR_primers
-    ## 2    515F-806R
-    ## 4    515F-806R
-    ## 8    515F-806R
-    ## 9    515F-806R
-    ## 11   515F-806R
-    ## 16   515F-806R
+    ##    BioProject        Run     sample_name Age     BMI  Sex Region       Platform
+    ## 2  PRJEB11419 ERR1077495 10317.000007751  NA 18.5-30 <NA>     v4 Illumina MiSeq
+    ## 4  PRJEB11419 ERR1077497 10317.000007753  NA 18.5-30    F     v4 Illumina MiSeq
+    ## 8  PRJEB11419 ERR1077501 10317.000007758  NA 18.5-30    F     v4 Illumina MiSeq
+    ## 9  PRJEB11419 ERR1077502 10317.000007759  NA 18.5-30    F     v4 Illumina MiSeq
+    ## 11 PRJEB11419 ERR1077504 10317.000007761  NA 18.5-30    M     v4 Illumina MiSeq
+    ## 16 PRJEB11419 ERR1077509 10317.000007767  NA 18.5-30    F     v4 Illumina MiSeq
+    ##    Country   Site          public_time PCR_primers
+    ## 2  Belgium tongue 2015-10-28T00:00:00Z   515F-806R
+    ## 4  Belgium tongue 2015-10-28T00:00:00Z   515F-806R
+    ## 8  Belgium tongue 2015-10-28T00:00:00Z   515F-806R
+    ## 9  Belgium tongue 2015-10-28T00:00:00Z   515F-806R
+    ## 11 Belgium tongue 2015-10-28T00:00:00Z   515F-806R
+    ## 16 Belgium tongue 2015-10-28T00:00:00Z   515F-806R
     ##                                                                     title
     ## 2  American Gut: an Open Platform for Citizen Science Microbiome Research
     ## 4  American Gut: an Open Platform for Citizen Science Microbiome Research
@@ -489,12 +493,12 @@ head(metadata)
     ## 11 American Gut: an Open Platform for Citizen Science Microbiome Research
     ## 16 American Gut: an Open Platform for Citizen Science Microbiome Research
     ##    Disease_study Status matched_samples
-    ## 2             NO     HC              NO
-    ## 4             NO     HC              NO
-    ## 8             NO     HC              NO
-    ## 9             NO     HC              NO
-    ## 11            NO     HC              NO
-    ## 16            NO     HC              NO
+    ## 2             NO     NA              No
+    ## 4             NO     NA              No
+    ## 8             NO     NA              No
+    ## 9             NO     NA              No
+    ## 11            NO     NA              No
+    ## 16            NO     NA              No
 
 ## Notes for Students:
 

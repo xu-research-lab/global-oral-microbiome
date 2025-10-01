@@ -249,14 +249,14 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$host_subject_id,
-  Age = NA,
+  Age = initial_meta$age_in_years,
   BMI = NA,
   Sex = initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$env_material,
-  public_time = "2020-02-25",
+  public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
 ```
@@ -327,20 +327,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject        Run sample_name Age BMI Sex Region            Platform
-    ## 1 PRJEB36860 ERR3936609    Infant01  NA  NA   F     V4 Illumina HiSeq 2000
-    ## 2 PRJEB36860 ERR3936610    Infant01  NA  NA   F     V4 Illumina HiSeq 2000
-    ## 3 PRJEB36860 ERR3936611    Infant01  NA  NA   F     V4 Illumina HiSeq 2000
-    ## 4 PRJEB36860 ERR3936612    Infant01  NA  NA   F     V4 Illumina HiSeq 2000
-    ## 5 PRJEB36860 ERR3936613    Infant01  NA  NA   F     V4 Illumina HiSeq 2000
-    ## 6 PRJEB36860 ERR3936614    Infant01  NA  NA   F     V4 Illumina HiSeq 2000
-    ##   Country  Site public_time PCR_primers
-    ## 1     USA feces  2020-02-25   515F-806R
-    ## 2     USA feces  2020-02-25   515F-806R
-    ## 3     USA feces  2020-02-25   515F-806R
-    ## 4     USA feces  2020-02-25   515F-806R
-    ## 5     USA feces  2020-02-25   515F-806R
-    ## 6     USA feces  2020-02-25   515F-806R
+    ##   BioProject        Run sample_name      Age BMI Sex Region            Platform
+    ## 1 PRJEB36860 ERR3936609    Infant01 0.183440  NA   F     V4 Illumina HiSeq 2000
+    ## 2 PRJEB36860 ERR3936610    Infant01 0.186178  NA   F     V4 Illumina HiSeq 2000
+    ## 3 PRJEB36860 ERR3936611    Infant01 0.186178  NA   F     V4 Illumina HiSeq 2000
+    ## 4 PRJEB36860 ERR3936612    Infant01 0.191650  NA   F     V4 Illumina HiSeq 2000
+    ## 5 PRJEB36860 ERR3936613    Infant01 0.191650  NA   F     V4 Illumina HiSeq 2000
+    ## 6 PRJEB36860 ERR3936614    Infant01 0.197129  NA   F     V4 Illumina HiSeq 2000
+    ##   Country  Site          public_time PCR_primers
+    ## 1     USA feces 2020-02-25T00:00:00Z   515F-806R
+    ## 2     USA feces 2020-02-25T00:00:00Z   515F-806R
+    ## 3     USA feces 2020-02-25T00:00:00Z   515F-806R
+    ## 4     USA feces 2020-02-25T00:00:00Z   515F-806R
+    ## 5     USA feces 2020-02-25T00:00:00Z   515F-806R
+    ## 6     USA feces 2020-02-25T00:00:00Z   515F-806R
     ##                                                                                                       title
     ## 1 Naturalization of the microbiota developmental trajectory of Cesarean-born neonates after vaginal seeding
     ## 2 Naturalization of the microbiota developmental trajectory of Cesarean-born neonates after vaginal seeding

@@ -68,7 +68,7 @@ metadata <- data.frame(
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$geo_loc_name_country,
   Site = gsub("UBERON:", "", initial_meta$body_site),
-  public_time = "2013-04-26",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = initial_meta$pcr_primers..exp.,
   stringsAsFactors = FALSE
 )

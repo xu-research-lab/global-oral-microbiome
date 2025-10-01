@@ -67,7 +67,7 @@ metadata <- data.frame(
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$isolation_source,
-  public_time = "2024-03-18",
+  public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
 ```

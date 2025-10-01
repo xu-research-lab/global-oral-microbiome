@@ -388,7 +388,7 @@ metadata <- data.frame(
   Region = "v4",
   Platform = initial_meta$Instrument,
   Country = initial_meta$country_of_birth,
-  Site = initial_meta$Organism,
+  Site = replace(initial_meta$Organism, initial_meta$Organism == "human oral metagenome", "tongue"),
   public_time = initial_meta$ReleaseDate,
   PCR_primers = "515F-806R",
   stringsAsFactors = FALSE
@@ -424,7 +424,7 @@ metadata$Disease_study <- "NO"
 metadata$Status <- "NA"
 
 #get subjects id with Saliva available
-keep_subjects<-subset(metadata,Site %in% "human oral metagenome")
+keep_subjects<-subset(metadata,Site %in% "tongue")
 #remove subjects without Saliva samples
 metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts
@@ -478,13 +478,13 @@ head(metadata)
     ## 9  PRJEB11419 ERR1077502 10317.000007759  NA 18.5-30    F     v4 Illumina MiSeq
     ## 11 PRJEB11419 ERR1077504 10317.000007761  NA 18.5-30    M     v4 Illumina MiSeq
     ## 16 PRJEB11419 ERR1077509 10317.000007767  NA 18.5-30    F     v4 Illumina MiSeq
-    ##    Country                  Site          public_time PCR_primers
-    ## 2  Belgium human oral metagenome 2015-10-28T00:00:00Z   515F-806R
-    ## 4  Belgium human oral metagenome 2015-10-28T00:00:00Z   515F-806R
-    ## 8  Belgium human oral metagenome 2015-10-28T00:00:00Z   515F-806R
-    ## 9  Belgium human oral metagenome 2015-10-28T00:00:00Z   515F-806R
-    ## 11 Belgium human oral metagenome 2015-10-28T00:00:00Z   515F-806R
-    ## 16 Belgium human oral metagenome 2015-10-28T00:00:00Z   515F-806R
+    ##    Country   Site          public_time PCR_primers
+    ## 2  Belgium tongue 2015-10-28T00:00:00Z   515F-806R
+    ## 4  Belgium tongue 2015-10-28T00:00:00Z   515F-806R
+    ## 8  Belgium tongue 2015-10-28T00:00:00Z   515F-806R
+    ## 9  Belgium tongue 2015-10-28T00:00:00Z   515F-806R
+    ## 11 Belgium tongue 2015-10-28T00:00:00Z   515F-806R
+    ## 16 Belgium tongue 2015-10-28T00:00:00Z   515F-806R
     ##                                                                     title
     ## 2  American Gut: an Open Platform for Citizen Science Microbiome Research
     ## 4  American Gut: an Open Platform for Citizen Science Microbiome Research

@@ -302,7 +302,7 @@ manually extracted from the publication and added to the metadata.
 
 ``` r
 # Add information obtained from the publication
-metadata$title <- "Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands"
+metadata$title <- "Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
@@ -338,7 +338,7 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
 knitr::include_graphics("Metadata_Summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -351,7 +351,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = TRUE, row.names = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
@@ -376,13 +376,13 @@ head(metadata)
     ## 4 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT
     ## 5 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT
     ## 6 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT
-    ##                                                                                title
-    ## 1 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
-    ## 2 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
-    ## 3 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
-    ## 4 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
-    ## 5 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
-    ## 6 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
+    ##                                                                              title
+    ## 1 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
+    ## 2 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
+    ## 3 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
+    ## 4 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
+    ## 5 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
+    ## 6 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
     ##   Disease_study Status matched_samples
     ## 1            NO     HC             YES
     ## 2            NO     HC             YES

@@ -83,7 +83,7 @@ metadata <- metadata %>%
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
-metadata$title <- "Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands"
+metadata$title <- "Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
@@ -174,7 +174,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = TRUE, row.names = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 ## Notes for Students:

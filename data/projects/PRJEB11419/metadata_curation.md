@@ -381,9 +381,26 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$Library.Name,
-  Age = NA,
-  BMI = "18.5-30",
+  sample_name = initial_meta$Sample_name,
+  Age = initial_meta$Birth_Year,
+  BMI = {
+    # 创建临时变量，将非数值内容转换为NA
+    weight <- as.numeric(ifelse(
+      initial_meta$weight_kg %in% c("", "Unspecified", "Not provided"), 
+      NA, 
+      initial_meta$weight_kg
+    ))
+    height <- as.numeric(ifelse(
+      initial_meta$height_cm %in% c("", "Unspecified", "Not provided"), 
+      NA, 
+      initial_meta$height_cm
+    ))
+    # 计算BMI
+    bmi <- ifelse(!is.na(weight) & !is.na(height), weight / (height / 100)^2, NA)
+    
+    # 将BMI值限制在15-35之间，超出范围的设为NA
+    ifelse(bmi >= 15 & bmi <= 35, bmi, NA)
+  },
   Sex = initial_meta$sex,
   Region = "v4",
   Platform = initial_meta$Instrument,
@@ -395,9 +412,33 @@ metadata <- data.frame(
 )
 ```
 
+    ## Warning in data.frame(BioProject = initial_meta$BioProject, Run =
+    ## initial_meta$Run, : NAs introduced by coercion
+    ## Warning in data.frame(BioProject = initial_meta$BioProject, Run =
+    ## initial_meta$Run, : NAs introduced by coercion
+
 ``` r
 library(dplyr)
+metadata$Age <- ifelse(
+  # 检查是否为有效的年份格式（4位数字且在合理范围内）
+  grepl("^\\d{4}$", metadata$Age) & 
+    as.numeric(metadata$Age) >= 1900 & 
+    as.numeric(metadata$Age) <= 2025,
+  # 如果是有效年份，计算年龄（2025 - 出生年份）
+  2025 - as.numeric(metadata$Age),
+  # 如果不是有效年份，设为NA
+  NA
+)
+```
 
+    ## Warning in ifelse(grepl("^\\d{4}$", metadata$Age) & as.numeric(metadata$Age) >=
+    ## : NAs introduced by coercion
+    ## Warning in ifelse(grepl("^\\d{4}$", metadata$Age) & as.numeric(metadata$Age) >=
+    ## : NAs introduced by coercion
+    ## Warning in ifelse(grepl("^\\d{4}$", metadata$Age) & as.numeric(metadata$Age) >=
+    ## : NAs introduced by coercion
+
+``` r
 metadata <- metadata %>%
   mutate(
     Sex = trimws(Sex),                # 去掉首尾空格
@@ -423,6 +464,8 @@ metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "NA"
 
+#get subjects id according to sample id
+metadata$sample_name<-gsub("qiita_sid_10317:10317.|ERS|X","",metadata$sample_name)
 #get subjects id with Saliva available
 keep_subjects<-subset(metadata,Site %in% "tongue")
 #remove subjects without Saliva samples
@@ -430,7 +473,16 @@ metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts
 sample_counts <- table(metadata$sample_name)
 # Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
-metadata$matched_samples="No"
+# 计算每个sample_name对应的不同Site的数量
+unique_sites_per_sample <- tapply(metadata$Site, metadata$sample_name, function(x) length(unique(x)))
+
+# 创建matched_samples列
+metadata$matched_samples <- ifelse(
+  metadata$sample_name %in% names(sample_counts[sample_counts >= 2]) & 
+  metadata$sample_name %in% names(unique_sites_per_sample[unique_sites_per_sample >= 2]),
+  "YES", 
+  "NO"
+)
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -471,13 +523,13 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject        Run     sample_name Age     BMI  Sex Region       Platform
-    ## 2  PRJEB11419 ERR1077495 10317.000007751  NA 18.5-30 <NA>     v4 Illumina MiSeq
-    ## 4  PRJEB11419 ERR1077497 10317.000007753  NA 18.5-30    F     v4 Illumina MiSeq
-    ## 8  PRJEB11419 ERR1077501 10317.000007758  NA 18.5-30    F     v4 Illumina MiSeq
-    ## 9  PRJEB11419 ERR1077502 10317.000007759  NA 18.5-30    F     v4 Illumina MiSeq
-    ## 11 PRJEB11419 ERR1077504 10317.000007761  NA 18.5-30    M     v4 Illumina MiSeq
-    ## 16 PRJEB11419 ERR1077509 10317.000007767  NA 18.5-30    F     v4 Illumina MiSeq
+    ##    BioProject        Run sample_name Age      BMI  Sex Region       Platform
+    ## 2  PRJEB11419 ERR1077495   000007751  NA       NA <NA>     v4 Illumina MiSeq
+    ## 4  PRJEB11419 ERR1077497   000007753  NA 17.85652    F     v4 Illumina MiSeq
+    ## 8  PRJEB11419 ERR1077501   000007758  NA 16.27604    F     v4 Illumina MiSeq
+    ## 9  PRJEB11419 ERR1077502   000007759  NA 17.85652    F     v4 Illumina MiSeq
+    ## 11 PRJEB11419 ERR1077504   000007761  NA 22.98190    M     v4 Illumina MiSeq
+    ## 16 PRJEB11419 ERR1077509   000007767  NA 17.85652    F     v4 Illumina MiSeq
     ##    Country   Site          public_time PCR_primers
     ## 2  Belgium tongue 2015-10-28T00:00:00Z   515F-806R
     ## 4  Belgium tongue 2015-10-28T00:00:00Z   515F-806R
@@ -493,12 +545,12 @@ head(metadata)
     ## 11 American Gut: an Open Platform for Citizen Science Microbiome Research
     ## 16 American Gut: an Open Platform for Citizen Science Microbiome Research
     ##    Disease_study Status matched_samples
-    ## 2             NO     NA              No
-    ## 4             NO     NA              No
-    ## 8             NO     NA              No
-    ## 9             NO     NA              No
-    ## 11            NO     NA              No
-    ## 16            NO     NA              No
+    ## 2             NO     NA              NO
+    ## 4             NO     NA              NO
+    ## 8             NO     NA              NO
+    ## 9             NO     NA              NO
+    ## 11            NO     NA              NO
+    ## 16            NO     NA              NO
 
 ## Notes for Students:
 

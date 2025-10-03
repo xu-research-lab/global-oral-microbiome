@@ -291,6 +291,8 @@ metadata <- data.frame(
 ```
 
 ``` r
+metadata$Age <- as.numeric(metadata$Age)
+metadata$Age <- ifelse(metadata$Age > 100, NA, metadata$Age)
 metadata <- metadata %>%
   mutate(Sex = recode(Sex, "47" = "M", "48" = "F"))
 ```
@@ -307,6 +309,8 @@ metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
 
+#get subjects id according to sample id
+metadata$sample_name<-gsub("FS_","",metadata$sample_name)
 #get subjects id with Saliva available
 keep_subjects<-subset(metadata,Site %in% "tongue")
 #remove subjects without Saliva samples
@@ -356,12 +360,12 @@ head(metadata)
 ```
 
     ##   BioProject       Run sample_name Age BMI  Sex Region Platform Country
-    ## 1  PRJEB1799 ERR261869       FS_07  54  NA    M     V2 Illumina     USA
-    ## 2  PRJEB1799 ERR261870      FS_183  NA  NA <NA>     V2 Illumina     USA
-    ## 3  PRJEB1799 ERR261871      FS_174  69  NA    F     V2 Illumina     USA
-    ## 4  PRJEB1799 ERR261872       FS_10  35  NA    M     V2 Illumina     USA
-    ## 5  PRJEB1799 ERR261873      FS_106  49  NA    M     V2 Illumina     USA
-    ## 6  PRJEB1799 ERR261874       FS_44  28  NA    M     V2 Illumina     USA
+    ## 1  PRJEB1799 ERR261869          07  54  NA    M     V2 Illumina     USA
+    ## 2  PRJEB1799 ERR261870         183  NA  NA <NA>     V2 Illumina     USA
+    ## 3  PRJEB1799 ERR261871         174  69  NA    F     V2 Illumina     USA
+    ## 4  PRJEB1799 ERR261872          10  35  NA    M     V2 Illumina     USA
+    ## 5  PRJEB1799 ERR261873         106  49  NA    M     V2 Illumina     USA
+    ## 6  PRJEB1799 ERR261874          44  28  NA    M     V2 Illumina     USA
     ##           Site          public_time
     ## 1         face 2013-04-26T00:00:00Z
     ## 2         face 2013-04-26T00:00:00Z

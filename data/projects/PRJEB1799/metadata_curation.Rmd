@@ -75,6 +75,8 @@ metadata <- data.frame(
 ```
 
 ```{r}
+metadata$Age <- as.numeric(metadata$Age)
+metadata$Age <- ifelse(metadata$Age > 100, NA, metadata$Age)
 metadata <- metadata %>%
   mutate(Sex = recode(Sex, "47" = "M", "48" = "F"))
 ```
@@ -88,6 +90,8 @@ metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
 
+#get subjects id according to sample id
+metadata$sample_name<-gsub("FS_","",metadata$sample_name)
 #get subjects id with Saliva available
 keep_subjects<-subset(metadata,Site %in% "tongue")
 #remove subjects without Saliva samples

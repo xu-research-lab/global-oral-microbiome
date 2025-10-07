@@ -114,7 +114,7 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Sample.Name,
-  Age = "20-40",
+  Age = NA,
   BMI = NA,  
   Sex = "M",
   Region = "V1-V3",
@@ -293,17 +293,17 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##    BioProject         Run sample_name   Age BMI Sex Region       Platform
-    ## 1 PRJNA605810 SRR11058093         E10 20-40  NA   M  V1-V3 Illumina MiSeq
-    ## 2 PRJNA605810 SRR11058094          E9 20-40  NA   M  V1-V3 Illumina MiSeq
-    ## 3 PRJNA605810 SRR11058095          E8 20-40  NA   M  V1-V3 Illumina MiSeq
-    ## 4 PRJNA605810 SRR11058096          E7 20-40  NA   M  V1-V3 Illumina MiSeq
-    ## 5 PRJNA605810 SRR11058097         E53 20-40  NA   M  V1-V3 Illumina MiSeq
-    ## 6 PRJNA605810 SRR11058098         E50 20-40  NA   M  V1-V3 Illumina MiSeq
+    ##    BioProject         Run sample_name Age BMI Sex Region       Platform
+    ## 1 PRJNA605810 SRR11058093         E10  NA  NA   M  V1-V3 Illumina MiSeq
+    ## 2 PRJNA605810 SRR11058094          E9  NA  NA   M  V1-V3 Illumina MiSeq
+    ## 3 PRJNA605810 SRR11058095          E8  NA  NA   M  V1-V3 Illumina MiSeq
+    ## 4 PRJNA605810 SRR11058096          E7  NA  NA   M  V1-V3 Illumina MiSeq
+    ## 5 PRJNA605810 SRR11058097         E53  NA  NA   M  V1-V3 Illumina MiSeq
+    ## 6 PRJNA605810 SRR11058098         E50  NA  NA   M  V1-V3 Illumina MiSeq
     ##        Country            Site          public_time PCR_primers
     ## 1 Saudi Arabia tongue scarping 2020-02-10T00:00:00Z    27F-519R
     ## 2 Saudi Arabia tongue scarping 2020-02-10T00:00:00Z    27F-519R

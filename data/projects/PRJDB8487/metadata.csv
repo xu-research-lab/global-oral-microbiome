@@ -1,117 +1,117 @@
-,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
-1,PRJDB8487,DRR182732,A01,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-2,PRJDB8487,DRR182733,A02,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-3,PRJDB8487,DRR182734,A03,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-4,PRJDB8487,DRR182735,A04,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-5,PRJDB8487,DRR182736,A05,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-6,PRJDB8487,DRR182737,A06,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-7,PRJDB8487,DRR182738,A07,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-8,PRJDB8487,DRR182739,A08,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-9,PRJDB8487,DRR182740,A09,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-10,PRJDB8487,DRR182741,A10,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-11,PRJDB8487,DRR182742,A11,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-12,PRJDB8487,DRR182743,A12,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-13,PRJDB8487,DRR182744,A13,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-14,PRJDB8487,DRR182745,A14,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-15,PRJDB8487,DRR182746,A15,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-16,PRJDB8487,DRR182747,A16,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-17,PRJDB8487,DRR182748,A17,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-18,PRJDB8487,DRR182749,A18,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-19,PRJDB8487,DRR182750,A19,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-20,PRJDB8487,DRR182751,A20,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-21,PRJDB8487,DRR182752,A21,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-22,PRJDB8487,DRR182753,A22,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-23,PRJDB8487,DRR182754,A23,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-24,PRJDB8487,DRR182755,A24,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-25,PRJDB8487,DRR182756,A25,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-26,PRJDB8487,DRR182757,A27,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-27,PRJDB8487,DRR182758,A28,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-28,PRJDB8487,DRR182759,A29,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-29,PRJDB8487,DRR182760,A30,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-30,PRJDB8487,DRR182762,E01,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-31,PRJDB8487,DRR182763,E02,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-32,PRJDB8487,DRR182764,E03,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-33,PRJDB8487,DRR182765,E04,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-34,PRJDB8487,DRR182766,E05,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-35,PRJDB8487,DRR182767,E06,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-36,PRJDB8487,DRR182768,E07,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-37,PRJDB8487,DRR182769,E08,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-38,PRJDB8487,DRR182770,E09,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-39,PRJDB8487,DRR182771,E10,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-40,PRJDB8487,DRR182772,E11,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-41,PRJDB8487,DRR182773,E12,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-42,PRJDB8487,DRR182774,E13,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-43,PRJDB8487,DRR182775,E14,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-44,PRJDB8487,DRR182776,E15,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-45,PRJDB8487,DRR182777,E16,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-46,PRJDB8487,DRR182778,E17,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-47,PRJDB8487,DRR182779,E18,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-48,PRJDB8487,DRR182780,E19,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-49,PRJDB8487,DRR182781,E20,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-50,PRJDB8487,DRR182782,E21,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-51,PRJDB8487,DRR182783,E22,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-52,PRJDB8487,DRR182784,E23,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-53,PRJDB8487,DRR182785,E24,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-54,PRJDB8487,DRR182786,E25,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-55,PRJDB8487,DRR182787,E26,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-56,PRJDB8487,DRR182788,E27,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-57,PRJDB8487,DRR182789,E28,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-58,PRJDB8487,DRR182790,E30,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,subgingival plaque,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-59,PRJDB8487,DRR182791,A01,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-60,PRJDB8487,DRR182792,A02,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-61,PRJDB8487,DRR182793,A03,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-62,PRJDB8487,DRR182794,A04,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-63,PRJDB8487,DRR182795,A05,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-64,PRJDB8487,DRR182796,A06,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-65,PRJDB8487,DRR182797,A07,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-66,PRJDB8487,DRR182798,A08,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-67,PRJDB8487,DRR182799,A09,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-68,PRJDB8487,DRR182800,A10,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-69,PRJDB8487,DRR182801,A11,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-70,PRJDB8487,DRR182802,A12,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-71,PRJDB8487,DRR182803,A13,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-72,PRJDB8487,DRR182804,A14,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-73,PRJDB8487,DRR182805,A15,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-74,PRJDB8487,DRR182806,A16,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-75,PRJDB8487,DRR182807,A17,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-76,PRJDB8487,DRR182808,A18,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-77,PRJDB8487,DRR182809,A19,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-78,PRJDB8487,DRR182810,A20,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-79,PRJDB8487,DRR182811,A21,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-80,PRJDB8487,DRR182812,A22,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-81,PRJDB8487,DRR182813,A23,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-82,PRJDB8487,DRR182814,A24,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-83,PRJDB8487,DRR182815,A25,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-84,PRJDB8487,DRR182816,A27,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-85,PRJDB8487,DRR182817,A28,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-86,PRJDB8487,DRR182818,A29,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-87,PRJDB8487,DRR182819,A30,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-88,PRJDB8487,DRR182821,E01,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-89,PRJDB8487,DRR182822,E02,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-90,PRJDB8487,DRR182823,E03,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-91,PRJDB8487,DRR182824,E04,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-92,PRJDB8487,DRR182825,E05,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-93,PRJDB8487,DRR182826,E06,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-94,PRJDB8487,DRR182827,E07,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-95,PRJDB8487,DRR182828,E08,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-96,PRJDB8487,DRR182829,E09,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-97,PRJDB8487,DRR182830,E10,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-98,PRJDB8487,DRR182831,E11,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-99,PRJDB8487,DRR182832,E12,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-100,PRJDB8487,DRR182833,E13,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-101,PRJDB8487,DRR182834,E14,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-102,PRJDB8487,DRR182835,E15,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-103,PRJDB8487,DRR182836,E16,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-104,PRJDB8487,DRR182837,E17,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-105,PRJDB8487,DRR182838,E18,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-106,PRJDB8487,DRR182839,E19,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-107,PRJDB8487,DRR182840,E20,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-108,PRJDB8487,DRR182841,E21,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-109,PRJDB8487,DRR182842,E22,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-110,PRJDB8487,DRR182843,E23,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-111,PRJDB8487,DRR182844,E24,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-112,PRJDB8487,DRR182845,E25,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-113,PRJDB8487,DRR182846,E26,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-114,PRJDB8487,DRR182847,E27,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-115,PRJDB8487,DRR182848,E28,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
-116,PRJDB8487,DRR182849,E30,NA,NA,NA,V3-V4,Illumina MiSeq,Japan,saliva,2019-06-24T00:00:00Z,NA,Relationship between oral and gut microbiota in elderly people,NO,HC,YES
+"","BioProject","Run","sample_name","Age","BMI","Sex","Region","Platform","Country","Site","public_time","PCR_primers","title","Disease_study","Status","matched_samples"
+"1","PRJDB8487","DRR182732","A01",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"2","PRJDB8487","DRR182733","A02",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"3","PRJDB8487","DRR182734","A03",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"4","PRJDB8487","DRR182735","A04",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"5","PRJDB8487","DRR182736","A05",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"6","PRJDB8487","DRR182737","A06",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"7","PRJDB8487","DRR182738","A07",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"8","PRJDB8487","DRR182739","A08",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"9","PRJDB8487","DRR182740","A09",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"10","PRJDB8487","DRR182741","A10",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"11","PRJDB8487","DRR182742","A11",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"12","PRJDB8487","DRR182743","A12",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"13","PRJDB8487","DRR182744","A13",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"14","PRJDB8487","DRR182745","A14",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"15","PRJDB8487","DRR182746","A15",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"16","PRJDB8487","DRR182747","A16",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"17","PRJDB8487","DRR182748","A17",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"18","PRJDB8487","DRR182749","A18",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"19","PRJDB8487","DRR182750","A19",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"20","PRJDB8487","DRR182751","A20",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"21","PRJDB8487","DRR182752","A21",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"22","PRJDB8487","DRR182753","A22",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"23","PRJDB8487","DRR182754","A23",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"24","PRJDB8487","DRR182755","A24",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"25","PRJDB8487","DRR182756","A25",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"26","PRJDB8487","DRR182757","A27",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"27","PRJDB8487","DRR182758","A28",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"28","PRJDB8487","DRR182759","A29",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"29","PRJDB8487","DRR182760","A30",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"30","PRJDB8487","DRR182762","E01",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"31","PRJDB8487","DRR182763","E02",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"32","PRJDB8487","DRR182764","E03",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"33","PRJDB8487","DRR182765","E04",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"34","PRJDB8487","DRR182766","E05",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"35","PRJDB8487","DRR182767","E06",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"36","PRJDB8487","DRR182768","E07",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"37","PRJDB8487","DRR182769","E08",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"38","PRJDB8487","DRR182770","E09",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"39","PRJDB8487","DRR182771","E10",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"40","PRJDB8487","DRR182772","E11",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"41","PRJDB8487","DRR182773","E12",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"42","PRJDB8487","DRR182774","E13",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"43","PRJDB8487","DRR182775","E14",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"44","PRJDB8487","DRR182776","E15",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"45","PRJDB8487","DRR182777","E16",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"46","PRJDB8487","DRR182778","E17",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"47","PRJDB8487","DRR182779","E18",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"48","PRJDB8487","DRR182780","E19",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"49","PRJDB8487","DRR182781","E20",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"50","PRJDB8487","DRR182782","E21",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"51","PRJDB8487","DRR182783","E22",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"52","PRJDB8487","DRR182784","E23",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"53","PRJDB8487","DRR182785","E24",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"54","PRJDB8487","DRR182786","E25",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"55","PRJDB8487","DRR182787","E26",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"56","PRJDB8487","DRR182788","E27",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"57","PRJDB8487","DRR182789","E28",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"58","PRJDB8487","DRR182790","E30",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","subgingival plaque","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"59","PRJDB8487","DRR182791","A01",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"60","PRJDB8487","DRR182792","A02",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"61","PRJDB8487","DRR182793","A03",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"62","PRJDB8487","DRR182794","A04",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"63","PRJDB8487","DRR182795","A05",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"64","PRJDB8487","DRR182796","A06",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"65","PRJDB8487","DRR182797","A07",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"66","PRJDB8487","DRR182798","A08",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"67","PRJDB8487","DRR182799","A09",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"68","PRJDB8487","DRR182800","A10",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"69","PRJDB8487","DRR182801","A11",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"70","PRJDB8487","DRR182802","A12",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"71","PRJDB8487","DRR182803","A13",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"72","PRJDB8487","DRR182804","A14",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"73","PRJDB8487","DRR182805","A15",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"74","PRJDB8487","DRR182806","A16",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"75","PRJDB8487","DRR182807","A17",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"76","PRJDB8487","DRR182808","A18",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"77","PRJDB8487","DRR182809","A19",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"78","PRJDB8487","DRR182810","A20",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"79","PRJDB8487","DRR182811","A21",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"80","PRJDB8487","DRR182812","A22",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"81","PRJDB8487","DRR182813","A23",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"82","PRJDB8487","DRR182814","A24",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"83","PRJDB8487","DRR182815","A25",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"84","PRJDB8487","DRR182816","A27",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"85","PRJDB8487","DRR182817","A28",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"86","PRJDB8487","DRR182818","A29",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"87","PRJDB8487","DRR182819","A30",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"88","PRJDB8487","DRR182821","E01",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"89","PRJDB8487","DRR182822","E02",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"90","PRJDB8487","DRR182823","E03",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"91","PRJDB8487","DRR182824","E04",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"92","PRJDB8487","DRR182825","E05",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"93","PRJDB8487","DRR182826","E06",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"94","PRJDB8487","DRR182827","E07",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"95","PRJDB8487","DRR182828","E08",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"96","PRJDB8487","DRR182829","E09",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"97","PRJDB8487","DRR182830","E10",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"98","PRJDB8487","DRR182831","E11",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"99","PRJDB8487","DRR182832","E12",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"100","PRJDB8487","DRR182833","E13",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"101","PRJDB8487","DRR182834","E14",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"102","PRJDB8487","DRR182835","E15",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"103","PRJDB8487","DRR182836","E16",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"104","PRJDB8487","DRR182837","E17",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"105","PRJDB8487","DRR182838","E18",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"106","PRJDB8487","DRR182839","E19",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"107","PRJDB8487","DRR182840","E20",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"108","PRJDB8487","DRR182841","E21",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"109","PRJDB8487","DRR182842","E22",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"110","PRJDB8487","DRR182843","E23",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"111","PRJDB8487","DRR182844","E24",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"112","PRJDB8487","DRR182845","E25",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"113","PRJDB8487","DRR182846","E26",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"114","PRJDB8487","DRR182847","E27",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"115","PRJDB8487","DRR182848","E28",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"
+"116","PRJDB8487","DRR182849","E30",NA,NA,NA,"V3-V4","Illumina MiSeq","Japan","saliva","2019-06-24T00:00:00Z",NA,"Relationship between oral and gut microbiota in elderly people","NO","HC","YES"

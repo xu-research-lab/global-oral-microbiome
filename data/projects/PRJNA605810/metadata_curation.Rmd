@@ -52,7 +52,7 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Sample.Name,
-  Age = "20-40",
+  Age = NA,
   BMI = NA,  
   Sex = "M",
   Region = "V1-V3",
@@ -186,7 +186,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 

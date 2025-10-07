@@ -251,7 +251,10 @@ metadata <- data.frame(
 
 # Use abbreviations to indicate gender
 metadata <- metadata %>%
-  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+  mutate(Sex = recode(Sex, "female" = "F", "male" = "M") %>%
+  as.character() %>% 
+  na_if("")) %>%
+  filter(!is.na(Sex) & Sex != "")
 
 # Add a horizontal bar between V3 and V4
 metadata <- metadata %>%
@@ -285,16 +288,16 @@ table(metadata$sample_name)
     ## 
     ##  AA260503  AE050897  AI200999  AU110404  AU211200  CA190498  CE170606  CI040203 
     ##         1         1         1         1         1         1         1         1 
-    ##  CU260699  EA200604  EM220506  EO140699  EO150896  EU040503  EY110304  HO301200 
+    ##  CU260699  EA200604  EO140699  EO150896  EU040503  EY110304  HO301200  IA040597 
     ##         1         1         1         1         1         1         1         1 
-    ##  IA040597  IE231105  IE310103  II090906  II231196  IT171197  IU080396  IU230600 
+    ##  IE231105  IE310103  II090906  II231196  IT171197  IU080396  IU230600  IU250797 
     ##         1         1         1         1         1         1         1         1 
-    ##  IU250797  LA161000  LA281297  OA020500  OA170497  OA220499 OEI151198  OH140806 
+    ##  LA161000  LA281297  OA020500  OA170497  OA220499 OEI151198  OH140806  OI010805 
     ##         1         1         1         1         1         1         1         1 
-    ##  OI010805  ON070596  PA020697  RE290505  RI181200  RI270298  RN140505  RY020603 
+    ##  ON070596  PA020697  RE290505  RI181200  RI270298  RN140505  RY020603  TO050504 
     ##         1         1         1         1         1         1         1         1 
-    ##  TO050504  UA210704  UE150503 UEA011204  UJ260506  UR251097  UY130300 
-    ##         1         1         1         1         1         1         1
+    ##  UA210704  UE150503 UEA011204  UJ260506  UR251097  UY130300 
+    ##         1         1         1         1         1         1
 
 ``` r
 table(metadata$Site)
@@ -302,7 +305,7 @@ table(metadata$Site)
 
     ## 
     ## saliva 
-    ##     47
+    ##     46
 
 ``` r
 # Calculate sampling frequency per subject
@@ -320,16 +323,16 @@ print(sample_counts)
     ## 
     ##  AA260503  AE050897  AI200999  AU110404  AU211200  CA190498  CE170606  CI040203 
     ##         1         1         1         1         1         1         1         1 
-    ##  CU260699  EA200604  EM220506  EO140699  EO150896  EU040503  EY110304  HO301200 
+    ##  CU260699  EA200604  EO140699  EO150896  EU040503  EY110304  HO301200  IA040597 
     ##         1         1         1         1         1         1         1         1 
-    ##  IA040597  IE231105  IE310103  II090906  II231196  IT171197  IU080396  IU230600 
+    ##  IE231105  IE310103  II090906  II231196  IT171197  IU080396  IU230600  IU250797 
     ##         1         1         1         1         1         1         1         1 
-    ##  IU250797  LA161000  LA281297  OA020500  OA170497  OA220499 OEI151198  OH140806 
+    ##  LA161000  LA281297  OA020500  OA170497  OA220499 OEI151198  OH140806  OI010805 
     ##         1         1         1         1         1         1         1         1 
-    ##  OI010805  ON070596  PA020697  RE290505  RI181200  RI270298  RN140505  RY020603 
+    ##  ON070596  PA020697  RE290505  RI181200  RI270298  RN140505  RY020603  TO050504 
     ##         1         1         1         1         1         1         1         1 
-    ##  TO050504  UA210704  UE150503 UEA011204  UJ260506  UR251097  UY130300 
-    ##         1         1         1         1         1         1         1
+    ##  UA210704  UE150503 UEA011204  UJ260506  UR251097  UY130300 
+    ##         1         1         1         1         1         1
 
 ``` r
 # Create matched_samples column
@@ -347,7 +350,7 @@ table(metadata$matched_samples)
 
     ## 
     ## NO 
-    ## 47
+    ## 46
 
 ``` r
 # Identify samples for removal: single samples excluding saliva
@@ -378,16 +381,16 @@ table(metadata_clean$sample_name)
     ## 
     ##  AA260503  AE050897  AI200999  AU110404  AU211200  CA190498  CE170606  CI040203 
     ##         1         1         1         1         1         1         1         1 
-    ##  CU260699  EA200604  EM220506  EO140699  EO150896  EU040503  EY110304  HO301200 
+    ##  CU260699  EA200604  EO140699  EO150896  EU040503  EY110304  HO301200  IA040597 
     ##         1         1         1         1         1         1         1         1 
-    ##  IA040597  IE231105  IE310103  II090906  II231196  IT171197  IU080396  IU230600 
+    ##  IE231105  IE310103  II090906  II231196  IT171197  IU080396  IU230600  IU250797 
     ##         1         1         1         1         1         1         1         1 
-    ##  IU250797  LA161000  LA281297  OA020500  OA170497  OA220499 OEI151198  OH140806 
+    ##  LA161000  LA281297  OA020500  OA170497  OA220499 OEI151198  OH140806  OI010805 
     ##         1         1         1         1         1         1         1         1 
-    ##  OI010805  ON070596  PA020697  RE290505  RI181200  RI270298  RN140505  RY020603 
+    ##  ON070596  PA020697  RE290505  RI181200  RI270298  RN140505  RY020603  TO050504 
     ##         1         1         1         1         1         1         1         1 
-    ##  TO050504  UA210704  UE150503 UEA011204  UJ260506  UR251097  UY130300 
-    ##         1         1         1         1         1         1         1
+    ##  UA210704  UE150503 UEA011204  UJ260506  UR251097  UY130300 
+    ##         1         1         1         1         1         1
 
 ``` r
 table(metadata_clean$Site)
@@ -395,7 +398,7 @@ table(metadata_clean$Site)
 
     ## 
     ## saliva 
-    ##     47
+    ##     46
 
 ``` r
 table(metadata_clean$matched_samples)
@@ -403,7 +406,7 @@ table(metadata_clean$matched_samples)
 
     ## 
     ## NO 
-    ## 47
+    ## 46
 
 ``` r
 # Use cleaned dataset for subsequent analysis
@@ -417,13 +420,13 @@ metadata <- metadata_clean
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 47"
+    ## [1] "Number of unique runs: 46"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 47"
+    ## [1] "Number of unique sample names: 46"
 
 # Step 5: Visualize the Metadata
 

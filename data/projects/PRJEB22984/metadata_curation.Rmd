@@ -70,7 +70,10 @@ metadata <- data.frame(
 
 # Use abbreviations to indicate gender
 metadata <- metadata %>%
-  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+  mutate(Sex = recode(Sex, "female" = "F", "male" = "M") %>%
+  as.character() %>% 
+  na_if("")) %>%
+  filter(!is.na(Sex) & Sex != "")
 
 # Add a horizontal bar between V3 and V4
 metadata <- metadata %>%

@@ -78,7 +78,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 ```{r}
 # Add information obtained from the publication
 metadata$PCR_primers <- "515F-806R"
-metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition"
+metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status<-"H"
@@ -178,7 +178,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 ## Notes for Students:

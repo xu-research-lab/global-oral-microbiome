@@ -162,7 +162,7 @@ if (length(plots) > 0) {
   p_final <- plot_grid(plotlist = plots, ncol = 3, align = "hv")
   
   # 保存图像
-  ggsave("Metadata_Summary_Auto.png", plot = p_final, width = 12, height = 8, dpi = 150, bg = "white")
+  ggsave("Metadata_Summary.png", plot = p_final, width = 12, height = 8, dpi = 150, bg = "white")
   
   print("图像已生成并保存为 Metadata_Summary_Auto.png")
   # print(p_final) # 如果想在RStudio里直接预览，可以取消这行注释
@@ -173,7 +173,7 @@ if (length(plots) > 0) {
 ```
 
 ```{r}
-knitr::include_graphics("Metadata_Summary_Auto.png")
+knitr::include_graphics("Metadata_Summary.png")
 ```
 
 # Step 6: Finalize and Export the Metadata
@@ -187,7 +187,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 

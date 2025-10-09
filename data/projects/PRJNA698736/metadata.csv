@@ -1,0 +1,38 @@
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
+1,PRJNA698736,SRR17629864,D170402,50,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+2,PRJNA698736,SRR17629865,D170302,45,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+3,PRJNA698736,SRR17629866,D170201,42,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+4,PRJNA698736,SRR17629867,D170103,53,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+5,PRJNA698736,SRR17629868,D170102,39,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+6,PRJNA698736,SRR17629869,D161007,44,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+7,PRJNA698736,SRR17629870,HE9,50,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+8,PRJNA698736,SRR17629871,HE8,45,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+9,PRJNA698736,SRR17629872,HE7,40,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+10,PRJNA698736,SRR17629873,HE6,34,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+11,PRJNA698736,SRR17629874,HE5,42,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+12,PRJNA698736,SRR17629875,HE4,33,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+13,PRJNA698736,SRR17629876,HE3,34,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+14,PRJNA698736,SRR17629877,D161005,43,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+15,PRJNA698736,SRR17629878,HE2,55,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+16,PRJNA698736,SRR17629879,HE15,42,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+17,PRJNA698736,SRR17629880,HE14,34,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+18,PRJNA698736,SRR17629881,HE13,38,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+19,PRJNA698736,SRR17629882,HE12,43,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+20,PRJNA698736,SRR17629883,HE11,58,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+21,PRJNA698736,SRR17629884,HE10,43,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+22,PRJNA698736,SRR17629885,HE1,40,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Healthy,NO
+23,PRJNA698736,SRR17629886,D181003,44,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+24,PRJNA698736,SRR17629887,D180902,47,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+25,PRJNA698736,SRR17629888,D161004,46,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+26,PRJNA698736,SRR17629889,D180801,35,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+27,PRJNA698736,SRR17629890,D180702,44,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+28,PRJNA698736,SRR17629891,D180602,46,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+29,PRJNA698736,SRR17629892,D180305,24,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+30,PRJNA698736,SRR17629893,D180304,43,NA,F,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+31,PRJNA698736,SRR17629894,D180102,37,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+32,PRJNA698736,SRR17629895,D170903,50,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+33,PRJNA698736,SRR17629896,D170502,44,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+34,PRJNA698736,SRR17629897,D170407,34,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+35,PRJNA698736,SRR17629898,D170403,30,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+36,PRJNA698736,SRR17629899,D160901,30,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO
+37,PRJNA698736,SRR17629900,D160801,51,NA,M,V4,HiSeq X Ten,China,Saliva,2022-01-19T00:00:00Z,515F-806R,Salivary microbiota analysis of patients with membranous nephropathy,YES,Membranous nephropathy,NO

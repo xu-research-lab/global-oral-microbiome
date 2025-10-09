@@ -57,7 +57,7 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$HOST,
-  Age = "18-85", 
+  Age = NA, 
   BMI = NA,  
   Sex = NA,
   Region = NA,

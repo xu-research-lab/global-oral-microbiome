@@ -140,7 +140,7 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$HOST,
-  Age = "18-85", 
+  Age = NA, 
   BMI = NA,  
   Sex = NA,
   Region = NA,
@@ -383,13 +383,13 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject         Run     sample_name   Age BMI Sex Region       Platform
-    ## 1 PRJNA649980 SRR12374343 patient seven 8 18-85  NA  NA     NA Illumina MiSeq
-    ## 2 PRJNA649980 SRR12374344 patient seven 7 18-85  NA  NA     NA Illumina MiSeq
-    ## 3 PRJNA649980 SRR12374345 patient seven 6 18-85  NA  NA     NA Illumina MiSeq
-    ## 4 PRJNA649980 SRR12374346 patient seven 5 18-85  NA  NA     NA Illumina MiSeq
-    ## 5 PRJNA649980 SRR12374347 patient seven 4 18-85  NA  NA     NA Illumina MiSeq
-    ## 6 PRJNA649980 SRR12374348 patient seven 3 18-85  NA  NA     NA Illumina MiSeq
+    ##    BioProject         Run     sample_name Age BMI Sex Region       Platform
+    ## 1 PRJNA649980 SRR12374343 patient seven 8  NA  NA  NA     NA Illumina MiSeq
+    ## 2 PRJNA649980 SRR12374344 patient seven 7  NA  NA  NA     NA Illumina MiSeq
+    ## 3 PRJNA649980 SRR12374345 patient seven 6  NA  NA  NA     NA Illumina MiSeq
+    ## 4 PRJNA649980 SRR12374346 patient seven 5  NA  NA  NA     NA Illumina MiSeq
+    ## 5 PRJNA649980 SRR12374347 patient seven 4  NA  NA  NA     NA Illumina MiSeq
+    ## 6 PRJNA649980 SRR12374348 patient seven 3  NA  NA  NA     NA Illumina MiSeq
     ##   Country                Site          public_time PCR_primers
     ## 1     USA peri-implant sulcus 2020-08-03T00:00:00Z   519F-802R
     ## 2     USA peri-implant sulcus 2020-08-03T00:00:00Z   519F-802R

@@ -114,7 +114,7 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$ID,
-  Age = "21-47",
+  Age = NA,
   BMI = NA, 
   Sex = "F",
   Region = "V3-V4",
@@ -285,13 +285,13 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject         Run sample_name   Age BMI Sex Region       Platform
-    ## 1 PRJNA745286 SRR15096588           5 21-47  NA   F  V3-V4 Illumina MiSeq
-    ## 2 PRJNA745286 SRR15096589           6 21-47  NA   F  V3-V4 Illumina MiSeq
-    ## 3 PRJNA745286 SRR15096635           7 21-47  NA   F  V3-V4 Illumina MiSeq
-    ## 4 PRJNA745286 SRR15096691           8 21-47  NA   F  V3-V4 Illumina MiSeq
-    ## 5 PRJNA745286 SRR15096699           9 21-47  NA   F  V3-V4 Illumina MiSeq
-    ## 6 PRJNA745286 SRR15096700          10 21-47  NA   F  V3-V4 Illumina MiSeq
+    ##    BioProject         Run sample_name Age BMI Sex Region       Platform
+    ## 1 PRJNA745286 SRR15096588           5  NA  NA   F  V3-V4 Illumina MiSeq
+    ## 2 PRJNA745286 SRR15096589           6  NA  NA   F  V3-V4 Illumina MiSeq
+    ## 3 PRJNA745286 SRR15096635           7  NA  NA   F  V3-V4 Illumina MiSeq
+    ## 4 PRJNA745286 SRR15096691           8  NA  NA   F  V3-V4 Illumina MiSeq
+    ## 5 PRJNA745286 SRR15096699           9  NA  NA   F  V3-V4 Illumina MiSeq
+    ## 6 PRJNA745286 SRR15096700          10  NA  NA   F  V3-V4 Illumina MiSeq
     ##     Country        Site          public_time
     ## 1 Indonesia tongue swab 2021-07-11T00:00:00Z
     ## 2 Indonesia tongue swab 2021-07-11T00:00:00Z

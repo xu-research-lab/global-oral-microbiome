@@ -297,52 +297,40 @@ manually extracted from the publication and added to the metadata.
 ``` r
 # Add information obtained from the publication
 metadata$PCR_primers <- "515F-806R"
-metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition"
+metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status<-"H"
 
-keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
-metadata <- subset(metadata, sample_name %in% keep_subjects)
+stopifnot("well_id..exp." %in% colnames(initial_meta))
 
-sample_counts <- table(metadata$sample_name)
+well_counts <- table(initial_meta$well_id..exp.)
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
+has_dup <- any(well_counts >= 2)
 
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
+metadata$matched_samples <- ifelse(has_dup, "YES", "NO")
+metadata <- metadata %>% 
+  filter(Site != "sterile water")
+output_df <- metadata %>% 
+  filter(matched_samples == "YES" | 
+        (matched_samples == "NO" & Site == "saliva"))
+
+cat("Total rows in output_df :", nrow(output_df), "\n")
 ```
 
-    ## Subjects retained: 84
+    ## Total rows in output_df : 248
 
 ``` r
-cat("Matched samples distribution:\n")
+cat("YES rows                :", sum(output_df$matched_samples == "YES"), "\n")
 ```
 
-    ## Matched samples distribution:
+    ## YES rows                : 248
 
 ``` r
-table(metadata$matched_samples)
+cat("NO rows                 :", sum(output_df$matched_samples == "NO"), "\n")
 ```
 
-    ## 
-    ## NO 
-    ## 84
-
-``` r
-cat("Sample distribution by Site:\n")
-```
-
-    ## Sample distribution by Site:
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## saliva 
-    ##     84
+    ## NO rows                 : 0
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -351,13 +339,13 @@ table(metadata$Site)
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 84"
+    ## [1] "Number of unique runs: 248"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 84"
+    ## [1] "Number of unique sample names: 248"
 
 # Step 5: Visualize the Metadata
 
@@ -378,38 +366,38 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##    BioProject        Run  sample_name Age BMI Sex Region       Platform Country
-    ## 39 PRJEB42056 ERR5002320 SAMEA7726864  NA  NA  NA     V4 Illumina MiSeq     USA
-    ## 41 PRJEB42056 ERR5002322 SAMEA7726866  NA  NA  NA     V4 Illumina MiSeq     USA
-    ## 43 PRJEB42056 ERR5002324 SAMEA7726868  NA  NA  NA     V4 Illumina MiSeq     USA
-    ## 47 PRJEB42056 ERR5002328 SAMEA7726872  NA  NA  NA     V4 Illumina MiSeq     USA
-    ## 51 PRJEB42056 ERR5002332 SAMEA7726876  NA  NA  NA     V4 Illumina MiSeq     USA
-    ## 54 PRJEB42056 ERR5002335 SAMEA7726879  NA  NA  NA     V4 Illumina MiSeq     USA
-    ##      Site          public_time PCR_primers
-    ## 39 saliva 2020-12-22T00:00:00Z   515F-806R
-    ## 41 saliva 2020-12-22T00:00:00Z   515F-806R
-    ## 43 saliva 2020-12-22T00:00:00Z   515F-806R
-    ## 47 saliva 2020-12-22T00:00:00Z   515F-806R
-    ## 51 saliva 2020-12-22T00:00:00Z   515F-806R
-    ## 54 saliva 2020-12-22T00:00:00Z   515F-806R
-    ##                                                                                              title
-    ## 39 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ## 41 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ## 43 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ## 47 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ## 51 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ## 54 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ##    Disease_study Status matched_samples
-    ## 39            NO      H              NO
-    ## 41            NO      H              NO
-    ## 43            NO      H              NO
-    ## 47            NO      H              NO
-    ## 51            NO      H              NO
-    ## 54            NO      H              NO
+    ##   BioProject        Run  sample_name Age BMI Sex Region       Platform Country
+    ## 1 PRJEB42056 ERR5002320 SAMEA7726864  NA  NA  NA     V4 Illumina MiSeq     USA
+    ## 2 PRJEB42056 ERR5002321 SAMEA7726865  NA  NA  NA     V4 Illumina MiSeq     USA
+    ## 3 PRJEB42056 ERR5002322 SAMEA7726866  NA  NA  NA     V4 Illumina MiSeq     USA
+    ## 4 PRJEB42056 ERR5002323 SAMEA7726867  NA  NA  NA     V4 Illumina MiSeq     USA
+    ## 5 PRJEB42056 ERR5002324 SAMEA7726868  NA  NA  NA     V4 Illumina MiSeq     USA
+    ## 6 PRJEB42056 ERR5002325 SAMEA7726869  NA  NA  NA     V4 Illumina MiSeq     USA
+    ##     Site          public_time PCR_primers
+    ## 1 saliva 2020-12-22T00:00:00Z   515F-806R
+    ## 2  feces 2020-12-22T00:00:00Z   515F-806R
+    ## 3 saliva 2020-12-22T00:00:00Z   515F-806R
+    ## 4  feces 2020-12-22T00:00:00Z   515F-806R
+    ## 5 saliva 2020-12-22T00:00:00Z   515F-806R
+    ## 6  feces 2020-12-22T00:00:00Z   515F-806R
+    ##                                                                                         title
+    ## 1 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ## 2 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ## 3 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ## 4 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ## 5 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ## 6 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ##   Disease_study Status matched_samples
+    ## 1            NO      H             YES
+    ## 2            NO      H             YES
+    ## 3            NO      H             YES
+    ## 4            NO      H             YES
+    ## 5            NO      H             YES
+    ## 6            NO      H             YES
 
 ## Notes for Students:
 

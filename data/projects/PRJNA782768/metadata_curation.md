@@ -154,7 +154,7 @@ metadata <- metadata %>%
   ))
 #get subjects id according to sample id
 metadata<-metadata%>%
-  mutate(Site=case_when(grepl("F",sample_name)~"Gut",grepl("T",sample_name)~"Tongue coating"))
+  mutate(Site=case_when(grepl("F",sample_name)~"Stool",grepl("T",sample_name)~"Tongue coating"))
 
 metadata$sample_name<-gsub("DT|DF|T|F","",metadata$sample_name)
 #get subjects id with Saliva available
@@ -199,40 +199,40 @@ metadata <- metadata[, c(
   "Region", "Platform", "Country", "Site", "public_time", 
   "PCR_primers", "title", "Disease_study", "Status"
 )]
-
+rownames(metadata)<-1:nrow(metadata)
 # Export the uniform metadata to a CSV file
 write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##     BioProject         Run sample_name Age BMI Sex Region       Platform
-    ## 11 PRJNA782768 SRR17012673         11a  NA  NA  NA  V3-V4 Illumina MiSeq
-    ## 12 PRJNA782768 SRR17012674         02a  NA  NA  NA  V3-V4 Illumina MiSeq
-    ## 13 PRJNA782768 SRR17012675         01a  NA  NA  NA  V3-V4 Illumina MiSeq
-    ## 14 PRJNA782768 SRR17012676         b20  NA  NA  NA  V3-V4 Illumina MiSeq
-    ## 15 PRJNA782768 SRR17012677         b19  NA  NA  NA  V3-V4 Illumina MiSeq
-    ## 16 PRJNA782768 SRR17012678         b18  NA  NA  NA  V3-V4 Illumina MiSeq
-    ##    Country           Site          public_time PCR_primers
-    ## 11   China Tongue coating 2022-03-19T00:00:00Z   338F-806R
-    ## 12   China Tongue coating 2022-03-19T00:00:00Z   338F-806R
-    ## 13   China Tongue coating 2022-03-19T00:00:00Z   338F-806R
-    ## 14   China Tongue coating 2022-03-19T00:00:00Z   338F-806R
-    ## 15   China Tongue coating 2022-03-19T00:00:00Z   338F-806R
-    ## 16   China Tongue coating 2022-03-19T00:00:00Z   338F-806R
-    ##                                                                                                                                        title
-    ## 11 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
-    ## 12 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
-    ## 13 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
-    ## 14 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
-    ## 15 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
-    ## 16 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
-    ##    Disease_study Status
-    ## 11           YES   <NA>
-    ## 12           YES   <NA>
-    ## 13           YES   <NA>
-    ## 14           YES     HC
-    ## 15           YES     HC
-    ## 16           YES     HC
+    ##    BioProject         Run sample_name Age BMI Sex Region       Platform Country
+    ## 1 PRJNA782768 SRR17012673         11a  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 2 PRJNA782768 SRR17012674         02a  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 3 PRJNA782768 SRR17012675         01a  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 4 PRJNA782768 SRR17012676         b20  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 5 PRJNA782768 SRR17012677         b19  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 6 PRJNA782768 SRR17012678         b18  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ##             Site          public_time PCR_primers
+    ## 1 Tongue coating 2022-03-19T00:00:00Z   338F-806R
+    ## 2 Tongue coating 2022-03-19T00:00:00Z   338F-806R
+    ## 3 Tongue coating 2022-03-19T00:00:00Z   338F-806R
+    ## 4 Tongue coating 2022-03-19T00:00:00Z   338F-806R
+    ## 5 Tongue coating 2022-03-19T00:00:00Z   338F-806R
+    ## 6 Tongue coating 2022-03-19T00:00:00Z   338F-806R
+    ##                                                                                                                                       title
+    ## 1 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
+    ## 2 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
+    ## 3 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
+    ## 4 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
+    ## 5 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
+    ## 6 Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus
+    ##   Disease_study Status
+    ## 1           YES   <NA>
+    ## 2           YES   <NA>
+    ## 3           YES   <NA>
+    ## 4           YES     HC
+    ## 5           YES     HC
+    ## 6           YES     HC
 
 ## Notes for Students:
 

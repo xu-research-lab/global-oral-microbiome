@@ -1,0 +1,329 @@
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
+1,PRJNA316469,SRR3991812,GYU0007,45.33,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+2,PRJNA316469,SRR3991813,GYU0007,45.33,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+3,PRJNA316469,SRR3991814,GYU0007,45.33,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+4,PRJNA316469,SRR3991815,GYU0007,45.33,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+5,PRJNA316469,SRR3991816,GYU0007,45.33,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+6,PRJNA316469,SRR3991817,GYU0007,45.33,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+7,PRJNA316469,SRR3991818,GYU0007,45.33,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+8,PRJNA316469,SRR3991819,GYU0007,45.33,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+9,PRJNA316469,SRR3991820,GYU0007,45.33,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+10,PRJNA316469,SRR3991821,GYU0007,45.33,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+11,PRJNA316469,SRR3991822,GYU0008,32.7,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+12,PRJNA316469,SRR3991823,GYU0008,32.7,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+13,PRJNA316469,SRR3991824,GYU0008,32.7,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+14,PRJNA316469,SRR3991825,GYU0008,32.7,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+15,PRJNA316469,SRR3991826,GYU0008,32.7,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+16,PRJNA316469,SRR3991827,GYU0008,32.7,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+17,PRJNA316469,SRR3991828,GYU0011,31.89,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+18,PRJNA316469,SRR3991829,GYU0011,31.89,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+19,PRJNA316469,SRR3991830,GYU0011,31.89,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+20,PRJNA316469,SRR3991831,GYU0011,31.89,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+21,PRJNA316469,SRR3991832,GYU0011,31.89,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+22,PRJNA316469,SRR3991833,GYU0011,31.89,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+23,PRJNA316469,SRR3991834,GYU0011,31.89,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+24,PRJNA316469,SRR3991835,GYU0011,31.89,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+25,PRJNA316469,SRR3991836,GYU0011,31.89,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+26,PRJNA316469,SRR3991837,GYU0014,34.78,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+27,PRJNA316469,SRR3991838,GYU0014,34.78,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+28,PRJNA316469,SRR3991839,GYU0014,34.78,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+29,PRJNA316469,SRR3991840,GYU0014,34.78,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+30,PRJNA316469,SRR3991841,GYU0014,34.78,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+31,PRJNA316469,SRR3991842,GYU0014,34.78,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+32,PRJNA316469,SRR3991843,GYU0014,34.78,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+33,PRJNA316469,SRR3991844,GYU0015,51.53,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+34,PRJNA316469,SRR3991845,GYU0015,51.53,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+35,PRJNA316469,SRR3991846,GYU0015,51.53,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+36,PRJNA316469,SRR3991847,GYU0015,51.53,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+37,PRJNA316469,SRR3991848,GYU0015,51.53,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+38,PRJNA316469,SRR3991849,GYU0015,51.53,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+39,PRJNA316469,SRR3991850,GYU0015,51.53,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+40,PRJNA316469,SRR3991851,GYU0015,51.53,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+41,PRJNA316469,SRR3991852,GYU0016,54.98,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+42,PRJNA316469,SRR3991853,GYU0016,54.98,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+43,PRJNA316469,SRR3991854,GYU0016,54.98,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+44,PRJNA316469,SRR3991855,GYU0016,54.98,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+45,PRJNA316469,SRR3991856,GYU0016,54.98,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+46,PRJNA316469,SRR3991857,GYU0016,54.98,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+47,PRJNA316469,SRR3991858,GYU0016,54.98,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+48,PRJNA316469,SRR3991859,GYU0016,54.98,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+49,PRJNA316469,SRR3991860,GYU0017,29.02,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+50,PRJNA316469,SRR3991861,GYU0017,29.02,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+51,PRJNA316469,SRR3991862,GYU0017,29.02,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+52,PRJNA316469,SRR3991863,GYU0017,29.02,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+53,PRJNA316469,SRR3991864,GYU0017,29.02,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+54,PRJNA316469,SRR3991865,GYU0017,29.02,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+55,PRJNA316469,SRR3991866,GYU0017,29.02,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+56,PRJNA316469,SRR3991867,GYU0017,29.02,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+57,PRJNA316469,SRR3991868,GYU0017,29.02,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+58,PRJNA316469,SRR3991869,GYU0018,43.41,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+59,PRJNA316469,SRR3991870,GYU0018,43.41,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+60,PRJNA316469,SRR3991871,GYU0018,43.41,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+61,PRJNA316469,SRR3991872,GYU0018,43.41,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+62,PRJNA316469,SRR3991873,GYU0018,43.41,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+63,PRJNA316469,SRR3991874,GYU0018,43.41,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+64,PRJNA316469,SRR3991875,GYU0018,43.41,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+65,PRJNA316469,SRR3991876,GYU0018,43.41,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+66,PRJNA316469,SRR3991877,GYU0020,28.89,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+67,PRJNA316469,SRR3991878,GYU0020,28.89,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+68,PRJNA316469,SRR3991879,GYU0020,28.89,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+69,PRJNA316469,SRR3991880,GYU0020,28.89,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+70,PRJNA316469,SRR3991881,GYU0020,28.89,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+71,PRJNA316469,SRR3991882,GYU0020,28.89,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+72,PRJNA316469,SRR3991883,GYU0020,28.89,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+73,PRJNA316469,SRR3991884,GYU0020,28.89,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+74,PRJNA316469,SRR3991885,GYU0022,32.32,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+75,PRJNA316469,SRR3991886,GYU0022,32.32,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+76,PRJNA316469,SRR3991887,GYU0022,32.32,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+77,PRJNA316469,SRR3991888,GYU0022,32.32,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+78,PRJNA316469,SRR3991889,GYU0022,32.32,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+79,PRJNA316469,SRR3991890,GYU0022,32.32,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+80,PRJNA316469,SRR3991891,GYU0023,23.67,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+81,PRJNA316469,SRR3991892,GYU0023,23.67,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+82,PRJNA316469,SRR3991893,GYU0023,23.67,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+83,PRJNA316469,SRR3991894,GYU0023,23.67,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+84,PRJNA316469,SRR3991895,GYU0023,23.67,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+85,PRJNA316469,SRR3991896,GYU0023,23.67,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+86,PRJNA316469,SRR3991897,GYU0023,23.67,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+87,PRJNA316469,SRR3991898,GYU0025,51.58,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+88,PRJNA316469,SRR3991899,GYU0025,51.58,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+89,PRJNA316469,SRR3991900,GYU0025,51.58,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+90,PRJNA316469,SRR3991901,GYU0025,51.58,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+91,PRJNA316469,SRR3991902,GYU0025,51.58,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+92,PRJNA316469,SRR3991903,GYU0025,51.58,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+93,PRJNA316469,SRR3991904,GYU0025,51.58,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+94,PRJNA316469,SRR3991905,GYU0029,60.88,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+95,PRJNA316469,SRR3991906,GYU0029,60.88,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+96,PRJNA316469,SRR3991907,GYU0029,60.88,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+97,PRJNA316469,SRR3991908,GYU0029,60.88,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+98,PRJNA316469,SRR3991909,GYU0029,60.88,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+99,PRJNA316469,SRR3991910,GYU0029,60.88,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+100,PRJNA316469,SRR3991911,GYU0029,60.88,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+101,PRJNA316469,SRR3991912,GYU0030,40.89,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+102,PRJNA316469,SRR3991913,GYU0030,40.89,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+103,PRJNA316469,SRR3991914,GYU0030,40.89,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+104,PRJNA316469,SRR3991915,GYU0030,40.89,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+105,PRJNA316469,SRR3991916,GYU0030,40.89,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+106,PRJNA316469,SRR3991917,GYU0030,40.89,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+107,PRJNA316469,SRR3991918,GYU0031,26.33,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+108,PRJNA316469,SRR3991919,GYU0031,26.33,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+109,PRJNA316469,SRR3991920,GYU0031,26.33,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+110,PRJNA316469,SRR3991921,GYU0031,26.33,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+111,PRJNA316469,SRR3991922,GYU0031,26.33,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+112,PRJNA316469,SRR3991923,GYU0031,26.33,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+113,PRJNA316469,SRR3991924,GYU0032,53.04,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+114,PRJNA316469,SRR3991925,GYU0032,53.04,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+115,PRJNA316469,SRR3991926,GYU0032,53.04,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+116,PRJNA316469,SRR3991927,GYU0032,53.04,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+117,PRJNA316469,SRR3991928,GYU0032,53.04,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+118,PRJNA316469,SRR3991929,GYU0032,53.04,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+119,PRJNA316469,SRR3991930,GYU0032,53.04,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+120,PRJNA316469,SRR3991931,GYU0033,49.31,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+121,PRJNA316469,SRR3991932,GYU0033,49.31,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+122,PRJNA316469,SRR3991933,GYU0033,49.31,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+123,PRJNA316469,SRR3991934,GYU0033,49.31,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+124,PRJNA316469,SRR3991935,GYU0033,49.31,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+125,PRJNA316469,SRR3991936,GYU0034,32.67,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+126,PRJNA316469,SRR3991937,GYU0034,32.67,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+127,PRJNA316469,SRR3991938,GYU0034,32.67,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+128,PRJNA316469,SRR3991939,GYU0034,32.67,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+129,PRJNA316469,SRR3991940,GYU0034,32.67,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+130,PRJNA316469,SRR3991941,GYU0034,32.67,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+131,PRJNA316469,SRR3991942,GYU0034,32.67,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+132,PRJNA316469,SRR3991943,GYU0035,34.18,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+133,PRJNA316469,SRR3991944,GYU0035,34.18,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+134,PRJNA316469,SRR3991945,GYU0035,34.18,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+135,PRJNA316469,SRR3991946,GYU0035,34.18,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+136,PRJNA316469,SRR3991947,GYU0035,34.18,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+137,PRJNA316469,SRR3991948,GYU0035,34.18,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+138,PRJNA316469,SRR3991949,GYU0036,38.44,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+139,PRJNA316469,SRR3991950,GYU0036,38.44,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+140,PRJNA316469,SRR3991951,GYU0036,38.44,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+141,PRJNA316469,SRR3991952,GYU0036,38.44,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+142,PRJNA316469,SRR3991953,GYU0036,38.44,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+143,PRJNA316469,SRR3991954,GYU0036,38.44,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+144,PRJNA316469,SRR3991955,GYU0036,38.44,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+145,PRJNA316469,SRR3991956,GYU0037,65.99,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+146,PRJNA316469,SRR3991957,GYU0037,65.99,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+147,PRJNA316469,SRR3991958,GYU0037,65.99,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+148,PRJNA316469,SRR3991959,GYU0037,65.99,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+149,PRJNA316469,SRR3991960,GYU0037,65.99,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+150,PRJNA316469,SRR3991961,GYU0037,65.99,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+151,PRJNA316469,SRR3991962,GYU0037,65.99,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+152,PRJNA316469,SRR3991963,GYU0038,48.55,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+153,PRJNA316469,SRR3991964,GYU0038,48.55,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+154,PRJNA316469,SRR3991965,GYU0038,48.55,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+155,PRJNA316469,SRR3991966,GYU0038,48.55,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+156,PRJNA316469,SRR3991967,GYU0038,48.55,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+157,PRJNA316469,SRR3991968,GYU0038,48.55,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+158,PRJNA316469,SRR3991969,GYU0038,48.55,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+159,PRJNA316469,SRR3991970,GYU0038,48.55,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+160,PRJNA316469,SRR3991971,GYU0038,48.55,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+161,PRJNA316469,SRR3991972,GYU0039,58.29,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+162,PRJNA316469,SRR3991973,GYU0039,58.29,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+163,PRJNA316469,SRR3991974,GYU0039,58.29,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+164,PRJNA316469,SRR3991975,GYU0039,58.29,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+165,PRJNA316469,SRR3991976,GYU0039,58.29,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+166,PRJNA316469,SRR3991977,GYU0039,58.29,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+167,PRJNA316469,SRR3991978,GYU0040,23.82,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+168,PRJNA316469,SRR3991979,GYU0040,23.82,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+169,PRJNA316469,SRR3991980,GYU0040,23.82,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+170,PRJNA316469,SRR3991981,GYU0040,23.82,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+171,PRJNA316469,SRR3991982,GYU0040,23.82,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+172,PRJNA316469,SRR3991983,GYU0040,23.82,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+173,PRJNA316469,SRR3991984,GYU0040,23.82,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+174,PRJNA316469,SRR3991985,GYU0040,23.82,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+175,PRJNA316469,SRR3991986,GYU0041,32.94,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+176,PRJNA316469,SRR3991987,GYU0041,32.94,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+177,PRJNA316469,SRR3991988,GYU0041,32.94,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+178,PRJNA316469,SRR3991989,GYU0041,32.94,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+179,PRJNA316469,SRR3991990,GYU0041,32.94,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+180,PRJNA316469,SRR3991991,GYU0041,32.94,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+181,PRJNA316469,SRR3991992,GYU0041,32.94,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+182,PRJNA316469,SRR3991993,GYU0042,24.43,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+183,PRJNA316469,SRR3991994,GYU0042,24.43,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+184,PRJNA316469,SRR3991995,GYU0042,24.43,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+185,PRJNA316469,SRR3991996,GYU0042,24.43,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+186,PRJNA316469,SRR3991997,GYU0042,24.43,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+187,PRJNA316469,SRR3991998,GYU0042,24.43,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+188,PRJNA316469,SRR3991999,GYU0042,24.43,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+189,PRJNA316469,SRR3992000,GYU0043,25.95,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+190,PRJNA316469,SRR3992001,GYU0043,25.95,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+191,PRJNA316469,SRR3992002,GYU0043,25.95,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+192,PRJNA316469,SRR3992003,GYU0043,25.95,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+193,PRJNA316469,SRR3992004,GYU0043,25.95,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+194,PRJNA316469,SRR3992005,GYU0045,51.49,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+195,PRJNA316469,SRR3992006,GYU0045,51.49,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+196,PRJNA316469,SRR3992007,GYU0045,51.49,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+197,PRJNA316469,SRR3992008,GYU0045,51.49,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+198,PRJNA316469,SRR3992009,GYU0045,51.49,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+199,PRJNA316469,SRR3992010,GYU0045,51.49,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+200,PRJNA316469,SRR3992011,GYU0045,51.49,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+201,PRJNA316469,SRR3992012,GYU0045,51.49,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+202,PRJNA316469,SRR3992013,GYU0046,23.32,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+203,PRJNA316469,SRR3992014,GYU0046,23.32,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+204,PRJNA316469,SRR3992015,GYU0046,23.32,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+205,PRJNA316469,SRR3992016,GYU0046,23.32,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+206,PRJNA316469,SRR3992017,GYU0046,23.32,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+207,PRJNA316469,SRR3992018,GYU0046,23.32,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+208,PRJNA316469,SRR3992019,GYU0047,50.08,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+209,PRJNA316469,SRR3992020,GYU0047,50.08,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+210,PRJNA316469,SRR3992021,GYU0047,50.08,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+211,PRJNA316469,SRR3992022,GYU0047,50.08,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+212,PRJNA316469,SRR3992023,GYU0047,50.08,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+213,PRJNA316469,SRR3992024,GYU0047,50.08,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+214,PRJNA316469,SRR3992025,GYU0047,50.08,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+215,PRJNA316469,SRR3992026,GYU0047,50.08,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+216,PRJNA316469,SRR3992027,GYU0047,50.08,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+217,PRJNA316469,SRR3992028,GYU0047,50.08,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+218,PRJNA316469,SRR3992029,GYU0049,23.7,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+219,PRJNA316469,SRR3992030,GYU0049,23.7,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+220,PRJNA316469,SRR3992031,GYU0049,23.7,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+221,PRJNA316469,SRR3992032,GYU0049,23.7,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+222,PRJNA316469,SRR3992033,GYU0049,23.7,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+223,PRJNA316469,SRR3992034,GYU0049,23.7,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+224,PRJNA316469,SRR3992035,GYU0050,45.79,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+225,PRJNA316469,SRR3992036,GYU0050,45.79,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+226,PRJNA316469,SRR3992037,GYU0050,45.79,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+227,PRJNA316469,SRR3992038,GYU0050,45.79,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+228,PRJNA316469,SRR3992039,GYU0050,45.79,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+229,PRJNA316469,SRR3992040,GYU0050,45.79,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+230,PRJNA316469,SRR3992041,GYU0050,45.79,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+231,PRJNA316469,SRR3992042,GYU0050,45.79,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+232,PRJNA316469,SRR3992043,GYU0052,43.48,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+233,PRJNA316469,SRR3992044,GYU0052,43.48,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+234,PRJNA316469,SRR3992045,GYU0052,43.48,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+235,PRJNA316469,SRR3992046,GYU0052,43.48,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+236,PRJNA316469,SRR3992047,GYU0052,43.48,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+237,PRJNA316469,SRR3992048,GYU0052,43.48,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+238,PRJNA316469,SRR3992049,GYU0052,43.48,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+239,PRJNA316469,SRR3992050,GYU0052,43.48,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+240,PRJNA316469,SRR3992051,GYU0052,43.48,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+241,PRJNA316469,SRR3992052,GYU0052,43.48,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+242,PRJNA316469,SRR3992053,GYU0054,33.43,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+243,PRJNA316469,SRR3992054,GYU0054,33.43,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+244,PRJNA316469,SRR3992055,GYU0054,33.43,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+245,PRJNA316469,SRR3992056,GYU0054,33.43,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+246,PRJNA316469,SRR3992057,GYU0054,33.43,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+247,PRJNA316469,SRR3992058,GYU0054,33.43,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+248,PRJNA316469,SRR3992059,GYU0054,33.43,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+249,PRJNA316469,SRR3992060,GYU0054,33.43,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+250,PRJNA316469,SRR3992061,GYU0054,33.43,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+251,PRJNA316469,SRR3992062,GYU0054,33.43,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+252,PRJNA316469,SRR3992063,GYU0055,46.32,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+253,PRJNA316469,SRR3992064,GYU0055,46.32,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+254,PRJNA316469,SRR3992065,GYU0055,46.32,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+255,PRJNA316469,SRR3992066,GYU0055,46.32,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+256,PRJNA316469,SRR3992067,GYU0055,46.32,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+257,PRJNA316469,SRR3992068,GYU0055,46.32,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+258,PRJNA316469,SRR3992069,GYU0055,46.32,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+259,PRJNA316469,SRR3992070,GYU0055,46.32,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+260,PRJNA316469,SRR3992071,GYU0055,46.32,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+261,PRJNA316469,SRR3992072,GYU0055,46.32,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+262,PRJNA316469,SRR3992073,GYU0057,25.05,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+263,PRJNA316469,SRR3992074,GYU0057,25.05,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+264,PRJNA316469,SRR3992075,GYU0057,25.05,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+265,PRJNA316469,SRR3992076,GYU0057,25.05,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+266,PRJNA316469,SRR3992077,GYU0057,25.05,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+267,PRJNA316469,SRR3992078,GYU0057,25.05,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+268,PRJNA316469,SRR3992079,GYU0058,46.03,NA,female,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+269,PRJNA316469,SRR3992080,GYU0058,46.03,NA,female,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+270,PRJNA316469,SRR3992081,GYU0058,46.03,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+271,PRJNA316469,SRR3992082,GYU0058,46.03,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+272,PRJNA316469,SRR3992083,GYU0058,46.03,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+273,PRJNA316469,SRR3992084,GYU0058,46.03,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+274,PRJNA316469,SRR3992085,GYU0058,46.03,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+275,PRJNA316469,SRR3992086,GYU0058,46.03,NA,female,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+276,PRJNA316469,SRR3992087,GYU0058,46.03,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+277,PRJNA316469,SRR3992088,GYU0058,46.03,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+278,PRJNA316469,SRR3992089,GYU0059,44.93,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+279,PRJNA316469,SRR3992090,GYU0059,44.93,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+280,PRJNA316469,SRR3992091,GYU0059,44.93,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+281,PRJNA316469,SRR3992092,GYU0059,44.93,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+282,PRJNA316469,SRR3992093,GYU0059,44.93,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+283,PRJNA316469,SRR3992094,GYU0059,44.93,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+284,PRJNA316469,SRR3992095,GYU0060,22.21,NA,female,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+285,PRJNA316469,SRR3992096,GYU0060,22.21,NA,female,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+286,PRJNA316469,SRR3992097,GYU0060,22.21,NA,female,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+287,PRJNA316469,SRR3992098,GYU0060,22.21,NA,female,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+288,PRJNA316469,SRR3992099,GYU0060,22.21,NA,female,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+289,PRJNA316469,SRR3992100,GYU0060,22.21,NA,female,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+290,PRJNA316469,SRR3992101,GYU0061,36.45,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+291,PRJNA316469,SRR3992102,GYU0061,36.45,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+292,PRJNA316469,SRR3992103,GYU0061,36.45,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+293,PRJNA316469,SRR3992104,GYU0061,36.45,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+294,PRJNA316469,SRR3992105,GYU0061,36.45,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+295,PRJNA316469,SRR3992106,GYU0061,36.45,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+296,PRJNA316469,SRR3992107,GYU0061,36.45,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+297,PRJNA316469,SRR3992108,GYU0061,36.45,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+298,PRJNA316469,SRR3992109,GYU0061,36.45,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+299,PRJNA316469,SRR3992110,GYU0061,36.45,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+300,PRJNA316469,SRR3992111,GYU0064,45.26,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+301,PRJNA316469,SRR3992112,GYU0064,45.26,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+302,PRJNA316469,SRR3992113,GYU0064,45.26,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+303,PRJNA316469,SRR3992114,GYU0064,45.26,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+304,PRJNA316469,SRR3992115,GYU0064,45.26,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+305,PRJNA316469,SRR3992116,GYU0064,45.26,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+306,PRJNA316469,SRR3992117,GYU0064,45.26,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+307,PRJNA316469,SRR3992118,GYU0064,45.26,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+308,PRJNA316469,SRR3992119,GYU0064,45.26,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+309,PRJNA316469,SRR3992120,GYU0064,45.26,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+310,PRJNA316469,SRR3992121,GYU0066,48.71,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+311,PRJNA316469,SRR3992122,GYU0066,48.71,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+312,PRJNA316469,SRR3992123,GYU0066,48.71,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+313,PRJNA316469,SRR3992124,GYU0066,48.71,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+314,PRJNA316469,SRR3992125,GYU0066,48.71,NA,male,V3-V4,Illumina MiSeq,USA,Keratinized gingiva swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+315,PRJNA316469,SRR3992126,GYU0066,48.71,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+316,PRJNA316469,SRR3992127,GYU0066,48.71,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+317,PRJNA316469,SRR3992128,GYU0066,48.71,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+318,PRJNA316469,SRR3992129,GYU0066,48.71,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+319,PRJNA316469,SRR3992130,GYU0066,48.71,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+320,PRJNA316469,SRR3992131,GYU0067,52.86,NA,male,V3-V4,Illumina MiSeq,USA,saliva,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+321,PRJNA316469,SRR3992132,GYU0067,52.86,NA,male,V3-V4,Illumina MiSeq,USA,tongue dorsum swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+322,PRJNA316469,SRR3992133,GYU0067,52.86,NA,male,V3-V4,Illumina MiSeq,USA,hard palate swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+323,PRJNA316469,SRR3992134,GYU0067,52.86,NA,male,V3-V4,Illumina MiSeq,USA,buccal mucosa swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+324,PRJNA316469,SRR3992135,GYU0067,52.86,NA,male,V3-V4,Illumina MiSeq,USA,Palatine tonsils swab,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+325,PRJNA316469,SRR3992136,GYU0067,52.86,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+326,PRJNA316469,SRR3992137,GYU0067,52.86,NA,male,V3-V4,Illumina MiSeq,USA,Supragingival plaque scrape,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+327,PRJNA316469,SRR3992138,GYU0067,52.86,NA,male,V3-V4,Illumina MiSeq,USA,Human anteior nares swab from both sides,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES
+328,PRJNA316469,SRR3992139,GYU0067,52.86,NA,male,V3-V4,Illumina MiSeq,USA,oral wash,2016-08-01T00:00:00Z,NA,The effect of cigarette smoking on the oral and nasal microbiota,NO,H,YES

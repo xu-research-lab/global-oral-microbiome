@@ -22,34 +22,41 @@ project.
     ## 4 SRR5559353   AMPLICON        239 41486674 PRJNA386665 SAMN07123904 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 24388147
     ## 5 SRR5559354   AMPLICON        240 24754734 PRJNA386665 SAMN07123903 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 14674278
     ## 6 SRR5559355   AMPLICON        241 37150589 PRJNA386665 SAMN07123902 MIMS.me,MIGS/MIMS/MIMARKS.human-oral 21175392
-    ##                      Center.Name Collection_Date Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region
-    ## 1 NATIONAL CHIAO TUNG UNIVERSITY      2014-05-29  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 2 NATIONAL CHIAO TUNG UNIVERSITY      2014-05-29  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 3 NATIONAL CHIAO TUNG UNIVERSITY      2014-05-29  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 4 NATIONAL CHIAO TUNG UNIVERSITY      2014-06-24  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 5 NATIONAL CHIAO TUNG UNIVERSITY      2014-06-17  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 6 NATIONAL CHIAO TUNG UNIVERSITY      2014-06-10  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ##   env_biome env_feature env_material Experiment geo_loc_name_country geo_loc_name_country_continent geo_loc_name Host_Age
-    ## 1     mouth  human oral       saliva SRX2822798               Taiwan                           Asia       Taiwan       50
-    ## 2     mouth  human oral       saliva SRX2822797               Taiwan                           Asia       Taiwan       38
-    ## 3     mouth  human oral       saliva SRX2822796               Taiwan                           Asia       Taiwan       45
-    ## 4     mouth  human oral       saliva SRX2822795               Taiwan                           Asia       Taiwan       67
-    ## 5     mouth  human oral       saliva SRX2822794               Taiwan                           Asia       Taiwan       41
-    ## 6     mouth  human oral       saliva SRX2822793               Taiwan                           Asia       Taiwan       52
-    ##                Host_disease         HOST host_sex     Instrument          lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource
-    ## 1 Oral Neoplasm (Precancer) Homo sapiens     male Illumina MiSeq 24.12 N 120.65 E  Saliva_P021        PAIRED              PCR   METAGENOMIC
-    ## 2 Oral Neoplasm (Precancer) Homo sapiens     male Illumina MiSeq 24.12 N 120.65 E  Saliva_P020        PAIRED              PCR   METAGENOMIC
-    ## 3 Oral Neoplasm (Precancer) Homo sapiens     male Illumina MiSeq 24.12 N 120.65 E  Saliva_P019        PAIRED              PCR   METAGENOMIC
-    ## 4 Oral Neoplasm (Precancer) Homo sapiens     male Illumina MiSeq 24.12 N 120.65 E  Saliva_P028        PAIRED              PCR   METAGENOMIC
-    ## 5 Oral Neoplasm (Precancer) Homo sapiens     male Illumina MiSeq 24.12 N 120.65 E  Saliva_P027        PAIRED              PCR   METAGENOMIC
-    ## 6 Oral Neoplasm (Precancer) Homo sapiens     male Illumina MiSeq 24.12 N 120.65 E  Saliva_P025        PAIRED              PCR   METAGENOMIC
-    ##                Organism Platform          ReleaseDate samp_store_temp Sample.Name SRA.Study          create_date version
-    ## 1 human oral metagenome ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P021 SRP107079 2017-05-16T16:45:00Z       1
-    ## 2 human oral metagenome ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P020 SRP107079 2017-05-16T16:45:00Z       1
-    ## 3 human oral metagenome ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P019 SRP107079 2017-05-16T16:45:00Z       1
-    ## 4 human oral metagenome ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P028 SRP107079 2017-05-16T16:46:00Z       1
-    ## 5 human oral metagenome ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P027 SRP107079 2017-05-16T16:45:00Z       1
-    ## 6 human oral metagenome ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P025 SRP107079 2017-05-16T16:45:00Z       1
+    ##                      Center.Name Collection_Date Consent DATASTORE.filetype DATASTORE.provider
+    ## 1 NATIONAL CHIAO TUNG UNIVERSITY      2014-05-29  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 2 NATIONAL CHIAO TUNG UNIVERSITY      2014-05-29  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 3 NATIONAL CHIAO TUNG UNIVERSITY      2014-05-29  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 4 NATIONAL CHIAO TUNG UNIVERSITY      2014-06-24  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 5 NATIONAL CHIAO TUNG UNIVERSITY      2014-06-17  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 6 NATIONAL CHIAO TUNG UNIVERSITY      2014-06-10  public   fastq,run.zq,sra         gs,ncbi,s3
+    ##                       DATASTORE.region env_biome env_feature env_material Experiment geo_loc_name_country
+    ## 1 gs.us-east1,ncbi.public,s3.us-east-1     mouth  human oral       saliva SRX2822798               Taiwan
+    ## 2 gs.us-east1,ncbi.public,s3.us-east-1     mouth  human oral       saliva SRX2822797               Taiwan
+    ## 3 gs.us-east1,ncbi.public,s3.us-east-1     mouth  human oral       saliva SRX2822796               Taiwan
+    ## 4 gs.us-east1,ncbi.public,s3.us-east-1     mouth  human oral       saliva SRX2822795               Taiwan
+    ## 5 gs.us-east1,ncbi.public,s3.us-east-1     mouth  human oral       saliva SRX2822794               Taiwan
+    ## 6 gs.us-east1,ncbi.public,s3.us-east-1     mouth  human oral       saliva SRX2822793               Taiwan
+    ##   geo_loc_name_country_continent geo_loc_name Host_Age              Host_disease         HOST host_sex
+    ## 1                           Asia       Taiwan       50 Oral Neoplasm (Precancer) Homo sapiens     male
+    ## 2                           Asia       Taiwan       38 Oral Neoplasm (Precancer) Homo sapiens     male
+    ## 3                           Asia       Taiwan       45 Oral Neoplasm (Precancer) Homo sapiens     male
+    ## 4                           Asia       Taiwan       67 Oral Neoplasm (Precancer) Homo sapiens     male
+    ## 5                           Asia       Taiwan       41 Oral Neoplasm (Precancer) Homo sapiens     male
+    ## 6                           Asia       Taiwan       52 Oral Neoplasm (Precancer) Homo sapiens     male
+    ##       Instrument          lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource              Organism
+    ## 1 Illumina MiSeq 24.12 N 120.65 E  Saliva_P021        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ## 2 Illumina MiSeq 24.12 N 120.65 E  Saliva_P020        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ## 3 Illumina MiSeq 24.12 N 120.65 E  Saliva_P019        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ## 4 Illumina MiSeq 24.12 N 120.65 E  Saliva_P028        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ## 5 Illumina MiSeq 24.12 N 120.65 E  Saliva_P027        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ## 6 Illumina MiSeq 24.12 N 120.65 E  Saliva_P025        PAIRED              PCR   METAGENOMIC human oral metagenome
+    ##   Platform          ReleaseDate samp_store_temp Sample.Name SRA.Study          create_date version
+    ## 1 ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P021 SRP107079 2017-05-16T16:45:00Z       1
+    ## 2 ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P020 SRP107079 2017-05-16T16:45:00Z       1
+    ## 3 ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P019 SRP107079 2017-05-16T16:45:00Z       1
+    ## 4 ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P028 SRP107079 2017-05-16T16:46:00Z       1
+    ## 5 ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P027 SRP107079 2017-05-16T16:45:00Z       1
+    ## 6 ILLUMINA 2017-05-16T00:00:00Z            -80C Saliva_P025 SRP107079 2017-05-16T16:45:00Z       1
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -100,7 +107,12 @@ The uniform metadata should include the following columns:
 Some information (e.g. PCR primers, study title, disease status) must be
 manually extracted from the publication and added to the metadata.
 
-     metadata <- metadata %>%
+    metadata <- metadata %>%mutate(Status = case_when(
+      Status == "Oral Neoplasm (Healthy Control)" ~ "HC",
+      Status == "Oral Neoplasm (OSCC)" ~ "OSCC",
+      TRUE ~ "Precancer"
+    ))
+    metadata <- metadata %>%
       mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
     metadata <-metadata%>%
       mutate(Country = case_when(Country == "Taiwan" ~ "China"))
@@ -111,20 +123,27 @@ manually extracted from the publication and added to the metadata.
 
     head(metadata)
 
-    ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site          public_time matched_samples
-    ## 1 PRJNA386665 SRR5559350 Saliva_P021  50  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z              NO
-    ## 2 PRJNA386665 SRR5559351 Saliva_P020  38  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z              NO
-    ## 3 PRJNA386665 SRR5559352 Saliva_P019  45  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z              NO
-    ## 4 PRJNA386665 SRR5559353 Saliva_P028  67  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z              NO
-    ## 5 PRJNA386665 SRR5559354 Saliva_P027  41  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z              NO
-    ## 6 PRJNA386665 SRR5559355 Saliva_P025  52  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z              NO
-    ##                      Status                                                                             title Disease_study PCR_primers
-    ## 1 Oral Neoplasm (Precancer) Bacterial alterations in salivary microbiota and their association in oral cancer           YES   515F-806R
-    ## 2 Oral Neoplasm (Precancer) Bacterial alterations in salivary microbiota and their association in oral cancer           YES   515F-806R
-    ## 3 Oral Neoplasm (Precancer) Bacterial alterations in salivary microbiota and their association in oral cancer           YES   515F-806R
-    ## 4 Oral Neoplasm (Precancer) Bacterial alterations in salivary microbiota and their association in oral cancer           YES   515F-806R
-    ## 5 Oral Neoplasm (Precancer) Bacterial alterations in salivary microbiota and their association in oral cancer           YES   515F-806R
-    ## 6 Oral Neoplasm (Precancer) Bacterial alterations in salivary microbiota and their association in oral cancer           YES   515F-806R
+    ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site          public_time
+    ## 1 PRJNA386665 SRR5559350 Saliva_P021  50  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z
+    ## 2 PRJNA386665 SRR5559351 Saliva_P020  38  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z
+    ## 3 PRJNA386665 SRR5559352 Saliva_P019  45  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z
+    ## 4 PRJNA386665 SRR5559353 Saliva_P028  67  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z
+    ## 5 PRJNA386665 SRR5559354 Saliva_P027  41  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z
+    ## 6 PRJNA386665 SRR5559355 Saliva_P025  52  NA   M     V4 Illumina MiSeq   China saliva 2017-05-16T00:00:00Z
+    ##   matched_samples    Status                                                                             title
+    ## 1              NO Precancer Bacterial alterations in salivary microbiota and their association in oral cancer
+    ## 2              NO Precancer Bacterial alterations in salivary microbiota and their association in oral cancer
+    ## 3              NO Precancer Bacterial alterations in salivary microbiota and their association in oral cancer
+    ## 4              NO Precancer Bacterial alterations in salivary microbiota and their association in oral cancer
+    ## 5              NO Precancer Bacterial alterations in salivary microbiota and their association in oral cancer
+    ## 6              NO Precancer Bacterial alterations in salivary microbiota and their association in oral cancer
+    ##   Disease_study PCR_primers
+    ## 1           YES   515F-806R
+    ## 2           YES   515F-806R
+    ## 3           YES   515F-806R
+    ## 4           YES   515F-806R
+    ## 5           YES   515F-806R
+    ## 6           YES   515F-806R
 
 # Step 4: Summarize and Validate the Metadata
 

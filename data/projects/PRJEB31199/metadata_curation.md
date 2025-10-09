@@ -260,47 +260,41 @@ metadata <- metadata %>%
     initial_meta$medical_conditions == "Negative Chagas" ~ "H",
     initial_meta$medical_conditions == "Chronic Chagas" ~ "Chagas"
   ))
-keep_subjects <- unique(subset(metadata, Site == "mucus")$sample_name)
-metadata <- subset(metadata, sample_name %in% keep_subjects)
 
-sample_counts <- table(metadata$sample_name)
+fields <- c("Age", "BMI", "Sex")
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
+stopifnot(all(fields %in% colnames(metadata)))
 
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
+
+has_duplicate <- metadata %>% 
+  select(all_of(fields)) %>% 
+  na.omit() %>%                
+  duplicated() %>%             
+  any()                        
+
+metadata <- metadata %>% 
+  mutate(matched_samples = if (has_duplicate) "YES" else "NO")
+
+output_df <- metadata %>% 
+  filter(matched_samples == "YES" | 
+        (matched_samples == "NO" & Site == "mucus"))
+
+cat("Total rows in output_df :", nrow(output_df), "\n")
 ```
 
-    ## Subjects retained: 85
+    ## Total rows in output_df : 255
 
 ``` r
-cat("Matched samples distribution:\n")
+cat("YES rows                :", sum(output_df$matched_samples == "YES"), "\n")
 ```
 
-    ## Matched samples distribution:
+    ## YES rows                : 255
 
 ``` r
-table(metadata$matched_samples)
+cat("NO & mucus rows         :", sum(output_df$matched_samples == "NO"), "\n")
 ```
 
-    ## 
-    ## NO 
-    ## 85
-
-``` r
-cat("Sample distribution by Site:\n")
-```
-
-    ## Sample distribution by Site:
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## mucus 
-    ##    85
+    ## NO & mucus rows         : 0
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -309,13 +303,13 @@ table(metadata$Site)
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 85"
+    ## [1] "Number of unique runs: 255"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 85"
+    ## [1] "Number of unique sample names: 255"
 
 # Step 5: Visualize the Metadata
 
@@ -336,38 +330,38 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##    BioProject        Run  sample_name Age   BMI    Sex Region       Platform
-    ## 1  PRJEB31199 ERR3149990 SAMEA5332107  10 27.00 female     V4 Illumina MiSeq
-    ## 4  PRJEB31199 ERR3149993 SAMEA5332110   8 17.13   male     V4 Illumina MiSeq
-    ## 7  PRJEB31199 ERR3149996 SAMEA5332113   6 15.27   male     V4 Illumina MiSeq
-    ## 10 PRJEB31199 ERR3149999 SAMEA5332116   7 15.50   male     V4 Illumina MiSeq
-    ## 13 PRJEB31199 ERR3150002 SAMEA5332119  12 16.40   male     V4 Illumina MiSeq
-    ## 16 PRJEB31199 ERR3150005 SAMEA5332122  10 16.74   male     V4 Illumina MiSeq
-    ##    Country  Site          public_time PCR_primers
-    ## 1  Bolivia mucus 2019-02-13T00:00:00Z   515F-806R
-    ## 4  Bolivia mucus 2019-02-13T00:00:00Z   515F-806R
-    ## 7  Bolivia mucus 2019-02-13T00:00:00Z   515F-806R
-    ## 10 Bolivia mucus 2019-02-13T00:00:00Z   515F-806R
-    ## 13 Bolivia mucus 2019-02-13T00:00:00Z   515F-806R
-    ## 16 Bolivia mucus 2019-02-13T00:00:00Z   515F-806R
-    ##                                                                                           title
-    ## 1  The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
-    ## 4  The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
-    ## 7  The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
-    ## 10 The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
-    ## 13 The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
-    ## 16 The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
-    ##    Disease_study Status matched_samples
-    ## 1            YES      H              NO
-    ## 4            YES      H              NO
-    ## 7            YES      H              NO
-    ## 10           YES Chagas              NO
-    ## 13           YES Chagas              NO
-    ## 16           YES Chagas              NO
+    ##   BioProject        Run  sample_name Age   BMI    Sex Region       Platform
+    ## 1 PRJEB31199 ERR3149990 SAMEA5332107  10 27.00 female     V4 Illumina MiSeq
+    ## 2 PRJEB31199 ERR3149991 SAMEA5332108  10 26.50 female     V4 Illumina MiSeq
+    ## 3 PRJEB31199 ERR3149992 SAMEA5332109  10 26.50 female     V4 Illumina MiSeq
+    ## 4 PRJEB31199 ERR3149993 SAMEA5332110   8 17.13   male     V4 Illumina MiSeq
+    ## 5 PRJEB31199 ERR3149994 SAMEA5332111   8 17.13   male     V4 Illumina MiSeq
+    ## 6 PRJEB31199 ERR3149995 SAMEA5332112   8 17.13   male     V4 Illumina MiSeq
+    ##   Country  Site          public_time PCR_primers
+    ## 1 Bolivia mucus 2019-02-13T00:00:00Z   515F-806R
+    ## 2 Bolivia sebum 2019-02-13T00:00:00Z   515F-806R
+    ## 3 Bolivia feces 2019-02-13T00:00:00Z   515F-806R
+    ## 4 Bolivia mucus 2019-02-13T00:00:00Z   515F-806R
+    ## 5 Bolivia sebum 2019-02-13T00:00:00Z   515F-806R
+    ## 6 Bolivia feces 2019-02-13T00:00:00Z   515F-806R
+    ##                                                                                          title
+    ## 1 The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
+    ## 2 The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
+    ## 3 The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
+    ## 4 The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
+    ## 5 The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
+    ## 6 The fecal oral and skin microbiota of children with Chagas disease treated with benznidazole
+    ##   Disease_study Status matched_samples
+    ## 1           YES      H             YES
+    ## 2           YES      H             YES
+    ## 3           YES      H             YES
+    ## 4           YES      H             YES
+    ## 5           YES      H             YES
+    ## 6           YES      H             YES
 
 ## Notes for Students:
 

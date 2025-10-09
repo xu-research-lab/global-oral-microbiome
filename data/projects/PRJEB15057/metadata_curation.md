@@ -263,7 +263,7 @@ metadata <- data.frame(
   Platform = initial_meta$Instrument,
   Country = initial_meta$COUNTRY,
   Site = initial_meta$env_material,
-  public_time = "2016-08-06",
+  public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
 ```
@@ -282,7 +282,7 @@ manually extracted from the publication and added to the metadata.
 # Add information obtained from the publication
 metadata$PCR_primers <- "515F-806R"
 metadata$title <- "Whole-grain wheat consumption reduces inflammation in a randomized controlled trial on overweight and obese subjects with unhealthy dietary and lifestyle behaviors: role of polyphenols bound to cereal dietary fiber"
-metadata$Disease_study <- "YES"
+metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
 
@@ -317,7 +317,7 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
 knitr::include_graphics("Metadata_Summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -341,13 +341,13 @@ head(metadata)
     ## 4 PRJEB15057 ERR1558870    958.N.04  34 25-35   M     V4 Illumina HiSeq 2000
     ## 5 PRJEB15057 ERR1558871    958.N.05  21 25-35   M     V4 Illumina HiSeq 2000
     ## 6 PRJEB15057 ERR1558872    958.N.06  22 25-35   M     V4 Illumina HiSeq 2000
-    ##      Country   Site public_time PCR_primers
-    ## 1 Italy: GAZ saliva  2016-08-06   515F-806R
-    ## 2 Italy: GAZ saliva  2016-08-06   515F-806R
-    ## 3 Italy: GAZ saliva  2016-08-06   515F-806R
-    ## 4 Italy: GAZ saliva  2016-08-06   515F-806R
-    ## 5 Italy: GAZ saliva  2016-08-06   515F-806R
-    ## 6 Italy: GAZ saliva  2016-08-06   515F-806R
+    ##      Country   Site          public_time PCR_primers
+    ## 1 Italy: GAZ saliva 2016-08-06T00:00:00Z   515F-806R
+    ## 2 Italy: GAZ saliva 2016-08-06T00:00:00Z   515F-806R
+    ## 3 Italy: GAZ saliva 2016-08-06T00:00:00Z   515F-806R
+    ## 4 Italy: GAZ saliva 2016-08-06T00:00:00Z   515F-806R
+    ## 5 Italy: GAZ saliva 2016-08-06T00:00:00Z   515F-806R
+    ## 6 Italy: GAZ saliva 2016-08-06T00:00:00Z   515F-806R
     ##                                                                                                                                                                                                                    title
     ## 1 Whole-grain wheat consumption reduces inflammation in a randomized controlled trial on overweight and obese subjects with unhealthy dietary and lifestyle behaviors: role of polyphenols bound to cereal dietary fiber
     ## 2 Whole-grain wheat consumption reduces inflammation in a randomized controlled trial on overweight and obese subjects with unhealthy dietary and lifestyle behaviors: role of polyphenols bound to cereal dietary fiber
@@ -356,12 +356,12 @@ head(metadata)
     ## 5 Whole-grain wheat consumption reduces inflammation in a randomized controlled trial on overweight and obese subjects with unhealthy dietary and lifestyle behaviors: role of polyphenols bound to cereal dietary fiber
     ## 6 Whole-grain wheat consumption reduces inflammation in a randomized controlled trial on overweight and obese subjects with unhealthy dietary and lifestyle behaviors: role of polyphenols bound to cereal dietary fiber
     ##   Disease_study Status matched_samples
-    ## 1           YES     HC              NO
-    ## 2           YES     HC              NO
-    ## 3           YES     HC              NO
-    ## 4           YES     HC              NO
-    ## 5           YES     HC              NO
-    ## 6           YES     HC              NO
+    ## 1            NO     HC              NO
+    ## 2            NO     HC              NO
+    ## 3            NO     HC              NO
+    ## 4            NO     HC              NO
+    ## 5            NO     HC              NO
+    ## 6            NO     HC              NO
 
 ## Notes for Students:
 

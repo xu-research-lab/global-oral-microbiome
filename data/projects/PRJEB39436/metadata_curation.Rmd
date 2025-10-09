@@ -26,7 +26,7 @@ initial_meta<-read.csv("SraRunTable.csv",header = T)
 #meta <- rbind(initial_meta, initial_meta1)
 
 #Remove entries non-oral samples
-#initial_meta <- subset(initial_meta, Organism == "human oral metagenome")
+initial_meta <- subset(initial_meta, Organism != "metagenome")
 
 # Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
 #nrow(subset(meta, grepl("HT", Sample.Name)))
@@ -67,7 +67,7 @@ metadata <- data.frame(
   Region = "V4",
   Platform = initial_meta$Instrument,
   Country = NA,
-  Site = "oral",
+  #Site = initial_meta$ms_sample_type_y,
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
@@ -83,21 +83,31 @@ metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status<-"preterm infant"
 
+metadata <- metadata %>%
+  mutate(Site = case_when(
+    initial_meta$Organism == "human oral metagenome" ~ "oral",
+    initial_meta$Organism == "human gut metagenome" ~ "gut",
+    initial_meta$Organism == "human skin metagenome" ~ "skin",
+    initial_meta$Organism == "human milk metagenome" ~ "milk",
+  ))
 
-keep_subjects <- unique(subset(metadata, Site == "oral")$sample_name)
-metadata <- subset(metadata, sample_name %in% keep_subjects)
+fields <- c("Host_age", "birth_length", "birth_weight",
+            "day_14_weight_wdn", "day_14_length_wdn")
+stopifnot(all(fields %in% colnames(initial_meta)))
 
-sample_counts <- table(metadata$sample_name)
+init_clean <- initial_meta[complete.cases(initial_meta[fields]), ]
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
+has_dup <- any(duplicated(init_clean[fields]))
 
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
-cat("Matched samples distribution:\n")
-table(metadata$matched_samples)
-cat("Sample distribution by Site:\n")
-table(metadata$Site)
+metadata$matched_samples <- ifelse(has_dup, "YES", "NO")
+
+output_df <- metadata %>% 
+  filter(matched_samples == "YES" | 
+        (matched_samples == "NO" & Site == "oral"))
+
+cat("Total rows in output_df :", nrow(output_df), "\n")
+cat("YES rows                :", sum(output_df$matched_samples == "YES"), "\n")
+cat("NO rows                 :", sum(output_df$matched_samples == "NO"), "\n")
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}
@@ -177,7 +187,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 ## Notes for Students:

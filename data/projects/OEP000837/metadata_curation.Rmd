@@ -91,7 +91,7 @@ metadata<-metadata%>%
 metadata<-metadata%>%
   mutate(Site=case_when(grepl("TY",sample_name)~"Saliva",grepl("T|t",sample_name)~"Tumor",grepl("C",sample_name)~"Paracancerous Tissue"))
 
-metadata$sample_name<-gsub("C|T|TY|t","",metadata$sample_name)
+metadata$sample_name<-gsub("-C|-T|-TY|-t","",metadata$sample_name)
 #get subjects id with Saliva available
 keep_subjects<-subset(metadata,Site %in% "Saliva")
 #remove subjects without Saliva samples
@@ -100,6 +100,7 @@ metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 sample_counts <- table(metadata$sample_name)
 # Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
 metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
+rownames(metadata)<-1:nrow(metadata)
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

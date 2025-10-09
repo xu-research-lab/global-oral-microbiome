@@ -284,13 +284,15 @@ metadata <- data.frame(
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$geo_loc_name_country,
   Site = gsub("UBERON:", "", initial_meta$body_site),
-  public_time = "2013-04-26",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = initial_meta$pcr_primers..exp.,
   stringsAsFactors = FALSE
 )
 ```
 
 ``` r
+metadata$Age <- as.numeric(metadata$Age)
+metadata$Age <- ifelse(metadata$Age > 100, NA, metadata$Age)
 metadata <- metadata %>%
   mutate(Sex = recode(Sex, "47" = "M", "48" = "F"))
 ```
@@ -302,11 +304,13 @@ manually extracted from the publication and added to the metadata.
 
 ``` r
 # Add information obtained from the publication
-metadata$title <- "Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands"
+metadata$title <- "Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status <- "HC"
 
+#get subjects id according to sample id
+metadata$sample_name<-gsub("FS_","",metadata$sample_name)
 #get subjects id with Saliva available
 keep_subjects<-subset(metadata,Site %in% "tongue")
 #remove subjects without Saliva samples
@@ -338,7 +342,7 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
 knitr::include_graphics("Metadata_Summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -351,24 +355,24 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = TRUE, row.names = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
     ##   BioProject       Run sample_name Age BMI  Sex Region Platform Country
-    ## 1  PRJEB1799 ERR261869       FS_07  54  NA    M     V2 Illumina     USA
-    ## 2  PRJEB1799 ERR261870      FS_183  NA  NA <NA>     V2 Illumina     USA
-    ## 3  PRJEB1799 ERR261871      FS_174  69  NA    F     V2 Illumina     USA
-    ## 4  PRJEB1799 ERR261872       FS_10  35  NA    M     V2 Illumina     USA
-    ## 5  PRJEB1799 ERR261873      FS_106  49  NA    M     V2 Illumina     USA
-    ## 6  PRJEB1799 ERR261874       FS_44  28  NA    M     V2 Illumina     USA
-    ##           Site public_time
-    ## 1         face  2013-04-26
-    ## 2         face  2013-04-26
-    ## 3       tongue  2013-04-26
-    ## 4        feces  2013-04-26
-    ## 5 skin of hand  2013-04-26
-    ## 6         face  2013-04-26
+    ## 1  PRJEB1799 ERR261869          07  54  NA    M     V2 Illumina     USA
+    ## 2  PRJEB1799 ERR261870         183  NA  NA <NA>     V2 Illumina     USA
+    ## 3  PRJEB1799 ERR261871         174  69  NA    F     V2 Illumina     USA
+    ## 4  PRJEB1799 ERR261872          10  35  NA    M     V2 Illumina     USA
+    ## 5  PRJEB1799 ERR261873         106  49  NA    M     V2 Illumina     USA
+    ## 6  PRJEB1799 ERR261874          44  28  NA    M     V2 Illumina     USA
+    ##           Site          public_time
+    ## 1         face 2013-04-26T00:00:00Z
+    ## 2         face 2013-04-26T00:00:00Z
+    ## 3       tongue 2013-04-26T00:00:00Z
+    ## 4        feces 2013-04-26T00:00:00Z
+    ## 5 skin of hand 2013-04-26T00:00:00Z
+    ## 6         face 2013-04-26T00:00:00Z
     ##                                                             PCR_primers
     ## 1 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT
     ## 2 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT
@@ -376,13 +380,13 @@ head(metadata)
     ## 4 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT
     ## 5 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT
     ## 6 FWD:GCCTTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG;REV:TGCTGCCTCCCGTAGGAGT
-    ##                                                                                title
-    ## 1 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
-    ## 2 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
-    ## 3 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
-    ## 4 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
-    ## 5 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
-    ## 6 Prevalence and Source of Fecal and Oral Bacteria on Infant, Child, and Adult Hands
+    ##                                                                              title
+    ## 1 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
+    ## 2 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
+    ## 3 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
+    ## 4 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
+    ## 5 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
+    ## 6 Prevalence and Source of Fecal and Oral Bacteria on Infant Child and Adult Hands
     ##   Disease_study Status matched_samples
     ## 1            NO     HC             YES
     ## 2            NO     HC             YES

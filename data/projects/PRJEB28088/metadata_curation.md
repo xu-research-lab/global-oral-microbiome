@@ -168,13 +168,13 @@ head(initial_meta)
     ## 4                  NA              NA              NA           NA female
     ## 5                  NA              NA              NA           NA   male
     ## 6                  NA              NA              NA           NA female
-    ##   geo_loc_name_country geo_loc_name_country_continent   geo_loc_name
-    ## 1         uncalculated                   uncalculated Sourth America
-    ## 2         uncalculated                   uncalculated Sourth America
-    ## 3         uncalculated                   uncalculated Sourth America
-    ## 4         uncalculated                   uncalculated Sourth America
-    ## 5         uncalculated                   uncalculated Sourth America
-    ## 6         uncalculated                   uncalculated Sourth America
+    ##   geo_loc_name_country geo_loc_name_country_continent  geo_loc_name
+    ## 1         uncalculated                   uncalculated South America
+    ## 2         uncalculated                   uncalculated South America
+    ## 3         uncalculated                   uncalculated South America
+    ## 4         uncalculated                   uncalculated South America
+    ## 5         uncalculated                   uncalculated South America
+    ## 6         uncalculated                   uncalculated South America
     ##   giardia_lamblia_cysts giardia_lamblia_trofozoites Glucose hemoglobin Host_age
     ## 1                  <NA>                        <NA>    <NA>       <NA>       55
     ## 2                  <NA>                        <NA>    <NA>       <NA>       34
@@ -352,47 +352,35 @@ metadata$Disease_study <- "NO"
 metadata$Status<-"H"
 
 
-keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
-metadata <- subset(metadata, sample_name %in% keep_subjects)
+fields <- c("Age", "BMI", "Sex")
 
-sample_counts <- table(metadata$sample_name)
+stopifnot(all(fields %in% colnames(metadata)))
+clean <- metadata[complete.cases(metadata[fields]), ]
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
+has_dup <- any(duplicated(clean[fields]))
 
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
+
+metadata$matched_samples <- ifelse(has_dup, "YES", "NO")
+
+output_df <- metadata[metadata$matched_samples == "YES" |
+                     (metadata$matched_samples == "NO" & metadata$Site == "saliva"), ]
+
+cat("Total rows in output_df :", nrow(output_df), "\n")
 ```
 
-    ## Subjects retained: 108
+    ## Total rows in output_df : 572
 
 ``` r
-cat("Matched samples distribution:\n")
+cat("YES rows                :", sum(output_df$matched_samples == "YES"), "\n")
 ```
 
-    ## Matched samples distribution:
+    ## YES rows                : 572
 
 ``` r
-table(metadata$matched_samples)
+cat("NO rows                 :", sum(output_df$matched_samples == "NO"), "\n")
 ```
 
-    ## 
-    ##  NO 
-    ## 108
-
-``` r
-cat("Sample distribution by Site:\n")
-```
-
-    ## Sample distribution by Site:
-
-``` r
-table(metadata$Site)
-```
-
-    ## 
-    ## saliva 
-    ##    108
+    ## NO rows                 : 0
 
 # Step 4: Summarize and Validate the Metadata
 
@@ -401,13 +389,13 @@ table(metadata$Site)
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 108"
+    ## [1] "Number of unique runs: 572"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 108"
+    ## [1] "Number of unique sample names: 572"
 
 # Step 5: Visualize the Metadata
 
@@ -428,38 +416,38 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##    BioProject        Run  sample_name Age BMI    Sex Region       Platform
-    ## 50 PRJEB28088 ERR2728207 SAMEA4820351  44  NA female     V4 Illumina MiSeq
-    ## 52 PRJEB28088 ERR2728209 SAMEA4820353  34  NA   male     V4 Illumina MiSeq
-    ## 54 PRJEB28088 ERR2728211 SAMEA4820355   7  NA   male     V4 Illumina MiSeq
-    ## 56 PRJEB28088 ERR2728213 SAMEA4820357  47  NA female     V4 Illumina MiSeq
-    ## 58 PRJEB28088 ERR2728215 SAMEA4820359  44  NA female     V4 Illumina MiSeq
-    ## 60 PRJEB28088 ERR2728217 SAMEA4820361  55  NA female     V4 Illumina MiSeq
-    ##          Country   Site          public_time PCR_primers
-    ## 50 South America saliva 2018-08-12T00:00:00Z   515F-806R
-    ## 52 South America saliva 2018-08-12T00:00:00Z   515F-806R
-    ## 54 South America saliva 2018-08-12T00:00:00Z   515F-806R
-    ## 56 South America saliva 2018-08-12T00:00:00Z   515F-806R
-    ## 58 South America saliva 2018-08-12T00:00:00Z   515F-806R
-    ## 60 South America saliva 2018-08-12T00:00:00Z   515F-806R
-    ##                                                                                                                                title
-    ## 50 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
-    ## 52 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
-    ## 54 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
-    ## 56 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
-    ## 58 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
-    ## 60 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
-    ##    Disease_study Status matched_samples
-    ## 50            NO      H              NO
-    ## 52            NO      H              NO
-    ## 54            NO      H              NO
-    ## 56            NO      H              NO
-    ## 58            NO      H              NO
-    ## 60            NO      H              NO
+    ##   BioProject        Run  sample_name Age BMI    Sex Region       Platform
+    ## 1 PRJEB28088 ERR2728158 SAMEA4820302  55  NA female     V4 Illumina MiSeq
+    ## 2 PRJEB28088 ERR2728159 SAMEA4820303  34  NA female     V4 Illumina MiSeq
+    ## 3 PRJEB28088 ERR2728160 SAMEA4820304  34  NA   male     V4 Illumina MiSeq
+    ## 4 PRJEB28088 ERR2728161 SAMEA4820305  44  NA female     V4 Illumina MiSeq
+    ## 5 PRJEB28088 ERR2728162 SAMEA4820306   3  NA   male     V4 Illumina MiSeq
+    ## 6 PRJEB28088 ERR2728163 SAMEA4820307  34  NA female     V4 Illumina MiSeq
+    ##         Country  Site          public_time PCR_primers
+    ## 1 South America feces 2018-08-12T00:00:00Z   515F-806R
+    ## 2 South America feces 2018-08-12T00:00:00Z   515F-806R
+    ## 3 South America feces 2018-08-12T00:00:00Z   515F-806R
+    ## 4 South America feces 2018-08-12T00:00:00Z   515F-806R
+    ## 5 South America feces 2018-08-12T00:00:00Z   515F-806R
+    ## 6 South America feces 2018-08-12T00:00:00Z   515F-806R
+    ##                                                                                                                               title
+    ## 1 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
+    ## 2 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
+    ## 3 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
+    ## 4 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
+    ## 5 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
+    ## 6 Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village
+    ##   Disease_study Status matched_samples
+    ## 1            NO      H             YES
+    ## 2            NO      H             YES
+    ## 3            NO      H             YES
+    ## 4            NO      H             YES
+    ## 5            NO      H             YES
+    ## 6            NO      H             YES
 
 ## Notes for Students:
 

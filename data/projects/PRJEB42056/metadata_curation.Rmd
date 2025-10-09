@@ -78,25 +78,27 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 ```{r}
 # Add information obtained from the publication
 metadata$PCR_primers <- "515F-806R"
-metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition"
+metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status<-"H"
 
-keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
-metadata <- subset(metadata, sample_name %in% keep_subjects)
+stopifnot("well_id..exp." %in% colnames(initial_meta))
 
-sample_counts <- table(metadata$sample_name)
+well_counts <- table(initial_meta$well_id..exp.)
 
-metadata$matched_samples <-
-  ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]),
-         "YES", "NO")
+has_dup <- any(well_counts >= 2)
 
-cat("Subjects retained:", length(unique(metadata$sample_name)), "\n")
-cat("Matched samples distribution:\n")
-table(metadata$matched_samples)
-cat("Sample distribution by Site:\n")
-table(metadata$Site)
+metadata$matched_samples <- ifelse(has_dup, "YES", "NO")
+metadata <- metadata %>% 
+  filter(Site != "sterile water")
+output_df <- metadata %>% 
+  filter(matched_samples == "YES" | 
+        (matched_samples == "NO" & Site == "saliva"))
+
+cat("Total rows in output_df :", nrow(output_df), "\n")
+cat("YES rows                :", sum(output_df$matched_samples == "YES"), "\n")
+cat("NO rows                 :", sum(output_df$matched_samples == "NO"), "\n")
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}
@@ -176,7 +178,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 ## Notes for Students:

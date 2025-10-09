@@ -368,14 +368,14 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$host_subject_id,
-  Age = initial_meta$age_unit,
+  Age = NA,
   BMI = NA,
   Sex = NA,
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$platform..exp.,
   Country = initial_meta$geo_loc_name_country,
   Site = gsub("UBERON:", "", initial_meta$body_site),
-  public_time = "2014-12-09",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = "515F-806R",
   stringsAsFactors = FALSE
 )
@@ -442,19 +442,19 @@ head(metadata)
 ```
 
     ##   BioProject       Run sample_name Age BMI Sex Region Platform Country   Site
-    ## 1  PRJEB5726 ERR441042 2148:NAU132  78  NA  NA     V4 Illumina     USA tongue
-    ## 2  PRJEB5726 ERR441043 2148:NAU161  78  NA  NA     V4 Illumina     USA tongue
-    ## 3  PRJEB5726 ERR441044 2148:NAU136  78  NA  NA     V4 Illumina     USA tongue
-    ## 4  PRJEB5726 ERR441045 2148:NAU154  78  NA  NA     V4 Illumina     USA tongue
-    ## 5  PRJEB5726 ERR441046 2148:CUB033  78  NA  NA     V4 Illumina     USA tongue
-    ## 6  PRJEB5726 ERR441047 2148:NAU149  78  NA  NA     V4 Illumina     USA tongue
-    ##   public_time PCR_primers
-    ## 1  2014-12-09   515F-806R
-    ## 2  2014-12-09   515F-806R
-    ## 3  2014-12-09   515F-806R
-    ## 4  2014-12-09   515F-806R
-    ## 5  2014-12-09   515F-806R
-    ## 6  2014-12-09   515F-806R
+    ## 1  PRJEB5726 ERR441042 2148:NAU132  NA  NA  NA     V4 Illumina     USA tongue
+    ## 2  PRJEB5726 ERR441043 2148:NAU161  NA  NA  NA     V4 Illumina     USA tongue
+    ## 3  PRJEB5726 ERR441044 2148:NAU136  NA  NA  NA     V4 Illumina     USA tongue
+    ## 4  PRJEB5726 ERR441045 2148:NAU154  NA  NA  NA     V4 Illumina     USA tongue
+    ## 5  PRJEB5726 ERR441046 2148:CUB033  NA  NA  NA     V4 Illumina     USA tongue
+    ## 6  PRJEB5726 ERR441047 2148:NAU149  NA  NA  NA     V4 Illumina     USA tongue
+    ##            public_time PCR_primers
+    ## 1 2014-12-09T00:00:00Z   515F-806R
+    ## 2 2014-12-09T00:00:00Z   515F-806R
+    ## 3 2014-12-09T00:00:00Z   515F-806R
+    ## 4 2014-12-09T00:00:00Z   515F-806R
+    ## 5 2014-12-09T00:00:00Z   515F-806R
+    ## 6 2014-12-09T00:00:00Z   515F-806R
     ##                                                                    title
     ## 1 Temporal variability is a personalized feature of the human microbiome
     ## 2 Temporal variability is a personalized feature of the human microbiome

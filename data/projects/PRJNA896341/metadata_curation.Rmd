@@ -78,7 +78,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 ```{r}
 # Add information obtained from the publication
 metadata$PCR_primers <- NA
-metadata$title <- "Diversity, composition, and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences"
+metadata$title <- "Diversity composition and networking of saliva microbiota distinguish the severity of COVID-19 episodes as revealed by an analysis of 16S rRNA variable V1-V3 region sequences"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata$Status<- "COVID-19"

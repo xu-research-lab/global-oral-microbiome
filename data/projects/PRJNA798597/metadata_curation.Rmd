@@ -76,7 +76,7 @@ metadata <- data.frame(
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
-metadata$PCR_primers <- "V3-V4"
+metadata$PCR_primers <- NA
 metadata$title <- "Diversity of the gut, vaginal and oral microbiome among pregnant women in South Africa with and without pre-eclampsia"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns

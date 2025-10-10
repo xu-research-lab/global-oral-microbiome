@@ -1,0 +1,17 @@
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
+1,PRJNA524629,SRR8643706,Male penile,NA,NA,male,V3-V4,Illumina MiSeq,Spain,penile,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,NA,YES
+2,PRJNA524629,SRR8643707,Female vagina,NA,NA,female,V3-V4,Illumina MiSeq,Spain,vagina,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,gingivitis,YES
+3,PRJNA524629,SRR8643708,Male penile,NA,NA,male,V3-V4,Illumina MiSeq,Spain,penile,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,NA,YES
+4,PRJNA524629,SRR8643709,Female vagina,NA,NA,female,V3-V4,Illumina MiSeq,Spain,vagina,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,gingivitis,YES
+5,PRJNA524629,SRR8643710,Oral swab,NA,NA,male,V3-V4,Illumina MiSeq,Spain,oral swab,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,NA,YES
+6,PRJNA524629,SRR8643711,Oral swab,NA,NA,male,V3-V4,Illumina MiSeq,Spain,oral swab,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,NA,YES
+7,PRJNA524629,SRR8643712,Oral swab,NA,NA,male,V3-V4,Illumina MiSeq,Spain,oral swab,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,NA,YES
+8,PRJNA524629,SRR8643713,Oral swab,NA,NA,male,V3-V4,Illumina MiSeq,Spain,oral swab,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,NA,YES
+9,PRJNA524629,SRR8643714,Male penile,NA,NA,male,V3-V4,Illumina MiSeq,Spain,penile,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,NA,YES
+10,PRJNA524629,SRR8643715,Female vagina,NA,NA,female,V3-V4,Illumina MiSeq,Spain,vagina,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,gingivitis,YES
+11,PRJNA524629,SRR8643716,Male penile,NA,NA,male,V3-V4,Illumina MiSeq,Spain,penile,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,NA,YES
+12,PRJNA524629,SRR8643717,Female vagina,NA,NA,female,V3-V4,Illumina MiSeq,Spain,vagina,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,gingivitis,YES
+13,PRJNA524629,SRR8643718,Male penile,NA,NA,male,V3-V4,Illumina MiSeq,Spain,penile,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,NA,YES
+14,PRJNA524629,SRR8643719,Female vagina,NA,NA,female,V3-V4,Illumina MiSeq,Spain,vagina,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,gingivitis,YES
+15,PRJNA524629,SRR8643720,Male penile,NA,NA,male,V3-V4,Illumina MiSeq,Spain,penile,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,NA,YES
+16,PRJNA524629,SRR8643721,Female vagina,NA,NA,female,V3-V4,Illumina MiSeq,Spain,vagina,2019-02-27T00:00:00Z,NA,Variations in Vaginal, Penile, and Oral Microbiota After Sexual Intercourse: A Case Report,YES,gingivitis,YES

@@ -51,6 +51,7 @@ metadata <- data.frame(
   Site = initial_meta$Sample.Name,
   public_time = initial_meta$ReleaseDate,
   Status = initial_meta$Sample.Name,
+  seqtype = initial_meta$Assay.Type,
   stringsAsFactors = FALSE
 )
 ```
@@ -58,7 +59,7 @@ metadata <- data.frame(
 
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
-
+metadata <- metadata %>% filter(seqtype == "AMPLICON")
 metadata <- metadata %>% mutate(Site = case_when(
   grepl("Supragingival dental plaque",Site) ~ "Supragingival dental plaque",
   TRUE ~ Site

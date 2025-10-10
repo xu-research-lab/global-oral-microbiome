@@ -15,10 +15,9 @@ To obtain the initial metadata:
 library(dplyr)
 library(ggplot2)
 library(cowplot)
-library(stringr)
 
 # Set working directory (update this path to your local directory)
-setwd("E:/bioproject_YL/PRJNA844037")
+setwd("E:/bioproject_YSD/PRJNA844037")
 
 # Read the initial metadata files
 initial_meta <- read.csv("SraRunTable.csv", header = T)
@@ -53,20 +52,21 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Sample.Name,
-  Age = NA,
-  BMI = NA,  
+  Age = initial_meta$Host_Age,
+  BMI = NA, 
   Sex = initial_meta$host_sex,
   Region = "V3-V5",
   Platform = initial_meta$Instrument,
   Country = "China",
   Site = initial_meta$isolation_source,
   public_time = initial_meta$ReleaseDate,
-  stringsAsFactors=FALSE
+  
+  stringsAsFactors = FALSE
 )
 
 # Use abbreviations to indicate gender
 metadata <- metadata %>%
-  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+  mutate(Sex = recode(Sex, "male" = "M", "female" = "F"))
 ```
 # Step 3: Manually Add Information from the Publication
 
@@ -79,9 +79,10 @@ metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata <- metadata %>%
   mutate(Status = case_when(
-    str_detect(sample_name, "^T") ~ "AIDS",
-    str_detect(sample_name, "^UT") ~ "AIDS",
-    TRUE ~ "HC"))
+    grepl("^H", sample_name) ~ "HC",
+    grepl("^T|^UT", sample_name) ~ "AIDS",
+    TRUE ~ "NA"
+  ))
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")
@@ -195,7 +196,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 

@@ -15,10 +15,9 @@ project.
 library(dplyr)
 library(ggplot2)
 library(cowplot)
-library(stringr)
 
 # Set working directory (update this path to your local directory)
-setwd("E:/bioproject_YL/PRJNA844037")
+setwd("E:/bioproject_YSD/PRJNA844037")
 
 # Read the initial metadata files
 initial_meta <- read.csv("SraRunTable.csv", header = T)
@@ -28,12 +27,12 @@ head(initial_meta)
 ```
 
     ##           Run Assay.Type AvgSpotLen   Bases
-    ## 1 SRR19452892   AMPLICON        444 2514875
-    ## 2 SRR19452893   AMPLICON        429 5286602
-    ## 3 SRR19452894   AMPLICON        474 2854542
-    ## 4 SRR19452895   AMPLICON        417 1355401
-    ## 5 SRR19452896   AMPLICON        389 2189113
-    ## 6 SRR19452897   AMPLICON        395 1623989
+    ## 1 SRR19646713   AMPLICON        430 3728045
+    ## 2 SRR19452892   AMPLICON        444 2514875
+    ## 3 SRR19452893   AMPLICON        429 5286602
+    ## 4 SRR19452894   AMPLICON        474 2854542
+    ## 5 SRR19452895   AMPLICON        417 1355401
+    ## 6 SRR19452896   AMPLICON        389 2189113
     ##                                                                                                                                       BIOMATERIAL_PROVIDER
     ## 1 State Key Laboratory of Oral Diseases\\, National Clinical Research Center for Oral Diseases\\, West China Hospital of Stomatology\\, Sichuan University
     ## 2 State Key Laboratory of Oral Diseases\\, National Clinical Research Center for Oral Diseases\\, West China Hospital of Stomatology\\, Sichuan University
@@ -42,68 +41,68 @@ head(initial_meta)
     ## 5 State Key Laboratory of Oral Diseases\\, National Clinical Research Center for Oral Diseases\\, West China Hospital of Stomatology\\, Sichuan University
     ## 6 State Key Laboratory of Oral Diseases\\, National Clinical Research Center for Oral Diseases\\, West China Hospital of Stomatology\\, Sichuan University
     ##    BioProject    BioSample              BioSampleModel   Bytes
-    ## 1 PRJNA844037 SAMN28772351 Metagenome or environmental  746291
-    ## 2 PRJNA844037 SAMN28772352 Metagenome or environmental 1483780
-    ## 3 PRJNA844037 SAMN28772353 Metagenome or environmental  831663
-    ## 4 PRJNA844037 SAMN28772354 Metagenome or environmental  440426
-    ## 5 PRJNA844037 SAMN28772355 Metagenome or environmental  665184
-    ## 6 PRJNA844037 SAMN28772356 Metagenome or environmental  512670
+    ## 1 PRJNA844037 SAMN28772350 Metagenome or environmental 1151019
+    ## 2 PRJNA844037 SAMN28772351 Metagenome or environmental  746291
+    ## 3 PRJNA844037 SAMN28772352 Metagenome or environmental 1483780
+    ## 4 PRJNA844037 SAMN28772353 Metagenome or environmental  831663
+    ## 5 PRJNA844037 SAMN28772354 Metagenome or environmental  440426
+    ## 6 PRJNA844037 SAMN28772355 Metagenome or environmental  665184
     ##                          Center.Name Collection_Date Consent DATASTORE.filetype
-    ## 1 SICHUAN PROVINCIAL PEOPLE HOSPITAL         missing  public   fastq,run.zq,sra
+    ## 1 SICHUAN PROVINCIAL PEOPLE HOSPITAL         missing  public         run.zq,sra
     ## 2 SICHUAN PROVINCIAL PEOPLE HOSPITAL         missing  public   fastq,run.zq,sra
     ## 3 SICHUAN PROVINCIAL PEOPLE HOSPITAL         missing  public   fastq,run.zq,sra
     ## 4 SICHUAN PROVINCIAL PEOPLE HOSPITAL         missing  public   fastq,run.zq,sra
     ## 5 SICHUAN PROVINCIAL PEOPLE HOSPITAL         missing  public   fastq,run.zq,sra
     ## 6 SICHUAN PROVINCIAL PEOPLE HOSPITAL         missing  public   fastq,run.zq,sra
     ##   DATASTORE.provider                     DATASTORE.region  Experiment
-    ## 1         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505882
-    ## 2         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505881
-    ## 3         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505880
-    ## 4         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505879
-    ## 5         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505878
-    ## 6         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505877
+    ## 1         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15696606
+    ## 2         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505882
+    ## 3         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505881
+    ## 4         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505880
+    ## 5         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505879
+    ## 6         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX15505878
     ##   geo_loc_name_country geo_loc_name_country_continent geo_loc_name Host_Age
-    ## 1         uncalculated                   uncalculated      missing       35
-    ## 2         uncalculated                   uncalculated      missing       34
-    ## 3         uncalculated                   uncalculated      missing       32
-    ## 4         uncalculated                   uncalculated      missing       30
-    ## 5         uncalculated                   uncalculated      missing       29
-    ## 6         uncalculated                   uncalculated      missing       36
+    ## 1         uncalculated                   uncalculated      missing       37
+    ## 2         uncalculated                   uncalculated      missing       35
+    ## 3         uncalculated                   uncalculated      missing       34
+    ## 4         uncalculated                   uncalculated      missing       32
+    ## 5         uncalculated                   uncalculated      missing       30
+    ## 6         uncalculated                   uncalculated      missing       29
     ##           HOST host_sex Instrument
     ## 1 Homo sapiens   female 454 GS FLX
     ## 2 Homo sapiens   female 454 GS FLX
-    ## 3 Homo sapiens     male 454 GS FLX
+    ## 3 Homo sapiens   female 454 GS FLX
     ## 4 Homo sapiens     male 454 GS FLX
-    ## 5 Homo sapiens   female 454 GS FLX
-    ## 6 Homo sapiens     male 454 GS FLX
+    ## 5 Homo sapiens     male 454 GS FLX
+    ## 6 Homo sapiens   female 454 GS FLX
     ##                                                                                                                                                                                                                                                                   isolate
-    ## 1 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 23 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
-    ## 2 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 24 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
-    ## 3 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 25 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
-    ## 4 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 26 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
-    ## 5 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 27 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
-    ## 6 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 28 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
+    ## 1 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 22 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
+    ## 2 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 23 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
+    ## 3 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 24 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
+    ## 4 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 25 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
+    ## 5 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 26 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
+    ## 6 Healthy controls were age-sex matched healthy people\\, which were chosen at random. And inclusion criteria for healthy controls included 27 years of age or older\\, HIV antibody test was negative\\, having the ability to express themselves\\, informed consent...
     ##   isolation_source lat_lon Library.Name LibraryLayout LibrarySelection
-    ## 1           saliva missing           T1        SINGLE              PCR
-    ## 2           saliva missing           T2        SINGLE              PCR
-    ## 3           saliva missing           T3        SINGLE              PCR
-    ## 4           saliva missing           T4        SINGLE              PCR
-    ## 5           saliva missing           T5        SINGLE              PCR
-    ## 6           saliva missing          UT1        SINGLE              PCR
+    ## 1           saliva missing           H5        SINGLE              PCR
+    ## 2           saliva missing           T1        SINGLE              PCR
+    ## 3           saliva missing           T2        SINGLE              PCR
+    ## 4           saliva missing           T3        SINGLE              PCR
+    ## 5           saliva missing           T4        SINGLE              PCR
+    ## 6           saliva missing           T5        SINGLE              PCR
     ##   LibrarySource                Organism Platform          ReleaseDate
-    ## 1       GENOMIC human saliva metagenome    LS454 2022-06-09T00:00:00Z
+    ## 1       GENOMIC human saliva metagenome    LS454 2022-06-18T00:00:00Z
     ## 2       GENOMIC human saliva metagenome    LS454 2022-06-09T00:00:00Z
     ## 3       GENOMIC human saliva metagenome    LS454 2022-06-09T00:00:00Z
     ## 4       GENOMIC human saliva metagenome    LS454 2022-06-09T00:00:00Z
     ## 5       GENOMIC human saliva metagenome    LS454 2022-06-09T00:00:00Z
     ## 6       GENOMIC human saliva metagenome    LS454 2022-06-09T00:00:00Z
     ##            create_date version Sample.Name SRA.Study
-    ## 1 2022-05-31T16:26:00Z       1          T1 SRP377791
-    ## 2 2022-05-31T16:26:00Z       1          T2 SRP377791
-    ## 3 2022-05-31T16:26:00Z       1          T3 SRP377791
-    ## 4 2022-05-31T16:26:00Z       1          T4 SRP377791
-    ## 5 2022-05-31T16:26:00Z       1          T5 SRP377791
-    ## 6 2022-05-31T16:26:00Z       1         UT1 SRP377791
+    ## 1 2022-06-18T18:03:00Z       1          H5 SRP377791
+    ## 2 2022-05-31T16:26:00Z       1          T1 SRP377791
+    ## 3 2022-05-31T16:26:00Z       1          T2 SRP377791
+    ## 4 2022-05-31T16:26:00Z       1          T3 SRP377791
+    ## 5 2022-05-31T16:26:00Z       1          T4 SRP377791
+    ## 6 2022-05-31T16:26:00Z       1          T5 SRP377791
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -136,20 +135,21 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$Sample.Name,
-  Age = NA,
-  BMI = NA,  
+  Age = initial_meta$Host_Age,
+  BMI = NA, 
   Sex = initial_meta$host_sex,
   Region = "V3-V5",
   Platform = initial_meta$Instrument,
   Country = "China",
   Site = initial_meta$isolation_source,
   public_time = initial_meta$ReleaseDate,
-  stringsAsFactors=FALSE
+  
+  stringsAsFactors = FALSE
 )
 
 # Use abbreviations to indicate gender
 metadata <- metadata %>%
-  mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
+  mutate(Sex = recode(Sex, "male" = "M", "female" = "F"))
 ```
 
 # Step 3: Manually Add Information from the Publication
@@ -165,9 +165,10 @@ metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
 metadata <- metadata %>%
   mutate(Status = case_when(
-    str_detect(sample_name, "^T") ~ "AIDS",
-    str_detect(sample_name, "^UT") ~ "AIDS",
-    TRUE ~ "HC"))
+    grepl("^H", sample_name) ~ "HC",
+    grepl("^T|^UT", sample_name) ~ "AIDS",
+    TRUE ~ "NA"
+  ))
 
 # Check initial data distribution
 cat("Initial sample distribution:\n")
@@ -311,19 +312,19 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
     ##    BioProject         Run sample_name Age BMI Sex Region   Platform Country
-    ## 1 PRJNA844037 SRR19452892          T1  NA  NA   F  V3-V5 454 GS FLX   China
-    ## 2 PRJNA844037 SRR19452893          T2  NA  NA   F  V3-V5 454 GS FLX   China
-    ## 3 PRJNA844037 SRR19452894          T3  NA  NA   M  V3-V5 454 GS FLX   China
-    ## 4 PRJNA844037 SRR19452895          T4  NA  NA   M  V3-V5 454 GS FLX   China
-    ## 5 PRJNA844037 SRR19452896          T5  NA  NA   F  V3-V5 454 GS FLX   China
-    ## 6 PRJNA844037 SRR19452897         UT1  NA  NA   M  V3-V5 454 GS FLX   China
+    ## 1 PRJNA844037 SRR19646713          H5  37  NA   F  V3-V5 454 GS FLX   China
+    ## 2 PRJNA844037 SRR19452892          T1  35  NA   F  V3-V5 454 GS FLX   China
+    ## 3 PRJNA844037 SRR19452893          T2  34  NA   F  V3-V5 454 GS FLX   China
+    ## 4 PRJNA844037 SRR19452894          T3  32  NA   M  V3-V5 454 GS FLX   China
+    ## 5 PRJNA844037 SRR19452895          T4  30  NA   M  V3-V5 454 GS FLX   China
+    ## 6 PRJNA844037 SRR19452896          T5  29  NA   F  V3-V5 454 GS FLX   China
     ##     Site          public_time PCR_primers
-    ## 1 saliva 2022-06-09T00:00:00Z   347F-803R
+    ## 1 saliva 2022-06-18T00:00:00Z   347F-803R
     ## 2 saliva 2022-06-09T00:00:00Z   347F-803R
     ## 3 saliva 2022-06-09T00:00:00Z   347F-803R
     ## 4 saliva 2022-06-09T00:00:00Z   347F-803R
@@ -337,7 +338,7 @@ head(metadata)
     ## 5 Clinical oral condition analysis and the influence of highly active antiretroviral therapy on human salivary microbial community diversity in HIV-infected/AIDS patients
     ## 6 Clinical oral condition analysis and the influence of highly active antiretroviral therapy on human salivary microbial community diversity in HIV-infected/AIDS patients
     ##   Disease_study Status matched_samples
-    ## 1           YES   AIDS              NO
+    ## 1           YES     HC              NO
     ## 2           YES   AIDS              NO
     ## 3           YES   AIDS              NO
     ## 4           YES   AIDS              NO

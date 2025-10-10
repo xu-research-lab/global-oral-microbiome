@@ -15,20 +15,20 @@ project.
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
-    ##           Run Assay.Type AvgSpotLen     Bases  BioProject    BioSample              BioSampleModel    Bytes Center.Name
-    ## 1 SRR14127869   AMPLICON        600  97339800 PRJNA712952 SAMN18237987 Metagenome or environmental 62625858     FISABIO
-    ## 2 SRR14127870   AMPLICON        600  62203800 PRJNA712952 SAMN18237980 Metagenome or environmental 39804594     FISABIO
-    ## 3 SRR14127871   AMPLICON        600  44541000 PRJNA712952 SAMN18237949 Metagenome or environmental 28542931     FISABIO
-    ## 4 SRR14127872   AMPLICON        600  36082800 PRJNA712952 SAMN18237801 Metagenome or environmental 23552379     FISABIO
-    ## 5 SRR14127873   AMPLICON        600  70813800 PRJNA712952 SAMN18237988 Metagenome or environmental 46537233     FISABIO
-    ## 6 SRR14127874   AMPLICON        600 101398800 PRJNA712952 SAMN18237982 Metagenome or environmental 64560528     FISABIO
-    ##         Collection_Date Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region  Experiment geo_loc_name_country
-    ## 1 2018-08-01/2018-10-01  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498132       United Kingdom
-    ## 2 2018-03-01/2018-05-01  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498131       United Kingdom
-    ## 3 2017-12-01/2018-02-01  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498130       United Kingdom
-    ## 4            2017-12-01  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498129       United Kingdom
-    ## 5 2018-08-01/2018-10-01  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498128       United Kingdom
-    ## 6 2018-03-01/2018-05-01  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498127       United Kingdom
+    ##           Run Assay.Type AvgSpotLen     Bases  BioProject    BioSample              BioSampleModel    Bytes Center.Name       Collection_Date
+    ## 1 SRR14127869   AMPLICON        600  97339800 PRJNA712952 SAMN18237987 Metagenome or environmental 62625858     FISABIO 2018-08-01/2018-10-01
+    ## 2 SRR14127870   AMPLICON        600  62203800 PRJNA712952 SAMN18237980 Metagenome or environmental 39804594     FISABIO 2018-03-01/2018-05-01
+    ## 3 SRR14127871   AMPLICON        600  44541000 PRJNA712952 SAMN18237949 Metagenome or environmental 28542931     FISABIO 2017-12-01/2018-02-01
+    ## 4 SRR14127872   AMPLICON        600  36082800 PRJNA712952 SAMN18237801 Metagenome or environmental 23552379     FISABIO            2017-12-01
+    ## 5 SRR14127873   AMPLICON        600  70813800 PRJNA712952 SAMN18237988 Metagenome or environmental 46537233     FISABIO 2018-08-01/2018-10-01
+    ## 6 SRR14127874   AMPLICON        600 101398800 PRJNA712952 SAMN18237982 Metagenome or environmental 64560528     FISABIO 2018-03-01/2018-05-01
+    ##   Consent DATASTORE.filetype DATASTORE.provider                     DATASTORE.region  Experiment geo_loc_name_country
+    ## 1  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498132       United Kingdom
+    ## 2  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498131       United Kingdom
+    ## 3  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498130       United Kingdom
+    ## 4  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498129       United Kingdom
+    ## 5  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498128       United Kingdom
+    ## 6  public   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 SRX10498127       United Kingdom
     ##   geo_loc_name_country_continent           geo_loc_name         HOST     Instrument                lat_lon
     ## 1                         Europe United Kingdom: London Homo sapiens Illumina MiSeq 51.509865 N 0.118092 W
     ## 2                         Europe United Kingdom: London Homo sapiens Illumina MiSeq 51.509865 N 0.118092 W
@@ -97,6 +97,7 @@ The uniform metadata should include the following columns:
       Site = initial_meta$Sample.Name,
       public_time = initial_meta$ReleaseDate,
       Status = initial_meta$Sample.Name,
+      seqtype = initial_meta$Assay.Type,
       stringsAsFactors = FALSE
     )
 
@@ -105,6 +106,7 @@ The uniform metadata should include the following columns:
 Some information (e.g. PCR primers, study title, disease status) must be
 manually extracted from the publication and added to the metadata.
 
+    metadata <- metadata %>% filter(seqtype == "AMPLICON")
     metadata <- metadata %>% mutate(Site = case_when(
       grepl("Supragingival dental plaque",Site) ~ "Supragingival dental plaque",
       TRUE ~ Site
@@ -139,13 +141,13 @@ manually extracted from the publication and added to the metadata.
     ## 4 PRJNA712952 SRR14127872  16S-52HBCF-b-MS643_S8_L001_R1_001.fastq.gz  NA  NA  NA Illumina MiSeq United Kingdom Supragingival dental plaque
     ## 5 PRJNA712952 SRR14127873 16S-51DWCA-e-MS643_S92_L001_R1_001.fastq.gz  NA  NA  NA Illumina MiSeq United Kingdom Supragingival dental plaque
     ## 6 PRJNA712952 SRR14127874 16S-51DWCA-d-MS643_S55_L001_R1_001.fastq.gz  NA  NA  NA Illumina MiSeq United Kingdom Supragingival dental plaque
-    ##            public_time        Status matched_samples Region
-    ## 1 2023-04-01T00:00:00Z            HC              NO     V4
-    ## 2 2023-04-01T00:00:00Z            HC              NO     V4
-    ## 3 2023-04-01T00:00:00Z caries-active              NO     V4
-    ## 4 2023-04-01T00:00:00Z            HC              NO     V4
-    ## 5 2023-04-01T00:00:00Z caries-active              NO     V4
-    ## 6 2023-04-01T00:00:00Z caries-active              NO     V4
+    ##            public_time        Status  seqtype matched_samples Region
+    ## 1 2023-04-01T00:00:00Z            HC AMPLICON              NO     V4
+    ## 2 2023-04-01T00:00:00Z            HC AMPLICON              NO     V4
+    ## 3 2023-04-01T00:00:00Z caries-active AMPLICON              NO     V4
+    ## 4 2023-04-01T00:00:00Z            HC AMPLICON              NO     V4
+    ## 5 2023-04-01T00:00:00Z caries-active AMPLICON              NO     V4
+    ## 6 2023-04-01T00:00:00Z caries-active AMPLICON              NO     V4
     ##                                                                                                                                             title
     ## 1 Functional changes in the oral microbiome after use of fluoride and arginine containing dentifrices: a metagenomic and metatranscriptomic study
     ## 2 Functional changes in the oral microbiome after use of fluoride and arginine containing dentifrices: a metagenomic and metatranscriptomic study
@@ -165,11 +167,11 @@ manually extracted from the publication and added to the metadata.
 
     print(paste("Number of unique runs:", length(unique(metadata$Run))))
 
-    ## [1] "Number of unique runs: 284"
+    ## [1] "Number of unique runs: 108"
 
     print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 
-    ## [1] "Number of unique sample names: 284"
+    ## [1] "Number of unique sample names: 108"
 
 # Step 5: Visualize the Metadata
 
@@ -236,4 +238,4 @@ manually extracted from the publication and added to the metadata.
       "PCR_primers", "title", "Disease_study", "Status","matched_samples"
     )]
 
-    write.csv(metadata, file = "metadata.csv", quote = FALSE)
+    write.csv(metadata, file = "metadata.csv", quote = TRUE)

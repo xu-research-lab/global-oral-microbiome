@@ -116,7 +116,7 @@ metadata <- data.frame(
   Age = NA,
   BMI = NA,
   Sex= NA,
-  Region = "V2,V3,V,V6-7,V8-V9",
+  Region = "V2,V3,V4,V6-V7,V8-V9",
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$isolation_source,
@@ -305,17 +305,17 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = T)
 head(metadata)
 ```
 
-    ##    BioProject         Run sample_name Age BMI Sex             Region
-    ## 1 PRJNA841067 SRR19346463       CCU10  NA  NA  NA V2,V3,V,V6-7,V8-V9
-    ## 2 PRJNA841067 SRR19346464       CCU09  NA  NA  NA V2,V3,V,V6-7,V8-V9
-    ## 3 PRJNA841067 SRR19346465       CCU08  NA  NA  NA V2,V3,V,V6-7,V8-V9
-    ## 4 PRJNA841067 SRR19346466       RES21  NA  NA  NA V2,V3,V,V6-7,V8-V9
-    ## 5 PRJNA841067 SRR19346467       RES20  NA  NA  NA V2,V3,V,V6-7,V8-V9
-    ## 6 PRJNA841067 SRR19346468       RES19  NA  NA  NA V2,V3,V,V6-7,V8-V9
+    ##    BioProject         Run sample_name Age BMI Sex               Region
+    ## 1 PRJNA841067 SRR19346463       CCU10  NA  NA  NA V2,V3,V4,V6-V7,V8-V9
+    ## 2 PRJNA841067 SRR19346464       CCU09  NA  NA  NA V2,V3,V4,V6-V7,V8-V9
+    ## 3 PRJNA841067 SRR19346465       CCU08  NA  NA  NA V2,V3,V4,V6-V7,V8-V9
+    ## 4 PRJNA841067 SRR19346466       RES21  NA  NA  NA V2,V3,V4,V6-V7,V8-V9
+    ## 5 PRJNA841067 SRR19346467       RES20  NA  NA  NA V2,V3,V4,V6-V7,V8-V9
+    ## 6 PRJNA841067 SRR19346468       RES19  NA  NA  NA V2,V3,V4,V6-V7,V8-V9
     ##         Platform Country                Site          public_time PCR_primers
     ## 1 Ion Torrent S5   China oropharyngeal swabs 2023-06-01T00:00:00Z        <NA>
     ## 2 Ion Torrent S5   China oropharyngeal swabs 2023-06-01T00:00:00Z        <NA>

@@ -17,7 +17,7 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/studylearning/董彪师兄项目/任务/张辰飞/PRJNA689848")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJNA689848")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.csv",header = T)
@@ -623,7 +623,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 

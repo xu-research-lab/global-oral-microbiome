@@ -1,0 +1,23 @@
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
+1,PRJNA431300,SRR6503955,Scoop blank sample 2,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+2,PRJNA431300,SRR6503956,Subject 10 Saliva sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,saliva,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+3,PRJNA431300,SRR6503957,Subject 2 Mouthwash sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+4,PRJNA431300,SRR6503958,Subject 2 Saliva sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,saliva,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+5,PRJNA431300,SRR6503959,Subject 1 Mouthwash sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+6,PRJNA431300,SRR6503960,Subject 1 Saliva sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,saliva,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+7,PRJNA431300,SRR6503961,Subject 4 Mouthwash sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+8,PRJNA431300,SRR6503962,Subject 4 Saliva sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,saliva,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+9,PRJNA431300,SRR6503963,Subject 3 Mouthwash sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+10,PRJNA431300,SRR6503964,Subject 3 Saliva sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,saliva,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+11,PRJNA431300,SRR6503965,Subject 5 Mouthwash sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+12,PRJNA431300,SRR6503966,Subject 5 Saliva sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,saliva,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+13,PRJNA431300,SRR6503967,Subject 6 Saliva sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,saliva,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+14,PRJNA431300,SRR6503968,Subject 7 Mouthwash sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+15,PRJNA431300,SRR6503969,Scoop blank sample 1,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Blank,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+16,PRJNA431300,SRR6503970,Subject 6 Mouthwash sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+17,PRJNA431300,SRR6503971,Subject 8 Saliva sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,saliva,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+18,PRJNA431300,SRR6503972,Subject 9 Mouthwash sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+19,PRJNA431300,SRR6503973,Subject 7 Saliva sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,saliva,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+20,PRJNA431300,SRR6503974,Subject 8 Mouthwash sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+21,PRJNA431300,SRR6503975,Subject 9 Saliva sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,saliva,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO
+22,PRJNA431300,SRR6503976,Subject 10 Mouthwash sample,NA,NA,NA,V4,Illumina HiSeq 2000,USA,Mouthwash,2018-01-26T00:00:00Z,515F-806R,Comparison of the oral microbiome in mouthwash and whole saliva samplese,NO,HC,NO

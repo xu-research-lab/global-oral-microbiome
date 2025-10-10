@@ -277,7 +277,7 @@ metadata <- data.frame(
   Platform = initial_meta$Instrument,
   Country = initial_meta$COUNTRY,
   Site = initial_meta$sample_type,
-  public_time = "2017-05-09",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = "515F-806R",
   stringsAsFactors = FALSE
 )
@@ -302,7 +302,7 @@ metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts
 sample_counts <- table(metadata$sample_name)
 # Create matched_samples column, any subjects have >=2 samples will be label "YES", otherwise "NO"
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
+metadata$matched_samples="No"
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -326,7 +326,7 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
 knitr::include_graphics("Metadata_Summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -350,13 +350,13 @@ head(metadata)
     ## 4 PRJEB13898 ERR1404165        1004  NA  NA  NA     V4 Illumina HiSeq 2500
     ## 5 PRJEB13898 ERR1404166        1004  NA  NA  NA     V4 Illumina HiSeq 2500
     ## 6 PRJEB13898 ERR1404167        1004  NA  NA  NA     V4 Illumina HiSeq 2500
-    ##    Country   Site public_time PCR_primers
-    ## 1 USA: GAZ saliva  2017-05-09   515F-806R
-    ## 2 USA: GAZ saliva  2017-05-09   515F-806R
-    ## 3 USA: GAZ saliva  2017-05-09   515F-806R
-    ## 4 USA: GAZ saliva  2017-05-09   515F-806R
-    ## 5 USA: GAZ saliva  2017-05-09   515F-806R
-    ## 6 USA: GAZ saliva  2017-05-09   515F-806R
+    ##    Country   Site          public_time PCR_primers
+    ## 1 USA: GAZ saliva 2017-05-09T00:00:00Z   515F-806R
+    ## 2 USA: GAZ saliva 2017-05-09T00:00:00Z   515F-806R
+    ## 3 USA: GAZ saliva 2017-05-09T00:00:00Z   515F-806R
+    ## 4 USA: GAZ saliva 2017-05-09T00:00:00Z   515F-806R
+    ## 5 USA: GAZ saliva 2017-05-09T00:00:00Z   515F-806R
+    ## 6 USA: GAZ saliva 2017-05-09T00:00:00Z   515F-806R
     ##                                                             title Disease_study
     ## 1 Comparison of Oral Collection Methods for Studies of Microbiota            NO
     ## 2 Comparison of Oral Collection Methods for Studies of Microbiota            NO
@@ -365,12 +365,12 @@ head(metadata)
     ## 5 Comparison of Oral Collection Methods for Studies of Microbiota            NO
     ## 6 Comparison of Oral Collection Methods for Studies of Microbiota            NO
     ##   Status matched_samples
-    ## 1     HC             YES
-    ## 2     HC             YES
-    ## 3     HC             YES
-    ## 4     HC             YES
-    ## 5     HC             YES
-    ## 6     HC             YES
+    ## 1     HC              No
+    ## 2     HC              No
+    ## 3     HC              No
+    ## 4     HC              No
+    ## 5     HC              No
+    ## 6     HC              No
 
 ## Notes for Students:
 

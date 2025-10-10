@@ -1,0 +1,75 @@
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
+3,PRJNA767939,SRR17066270,COVID oral_22,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+4,PRJNA767939,SRR17066271,COVID oral_21,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+5,PRJNA767939,SRR17066272,COVID oral_20,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+6,PRJNA767939,SRR17066273,COVID oral_19,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+8,PRJNA767939,SRR17066275,COVID oral_18,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+9,PRJNA767939,SRR17066276,COVID oral_17,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+10,PRJNA767939,SRR17066277,COVID oral_16,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+11,PRJNA767939,SRR17066278,COVID oral_15,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+12,PRJNA767939,SRR17066279,COVID oral_14,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+13,PRJNA767939,SRR17066280,COVID oral_13,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+14,PRJNA767939,SRR17066281,COVID oral_12,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+15,PRJNA767939,SRR17066282,COVID oral_11,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+16,PRJNA767939,SRR17066283,COVID oral_10,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+17,PRJNA767939,SRR17066284,COVID oral_9,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+19,PRJNA767939,SRR17066286,COVID oral_8,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+20,PRJNA767939,SRR17066287,COVID oral_7,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+21,PRJNA767939,SRR17066288,COVID oral_6,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+22,PRJNA767939,SRR17066289,COVID oral_5,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+23,PRJNA767939,SRR17066290,COVID oral_4,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+24,PRJNA767939,SRR17066291,COVID oral_3,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+25,PRJNA767939,SRR17066292,COVID oral_2,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+26,PRJNA767939,SRR17066293,COVID oral_1,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,COVID,NO
+52,PRJNA767939,SRR17066319,Healthy control oral_15,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+53,PRJNA767939,SRR17066320,Healthy control oral_14,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+54,PRJNA767939,SRR17066321,Healthy control oral_13,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+55,PRJNA767939,SRR17066322,Healthy control oral_12,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+56,PRJNA767939,SRR17066323,Healthy control oral_11,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+57,PRJNA767939,SRR17066324,Healthy control oral_10,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+58,PRJNA767939,SRR17066325,Healthy control oral_9,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+59,PRJNA767939,SRR17066326,Healthy control oral_8,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+60,PRJNA767939,SRR17066327,Healthy control oral_7,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+61,PRJNA767939,SRR17066328,Healthy control oral_6,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+63,PRJNA767939,SRR17066330,Healthy control oral_5,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+64,PRJNA767939,SRR17066331,Healthy control oral_4,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+65,PRJNA767939,SRR17066332,Healthy control oral_3,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+66,PRJNA767939,SRR17066333,Healthy control oral_2,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO
+67,PRJNA767939,SRR17066334,Healthy control oral_1,NA,NA,NA,V3-V4,Illumina MiSeq,Bangladesh,Saliva,2021-11-29T00:00:00Z,341F-806R,Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected
+Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes,YES,Healthy control,NO

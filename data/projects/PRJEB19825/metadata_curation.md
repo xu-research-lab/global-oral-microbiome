@@ -243,7 +243,7 @@ metadata <- data.frame(
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$env_material,
-  public_time = "2017-03-08",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = initial_meta$pcr_primers..exp.,
   stringsAsFactors = FALSE
 )
@@ -321,13 +321,13 @@ head(metadata)
     ## 4 PRJEB19825 ERR1866474          F4 33.53  NA   F     V4
     ## 5 PRJEB19825 ERR1866476          F4 33.53  NA   F     V4
     ## 6 PRJEB19825 ERR1866478          F4 33.53  NA   F     V4
-    ##                       Platform Country  Site public_time
-    ## 1 Illumina Genome Analyzer IIx     USA feces  2017-03-08
-    ## 2 Illumina Genome Analyzer IIx     USA feces  2017-03-08
-    ## 3 Illumina Genome Analyzer IIx     USA feces  2017-03-08
-    ## 4 Illumina Genome Analyzer IIx     USA feces  2017-03-08
-    ## 5 Illumina Genome Analyzer IIx     USA feces  2017-03-08
-    ## 6 Illumina Genome Analyzer IIx     USA feces  2017-03-08
+    ##                       Platform Country  Site          public_time
+    ## 1 Illumina Genome Analyzer IIx     USA feces 2017-03-08T00:00:00Z
+    ## 2 Illumina Genome Analyzer IIx     USA feces 2017-03-08T00:00:00Z
+    ## 3 Illumina Genome Analyzer IIx     USA feces 2017-03-08T00:00:00Z
+    ## 4 Illumina Genome Analyzer IIx     USA feces 2017-03-08T00:00:00Z
+    ## 5 Illumina Genome Analyzer IIx     USA feces 2017-03-08T00:00:00Z
+    ## 6 Illumina Genome Analyzer IIx     USA feces 2017-03-08T00:00:00Z
     ##                                         PCR_primers
     ## 1 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
     ## 2 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT

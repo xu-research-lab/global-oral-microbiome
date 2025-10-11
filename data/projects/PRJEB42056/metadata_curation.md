@@ -297,7 +297,7 @@ manually extracted from the publication and added to the metadata.
 ``` r
 # Add information obtained from the publication
 metadata$PCR_primers <- "515F-806R"
-metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition"
+metadata$title <- "Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
 metadata$Status<-"H"
@@ -366,7 +366,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
@@ -384,13 +384,13 @@ head(metadata)
     ## 4  feces 2020-12-22T00:00:00Z   515F-806R
     ## 5 saliva 2020-12-22T00:00:00Z   515F-806R
     ## 6  feces 2020-12-22T00:00:00Z   515F-806R
-    ##                                                                                             title
-    ## 1 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ## 2 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ## 3 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ## 4 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ## 5 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
-    ## 6 Evaluation of the Effect of Storage Methods on Fecal， Saliva， and Skin Microbiome Composition
+    ##                                                                                         title
+    ## 1 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ## 2 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ## 3 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ## 4 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ## 5 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
+    ## 6 Evaluation of the Effect of Storage Methods on Fecal,Saliva,and Skin Microbiome Composition
     ##   Disease_study Status matched_samples
     ## 1            NO      H             YES
     ## 2            NO      H             YES

@@ -138,6 +138,7 @@ metadata <- data.frame(
   Country = "Korea",
   Site = "saliva",
   public_time = initial_meta$ReleaseDate,
+  Status = NA,
   stringsAsFactors = FALSE
 )
 ```
@@ -153,7 +154,7 @@ metadata$PCR_primers <- "341F-805R"
 metadata$title <- "Characteristics of the Salivary Microbiota in Periodontal Diseases and Potential Roles of Individual Bacterial Species To Predict the Severity of Periodontal Disease"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
-metadata$Status<-"NA"
+#metadata$Status<-"NA"
 
 keep_subjects <- unique(subset(metadata, Site == "saliva")$sample_name)
 metadata <- subset(metadata, sample_name %in% keep_subjects)
@@ -196,7 +197,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 

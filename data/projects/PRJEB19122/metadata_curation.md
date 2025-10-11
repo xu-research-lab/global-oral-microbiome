@@ -242,7 +242,7 @@ metadata <- data.frame(
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
   Site = gsub("UBERON:", "", initial_meta$body_site),
-  public_time = "2017-02-10",
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = NA,
   stringsAsFactors = FALSE
 )
@@ -315,13 +315,13 @@ head(metadata)
     ## 4 PRJEB19122 ERR1802861 10822.061914.R1.1.pa  NA  NA  NA     V4 Illumina MiSeq
     ## 5 PRJEB19122 ERR1802862 10822.061914.R1.2.bx  NA  NA  NA     V4 Illumina MiSeq
     ## 6 PRJEB19122 ERR1802863 10822.061914.R1.2.bz  NA  NA  NA     V4 Illumina MiSeq
-    ##   Country            Site public_time PCR_primers
-    ## 1     USA gingival sulcus  2017-02-10          NA
-    ## 2     USA gingival sulcus  2017-02-10          NA
-    ## 3     USA gingival sulcus  2017-02-10          NA
-    ## 4     USA gingival sulcus  2017-02-10          NA
-    ## 5     USA gingival sulcus  2017-02-10          NA
-    ## 6     USA gingival sulcus  2017-02-10          NA
+    ##   Country            Site          public_time PCR_primers
+    ## 1     USA gingival sulcus 2017-02-10T00:00:00Z          NA
+    ## 2     USA gingival sulcus 2017-02-10T00:00:00Z          NA
+    ## 3     USA gingival sulcus 2017-02-10T00:00:00Z          NA
+    ## 4     USA gingival sulcus 2017-02-10T00:00:00Z          NA
+    ## 5     USA gingival sulcus 2017-02-10T00:00:00Z          NA
+    ## 6     USA gingival sulcus 2017-02-10T00:00:00Z          NA
     ##                                                                                      title
     ## 1 Multi-omics analysis of periodontal pocket microbial communities pre- and posttreatment.
     ## 2 Multi-omics analysis of periodontal pocket microbial communities pre- and posttreatment.

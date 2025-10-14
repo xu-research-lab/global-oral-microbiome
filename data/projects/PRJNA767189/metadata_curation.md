@@ -149,7 +149,7 @@ manually extracted from the publication and added to the metadata.
 ``` r
 # Add information obtained from the publication
 metadata$PCR_primers <- "515F-806R"
-metadata$title <- "The oral microbiome and breast cancer and nonmalignant breast disease, and its relationship with the fecal microbiome in the Ghana Breast Health Study"
+metadata$title <- "The oral microbiome and breast cancer and nonmalignant breast disease and its relationship with the fecal microbiome in the Ghana Breast Health Study"
 #metadata<-subset(uniform_meta,Site!="feces")
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
@@ -204,7 +204,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = T)
 head(metadata)
 ```
 
@@ -222,13 +222,13 @@ head(metadata)
     ## 4 uncalculated Saliva 2021-12-01T00:00:00Z   515F-806R
     ## 5 uncalculated Saliva 2021-12-01T00:00:00Z   515F-806R
     ## 6 uncalculated Saliva 2021-12-01T00:00:00Z   515F-806R
-    ##                                                                                                                                                    title
-    ## 1 The oral microbiome and breast cancer and nonmalignant breast disease, and its relationship with the fecal microbiome in the Ghana Breast Health Study
-    ## 2 The oral microbiome and breast cancer and nonmalignant breast disease, and its relationship with the fecal microbiome in the Ghana Breast Health Study
-    ## 3 The oral microbiome and breast cancer and nonmalignant breast disease, and its relationship with the fecal microbiome in the Ghana Breast Health Study
-    ## 4 The oral microbiome and breast cancer and nonmalignant breast disease, and its relationship with the fecal microbiome in the Ghana Breast Health Study
-    ## 5 The oral microbiome and breast cancer and nonmalignant breast disease, and its relationship with the fecal microbiome in the Ghana Breast Health Study
-    ## 6 The oral microbiome and breast cancer and nonmalignant breast disease, and its relationship with the fecal microbiome in the Ghana Breast Health Study
+    ##                                                                                                                                                   title
+    ## 1 The oral microbiome and breast cancer and nonmalignant breast disease and its relationship with the fecal microbiome in the Ghana Breast Health Study
+    ## 2 The oral microbiome and breast cancer and nonmalignant breast disease and its relationship with the fecal microbiome in the Ghana Breast Health Study
+    ## 3 The oral microbiome and breast cancer and nonmalignant breast disease and its relationship with the fecal microbiome in the Ghana Breast Health Study
+    ## 4 The oral microbiome and breast cancer and nonmalignant breast disease and its relationship with the fecal microbiome in the Ghana Breast Health Study
+    ## 5 The oral microbiome and breast cancer and nonmalignant breast disease and its relationship with the fecal microbiome in the Ghana Breast Health Study
+    ## 6 The oral microbiome and breast cancer and nonmalignant breast disease and its relationship with the fecal microbiome in the Ghana Breast Health Study
     ##   Disease_study        Status matched_samples
     ## 1           YES       Control              NO
     ## 2           YES Breast cancer              NO

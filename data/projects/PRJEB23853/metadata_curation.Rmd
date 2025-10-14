@@ -76,78 +76,19 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$sample_name,
+  sample_name = initial_meta$Sample_name,
   Age = NA_character_,
   BMI = NA_character_,
   Sex= NA_character_,
   Region = "V3-V4",
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
-  Site = initial_meta$sample_name,
+  Site = initial_meta$environment_.material.,
   public_time = initial_meta$ReleaseDate,
-  Disease_study = 'NO',
-  Status = 'HC',
+  Disease_study = 'YES',
+  Status = initial_meta$Sample_name,
   stringsAsFactors = FALSE
 )
-```
-
-# concat ohter info
-
-```{r}
-library(dplyr)
-library(stringr)
-library(readxl)
-pattern <- "^16S_(\\d+)([A-Za-z]{1,2})(\\d{1,2})$"
-extracted_parts <- str_match(metadata$sample_name, pattern)
-
-#>      [,1]          [,2] [,3] [,4]
-#> [1,] "16S_6O1"     "6"  "O"  "1" 
-#> [2,] "16S_6O2"     "6"  "O"  "2" 
-#> [3,] "16S_6O3"     "6"  "O"  "3" 
-#> 
-metadata <- metadata %>%
-  mutate(
-    sample_name = paste0(extracted_parts[, 2],'-', extracted_parts[, 4]), # 第2列是第一个捕获组
-    Site = extracted_parts[, 3],                 # 第3列是第二个捕获组
-  )
-head(metadata , n=8)
-
-info_path <- "/home/cjj/projects/collect_oral_data/global-oral-microbiome/data/tmp/PRJEB25916/msphere.00558-19-sd001.xlsx"
-info_data <- read_excel(info_path)
-colnames(info_data)
-pattern_info <- "^[A-Za-z]_(\\d+)[A-Za-z](\\d+)$"
-extracted_info <- str_match(info_data$Subject_ID, pattern_info)
-head(extracted_info)
-
-info_data <- info_data %>%
-  # 创建新的 sample_name 列，格式为 "数字-数字"
-  mutate(
-    sample_name = paste(extracted_info[, 2], extracted_info[, 3], sep = "-")
-  ) %>%
-  # 选择并重命名我们需要的列
-  select(
-    sample_name, # 这是我们用来连接的 "钥匙"
-    Age,
-    Sex = Gender,
-    BMI = BMIc
-  )
-head(info_data)
-
-matching_logic <- metadata$sample_name %in% info_data$sample_name
-number_of_matches <- sum(matching_logic)
-print(number_of_matches)
-
-conflicting_cols <- setdiff(colnames(info_data), "sample_name")
-
-metadata <- metadata %>%
-  # 步骤1: 从 metadata 中移除所有可能与 info_data_processed 冲突的列
-  select(-any_of(conflicting_cols)) %>%
-  
-  # 步骤2: 现在执行 left_join，就不会有命名冲突了
-  left_join(info_data, by = "sample_name")
-
-head(metadata , n=8)
-
 ```
 
 # 3: Manually Add Information from the Publication
@@ -157,28 +98,33 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 ```{r}
 # Add information obtained from the publication
 metadata_clean <- metadata
-metadata_clean$PCR_primers <- "5′-ACTCCTACGGGAGGCAGCAG-3′-5′-GGACTACHVGGGTWTCTAAT-3′"
-metadata_clean$title <- "Age-Related Variation of Bacterial and Fungal Communities in Different Body Habitats across the Young, Elderly, and Centenarians in Sardinia"
+metadata_clean$PCR_primers <- "341F-806R"
+metadata_clean$title <- "Inverse Association Between the Skin and Oral Microbiota in Atopic Dermatitis"
 
 metadata_clean$sample_name <- metadata$sample_name
 
 # metadata_clean$Status <-  metadata$Status
 metadata_clean$Status <- metadata$Status
 
+metadata_clean <- metadata_clean %>%
+  mutate(Status = case_when(
+    # str_sub(Status, -1) extrae el último carácter del texto en la columna Status
+    str_sub(Status, -1) == "N" ~ "HC",
+    str_sub(Status, -1) == "A" ~ "atopic dermatitis",
+    
+    # Una línea de seguridad: si no termina ni en H ni en D, lo etiqueta como "Unknown"
+    TRUE                        ~ "NA" 
+  ))
 metadata_clean$matched_samples <- "YES"
+
+metadata_clean$Site[metadata_clean$Site == "oral"] <- "oral swab"
 # metadata_clean$Sex <- ifelse(metadata_clean$Sex == "female", "F",
 #                       ifelse(metadata_clean$Sex == "male", "M",metadata_clean$Sex))
 
 
 # metadata_clean$Site <- ifelse(grepl("sal", metadata$Status), "saliva", "mucosa")
 
-metadata_clean[which(metadata$Site=="L"),]$Site <- "left palm"
-metadata_clean[which(metadata$Site=="R"),]$Site <- "right palm"
-metadata_clean[which(metadata$Site=="F"),]$Site <- "forehead"
-metadata_clean[which(metadata$Site=="U"),]$Site <- "umbilicus"
-metadata_clean[which(metadata$Site=="O"),]$Site <- "oral cavity"
-metadata_clean[which(metadata$Site=="OW"),]$Site <- "oral cavity"
-metadata_clean[which(metadata$Site=="G"),]$Site <- "gut"
+
 
 
 # Use cleaned dataset for subsequent analysis

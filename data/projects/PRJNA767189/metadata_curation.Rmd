@@ -77,7 +77,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 ```{r}
 # Add information obtained from the publication
 metadata$PCR_primers <- "515F-806R"
-metadata$title <- "The oral microbiome and breast cancer and nonmalignant breast disease, and its relationship with the fecal microbiome in the Ghana Breast Health Study"
+metadata$title <- "The oral microbiome and breast cancer and nonmalignant breast disease and its relationship with the fecal microbiome in the Ghana Breast Health Study"
 #metadata<-subset(uniform_meta,Site!="feces")
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
@@ -175,7 +175,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = T)
 head(metadata)
 ```
 ## Notes for Students:

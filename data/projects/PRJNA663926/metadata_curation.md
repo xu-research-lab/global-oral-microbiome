@@ -198,7 +198,7 @@ metadata <- metadata[, c(
 
 # Export the uniform metadata to a CSV file
 metadata<-unique(metadata)
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 

@@ -159,6 +159,9 @@ metadata <- data.frame(
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$host_tissue_sampled,
   public_time = initial_meta$ReleaseDate,
+  proton_pump_inhbitor_drug_use = initial_meta$proton_pump_inhbitor_drug_use,
+  host_disease = initial_meta$host_disease,
+  edentulous = initial_meta$edentulous,
   stringsAsFactors = FALSE
 )
 ```
@@ -181,10 +184,18 @@ manually extracted from the publication and added to the metadata.
 ``` r
 # Add information obtained from the publication
 metadata$PCR_primers <- "27F-534R"
-metadata$title <- "A Correlation Study of the Microbiota Between Oral Cavity and Tonsils in Children With Tonsillar Hypertrophy"
+metadata$title <- "Old age and other factors associated with salivary microbiome variation"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
-metadata$Status<-"HC"
+metadata <- metadata %>%
+  mutate(Status = case_when(
+  host_disease == "CON" | host_disease == "Control" ~ "HC",
+  host_disease == "GERD" & proton_pump_inhbitor_drug_use == "PPI" ~ "GERD_PPI",
+  host_disease == "GERD" ~ "GERD_noPPI",
+  edentulous == "Yes" ~ "Edentulous",
+  TRUE ~ "NA"
+  )) %>%
+  select(-host_disease, -proton_pump_inhbitor_drug_use,-edentulous)  # 移除临时列
 
 #get subjects id according to sample id
 metadata$sample_name<-gsub("Guy|Rahe","",metadata$sample_name)
@@ -250,20 +261,20 @@ head(metadata)
     ## 4     USA Saliva 2021-01-04T00:00:00Z    27F-534R
     ## 5     USA Saliva 2021-01-04T00:00:00Z    27F-534R
     ## 6     USA Saliva 2021-01-04T00:00:00Z    27F-534R
-    ##                                                                                                          title
-    ## 1 A Correlation Study of the Microbiota Between Oral Cavity and Tonsils in Children With Tonsillar Hypertrophy
-    ## 2 A Correlation Study of the Microbiota Between Oral Cavity and Tonsils in Children With Tonsillar Hypertrophy
-    ## 3 A Correlation Study of the Microbiota Between Oral Cavity and Tonsils in Children With Tonsillar Hypertrophy
-    ## 4 A Correlation Study of the Microbiota Between Oral Cavity and Tonsils in Children With Tonsillar Hypertrophy
-    ## 5 A Correlation Study of the Microbiota Between Oral Cavity and Tonsils in Children With Tonsillar Hypertrophy
-    ## 6 A Correlation Study of the Microbiota Between Oral Cavity and Tonsils in Children With Tonsillar Hypertrophy
-    ##   Disease_study Status matched_samples
-    ## 1           YES     HC              NO
-    ## 2           YES     HC              NO
-    ## 3           YES     HC              NO
-    ## 4           YES     HC              NO
-    ## 5           YES     HC              NO
-    ## 6           YES     HC              NO
+    ##                                                                     title
+    ## 1 Old age and other factors associated with salivary microbiome variation
+    ## 2 Old age and other factors associated with salivary microbiome variation
+    ## 3 Old age and other factors associated with salivary microbiome variation
+    ## 4 Old age and other factors associated with salivary microbiome variation
+    ## 5 Old age and other factors associated with salivary microbiome variation
+    ## 6 Old age and other factors associated with salivary microbiome variation
+    ##   Disease_study     Status matched_samples
+    ## 1           YES         HC              NO
+    ## 2           YES         HC              NO
+    ## 3           YES         HC              NO
+    ## 4           YES         HC              NO
+    ## 5           YES   GERD_PPI              NO
+    ## 6           YES GERD_noPPI              NO
 
 ## Notes for Students:
 

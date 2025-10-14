@@ -292,7 +292,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = T)
 head(metadata)
 ```
 

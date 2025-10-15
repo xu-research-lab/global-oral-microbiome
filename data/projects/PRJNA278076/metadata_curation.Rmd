@@ -15,7 +15,7 @@ library(cowplot)
 
 
 # Set working directory (update this path to your local directory)
-setwd("/home/cjj/projects/collect_oral_data/global-oral-microbiome/data/tmp/PRJNA278076")
+setwd("/home/cjj/projects/collect_oral_data/global-oral-microbiome/data/projects/PRJNA278076")
 initial_meta<-read.csv("SraRunTable.csv",header = T)
 colnames(initial_meta)
 
@@ -101,6 +101,8 @@ metadata_clean$Sex <- ifelse(metadata$Sex == "male", "M",
                            ifelse(metadata$Sex == "female", "F", NA_character_)
                      )
 
+is_tooth <- grepl("^tooth", metadata_clean$Site, ignore.case = TRUE)
+metadata_clean$Site <- ifelse(is_tooth, "Tooth", metadata_clean$Site)
 # metadata[which(metadata$Site=="SP"),]$Site <- "supragingival"
 # metadata[which(metadata$Site=="T"),]$Site <- "tongue"
 # metadata[which(metadata$Site=="SA"),]$Site <- "salivary"

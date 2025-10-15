@@ -102,8 +102,8 @@ metadata <- data.frame(
   BioProject = "PRJCA005537",
   Run = NA,
   sample_name = initial_meta$Sample.name,
-  #Age = NA,
-  #BMI = NA,
+  Age = NA,
+  BMI = NA,
   Sex = NA,
   Region = "V3-V4",
   Platform = "Illumina MiSeq",
@@ -113,23 +113,6 @@ metadata <- data.frame(
   Public.description = initial_meta$Public.description,
   stringsAsFactors = FALSE
 )
-```
-
-``` r
-metadata <- metadata %>%
-  mutate(
-    Age = case_when(
-      grepl("Oral flora in healthy", Public.description) ~ "50.81±13.9",  
-      grepl("Oral flora in esophagitis patients", Public.description) ~ "56.27±13.6",  
-    )
-  )
-metadata <- metadata %>%
-  mutate(
-    BMI = case_when(
-      grepl("Oral flora in healthy", Public.description) ~ "23.3±2.66",  
-      grepl("Oral flora in esophagitis patients", Public.description) ~ "23.35±2.9",  
-    )
-  )
 ```
 
 # Step 3: Manually Add Information from the Publication
@@ -200,20 +183,20 @@ write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##    BioProject Run sample_name        Age       BMI Sex Region       Platform
-    ## 1 PRJCA005537  NA       B-135 50.81±13.9 23.3±2.66  NA  V3-V4 Illumina MiSeq
-    ## 2 PRJCA005537  NA       B-230 50.81±13.9 23.3±2.66  NA  V3-V4 Illumina MiSeq
-    ## 3 PRJCA005537  NA       B-127 50.81±13.9 23.3±2.66  NA  V3-V4 Illumina MiSeq
-    ## 4 PRJCA005537  NA       B-323 50.81±13.9 23.3±2.66  NA  V3-V4 Illumina MiSeq
-    ## 5 PRJCA005537  NA       B-113 50.81±13.9 23.3±2.66  NA  V3-V4 Illumina MiSeq
-    ## 6 PRJCA005537  NA       A-078 50.81±13.9 23.3±2.66  NA  V3-V4 Illumina MiSeq
-    ##   Country   Site public_time PCR_primers
-    ## 1   China saliva          NA   341F-805R
-    ## 2   China saliva          NA   341F-805R
-    ## 3   China saliva          NA   341F-805R
-    ## 4   China saliva          NA   341F-805R
-    ## 5   China saliva          NA   341F-805R
-    ## 6   China saliva          NA   341F-805R
+    ##    BioProject Run sample_name Age BMI Sex Region       Platform Country   Site
+    ## 1 PRJCA005537  NA       B-135  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
+    ## 2 PRJCA005537  NA       B-230  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
+    ## 3 PRJCA005537  NA       B-127  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
+    ## 4 PRJCA005537  NA       B-323  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
+    ## 5 PRJCA005537  NA       B-113  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
+    ## 6 PRJCA005537  NA       A-078  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
+    ##   public_time PCR_primers
+    ## 1          NA   341F-805R
+    ## 2          NA   341F-805R
+    ## 3          NA   341F-805R
+    ## 4          NA   341F-805R
+    ## 5          NA   341F-805R
+    ## 6          NA   341F-805R
     ##                                                                                            title
     ## 1 Effects of Helicobacter pylori Infection on the Oral Microbiota of Reflux Esophagitis Patients
     ## 2 Effects of Helicobacter pylori Infection on the Oral Microbiota of Reflux Esophagitis Patients

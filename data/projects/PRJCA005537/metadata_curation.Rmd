@@ -61,8 +61,8 @@ metadata <- data.frame(
   BioProject = "PRJCA005537",
   Run = NA,
   sample_name = initial_meta$Sample.name,
-  #Age = NA,
-  #BMI = NA,
+  Age = NA,
+  BMI = NA,
   Sex = NA,
   Region = "V3-V4",
   Platform = "Illumina MiSeq",
@@ -72,23 +72,6 @@ metadata <- data.frame(
   Public.description = initial_meta$Public.description,
   stringsAsFactors = FALSE
 )
-```
-
-```{r}
-metadata <- metadata %>%
-  mutate(
-    Age = case_when(
-      grepl("Oral flora in healthy", Public.description) ~ "50.81±13.9",  
-      grepl("Oral flora in esophagitis patients", Public.description) ~ "56.27±13.6",  
-    )
-  )
-metadata <- metadata %>%
-  mutate(
-    BMI = case_when(
-      grepl("Oral flora in healthy", Public.description) ~ "23.3±2.66",  
-      grepl("Oral flora in esophagitis patients", Public.description) ~ "23.35±2.9",  
-    )
-  )
 ```
 # Step 3: Manually Add Information from the Publication
 

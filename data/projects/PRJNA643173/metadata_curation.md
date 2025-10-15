@@ -130,7 +130,7 @@ metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
   sample_name = initial_meta$isolation_source,
-  #Age = NA,
+  Age = NA_real_,
   BMI = NA,
   #Sex = NA,
   Region = "V3-V4",
@@ -150,17 +150,27 @@ metadata <- metadata %>%
   ))
 metadata <- metadata %>%
   mutate(Age = case_when(
-    grepl("1A|1B|9A|9B|12A|12B", sample_name) ~ "12",
-    grepl("2A|2B|13A|13B", sample_name) ~ "7",
-    grepl("3A|3B|7A|7B|15A|15B", sample_name) ~ "8",
-    grepl("4A|4B", sample_name) ~ "6",
-    grepl("5A|5B", sample_name) ~ "11",
-    grepl("6A|6B|10A|10B|11A|11B|16A|16B|18A|18B", sample_name) ~ "9",
-    grepl("8A|8B", sample_name) ~ "10",
-    grepl("14A|14B|19A|19B|20A|20B", sample_name) ~ "4",
-    grepl("17A|17B|21A|21B", sample_name) ~ "5"
+    grepl("1A|1B|9A|9B|12A|12B", sample_name) ~ 12,
+    grepl("2A|2B|13A|13B", sample_name) ~ 7,
+    grepl("3A|3B|7A|7B|15A|15B", sample_name) ~ 8,
+    grepl("4A|4B", sample_name) ~ 6,
+    grepl("5A|5B", sample_name) ~ 11,
+    grepl("6A|6B|10A|10B|11A|11B|16A|16B|18A|18B", sample_name) ~ 9,
+    grepl("8A|8B", sample_name) ~ 10,
+    grepl("14A|14B|19A|19B|20A|20B", sample_name) ~ 4,
+    grepl("17A|17B|21A|21B", sample_name) ~ 5
   ))
+print(paste("Age的数据类型:", class(metadata$Age)))
 ```
+
+    ## [1] "Age的数据类型: numeric"
+
+``` r
+print(summary(metadata$Age))
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##   4.000   8.000   9.000   9.095  12.000  12.000
 
 # Step 3: Manually Add Information from the Publication
 

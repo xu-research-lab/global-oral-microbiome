@@ -259,6 +259,10 @@ metadata <- metadata %>%
 # Add a horizontal bar between V3 and V4
 metadata <- metadata %>%
   mutate(Region = recode(Region, "V1V2" = "V1-V2"))
+
+# Set some values in the Age column to NA
+metadata <- metadata %>%
+  mutate(Age = na_if(Age, 0)) 
 ```
 
 # Step 3: Manually Add Information from the Publication

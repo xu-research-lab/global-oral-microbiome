@@ -139,7 +139,8 @@ metadata <- data.frame(
   #Site = initial_meta$isolate,
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
-)
+) %>%
+  filter(Platform == "Illumina MiSeq")
 ```
 
 ``` r
@@ -192,7 +193,7 @@ metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 135"
+    ## [1] "Number of unique runs: 130"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))

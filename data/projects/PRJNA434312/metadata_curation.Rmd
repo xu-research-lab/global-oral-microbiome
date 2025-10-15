@@ -65,7 +65,7 @@ metadata <- data.frame(
   Sex=initial_meta$hostgender,
   Region = "V3-V4",
   Platform = initial_meta$Instrument,
-  Country = initial_meta$geo_loc_name_country,
+  Country = "USA",
   Site =initial_meta$sample_type,
   public_time = initial_meta$ReleaseDate,
   Status=initial_meta$disease_status,

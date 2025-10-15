@@ -148,7 +148,7 @@ metadata <- data.frame(
   Sex=initial_meta$hostgender,
   Region = "V3-V4",
   Platform = initial_meta$Instrument,
-  Country = initial_meta$geo_loc_name_country,
+  Country = "USA",
   Site =initial_meta$sample_type,
   public_time = initial_meta$ReleaseDate,
   Status=initial_meta$disease_status,
@@ -235,13 +235,13 @@ head(metadata)
     ## 4 PRJNA434312 SRR6752089         175  56 32.14556 male  V3-V4
     ## 5 PRJNA434312 SRR6752090         174  60 29.47594 male  V3-V4
     ## 6 PRJNA434312 SRR6752091         173  56 30.91379 male  V3-V4
-    ##              Platform      Country      Site          public_time PCR_primers
-    ## 1 454 GS FLX Titanium uncalculated Mouthwash 2018-02-21T00:00:00Z   347F-803R
-    ## 2 454 GS FLX Titanium uncalculated Mouthwash 2018-02-21T00:00:00Z   347F-803R
-    ## 3 454 GS FLX Titanium uncalculated Mouthwash 2018-02-21T00:00:00Z   347F-803R
-    ## 4 454 GS FLX Titanium uncalculated Mouthwash 2018-02-21T00:00:00Z   347F-803R
-    ## 5 454 GS FLX Titanium uncalculated Mouthwash 2018-02-21T00:00:00Z   347F-803R
-    ## 6 454 GS FLX Titanium uncalculated Mouthwash 2018-02-21T00:00:00Z   347F-803R
+    ##              Platform Country      Site          public_time PCR_primers
+    ## 1 454 GS FLX Titanium     USA Mouthwash 2018-02-21T00:00:00Z   347F-803R
+    ## 2 454 GS FLX Titanium     USA Mouthwash 2018-02-21T00:00:00Z   347F-803R
+    ## 3 454 GS FLX Titanium     USA Mouthwash 2018-02-21T00:00:00Z   347F-803R
+    ## 4 454 GS FLX Titanium     USA Mouthwash 2018-02-21T00:00:00Z   347F-803R
+    ## 5 454 GS FLX Titanium     USA Mouthwash 2018-02-21T00:00:00Z   347F-803R
+    ## 6 454 GS FLX Titanium     USA Mouthwash 2018-02-21T00:00:00Z   347F-803R
     ##                                                                                                                            title
     ## 1 Elevated Dietary Carbohydrate and Glycemic Intake Associate with an Altered Oral Microbial Ecosystem in Two Large U.S. Cohorts
     ## 2 Elevated Dietary Carbohydrate and Glycemic Intake Associate with an Altered Oral Microbial Ecosystem in Two Large U.S. Cohorts

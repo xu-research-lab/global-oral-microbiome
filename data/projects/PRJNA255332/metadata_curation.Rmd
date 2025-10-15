@@ -78,7 +78,7 @@ metadata <- data.frame(
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
-metadata$PCR_primers <- "27F-907R"
+metadata$PCR_primers <- "27F-519R"
 metadata$title <- "Alcohol and tobacco consumption affects bacterial richness in oral cavity mucosa biofilms"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns

@@ -143,7 +143,7 @@ manually extracted from the publication and added to the metadata.
 
 ``` r
 # Add information obtained from the publication
-metadata$PCR_primers <- "27F-907R"
+metadata$PCR_primers <- "27F-519R"
 metadata$title <- "Alcohol and tobacco consumption affects bacterial richness in oral cavity mucosa biofilms"
 metadata$Disease_study <- "NO"
 # Assign disease status based on sample_name patterns
@@ -202,12 +202,12 @@ head(metadata)
     ## 5 PRJNA255332 SRR1515157        SD05  NA  NA  NA     V1 Ion Torrent PGM      NA
     ## 6 PRJNA255332 SRR1515158   C02-run-2  NA  NA  NA     V1 Ion Torrent PGM      NA
     ##        Site          public_time PCR_primers
-    ## 1 oral-swab 2014-10-03T00:00:00Z    27F-907R
-    ## 2 oral-swab 2014-10-03T00:00:00Z    27F-907R
-    ## 3 oral-swab 2014-10-03T00:00:00Z    27F-907R
-    ## 4 oral-swab 2014-10-03T00:00:00Z    27F-907R
-    ## 5 oral-swab 2014-10-03T00:00:00Z    27F-907R
-    ## 6 oral-swab 2014-10-03T00:00:00Z    27F-907R
+    ## 1 oral-swab 2014-10-03T00:00:00Z    27F-519R
+    ## 2 oral-swab 2014-10-03T00:00:00Z    27F-519R
+    ## 3 oral-swab 2014-10-03T00:00:00Z    27F-519R
+    ## 4 oral-swab 2014-10-03T00:00:00Z    27F-519R
+    ## 5 oral-swab 2014-10-03T00:00:00Z    27F-519R
+    ## 6 oral-swab 2014-10-03T00:00:00Z    27F-519R
     ##                                                                                       title
     ## 1 Alcohol and tobacco consumption affects bacterial richness in oral cavity mucosa biofilms
     ## 2 Alcohol and tobacco consumption affects bacterial richness in oral cavity mucosa biofilms

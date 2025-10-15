@@ -70,7 +70,8 @@ metadata <- data.frame(
   #Site = initial_meta$isolate,
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
-)
+) %>%
+  filter(Platform == "Illumina MiSeq")
 ```
 
 ```{r}

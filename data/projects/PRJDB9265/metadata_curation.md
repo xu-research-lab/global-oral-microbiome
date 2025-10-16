@@ -21,7 +21,7 @@ library(readxl)
 setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJDB9265")
 
 # Read the initial metadata files
-initial_meta<-read.csv("SraRunTable.csv")
+initial_meta<-read.csv("SraRunTable.csv") %>% filter(Instrument != "Sequel")
 
 head(initial_meta)
 ```
@@ -163,13 +163,13 @@ metadata$matched_samples <- "NO"
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 254"
+    ## [1] "Number of unique runs: 209"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 254"
+    ## [1] "Number of unique sample names: 209"
 
 # Step 5: Visualize the Metadata
 

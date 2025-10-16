@@ -126,7 +126,7 @@ metadata <- data.frame(
   Age = NA,
   BMI = NA,
   Sex=NA,
-  Region = NA,
+  Region = "V3-V5",
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$isolation_source,
@@ -134,7 +134,6 @@ metadata <- data.frame(
   Status      = ifelse(grepl("^RZGC",  initial_meta$Sample.Name), "COVID-19",
                        ifelse(grepl("^RZG2",  initial_meta$Sample.Name), "H",
                               ifelse(grepl("^RZGD", initial_meta$Sample.Name), "H",NA))),
-  PCR_primers = NA,
   stringsAsFactors = FALSE
 )
 ```
@@ -146,7 +145,7 @@ manually extracted from the publication and added to the metadata.
 
 ``` r
 # Add information obtained from the publication
-#metadata$PCR_primers <- "515F-806R"
+metadata$PCR_primers <- "338F-806R"
 metadata$title <- "Alterations in the human oral and gut microbiomes and lipidomics in COVID-19"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
@@ -197,19 +196,19 @@ head(metadata)
 ```
 
     ##    BioProject         Run sample_name Age BMI Sex Region       Platform Country
-    ## 1 PRJNA660302 SRR12553637    RZGC1_79  NA  NA  NA     NA Illumina MiSeq   China
-    ## 2 PRJNA660302 SRR12553638    RZGC1_78  NA  NA  NA     NA Illumina MiSeq   China
-    ## 3 PRJNA660302 SRR12553639    RZGC1_77  NA  NA  NA     NA Illumina MiSeq   China
-    ## 4 PRJNA660302 SRR12553640    RZGC1_76  NA  NA  NA     NA Illumina MiSeq   China
-    ## 5 PRJNA660302 SRR12553641    RZGC1_75  NA  NA  NA     NA Illumina MiSeq   China
-    ## 6 PRJNA660302 SRR12553642    RZGC1_74  NA  NA  NA     NA Illumina MiSeq   China
+    ## 1 PRJNA660302 SRR12553637    RZGC1_79  NA  NA  NA  V3-V5 Illumina MiSeq   China
+    ## 2 PRJNA660302 SRR12553638    RZGC1_78  NA  NA  NA  V3-V5 Illumina MiSeq   China
+    ## 3 PRJNA660302 SRR12553639    RZGC1_77  NA  NA  NA  V3-V5 Illumina MiSeq   China
+    ## 4 PRJNA660302 SRR12553640    RZGC1_76  NA  NA  NA  V3-V5 Illumina MiSeq   China
+    ## 5 PRJNA660302 SRR12553641    RZGC1_75  NA  NA  NA  V3-V5 Illumina MiSeq   China
+    ## 6 PRJNA660302 SRR12553642    RZGC1_74  NA  NA  NA  V3-V5 Illumina MiSeq   China
     ##             Site          public_time PCR_primers
-    ## 1 tongue coating 2020-08-31T00:00:00Z          NA
-    ## 2 tongue coating 2020-08-31T00:00:00Z          NA
-    ## 3 tongue coating 2020-08-31T00:00:00Z          NA
-    ## 4 tongue coating 2020-08-31T00:00:00Z          NA
-    ## 5 tongue coating 2020-08-31T00:00:00Z          NA
-    ## 6 tongue coating 2020-08-31T00:00:00Z          NA
+    ## 1 tongue coating 2020-08-31T00:00:00Z   338F-806R
+    ## 2 tongue coating 2020-08-31T00:00:00Z   338F-806R
+    ## 3 tongue coating 2020-08-31T00:00:00Z   338F-806R
+    ## 4 tongue coating 2020-08-31T00:00:00Z   338F-806R
+    ## 5 tongue coating 2020-08-31T00:00:00Z   338F-806R
+    ## 6 tongue coating 2020-08-31T00:00:00Z   338F-806R
     ##                                                                          title
     ## 1 Alterations in the human oral and gut microbiomes and lipidomics in COVID-19
     ## 2 Alterations in the human oral and gut microbiomes and lipidomics in COVID-19

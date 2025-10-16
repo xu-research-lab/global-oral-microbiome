@@ -61,27 +61,41 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = NA,
+  sample_name = initial_meta$Sample_Name,
   Platform = initial_meta$Instrument,
-  Country = NA,
-  public_time = NA,
+  Country = initial_meta$geo_loc_name_country,
+  public_time = initial_meta$ReleaseDate,
   Site = NA,
   Sex = NA,
   Age = NA,
   BMI = NA,
   Status = NA,
-  Region = NA,
-  PCR_primers = NA,
-  title = NA,
-  Disease_study = NA,
-  matched_samples = NA
+  stringsAsFactors = FALSE
 )
+metadata <- metadata %>%
+  mutate(
+    Site = case_when(
+      str_detect(sample_name, "S") ~ "saliva",
+      str_detect(sample_name, "P|D") ~ "dental plaque",
+      TRUE ~ NA_character_ # Default to NA if no condition is met
+    ),
+    Status = case_when(
+      str_detect(sample_name, "H") ~ "H",
+      str_detect(sample_name, "C") ~ "caries",
+      TRUE ~ NA_character_ # Default to NA
+    )
+  )
 ```
 # Step 3: Manually Add Information from the Publication
 
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
+metadata$Region <- "V1-V9"
+metadata$PCR_primers <- "FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT"
+metadata$title <- "The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey"
+metadata$Disease_study <- "YES"
+metadata$matched_samples <- "No"
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}
@@ -138,7 +152,6 @@ p <- plot_grid(plots$Age,
   plots$Country,
   plots$Site,
   plots$public_time,
-  plots$PCR_primers,
   plots$Disease_study,
   plots$Status,
   plots$matched_samples, # add

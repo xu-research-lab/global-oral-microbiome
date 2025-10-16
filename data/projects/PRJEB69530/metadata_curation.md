@@ -206,7 +206,10 @@ metadata <- data.frame(
   Region = initial_meta$target_subfragment..exp.,
   Platform = initial_meta$Instrument,
   Country = initial_meta$COUNTRY,
-  Site = initial_meta$Organism,
+  Site = ifelse(initial_meta$Organism == "human oral metagenome", "oral swab",
+         ifelse(initial_meta$Organism == "human skin metagenome", "skin",
+         ifelse(initial_meta$Organism == "human gut metagenome", "stool",
+                initial_meta$Organism))),
   public_time = initial_meta$ReleaseDate,
   PCR_primers = initial_meta$pcr_primers..exp.,
   stringsAsFactors = FALSE
@@ -226,7 +229,7 @@ metadata$Disease_study <- "NO"
 metadata$Status <- "HC"
 
 #get subjects id with Saliva available
-keep_subjects<-subset(metadata,Site %in% "human oral metagenome")
+keep_subjects<-subset(metadata,Site %in% "oral swab")
 #remove subjects without Saliva samples
 metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts
@@ -280,13 +283,13 @@ head(metadata)
     ## 4 PRJEB69530 ERR12266240         M03  NA  NA  NA     V4 Illumina HiSeq 2000
     ## 5 PRJEB69530 ERR12266242         M03  NA  NA  NA     V4 Illumina HiSeq 2000
     ## 6 PRJEB69530 ERR12266243         M03  NA  NA  NA     V4 Illumina HiSeq 2000
-    ##   Country                  Site          public_time
-    ## 1     USA human oral metagenome 2024-07-21T00:00:00Z
-    ## 2     USA human skin metagenome 2024-07-21T00:00:00Z
-    ## 3     USA human oral metagenome 2024-07-22T00:00:00Z
-    ## 4     USA  human gut metagenome 2024-07-21T00:00:00Z
-    ## 5     USA human oral metagenome 2024-07-22T00:00:00Z
-    ## 6     USA human skin metagenome 2024-07-22T00:00:00Z
+    ##   Country      Site          public_time
+    ## 1     USA oral swab 2024-07-21T00:00:00Z
+    ## 2     USA      skin 2024-07-21T00:00:00Z
+    ## 3     USA oral swab 2024-07-22T00:00:00Z
+    ## 4     USA     stool 2024-07-21T00:00:00Z
+    ## 5     USA oral swab 2024-07-22T00:00:00Z
+    ## 6     USA      skin 2024-07-22T00:00:00Z
     ##                                         PCR_primers
     ## 1 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
     ## 2 FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT

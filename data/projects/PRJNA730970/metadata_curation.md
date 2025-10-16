@@ -15,48 +15,55 @@ project.
     initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
     head(initial_meta)
 
-    ##           Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample                                BioSampleModel   Bytes
-    ## 1 SRR14583850   AMPLICON        373 14323317 PRJNA730970 SAMN19246722 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 8124635
-    ## 2 SRR14583851   AMPLICON        375 12463413 PRJNA730970 SAMN19246721 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 6946463
-    ## 3 SRR14583852   AMPLICON        376 15834457 PRJNA730970 SAMN19246720 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 8907034
-    ## 4 SRR14583853   AMPLICON        374 11463869 PRJNA730970 SAMN19246719 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 6612259
-    ## 5 SRR14583854   AMPLICON        373 14059310 PRJNA730970 SAMN19246718 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 7873649
-    ## 6 SRR14583855   AMPLICON        375 13141471 PRJNA730970 SAMN19246754 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 7584699
-    ##                                           Center.Name Collection_Date Consent DATASTORE.filetype DATASTORE.provider
-    ## 1 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-24  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 2 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-02  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 3 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-14  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 4 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-02  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 5 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-07  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 6 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-04  public   fastq,run.zq,sra         gs,ncbi,s3
-    ##                       DATASTORE.region env_broad_scale               env_local_scale     env_medium  Experiment geo_loc_name_country
-    ## 1 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom oral squamous cell carcinomas not applicable SRX10931223                China
-    ## 2 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom            oral benign tumors not applicable SRX10931222                China
-    ## 3 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom oral squamous cell carcinomas not applicable SRX10931221                China
-    ## 4 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom            oral benign tumors not applicable SRX10931220                China
-    ## 5 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom oral squamous cell carcinomas not applicable SRX10931219                China
-    ## 6 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom              healthy subjects not applicable SRX10931218                China
-    ##   geo_loc_name_country_continent    geo_loc_name Group         HOST          Instrument isol_growth_condt        lat_lon Library.Name
-    ## 1                           Asia China:Guangzhou     C Homo sapiens Illumina HiSeq 2500    not applicable not applicable           16
-    ## 2                           Asia China:Guangzhou     T Homo sapiens Illumina HiSeq 2500    not applicable not applicable           14
-    ## 3                           Asia China:Guangzhou     C Homo sapiens Illumina HiSeq 2500    not applicable not applicable           13
-    ## 4                           Asia China:Guangzhou     T Homo sapiens Illumina HiSeq 2500    not applicable not applicable           12
-    ## 5                           Asia China:Guangzhou     C Homo sapiens Illumina HiSeq 2500    not applicable not applicable           11
-    ## 6                           Asia China:Guangzhou     H Homo sapiens Illumina HiSeq 2500    not applicable not applicable           C9
-    ##   LibraryLayout LibrarySelection LibrarySource              Organism Platform          ReleaseDate               replicate
-    ## 1        PAIRED              PCR       GENOMIC human oral metagenome ILLUMINA 2022-02-09T00:00:00Z  biological replicate 7
-    ## 2        PAIRED              PCR       GENOMIC human oral metagenome ILLUMINA 2022-02-09T00:00:00Z  biological replicate 3
-    ## 3        PAIRED              PCR       GENOMIC human oral metagenome ILLUMINA 2022-02-09T00:00:00Z  biological replicate 6
-    ## 4        PAIRED              PCR       GENOMIC human oral metagenome ILLUMINA 2022-02-09T00:00:00Z  biological replicate 2
-    ## 5        PAIRED              PCR       GENOMIC human oral metagenome ILLUMINA 2022-02-09T00:00:00Z  biological replicate 5
-    ## 6        PAIRED              PCR       GENOMIC human oral metagenome ILLUMINA 2022-02-09T00:00:00Z biological replicate 15
-    ##            create_date version Sample.Name SRA.Study         strain
-    ## 1 2021-05-19T04:40:00Z       1       16.fq SRP320428 not applicable
-    ## 2 2021-05-19T04:40:00Z       1       14.fq SRP320428 not applicable
-    ## 3 2021-05-19T04:40:00Z       1       13.fq SRP320428 not applicable
-    ## 4 2021-05-19T04:40:00Z       1       12.fq SRP320428 not applicable
-    ## 5 2021-05-19T04:40:00Z       1       11.fq SRP320428 not applicable
-    ## 6 2021-05-19T04:40:00Z       1       C9.fq SRP320428 not applicable
+    ##           Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample                                BioSampleModel
+    ## 1 SRR14583850   AMPLICON        373 14323317 PRJNA730970 SAMN19246722 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral
+    ## 2 SRR14583851   AMPLICON        375 12463413 PRJNA730970 SAMN19246721 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral
+    ## 3 SRR14583852   AMPLICON        376 15834457 PRJNA730970 SAMN19246720 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral
+    ## 4 SRR14583853   AMPLICON        374 11463869 PRJNA730970 SAMN19246719 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral
+    ## 5 SRR14583854   AMPLICON        373 14059310 PRJNA730970 SAMN19246718 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral
+    ## 6 SRR14583855   AMPLICON        375 13141471 PRJNA730970 SAMN19246754 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral
+    ##     Bytes                                         Center.Name Collection_Date Consent DATASTORE.filetype
+    ## 1 8124635 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-24  public   fastq,run.zq,sra
+    ## 2 6946463 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-02  public   fastq,run.zq,sra
+    ## 3 8907034 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-14  public   fastq,run.zq,sra
+    ## 4 6612259 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-02  public   fastq,run.zq,sra
+    ## 5 7873649 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-07  public   fastq,run.zq,sra
+    ## 6 7584699 GUANGZHOU CENTER FOR DISEASE CONTROL AND PREVENTION      2018-07-04  public   fastq,run.zq,sra
+    ##   DATASTORE.provider                     DATASTORE.region env_broad_scale               env_local_scale     env_medium
+    ## 1         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom oral squamous cell carcinomas not applicable
+    ## 2         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom            oral benign tumors not applicable
+    ## 3         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom oral squamous cell carcinomas not applicable
+    ## 4         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom            oral benign tumors not applicable
+    ## 5         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom oral squamous cell carcinomas not applicable
+    ## 6         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1 human oral biom              healthy subjects not applicable
+    ##    Experiment geo_loc_name_country geo_loc_name_country_continent    geo_loc_name Group         HOST
+    ## 1 SRX10931223                China                           Asia China:Guangzhou     C Homo sapiens
+    ## 2 SRX10931222                China                           Asia China:Guangzhou     T Homo sapiens
+    ## 3 SRX10931221                China                           Asia China:Guangzhou     C Homo sapiens
+    ## 4 SRX10931220                China                           Asia China:Guangzhou     T Homo sapiens
+    ## 5 SRX10931219                China                           Asia China:Guangzhou     C Homo sapiens
+    ## 6 SRX10931218                China                           Asia China:Guangzhou     H Homo sapiens
+    ##            Instrument isol_growth_condt        lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource
+    ## 1 Illumina HiSeq 2500    not applicable not applicable           16        PAIRED              PCR       GENOMIC
+    ## 2 Illumina HiSeq 2500    not applicable not applicable           14        PAIRED              PCR       GENOMIC
+    ## 3 Illumina HiSeq 2500    not applicable not applicable           13        PAIRED              PCR       GENOMIC
+    ## 4 Illumina HiSeq 2500    not applicable not applicable           12        PAIRED              PCR       GENOMIC
+    ## 5 Illumina HiSeq 2500    not applicable not applicable           11        PAIRED              PCR       GENOMIC
+    ## 6 Illumina HiSeq 2500    not applicable not applicable           C9        PAIRED              PCR       GENOMIC
+    ##                Organism Platform          ReleaseDate               replicate          create_date version Sample.Name
+    ## 1 human oral metagenome ILLUMINA 2022-02-09T00:00:00Z  biological replicate 7 2021-05-19T04:40:00Z       1       16.fq
+    ## 2 human oral metagenome ILLUMINA 2022-02-09T00:00:00Z  biological replicate 3 2021-05-19T04:40:00Z       1       14.fq
+    ## 3 human oral metagenome ILLUMINA 2022-02-09T00:00:00Z  biological replicate 6 2021-05-19T04:40:00Z       1       13.fq
+    ## 4 human oral metagenome ILLUMINA 2022-02-09T00:00:00Z  biological replicate 2 2021-05-19T04:40:00Z       1       12.fq
+    ## 5 human oral metagenome ILLUMINA 2022-02-09T00:00:00Z  biological replicate 5 2021-05-19T04:40:00Z       1       11.fq
+    ## 6 human oral metagenome ILLUMINA 2022-02-09T00:00:00Z biological replicate 15 2021-05-19T04:40:00Z       1       C9.fq
+    ##   SRA.Study         strain
+    ## 1 SRP320428 not applicable
+    ## 2 SRP320428 not applicable
+    ## 3 SRP320428 not applicable
+    ## 4 SRP320428 not applicable
+    ## 5 SRP320428 not applicable
+    ## 6 SRP320428 not applicable
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -109,10 +116,16 @@ manually extracted from the publication and added to the metadata.
     #   grepl("Supragingival dental plaque",Site) ~ "Supragingival dental plaque",
     #   TRUE ~ Site
     # ))
+
     metadata <- metadata %>% mutate(Status = case_when(
       grepl("oral squamous cell carcinomas",Status) ~ "OSCC",
       grepl("healthy subjects",Status) ~ "HC",
       TRUE ~ Status
+    ))
+
+    metadata <- metadata %>% mutate(Site = case_when(
+      Site == "healthy subjects" ~ "surface of oral tissues",
+      TRUE ~ Site
     ))
     # metadata <- metadata %>%mutate(Status = case_when(
     #   Status == "Oral Neoplasm (Healthy Control)" ~ "HC",
@@ -132,27 +145,34 @@ manually extracted from the publication and added to the metadata.
 
     head(metadata)
 
-    ##    BioProject         Run sample_name Age BMI Sex            Platform Country                          Site          public_time
-    ## 1 PRJNA730970 SRR14583850       16.fq  NA  NA  NA Illumina HiSeq 2500   China oral squamous cell carcinomas 2022-02-09T00:00:00Z
-    ## 2 PRJNA730970 SRR14583851       14.fq  NA  NA  NA Illumina HiSeq 2500   China            oral benign tumors 2022-02-09T00:00:00Z
-    ## 3 PRJNA730970 SRR14583852       13.fq  NA  NA  NA Illumina HiSeq 2500   China oral squamous cell carcinomas 2022-02-09T00:00:00Z
-    ## 4 PRJNA730970 SRR14583853       12.fq  NA  NA  NA Illumina HiSeq 2500   China            oral benign tumors 2022-02-09T00:00:00Z
-    ## 5 PRJNA730970 SRR14583854       11.fq  NA  NA  NA Illumina HiSeq 2500   China oral squamous cell carcinomas 2022-02-09T00:00:00Z
-    ## 6 PRJNA730970 SRR14583855       C9.fq  NA  NA  NA Illumina HiSeq 2500   China              healthy subjects 2022-02-09T00:00:00Z
-    ##               Status matched_samples Region
-    ## 1               OSCC              NO  V3-V5
-    ## 2 oral benign tumors              NO  V3-V5
-    ## 3               OSCC              NO  V3-V5
-    ## 4 oral benign tumors              NO  V3-V5
-    ## 5               OSCC              NO  V3-V5
-    ## 6                 HC              NO  V3-V5
-    ##                                                                                                 title Disease_study PCR_primers
-    ## 1 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES   515F-907R
-    ## 2 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES   515F-907R
-    ## 3 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES   515F-907R
-    ## 4 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES   515F-907R
-    ## 5 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES   515F-907R
-    ## 6 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES   515F-907R
+    ##    BioProject         Run sample_name Age BMI Sex            Platform Country                          Site
+    ## 1 PRJNA730970 SRR14583850       16.fq  NA  NA  NA Illumina HiSeq 2500   China oral squamous cell carcinomas
+    ## 2 PRJNA730970 SRR14583851       14.fq  NA  NA  NA Illumina HiSeq 2500   China            oral benign tumors
+    ## 3 PRJNA730970 SRR14583852       13.fq  NA  NA  NA Illumina HiSeq 2500   China oral squamous cell carcinomas
+    ## 4 PRJNA730970 SRR14583853       12.fq  NA  NA  NA Illumina HiSeq 2500   China            oral benign tumors
+    ## 5 PRJNA730970 SRR14583854       11.fq  NA  NA  NA Illumina HiSeq 2500   China oral squamous cell carcinomas
+    ## 6 PRJNA730970 SRR14583855       C9.fq  NA  NA  NA Illumina HiSeq 2500   China       surface of oral tissues
+    ##            public_time             Status matched_samples Region
+    ## 1 2022-02-09T00:00:00Z               OSCC              NO  V3-V5
+    ## 2 2022-02-09T00:00:00Z oral benign tumors              NO  V3-V5
+    ## 3 2022-02-09T00:00:00Z               OSCC              NO  V3-V5
+    ## 4 2022-02-09T00:00:00Z oral benign tumors              NO  V3-V5
+    ## 5 2022-02-09T00:00:00Z               OSCC              NO  V3-V5
+    ## 6 2022-02-09T00:00:00Z                 HC              NO  V3-V5
+    ##                                                                                                 title Disease_study
+    ## 1 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES
+    ## 2 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES
+    ## 3 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES
+    ## 4 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES
+    ## 5 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES
+    ## 6 Variations in oral microbiome and its predictive functions between tumorous and healthy individuals           YES
+    ##   PCR_primers
+    ## 1   515F-907R
+    ## 2   515F-907R
+    ## 3   515F-907R
+    ## 4   515F-907R
+    ## 5   515F-907R
+    ## 6   515F-907R
 
 # Step 4: Summarize and Validate the Metadata
 

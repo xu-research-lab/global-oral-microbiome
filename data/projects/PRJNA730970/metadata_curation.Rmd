@@ -63,10 +63,16 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 #   grepl("Supragingival dental plaque",Site) ~ "Supragingival dental plaque",
 #   TRUE ~ Site
 # ))
+
 metadata <- metadata %>% mutate(Status = case_when(
   grepl("oral squamous cell carcinomas",Status) ~ "OSCC",
   grepl("healthy subjects",Status) ~ "HC",
   TRUE ~ Status
+))
+
+metadata <- metadata %>% mutate(Site = case_when(
+  Site == "healthy subjects" ~ "surface of oral tissues",
+  TRUE ~ Site
 ))
 # metadata <- metadata %>%mutate(Status = case_when(
 #   Status == "Oral Neoplasm (Healthy Control)" ~ "HC",

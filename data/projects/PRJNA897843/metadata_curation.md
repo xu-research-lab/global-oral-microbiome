@@ -149,7 +149,7 @@ manually extracted from the publication and added to the metadata.
 
 ``` r
 # Add information obtained from the publication
-metadata$PCR_primers <- "Ion 16S™ Metagenomics"
+metadata$PCR_primers <- NA
 metadata$title <- "Analysis of the oral microbiome during hormonal cycle and its alterations in menopausal women the “AMICA” project"
 #metadata<-subset(uniform_meta,Site!="feces")
 metadata$Disease_study <- "NO"
@@ -213,13 +213,13 @@ head(metadata)
     ## 4 PRJNA897843 SRR22175381  MP7_HS_032_Post-menopausal  NA  NA  NA     NA
     ## 5 PRJNA897843 SRR22175382        M21-14_HS_005_14 day  NA  NA  NA     NA
     ## 6 PRJNA897843 SRR22175383        M20-14_HS_004_14 day  NA  NA  NA     NA
-    ##          Platform Country   Site          public_time           PCR_primers
-    ## 1 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z Ion 16S™ Metagenomics
-    ## 2 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z Ion 16S™ Metagenomics
-    ## 3 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z Ion 16S™ Metagenomics
-    ## 4 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z Ion 16S™ Metagenomics
-    ## 5 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z Ion 16S™ Metagenomics
-    ## 6 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z Ion 16S™ Metagenomics
+    ##          Platform Country   Site          public_time PCR_primers
+    ## 1 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z          NA
+    ## 2 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z          NA
+    ## 3 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z          NA
+    ## 4 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z          NA
+    ## 5 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z          NA
+    ## 6 Ion Torrent PGM   Italy saliva 2022-11-04T00:00:00Z          NA
     ##                                                                                                               title
     ## 1 Analysis of the oral microbiome during hormonal cycle and its alterations in menopausal women the “AMICA” project
     ## 2 Analysis of the oral microbiome during hormonal cycle and its alterations in menopausal women the “AMICA” project

@@ -77,7 +77,7 @@ metadata <- data.frame(
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
-metadata$PCR_primers <- "Ion 16S™ Metagenomics"
+metadata$PCR_primers <- NA
 metadata$title <- "Analysis of the oral microbiome during hormonal cycle and its alterations in menopausal women the “AMICA” project"
 #metadata<-subset(uniform_meta,Site!="feces")
 metadata$Disease_study <- "NO"

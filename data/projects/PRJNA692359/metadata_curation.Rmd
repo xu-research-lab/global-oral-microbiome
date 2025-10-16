@@ -67,7 +67,7 @@ metadata <- data.frame(
   Region = "V2–V3",
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
-  Site = initial_meta$env_material,
+  Site = replace(initial_meta$env_material, initial_meta$env_material == "mouth", "tongue"),
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
@@ -89,7 +89,7 @@ metadata <- metadata %>%
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
-metadata$PCR_primers <- "534R-101F"
+metadata$PCR_primers <- "101F-534R"
 metadata$title <- "Profiling of Oral Microbiota and Cytokines in COVID-19 Patients"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
@@ -102,7 +102,7 @@ metadata <- metadata %>%
 #get subjects id according to sample id
 metadata$sample_name<-gsub("","",metadata$sample_name)
 #get subjects id with Saliva available
-keep_subjects<-subset(metadata,Site %in% "mouth")
+keep_subjects<-subset(metadata,Site %in% "tongue")
 #remove subjects without Saliva samples
 metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts

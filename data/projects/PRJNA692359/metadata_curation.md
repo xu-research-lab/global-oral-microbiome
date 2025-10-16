@@ -143,7 +143,7 @@ metadata <- data.frame(
   Region = "V2–V3",
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
-  Site = initial_meta$env_material,
+  Site = replace(initial_meta$env_material, initial_meta$env_material == "mouth", "tongue"),
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
@@ -168,7 +168,7 @@ manually extracted from the publication and added to the metadata.
 
 ``` r
 # Add information obtained from the publication
-metadata$PCR_primers <- "534R-101F"
+metadata$PCR_primers <- "101F-534R"
 metadata$title <- "Profiling of Oral Microbiota and Cytokines in COVID-19 Patients"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
@@ -181,7 +181,7 @@ metadata <- metadata %>%
 #get subjects id according to sample id
 metadata$sample_name<-gsub("","",metadata$sample_name)
 #get subjects id with Saliva available
-keep_subjects<-subset(metadata,Site %in% "mouth")
+keep_subjects<-subset(metadata,Site %in% "tongue")
 #remove subjects without Saliva samples
 metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts
@@ -235,13 +235,13 @@ head(metadata)
     ## 4 PRJNA692359 SRR13442660      14ator  NA  NA    M  V2–V3 Ion Torrent PGM
     ## 5 PRJNA692359 SRR13442661      13ator  NA  NA    M  V2–V3 Ion Torrent PGM
     ## 6 PRJNA692359 SRR13442662          VW  NA  NA <NA>  V2–V3 Ion Torrent PGM
-    ##   Country  Site          public_time PCR_primers
-    ## 1   Italy mouth 2021-02-27T00:00:00Z   534R-101F
-    ## 2   Italy mouth 2021-02-27T00:00:00Z   534R-101F
-    ## 3   Italy mouth 2021-02-27T00:00:00Z   534R-101F
-    ## 4   Italy mouth 2021-02-27T00:00:00Z   534R-101F
-    ## 5   Italy mouth 2021-02-27T00:00:00Z   534R-101F
-    ## 6   Italy mouth 2021-02-27T00:00:00Z   534R-101F
+    ##   Country   Site          public_time PCR_primers
+    ## 1   Italy tongue 2021-02-27T00:00:00Z   101F-534R
+    ## 2   Italy tongue 2021-02-27T00:00:00Z   101F-534R
+    ## 3   Italy tongue 2021-02-27T00:00:00Z   101F-534R
+    ## 4   Italy tongue 2021-02-27T00:00:00Z   101F-534R
+    ## 5   Italy tongue 2021-02-27T00:00:00Z   101F-534R
+    ## 6   Italy tongue 2021-02-27T00:00:00Z   101F-534R
     ##                                                             title Disease_study
     ## 1 Profiling of Oral Microbiota and Cytokines in COVID-19 Patients           YES
     ## 2 Profiling of Oral Microbiota and Cytokines in COVID-19 Patients           YES

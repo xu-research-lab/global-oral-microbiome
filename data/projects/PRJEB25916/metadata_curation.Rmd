@@ -15,7 +15,7 @@ library(cowplot)
 
 
 # Set working directory (update this path to your local directory)
-setwd("/home/cjj/projects/collect_oral_data/global-oral-microbiome/data/tmp/PRJEB25916")
+setwd("/home/cjj/projects/collect_oral_data/global-oral-microbiome/data/projects/PRJEB25916")
 initial_meta<-read.csv("SraRunTable.csv",header = T)
 colnames(initial_meta)
 
@@ -98,7 +98,7 @@ metadata <- metadata %>%
   )
 head(metadata , n=8)
 
-info_path <- "/home/cjj/projects/collect_oral_data/global-oral-microbiome/data/tmp/PRJEB25916/msphere.00558-19-sd001.xlsx"
+info_path <- "/home/cjj/projects/collect_oral_data/global-oral-microbiome/data/projects/PRJEB25916/msphere.00558-19-sd001.xlsx"
 info_data <- read_excel(info_path)
 colnames(info_data)
 pattern_info <- "^[A-Za-z]_(\\d+)[A-Za-z](\\d+)$"
@@ -108,15 +108,18 @@ head(extracted_info)
 info_data <- info_data %>%
   # 创建新的 sample_name 列，格式为 "数字-数字"
   mutate(
-    sample_name = paste(extracted_info[, 2], extracted_info[, 3], sep = "-")
+    sample_name = paste(extracted_info[, 2], extracted_info[, 3], sep = "-"),
+    BMI = as.numeric(as.character(BMIc)),
+    Sex = Gender
   ) %>%
   # 选择并重命名我们需要的列
   select(
     sample_name, # 这是我们用来连接的 "钥匙"
     Age,
-    Sex = Gender,
-    BMI = BMIc
+    Sex,
+    BMI,
   )
+
 head(info_data)
 
 matching_logic <- metadata$sample_name %in% info_data$sample_name

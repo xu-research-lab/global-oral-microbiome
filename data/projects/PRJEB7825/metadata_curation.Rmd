@@ -65,10 +65,10 @@ metadata <- data.frame(
   BMI = NA,
   Sex=initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,
-  Platform = initial_meta$platform..exp.,
+  Platform = "Illumina HiSeq 2000",
   Country = initial_meta$COUNTRY,
-  Site = gsub("UBERON:", "", initial_meta$body_site),
-  public_time = "2015-04-17",
+  Site = replace(initial_meta$body_site, initial_meta$body_site == "UBERON:mouth", "oral mucosa"),
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = "27F-338R",
   stringsAsFactors = FALSE
 )
@@ -90,7 +90,7 @@ metadata$Disease_study <- "NO"
 metadata$Status <- "HC"
 
 #get subjects id with Saliva available
-keep_subjects<-subset(metadata,Site %in% "mouth")
+keep_subjects<-subset(metadata,Site %in% "oral mucosa")
 #remove subjects without Saliva samples
 metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts

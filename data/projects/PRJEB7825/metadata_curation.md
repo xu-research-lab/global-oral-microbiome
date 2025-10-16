@@ -267,10 +267,10 @@ metadata <- data.frame(
   BMI = NA,
   Sex=initial_meta$sex,
   Region = initial_meta$target_subfragment..exp.,
-  Platform = initial_meta$platform..exp.,
+  Platform = "Illumina HiSeq 2000",
   Country = initial_meta$COUNTRY,
-  Site = gsub("UBERON:", "", initial_meta$body_site),
-  public_time = "2015-04-17",
+  Site = replace(initial_meta$body_site, initial_meta$body_site == "UBERON:mouth", "oral mucosa"),
+  public_time = initial_meta$ReleaseDate,
   PCR_primers = "27F-338R",
   stringsAsFactors = FALSE
 )
@@ -294,7 +294,7 @@ metadata$Disease_study <- "NO"
 metadata$Status <- "HC"
 
 #get subjects id with Saliva available
-keep_subjects<-subset(metadata,Site %in% "mouth")
+keep_subjects<-subset(metadata,Site %in% "oral mucosa")
 #remove subjects without Saliva samples
 metadata<-subset(metadata,sample_name %in% keep_subjects$sample_name)
 #get subjects sampling counts
@@ -324,7 +324,7 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
 knitr::include_graphics("Metadata_Summary.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -341,27 +341,34 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject       Run  sample_name Age BMI Sex Region Platform        Country
-    ## 40  PRJEB7825 ERR687975 10052.MG.O10  40  NA   M     V2 Illumina Venezuela: GAZ
-    ## 41  PRJEB7825 ERR687976 10052.MG.O11  11  NA   M     V2 Illumina Venezuela: GAZ
-    ## 42  PRJEB7825 ERR687977 10052.MG.O12  45  NA   F     V2 Illumina Venezuela: GAZ
-    ## 43  PRJEB7825 ERR687978 10052.MG.O13  48  NA   F     V2 Illumina Venezuela: GAZ
-    ## 44  PRJEB7825 ERR687979 10052.MG.O14  47  NA   F     V2 Illumina Venezuela: GAZ
-    ## 45  PRJEB7825 ERR687980 10052.MG.O16  45  NA   F     V2 Illumina Venezuela: GAZ
-    ##     Site public_time PCR_primers                                     title
-    ## 40 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
-    ## 41 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
-    ## 42 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
-    ## 43 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
-    ## 44 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
-    ## 45 mouth  2015-04-17    27F-338R The microbiome of uncontacted Amerindians
-    ##    Disease_study Status matched_samples
-    ## 40            NO     HC              NO
-    ## 41            NO     HC              NO
-    ## 42            NO     HC              NO
-    ## 43            NO     HC              NO
-    ## 44            NO     HC              NO
-    ## 45            NO     HC              NO
+    ##    BioProject       Run  sample_name Age BMI Sex Region            Platform
+    ## 40  PRJEB7825 ERR687975 10052.MG.O10  40  NA   M     V2 Illumina HiSeq 2000
+    ## 41  PRJEB7825 ERR687976 10052.MG.O11  11  NA   M     V2 Illumina HiSeq 2000
+    ## 42  PRJEB7825 ERR687977 10052.MG.O12  45  NA   F     V2 Illumina HiSeq 2000
+    ## 43  PRJEB7825 ERR687978 10052.MG.O13  48  NA   F     V2 Illumina HiSeq 2000
+    ## 44  PRJEB7825 ERR687979 10052.MG.O14  47  NA   F     V2 Illumina HiSeq 2000
+    ## 45  PRJEB7825 ERR687980 10052.MG.O16  45  NA   F     V2 Illumina HiSeq 2000
+    ##           Country        Site          public_time PCR_primers
+    ## 40 Venezuela: GAZ oral mucosa 2015-04-17T00:00:00Z    27F-338R
+    ## 41 Venezuela: GAZ oral mucosa 2015-04-17T00:00:00Z    27F-338R
+    ## 42 Venezuela: GAZ oral mucosa 2015-04-17T00:00:00Z    27F-338R
+    ## 43 Venezuela: GAZ oral mucosa 2015-04-17T00:00:00Z    27F-338R
+    ## 44 Venezuela: GAZ oral mucosa 2015-04-17T00:00:00Z    27F-338R
+    ## 45 Venezuela: GAZ oral mucosa 2015-04-17T00:00:00Z    27F-338R
+    ##                                        title Disease_study Status
+    ## 40 The microbiome of uncontacted Amerindians            NO     HC
+    ## 41 The microbiome of uncontacted Amerindians            NO     HC
+    ## 42 The microbiome of uncontacted Amerindians            NO     HC
+    ## 43 The microbiome of uncontacted Amerindians            NO     HC
+    ## 44 The microbiome of uncontacted Amerindians            NO     HC
+    ## 45 The microbiome of uncontacted Amerindians            NO     HC
+    ##    matched_samples
+    ## 40              NO
+    ## 41              NO
+    ## 42              NO
+    ## 43              NO
+    ## 44              NO
+    ## 45              NO
 
 ## Notes for Students:
 

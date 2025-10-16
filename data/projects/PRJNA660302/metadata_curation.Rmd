@@ -64,7 +64,7 @@ metadata <- data.frame(
   Age = NA,
   BMI = NA,
   Sex=NA,
-  Region = NA,
+  Region = "V3-V5",
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
   Site = initial_meta$isolation_source,
@@ -72,7 +72,6 @@ metadata <- data.frame(
   Status      = ifelse(grepl("^RZGC",  initial_meta$Sample.Name), "COVID-19",
                        ifelse(grepl("^RZG2",  initial_meta$Sample.Name), "H",
                               ifelse(grepl("^RZGD", initial_meta$Sample.Name), "H",NA))),
-  PCR_primers = NA,
   stringsAsFactors = FALSE
 )
 ```
@@ -81,7 +80,7 @@ metadata <- data.frame(
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
-#metadata$PCR_primers <- "515F-806R"
+metadata$PCR_primers <- "338F-806R"
 metadata$title <- "Alterations in the human oral and gut microbiomes and lipidomics in COVID-19"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns

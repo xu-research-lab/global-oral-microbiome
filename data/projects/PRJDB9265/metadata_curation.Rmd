@@ -21,7 +21,7 @@ library(readxl)
 setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJDB9265")
 
 # Read the initial metadata files
-initial_meta<-read.csv("SraRunTable.csv")
+initial_meta<-read.csv("SraRunTable.csv") %>% filter(Instrument != "Sequel")
 
 head(initial_meta)
 ```

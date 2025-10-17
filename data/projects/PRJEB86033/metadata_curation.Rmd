@@ -52,7 +52,7 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$Library.Name,
+  sample_name = initial_meta$HostID,
   Age = NA,
   BMI = NA,
   Sex = initial_meta$host_sex,
@@ -65,7 +65,6 @@ metadata <- data.frame(
   stringsAsFactors = FALSE
 )
 
-# Remove all occurrences of "region" at the end of the Region column
 # Use abbreviations to indicate gender
 metadata <- metadata %>%
   mutate(Sex = recode(Sex, "female" = "F", "male" = "M"))
@@ -77,7 +76,7 @@ Some information (e.g. PCR primers, study title, disease status) must be manuall
 # Add information obtained from the publication
 metadata$Country <- "China"
 metadata$PCR_primers <- "341F-805R"
-metadata$title <- "Single-tooth resolved, whole-mouth prediction of early childhood caries
+metadata$title <- "Single-tooth resolved whole-mouth prediction of early childhood caries
 via spatiotemporal variations of plaque microbiota"
 metadata$Disease_study <- "YES"
 # Assign disease status based on sample_name patterns
@@ -174,7 +173,7 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 ## Notes for Students:

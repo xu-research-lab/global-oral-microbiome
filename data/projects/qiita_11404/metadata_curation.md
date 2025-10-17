@@ -17,10 +17,11 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/metadata/qiita_11404")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/qiita_11404")
 
 # Read the initial metadata files
-initial_meta<-read.csv("SraRunTable.tsv", header = TRUE ,sep = "\t", stringsAsFactors = FALSE)
+initial_meta<-read.csv("SraRunTable.tsv", header = TRUE ,sep = "\t", 
+                       stringsAsFactors = FALSE, colClasses = "character")
 
 # Combine the two metadata files
 #meta <- rbind(initial_meta, initial_meta1)
@@ -35,13 +36,13 @@ initial_meta<-read.csv("SraRunTable.tsv", header = TRUE ,sep = "\t", stringsAsFa
 head(initial_meta)
 ```
 
-    ##   sample_name                          asd   bmi cat dog
-    ## 1       11404 i do not have this condition 23.09  no  no
-    ## 2       11404 i do not have this condition 23.09  no  no
-    ## 3       11404 i do not have this condition 23.09  no  no
-    ## 4       11404 i do not have this condition 23.09  no  no
-    ## 5       11404 i do not have this condition 23.09  no  no
-    ## 6       11404 i do not have this condition 23.09  no  no
+    ##       sample_name                          asd   bmi cat dog
+    ## 1 11404.000062190 i do not have this condition 23.09  no  no
+    ## 2 11404.000062191 i do not have this condition 23.09  no  no
+    ## 3 11404.000062192 i do not have this condition 23.09  no  no
+    ## 4 11404.000062193 i do not have this condition 23.09  no  no
+    ## 5 11404.000062194 i do not have this condition 23.09  no  no
+    ## 6 11404.000062195 i do not have this condition 23.09  no  no
     ##                            ibd                          ibs
     ## 1 i do not have this condition i do not have this condition
     ## 2 i do not have this condition i do not have this condition
@@ -134,12 +135,12 @@ head(initial_meta)
     ## 5       TRUE rarely (less than once/week) i do not have this condition
     ## 6       TRUE rarely (less than once/week) i do not have this condition
     ##   allergic_to                             description              env_feature
-    ## 1          NA    American Gut Project Forehead sample human-associated habitat
-    ## 2          NA       American Gut Project Tears sample human-associated habitat
-    ## 3          NA American Gut Project Nasal mucus sample human-associated habitat
-    ## 4          NA     American Gut Project Ear wax sample human-associated habitat
-    ## 5          NA       American Gut Project Mouth sample human-associated habitat
-    ## 6          NA       American Gut Project torso sample human-associated habitat
+    ## 1        <NA>    American Gut Project Forehead sample human-associated habitat
+    ## 2        <NA>       American Gut Project Tears sample human-associated habitat
+    ## 3        <NA> American Gut Project Nasal mucus sample human-associated habitat
+    ## 4        <NA>     American Gut Project Ear wax sample human-associated habitat
+    ## 5        <NA>       American Gut Project Mouth sample human-associated habitat
+    ## 6        <NA>       American Gut Project torso sample human-associated habitat
     ##        env_package
     ## 1       human-skin
     ## 2 human-associated
@@ -169,12 +170,12 @@ head(initial_meta)
     ## 5 diagnosed by a medical professional (doctor, physician assistant)
     ## 6 diagnosed by a medical professional (doctor, physician assistant)
     ##   multivitamin vivid_dreams weight_units age_corrected alcohol_types
-    ## 1           no        daily    kilograms            29            NA
-    ## 2           no        daily    kilograms            29            NA
-    ## 3           no        daily    kilograms            29            NA
-    ## 4           no        daily    kilograms            29            NA
-    ## 5           no        daily    kilograms            29            NA
-    ## 6           no        daily    kilograms            29            NA
+    ## 1           no        daily    kilograms            29          <NA>
+    ## 2           no        daily    kilograms            29          <NA>
+    ## 3           no        daily    kilograms            29          <NA>
+    ## 4           no        daily    kilograms            29          <NA>
+    ## 5           no        daily    kilograms            29          <NA>
+    ## 6           no        daily    kilograms            29          <NA>
     ##   bmi_corrected census_region contraceptive
     ## 1         23.09          west            no
     ## 2         23.09          west            no
@@ -183,19 +184,19 @@ head(initial_meta)
     ## 5         23.09          west            no
     ## 6         23.09          west            no
     ##                                 deodorant_use diabetes_type dna_extracted
-    ## 1 i do not use deodorant or an antiperspirant            NA           Yes
-    ## 2 i do not use deodorant or an antiperspirant            NA           Yes
-    ## 3 i do not use deodorant or an antiperspirant            NA           Yes
-    ## 4 i do not use deodorant or an antiperspirant            NA           Yes
-    ## 5 i do not use deodorant or an antiperspirant            NA           Yes
-    ## 6 i do not use deodorant or an antiperspirant            NA           Yes
+    ## 1 i do not use deodorant or an antiperspirant          <NA>           Yes
+    ## 2 i do not use deodorant or an antiperspirant          <NA>           Yes
+    ## 3 i do not use deodorant or an antiperspirant          <NA>           Yes
+    ## 4 i do not use deodorant or an antiperspirant          <NA>           Yes
+    ## 5 i do not use deodorant or an antiperspirant          <NA>           Yes
+    ## 6 i do not use deodorant or an antiperspirant          <NA>           Yes
     ##       dominant_hand         fed_as_infant ibd_diagnosis
-    ## 1 i am right handed primarily breast milk            NA
-    ## 2 i am right handed primarily breast milk            NA
-    ## 3 i am right handed primarily breast milk            NA
-    ## 4 i am right handed primarily breast milk            NA
-    ## 5 i am right handed primarily breast milk            NA
-    ## 6 i am right handed primarily breast milk            NA
+    ## 1 i am right handed primarily breast milk          <NA>
+    ## 2 i am right handed primarily breast milk          <NA>
+    ## 3 i am right handed primarily breast milk          <NA>
+    ## 4 i am right handed primarily breast milk          <NA>
+    ## 5 i am right handed primarily breast milk          <NA>
+    ## 6 i am right handed primarily breast milk          <NA>
     ##                  liver_disease surf_weetsuit   weight_change
     ## 1 i do not have this condition         2-3mm remained stable
     ## 2 i do not have this condition         2-3mm remained stable
@@ -253,12 +254,12 @@ head(initial_meta)
     ## 5             human oral metagenome            TRUE   no preference
     ## 6             human skin metagenome            TRUE   no preference
     ##   tonsils_removed types_of_plants appendix_removed cancer_treatment
-    ## 1              no     less than 5               no               NA
-    ## 2              no     less than 5               no               NA
-    ## 3              no     less than 5               no               NA
-    ## 4              no     less than 5               no               NA
-    ## 5              no     less than 5               no               NA
-    ## 6              no     less than 5               no               NA
+    ## 1              no     less than 5               no             <NA>
+    ## 2              no     less than 5               no             <NA>
+    ## 3              no     less than 5               no             <NA>
+    ## 4              no     less than 5               no             <NA>
+    ## 5              no     less than 5               no             <NA>
+    ## 6              no     less than 5               no             <NA>
     ##   collection_month country_of_birth
     ## 1        September    united states
     ## 2        September    united states
@@ -274,12 +275,12 @@ head(initial_meta)
     ## 5 i have not gotten the flu vaccine in the past year.            human
     ## 6 i have not gotten the flu vaccine in the past year.            human
     ##   specialized_diet                     surf_local_break
-    ## 1               NA La Jolla, San Diego, California, USA
-    ## 2               NA La Jolla, San Diego, California, USA
-    ## 3               NA La Jolla, San Diego, California, USA
-    ## 4               NA La Jolla, San Diego, California, USA
-    ## 5               NA La Jolla, San Diego, California, USA
-    ## 6               NA La Jolla, San Diego, California, USA
+    ## 1             <NA> La Jolla, San Diego, California, USA
+    ## 2             <NA> La Jolla, San Diego, California, USA
+    ## 3             <NA> La Jolla, San Diego, California, USA
+    ## 4             <NA> La Jolla, San Diego, California, USA
+    ## 5             <NA> La Jolla, San Diego, California, USA
+    ## 6             <NA> La Jolla, San Diego, California, USA
     ##               alcohol_frequency allergic_to_other assigned_from_geo
     ## 1 occasionally (1-2 times/week)                No               Yes
     ## 2 occasionally (1-2 times/week)                No               Yes
@@ -316,12 +317,12 @@ head(initial_meta)
     ## 5 i have not taken antibiotics in the past year. i do not have this condition
     ## 6 i have not taken antibiotics in the past year. i do not have this condition
     ##   drinks_per_session         exercise_frequency fermented_consumed
-    ## 1              2-Jan regularly (3-5 times/week)                 NA
-    ## 2              2-Jan regularly (3-5 times/week)                 NA
-    ## 3              2-Jan regularly (3-5 times/week)                 NA
-    ## 4              2-Jan regularly (3-5 times/week)                 NA
-    ## 5              2-Jan regularly (3-5 times/week)                 NA
-    ## 6              2-Jan regularly (3-5 times/week)                 NA
+    ## 1              2-Jan regularly (3-5 times/week)                   
+    ## 2              2-Jan regularly (3-5 times/week)                   
+    ## 3              2-Jan regularly (3-5 times/week)                   
+    ## 4              2-Jan regularly (3-5 times/week)                   
+    ## 5              2-Jan regularly (3-5 times/week)                   
+    ## 6              2-Jan regularly (3-5 times/week)                   
     ##              flossing_frequency              level_of_education
     ## 1 occasionally (1-2 times/week) graduate or professional degree
     ## 2 occasionally (1-2 times/week) graduate or professional degree
@@ -330,12 +331,12 @@ head(initial_meta)
     ## 5 occasionally (1-2 times/week) graduate or professional degree
     ## 6 occasionally (1-2 times/week) graduate or professional degree
     ##   lowgrain_diet_type non_food_allergies red_meat_frequency roommates_in_study
-    ## 1                 NA                 NA              never                 no
-    ## 2                 NA                 NA              never                 no
-    ## 3                 NA                 NA              never                 no
-    ## 4                 NA                 NA              never                 no
-    ## 5                 NA                 NA              never                 no
-    ## 6                 NA                 NA              never                 no
+    ## 1               <NA>               <NA>              never                 no
+    ## 2               <NA>               <NA>              never                 no
+    ## 3               <NA>               <NA>              never                 no
+    ## 4               <NA>               <NA>              never                 no
+    ## 5               <NA>               <NA>              never                 no
+    ## 6               <NA>               <NA>              never                 no
     ##   seasonal_allergies acne_medication_otc alcohol_consumption
     ## 1                 no                  no                 yes
     ## 2                 no                  no                 yes
@@ -351,12 +352,12 @@ head(initial_meta)
     ## 5                  No occasionally (1-2 times/week)                    
     ## 6                  No occasionally (1-2 times/week)                    
     ##   fermented_increased          meat_eggs_frequency mental_illness_type
-    ## 1                     rarely (less than once/week)                  NA
-    ## 2                     rarely (less than once/week)                  NA
-    ## 3                     rarely (less than once/week)                  NA
-    ## 4                     rarely (less than once/week)                  NA
-    ## 5                     rarely (less than once/week)                  NA
-    ## 6                     rarely (less than once/week)                  NA
+    ## 1                     rarely (less than once/week)                <NA>
+    ## 2                     rarely (less than once/week)                <NA>
+    ## 3                     rarely (less than once/week)                <NA>
+    ## 4                     rarely (less than once/week)                <NA>
+    ## 5                     rarely (less than once/week)                <NA>
+    ## 6                     rarely (less than once/week)                <NA>
     ##   probiotic_frequency        vegetable_frequency collection_timestamp
     ## 1               never regularly (3-5 times/week)         9/26/16 8:00
     ## 2               never regularly (3-5 times/week)         9/26/16 8:00
@@ -372,12 +373,12 @@ head(initial_meta)
     ## 5               5-10km                    No                    No
     ## 6               5-10km                    No                    No
     ##   artificial_sweeteners drinking_water_source ibd_diagnosis_refined
-    ## 1                 never                  city                    NA
-    ## 2                 never                  city                    NA
-    ## 3                 never                  city                    NA
-    ## 4                 never                  city                    NA
-    ## 5                 never                  city                    NA
-    ## 6                 never                  city                    NA
+    ## 1                 never                  city                  <NA>
+    ## 2                 never                  city                  <NA>
+    ## 3                 never                  city                  <NA>
+    ## 4                 never                  city                  <NA>
+    ## 5                 never                  city                  <NA>
+    ## 6                 never                  city                  <NA>
     ##          milk_cheese_frequency surf_shower_frequency surf_travel_frequency
     ## 1 rarely (less than once/week)            frequently           once a week
     ## 2 rarely (less than once/week)            frequently           once a week
@@ -477,12 +478,12 @@ head(initial_meta)
     ## 5 la jolla, san diego, california, usa                      TRUE
     ## 6 la jolla, san diego, california, usa                      TRUE
     ##   surf_loal_break_frequency fermented_produce_personal
-    ## 1                Once a day                         NA
-    ## 2                Once a day                         NA
-    ## 3                Once a day                         NA
-    ## 4                Once a day                         NA
-    ## 5                Once a day                         NA
-    ## 6                Once a day                         NA
+    ## 1                Once a day                           
+    ## 2                Once a day                           
+    ## 3                Once a day                           
+    ## 4                Once a day                           
+    ## 5                Once a day                           
+    ## 6                Once a day                           
     ##   homecooked_meals_frequency other_supplement_frequency
     ## 1                      daily                         no
     ## 2                      daily                         no
@@ -512,12 +513,12 @@ head(initial_meta)
     ## 5                         Yes i do not have this condition
     ## 6                         Yes i do not have this condition
     ##   fermented_produce_commercial non_food_allergies_beestings
-    ## 1                           NA                           No
-    ## 2                           NA                           No
-    ## 3                           NA                           No
-    ## 4                           NA                           No
-    ## 5                           NA                           No
-    ## 6                           NA                           No
+    ## 1                                                        No
+    ## 2                                                        No
+    ## 3                                                        No
+    ## 4                                                        No
+    ## 5                                                        No
+    ## 6                                                        No
     ##   ready_to_eat_meals_frequency specialized_diet_unspecified
     ## 1                        never                           No
     ## 2                        never                           No
@@ -589,12 +590,12 @@ head(initial_meta)
     ## 5                             Yes                           never
     ## 6                             Yes                           never
     ##   depression_bipolar_schizophrenia fermented_produce_personal_cider
-    ## 1                               NA                                 
-    ## 2                               NA                                 
-    ## 3                               NA                                 
-    ## 4                               NA                                 
-    ## 5                               NA                                 
-    ## 6                               NA                                 
+    ## 1                             <NA>                                 
+    ## 2                             <NA>                                 
+    ## 3                             <NA>                                 
+    ## 4                             <NA>                                 
+    ## 5                             <NA>                                 
+    ## 6                             <NA>                                 
     ##   fermented_produce_personal_other non_food_allergies_poison_ivyoak
     ## 1                                                                No
     ## 2                                                                No
@@ -968,7 +969,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "qiita_11404",
-  Run = NA,
+  Run = initial_meta$sample_name,
   sample_name = initial_meta$sample_name,
   Age = initial_meta$age_years,
   BMI = initial_meta$bmi,
@@ -1045,7 +1046,7 @@ cat("NO          :", sum(output_df$matched_samples == "NO"), "\n")
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 1"
+    ## [1] "Number of unique runs: 538"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
@@ -1059,7 +1060,7 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
 knitr::include_graphics("metadata_summary.png")
 ```
 
-![](metadata_summary.png)<!-- -->
+<img src="metadata_summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -1076,20 +1077,20 @@ write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##    BioProject Run sample_name Age   BMI  Sex Region       Platform Country
-    ## 1 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ## 2 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ## 3 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ## 4 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ## 5 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ## 6 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ##      Site public_time PCR_primers
-    ## 1   sebum   2017-11-8   515F-806R
-    ## 2   tears   2017-11-8   515F-806R
-    ## 3   mucus   2017-11-8   515F-806R
-    ## 4 ear wax   2017-11-8   515F-806R
-    ## 5  saliva   2017-11-8   515F-806R
-    ## 6   Torso   2017-11-8   515F-806R
+    ##    BioProject             Run     sample_name Age   BMI  Sex Region
+    ## 1 qiita_11404 11404.000062190 11404.000062190  29 23.09 male     V4
+    ## 2 qiita_11404 11404.000062191 11404.000062191  29 23.09 male     V4
+    ## 3 qiita_11404 11404.000062192 11404.000062192  29 23.09 male     V4
+    ## 4 qiita_11404 11404.000062193 11404.000062193  29 23.09 male     V4
+    ## 5 qiita_11404 11404.000062194 11404.000062194  29 23.09 male     V4
+    ## 6 qiita_11404 11404.000062195 11404.000062195  29 23.09 male     V4
+    ##         Platform Country    Site public_time PCR_primers
+    ## 1 Illumina MiSeq     usa   sebum   2017-11-8   515F-806R
+    ## 2 Illumina MiSeq     usa   tears   2017-11-8   515F-806R
+    ## 3 Illumina MiSeq     usa   mucus   2017-11-8   515F-806R
+    ## 4 Illumina MiSeq     usa ear wax   2017-11-8   515F-806R
+    ## 5 Illumina MiSeq     usa  saliva   2017-11-8   515F-806R
+    ## 6 Illumina MiSeq     usa   Torso   2017-11-8   515F-806R
     ##                                                                                                               title
     ## 1 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling
     ## 2 A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling

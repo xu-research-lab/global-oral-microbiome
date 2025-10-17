@@ -17,21 +17,11 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/metadata/qiita_11259")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/qiita_11259")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.tsv", header = TRUE ,sep = "\t", stringsAsFactors = FALSE)
 
-# Combine the two metadata files
-#meta <- rbind(initial_meta, initial_meta1)
-
-#Remove entries non-oral samples
-#initial_meta <- subset(initial_meta, scientific_name == "Human Oral Metagenome")
-
-# Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
-#nrow(subset(meta, grepl("HT", Sample.Name)))
-
-# Display the first few rows of the metadata
 head(initial_meta)
 ```
 
@@ -254,7 +244,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "qiita_11259",
-  Run = NA,
+  Run = initial_meta$sample_name,
   sample_name = initial_meta$sample_name,
   Age = initial_meta$age,
   BMI = initial_meta$bmi,
@@ -300,7 +290,7 @@ metadata$matched_samples <- "NO"
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 1"
+    ## [1] "Number of unique runs: 320"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
@@ -314,7 +304,7 @@ print(paste("Number of unique sample names:", length(unique(metadata$sample_name
 knitr::include_graphics("metadata_summary.png")
 ```
 
-![](metadata_summary.png)<!-- -->
+<img src="metadata_summary.png" width="1200" />
 
 # Step 6: Finalize and Export the Metadata
 
@@ -331,20 +321,20 @@ write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##    BioProject Run                sample_name Age  BMI    Sex Region
-    ## 1 qiita_11259  NA 11259.PHT.20.103.Cort.1200  23 38.5 female     V4
-    ## 2 qiita_11259  NA 11259.PHT.20.149.Cort.1600  27 22.7 female     V4
-    ## 3 qiita_11259  NA 11259.PHT.20.090.Cort.1600  NA 27.6   male     V4
-    ## 4 qiita_11259  NA 11259.PHT.20.130.Cort.1900  51 29.7 female     V4
-    ## 6 qiita_11259  NA 11259.PHT.20.071.Cort.1900  26 40.7 female     V4
-    ## 7 qiita_11259  NA 11259.PHT.20.049.Cort.1600  62 38.7   male     V4
-    ##         Platform          Country   Site public_time PCR_primers
-    ## 1 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
-    ## 2 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
-    ## 3 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
-    ## 4 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
-    ## 6 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
-    ## 7 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
+    ##    BioProject                        Run                sample_name Age  BMI
+    ## 1 qiita_11259 11259.PHT.20.103.Cort.1200 11259.PHT.20.103.Cort.1200  23 38.5
+    ## 2 qiita_11259 11259.PHT.20.149.Cort.1600 11259.PHT.20.149.Cort.1600  27 22.7
+    ## 3 qiita_11259 11259.PHT.20.090.Cort.1600 11259.PHT.20.090.Cort.1600  NA 27.6
+    ## 4 qiita_11259 11259.PHT.20.130.Cort.1900 11259.PHT.20.130.Cort.1900  51 29.7
+    ## 6 qiita_11259 11259.PHT.20.071.Cort.1900 11259.PHT.20.071.Cort.1900  26 40.7
+    ## 7 qiita_11259 11259.PHT.20.049.Cort.1600 11259.PHT.20.049.Cort.1600  62 38.7
+    ##      Sex Region       Platform          Country   Site public_time PCR_primers
+    ## 1 female     V4 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
+    ## 2 female     V4 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
+    ## 3   male     V4 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
+    ## 4 female     V4 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
+    ## 6 female     V4 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
+    ## 7   male     V4 Illumina MiSeq USA:CA:San Diego saliva   2017-7-26   515F-806R
     ##                                                                                                                              title
     ## 1 Salivary bacterial signatures in depression-obesity comorbidity are associated with neurotransmitters and neuroactive dipeptides
     ## 2 Salivary bacterial signatures in depression-obesity comorbidity are associated with neurotransmitters and neuroactive dipeptides

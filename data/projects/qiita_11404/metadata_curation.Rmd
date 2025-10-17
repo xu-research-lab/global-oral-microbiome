@@ -17,10 +17,11 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/metadata/qiita_11404")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/qiita_11404")
 
 # Read the initial metadata files
-initial_meta<-read.csv("SraRunTable.tsv", header = TRUE ,sep = "\t", stringsAsFactors = FALSE)
+initial_meta<-read.csv("SraRunTable.tsv", header = TRUE ,sep = "\t", 
+                       stringsAsFactors = FALSE, colClasses = "character")
 
 # Combine the two metadata files
 #meta <- rbind(initial_meta, initial_meta1)
@@ -59,7 +60,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "qiita_11404",
-  Run = NA,
+  Run = initial_meta$sample_name,
   sample_name = initial_meta$sample_name,
   Age = initial_meta$age_years,
   BMI = initial_meta$bmi,

@@ -17,7 +17,7 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/studylearning/董彪师兄项目/任务/张辰飞/PRJNA751046")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJNA751046")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.csv",header = T)

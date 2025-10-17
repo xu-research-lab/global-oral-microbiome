@@ -59,7 +59,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "OEP000837",
-  Run = gsub("(.*)\\.fq\\.gz", "\\1", initial_meta$data_name),
+  Run = initial_meta$sample_name,
   sample_name = initial_meta$sample_name,
   Age = NA,
   BMI = NA,

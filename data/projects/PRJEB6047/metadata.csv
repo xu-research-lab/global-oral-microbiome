@@ -1,73 +1,73 @@
-,BioProject,Run
-1,PRJEB6047,ERR494349
-2,PRJEB6047,ERR494350
-3,PRJEB6047,ERR494351
-4,PRJEB6047,ERR494352
-5,PRJEB6047,ERR494353
-6,PRJEB6047,ERR494354
-7,PRJEB6047,ERR494355
-8,PRJEB6047,ERR494356
-9,PRJEB6047,ERR494357
-10,PRJEB6047,ERR494358
-11,PRJEB6047,ERR494359
-12,PRJEB6047,ERR494360
-13,PRJEB6047,ERR494361
-14,PRJEB6047,ERR494362
-15,PRJEB6047,ERR494363
-16,PRJEB6047,ERR494364
-17,PRJEB6047,ERR494365
-18,PRJEB6047,ERR494366
-19,PRJEB6047,ERR494367
-20,PRJEB6047,ERR494368
-21,PRJEB6047,ERR494369
-22,PRJEB6047,ERR494370
-23,PRJEB6047,ERR494371
-24,PRJEB6047,ERR494372
-25,PRJEB6047,ERR494373
-26,PRJEB6047,ERR494374
-27,PRJEB6047,ERR494375
-28,PRJEB6047,ERR494376
-29,PRJEB6047,ERR494377
-30,PRJEB6047,ERR494378
-31,PRJEB6047,ERR494379
-32,PRJEB6047,ERR494380
-33,PRJEB6047,ERR494381
-34,PRJEB6047,ERR494382
-35,PRJEB6047,ERR494383
-36,PRJEB6047,ERR494384
-37,PRJEB6047,ERR494385
-38,PRJEB6047,ERR494386
-39,PRJEB6047,ERR494387
-40,PRJEB6047,ERR494388
-41,PRJEB6047,ERR494389
-42,PRJEB6047,ERR494390
-43,PRJEB6047,ERR494391
-44,PRJEB6047,ERR494392
-45,PRJEB6047,ERR494393
-46,PRJEB6047,ERR494394
-47,PRJEB6047,ERR494395
-48,PRJEB6047,ERR494396
-49,PRJEB6047,ERR494397
-50,PRJEB6047,ERR494398
-51,PRJEB6047,ERR494399
-52,PRJEB6047,ERR494400
-53,PRJEB6047,ERR494401
-54,PRJEB6047,ERR494402
-55,PRJEB6047,ERR494403
-56,PRJEB6047,ERR494404
-57,PRJEB6047,ERR494405
-58,PRJEB6047,ERR494406
-59,PRJEB6047,ERR494407
-60,PRJEB6047,ERR494408
-61,PRJEB6047,ERR494409
-62,PRJEB6047,ERR494410
-63,PRJEB6047,ERR494411
-64,PRJEB6047,ERR494412
-65,PRJEB6047,ERR494413
-66,PRJEB6047,ERR494414
-67,PRJEB6047,ERR494415
-68,PRJEB6047,ERR494416
-69,PRJEB6047,ERR494417
-70,PRJEB6047,ERR494418
-71,PRJEB6047,ERR494419
-72,PRJEB6047,ERR494420
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
+1,PRJEB6047,ERR494349,GalimanasHall_D1_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+2,PRJEB6047,ERR494350,GalimanasHall_D1_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+3,PRJEB6047,ERR494351,GalimanasHall_D1_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+4,PRJEB6047,ERR494352,GalimanasHall_D10_Subg,NA,NA,male,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+5,PRJEB6047,ERR494353,GalimanasHall_D10_Supra,NA,NA,male,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+6,PRJEB6047,ERR494354,GalimanasHall_D10_Tongue,NA,NA,male,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+7,PRJEB6047,ERR494355,GalimanasHall_D11_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+8,PRJEB6047,ERR494356,GalimanasHall_D11_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+9,PRJEB6047,ERR494357,GalimanasHall_D11_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+10,PRJEB6047,ERR494358,GalimanasHall_D12_Subg,NA,NA,male,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+11,PRJEB6047,ERR494359,GalimanasHall_D12_Supra,NA,NA,male,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+12,PRJEB6047,ERR494360,GalimanasHall_D12_Tongue,NA,NA,male,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+13,PRJEB6047,ERR494361,GalimanasHall_D13_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+14,PRJEB6047,ERR494362,GalimanasHall_D13_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+15,PRJEB6047,ERR494363,GalimanasHall_D13_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+16,PRJEB6047,ERR494364,GalimanasHall_D2_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+17,PRJEB6047,ERR494365,GalimanasHall_D2_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+18,PRJEB6047,ERR494366,GalimanasHall_D2_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+19,PRJEB6047,ERR494367,GalimanasHall_D3_Subg,NA,NA,male,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+20,PRJEB6047,ERR494368,GalimanasHall_D3_Supra,NA,NA,male,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+21,PRJEB6047,ERR494369,GalimanasHall_D3_Tongue,NA,NA,male,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+22,PRJEB6047,ERR494370,GalimanasHall_D4_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+23,PRJEB6047,ERR494371,GalimanasHall_D4_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+24,PRJEB6047,ERR494372,GalimanasHall_D4_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+25,PRJEB6047,ERR494373,GalimanasHall_D5_Subg,NA,NA,male,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+26,PRJEB6047,ERR494374,GalimanasHall_D5_Supra,NA,NA,male,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+27,PRJEB6047,ERR494375,GalimanasHall_D5_Tongue,NA,NA,male,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+28,PRJEB6047,ERR494376,GalimanasHall_D6_Subg,NA,NA,male,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+29,PRJEB6047,ERR494377,GalimanasHall_D6_Supra,NA,NA,male,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+30,PRJEB6047,ERR494378,GalimanasHall_D6_Tongue,NA,NA,male,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+31,PRJEB6047,ERR494379,GalimanasHall_D7_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+32,PRJEB6047,ERR494380,GalimanasHall_D7_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+33,PRJEB6047,ERR494381,GalimanasHall_D7_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+34,PRJEB6047,ERR494382,GalimanasHall_D8_Subg,NA,NA,male,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+35,PRJEB6047,ERR494383,GalimanasHall_D8_Supra,NA,NA,male,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+36,PRJEB6047,ERR494384,GalimanasHall_D8_Tongue,NA,NA,male,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+37,PRJEB6047,ERR494385,GalimanasHall_D9_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+38,PRJEB6047,ERR494386,GalimanasHall_D9_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+39,PRJEB6047,ERR494387,GalimanasHall_D9_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,chronic periodontitis,NO
+40,PRJEB6047,ERR494388,GalimanasHall_H1_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+41,PRJEB6047,ERR494389,GalimanasHall_H1_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+42,PRJEB6047,ERR494390,GalimanasHall_H1_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+43,PRJEB6047,ERR494391,GalimanasHall_H10_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+44,PRJEB6047,ERR494392,GalimanasHall_H10_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+45,PRJEB6047,ERR494393,GalimanasHall_H10_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+46,PRJEB6047,ERR494394,GalimanasHall_H11_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+47,PRJEB6047,ERR494395,GalimanasHall_H11_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+48,PRJEB6047,ERR494396,GalimanasHall_H11_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+49,PRJEB6047,ERR494397,GalimanasHall_H2_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+50,PRJEB6047,ERR494398,GalimanasHall_H2_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+51,PRJEB6047,ERR494399,GalimanasHall_H2_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+52,PRJEB6047,ERR494400,GalimanasHall_H3_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+53,PRJEB6047,ERR494401,GalimanasHall_H3_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+54,PRJEB6047,ERR494402,GalimanasHall_H3_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+55,PRJEB6047,ERR494403,GalimanasHall_H4_Subg,NA,NA,male,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+56,PRJEB6047,ERR494404,GalimanasHall_H4_Supra,NA,NA,male,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+57,PRJEB6047,ERR494405,GalimanasHall_H4_Tongue,NA,NA,male,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+58,PRJEB6047,ERR494406,GalimanasHall_H5_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+59,PRJEB6047,ERR494407,GalimanasHall_H5_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+60,PRJEB6047,ERR494408,GalimanasHall_H5_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+61,PRJEB6047,ERR494409,GalimanasHall_H6_Subg,NA,NA,male,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+62,PRJEB6047,ERR494410,GalimanasHall_H6_Supra,NA,NA,male,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+63,PRJEB6047,ERR494411,GalimanasHall_H6_Tongue,NA,NA,male,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+64,PRJEB6047,ERR494412,GalimanasHall_H7_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+65,PRJEB6047,ERR494413,GalimanasHall_H7_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+66,PRJEB6047,ERR494414,GalimanasHall_H7_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+67,PRJEB6047,ERR494415,GalimanasHall_H8_Subg,NA,NA,female,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+68,PRJEB6047,ERR494416,GalimanasHall_H8_Supra,NA,NA,female,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+69,PRJEB6047,ERR494417,GalimanasHall_H8_Tongue,NA,NA,female,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+70,PRJEB6047,ERR494418,GalimanasHall_H9_Subg,NA,NA,male,V3,Illumina MiSeq,Canada,subgingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+71,PRJEB6047,ERR494419,GalimanasHall_H9_Supra,NA,NA,male,V3,Illumina MiSeq,Canada,supragingival,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO
+72,PRJEB6047,ERR494420,GalimanasHall_H9_Tongue,NA,NA,male,V3,Illumina MiSeq,Canada,Tongue,2014-05-14T00:00:00Z,341F-528R,Bacterial community composition of chronic periodontitis and novel oral sampling sites for detecting disease indicators,YES,HC,NO

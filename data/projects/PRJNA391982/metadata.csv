@@ -1,241 +1,241 @@
-,BioProject,Run
-1,PRJNA391982,SRR5758886
-2,PRJNA391982,SRR5758887
-3,PRJNA391982,SRR5758888
-4,PRJNA391982,SRR5758889
-5,PRJNA391982,SRR5758890
-6,PRJNA391982,SRR5758891
-7,PRJNA391982,SRR5758892
-8,PRJNA391982,SRR5758893
-9,PRJNA391982,SRR5758894
-10,PRJNA391982,SRR5758895
-11,PRJNA391982,SRR5758896
-12,PRJNA391982,SRR5758897
-13,PRJNA391982,SRR5758898
-14,PRJNA391982,SRR5758899
-15,PRJNA391982,SRR5758900
-16,PRJNA391982,SRR5758901
-17,PRJNA391982,SRR5758902
-18,PRJNA391982,SRR5758903
-19,PRJNA391982,SRR5758904
-20,PRJNA391982,SRR5758905
-21,PRJNA391982,SRR5758906
-22,PRJNA391982,SRR5758907
-23,PRJNA391982,SRR5758908
-24,PRJNA391982,SRR5758909
-25,PRJNA391982,SRR5758910
-26,PRJNA391982,SRR5758911
-27,PRJNA391982,SRR5758912
-28,PRJNA391982,SRR5758913
-29,PRJNA391982,SRR5758914
-30,PRJNA391982,SRR5758915
-31,PRJNA391982,SRR5758916
-32,PRJNA391982,SRR5758917
-33,PRJNA391982,SRR5758918
-34,PRJNA391982,SRR5758919
-35,PRJNA391982,SRR5758920
-36,PRJNA391982,SRR5758921
-37,PRJNA391982,SRR5758922
-38,PRJNA391982,SRR5758923
-39,PRJNA391982,SRR5758924
-40,PRJNA391982,SRR5758925
-41,PRJNA391982,SRR5758926
-42,PRJNA391982,SRR5758927
-43,PRJNA391982,SRR5758928
-44,PRJNA391982,SRR5758929
-45,PRJNA391982,SRR5758930
-46,PRJNA391982,SRR5758931
-47,PRJNA391982,SRR5758932
-48,PRJNA391982,SRR5758933
-49,PRJNA391982,SRR5758934
-50,PRJNA391982,SRR5758935
-51,PRJNA391982,SRR5758936
-52,PRJNA391982,SRR5758937
-53,PRJNA391982,SRR5758938
-54,PRJNA391982,SRR5758939
-55,PRJNA391982,SRR5758940
-56,PRJNA391982,SRR5758941
-57,PRJNA391982,SRR5758942
-58,PRJNA391982,SRR5758943
-59,PRJNA391982,SRR5758944
-60,PRJNA391982,SRR5758945
-61,PRJNA391982,SRR5758946
-62,PRJNA391982,SRR5758947
-63,PRJNA391982,SRR5758948
-64,PRJNA391982,SRR5758949
-65,PRJNA391982,SRR5758950
-66,PRJNA391982,SRR5758951
-67,PRJNA391982,SRR5758952
-68,PRJNA391982,SRR5758953
-69,PRJNA391982,SRR5758954
-70,PRJNA391982,SRR5758955
-71,PRJNA391982,SRR5758956
-72,PRJNA391982,SRR5758957
-73,PRJNA391982,SRR5758958
-74,PRJNA391982,SRR5758959
-75,PRJNA391982,SRR5758960
-76,PRJNA391982,SRR5758961
-77,PRJNA391982,SRR5758962
-78,PRJNA391982,SRR5758963
-79,PRJNA391982,SRR5758964
-80,PRJNA391982,SRR5758965
-81,PRJNA391982,SRR5758966
-82,PRJNA391982,SRR5758967
-83,PRJNA391982,SRR5758968
-84,PRJNA391982,SRR5759040
-85,PRJNA391982,SRR5759041
-86,PRJNA391982,SRR5759042
-87,PRJNA391982,SRR5759043
-88,PRJNA391982,SRR5759044
-89,PRJNA391982,SRR5759045
-90,PRJNA391982,SRR5759046
-91,PRJNA391982,SRR5759047
-92,PRJNA391982,SRR5759048
-93,PRJNA391982,SRR5759049
-94,PRJNA391982,SRR5759050
-95,PRJNA391982,SRR5759051
-96,PRJNA391982,SRR5759052
-97,PRJNA391982,SRR5759053
-98,PRJNA391982,SRR5759054
-99,PRJNA391982,SRR5759055
-100,PRJNA391982,SRR5759056
-101,PRJNA391982,SRR5759057
-102,PRJNA391982,SRR5759058
-103,PRJNA391982,SRR5759059
-104,PRJNA391982,SRR5759060
-105,PRJNA391982,SRR5759061
-106,PRJNA391982,SRR5759062
-107,PRJNA391982,SRR5759063
-108,PRJNA391982,SRR5759064
-109,PRJNA391982,SRR5759065
-110,PRJNA391982,SRR5759066
-111,PRJNA391982,SRR5759067
-112,PRJNA391982,SRR5759068
-113,PRJNA391982,SRR5759069
-114,PRJNA391982,SRR5759070
-115,PRJNA391982,SRR5759071
-116,PRJNA391982,SRR5759072
-117,PRJNA391982,SRR5759073
-118,PRJNA391982,SRR5759074
-119,PRJNA391982,SRR5759075
-120,PRJNA391982,SRR5759076
-121,PRJNA391982,SRR5759077
-122,PRJNA391982,SRR5759078
-123,PRJNA391982,SRR5759079
-124,PRJNA391982,SRR5759080
-125,PRJNA391982,SRR5759081
-126,PRJNA391982,SRR5759082
-127,PRJNA391982,SRR5759083
-128,PRJNA391982,SRR5759084
-129,PRJNA391982,SRR5759085
-130,PRJNA391982,SRR5759086
-131,PRJNA391982,SRR5759087
-132,PRJNA391982,SRR5759088
-133,PRJNA391982,SRR5759089
-134,PRJNA391982,SRR5759090
-135,PRJNA391982,SRR5759091
-136,PRJNA391982,SRR5759092
-137,PRJNA391982,SRR5759093
-138,PRJNA391982,SRR5759094
-139,PRJNA391982,SRR5759095
-140,PRJNA391982,SRR5759096
-141,PRJNA391982,SRR5759097
-142,PRJNA391982,SRR5759098
-143,PRJNA391982,SRR5759099
-144,PRJNA391982,SRR5759100
-145,PRJNA391982,SRR5759101
-146,PRJNA391982,SRR5759102
-147,PRJNA391982,SRR5759103
-148,PRJNA391982,SRR5759104
-149,PRJNA391982,SRR5759105
-150,PRJNA391982,SRR5759106
-151,PRJNA391982,SRR5759107
-152,PRJNA391982,SRR5759108
-153,PRJNA391982,SRR5759109
-154,PRJNA391982,SRR5759110
-155,PRJNA391982,SRR5759111
-156,PRJNA391982,SRR5759112
-157,PRJNA391982,SRR5759113
-158,PRJNA391982,SRR5759114
-159,PRJNA391982,SRR5759115
-160,PRJNA391982,SRR5759116
-161,PRJNA391982,SRR5759117
-162,PRJNA391982,SRR5759118
-163,PRJNA391982,SRR5759119
-164,PRJNA391982,SRR5759120
-165,PRJNA391982,SRR5759121
-166,PRJNA391982,SRR5759122
-167,PRJNA391982,SRR5759123
-168,PRJNA391982,SRR5759124
-169,PRJNA391982,SRR5759125
-170,PRJNA391982,SRR5759126
-171,PRJNA391982,SRR5759127
-172,PRJNA391982,SRR5759128
-173,PRJNA391982,SRR5759129
-174,PRJNA391982,SRR5759130
-175,PRJNA391982,SRR5759131
-176,PRJNA391982,SRR5759132
-177,PRJNA391982,SRR5759133
-178,PRJNA391982,SRR5759134
-179,PRJNA391982,SRR5759135
-180,PRJNA391982,SRR5759136
-181,PRJNA391982,SRR5759137
-182,PRJNA391982,SRR5759138
-183,PRJNA391982,SRR5759139
-184,PRJNA391982,SRR5759140
-185,PRJNA391982,SRR5759141
-186,PRJNA391982,SRR5759142
-187,PRJNA391982,SRR5759143
-188,PRJNA391982,SRR5759144
-189,PRJNA391982,SRR5759145
-190,PRJNA391982,SRR5759146
-191,PRJNA391982,SRR5759147
-192,PRJNA391982,SRR5759148
-193,PRJNA391982,SRR5759149
-194,PRJNA391982,SRR5759150
-195,PRJNA391982,SRR5759151
-196,PRJNA391982,SRR5759152
-197,PRJNA391982,SRR5759153
-198,PRJNA391982,SRR5759154
-199,PRJNA391982,SRR5759155
-200,PRJNA391982,SRR5759156
-201,PRJNA391982,SRR5759157
-202,PRJNA391982,SRR5759158
-203,PRJNA391982,SRR5759159
-204,PRJNA391982,SRR5758849
-205,PRJNA391982,SRR5758850
-206,PRJNA391982,SRR5758851
-207,PRJNA391982,SRR5758852
-208,PRJNA391982,SRR5758853
-209,PRJNA391982,SRR5758854
-210,PRJNA391982,SRR5758855
-211,PRJNA391982,SRR5758856
-212,PRJNA391982,SRR5758857
-213,PRJNA391982,SRR5758858
-214,PRJNA391982,SRR5758859
-215,PRJNA391982,SRR5758860
-216,PRJNA391982,SRR5758861
-217,PRJNA391982,SRR5758862
-218,PRJNA391982,SRR5758863
-219,PRJNA391982,SRR5758864
-220,PRJNA391982,SRR5758865
-221,PRJNA391982,SRR5758866
-222,PRJNA391982,SRR5758867
-223,PRJNA391982,SRR5758868
-224,PRJNA391982,SRR5758869
-225,PRJNA391982,SRR5758870
-226,PRJNA391982,SRR5758871
-227,PRJNA391982,SRR5758872
-228,PRJNA391982,SRR5758873
-229,PRJNA391982,SRR5758874
-230,PRJNA391982,SRR5758875
-231,PRJNA391982,SRR5758876
-232,PRJNA391982,SRR5758877
-233,PRJNA391982,SRR5758878
-234,PRJNA391982,SRR5758879
-235,PRJNA391982,SRR5758880
-236,PRJNA391982,SRR5758881
-237,PRJNA391982,SRR5758882
-238,PRJNA391982,SRR5758883
-239,PRJNA391982,SRR5758884
-240,PRJNA391982,SRR5758885
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
+1,PRJNA391982,SRR5758886,239m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+2,PRJNA391982,SRR5758887,241c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+3,PRJNA391982,SRR5758888,241m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+4,PRJNA391982,SRR5758889,261c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+5,PRJNA391982,SRR5758890,261m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+6,PRJNA391982,SRR5758891,257c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+7,PRJNA391982,SRR5758892,257m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+8,PRJNA391982,SRR5758893,258c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+9,PRJNA391982,SRR5758894,258m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+10,PRJNA391982,SRR5758895,259c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+11,PRJNA391982,SRR5758896,259m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+12,PRJNA391982,SRR5758897,260c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+13,PRJNA391982,SRR5758898,260m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+14,PRJNA391982,SRR5758899,255m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+15,PRJNA391982,SRR5758900,255c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+16,PRJNA391982,SRR5758901,254m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+17,PRJNA391982,SRR5758902,254c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+18,PRJNA391982,SRR5758903,253m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+19,PRJNA391982,SRR5758904,253c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+20,PRJNA391982,SRR5758905,252m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+21,PRJNA391982,SRR5758906,252c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+22,PRJNA391982,SRR5758907,245m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+23,PRJNA391982,SRR5758908,245c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+24,PRJNA391982,SRR5758909,244m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+25,PRJNA391982,SRR5758910,244c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+26,PRJNA391982,SRR5758911,243m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+27,PRJNA391982,SRR5758912,243c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+28,PRJNA391982,SRR5758913,256m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+29,PRJNA391982,SRR5758914,256c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+30,PRJNA391982,SRR5758915,206c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+31,PRJNA391982,SRR5758916,206m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+32,PRJNA391982,SRR5758917,207c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+33,PRJNA391982,SRR5758918,207m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+34,PRJNA391982,SRR5758919,208c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+35,PRJNA391982,SRR5758920,208m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+36,PRJNA391982,SRR5758921,210c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+37,PRJNA391982,SRR5758922,210m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+38,PRJNA391982,SRR5758923,211c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+39,PRJNA391982,SRR5758924,211m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+40,PRJNA391982,SRR5758925,251c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+41,PRJNA391982,SRR5758926,251m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+42,PRJNA391982,SRR5758927,247c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+43,PRJNA391982,SRR5758928,247m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+44,PRJNA391982,SRR5758929,248c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+45,PRJNA391982,SRR5758930,248m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+46,PRJNA391982,SRR5758931,249c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+47,PRJNA391982,SRR5758932,249m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+48,PRJNA391982,SRR5758933,250c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+49,PRJNA391982,SRR5758934,250m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+50,PRJNA391982,SRR5758935,216m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+51,PRJNA391982,SRR5758936,216c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+52,PRJNA391982,SRR5758937,214m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+53,PRJNA391982,SRR5758938,214c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+54,PRJNA391982,SRR5758939,215m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+55,PRJNA391982,SRR5758940,215c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+56,PRJNA391982,SRR5758941,212m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+57,PRJNA391982,SRR5758942,212c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+58,PRJNA391982,SRR5758943,213m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+59,PRJNA391982,SRR5758944,213c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+60,PRJNA391982,SRR5758945,246m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+61,PRJNA391982,SRR5758946,246c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+62,PRJNA391982,SRR5758947,221c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+63,PRJNA391982,SRR5758948,221m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+64,PRJNA391982,SRR5758949,220c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+65,PRJNA391982,SRR5758950,220m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+66,PRJNA391982,SRR5758951,219c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+67,PRJNA391982,SRR5758952,219m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+68,PRJNA391982,SRR5758953,218c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+69,PRJNA391982,SRR5758954,218m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+70,PRJNA391982,SRR5758955,217c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+71,PRJNA391982,SRR5758956,217m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+72,PRJNA391982,SRR5758957,242m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+73,PRJNA391982,SRR5758958,242c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+74,PRJNA391982,SRR5758959,226m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+75,PRJNA391982,SRR5758960,226c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+76,PRJNA391982,SRR5758961,223m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+77,PRJNA391982,SRR5758962,223c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+78,PRJNA391982,SRR5758963,222m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+79,PRJNA391982,SRR5758964,222c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+80,PRJNA391982,SRR5758965,225m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+81,PRJNA391982,SRR5758966,225c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+82,PRJNA391982,SRR5758967,224m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+83,PRJNA391982,SRR5758968,224c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+84,PRJNA391982,SRR5759040,246m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+85,PRJNA391982,SRR5759041,246c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+86,PRJNA391982,SRR5759042,242m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+87,PRJNA391982,SRR5759043,242c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+88,PRJNA391982,SRR5759044,243m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+89,PRJNA391982,SRR5759045,243c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+90,PRJNA391982,SRR5759046,244m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+91,PRJNA391982,SRR5759047,244c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+92,PRJNA391982,SRR5759048,245m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+93,PRJNA391982,SRR5759049,245c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+94,PRJNA391982,SRR5759050,240m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+95,PRJNA391982,SRR5759051,207c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+96,PRJNA391982,SRR5759052,207m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+97,PRJNA391982,SRR5759053,206c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+98,PRJNA391982,SRR5759054,206m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+99,PRJNA391982,SRR5759055,210c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+100,PRJNA391982,SRR5759056,210m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+101,PRJNA391982,SRR5759057,208c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+102,PRJNA391982,SRR5759058,208m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+103,PRJNA391982,SRR5759059,211c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+104,PRJNA391982,SRR5759060,211m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+105,PRJNA391982,SRR5759061,251c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+106,PRJNA391982,SRR5759062,251m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+107,PRJNA391982,SRR5759063,248c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+108,PRJNA391982,SRR5759064,248m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+109,PRJNA391982,SRR5759065,247c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+110,PRJNA391982,SRR5759066,247m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+111,PRJNA391982,SRR5759067,250c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+112,PRJNA391982,SRR5759068,250m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+113,PRJNA391982,SRR5759069,249c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+114,PRJNA391982,SRR5759070,249m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+115,PRJNA391982,SRR5759071,235m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+116,PRJNA391982,SRR5759072,235c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+117,PRJNA391982,SRR5759073,257c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+118,PRJNA391982,SRR5759074,234c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+119,PRJNA391982,SRR5759075,233m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+120,PRJNA391982,SRR5759076,233c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+121,PRJNA391982,SRR5759077,232m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+122,PRJNA391982,SRR5759078,232c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+123,PRJNA391982,SRR5759079,261c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+124,PRJNA391982,SRR5759080,261m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+125,PRJNA391982,SRR5759081,236m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+126,PRJNA391982,SRR5759082,236c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+127,PRJNA391982,SRR5759083,234m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+128,PRJNA391982,SRR5759084,240c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+129,PRJNA391982,SRR5759085,257m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+130,PRJNA391982,SRR5759086,252m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+131,PRJNA391982,SRR5759087,252c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+132,PRJNA391982,SRR5759088,253m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+133,PRJNA391982,SRR5759089,253c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+134,PRJNA391982,SRR5759090,254m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+135,PRJNA391982,SRR5759091,254c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+136,PRJNA391982,SRR5759092,255m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+137,PRJNA391982,SRR5759093,255c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+138,PRJNA391982,SRR5759094,256m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+139,PRJNA391982,SRR5759095,256c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+140,PRJNA391982,SRR5759096,237c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+141,PRJNA391982,SRR5759097,237m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+142,PRJNA391982,SRR5759098,238c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+143,PRJNA391982,SRR5759099,238m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+144,PRJNA391982,SRR5759100,239c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+145,PRJNA391982,SRR5759101,239m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+146,PRJNA391982,SRR5759102,226m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+147,PRJNA391982,SRR5759103,226c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+148,PRJNA391982,SRR5759104,224m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+149,PRJNA391982,SRR5759105,224c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+150,PRJNA391982,SRR5759106,225m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+151,PRJNA391982,SRR5759107,225c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+152,PRJNA391982,SRR5759108,222m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+153,PRJNA391982,SRR5759109,222c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+154,PRJNA391982,SRR5759110,223m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+155,PRJNA391982,SRR5759111,223c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+156,PRJNA391982,SRR5759112,216m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+157,PRJNA391982,SRR5759113,241c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+158,PRJNA391982,SRR5759114,241m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+159,PRJNA391982,SRR5759115,213m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+160,PRJNA391982,SRR5759116,231c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+161,PRJNA391982,SRR5759117,231m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+162,PRJNA391982,SRR5759118,230c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+163,PRJNA391982,SRR5759119,230m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+164,PRJNA391982,SRR5759120,229c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+165,PRJNA391982,SRR5759121,229m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+166,PRJNA391982,SRR5759122,228c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+167,PRJNA391982,SRR5759123,228m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+168,PRJNA391982,SRR5759124,227c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+169,PRJNA391982,SRR5759125,227m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+170,PRJNA391982,SRR5759126,214m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+171,PRJNA391982,SRR5759127,258c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+172,PRJNA391982,SRR5759128,258m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+173,PRJNA391982,SRR5759129,202c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+174,PRJNA391982,SRR5759130,202m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+175,PRJNA391982,SRR5759131,201c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+176,PRJNA391982,SRR5759132,201m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+177,PRJNA391982,SRR5759133,204c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+178,PRJNA391982,SRR5759134,204m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+179,PRJNA391982,SRR5759135,203c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+180,PRJNA391982,SRR5759136,203m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+181,PRJNA391982,SRR5759137,205c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+182,PRJNA391982,SRR5759138,205m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+183,PRJNA391982,SRR5759139,260c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+184,PRJNA391982,SRR5759140,260m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+185,PRJNA391982,SRR5759141,216c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+186,PRJNA391982,SRR5759142,259c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+187,PRJNA391982,SRR5759143,213c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+188,PRJNA391982,SRR5759144,212m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+189,PRJNA391982,SRR5759145,212c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+190,PRJNA391982,SRR5759146,215m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+191,PRJNA391982,SRR5759147,215c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+192,PRJNA391982,SRR5759148,259m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+193,PRJNA391982,SRR5759149,214c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+194,PRJNA391982,SRR5759150,219c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+195,PRJNA391982,SRR5759151,219m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+196,PRJNA391982,SRR5759152,220c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+197,PRJNA391982,SRR5759153,220m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+198,PRJNA391982,SRR5759154,217c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+199,PRJNA391982,SRR5759155,217m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+200,PRJNA391982,SRR5759156,218c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+201,PRJNA391982,SRR5759157,218m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+202,PRJNA391982,SRR5759158,221c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+203,PRJNA391982,SRR5759159,221m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+204,PRJNA391982,SRR5758849,229c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+205,PRJNA391982,SRR5758850,229m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+206,PRJNA391982,SRR5758851,230c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+207,PRJNA391982,SRR5758852,230m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+208,PRJNA391982,SRR5758853,227c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+209,PRJNA391982,SRR5758854,227m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+210,PRJNA391982,SRR5758855,228c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+211,PRJNA391982,SRR5758856,228m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+212,PRJNA391982,SRR5758857,231c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+213,PRJNA391982,SRR5758858,231m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+214,PRJNA391982,SRR5758859,203c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+215,PRJNA391982,SRR5758860,203m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+216,PRJNA391982,SRR5758861,204c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+217,PRJNA391982,SRR5758862,204m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+218,PRJNA391982,SRR5758863,201c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+219,PRJNA391982,SRR5758864,201m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+220,PRJNA391982,SRR5758865,202c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+221,PRJNA391982,SRR5758866,202m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+222,PRJNA391982,SRR5758867,205c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+223,PRJNA391982,SRR5758868,205m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+224,PRJNA391982,SRR5758869,232m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+225,PRJNA391982,SRR5758870,232c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+226,PRJNA391982,SRR5758871,233m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+227,PRJNA391982,SRR5758872,233c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+228,PRJNA391982,SRR5758873,234m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+229,PRJNA391982,SRR5758874,234c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+230,PRJNA391982,SRR5758875,235m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+231,PRJNA391982,SRR5758876,235c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+232,PRJNA391982,SRR5758877,236m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+233,PRJNA391982,SRR5758878,236c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+234,PRJNA391982,SRR5758879,238c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+235,PRJNA391982,SRR5758880,238m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+236,PRJNA391982,SRR5758881,237c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+237,PRJNA391982,SRR5758882,237m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+238,PRJNA391982,SRR5758883,240c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,mucosa,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+239,PRJNA391982,SRR5758884,240m,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO
+240,PRJNA391982,SRR5758885,239c,NA,NA,NA,V1-V3/V7-V9,454 GS FLX Titanium,USA,saliva,2018-07-31T00:00:00Z,NA,Characterizing oral microbial communities across dentition states and colonization niches,NO,HC,NO

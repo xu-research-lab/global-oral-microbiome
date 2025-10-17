@@ -1,41 +1,41 @@
-,BioProject,Run
-1,PRJNA803155,SRR17871271
-2,PRJNA803155,SRR17871272
-3,PRJNA803155,SRR17871273
-4,PRJNA803155,SRR17871274
-5,PRJNA803155,SRR17871275
-6,PRJNA803155,SRR17871276
-7,PRJNA803155,SRR17871277
-8,PRJNA803155,SRR17871278
-9,PRJNA803155,SRR17871279
-10,PRJNA803155,SRR17871280
-11,PRJNA803155,SRR17871281
-12,PRJNA803155,SRR17871282
-13,PRJNA803155,SRR17871283
-14,PRJNA803155,SRR17871284
-15,PRJNA803155,SRR17871285
-16,PRJNA803155,SRR17871286
-17,PRJNA803155,SRR17871287
-18,PRJNA803155,SRR17871288
-19,PRJNA803155,SRR17871289
-20,PRJNA803155,SRR17871290
-21,PRJNA803155,SRR17871291
-22,PRJNA803155,SRR17871292
-23,PRJNA803155,SRR17871293
-24,PRJNA803155,SRR17871294
-25,PRJNA803155,SRR17871295
-26,PRJNA803155,SRR17871296
-27,PRJNA803155,SRR17871297
-28,PRJNA803155,SRR17871298
-29,PRJNA803155,SRR17871299
-30,PRJNA803155,SRR17871300
-31,PRJNA803155,SRR17871301
-32,PRJNA803155,SRR17871302
-33,PRJNA803155,SRR17871303
-34,PRJNA803155,SRR17871304
-35,PRJNA803155,SRR17871305
-36,PRJNA803155,SRR17871306
-37,PRJNA803155,SRR17871307
-38,PRJNA803155,SRR17871308
-39,PRJNA803155,SRR17871309
-40,PRJNA803155,SRR17871310
+,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
+1,PRJNA803155,SRR17871271,YS17,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+2,PRJNA803155,SRR17871272,YS16,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+3,PRJNA803155,SRR17871273,YS15,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+4,PRJNA803155,SRR17871274,YS14,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+5,PRJNA803155,SRR17871275,YS13,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+6,PRJNA803155,SRR17871276,YS12,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+7,PRJNA803155,SRR17871277,OSCC_C1,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+8,PRJNA803155,SRR17871278,OSCC_D1,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+9,PRJNA803155,SRR17871279,OSCC_A1,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+10,PRJNA803155,SRR17871280,OSCC_Z,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+11,PRJNA803155,SRR17871281,OSCC_X,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+12,PRJNA803155,SRR17871282,OSCC_U,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+13,PRJNA803155,SRR17871283,OSCC_R,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+14,PRJNA803155,SRR17871284,OSCC_S,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+15,PRJNA803155,SRR17871285,OSCC_P,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+16,PRJNA803155,SRR17871286,OSCC_O,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+17,PRJNA803155,SRR17871287,YS11,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+18,PRJNA803155,SRR17871288,OSCC_M,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+19,PRJNA803155,SRR17871289,OSCC_L,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+20,PRJNA803155,SRR17871290,OSCC_K,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+21,PRJNA803155,SRR17871291,OSCC_J,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+22,PRJNA803155,SRR17871292,OSCC_I,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+23,PRJNA803155,SRR17871293,OSCC_G,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+24,PRJNA803155,SRR17871294,OSCC_F,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+25,PRJNA803155,SRR17871295,OSCC_D,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+26,PRJNA803155,SRR17871296,OSCC_C,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+27,PRJNA803155,SRR17871297,OSCC_B,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+28,PRJNA803155,SRR17871298,YS10,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+29,PRJNA803155,SRR17871299,YS27,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+30,PRJNA803155,SRR17871300,YS26,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+31,PRJNA803155,SRR17871301,YS25,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+32,PRJNA803155,SRR17871302,YS24,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+33,PRJNA803155,SRR17871303,YS23,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+34,PRJNA803155,SRR17871304,YS22,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+35,PRJNA803155,SRR17871305,YS21,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+36,PRJNA803155,SRR17871306,YS20,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+37,PRJNA803155,SRR17871307,YS19,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+38,PRJNA803155,SRR17871308,YS18,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+39,PRJNA803155,SRR17871309,YS9,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO
+40,PRJNA803155,SRR17871310,YS8,NA,NA,NA,V4-V5,Illumina MiSeq,China,tumor,2022-02-03T00:00:00Z,515F-907R,Age-Related Cancer-Associated Microbiota Potentially Promotes Oral Squamous Cell Cancer Tumorigenesis by Distinct Mechanisms,YES,OSCC,NO

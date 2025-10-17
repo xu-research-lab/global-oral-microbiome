@@ -15,7 +15,7 @@ library(cowplot)
 library(readxl)
 
 # Set working directory (update this path to your local directory)
-setwd("/home/cjj/projects/collect_oral_data/global-oral-microbiome/data/tmp/PRJCA006963")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJCA006963")
 
 table1 <- read_excel("CRA006039.xlsx")
 write.csv(table1, "CRA006039.csv", row.names = FALSE)

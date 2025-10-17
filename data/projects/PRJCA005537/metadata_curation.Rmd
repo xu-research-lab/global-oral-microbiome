@@ -17,7 +17,7 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/oral_project/PRJCA005537")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJCA005537")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.csv",header = T)
@@ -59,7 +59,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "PRJCA005537",
-  Run = NA,
+  Run = initial_meta$Sample.name,
   sample_name = initial_meta$Sample.name,
   Age = NA,
   BMI = NA,

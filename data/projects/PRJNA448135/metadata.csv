@@ -119,26 +119,3 @@
 118,PRJNA448135,SRR6919019,5.BS.5_ACCTTGGTC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,454 GS,USA,saliva,2018-09-30T00:00:00Z,ATTACCGCGGCTGCTGG,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
 119,PRJNA448135,SRR6919020,4.TS.8_AAGAGTTC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,454 GS,USA,plaque,2018-09-30T00:00:00Z,ATTACCGCGGCTGCTGG,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
 120,PRJNA448135,SRR6919021,3.BS.3_CGTGAC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,454 GS,USA,saliva,2018-09-30T00:00:00Z,ATTACCGCGGCTGCTGG,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-121,PRJNA448135,SRR8145817,2.BS.10_TCTCGAC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-122,PRJNA448135,SRR8145818,RS.2.MS.3,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-123,PRJNA448135,SRR8145819,RS.2.BS.3,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-124,PRJNA448135,SRR8145820,2.BS.10_TCTCGAC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-125,PRJNA448135,SRR8145821,RS.1.MS.10,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-126,PRJNA448135,SRR8145822,RS.2.BS.3,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-127,PRJNA448135,SRR8145823,RS.1.MS.2,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-128,PRJNA448135,SRR8145824,RS.1.MS.10,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-129,PRJNA448135,SRR8145825,RS.1.BS.2,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-130,PRJNA448135,SRR8145826,1.BS.10_AAGAGTTC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-131,PRJNA448135,SRR8145827,6.BS.10_CGTCGTC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-132,PRJNA448135,SRR8145828,RS.6.MS.0,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-133,PRJNA448135,SRR8145829,4.MS.11_TCCAGAAC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-134,PRJNA448135,SRR8145830,RS.6.BS.3,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-135,PRJNA448135,SRR8145831,4.BS.11_TTGAACTC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-136,PRJNA448135,SRR8145832,RS.4.MS.3,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-137,PRJNA448135,SRR8145833,2.MS.12_TTGTGTTC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-138,PRJNA448135,SRR8145834,4.BS.3_TCGCGGC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-139,PRJNA448135,SRR8145835,6.MS.11_ACTAATTC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-140,PRJNA448135,SRR8145836,7.BS.2_AGTTGGC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-141,PRJNA448135,SRR8145837,7.MS.11_ACTTGC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-142,PRJNA448135,SRR8145838,7.MS.2_TGAAGC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO
-143,PRJNA448135,SRR8145839,7.BS.11_TATCAAC.ATTACCGCGGCTGCTGG,NA,NA,NA,V1-V3,Illumina HiSeq 4000,USA,saliva,2019-01-01T00:00:00Z,,The Predominant Oral Microbiota Is Acquired Early in an Organized Pattern,NO,H,NO

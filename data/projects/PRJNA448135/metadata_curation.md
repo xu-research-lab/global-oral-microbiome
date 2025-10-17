@@ -143,13 +143,13 @@ metadata$matched_samples <- "NO"
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 143"
+    ## [1] "Number of unique runs: 120"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 128"
+    ## [1] "Number of unique sample names: 120"
 
 # Step 5: Visualize the Metadata
 

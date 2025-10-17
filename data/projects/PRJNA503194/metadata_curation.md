@@ -65,6 +65,34 @@ head(initial_meta)
     ## 5 SRP167359    150 2018-10-31T14:32:00Z       1
     ## 6 SRP167359    180 2018-11-02T00:02:00Z       2
 
+``` r
+initial_meta_with_helpers <- initial_meta %>%
+  group_by(host_subject_id) %>%
+  mutate(
+    is_if_is_match = all(c("IF", "IS") %in% env_biome),
+    is_mf_milk_ms_match = all(c("MF", "Milk", "MS") %in% env_biome),
+    is_intended_if_is_group = any(c("IF", "IS") %in% env_biome)
+  ) %>%
+  ungroup()
+
+
+initial_meta_processed <- initial_meta_with_helpers %>%
+  mutate(
+    matched_samples = case_when(
+      is_if_is_match ~ "YES",
+      is_mf_milk_ms_match ~ "YES",
+      TRUE ~ "NO"
+    )
+  ) %>%
+  filter(
+    is_if_is_match | is_mf_milk_ms_match |
+
+      !is_intended_if_is_group |
+
+      (is_intended_if_is_group & !is_if_is_match & env_biome == "MS")
+  )
+```
+
 # Step 2: Create a Uniform Metadata Template
 
 The uniform metadata should include the following columns:
@@ -100,6 +128,7 @@ metadata <- data.frame(
   Country = initial_meta$geo_loc_name,
   Site = initial_meta$site,
   public_time = initial_meta$ReleaseDate,
+  matched_samples = initial_meta_processed$matched_samples,
   stringsAsFactors = FALSE,
   Sex = NA,
   Age = NA,
@@ -116,10 +145,9 @@ manually extracted from the publication and added to the metadata.
 # Add information obtained from the publication
 metadata$Status <- "H"
 metadata$Region <- "V1-V3"
-metadata$PCR_primers <- "FWD:TCGTCGGCAGCGTCA; REV:GTCTCGTGGGCTCGGAGATGTGTTA"
-metadata$title <- "The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey"
-metadata$Disease_study <- "YES"
-metadata$matched_samples <- "NO"
+metadata$PCR_primers <- "27F-534R"
+metadata$title <- "Strong Multivariate Relations Exist Among Milk、 Oral、and Fecal Microbiomes in Mother-Infant Dyads During the First Six Months Postpartum"
+metadata$Disease_study <- "NO"
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -160,20 +188,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site          public_time                                        PCR_primers
-    ## 1 PRJNA503194 SRR8141524   A021_IF_2  NA  NA  NA  V1-V3 Illumina MiSeq     USA  stool 2019-08-01T00:00:00Z FWD:TCGTCGGCAGCGTCA; REV:GTCTCGTGGGCTCGGAGATGTGTTA
-    ## 2 PRJNA503194 SRR8141525  A021_IF_30  NA  NA  NA  V1-V3 Illumina MiSeq     USA  stool 2019-08-01T00:00:00Z FWD:TCGTCGGCAGCGTCA; REV:GTCTCGTGGGCTCGGAGATGTGTTA
-    ## 3 PRJNA503194 SRR8141526  A021_IF_90  NA  NA  NA  V1-V3 Illumina MiSeq     USA  stool 2019-08-01T00:00:00Z FWD:TCGTCGGCAGCGTCA; REV:GTCTCGTGGGCTCGGAGATGTGTTA
-    ## 4 PRJNA503194 SRR8141527  A021_IS_10  NA  NA  NA  V1-V3 Illumina MiSeq     USA saliva 2019-08-01T00:00:00Z FWD:TCGTCGGCAGCGTCA; REV:GTCTCGTGGGCTCGGAGATGTGTTA
-    ## 5 PRJNA503194 SRR8141528 A029_IS_150  NA  NA  NA  V1-V3 Illumina MiSeq     USA saliva 2019-08-01T00:00:00Z FWD:TCGTCGGCAGCGTCA; REV:GTCTCGTGGGCTCGGAGATGTGTTA
-    ## 6 PRJNA503194 SRR8141529 A029_IS_180  NA  NA  NA  V1-V3 Illumina MiSeq     USA saliva 2019-08-01T00:00:00Z FWD:TCGTCGGCAGCGTCA; REV:GTCTCGTGGGCTCGGAGATGTGTTA
-    ##                                                                                                                                    title Disease_study Status matched_samples
-    ## 1 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES      H              NO
-    ## 2 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES      H              NO
-    ## 3 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES      H              NO
-    ## 4 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES      H              NO
-    ## 5 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES      H              NO
-    ## 6 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES      H              NO
+    ##    BioProject        Run sample_name Age BMI Sex Region       Platform Country   Site          public_time PCR_primers
+    ## 1 PRJNA503194 SRR8141524   A021_IF_2  NA  NA  NA  V1-V3 Illumina MiSeq     USA  stool 2019-08-01T00:00:00Z    27F-534R
+    ## 2 PRJNA503194 SRR8141525  A021_IF_30  NA  NA  NA  V1-V3 Illumina MiSeq     USA  stool 2019-08-01T00:00:00Z    27F-534R
+    ## 3 PRJNA503194 SRR8141526  A021_IF_90  NA  NA  NA  V1-V3 Illumina MiSeq     USA  stool 2019-08-01T00:00:00Z    27F-534R
+    ## 4 PRJNA503194 SRR8141527  A021_IS_10  NA  NA  NA  V1-V3 Illumina MiSeq     USA saliva 2019-08-01T00:00:00Z    27F-534R
+    ## 5 PRJNA503194 SRR8141528 A029_IS_150  NA  NA  NA  V1-V3 Illumina MiSeq     USA saliva 2019-08-01T00:00:00Z    27F-534R
+    ## 6 PRJNA503194 SRR8141529 A029_IS_180  NA  NA  NA  V1-V3 Illumina MiSeq     USA saliva 2019-08-01T00:00:00Z    27F-534R
+    ##                                                                                                                                        title Disease_study Status matched_samples
+    ## 1 Strong Multivariate Relations Exist Among Milk、 Oral、and Fecal Microbiomes in Mother-Infant Dyads During the First Six Months Postpartum            NO      H             YES
+    ## 2 Strong Multivariate Relations Exist Among Milk、 Oral、and Fecal Microbiomes in Mother-Infant Dyads During the First Six Months Postpartum            NO      H             YES
+    ## 3 Strong Multivariate Relations Exist Among Milk、 Oral、and Fecal Microbiomes in Mother-Infant Dyads During the First Six Months Postpartum            NO      H             YES
+    ## 4 Strong Multivariate Relations Exist Among Milk、 Oral、and Fecal Microbiomes in Mother-Infant Dyads During the First Six Months Postpartum            NO      H             YES
+    ## 5 Strong Multivariate Relations Exist Among Milk、 Oral、and Fecal Microbiomes in Mother-Infant Dyads During the First Six Months Postpartum            NO      H             YES
+    ## 6 Strong Multivariate Relations Exist Among Milk、 Oral、and Fecal Microbiomes in Mother-Infant Dyads During the First Six Months Postpartum            NO      H             YES
 
 ## Notes for Students:
 

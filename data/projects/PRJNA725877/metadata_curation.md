@@ -50,7 +50,7 @@ head(initial_meta)
     ## 4         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1    hcv- SRX10701657 Ion Torrent S5 'not applicable'           M6        SINGLE              PCR       GENOMIC Homo sapiens
     ## 5         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1    hcv- SRX10701656 Ion Torrent S5 'not applicable'          M21        SINGLE              PCR       GENOMIC Homo sapiens
     ## 6         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1    hcv- SRX10701655 Ion Torrent S5 'not applicable'          M24        SINGLE              PCR       GENOMIC Homo sapiens
-    ##      Platform          ReleaseDate          replicate          create_date version Sample.Name            sex SRA.Study tissue
+    ##      Platform          ReleaseDate          replicate          create_date version Sample_Name            sex SRA.Study tissue
     ## 1 ION_TORRENT 2021-04-29T00:00:00Z 1st representative 2021-04-29T03:02:00Z       1          M1 not determined SRP316758   oral
     ## 2 ION_TORRENT 2021-04-29T00:00:00Z 2nd representative 2021-04-29T03:02:00Z       1          M4 not determined SRP316758   oral
     ## 3 ION_TORRENT 2021-04-29T00:00:00Z 1st representative 2021-04-29T03:02:00Z       1          M5 not determined SRP316758   oral
@@ -88,21 +88,22 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = NA,
+  sample_name = initial_meta$Sample_Name,
   Platform = initial_meta$Instrument,
-  Country = NA,
-  public_time = NA,
-  Site = NA,
+  public_time = initial_meta$ReleaseDate,
   Sex = NA,
   Age = NA,
   BMI = NA,
-  Status = NA,
-  Region = NA,
   PCR_primers = NA,
-  title = NA,
-  Disease_study = NA,
-  matched_samples = NA
-)
+  Status = initial_meta$disease,
+  stringsAsFactors = FALSE
+) %>%
+  mutate(
+    Status = case_when(
+      Status == "control" ~ "H",
+      TRUE ~ as.character(Status)
+    )
+  )
 ```
 
 # Step 3: Manually Add Information from the Publication
@@ -112,6 +113,12 @@ manually extracted from the publication and added to the metadata.
 
 ``` r
 # Add information obtained from the publication
+metadata$Region <- "V2-4-8,V3-6,V7-9"
+metadata$Country <- "Egypt"
+metadata$Site <- "buccal mucosal tissues"
+metadata$title <- "The oral microbiome of treated and untreated chronic HCV infection: A preliminary study"
+metadata$Disease_study <- "YES"
+metadata$matched_samples <- "No"
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -127,7 +134,7 @@ print(paste("Number of unique runs:", length(unique(metadata$Run))))
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 1"
+    ## [1] "Number of unique sample names: 30"
 
 # Step 5: Visualize the Metadata
 
@@ -152,13 +159,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject         Run sample_name Age BMI Sex Region       Platform Country Site public_time PCR_primers title Disease_study Status matched_samples
-    ## 1 PRJNA725877 SRR14347781          NA  NA  NA  NA     NA Ion Torrent S5      NA   NA          NA          NA    NA            NA     NA              NA
-    ## 2 PRJNA725877 SRR14347782          NA  NA  NA  NA     NA Ion Torrent S5      NA   NA          NA          NA    NA            NA     NA              NA
-    ## 3 PRJNA725877 SRR14347783          NA  NA  NA  NA     NA Ion Torrent S5      NA   NA          NA          NA    NA            NA     NA              NA
-    ## 4 PRJNA725877 SRR14347784          NA  NA  NA  NA     NA Ion Torrent S5      NA   NA          NA          NA    NA            NA     NA              NA
-    ## 5 PRJNA725877 SRR14347785          NA  NA  NA  NA     NA Ion Torrent S5      NA   NA          NA          NA    NA            NA     NA              NA
-    ## 6 PRJNA725877 SRR14347786          NA  NA  NA  NA     NA Ion Torrent S5      NA   NA          NA          NA    NA            NA     NA              NA
+    ##    BioProject         Run sample_name Age BMI Sex           Region       Platform Country                   Site          public_time PCR_primers
+    ## 1 PRJNA725877 SRR14347781          M1  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
+    ## 2 PRJNA725877 SRR14347782          M4  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
+    ## 3 PRJNA725877 SRR14347783          M5  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
+    ## 4 PRJNA725877 SRR14347784          M6  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
+    ## 5 PRJNA725877 SRR14347785         M21  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
+    ## 6 PRJNA725877 SRR14347786         M24  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
+    ##                                                                                     title Disease_study Status matched_samples
+    ## 1 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv+              No
+    ## 2 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv+              No
+    ## 3 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv-              No
+    ## 4 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv-              No
+    ## 5 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv-              No
+    ## 6 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv-              No
 
 ## Notes for Students:
 

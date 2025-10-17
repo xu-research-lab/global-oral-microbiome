@@ -1,91 +1,91 @@
 ,BioProject,Run,sample_name,Age,BMI,Sex,Region,Platform,Country,Site,public_time,PCR_primers,title,Disease_study,Status,matched_samples
-1,PRJNA725075,SRR14322433,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-2,PRJNA725075,SRR14322434,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-3,PRJNA725075,SRR14322435,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-4,PRJNA725075,SRR14322436,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-5,PRJNA725075,SRR14322437,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-6,PRJNA725075,SRR14322438,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-7,PRJNA725075,SRR14322439,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-8,PRJNA725075,SRR14322440,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-9,PRJNA725075,SRR14322441,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-10,PRJNA725075,SRR14322442,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-11,PRJNA725075,SRR14322443,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-12,PRJNA725075,SRR14322444,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-13,PRJNA725075,SRR14322445,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-14,PRJNA725075,SRR14322446,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-15,PRJNA725075,SRR14322447,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-16,PRJNA725075,SRR14322448,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-17,PRJNA725075,SRR14322449,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-18,PRJNA725075,SRR14322450,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-19,PRJNA725075,SRR14322451,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-20,PRJNA725075,SRR14322452,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-21,PRJNA725075,SRR14322453,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-22,PRJNA725075,SRR14322454,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-23,PRJNA725075,SRR14322455,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-24,PRJNA725075,SRR14322456,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-25,PRJNA725075,SRR14322457,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-26,PRJNA725075,SRR14322458,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-27,PRJNA725075,SRR14322459,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-28,PRJNA725075,SRR14322460,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-29,PRJNA725075,SRR14322461,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-30,PRJNA725075,SRR14322462,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-31,PRJNA725075,SRR14322463,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-32,PRJNA725075,SRR14322464,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-33,PRJNA725075,SRR14322465,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-34,PRJNA725075,SRR14322466,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-35,PRJNA725075,SRR14322467,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-36,PRJNA725075,SRR14322468,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-37,PRJNA725075,SRR14322469,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-38,PRJNA725075,SRR14322470,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-39,PRJNA725075,SRR14322471,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-40,PRJNA725075,SRR14322472,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-41,PRJNA725075,SRR14322473,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-42,PRJNA725075,SRR14322474,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-43,PRJNA725075,SRR14322475,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-44,PRJNA725075,SRR14322476,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-45,PRJNA725075,SRR14322477,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-46,PRJNA725075,SRR14322478,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-47,PRJNA725075,SRR14322479,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-48,PRJNA725075,SRR14322480,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-49,PRJNA725075,SRR14322481,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-50,PRJNA725075,SRR14322482,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-51,PRJNA725075,SRR14322483,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-52,PRJNA725075,SRR14322484,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-53,PRJNA725075,SRR14322485,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-54,PRJNA725075,SRR14322486,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-55,PRJNA725075,SRR14322487,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-56,PRJNA725075,SRR14322488,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-57,PRJNA725075,SRR14322489,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-58,PRJNA725075,SRR14322490,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-59,PRJNA725075,SRR14322491,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-60,PRJNA725075,SRR14322492,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-61,PRJNA725075,SRR14322493,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-62,PRJNA725075,SRR14322494,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-63,PRJNA725075,SRR14322495,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-64,PRJNA725075,SRR14322496,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-65,PRJNA725075,SRR14322497,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-66,PRJNA725075,SRR14322498,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-67,PRJNA725075,SRR14322499,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-68,PRJNA725075,SRR14322500,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-69,PRJNA725075,SRR14322501,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-70,PRJNA725075,SRR14322502,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-71,PRJNA725075,SRR14322503,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-72,PRJNA725075,SRR14322504,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-73,PRJNA725075,SRR14322505,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-74,PRJNA725075,SRR14322506,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-75,PRJNA725075,SRR14322507,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-76,PRJNA725075,SRR14322508,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-77,PRJNA725075,SRR14322509,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-78,PRJNA725075,SRR14322510,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-79,PRJNA725075,SRR14322511,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-80,PRJNA725075,SRR14322512,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-81,PRJNA725075,SRR14322513,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-82,PRJNA725075,SRR14322514,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-83,PRJNA725075,SRR14322515,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-84,PRJNA725075,SRR14322516,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-85,PRJNA725075,SRR14322517,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-86,PRJNA725075,SRR14322518,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-87,PRJNA725075,SRR14322519,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-88,PRJNA725075,SRR14322520,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-89,PRJNA725075,SRR14322521,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
-90,PRJNA725075,SRR14322522,NA,NA,NA,NA,NA,Sequel,NA,NA,NA,NA,NA,NA,NA,NA
+1,PRJNA725075,SRR14322433,02H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+2,PRJNA725075,SRR14322434,15H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+3,PRJNA725075,SRR14322435,15H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+4,PRJNA725075,SRR14322436,15H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+5,PRJNA725075,SRR14322437,15C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+6,PRJNA725075,SRR14322438,15C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+7,PRJNA725075,SRR14322439,15C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+8,PRJNA725075,SRR14322440,14H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+9,PRJNA725075,SRR14322441,14H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+10,PRJNA725075,SRR14322442,14H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+11,PRJNA725075,SRR14322443,14C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+12,PRJNA725075,SRR14322444,02C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+13,PRJNA725075,SRR14322445,14C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+14,PRJNA725075,SRR14322446,14C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+15,PRJNA725075,SRR14322447,13H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+16,PRJNA725075,SRR14322448,13H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+17,PRJNA725075,SRR14322449,13H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+18,PRJNA725075,SRR14322450,13C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+19,PRJNA725075,SRR14322451,13C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+20,PRJNA725075,SRR14322452,13C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+21,PRJNA725075,SRR14322453,12H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+22,PRJNA725075,SRR14322454,12H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+23,PRJNA725075,SRR14322455,02C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+24,PRJNA725075,SRR14322456,12H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+25,PRJNA725075,SRR14322457,12C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+26,PRJNA725075,SRR14322458,12C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+27,PRJNA725075,SRR14322459,12C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+28,PRJNA725075,SRR14322460,11H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+29,PRJNA725075,SRR14322461,11H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+30,PRJNA725075,SRR14322462,11H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+31,PRJNA725075,SRR14322463,11C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+32,PRJNA725075,SRR14322464,11C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+33,PRJNA725075,SRR14322465,11C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+34,PRJNA725075,SRR14322466,02C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+35,PRJNA725075,SRR14322467,10H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+36,PRJNA725075,SRR14322468,10H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+37,PRJNA725075,SRR14322469,10H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+38,PRJNA725075,SRR14322470,10C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+39,PRJNA725075,SRR14322471,10C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+40,PRJNA725075,SRR14322472,10C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+41,PRJNA725075,SRR14322473,09H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+42,PRJNA725075,SRR14322474,09H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+43,PRJNA725075,SRR14322475,09H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+44,PRJNA725075,SRR14322476,09C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+45,PRJNA725075,SRR14322477,01H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+46,PRJNA725075,SRR14322478,09C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+47,PRJNA725075,SRR14322479,09C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+48,PRJNA725075,SRR14322480,08H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+49,PRJNA725075,SRR14322481,08H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+50,PRJNA725075,SRR14322482,08H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+51,PRJNA725075,SRR14322483,08C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+52,PRJNA725075,SRR14322484,08C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+53,PRJNA725075,SRR14322485,08C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+54,PRJNA725075,SRR14322486,07H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+55,PRJNA725075,SRR14322487,07H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+56,PRJNA725075,SRR14322488,01H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+57,PRJNA725075,SRR14322489,07H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+58,PRJNA725075,SRR14322490,07C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+59,PRJNA725075,SRR14322491,07C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+60,PRJNA725075,SRR14322492,07C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+61,PRJNA725075,SRR14322493,06H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+62,PRJNA725075,SRR14322494,06H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+63,PRJNA725075,SRR14322495,06H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+64,PRJNA725075,SRR14322496,06C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+65,PRJNA725075,SRR14322497,06C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+66,PRJNA725075,SRR14322498,06C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+67,PRJNA725075,SRR14322499,01H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+68,PRJNA725075,SRR14322500,05H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+69,PRJNA725075,SRR14322501,05H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+70,PRJNA725075,SRR14322502,05H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+71,PRJNA725075,SRR14322503,05C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+72,PRJNA725075,SRR14322504,05C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+73,PRJNA725075,SRR14322505,05C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+74,PRJNA725075,SRR14322506,04H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+75,PRJNA725075,SRR14322507,04H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+76,PRJNA725075,SRR14322508,04H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+77,PRJNA725075,SRR14322509,04C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+78,PRJNA725075,SRR14322510,01C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+79,PRJNA725075,SRR14322511,04C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+80,PRJNA725075,SRR14322512,04C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+81,PRJNA725075,SRR14322513,03H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+82,PRJNA725075,SRR14322514,03H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+83,PRJNA725075,SRR14322515,03H.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+84,PRJNA725075,SRR14322516,03C.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+85,PRJNA725075,SRR14322517,03C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+86,PRJNA725075,SRR14322518,03C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+87,PRJNA725075,SRR14322519,02H.S,NA,NA,NA,V1-V9,Sequel,China,saliva,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+88,PRJNA725075,SRR14322520,02H.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,H,No
+89,PRJNA725075,SRR14322521,01C.P,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No
+90,PRJNA725075,SRR14322522,01C.D,NA,NA,NA,V1-V9,Sequel,China,dental plaque,2021-04-27T00:00:00Z,FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT,The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey,YES,caries,No

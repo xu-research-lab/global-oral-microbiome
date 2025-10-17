@@ -18,7 +18,7 @@ library(cowplot)
 library(stringr)
 
 # Set working directory (update this path to your local directory)
-setwd("/home/hby/oral_project/PRJNA773113")
+setwd("/home/hby/oral_project/PRJNA752710")
 
 # Read the initial metadata files
 initial_meta <- read.csv("SraRunTable.csv", header = T)
@@ -61,20 +61,17 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = NA,
+  sample_name = initial_meta$Sample_Name,
   Platform = initial_meta$Instrument,
-  Country = NA,
-  public_time = NA,
-  Site = NA,
+  Country = initial_meta$geo_loc_name_country,
+  public_time = initial_meta$ReleaseDate,
+  Status = initial_meta$smoking,
+  BMI = NA,
+  stringsAsFactors = FALSE,
   Sex = NA,
   Age = NA,
-  BMI = NA,
-  Status = NA,
-  Region = NA,
   PCR_primers = NA,
-  title = NA,
-  Disease_study = NA,
-  matched_samples = NA
+  Region = NA
 )
 ```
 # Step 3: Manually Add Information from the Publication
@@ -82,6 +79,10 @@ metadata <- data.frame(
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
+metadata$Site <- "supragingival plaques"
+metadata$title <- "Supragingival microbiome alternations as a consequence of smoking different tobacco types and its relation to dental caries"
+metadata$Disease_study <- "YES"
+metadata$matched_samples <- "NO"
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}

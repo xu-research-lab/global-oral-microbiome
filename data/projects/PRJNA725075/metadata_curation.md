@@ -57,7 +57,7 @@ head(initial_meta)
     ## 4                           Asia China:Guangdong Homo sapiens     Sequel not collected           88        SINGLE            other   METAGENOMIC human oral metagenome PACBIO_SMRT
     ## 5                           Asia China:Guangdong Homo sapiens     Sequel not collected           87        SINGLE            other   METAGENOMIC human oral metagenome PACBIO_SMRT
     ## 6                           Asia China:Guangdong Homo sapiens     Sequel not collected           86        SINGLE            other   METAGENOMIC human oral metagenome PACBIO_SMRT
-    ##            ReleaseDate          create_date version Sample.Name source_material_id SRA.Study
+    ##            ReleaseDate          create_date version Sample_Name source_material_id SRA.Study
     ## 1 2021-04-27T00:00:00Z 2021-04-27T02:54:00Z       1       02H.D                 10 SRP316293
     ## 2 2021-04-27T00:00:00Z 2021-04-27T02:54:00Z       1       15H.S                 90 SRP316293
     ## 3 2021-04-27T00:00:00Z 2021-04-27T02:54:00Z       1       15H.P                 89 SRP316293
@@ -95,21 +95,30 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = NA,
+  sample_name = initial_meta$Sample_Name,
   Platform = initial_meta$Instrument,
-  Country = NA,
-  public_time = NA,
+  Country = initial_meta$geo_loc_name_country,
+  public_time = initial_meta$ReleaseDate,
   Site = NA,
   Sex = NA,
   Age = NA,
   BMI = NA,
   Status = NA,
-  Region = NA,
-  PCR_primers = NA,
-  title = NA,
-  Disease_study = NA,
-  matched_samples = NA
+  stringsAsFactors = FALSE
 )
+metadata <- metadata %>%
+  mutate(
+    Site = case_when(
+      str_detect(sample_name, "S") ~ "saliva",
+      str_detect(sample_name, "P|D") ~ "dental plaque",
+      TRUE ~ NA_character_ # Default to NA if no condition is met
+    ),
+    Status = case_when(
+      str_detect(sample_name, "H") ~ "H",
+      str_detect(sample_name, "C") ~ "caries",
+      TRUE ~ NA_character_ # Default to NA
+    )
+  )
 ```
 
 # Step 3: Manually Add Information from the Publication
@@ -119,6 +128,11 @@ manually extracted from the publication and added to the metadata.
 
 ``` r
 # Add information obtained from the publication
+metadata$Region <- "V1-V9"
+metadata$PCR_primers <- "FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT"
+metadata$title <- "The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey"
+metadata$Disease_study <- "YES"
+metadata$matched_samples <- "No"
 ```
 
 # Step 4: Summarize and Validate the Metadata
@@ -134,7 +148,7 @@ print(paste("Number of unique runs:", length(unique(metadata$Run))))
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
 ```
 
-    ## [1] "Number of unique sample names: 1"
+    ## [1] "Number of unique sample names: 90"
 
 # Step 5: Visualize the Metadata
 
@@ -159,13 +173,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##    BioProject         Run sample_name Age BMI Sex Region Platform Country Site public_time PCR_primers title Disease_study Status matched_samples
-    ## 1 PRJNA725075 SRR14322433          NA  NA  NA  NA     NA   Sequel      NA   NA          NA          NA    NA            NA     NA              NA
-    ## 2 PRJNA725075 SRR14322434          NA  NA  NA  NA     NA   Sequel      NA   NA          NA          NA    NA            NA     NA              NA
-    ## 3 PRJNA725075 SRR14322435          NA  NA  NA  NA     NA   Sequel      NA   NA          NA          NA    NA            NA     NA              NA
-    ## 4 PRJNA725075 SRR14322436          NA  NA  NA  NA     NA   Sequel      NA   NA          NA          NA    NA            NA     NA              NA
-    ## 5 PRJNA725075 SRR14322437          NA  NA  NA  NA     NA   Sequel      NA   NA          NA          NA    NA            NA     NA              NA
-    ## 6 PRJNA725075 SRR14322438          NA  NA  NA  NA     NA   Sequel      NA   NA          NA          NA    NA            NA     NA              NA
+    ##    BioProject         Run sample_name Age BMI Sex Region Platform Country          Site          public_time                                       PCR_primers
+    ## 1 PRJNA725075 SRR14322433       02H.D  NA  NA  NA  V1-V9   Sequel   China dental plaque 2021-04-27T00:00:00Z FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT
+    ## 2 PRJNA725075 SRR14322434       15H.S  NA  NA  NA  V1-V9   Sequel   China        saliva 2021-04-27T00:00:00Z FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT
+    ## 3 PRJNA725075 SRR14322435       15H.P  NA  NA  NA  V1-V9   Sequel   China dental plaque 2021-04-27T00:00:00Z FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT
+    ## 4 PRJNA725075 SRR14322436       15H.D  NA  NA  NA  V1-V9   Sequel   China dental plaque 2021-04-27T00:00:00Z FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT
+    ## 5 PRJNA725075 SRR14322437       15C.S  NA  NA  NA  V1-V9   Sequel   China        saliva 2021-04-27T00:00:00Z FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT
+    ## 6 PRJNA725075 SRR14322438       15C.P  NA  NA  NA  V1-V9   Sequel   China dental plaque 2021-04-27T00:00:00Z FWD:AGAGTTTGATCCTGGCTCAG; REV:GGTTACCTTGTTACGACTT
+    ##                                                                                                                                    title Disease_study Status matched_samples
+    ## 1 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES      H              No
+    ## 2 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES      H              No
+    ## 3 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES      H              No
+    ## 4 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES      H              No
+    ## 5 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES caries              No
+    ## 6 The impact of caries status on supragingival plaque and salivary microbiome in children with mixed dentition: a cross-sectional survey           YES caries              No
 
 ## Notes for Students:
 

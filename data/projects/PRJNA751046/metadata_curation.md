@@ -17,7 +17,7 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/studylearning/董彪师兄项目/任务/张辰飞/PRJNA751046")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJNA751046")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.csv",header = T)
@@ -36,26 +36,26 @@ head(initial_meta)
 ```
 
     ##           Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample
-    ## 1 SRR21474442   AMPLICON        602 17958262 PRJNA751046 SAMN30722499
-    ## 2 SRR21474443   AMPLICON        602 30789290 PRJNA751046 SAMN30722498
-    ## 3 SRR21474450   AMPLICON        602 36920058 PRJNA751046 SAMN30722509
-    ## 4 SRR21474451   AMPLICON        602 28743694 PRJNA751046 SAMN30722508
-    ## 5 SRR21484724   AMPLICON        602 56516362 PRJNA751046 SAMN30725542
-    ## 6 SRR21484725   AMPLICON        602 26359774 PRJNA751046 SAMN30725541
+    ## 1 SRR21474439   AMPLICON        602 27906312 PRJNA751046 SAMN30722502
+    ## 2 SRR21474444   AMPLICON        602 20545056 PRJNA751046 SAMN30722497
+    ## 3 SRR21474445   AMPLICON        602 21061572 PRJNA751046 SAMN30722514
+    ## 4 SRR21474446   AMPLICON        602 20053824 PRJNA751046 SAMN30722513
+    ## 5 SRR21474447   AMPLICON        602 38658634 PRJNA751046 SAMN30722512
+    ## 6 SRR21474448   AMPLICON        602 33532604 PRJNA751046 SAMN30722511
     ##                                BioSampleModel    Bytes
-    ## 1 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 10385393
-    ## 2 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 17344813
-    ## 3 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 20145434
-    ## 4 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 16293854
-    ## 5 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 32135564
-    ## 6 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 15129962
+    ## 1 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 15448020
+    ## 2 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 11755738
+    ## 3 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 11939899
+    ## 4 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 11211379
+    ## 5 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 21645710
+    ## 6 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 18653819
     ##                                             Center.Name Collection_Date Consent
-    ## 1 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-02-10  public
-    ## 2 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-02-05  public
-    ## 3 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-04-10  public
-    ## 4 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-03-27  public
-    ## 5 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-08-15  public
-    ## 6 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-08-08  public
+    ## 1 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-03-03  public
+    ## 2 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-01-07  public
+    ## 3 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-04-25  public
+    ## 4 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-04-20  public
+    ## 5 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-04-22  public
+    ## 6 NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES (NMIMS)      2018-04-16  public
     ##   DATASTORE.filetype DATASTORE.provider                     DATASTORE.region
     ## 1   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
     ## 2   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
@@ -63,41 +63,41 @@ head(initial_meta)
     ## 4   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
     ## 5   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
     ## 6   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ##         env_broad_scale env_local_scale env_medium  Experiment
-    ## 1           oral cavity  not applicable       <NA> SRX17478091
-    ## 2           oral cavity  not applicable       <NA> SRX17478090
-    ## 3           oral cavity  not applicable       <NA> SRX17478083
-    ## 4           oral cavity  not applicable       <NA> SRX17478082
-    ## 5 Human Oral microbiome            Oral    missing SRX17488295
-    ## 6 Human Oral microbiome            Oral    missing SRX17488294
-    ##   geo_loc_name_country geo_loc_name_country_continent geo_loc_name         HOST
-    ## 1                India                           Asia        India Homo sapiens
-    ## 2                India                           Asia        India Homo sapiens
-    ## 3                India                           Asia        India Homo sapiens
-    ## 4                India                           Asia        India Homo sapiens
-    ## 5                India                           Asia        India Homo sapiens
-    ## 6                India                           Asia        India Homo sapiens
-    ##       Instrument lat_lon Library.Name LibraryLayout LibrarySelection
-    ## 1 Illumina MiSeq    <NA>         S207        PAIRED              PCR
-    ## 2 Illumina MiSeq    <NA>         S195        PAIRED              PCR
-    ## 3 Illumina MiSeq    <NA>         S244        PAIRED              PCR
-    ## 4 Illumina MiSeq    <NA>         S232        PAIRED              PCR
-    ## 5 Illumina MiSeq missing         S214        PAIRED              PCR
-    ## 6 Illumina MiSeq missing         S202        PAIRED              PCR
-    ##   LibrarySource              Organism Platform          ReleaseDate
-    ## 1   METAGENOMIC human oral metagenome ILLUMINA 2022-09-08T00:00:00Z
-    ## 2   METAGENOMIC human oral metagenome ILLUMINA 2022-09-08T00:00:00Z
-    ## 3   METAGENOMIC human oral metagenome ILLUMINA 2022-09-08T00:00:00Z
-    ## 4   METAGENOMIC human oral metagenome ILLUMINA 2022-09-08T00:00:00Z
-    ## 5   METAGENOMIC human oral metagenome ILLUMINA 2022-09-09T00:00:00Z
-    ## 6   METAGENOMIC human oral metagenome ILLUMINA 2022-09-09T00:00:00Z
-    ##            create_date version Sample.Name SRA.Study Host_Age
-    ## 1 2022-09-08T17:38:00Z       1         C21 SRP330565       NA
-    ## 2 2022-09-08T18:18:00Z       1         C20 SRP330565       NA
-    ## 3 2022-09-08T17:22:00Z       1         C36 SRP330565       NA
-    ## 4 2022-09-08T17:09:00Z       1         C34 SRP330565       NA
-    ## 5 2022-09-09T02:43:00Z       1          O7 SRP330565       NA
-    ## 6 2022-09-09T02:15:00Z       1          O1 SRP330565       NA
+    ##   env_broad_scale env_local_scale env_medium  Experiment geo_loc_name_country
+    ## 1     oral cavity  not applicable       <NA> SRX17478094                India
+    ## 2     oral cavity  not applicable       <NA> SRX17478089                India
+    ## 3     oral cavity  not applicable       <NA> SRX17478088                India
+    ## 4     oral cavity  not applicable       <NA> SRX17478087                India
+    ## 5     oral cavity  not applicable       <NA> SRX17478086                India
+    ## 6     oral cavity  not applicable       <NA> SRX17478085                India
+    ##   geo_loc_name_country_continent geo_loc_name         HOST     Instrument
+    ## 1                           Asia        India Homo sapiens Illumina MiSeq
+    ## 2                           Asia        India Homo sapiens Illumina MiSeq
+    ## 3                           Asia        India Homo sapiens Illumina MiSeq
+    ## 4                           Asia        India Homo sapiens Illumina MiSeq
+    ## 5                           Asia        India Homo sapiens Illumina MiSeq
+    ## 6                           Asia        India Homo sapiens Illumina MiSeq
+    ##   lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource
+    ## 1    <NA>         S243        PAIRED              PCR   METAGENOMIC
+    ## 2    <NA>         S278        PAIRED              PCR   METAGENOMIC
+    ## 3    <NA>         S209        PAIRED              PCR   METAGENOMIC
+    ## 4    <NA>         S197        PAIRED              PCR   METAGENOMIC
+    ## 5    <NA>         S280        PAIRED              PCR   METAGENOMIC
+    ## 6    <NA>         S268        PAIRED              PCR   METAGENOMIC
+    ##                Organism Platform          ReleaseDate          create_date
+    ## 1 human oral metagenome ILLUMINA 2022-09-08T00:00:00Z 2022-09-08T17:03:00Z
+    ## 2 human oral metagenome ILLUMINA 2022-09-08T00:00:00Z 2022-09-08T17:06:00Z
+    ## 3 human oral metagenome ILLUMINA 2022-09-08T00:00:00Z 2022-09-08T17:06:00Z
+    ## 4 human oral metagenome ILLUMINA 2022-09-08T00:00:00Z 2022-09-08T17:48:00Z
+    ## 5 human oral metagenome ILLUMINA 2022-09-08T00:00:00Z 2022-09-08T18:35:00Z
+    ## 6 human oral metagenome ILLUMINA 2022-09-08T00:00:00Z 2022-09-08T17:48:00Z
+    ##   version Sample.Name SRA.Study Host_Age
+    ## 1       1         C24 SRP330565       NA
+    ## 2       1         C19 SRP330565       NA
+    ## 3       1         C45 SRP330565       NA
+    ## 4       1         C44 SRP330565       NA
+    ## 5       1         C43 SRP330565       NA
+    ## 6       1         C39 SRP330565       NA
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -346,19 +346,19 @@ head(metadata)
 ```
 
     ##    BioProject         Run sample_name Age BMI Sex Region       Platform Country
-    ## 1 PRJNA751046 SRR21474442         C21  NA  NA  NA  V6-V8 Illumina MiSeq   India
-    ## 2 PRJNA751046 SRR21474443         C20  NA  NA  NA  V6-V8 Illumina MiSeq   India
-    ## 3 PRJNA751046 SRR21474450         C36  NA  NA  NA  V6-V8 Illumina MiSeq   India
-    ## 4 PRJNA751046 SRR21474451         C34  NA  NA  NA  V6-V8 Illumina MiSeq   India
-    ## 5 PRJNA751046 SRR21484724          O7  NA  NA  NA  V6-V8 Illumina MiSeq   India
-    ## 6 PRJNA751046 SRR21484725          O1  NA  NA  NA  V6-V8 Illumina MiSeq   India
+    ## 1 PRJNA751046 SRR21474439         C24  NA  NA  NA  V6-V8 Illumina MiSeq   India
+    ## 2 PRJNA751046 SRR21474444         C19  NA  NA  NA  V6-V8 Illumina MiSeq   India
+    ## 3 PRJNA751046 SRR21474445         C45  NA  NA  NA  V6-V8 Illumina MiSeq   India
+    ## 4 PRJNA751046 SRR21474446         C44  NA  NA  NA  V6-V8 Illumina MiSeq   India
+    ## 5 PRJNA751046 SRR21474447         C43  NA  NA  NA  V6-V8 Illumina MiSeq   India
+    ## 6 PRJNA751046 SRR21474448         C39  NA  NA  NA  V6-V8 Illumina MiSeq   India
     ##         Site          public_time PCR_primers
     ## 1 oral rinse 2022-09-08T00:00:00Z  969F-1406R
     ## 2 oral rinse 2022-09-08T00:00:00Z  969F-1406R
     ## 3 oral rinse 2022-09-08T00:00:00Z  969F-1406R
     ## 4 oral rinse 2022-09-08T00:00:00Z  969F-1406R
-    ## 5 oral rinse 2022-09-09T00:00:00Z  969F-1406R
-    ## 6 oral rinse 2022-09-09T00:00:00Z  969F-1406R
+    ## 5 oral rinse 2022-09-08T00:00:00Z  969F-1406R
+    ## 6 oral rinse 2022-09-08T00:00:00Z  969F-1406R
     ##                                                                                                                            title
     ## 1 Identification & correlation of bacterial diversity in oral cancer and long- term tobacco chewers- A case- control pilot study
     ## 2 Identification & correlation of bacterial diversity in oral cancer and long- term tobacco chewers- A case- control pilot study
@@ -371,8 +371,8 @@ head(metadata)
     ## 2           YES     HC              NO
     ## 3           YES     HC              NO
     ## 4           YES     HC              NO
-    ## 5           YES   OSCC              NO
-    ## 6           YES   OSCC              NO
+    ## 5           YES     HC              NO
+    ## 6           YES     HC              NO
 
 ## Notes for Students:
 

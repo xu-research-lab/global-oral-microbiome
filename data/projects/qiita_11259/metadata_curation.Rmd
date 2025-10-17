@@ -17,21 +17,11 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/metadata/qiita_11259")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/qiita_11259")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.tsv", header = TRUE ,sep = "\t", stringsAsFactors = FALSE)
 
-# Combine the two metadata files
-#meta <- rbind(initial_meta, initial_meta1)
-
-#Remove entries non-oral samples
-#initial_meta <- subset(initial_meta, scientific_name == "Human Oral Metagenome")
-
-# Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
-#nrow(subset(meta, grepl("HT", Sample.Name)))
-
-# Display the first few rows of the metadata
 head(initial_meta)
 ```
 
@@ -59,7 +49,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "qiita_11259",
-  Run = NA,
+  Run = initial_meta$sample_name,
   sample_name = initial_meta$sample_name,
   Age = initial_meta$age,
   BMI = initial_meta$bmi,

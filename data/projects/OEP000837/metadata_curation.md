@@ -77,7 +77,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "OEP000837",
-  Run = gsub("(.*)\\.fq\\.gz", "\\1", initial_meta$data_name),
+  Run = initial_meta$sample_name,
   sample_name = initial_meta$sample_name,
   Age = NA,
   BMI = NA,
@@ -130,7 +130,7 @@ rownames(metadata)<-1:nrow(metadata)
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 172"
+    ## [1] "Number of unique runs: 86"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
@@ -162,20 +162,20 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject       Run sample_name Age BMI Sex Region       Platform Country
-    ## 1  OEP000837 S002-TY_1        S002  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 2  OEP000837 S002-TY_2        S002  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 3  OEP000837 S003-TY_1        S003  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 4  OEP000837 S004-TY_1        S004  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 5  OEP000837 S003-TY_2        S003  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 6  OEP000837  S006-C_1        S006  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ##   BioProject     Run sample_name Age BMI Sex Region       Platform Country
+    ## 1  OEP000837 S002-TY        S002  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 2  OEP000837 S003-TY        S003  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 3  OEP000837 S004-TY        S004  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 4  OEP000837  S006-C        S006  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 5  OEP000837 S005-TY        S005  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 6  OEP000837 S006-TY        S006  NA  NA  NA  V3-V4 Illumina MiSeq   China
     ##                   Site public_time PCR_primers
     ## 1               Saliva  2020-04-14   338F-806R
     ## 2               Saliva  2020-04-14   338F-806R
     ## 3               Saliva  2020-04-14   338F-806R
-    ## 4               Saliva  2020-04-14   338F-806R
+    ## 4 Paracancerous Tissue  2020-04-14   338F-806R
     ## 5               Saliva  2020-04-14   338F-806R
-    ## 6 Paracancerous Tissue  2020-04-14   338F-806R
+    ## 6               Saliva  2020-04-14   338F-806R
     ##                                                                                                                       title
     ## 1 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
     ## 2 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
@@ -184,12 +184,12 @@ head(metadata)
     ## 5 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
     ## 6 Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study
     ##   Disease_study                    Status matched_samples
-    ## 1           YES               OSCC_Saliva             YES
-    ## 2           YES               OSCC_Saliva             YES
-    ## 3           YES               OSCC_Saliva             YES
-    ## 4           YES               OSCC_Saliva             YES
-    ## 5           YES               OSCC_Saliva             YES
-    ## 6           YES OSCC_Paracancerous Tissue             YES
+    ## 1           YES               OSCC_Saliva              NO
+    ## 2           YES               OSCC_Saliva              NO
+    ## 3           YES               OSCC_Saliva              NO
+    ## 4           YES OSCC_Paracancerous Tissue             YES
+    ## 5           YES               OSCC_Saliva              NO
+    ## 6           YES               OSCC_Saliva             YES
 
 ## Notes for Students:
 

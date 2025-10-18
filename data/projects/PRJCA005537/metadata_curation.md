@@ -17,7 +17,7 @@ library(ggplot2)
 library(cowplot)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/oral_project/PRJCA005537")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJCA005537")
 
 # Read the initial metadata files
 initial_meta<-read.csv("SraRunTable.csv",header = T)
@@ -100,7 +100,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "PRJCA005537",
-  Run = NA,
+  Run = initial_meta$Sample.name,
   sample_name = initial_meta$Sample.name,
   Age = NA,
   BMI = NA,
@@ -152,7 +152,7 @@ metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 1"
+    ## [1] "Number of unique runs: 192"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
@@ -183,20 +183,20 @@ write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##    BioProject Run sample_name Age BMI Sex Region       Platform Country   Site
-    ## 1 PRJCA005537  NA       B-135  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
-    ## 2 PRJCA005537  NA       B-230  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
-    ## 3 PRJCA005537  NA       B-127  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
-    ## 4 PRJCA005537  NA       B-323  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
-    ## 5 PRJCA005537  NA       B-113  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
-    ## 6 PRJCA005537  NA       A-078  NA  NA  NA  V3-V4 Illumina MiSeq   China saliva
-    ##   public_time PCR_primers
-    ## 1          NA   341F-805R
-    ## 2          NA   341F-805R
-    ## 3          NA   341F-805R
-    ## 4          NA   341F-805R
-    ## 5          NA   341F-805R
-    ## 6          NA   341F-805R
+    ##    BioProject   Run sample_name Age BMI Sex Region       Platform Country
+    ## 1 PRJCA005537 B-135       B-135  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 2 PRJCA005537 B-230       B-230  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 3 PRJCA005537 B-127       B-127  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 4 PRJCA005537 B-323       B-323  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 5 PRJCA005537 B-113       B-113  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 6 PRJCA005537 A-078       A-078  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ##     Site public_time PCR_primers
+    ## 1 saliva          NA   341F-805R
+    ## 2 saliva          NA   341F-805R
+    ## 3 saliva          NA   341F-805R
+    ## 4 saliva          NA   341F-805R
+    ## 5 saliva          NA   341F-805R
+    ## 6 saliva          NA   341F-805R
     ##                                                                                            title
     ## 1 Effects of Helicobacter pylori Infection on the Oral Microbiota of Reflux Esophagitis Patients
     ## 2 Effects of Helicobacter pylori Infection on the Oral Microbiota of Reflux Esophagitis Patients

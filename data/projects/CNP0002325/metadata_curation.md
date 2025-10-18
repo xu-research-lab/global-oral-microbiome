@@ -97,7 +97,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = initial_meta$project_accession,
-  Run = gsub("(.*)\\.fq\\.gz", "\\1", initial_meta$file_name),
+  Run = initial_meta$sample_name,
   sample_name = initial_meta$sample_name,
   Age = NA,
   BMI = NA,
@@ -167,13 +167,13 @@ write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##   BioProject  Run sample_name Age BMI Sex Region            Platform Country
-    ## 1 CNP0002325 B1_1          B1  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
-    ## 2 CNP0002325 B3_1          B3  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
-    ## 3 CNP0002325 B4_1          B4  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
-    ## 4 CNP0002325 B5_1          B5  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
-    ## 5 CNP0002325 B6_1          B6  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
-    ## 6 CNP0002325 B7_1          B7  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
+    ##   BioProject Run sample_name Age BMI Sex Region            Platform Country
+    ## 1 CNP0002325  B1          B1  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
+    ## 2 CNP0002325  B3          B3  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
+    ## 3 CNP0002325  B4          B4  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
+    ## 4 CNP0002325  B5          B5  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
+    ## 5 CNP0002325  B6          B6  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
+    ## 6 CNP0002325  B7          B7  NA  NA  NA  V3-V4 Illumina HiSeq 2500   China
     ##                   Site public_time PCR_primers
     ## 1 supragingival plaque          NA          NA
     ## 2 supragingival plaque          NA          NA

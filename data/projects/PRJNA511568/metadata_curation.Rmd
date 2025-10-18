@@ -14,7 +14,7 @@ library(tidyverse)
 library(ggplot2)
 library(cowplot)
 
-setwd("C:/Users/zyc/Desktop/oral_project/data/projects/PRJNA511568")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJNA511568")
 initial_meta <- read.csv("SraRunTable.csv", header = TRUE) 
 head(initial_meta)
 ```
@@ -156,7 +156,7 @@ metadata <- metadata[, c(
 
 
 
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 
 ```
 

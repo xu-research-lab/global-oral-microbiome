@@ -18,7 +18,7 @@ library(cowplot)
 library(stringr)
 
 # Set working directory (update this path to your local directory)
-setwd("/home/hby/oral_project/PRJNA725877")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJNA725877")
 
 # Read the initial metadata files
 initial_meta <- read.csv("SraRunTable.csv", header = T)
@@ -36,27 +36,55 @@ initial_meta <- read.csv("SraRunTable.csv", header = T)
 head(initial_meta)
 ```
 
-    ##           Run       AGE Assay.Type AvgSpotLen    Bases BIOMATERIAL_PROVIDER  BioProject    BioSample BioSampleModel    Bytes         Center.Name Consent DATASTORE.filetype
-    ## 1 SRR14347781 'missing'   AMPLICON        221 34886557            'missing' PRJNA725877 SAMN18912732          Human 27883143 AL-AZHAR UNIVERSITY  public    TenX,run.zq,sra
-    ## 2 SRR14347782 'missing'   AMPLICON        221 37760429            'missing' PRJNA725877 SAMN18912733          Human 29976568 AL-AZHAR UNIVERSITY  public    TenX,run.zq,sra
-    ## 3 SRR14347783 'missing'   AMPLICON        237 71610190            'missing' PRJNA725877 SAMN18912742          Human 55499941 AL-AZHAR UNIVERSITY  public    TenX,run.zq,sra
-    ## 4 SRR14347784 'missing'   AMPLICON        232 58111503            'missing' PRJNA725877 SAMN18912743          Human 45381673 AL-AZHAR UNIVERSITY  public    TenX,run.zq,sra
-    ## 5 SRR14347785 'missing'   AMPLICON        214 66520267            'missing' PRJNA725877 SAMN18912744          Human 51406066 AL-AZHAR UNIVERSITY  public     bam,run.zq,sra
-    ## 6 SRR14347786 'missing'   AMPLICON        228 26719001            'missing' PRJNA725877 SAMN18912745          Human 21077958 AL-AZHAR UNIVERSITY  public    TenX,run.zq,sra
-    ##   DATASTORE.provider                     DATASTORE.region disease  Experiment     Instrument          isolate Library.Name LibraryLayout LibrarySelection LibrarySource     Organism
-    ## 1         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1    hcv+ SRX10701660 Ion Torrent S5 'not applicable'           M1        SINGLE              PCR       GENOMIC Homo sapiens
-    ## 2         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1    hcv+ SRX10701659 Ion Torrent S5 'not applicable'           M4        SINGLE              PCR       GENOMIC Homo sapiens
-    ## 3         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1    hcv- SRX10701658 Ion Torrent S5 'not applicable'           M5        SINGLE              PCR       GENOMIC Homo sapiens
-    ## 4         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1    hcv- SRX10701657 Ion Torrent S5 'not applicable'           M6        SINGLE              PCR       GENOMIC Homo sapiens
-    ## 5         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1    hcv- SRX10701656 Ion Torrent S5 'not applicable'          M21        SINGLE              PCR       GENOMIC Homo sapiens
-    ## 6         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1    hcv- SRX10701655 Ion Torrent S5 'not applicable'          M24        SINGLE              PCR       GENOMIC Homo sapiens
-    ##      Platform          ReleaseDate          replicate          create_date version Sample_Name            sex SRA.Study tissue
-    ## 1 ION_TORRENT 2021-04-29T00:00:00Z 1st representative 2021-04-29T03:02:00Z       1          M1 not determined SRP316758   oral
-    ## 2 ION_TORRENT 2021-04-29T00:00:00Z 2nd representative 2021-04-29T03:02:00Z       1          M4 not determined SRP316758   oral
-    ## 3 ION_TORRENT 2021-04-29T00:00:00Z 1st representative 2021-04-29T03:02:00Z       1          M5 not determined SRP316758   oral
-    ## 4 ION_TORRENT 2021-04-29T00:00:00Z 2nd representative 2021-04-29T03:02:00Z       1          M6 not determined SRP316758   oral
-    ## 5 ION_TORRENT 2021-04-29T00:00:00Z 3rd representative 2021-04-29T03:02:00Z       1         M21 not determined SRP316758   oral
-    ## 6 ION_TORRENT 2021-04-29T00:00:00Z 4th representative 2021-04-29T03:02:00Z       1         M24 not determined SRP316758   oral
+    ##           Run       AGE Assay.Type AvgSpotLen    Bases BIOMATERIAL_PROVIDER
+    ## 1 SRR14347781 'missing'   AMPLICON        221 34886557            'missing'
+    ## 2 SRR14347782 'missing'   AMPLICON        221 37760429            'missing'
+    ## 3 SRR14347783 'missing'   AMPLICON        237 71610190            'missing'
+    ## 4 SRR14347784 'missing'   AMPLICON        232 58111503            'missing'
+    ## 5 SRR14347785 'missing'   AMPLICON        214 66520267            'missing'
+    ## 6 SRR14347786 'missing'   AMPLICON        228 26719001            'missing'
+    ##    BioProject    BioSample BioSampleModel    Bytes         Center.Name Consent
+    ## 1 PRJNA725877 SAMN18912732          Human 27883143 AL-AZHAR UNIVERSITY  public
+    ## 2 PRJNA725877 SAMN18912733          Human 29976568 AL-AZHAR UNIVERSITY  public
+    ## 3 PRJNA725877 SAMN18912742          Human 55499941 AL-AZHAR UNIVERSITY  public
+    ## 4 PRJNA725877 SAMN18912743          Human 45381673 AL-AZHAR UNIVERSITY  public
+    ## 5 PRJNA725877 SAMN18912744          Human 51406066 AL-AZHAR UNIVERSITY  public
+    ## 6 PRJNA725877 SAMN18912745          Human 21077958 AL-AZHAR UNIVERSITY  public
+    ##   DATASTORE.filetype DATASTORE.provider                     DATASTORE.region
+    ## 1    TenX,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 2    TenX,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 3    TenX,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 4    TenX,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 5     bam,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 6    TenX,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ##   disease  Experiment     Instrument          isolate Library.Name
+    ## 1    hcv+ SRX10701660 Ion Torrent S5 'not applicable'           M1
+    ## 2    hcv+ SRX10701659 Ion Torrent S5 'not applicable'           M4
+    ## 3    hcv- SRX10701658 Ion Torrent S5 'not applicable'           M5
+    ## 4    hcv- SRX10701657 Ion Torrent S5 'not applicable'           M6
+    ## 5    hcv- SRX10701656 Ion Torrent S5 'not applicable'          M21
+    ## 6    hcv- SRX10701655 Ion Torrent S5 'not applicable'          M24
+    ##   LibraryLayout LibrarySelection LibrarySource     Organism    Platform
+    ## 1        SINGLE              PCR       GENOMIC Homo sapiens ION_TORRENT
+    ## 2        SINGLE              PCR       GENOMIC Homo sapiens ION_TORRENT
+    ## 3        SINGLE              PCR       GENOMIC Homo sapiens ION_TORRENT
+    ## 4        SINGLE              PCR       GENOMIC Homo sapiens ION_TORRENT
+    ## 5        SINGLE              PCR       GENOMIC Homo sapiens ION_TORRENT
+    ## 6        SINGLE              PCR       GENOMIC Homo sapiens ION_TORRENT
+    ##            ReleaseDate          replicate          create_date version
+    ## 1 2021-04-29T00:00:00Z 1st representative 2021-04-29T03:02:00Z       1
+    ## 2 2021-04-29T00:00:00Z 2nd representative 2021-04-29T03:02:00Z       1
+    ## 3 2021-04-29T00:00:00Z 1st representative 2021-04-29T03:02:00Z       1
+    ## 4 2021-04-29T00:00:00Z 2nd representative 2021-04-29T03:02:00Z       1
+    ## 5 2021-04-29T00:00:00Z 3rd representative 2021-04-29T03:02:00Z       1
+    ## 6 2021-04-29T00:00:00Z 4th representative 2021-04-29T03:02:00Z       1
+    ##   Sample_Name            sex SRA.Study tissue
+    ## 1          M1 not determined SRP316758   oral
+    ## 2          M4 not determined SRP316758   oral
+    ## 3          M5 not determined SRP316758   oral
+    ## 4          M6 not determined SRP316758   oral
+    ## 5         M21 not determined SRP316758   oral
+    ## 6         M24 not determined SRP316758   oral
 
 # Step 2: Create a Uniform Metadata Template
 
@@ -155,24 +183,45 @@ metadata <- metadata[, c(
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##    BioProject         Run sample_name Age BMI Sex           Region       Platform Country                   Site          public_time PCR_primers
-    ## 1 PRJNA725877 SRR14347781          M1  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
-    ## 2 PRJNA725877 SRR14347782          M4  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
-    ## 3 PRJNA725877 SRR14347783          M5  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
-    ## 4 PRJNA725877 SRR14347784          M6  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
-    ## 5 PRJNA725877 SRR14347785         M21  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
-    ## 6 PRJNA725877 SRR14347786         M24  NA  NA  NA V2-4-8,V3-6,V7-9 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z          NA
-    ##                                                                                     title Disease_study Status matched_samples
-    ## 1 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv+              No
-    ## 2 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv+              No
-    ## 3 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv-              No
-    ## 4 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv-              No
-    ## 5 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv-              No
-    ## 6 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study           YES   hcv-              No
+    ##    BioProject         Run sample_name Age BMI Sex           Region
+    ## 1 PRJNA725877 SRR14347781          M1  NA  NA  NA V2-4-8,V3-6,V7-9
+    ## 2 PRJNA725877 SRR14347782          M4  NA  NA  NA V2-4-8,V3-6,V7-9
+    ## 3 PRJNA725877 SRR14347783          M5  NA  NA  NA V2-4-8,V3-6,V7-9
+    ## 4 PRJNA725877 SRR14347784          M6  NA  NA  NA V2-4-8,V3-6,V7-9
+    ## 5 PRJNA725877 SRR14347785         M21  NA  NA  NA V2-4-8,V3-6,V7-9
+    ## 6 PRJNA725877 SRR14347786         M24  NA  NA  NA V2-4-8,V3-6,V7-9
+    ##         Platform Country                   Site          public_time
+    ## 1 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z
+    ## 2 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z
+    ## 3 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z
+    ## 4 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z
+    ## 5 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z
+    ## 6 Ion Torrent S5   Egypt buccal mucosal tissues 2021-04-29T00:00:00Z
+    ##   PCR_primers
+    ## 1          NA
+    ## 2          NA
+    ## 3          NA
+    ## 4          NA
+    ## 5          NA
+    ## 6          NA
+    ##                                                                                     title
+    ## 1 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study
+    ## 2 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study
+    ## 3 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study
+    ## 4 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study
+    ## 5 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study
+    ## 6 The oral microbiome of treated and untreated chronic HCV infection: A preliminary study
+    ##   Disease_study Status matched_samples
+    ## 1           YES   hcv+              No
+    ## 2           YES   hcv+              No
+    ## 3           YES   hcv-              No
+    ## 4           YES   hcv-              No
+    ## 5           YES   hcv-              No
+    ## 6           YES   hcv-              No
 
 ## Notes for Students:
 

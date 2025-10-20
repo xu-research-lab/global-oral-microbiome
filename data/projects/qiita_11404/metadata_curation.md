@@ -968,7 +968,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "qiita_11404",
-  Run = NA,
+  Run = initial_meta$sample_name,
   sample_name = initial_meta$sample_name,
   Age = initial_meta$age_years,
   BMI = initial_meta$bmi,
@@ -1045,7 +1045,7 @@ cat("NO          :", sum(output_df$matched_samples == "NO"), "\n")
 print(paste("Number of unique runs:", length(unique(metadata$Run))))
 ```
 
-    ## [1] "Number of unique runs: 1"
+    ## [1] "Number of unique runs: 538"
 
 ``` r
 print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
@@ -1076,13 +1076,13 @@ write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 
-    ##    BioProject Run sample_name Age   BMI  Sex Region       Platform Country
-    ## 1 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ## 2 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ## 3 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ## 4 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ## 5 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
-    ## 6 qiita_11404  NA       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ##    BioProject   Run sample_name Age   BMI  Sex Region       Platform Country
+    ## 1 qiita_11404 11404       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ## 2 qiita_11404 11404       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ## 3 qiita_11404 11404       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ## 4 qiita_11404 11404       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ## 5 qiita_11404 11404       11404  29 23.09 male     V4 Illumina MiSeq     usa
+    ## 6 qiita_11404 11404       11404  29 23.09 male     V4 Illumina MiSeq     usa
     ##      Site public_time PCR_primers
     ## 1   sebum   2017-11-8   515F-806R
     ## 2   tears   2017-11-8   515F-806R

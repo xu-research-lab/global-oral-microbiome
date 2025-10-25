@@ -138,7 +138,7 @@ metadata$title <- "Salivary Oral Microbiome of Children With Juvenile Idiopathic
 metadata$Disease_study <- "YES"
 
 # Assign disease status based on sample_name patterns
-metadata$Status <- substr(initial_meta$Sample.Name, 1, 1)
+metadata$Status <- sapply(strsplit(initial_meta$sample_id, " "), function(x) x[3])
 metadata$matched_samples <- "NO"
 ```
 
@@ -202,13 +202,13 @@ head(metadata)
     ## 4 Salivary Oral Microbiome of Children With Juvenile Idiopathic Arthritis: A Norwegian Cross-Sectional Study
     ## 5 Salivary Oral Microbiome of Children With Juvenile Idiopathic Arthritis: A Norwegian Cross-Sectional Study
     ## 6 Salivary Oral Microbiome of Children With Juvenile Idiopathic Arthritis: A Norwegian Cross-Sectional Study
-    ##   Disease_study Status matched_samples
-    ## 1           YES      N              NO
-    ## 2           YES      N              NO
-    ## 3           YES      N              NO
-    ## 4           YES      H              NO
-    ## 5           YES      N              NO
-    ## 6           YES      N              NO
+    ##   Disease_study  Status matched_samples
+    ## 1           YES     JIA              NO
+    ## 2           YES     JIA              NO
+    ## 3           YES     JIA              NO
+    ## 4           YES Healthy              NO
+    ## 5           YES     JIA              NO
+    ## 6           YES     JIA              NO
 
 ## Notes for Students:
 

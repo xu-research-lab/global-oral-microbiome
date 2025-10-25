@@ -73,7 +73,7 @@ metadata$title <- "Salivary Oral Microbiome of Children With Juvenile Idiopathic
 metadata$Disease_study <- "YES"
 
 # Assign disease status based on sample_name patterns
-metadata$Status <- substr(initial_meta$Sample.Name, 1, 1)
+metadata$Status <- sapply(strsplit(initial_meta$sample_id, " "), function(x) x[3])
 metadata$matched_samples <- "NO"
 ```
 

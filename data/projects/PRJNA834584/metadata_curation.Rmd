@@ -15,25 +15,14 @@ To obtain the initial metadata:
 library(dplyr)
 library(ggplot2)
 library(cowplot)
-library(stringr)
 
 # Set working directory (update this path to your local directory)
-setwd("/home/hby/oral_project/PRJNA643400")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/PRJNA834584")
 
 # Read the initial metadata files
-initial_meta <- read.csv("SraRunTable.csv", header = T)
+initial_meta <- read.csv("SraRunTable.csv",header = T)
+initial_meta <- initial_meta[grepl("16S", initial_meta$Library.Name), ]
 
-# Combine the two metadata files
-# meta <- rbind(initial_meta, initial_meta1)
-
-# Remove entries non-oral samples
-# initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
-
-# Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
-# nrow(subset(meta, grepl("HT", Sample.Name)))
-
-# Display the first few rows of the metadata
-head(initial_meta)
 ```
 
 # Step 2: Create a Uniform Metadata Template
@@ -61,14 +50,17 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   BioProject = initial_meta$BioProject,
   Run = initial_meta$Run,
-  sample_name = initial_meta$Sample_Name,
+  sample_name = initial_meta$subject_id,
+  Age = initial_meta$AGE,
+  BMI = initial_meta$BMI,
+  Sex = initial_meta$sex,
+  Region = "V3-V4",
   Platform = initial_meta$Instrument,
   Country = initial_meta$geo_loc_name_country,
-  public_time = initial_meta$ReleaseDate,
   Site = initial_meta$env_medium,
-  Sex = NA,
-  Age = NA,
-  BMI = NA
+  public_time = initial_meta$ReleaseDate,
+  Status = "Healthy",
+  stringsAsFactors = FALSE
 )
 ```
 # Step 3: Manually Add Information from the Publication
@@ -76,12 +68,17 @@ metadata <- data.frame(
 Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
 ```{r}
 # Add information obtained from the publication
-metadata$Status <- "H"
-metadata$Region <- "V4"
-metadata$PCR_primers <- "515F-806R"
-metadata$title <- "Manipulation of Saliva-Derived Microcosm Biofilms To Resemble Dysbiotic Subgingival Microbiota"
-metadata$Disease_study <- "No"
-metadata$matched_samples <- "No"
+metadata$PCR_primers <- "341F-806R"
+metadata$title <- "Extent of Oral–Gut Transmission of Bacterial and Fungal Microbiota in Healthy Chinese Adults"
+metadata$Disease_study <- "NO"
+# Assign disease status based on sample_name patterns
+#metadata <- metadata %>%
+#  mutate(Status = case_when(
+#    initial_meta$Sample.Name == "Oral mucosa of healthy patients" ~ "H",
+#    initial_meta$Sample.Name %in% c("Oral mucosa from affected regions of oral lichen planus patients", "Bacterial community associated with the unaffected regions from oral mucosa of Oral Lichen Planus patients") ~ "OLP"
+#  ))
+
+metadata$matched_samples <- "YES"
 ```
 # Step 4: Summarize and Validate the Metadata
 ```{r}
@@ -98,7 +95,7 @@ plot_data <- metadata %>%
 # Function to create simple plots for each column
 create_simple_plots <- function(data) {
   plots <- list()
-
+  
   for (col in colnames(data)) {
     # Check if the column is all NA
     if (all(is.na(data[[col]]))) {
@@ -124,26 +121,25 @@ create_simple_plots <- function(data) {
     }
     plots[[col]] <- p
   }
-
+  
   return(plots)
 }
 
 # Generate and arrange plots
 plots <- create_simple_plots(plot_data)
-p <- plot_grid(plots$Age,
-  plots$BMI,
-  plots$Sex,
-  plots$Region,
-  plots$Platform,
-  plots$Country,
-  plots$Site,
-  plots$public_time,
-  plots$PCR_primers,
-  plots$Disease_study,
-  plots$Status,
-  plots$matched_samples, # add
-  ncol = 3, align = "hv", axis = "lb"
-)
+p<-plot_grid(plots$Age, 
+          plots$BMI, 
+          plots$Sex, 
+          plots$Region, 
+          plots$Platform, 
+          plots$Country, 
+          plots$Site,
+          plots$public_time, 
+          plots$PCR_primers,
+          plots$Disease_study,
+          plots$Status,
+          plots$matched_samples,# add 
+          ncol = 3, align = "hv", axis = "lb")
 ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
@@ -156,13 +152,13 @@ knitr::include_graphics("Metadata_Summary.png")
 ```{r}
 # Reorder columns to match the desired format
 metadata <- metadata[, c(
-  "BioProject", "Run", "sample_name", "Age", "BMI", "Sex",
-  "Region", "Platform", "Country", "Site", "public_time",
-  "PCR_primers", "title", "Disease_study", "Status", "matched_samples"
+  "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
+  "Region", "Platform", "Country", "Site", "public_time", 
+  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
 )]
 
 # Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
+write.csv(metadata, file = "metadata.csv", quote = TRUE)
 head(metadata)
 ```
 ## Notes for Students:

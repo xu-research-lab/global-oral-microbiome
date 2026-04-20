@@ -174,7 +174,7 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   bioproject = initial_meta$project_accession,
   sample_id = initial_meta$run_accession,
-  subject_id = NA,  # No subject-level ID available in CNP metadata
+  subject_id = initial_meta$sample_name, # sample_name = subject ID (1:1 mapping per paper Methods: each subject contributed a single sample)
   age = NA,         # Paper reports group means only, not individual ages
   age_info = "6-14", # Paper Methods: inclusion criterion 6-14 years old
   bmi = NA,         # Not reported in paper or metadata
@@ -236,14 +236,11 @@ metadata <- metadata %>%
   ))
 
 # editing matched_samples: Paper Methods states each subject contributed a single supragingival plaque sample
-# Since subject_id is all NA, the ave() logic below would incorrectly group NAs; override directly:
-metadata$matched_samples <- "no"
-# Original logic (kept for reference):
-# metadata$matched_samples <- ifelse(
-#   ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
-#   "yes",
-#   "no"
-# )
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+  "yes",
+  "no"
+)
 ```
 
 ```{r}

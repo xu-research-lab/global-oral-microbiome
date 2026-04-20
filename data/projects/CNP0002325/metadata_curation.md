@@ -1,6 +1,32 @@
 R Notebook: Metadata Processing Workflow
 ================
 
+``` r
+# =============================================================
+# Curation Notes - CNP0002325
+# bioproject    : project_accession column → "CNP0002325"
+# sample_id     : run_accession column (CNR...)
+# subject_id    : sample_name column (B1, C12, D7, S15...); unique per subject, one sample each
+# age           : NA — individual age not in metadata or supplemental
+# age_info      : "6-14" — paper inclusion criteria: "Aged 6–14 years" (both CP and non-CP)
+# bmi           : NA — not available
+# sex           : NA — per-sample sex not recorded in metadata; only group-level in paper Table 1
+# platform      : Paper Methods — "Illumina MiSeq Sequencing platform"; metadata says
+#                 HiSeq 2500 but paper is authoritative
+# region        : Paper Methods + design_description column — V3-V4
+# pcr_primers   : NA — primer names not stated in paper methods
+# country       : Paper — China (Longgang district, Shenzhen, Guangdong)
+# site          : Paper Methods — supragingival plaque (buccal surface, right maxillary 1st molar)
+# site_group    : oral
+# status        : Derived from sample_name prefix: B=NCPCS, C=CPCM, D=CPCF, S=CPCS
+# disease_study : "yes" — study investigates CP children with caries vs. non-CP children
+# is_time_series: "no" — cross-sectional, single timepoint; enrolled Nov–Dec 2020
+# public_time   : NA — not available in metadata
+# controls      : none — no control samples mentioned in paper
+# non-human     : none — all participants are human children (CP and non-CP)
+# =============================================================
+```
+
 # Step 1: Obtain Initial Metadata from Each Project
 
 This step sets the project directory, loads the raw SRA metadata, and
@@ -14,18 +40,18 @@ library(cowplot)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
-project_id <- "CNP0002325" 
+project_id <- "CNP0002325"
 
-base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects"
-setwd(file.path(base_dir, project_id))
+base_dir <- "/Users/dongbiao/Documents/软件开发/oral/metadata_collect/"
+proj_dir <- file.path(base_dir, project_id)
+knitr::opts_knit$set(root.dir = proj_dir)
+setwd(proj_dir)
 
-# (2) Loading raw SRA metadata file
+# (2) Loading raw metadata file (TSV format)
 sra_file <- "metadata_CNP0002325_experiment.tsv"
-initial_meta <- read.csv(sra_file, sep = "\t", header = TRUE)
+initial_meta <- read.csv(sra_file, header = TRUE, sep = "\t")
 
-# (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
-# supp_table <- read.csv("supplemental_table.csv", header = TRUE)
-# initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
+# (3) OPTIONAL: No supplemental tables required for this study.
 ```
 
 # Step 2: Data Overview
@@ -35,28 +61,28 @@ steps: reading the article and reading the initial metadata. This step
 is very IMPORTANT!
 
 ``` r
-# (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
+# (1) Paper summary:
+# - Title: "From Mouth to Brain: Distinct Supragingival Plaque Microbiota Composition
+#   in Cerebral Palsy Children With Caries" (Liu et al., 2022, Front. Cell. Infect. Microbiol.)
+# - 55 CP children + 23 non-CP children enrolled Nov–Dec 2020; cross-sectional
+# - Groups: CPCS (n=22), NCPCS (n=23), CPCM (n=17), CPCF (n=16); all mixed dentition, age 6-14 yr
+# - Site: supragingival plaque, buccal surface of right maxillary first molar
+# - Platform: Illumina MiSeq (paper Methods); metadata column says HiSeq 2500 — paper overrides
+# - Region: 16S rRNA V3-V4; primers not named in methods
+# - Country: China (Longgang district, Shenzhen, Guangdong)
 
-# (2) IMPORTANT: MUST go through each column of initial_meta
+# (2) IMPORTANT: go through each column of initial_meta
 # head(initial_meta, 10)
 
-# IMPORTANT: Check the unique values in the column of interest or query column.
-# lapply(initial_meta[c('body_habitat', 'body_product', 'body_site')], table) # site
-# lapply(initial_meta[c('common_name', 'env_biome', 'env_feature', 'env_matter', 'host_common_name', 'Organism', 'role', 'pet_farm_animal')], table) # organism
-# table(initial_meta$host_subject_id) # subject id
-# table(initial_meta$sequencing_meth..exp.)
-# table(initial_meta$platform..exp.)
-# table(initial_meta$target_subfragment..exp.)
-# CNP-specific column checks:
-# unique(initial_meta$project_accession)  # CNP0002325
-# unique(initial_meta$sample_name)        # B1, B3, B4... (prefixes B/C/S/D)
-# unique(initial_meta$run_accession)      # CNR0462543...
-# unique(initial_meta$library_strategy)   # AMPLICON
-# unique(initial_meta$library_source)     # METAGENOMIC
-# unique(initial_meta$platform)           # ILLUMINA
-# unique(initial_meta$instrument_model)   # Illumina HiSeq 2500
-# unique(initial_meta$design_description) # 16S V3-V4
-# table(initial_meta$library_layout)      # all paired
+# Key columns confirmed:
+# table(initial_meta$project_accession)     # all CNP0002325
+# table(initial_meta$platform)              # all ILLUMINA (overridden by paper: MiSeq)
+# table(initial_meta$instrument_model)      # Illumina HiSeq 2500 (paper says MiSeq — use paper)
+# table(initial_meta$design_description)    # "16S  V3-V4" — confirms region
+# unique(initial_meta$sample_name)          # B*, C*, D*, S* prefixes encode group membership
+# — B: NCPCS (non-CP severe caries), C: CPCM (CP mild-moderate), D: CPCF (CP caries-free),
+#   S: CPCS (CP severe caries); per Figure 1 legend in paper
+# No body_site, role, age, sex, or country columns exist in the metadata.
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -66,15 +92,13 @@ controls and positive controls) and non-human samples.
 
 ``` r
 # (1) EDIT HERE: Parameter setup
-# CNP metadata has no control column; none identified in paper either
-control_column <- ""   # column name in initial_meta
+control_column <- ""   # no control samples in this study
 # unique(initial_meta[[control_column]])
-control_keywords <- c()     # Enter exact keywords
+control_keywords <- c()     # no controls
 
-# CNP metadata has no species/organism column; all samples are human per paper
-species_column <- ""          # column name in initial_meta; not available in CNP format
-# unique(initial_meta[[species_column]])
-non_human_keywords <- c()            # All samples are human; no non-human filtering needed
+species_column <- ""          # all participants are human children; no non-human filtering needed
+# unique(initial_meta[[species_column]])   # not applicable
+non_human_keywords <- c()            # no non-human samples
 
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
@@ -84,15 +108,15 @@ if (length(control_keywords) > 0) {
   if (is.null(control_column) || control_column == "") {
     stop("Error: control_keywords provided but control_column is missing.")
   }
-  
+
   if (!(control_column %in% colnames(initial_meta))) {
     stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
   }
-  
+
   control_pattern <- paste(control_keywords, collapse = "|")
   control_text <- initial_meta[[control_column]]
   is_control <- grepl(control_pattern, control_text)
-  
+
 } else {
   is_control <- rep(FALSE, n_samples)
 }
@@ -102,11 +126,11 @@ if (length(non_human_keywords) > 0) {
   if (is.null(species_column) || species_column == "") {
     stop("Error: non_human_keywords provided but species_column is missing.")
   }
-  
+
   if (!(species_column %in% colnames(initial_meta))) {
     stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
   }
-  
+
   non_human_pattern <- paste(non_human_keywords, collapse = "|")
   species_text <- initial_meta[[species_column]]
   is_non_human <- grepl(non_human_pattern, species_text)
@@ -190,28 +214,30 @@ Whether the subject has matched samples. Only accept ‘yes’ or ‘no’. 19.
 accept ‘yes’ or ‘no’.
 
 ``` r
-# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as "pending". (3) Need to find or determine based on the article.
+# Extract columns from initial_meta as follows: (1) No modification needed → extract directly.
+# (2) Modification needed → create a new column with the prefix raw_ and mark as "pending".
+# (3) Need to find or determine based on the article.
 metadata <- data.frame(
-  bioproject = initial_meta$project_accession,
-  sample_id = initial_meta$run_accession,
-  subject_id = initial_meta$sample_name, # sample_name = subject ID (1:1 mapping per paper Methods: each subject contributed a single sample)
-  age = NA,         # Paper reports group means only, not individual ages
-  age_info = "6-14", # Paper Methods: inclusion criterion 6-14 years old
-  bmi = NA,         # Not reported in paper or metadata
-  sex = NA,         # Paper reports group totals only, not per-sample
-  sequencing_region = "V3-V4", # Paper Methods: 16S rRNA V3-V4 region
-  platform = "Illumina MiSeq", # Paper Methods (NOT from metadata instrument_model which says HiSeq 2500)
-  country = "China", # CNP database (China National Nature Reserve), study conducted in China
-  site = "supragingival plaque", # Paper Methods: "supragingival plaque on the buccal surface of the right maxillary first molar"
-  site_group = "pending", # will be set in Step 5
-  public_time = NA, # Not available in CNP metadata
-  pcr_primers = NA, # Paper only states "V3-V4 region", does not specify primer names
+  bioproject = initial_meta$project_accession,        # from project_accession column
+  sample_id = initial_meta$run_accession,             # CNR... run IDs
+  subject_id = initial_meta$sample_name,              # B1, C12, D7, S15... unique per subject
+  age = NA,                                           # individual age not in metadata
+  age_info = "6-14",                                  # paper inclusion criteria: "Aged 6-14 years"
+  bmi = NA,
+  sex = NA,                                           # per-sample sex not recorded in metadata or paper
+  sequencing_region = "V3-V4",                        # paper Methods + design_description column
+  platform = "Illumina MiSeq",                        # paper Methods; metadata says HiSeq 2500 — paper overrides
+  country = "China",                                  # paper: Longgang district, Shenzhen, Guangdong
+  site = "supragingival plaque",                      # paper Methods: buccal surface of right maxillary first molar
+  site_group = "oral",
+  public_time = NA,                                   # not available in metadata
+  pcr_primers = NA,                                   # primer names not specified in paper methods
   title = "From Mouth to Brain: Distinct Supragingival Plaque Microbiota Composition in Cerebral Palsy Children With Caries",
-  disease_study = "yes", # Study compares cerebral palsy children with caries vs non-CP controls
-  raw_status = initial_meta$sample_name, # Map from sample_name prefix to disease status
+  disease_study = "yes",                              # study compares CP children with caries vs. non-CP controls
+  raw_status = initial_meta$sample_name,              # prefix encodes group: B=NCPCS, C=CPCM, D=CPCF, S=CPCS
   status = "pending",
-  matched_samples = "pending", # will be set in Step 5
-  is_time_series = "no", # Paper: cross-sectional design
+  matched_samples = "pending",
+  is_time_series = "no",                              # cross-sectional; enrolled Nov-Dec 2020, single timepoint
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
@@ -225,20 +251,19 @@ columns.
 
 ``` r
 # (1) Handle the columns with the `raw_` prefix.
-# In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
-# Map disease status from sample_name prefix per paper Table 1:
-#   B prefix (n=23) -> NCPCS (non-CP children with severe caries)
-#   S prefix (n=27) -> CPCS (CP children with severe caries)
-#   C prefix (n=12) -> CPCM (CP children with mild-to-moderate caries)
-#   D prefix (n=16) -> CPCF (CP children without caries)
+# raw_status → status: sample_name prefix encodes group per paper Figure 1 legend:
+#   B = NCPCS (non-CP children with severe caries)
+#   C = CPCM (CP children with mild-to-moderate caries)
+#   D = CPCF (CP children caries-free)
+#   S = CPCS (CP children with severe caries)
 metadata <- metadata %>%
   mutate(status = case_when(
-    grepl("^B", raw_status) ~ "NCPCS",
-    grepl("^S", raw_status) ~ "CPCS",
-    grepl("^C", raw_status) ~ "CPCM",
-    grepl("^D", raw_status) ~ "CPCF",
+    grepl("^B", raw_status) ~ "non-CP with severe caries",
+    grepl("^C", raw_status) ~ "CP with mild-moderate caries",
+    grepl("^D", raw_status) ~ "CP caries-free",
+    grepl("^S", raw_status) ~ "CP with severe caries",
     TRUE ~ NA_character_
-  )) # From paper Table 1 and sample naming scheme
+  ))
 ```
 
 ``` r
@@ -253,16 +278,16 @@ unique(metadata$site)
 # EDIT HERE: add oral sites
 Oral_site = c("supragingival plaque")
 # EDIT HERE: add gut sites
-Gut_site = c("feces")
+Gut_site = c()
 # just run
 metadata <- metadata %>%
   mutate(site_group = case_when(
     site %in% Oral_site ~ "oral",
     site %in% Gut_site ~ "gut",
-    TRUE ~ "other" 
+    TRUE ~ "other"
   ))
 
-# editing matched_samples: Paper Methods states each subject contributed a single supragingival plaque sample
+# editing matched_samples, just run.
 metadata$matched_samples <- ifelse(
   ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
   "yes",
@@ -357,7 +382,7 @@ ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 knitr::include_graphics("Metadata_Summary.png")
 ```
 
-<img src="Metadata_Summary.png" alt="" width="1200" />
+<img src="Metadata_Summary.png" width="1200" />
 
 # Step 7: Sort and export the metadata
 
@@ -367,13 +392,13 @@ file.
 ``` r
 # Reorder the data frame
 fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
-                "bmi", "sex", "platform", "sequencing_region", "pcr_primers", 
-                "country", "site", "site_group", "disease_study", "status", 
-                "title", "public_time", "matched_samples", "is_time_series")  
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
+                "country", "site", "site_group", "disease_study", "status",
+                "title", "public_time", "matched_samples", "is_time_series")
 metadata <- metadata %>%
   select(all_of(fixed_cols), everything())
 
-# save metadata 
+# save metadata
 # head(metadata)
 write.csv(metadata, file = "metadata_v2.csv", quote = TRUE)
 ```

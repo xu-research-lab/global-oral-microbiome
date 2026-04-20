@@ -5,7 +5,7 @@ output: github_document
 
 # Step 1: Obtain Initial Metadata from Each Project
 
-This step sets the project directory, loads the raw metadata, and optionally merges supplement tables.
+This step sets the project directory, loads the raw SRA metadata, and optionally merges supplement tables.
 
 ```{r message=FALSE, warning=FALSE}
 # Load libraries
@@ -15,15 +15,14 @@ library(cowplot)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
-project_id <- "CNP0002325"
+project_id <- "CNP0002325" 
 
-base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/"
+base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
-# (2) Loading raw metadata file
-# CNP uses TSV format instead of SraRunTable.csv
+# (2) Loading raw SRA metadata file
 sra_file <- "metadata_CNP0002325_experiment.tsv"
-initial_meta <- read.csv(sra_file, header = TRUE, sep = "\t")
+initial_meta <- read.csv(sra_file, sep = "\t", header = TRUE)
 
 # (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
 # supp_table <- read.csv("supplemental_table.csv", header = TRUE)
@@ -38,7 +37,7 @@ First, you need to get an overview of the data, which includes two steps: readin
 # (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
 
 # (2) IMPORTANT: MUST go through each column of initial_meta
-head(initial_meta, 10)
+# head(initial_meta, 10)
 
 # IMPORTANT: Check the unique values in the column of interest or query column.
 # lapply(initial_meta[c('body_habitat', 'body_product', 'body_site')], table) # site
@@ -47,6 +46,16 @@ head(initial_meta, 10)
 # table(initial_meta$sequencing_meth..exp.)
 # table(initial_meta$platform..exp.)
 # table(initial_meta$target_subfragment..exp.)
+# CNP-specific column checks:
+# unique(initial_meta$project_accession)  # CNP0002325
+# unique(initial_meta$sample_name)        # B1, B3, B4... (prefixes B/C/S/D)
+# unique(initial_meta$run_accession)      # CNR0462543...
+# unique(initial_meta$library_strategy)   # AMPLICON
+# unique(initial_meta$library_source)     # METAGENOMIC
+# unique(initial_meta$platform)           # ILLUMINA
+# unique(initial_meta$instrument_model)   # Illumina HiSeq 2500
+# unique(initial_meta$design_description) # 16S V3-V4
+# table(initial_meta$library_layout)      # all paired
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -55,13 +64,15 @@ First, we need to remove control samples(including both negative controls and po
 
 ```{r}
 # (1) EDIT HERE: Parameter setup
+# CNP metadata has no control column; none identified in paper either
 control_column <- ""   # column name in initial_meta
 # unique(initial_meta[[control_column]])
 control_keywords <- c()     # Enter exact keywords
 
-species_column <- ""          # column name in initial_meta
+# CNP metadata has no species/organism column; all samples are human per paper
+species_column <- ""          # column name in initial_meta; not available in CNP format
 # unique(initial_meta[[species_column]])
-non_human_keywords <- c()            # Enter exact keywords
+non_human_keywords <- c()            # All samples are human; no non-human filtering needed
 
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
@@ -71,15 +82,15 @@ if (length(control_keywords) > 0) {
   if (is.null(control_column) || control_column == "") {
     stop("Error: control_keywords provided but control_column is missing.")
   }
-
+  
   if (!(control_column %in% colnames(initial_meta))) {
     stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
   }
-
+  
   control_pattern <- paste(control_keywords, collapse = "|")
   control_text <- initial_meta[[control_column]]
   is_control <- grepl(control_pattern, control_text)
-
+  
 } else {
   is_control <- rep(FALSE, n_samples)
 }
@@ -89,11 +100,11 @@ if (length(non_human_keywords) > 0) {
   if (is.null(species_column) || species_column == "") {
     stop("Error: non_human_keywords provided but species_column is missing.")
   }
-
+  
   if (!(species_column %in% colnames(initial_meta))) {
     stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
   }
-
+  
   non_human_pattern <- paste(non_human_keywords, collapse = "|")
   species_text <- initial_meta[[species_column]]
   is_non_human <- grepl(non_human_pattern, species_text)
@@ -131,15 +142,15 @@ The uniform metadata should include the following columns:
 7. **sex**: Sex of the subject.
    Mandatory to write as M/F | not `female`, `woman`
 8. **sequencing_region**: Targeted 16S rRNA region.
-   e.g. `V3-V4`, `V4`
+   e.g. `V3-V4`, `V4` 
 9. **platform**: Sequencing platform.
    e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent`
 10. **country**: Country of sample origin.
-    e.g. `China`, `Japan` | not city name like `Beijing`
-11. **site**: Sampling site. For oral and gut sites, specify the exact sites as detailed as possible. For example, if it is known to be supragingival plaque, do not record it as 'dental plaque', unless the original text provides only a vague description.
+   e.g. `China`, `Japan` | not city name like `Beijing`
+11. **site**: Sampling site. For oral and gut sites, specify the exact sites as detailed as possible. For example, if it is known to be supragingival plaque, do not record it as 'dental plaque', unless the original text provides only a vague description. 
     e.g. `saliva`, `tongue coating` | not broad term like `oral`
 12. **site_group**: only accepts one of following three values: 'oral', 'gut', or 'other'.
-13. **public_time**: Data release date.
+13. **public_time**: Data release date. 
     e.g. `2021-06-22` | not `June 2021`
 14. **pcr_primers**: PCR primers used.
     e.g. `515F-806R`, `27F-338R` | not primer sequences
@@ -159,27 +170,28 @@ The uniform metadata should include the following columns:
 19. **is_time_series**: Whether the study is a time series study. Only accept 'yes' or 'no'.
 
 ```{r}
-# Extract columns from initial_meta as follows: (1) No modification needed -> extract directly. (2) Modification needed -> create a new column with the prefix raw_ and mark the original column as "pending". (3) Need to find or determine based on the article.
+# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as "pending". (3) Need to find or determine based on the article.
 metadata <- data.frame(
   bioproject = initial_meta$project_accession,
   sample_id = initial_meta$run_accession,
-  subject_id = NA,                          # No subject-level ID in metadata
-  age = NA,                                 # Age not in metadata; paper reports group means only
-  age_info = "6-14",                        # Paper Methods: inclusion criterion 6-14 years old
-  bmi = NA,                                 # BMI not reported in paper or metadata
-  sex = NA,                                 # Sex not available at individual level
-  sequencing_region = "V3-V4",              # Paper Methods: "16S rRNA V3-V4 region"
-  platform = "Illumina MiSeq",              # Paper Methods: "Illumina MiSeq Sequencing platform"
-  country = "China",                        # Paper: study conducted in China (CNP database)
-  site = "supragingival plaque",            # Paper Methods: "supragingival plaque on the buccal surface of the right maxillary first molar"
-  site_group = "oral",                      # Supragingival plaque is an oral site
-  public_time = NA,                         # Not available in CNP metadata
-  pcr_primers = NA,                         # Paper does not specify exact primer names (only V3-V4 region)
-  title = "From Mouth to Brain: Distinct Supragingival Plaque Microbiota Composition in Cerebral Palsy Children With Caries", # Paper title
-  disease_study = "yes",                    # Study compares CP children with caries vs non-CP controls
-  status = "pending",                       # To be filled from sample_name prefixes in Step 5
-  matched_samples = "no",                   # Paper Methods: single sample per subject
-  is_time_series = "no",                    # Paper: cross-sectional design, samples collected Nov-Dec 2020
+  subject_id = NA,  # No subject-level ID available in CNP metadata
+  age = NA,         # Paper reports group means only, not individual ages
+  age_info = "6-14", # Paper Methods: inclusion criterion 6-14 years old
+  bmi = NA,         # Not reported in paper or metadata
+  sex = NA,         # Paper reports group totals only, not per-sample
+  sequencing_region = "V3-V4", # Paper Methods: 16S rRNA V3-V4 region
+  platform = "Illumina MiSeq", # Paper Methods (NOT from metadata instrument_model which says HiSeq 2500)
+  country = "China", # CNP database (China National Nature Reserve), study conducted in China
+  site = "supragingival plaque", # Paper Methods: "supragingival plaque on the buccal surface of the right maxillary first molar"
+  site_group = "pending", # will be set in Step 5
+  public_time = NA, # Not available in CNP metadata
+  pcr_primers = NA, # Paper only states "V3-V4 region", does not specify primer names
+  title = "From Mouth to Brain: Distinct Supragingival Plaque Microbiota Composition in Cerebral Palsy Children With Caries",
+  disease_study = "yes", # Study compares cerebral palsy children with caries vs non-CP controls
+  raw_status = initial_meta$sample_name, # Map from sample_name prefix to disease status
+  status = "pending",
+  matched_samples = "pending", # will be set in Step 5
+  is_time_series = "no", # Paper: cross-sectional design
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
@@ -192,20 +204,19 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
-
-# Fill status based on sample_name prefixes from initial_meta
-# Paper groups (per Table 1 and Methods):
-# B = NCPCS (non-CP children with severe caries)
-# S = CPCS (CP children with severe caries)
-# C = CPCM (CP children with mild-to-moderate caries)
-# D = CPCF (CP children without caries)
-metadata$status <- case_when(
-  substr(initial_meta$sample_name, 1, 1) == "B" ~ "NCPCS",
-  substr(initial_meta$sample_name, 1, 1) == "S" ~ "CPCS",
-  substr(initial_meta$sample_name, 1, 1) == "C" ~ "CPCM",
-  substr(initial_meta$sample_name, 1, 1) == "D" ~ "CPCF",
-  TRUE ~ NA_character_
-) # Per paper Table 1: NCPCS=non-CP severe caries(n=23); CPCS=CP severe caries(n=22); CPCM=CP mild-moderate caries(n=17); CPCF=CP caries-free(n=16)
+# Map disease status from sample_name prefix per paper Table 1:
+#   B prefix (n=23) -> NCPCS (non-CP children with severe caries)
+#   S prefix (n=27) -> CPCS (CP children with severe caries)
+#   C prefix (n=12) -> CPCM (CP children with mild-to-moderate caries)
+#   D prefix (n=16) -> CPCF (CP children without caries)
+metadata <- metadata %>%
+  mutate(status = case_when(
+    grepl("^B", raw_status) ~ "NCPCS",
+    grepl("^S", raw_status) ~ "CPCS",
+    grepl("^C", raw_status) ~ "CPCM",
+    grepl("^D", raw_status) ~ "CPCF",
+    TRUE ~ NA_character_
+  )) # From paper Table 1 and sample naming scheme
 ```
 
 ```{r}
@@ -215,21 +226,24 @@ unique(metadata$site)
 # EDIT HERE: add oral sites
 Oral_site = c("supragingival plaque")
 # EDIT HERE: add gut sites
-Gut_site = c()
+Gut_site = c("feces")
 # just run
 metadata <- metadata %>%
   mutate(site_group = case_when(
     site %in% Oral_site ~ "oral",
     site %in% Gut_site ~ "gut",
-    TRUE ~ "other"
+    TRUE ~ "other" 
   ))
 
-# editing matched_samples, just run.
-metadata$matched_samples <- ifelse(
-  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
-  "yes",
-  "no"
-)
+# editing matched_samples: Paper Methods states each subject contributed a single supragingival plaque sample
+# Since subject_id is all NA, the ave() logic below would incorrectly group NAs; override directly:
+metadata$matched_samples <- "no"
+# Original logic (kept for reference):
+# metadata$matched_samples <- ifelse(
+#   ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+#   "yes",
+#   "no"
+# )
 ```
 
 ```{r}
@@ -323,13 +337,13 @@ This step saves the cleaned metadata table as the final `metadata.csv` file.
 ```{r}
 # Reorder the data frame
 fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
-                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
-                "country", "site", "site_group", "disease_study", "status",
-                "title", "public_time", "matched_samples", "is_time_series")
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers", 
+                "country", "site", "site_group", "disease_study", "status", 
+                "title", "public_time", "matched_samples", "is_time_series")  
 metadata <- metadata %>%
   select(all_of(fixed_cols), everything())
 
-# save metadata
+# save metadata 
 # head(metadata)
 write.csv(metadata, file = "metadata_v2.csv", quote = TRUE)
 ```

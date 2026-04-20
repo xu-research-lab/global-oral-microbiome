@@ -3,9 +3,27 @@ title: "R Notebook: Metadata Processing Workflow"
 output: github_document
 ---
 
+```{r}
+# =============================================================
+# Curation Notes - PRJDB13496
+# subject_id  : initial_meta 'Sample_name' column (S1–S80); one sample per subject
+# age         : not available per sample; age_info "2-18" from paper Table 1
+# sex         : not available in SRA metadata; set NA
+# status      : not available in SRA metadata (DS vs HC not recorded per row); set NA
+# platform    : Paper Methods — Illumina MiSeq (confirmed by Instrument column)
+# region      : Paper Methods — V4 hypervariable region of 16S rRNA
+# site        : Paper Methods — supragingival dental plaque (toothbrush collection)
+# pcr_primers : Paper Methods — 515F-806R (GTG YCA GCM GCC GCG GTA A / GGA CTA CHV GGG TWT CTA AT)
+# disease_study: "yes" — Down syndrome group vs healthy control group
+# is_time_series: "no" — single-visit cross-sectional; no repeated sampling of same individual
+# controls    : none identified in metadata or paper
+# non-human   : none; all samples are Homo sapiens / human metagenome
+# =============================================================
+```
+
 # Step 1: Obtain Initial Metadata from Each Project
 
-This step sets the project directory, loads the raw metadata, and optionally merges supplement tables.
+This step sets the project directory, loads the raw SRA metadata, and optionally merges supplement tables.
 
 ```{r message=FALSE, warning=FALSE}
 # Load libraries
@@ -17,12 +35,12 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJDB13496"
 
-base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/"
+base_dir <- "/Users/dongbiao/Documents/软件开发/oral/metadata_collect"
 setwd(file.path(base_dir, project_id))
 
-# (2) Loading raw metadata file
+# (2) Loading raw SRA metadata file
 sra_file <- "SraRunTable.csv"
-initial_meta <- read.csv(sra_file, header = TRUE, sep = ",")
+initial_meta <- read.csv(sra_file, header = TRUE)
 
 # (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
 # supp_table <- read.csv("supplemental_table.csv", header = TRUE)
@@ -37,15 +55,14 @@ First, you need to get an overview of the data, which includes two steps: readin
 # (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
 
 # (2) IMPORTANT: MUST go through each column of initial_meta
-head(initial_meta, 10)
+# head(initial_meta, 10)
 
 # IMPORTANT: Check the unique values in the column of interest or query column.
-# lapply(initial_meta[c('body_habitat', 'body_product', 'body_site')], table) # site
-# lapply(initial_meta[c('common_name', 'env_biome', 'env_feature', 'env_matter', 'host_common_name', 'Organism', 'role', 'pet_farm_animal')], table) # organism
-# table(initial_meta$host_subject_id) # subject id
-# table(initial_meta$sequencing_meth..exp.)
-# table(initial_meta$platform..exp.)
-# table(initial_meta$target_subfragment..exp.)
+# lapply(initial_meta[c('geo_loc_name_country', 'Organism')], table)  # country and organism check
+# table(initial_meta$Organism)    # all "human metagenome" — no non-human samples
+# table(initial_meta$Platform)    # ILLUMINA
+# table(initial_meta$Instrument)  # Illumina MiSeq — confirms paper Methods
+# table(initial_meta$Sample_name) # S1–S80, unique per row — used as subject_id
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -54,14 +71,13 @@ First, we need to remove control samples(including both negative controls and po
 
 ```{r}
 # (1) EDIT HERE: Parameter setup
-# Paper: all 80 samples are human saliva; no control samples reported
-control_column <- ""   # column name in initial_meta
+control_column <- ""   # no control samples in this study
 # unique(initial_meta[[control_column]])
-control_keywords <- c()     # Enter exact keywords
+control_keywords <- c()     # no control keywords
 
 species_column <- "Organism"          # column name in initial_meta
-# unique(initial_meta[[species_column]])  # All "Homo sapiens"
-non_human_keywords <- c()            # No non-human samples; all Homo sapiens
+unique(initial_meta[[species_column]])
+non_human_keywords <- c()            # all samples are human metagenome; no non-human to remove
 
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
@@ -135,7 +151,7 @@ The uniform metadata should include the following columns:
 9. **platform**: Sequencing platform.
    e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent`
 10. **country**: Country of sample origin.
-    e.g. `China`, `Japan` | not city name like `Beijing`
+   e.g. `China`, `Japan` | not city name like `Beijing`
 11. **site**: Sampling site. For oral and gut sites, specify the exact sites as detailed as possible. For example, if it is known to be supragingival plaque, do not record it as 'dental plaque', unless the original text provides only a vague description.
     e.g. `saliva`, `tongue coating` | not broad term like `oral`
 12. **site_group**: only accepts one of following three values: 'oral', 'gut', or 'other'.
@@ -159,29 +175,30 @@ The uniform metadata should include the following columns:
 19. **is_time_series**: Whether the study is a time series study. Only accept 'yes' or 'no'.
 
 ```{r}
-# Extract columns from initial_meta as follows: (1) No modification needed -> extract directly. (2) Modification needed -> create a new column with the prefix raw_ and mark the original column as "pending". (3) Need to find or determine based on the article.
+# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as "pending". (3) Need to find or determine based on the article.
 metadata <- data.frame(
-  bioproject = initial_meta$BioProject,               # From SraRunTable.csv column 'BioProject'
-  sample_id = initial_meta$Run,                        # From SraRunTable.csv column 'Run' (DRR accession)
-  subject_id = NA,                                     # No subject-level ID in metadata; paper reports groups only
-  age = NA,                                            # Age not at individual level; paper reports group means
-  age_info = "6-14",                                   # Paper Methods: inclusion criterion 6-14 years old
-  bmi = NA,                                            # BMI not reported in paper or metadata
-  sex = NA,                                            # Sex not available at individual level in metadata
-  sequencing_region = "V3-V4",                         # Paper Methods: 16S rRNA V3-V4 regions amplified
-  platform = "Illumina MiSeq",                         # Paper Methods + metadata column 'Platform'
-  country = "Japan",                                   # Paper: Hiroshima University, Japan; metadata geo_loc_name
-  site = "saliva",                                     # Paper title + Methods: "saliva" samples
-  site_group = "oral",                                 # Saliva is an oral site
-  public_time = as.Date(initial_meta$ReleaseDate),     # From SraRunTable.csv column 'ReleaseDate' (2022-07-13)
-  pcr_primers = NA,                                    # Paper does not specify exact primer names (only V3-V4 region)
-  title = "Distinct Salivary Microbiota Comparing Children with Cerebral Palsy and Non-cerebral Palsy", # Paper title
-  disease_study = "yes",                               # Study compares CP vs non-CP children (disease involvement)
-  status = NA,                                         # Group assignment not available per sample in SRA metadata
-  matched_samples = "no",                              # Paper Methods: cross-sectional, single sample per subject
-  is_time_series = "no",                               # Paper: cross-sectional design, samples collected Jan-Apr 2019
+  bioproject = initial_meta$BioProject,
+  sample_id = initial_meta$Run,
+  subject_id = initial_meta$Sample_name,  # S1–S80; one sample per subject per paper
+  age = NA,         # individual age not available in SRA metadata
+  age_info = "2-18", # Paper Table 1: both groups age range 2–18 years
+  bmi = NA,
+  sex = NA,          # sex not available in SRA metadata
+  sequencing_region = "V4",          # Paper Methods: V4 hypervariable region of 16S rRNA
+  platform = "Illumina MiSeq",       # Paper Methods: MiSeq platform (confirmed by Instrument column)
+  country = initial_meta$geo_loc_name_country,
+  site = "supragingival dental plaque", # Paper Methods: dental plaque collected by sterile toothbrush brushing
+  site_group = "pending",            # set in Step 5
+  public_time = initial_meta$ReleaseDate,
+  pcr_primers = "515F-806R",         # Paper Methods: Nextera XT V4 primers (GTG YCA GCM GCC GCG GTA A / GGA CTA CHV GGG TWT CTA AT)
+  title = "Characterization of the unique oral microbiome of children with Down syndrome", # paper title
+  disease_study = "yes",             # Down syndrome group vs healthy control group
+  status = NA,       # disease status (DS vs HC) not recorded per sample in SRA metadata
+  matched_samples = "pending",       # computed in Step 5
+  is_time_series = "no",             # single-visit cross-sectional study; no repeated sampling
   stringsAsFactors = FALSE
 )
+metadata$public_time <- as.Date(metadata$public_time)
 ```
 
 # Step 5: Manually solving pending issues
@@ -190,13 +207,7 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
-# In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
-
-# No raw_ columns needed for this study — all values resolved in Step 4.
-# Status: Paper defines 4 groups (A=NCPCS, B=non-CP severe caries, C=CPCM, D=CPCF),
-# but SRA metadata Sample_name column (S1-S80) has sequential IDs with no group encoding.
-# No group information is available per-sample in the SRA metadata.
-# Paper Table 1: Group A n=20, Group B n=20, Group C n=20, Group D n=20
+# No raw_ columns in this study: sex and status are directly NA; site is directly hardcoded from paper.
 ```
 
 ```{r}
@@ -204,7 +215,7 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # editing site_group
 unique(metadata$site)
 # EDIT HERE: add oral sites
-Oral_site = c("saliva")
+Oral_site = c("supragingival dental plaque")
 # EDIT HERE: add gut sites
 Gut_site = c()
 # just run

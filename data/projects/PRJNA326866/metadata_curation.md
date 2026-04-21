@@ -224,13 +224,13 @@ metadata <- data.frame(
   site_group = "pending",
   public_time = initial_meta$ReleaseDate,
   pcr_primers = NA,  # V1-V2 primers not named in main paper text; detailed only in supplemental S1 File (not provided)
-  title = "Alterations in Gut Microbiome Composition and Barrier Function Are Associated with Reproductive and Metabolic Defects in Women with Polycystic Ovary Syndrome (PCOS): A Pilot Study",
+  title = "Alterations in Gut Microbiome Composition and Barrier Function Are Associated with Reproductive and Metabolic Defects in Women with polycystic Ovary Syndrome (PCOS): A Pilot Study",
   disease_study = "yes",  # PCOS disease cohort compared against healthy controls
   status = case_when(
-    grepl("^P", initial_meta$host_subject_id) ~ "Polycystic ovary syndrome",
+    grepl("^P", initial_meta$host_subject_id) ~ "polycystic ovary syndrome",
     grepl("^C", initial_meta$host_subject_id) ~ "HC",
     TRUE ~ NA_character_
-  ),  # Derived from host_subject_id prefix: P = Polycystic ovary syndrome patient, C = healthy Control
+  ),  # Derived from host_subject_id prefix: P = polycystic ovary syndrome patient, C = healthy Control
   matched_samples = "pending",
   is_time_series = "no",  # From paper: "There was no follow-up visit"; all sample names contain T0
   stringsAsFactors = FALSE

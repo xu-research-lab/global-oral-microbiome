@@ -13,7 +13,7 @@ optionally merges supplement tables.
 # age           : Not available in SRA metadata
 # age_info      : "children" — paper describes paediatric participants (childcare centres)
 # sex           : Not available in SRA metadata
-# status        : Derived from biological_replicates column; Healthy->HC, Symptomatic->HFMD symptomatic, Asymptomatic->HFMD asymptomatic
+# status        : Derived from biological_replicates column; Healthy->HC, Symptomatic->hand, foot and mouth disease symptomatic, Asymptomatic->hand, foot and mouth disease asymptomatic
 # platform      : Paper Methods — Illumina NovaSeq 6000 (16S rRNA sequencing on NovaSeq6000)
 # region        : Paper Methods — V3-V4 (primers 341F/806R)
 # pcr_primers   : Paper Methods — 341F-806R
@@ -34,7 +34,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA663926"
 
-base_dir <- "/Users/dongbiao/Documents/软件开发/oral/metadata_collect"
+base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -161,18 +161,18 @@ cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
 This step converts the raw SRA table into the standard metadata format
 used in our meta-analysis. The uniform metadata should include the
 following columns: 1. **bioproject**: Project ID from SRA or other
-database e.g. `PRJNA1234`, `CNP1234`, ‘OEP1234’, ‘qiita_1234’ 2.
-**sample_id**: SRA sample/run ID. Unique id for each sample!
+database e.g. `PRJNA1234`, `CNP1234`, ‘OEP1234’, ‘qiita\_1234’ 2.
+**sample\_id**: SRA sample/run ID. Unique id for each sample!
 e.g. `DRR1234567`, `ERR1234567` and `SRR1234567`. If no such column
-exists, can use column like sample_name. 3. **subject_id**: subject id
+exists, can use column like sample\_name. 3. **subject\_id**: subject id
 for each person if available. e.g. `patient_01`, `Host_03_before`,
 `subject12` 4. **age**: Age of the subject if available. e.g. `35`, `42`
-\| not `adult`, `chilren` 5. **age_info**: If the age is not explicitly
+\| not `adult`, `chilren` 5. **age\_info**: If the age is not explicitly
 stated but approximate age range information is available, mark it in
 this column. e.g., `18-55`, `children`, `infant`, `elder` 6. **bmi**:
 Body Mass Index if available. e.g. `22.5`, `18.9` \| not `normal`,
 `overweight` 7. **sex**: Sex of the subject. Mandatory to write as M/F
-\| not `female`, `woman` 8. **sequencing_region**: Targeted 16S rRNA
+\| not `female`, `woman` 8. **sequencing\_region**: Targeted 16S rRNA
 region. e.g. `V3-V4`, `V4` 9. **platform**: Sequencing platform.
 e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent` 10.
 **country**: Country of sample origin. e.g. `China`, `Japan` \| not city
@@ -181,11 +181,11 @@ specify the exact sites as detailed as possible. For example, if it is
 known to be supragingival plaque, do not record it as ‘dental plaque’,
 unless the original text provides only a vague description.
 e.g. `saliva`, `tongue coating` \| not broad term like `oral` 12.
-**site_group**: only accepts one of following three values: ‘oral’,
-‘gut’, or ‘other’. 13. **public_time**: Data release date.
-e.g. `2021-06-22` \| not `June 2021` 14. **pcr_primers**: PCR primers
+**site\_group**: only accepts one of following three values: ‘oral’,
+‘gut’, or ‘other’. 13. **public\_time**: Data release date.
+e.g. `2021-06-22` \| not `June 2021` 14. **pcr\_primers**: PCR primers
 used. e.g. `515F-806R`, `27F-338R` \| not primer sequences 15.
-**title**: Title of the associated publication. 16. **disease_study**:
+**title**: Title of the associated publication. 16. **disease\_study**:
 Whether the study involves disease samples. If it’s not clear, can
 record as NA. Only three values accepted: ‘yes’, ‘no’ or NA 17.
 **status**: Disease status for each sample if available, else record as
@@ -193,9 +193,9 @@ NA. Only accept following abbreviations, Write full names for all other
 diseases. HC: healthy control CD: Crohn’s disease CRC: colorectal cancer
 COPD: chronic obstructive pulmonary disease HIV: human immunodeficiency
 virus ICU: intensive care unit OSCC: oral squamous cell carcinoma RA:
-rheumatoid arthritis UC: ulcerative colitis 18. **matched_samples**:
+rheumatoid arthritis UC: ulcerative colitis 18. **matched\_samples**:
 Whether the subject has matched samples. Only accept ‘yes’ or ‘no’. 19.
-**is_time_series**: Whether the study is a time series study. Only
+**is\_time\_series**: Whether the study is a time series study. Only
 accept ‘yes’ or ‘no’.
 
 ``` r
@@ -237,8 +237,8 @@ columns.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
 metadata <- metadata %>%
   mutate(status = case_when(
-    grepl("Asymptomatic", raw_status) ~ "HFMD asymptomatic",  # checked before "Symptomatic" to avoid substring match
-    grepl("Symptomatic", raw_status) ~ "HFMD symptomatic",
+    grepl("Asymptomatic", raw_status) ~ "hand, foot and mouth disease asymptomatic",  # checked before "Symptomatic" to avoid substring match
+    grepl("Symptomatic", raw_status) ~ "hand, foot and mouth disease symptomatic",
     grepl("Healthy", raw_status) ~ "HC",
     TRUE ~ NA_character_
   ))  # Derived from biological_replicates column; "Asymptomatic" checked first as it contains "symptomatic"

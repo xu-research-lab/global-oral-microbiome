@@ -16,7 +16,7 @@ This step sets the project directory, loads the raw SRA metadata, and optionally
 # sex           : not available in SRA metadata; paper total: 27M / 32F
 # platform      : Illumina HiSeq 2500 — SRA Instrument column + paper ("Illumina HiSeq technology")
 # region        : not stated in this paper; sequencing described in companion study (ref [35])
-# site          : tongue dorsum — paper Methods: "swab on the surface...all defined areas of the tongue"
+# site          : tongue coating — paper Methods: "swab on the surface...all defined areas of the tongue"; paper title uses "tongue coating"
 # country       : Italy — paper affiliation (University of Milan)
 # disease_study : "no" — "reportedly healthy adults" (paper abstract)
 # is_time_series: "no" — cross-sectional design (paper Limitations: "the study design was cross-sectional")
@@ -193,7 +193,7 @@ metadata <- data.frame(
   # Country from paper affiliation: University of Milan, Italy
   country = "Italy",
   # Site from paper Methods: "swab on the surface, rolling and touching edges, tip, and all defined areas of the tongue (~2/3 of tongue length)"
-  site = "tongue dorsum",
+  site = "tongue coating",
   site_group = "oral",
   public_time = initial_meta$ReleaseDate,
   pcr_primers = NA,  # not stated in this paper; see companion study ref [35]
@@ -224,8 +224,8 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # (2) Filling the 'site_group' and 'matched_samples' columns
 # editing site_group
 unique(metadata$site)
-# All samples are tongue dorsum (oral); no gut samples in this study
-Oral_site = c("tongue dorsum")
+# All samples are tongue coating (oral); no gut samples in this study
+Oral_site = c("tongue coating")
 Gut_site = c()
 # just run
 metadata <- metadata %>%

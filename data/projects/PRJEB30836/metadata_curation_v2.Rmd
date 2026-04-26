@@ -60,13 +60,17 @@ metadata <- data.frame(
   Region = "V4",
   Platform = "Illumina MiSeq",
   Country = initial_meta$geo_loc_name_country,
-  Site = initial_meta$host_body_site,
+  Site = gsub(" metagenome", "", initial_meta$host_body_site),
   public_time = initial_meta$ReleaseDate,
   stringsAsFactors = FALSE
 )
 
 metadata$Age[metadata$Age > 100] <- NA
 metadata$BMI[metadata$BMI > 100] <- NA
+
+# Add age_info and is_time_series (standard template columns)
+metadata$age_info <- "18-65"
+metadata$is_time_series <- "no"
 ```
 # Step 3: Manually Add Information from the Publication
 
@@ -168,9 +172,10 @@ knitr::include_graphics("Metadata_Summary.png")
 ```{r}
 # Reorder columns to match the desired format
 metadata <- metadata[, c(
-  "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
-  "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status", "matched_samples"
+  "BioProject", "Run", "sample_name", "Age", "BMI", "Sex",
+  "Region", "Platform", "Country", "Site", "public_time",
+  "PCR_primers", "title", "Disease_study", "Status", "matched_samples",
+  "age_info", "is_time_series"
 )]
 
 # Export the uniform metadata to a CSV file

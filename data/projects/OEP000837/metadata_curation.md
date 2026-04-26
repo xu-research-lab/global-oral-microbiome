@@ -18,7 +18,7 @@ library(cowplot)
 library(readxl)
 
 # Set working directory (update this path to your local directory)
-setwd("D:/oral_project/OEP000837")
+setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/OEP000837")
 
 # Read the initial metadata files
 initial_meta<-read_xlsx("OEP00000837_Data_1758007425482.xlsx",sheet = "sheet1")
@@ -77,7 +77,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "OEP000837",
-  Run = initial_meta$run_id,
+  Run = initial_meta$sample_name,
   sample_name = initial_meta$sample_name,
   Age = NA,
   BMI = NA,
@@ -162,13 +162,13 @@ write.csv(metadata, file = "metadata.csv", quote = FALSE)
 head(metadata)
 ```
 
-    ##   BioProject         Run sample_name Age BMI Sex Region       Platform Country
-    ## 1  OEP000837 OER00043812        S002  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 2  OEP000837 OER00043813        S003  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 3  OEP000837 OER00043814        S004  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 4  OEP000837 OER00043816        S006  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 5  OEP000837 OER00043815        S005  NA  NA  NA  V3-V4 Illumina MiSeq   China
-    ## 6  OEP000837 OER00043818        S006  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ##   BioProject     Run sample_name Age BMI Sex Region       Platform Country
+    ## 1  OEP000837 S002-TY        S002  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 2  OEP000837 S003-TY        S003  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 3  OEP000837 S004-TY        S004  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 4  OEP000837  S006-C        S006  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 5  OEP000837 S005-TY        S005  NA  NA  NA  V3-V4 Illumina MiSeq   China
+    ## 6  OEP000837 S006-TY        S006  NA  NA  NA  V3-V4 Illumina MiSeq   China
     ##                   Site public_time PCR_primers
     ## 1               Saliva  2020-04-14   338F-806R
     ## 2               Saliva  2020-04-14   338F-806R

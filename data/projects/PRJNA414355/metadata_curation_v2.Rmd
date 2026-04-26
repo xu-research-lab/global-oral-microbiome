@@ -1,0 +1,310 @@
+---
+title: "R Notebook: Metadata Processing Workflow"
+output: github_document
+---
+
+# Step 1: Obtain Initial Metadata from Each Project
+
+This step sets the project directory and loads the raw SRA metadata.
+
+```{r message=FALSE, warning=FALSE}
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(cowplot)
+
+# (1) Setting working directory
+project_id <- "PRJNA414355"
+
+base_dir <- "E:/工作区/VSCode/RNAproject/collect_metadata_respon/project"
+setwd(file.path(base_dir, project_id))
+
+# (2) Loading raw SRA metadata file
+sra_file <- "SraRunTable.csv"
+initial_meta <- read.csv(sra_file, header = TRUE, stringsAsFactors = FALSE, check.names = FALSE)
+```
+
+# Step 2: Data Overview
+
+First, you need to get an overview of the data, which includes two steps: reading the article and reading the initial metadata. This step is very IMPORTANT!
+
+```{r message=FALSE, warning=FALSE}
+# (1) Read the article in the following order: abstract, the beginning of the results section, and the methods.
+# Paper summary used for this project:
+# - Title: Chronic fatigue syndrome patients have alterations in their oral microbiome composition and function.
+# - Study design: cross-sectional case-control study.
+# - Main cohort: 91 participants total = 46 chronic fatigue syndrome (CFS) patients + 45 healthy controls.
+# - Recruitment geography: Chinese Han participants recruited in Chongqing, China.
+# - Sampling site: unstimulated oral saliva collected into sterile tubes.
+# - Sequencing workflow: bacterial 16S rRNA V3-V4 region amplified with primers 338F (ACTCCTACGGGAGGCAGCA) and 806R (GGACTACHVGGGTWTCTAAT), sequenced as paired-end 2 x 300 on Illumina MiSeq.
+# - Age, sex, and BMI are reported only at the cohort level, not as per-sample values.
+# - The paper reports 46 CFS patients and 45 healthy controls, matching the 46 T* rows and 45 CT* rows in the local SRA table.
+# - The study is cross-sectional and does not include pre/post-treatment repeated sampling.
+
+# (2) IMPORTANT: MUST go through each column of initial_meta
+head(initial_meta, 10)
+colnames(initial_meta)
+table(initial_meta$BioProject)           # bioproject
+table(initial_meta$Run)                  # sample_id uniqueness check
+table(initial_meta$`Sample Name`)        # subject_id proxy
+table(initial_meta$ReleaseDate)          # public_time
+table(initial_meta$geo_loc_name_country) # country availability in SRA
+table(initial_meta$Organism)             # human/non-human check
+table(initial_meta$HOST)                 # host confirmation
+table(initial_meta$Instrument)           # platform cross-check only
+table(initial_meta$isolation_source)     # site cross-check only
+table(substr(initial_meta$`Sample Name`, 1, 2))
+table(substr(initial_meta$`Sample Name`, 1, 1))
+# Present in SRA: BioProject, Run, Sample Name, ReleaseDate, Organism, HOST, isolation_source.
+# Must come from paper: country, sequencing_region, pcr_primers, title, disease_study, age_info.
+# Still unavailable per sample after paper audit: age, bmi, sex.
+# All rows are human oral metagenome saliva samples; SRA country is "uncalculated", so country must be supplied from the paper recruitment location.
+```
+
+# Step 3: Removing Control and Non-human Samples
+
+First, we need to remove control samples(including both negative controls and positive controls) and non-human samples.
+
+```{r}
+# (1) Parameter setup
+control_column <- ""
+control_keywords <- c()
+
+species_column <- "Organism"
+unique(initial_meta[[species_column]])
+non_human_keywords <- c()
+
+# (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
+n_samples <- nrow(initial_meta)
+# Control evaluation
+if (length(control_keywords) > 0) {
+  if (is.null(control_column) || control_column == "") {
+    stop("Error: control_keywords provided but control_column is missing.")
+  }
+
+  if (!(control_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+  }
+
+  control_pattern <- paste(control_keywords, collapse = "|")
+  control_text <- initial_meta[[control_column]]
+  is_control <- grepl(control_pattern, control_text)
+
+} else {
+  is_control <- rep(FALSE, n_samples)
+}
+
+# Non-human evaluation
+if (length(non_human_keywords) > 0) {
+  if (is.null(species_column) || species_column == "") {
+    stop("Error: non_human_keywords provided but species_column is missing.")
+  }
+
+  if (!(species_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
+  }
+
+  non_human_pattern <- paste(non_human_keywords, collapse = "|")
+  species_text <- initial_meta[[species_column]]
+  is_non_human <- grepl(non_human_pattern, species_text)
+} else {
+  is_non_human <- rep(FALSE, n_samples)
+}
+
+# Execute removal
+samples_to_remove <- is_control | is_non_human
+initial_meta <- initial_meta[!samples_to_remove, ]
+
+cat("Initial samples counts:", n_samples, "\n")
+cat("Removed control samples:", sum(is_control), "\n")
+cat("Removed non-human samples:", sum(is_non_human), "\n")
+cat("Total samples removed ", sum(samples_to_remove), "\n")
+cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
+```
+
+# Step 4: Creating a Uniform Metadata Template
+
+This step converts the raw SRA table into the standard metadata format used in our meta-analysis.
+
+```{r}
+# Debug check: if this fails, the current R session is not using the expected SraRunTable columns.
+stopifnot(
+  "BioProject" %in% colnames(initial_meta),
+  "Run" %in% colnames(initial_meta),
+  "Sample Name" %in% colnames(initial_meta),
+  "ReleaseDate" %in% colnames(initial_meta)
+)
+cat("nrow(initial_meta):", nrow(initial_meta), "\n")
+cat("length(BioProject):", length(initial_meta[["BioProject"]]), "\n")
+cat("length(Run):", length(initial_meta[["Run"]]), "\n")
+cat("length(Sample Name):", length(initial_meta[["Sample Name"]]), "\n")
+cat("length(ReleaseDate):", length(initial_meta[["ReleaseDate"]]), "\n")
+
+metadata <- data.frame(
+  bioproject = initial_meta$BioProject,
+  sample_id = initial_meta$Run,
+  raw_subject_id = initial_meta$`Sample Name`,
+  subject_id = initial_meta$`Sample Name`,
+  age = NA_real_,
+  age_info = "CFS 37.43 ± 7.53; HC 36.98 ± 7.23",
+  bmi = NA_real_,
+  sex = NA_character_,
+  sequencing_region = "V3-V4",
+  platform = "Illumina MiSeq",
+  country = "China",
+  site = "saliva",
+  site_group = "pending",
+  public_time = sub("T.*$", "", initial_meta$ReleaseDate),
+  pcr_primers = "F-ACTCCTACGGGAGGCAGCA,R-GGACTACHVGGGTWTCTAAT",
+  title = "Chronic fatigue syndrome patients have alterations in their oral microbiome composition and function",
+  disease_study = "yes",
+  raw_status = initial_meta$`Sample Name`,
+  status = "pending",
+  matched_samples = "pending",
+  is_time_series = "no",
+  stringsAsFactors = FALSE
+)
+
+# Source notes for non-obvious fields:
+# - bioproject, sample_id, raw_subject_id, subject_id, and public_time come directly from BioProject, Run, Sample Name, and ReleaseDate in SraRunTable.csv.
+# - raw_subject_id preserves the deposited Sample Name in the exported metadata; subject_id uses the same value because no separate host identifier is provided in the SRA table.
+# - age remains NA because the paper reports only cohort-level age summaries, not per-subject ages.
+# - age_info stores cohort-level age summaries from the paper because per-subject ages are not provided in the accessible local files.
+# - bmi remains NA because only cohort-level BMI summaries are reported in the paper.
+# - sex remains NA because the paper reports only cohort-level male/female counts, not per-sample sex labels.
+# - sequencing_region, platform, site, pcr_primers, title, disease_study, and is_time_series are taken from the paper rather than SRA instrument fields.
+# - country is taken from the paper recruitment location (Chongqing, China) because SRA geo_loc_name_country is "uncalculated" for all rows.
+# - raw_status preserves the deposited Sample Name because status is mapped from those Sample Name prefixes rather than from an explicit status column.
+# - status is mapped from Sample Name prefixes because the paper reports 46 CFS patients and 45 healthy controls, matching the local T* and CT* counts exactly.
+metadata$public_time <- as.Date(metadata$public_time)
+```
+
+# Step 5: Manually solving pending issues
+
+This step involves two parts: (1) handle the columns with the `raw_` prefix, and next (2) handle the `site_group` and `matched_samples` columns.
+
+```{r}
+# (1) Handle the columns with the `raw_` prefix.
+metadata <- metadata %>%
+  mutate(
+    status = case_when(
+      grepl("^CT", subject_id) ~ "HC",
+      grepl("^T", subject_id) ~ "chronic fatigue syndrome",
+      TRUE ~ NA_character_
+    )
+  )
+# The paper reports 45 healthy controls and 46 CFS patients, which matches the CT* and T* prefix counts in the local SRA table.
+```
+
+```{r}
+# (2) Filling the 'site_group' and 'matched_samples' columns
+unique(metadata$site)
+Oral_site = c("saliva")
+Gut_site = c("feces")
+
+metadata <- metadata %>%
+  mutate(site_group = case_when(
+    site %in% Oral_site ~ "oral",
+    site %in% Gut_site ~ "gut",
+    TRUE ~ "other"
+  ))
+
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+  "yes",
+  "no"
+)
+# Each subject_id appears once, so this is not a matched repeated-sampling dataset.
+```
+
+```{r}
+# (3) check if there is pending value in metadata. If there is pending value, go on modify the metadata.
+has_pending <- function(col) {
+  if (is.character(col) || is.factor(col)) {
+    any(col == "pending", na.rm = TRUE)
+  } else {
+    FALSE
+  }
+}
+
+any_pending_value <- any(sapply(metadata, has_pending))
+
+if (!any_pending_value) {
+  message("Good! No cell contains the value 'pending'.")
+} else {
+  pending_cols <- names(metadata)[sapply(metadata, has_pending)]
+  message("Columns containing 'pending': ", paste(pending_cols, collapse = ", "))
+  message("Please continue to resolve these pending columns!")
+}
+```
+
+# Step 6: Visualize the Metadata
+
+This step makes a quick set of plots for checking the distribution of key metadata fields.
+
+```{r}
+plot_data <- metadata %>%
+  select(-bioproject, -sample_id, -subject_id, -title)
+
+create_simple_plots <- function(data) {
+  plots <- list()
+  continuous_vars <- c("age", "bmi")
+
+  for (col in colnames(data)) {
+    if (all(is.na(data[[col]]))) {
+      p <- ggplot() +
+        annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
+        labs(title = col) +
+        theme_void()
+    } else if (col %in% continuous_vars && is.numeric(data[[col]])) {
+      p <- ggplot(data, aes(x = .data[[col]])) +
+        geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
+        labs(title = col, x = col, y = "Count") +
+        theme_minimal()
+    } else {
+      count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
+      p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
+        geom_col(fill = "red", alpha = 0.6) +
+        labs(title = col, x = NULL, y = "Count") +
+        theme_minimal() +
+        theme(axis.text.x = element_text(angle = 15, hjust = 1))
+    }
+    plots[[col]] <- p
+  }
+
+  return(plots)
+}
+
+plots <- create_simple_plots(plot_data)
+p <- plot_grid(plots$age,
+               plots$bmi,
+               plots$sex,
+               plots$site,
+               plots$site_group,
+               plots$sequencing_region,
+               plots$platform,
+               plots$country,
+               plots$status,
+               plots$matched_samples,
+               ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+```
+
+```{r}
+knitr::include_graphics("Metadata_Summary.png")
+```
+
+# Step 7: Sort and export the metadata
+
+This step saves the cleaned metadata table as the final `metadata_v2.csv` file.
+
+```{r}
+fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
+                "country", "site", "site_group", "disease_study", "status",
+                "title", "public_time", "matched_samples", "is_time_series")
+metadata <- metadata %>%
+  select(all_of(fixed_cols), starts_with("raw_"))
+
+write.csv(metadata, file = "metadata_v2.csv", quote = TRUE, row.names = FALSE)
+```

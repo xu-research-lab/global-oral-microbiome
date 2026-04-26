@@ -1,0 +1,429 @@
+PAGES	13
+===== PAGE 1 =====
+Cui et al. Military Medical Research (2022) 9:32
+https://doi.org/10.1186/s40779-022-00387-y
+RESEARCH Open Access
+Characterization of oral and gut microbiome
+and plasma metabolomics in COVID-19 patients
+after 1-year follow-up
+Guang‑Ying Cui1,2†, Ben‑Chen Rao1,2†, Zhao‑Hai Zeng3†, Xue‑Mei Wang1,2†, Tong Ren4†, Hai‑Yu Wang1,2,
+Hong Luo3, Hong‑Yan Ren5, Chao Liu5, Su‑Ying Ding6, Jun‑Jie Tan3, Zhen‑Guo Liu1,2, Ya‑Wen Zou1,2,
+Zhi‑Gang Ren1,2* and Zu‑Jiang Yu1,2*
+Abstract
+Background: Due to the outbreak and rapid spread of coronavirus disease 2019 (COVID‑19), more than 160 million
+patients have become convalescents worldwide to date. Significant alterations have occurred in the gut and oral
+microbiome and metabonomics of patients with COVID‑19. However, it is unknown whether their characteristics
+return to normal after the 1‑year recovery.
+Methods: We recruited 35 confirmed patients to provide specimens at discharge and one year later, as well as 160
+healthy controls. A total of 497 samples were prospectively collected, including 219 tongue‑coating, 129 stool and
+149 plasma samples. Tongue‑coating and stool samples were subjected to 16S rRNA sequencing, and plasma samples
+were subjected to untargeted metabolomics testing.
+Results: The oral and gut microbiome and metabolomics characteristics of the 1‑year convalescents were restored
+to a large extent but did not completely return to normal. In the recovery process, the microbial diversity gradually
+increased. Butyric acid‑producing microbes and Bifidobacterium gradually increased, whereas lipopolysaccharide‑pro‑
+ducing microbes gradually decreased. In addition, sphingosine‑1‑phosphate, which is closely related to the inflamma‑
+tory factor storm of COVID‑19, increased significantly during the recovery process. Moreover, the predictive models
+established based on the microbiome and metabolites of patients at the time of discharge reached high efficacy in
+predicting their neutralizing antibody levels one year later.
+Conclusions: This study is the first to characterize the oral and gut microbiome and metabonomics in 1‑year conva‑
+lescents of COVID‑19. The key microbiome and metabolites in the process of recovery were identified, and provided
+new treatment ideas for accelerating recovery. And the predictive models based on the microbiome and metabo‑
+lomics afford new insights for predicting the recovery situation which benefited affected individuals and healthcare.
+Keywords: Coronavirus disease 2019 (COVID‑19), Gut microbiome, Oral microbiome, Plasma metabonomics,
+Convalescents, Individual outcomes, Patient stratification, Predictive, Preventive and personalized medicine (3PM)
+Background
+†Guang‑Ying Cui, Ben‑Chen Rao, Zhao‑Hai Zeng, Xue‑Mei Wang and Tong
+Due to the outbreak and rapid spread of coronavirus dis-
+Ren contributed equally to this work
+ease 2019 (COVID-19), more than 160 million patients
+*Correspondence: fccrenzg@zzu.edu.cn; johnyuem@zzu.edu.cn
+have become convalescents worldwide to date [1]. The
+1 Department of Infectious Diseases, the First Affiliated Hospital of Zhengzhou pathophysiological changes caused by COVID-19 can
+University, Zhengzhou 450052, China
+have long-term effects on the body and cause persistent
+Full list of author information is available at the end of the article
+© The Author(s) 2022. Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which
+permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the
+original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or
+other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line
+to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory
+regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this
+licence, visit http:// creat iveco mmons. org/ licen ses/ by/4. 0/. The Creative Commons Public Domain Dedication waiver (http:// creat ivec o
+mmons. org/ publi cdoma in/ zero/1. 0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.
+
+===== PAGE 2 =====
+Cui et al. Military Medical Research (2022) 9:32 Page 2 of 13
+symptoms [2, 3]. A 6-month follow-up of COVID-19 granted by the Ethics Committee of the First Affili-
+patients found that fatigue, sleep disturbance and dysp- ated Hospital of Zhengzhou University (2020-KY-055)
+nea were the most common symptoms [4–6]. Therefore, and Guangshan Country People’s Hospital (2020–001).
+it is very important to pay more attention to the health Written informed consent was collected from each
+condition of convalescents in the context of predictive, participant.
+preventive and personalized medicine (3PM) approach A total of 35 confirmed patients were recruited and
+[7, 8]. completed a 1-year follow-up after recovery. In addition,
+Alterations in the human microbiome are closely 160 healthy controls (HCs) matched with COVID-19
+related to various diseases. Our previous study described patients in gender and age were enrolled in the Health
+the characteristics of the oral microbiome of patients Management Center, the First Affiliated Hospital of
+with COVID-19. At the genus level, 5 genera were Zhengzhou University. Tongue-coating samples, stool
+increased, including Selenomonas and Leptotrichia, while samples and plasma samples were provided by the par-
+5 genera were decreased, including Fusobacterium and ticipants. 16S rRNA MiSeq sequencing was conducted
+Porphyromonas. In addition, we constructed a diagnos- on tongue-coating samples and stool samples, and untar-
+tic model based on the oral microbiome and achieved geted metabolomics testing on liquid chromatography-
+good diagnostic performance [9]. Alterations in the gut mass spectrometry (LC–MS) analysis was carried out on
+microbiome took place and reflected the disease sever- plasma samples.
+ity of COVID-19 [10]. Compared with healthy controls,
+the fecal microbial diversity of patients with COVID-19 Tongue‑coating and stool sample collection and DNA
+was significantly decreased, which was characterized by extraction
+enrichment of opportunistic pathogens and exhaustion of
+Each participant provided a fresh tail stool and tongue-
+beneficial symbiotic bacteria. At the phylum level, Bacte-
+coating sample from 7 to 9 am. Tongue-coating and
+roides in COVID-19 patients was significantly increased,
+stool samples were collected as described in our previ-
+while Actinomycetes was significantly decreased [9, 11].
+ous study [9] (Additional file 1: Supplementary methods).
+Therefore, it is necessary to explore the characteristics
+To ensure the quality of the samples, we stored the sam-
+and evaluate the recovery situation of the human micro-
+ples at 80 °C as soon as possible, and all samples that
+biome for COVID-19 patients after a 1-year recovery. −
+had been at room temperature for more than 2 h were
+The pathophysiological changes of many diseases
+excluded. The DNA extraction process was as described
+can lead to alterations in human metabolites [12–14].
+in our previous study [17] (Additional file 1: Supplemen-
+Researchers identified 941 metabolites in the serum and
+tary methods).
+constructed a great diagnostic model for COVID-19 [15,
+16]. Our previous study reported the characteristics of
+PCR amplification, MiSeq sequencing and data processing
+lipid metabolomics in patients with COVID-19. Dur-
+ing the treatment process, 122 lipid molecules, includ- PCR amplification and DNA library construction were
+ing diglyceride (20:1/18:2), were increased, while 47 conducted based on standard protocols, and sequenc-
+lipid molecules, including monoglyceride (33:5), were ing was accomplished on an Illumina MiSeq platform
+decreased [9]. Thus, studying the characteristics and by Shanghai Mobio Biomedical Technology, China [9].
+assessing the recovery situation of the metabolites for Detailed information on PCR amplification and sequence
+COVID-19 patients after a 1-year recovery are of great data processing was uploaded to the Additional file 1:
+importance. Supplementary methods. The raw Illumina read data for
+In this study, we characterized the oral and gut micro- all samples were available through the European Nucleo-
+biomes and plasma metabonomics of 35 1-year convales- tide Archive at the European Bioinformatics Institute
+cents. Then, the key microbiome and metabolites during under accession number PRJNA756623.
+the recovery process were identified. Furthermore, mod-
+els based on the microbiome and metabolites were con- Operational taxonomy unit (OTU) clustering and taxonomy
+structed to predict the level of neutralizing antibodies in annotation
+1-year convalescents.
+Select all samples with equal numbers for random reads
+and bin the OTUs by UPARSE pipeline. The identity
+Methods
+threshold was set as 0.97. We used RDP classifier version
+Study profile 2.6 [18]; the confidence level was set as 0.5 to annotate
+This study was conducted following prospective speci- sequences [19]. The details of microbial diversity and tax-
+men collection and retrospective blinded evaluation onomic analysis are shown in the Additional file 1: Sup-
+design principles. Ethical approval for this study was plementary methods.
+
+===== PAGE 3 =====
+C ui et al. Military Medical Research (2022) 9:32 Page 3 of 13
+Identification of the OTU biomarkers and construction 140 plasma samples (Fig. 1). In this study, we described
+of probability of disease (POD) the characteristics of the oral and gut microbiomes and
+The Wilcoxon rank-sum test was used to determine the plasma metabolomics of CPR1s. Then, we identified
+significance (P < 0.05), and OTU biomarkers in the gut the key microbiome and metabolites during the recov-
+and oral microbiomes were selected for further analy- ery process of the confirmed patient. Finally, we con-
+sis. The prediction model was constructed on a ran- structed prediction models based on the microbiome
+dom forest model through fivefold cross-validation, and metabolites to forecast the neutralizing antibodies
+and then, we evaluated the probability of disease (POD) of CRP1s.
+index and receiver operating characteristic curve.
+The details of POD construction were performed as Characteristics of the participants
+described in our previous study [17] (Additional file 1: The clinical characteristics of CPR1s and HCs are shown
+Supplementary methods). in Additional file 2: Table S1. In this study, the gender
+and age of the two groups of participants were matched.
+Untargeted metabolomics detection and data analysis
+There was no significant difference in routine blood indi-
+Untargeted metabolomics testing on LC–MS analysis cators between the two groups of participants. In addi-
+was carried out on all plasma samples. LC–MS analysis tion, the liver and kidney function indices of CPR1s
+was performed using an Orbitrap Elite high-resolution were similar to those of HCs. Thus, these clinical indices
+mass spectrometer (Thermo-Finnigan). Details about indicated that the overall health of CPR1 has returned
+untargeted metabolomics detection and data analy- to normal. To clarify the recovery of the oral and gut
+sis are shown in the Additional file 1: Supplementary microbiome and metabolites, we conducted the following
+methods. study.
+Immunoassay of severe acute respiratory syndrome Gradual recovery of the oral microbiome
+coronavirus 2 (SARS‑CoV‑2) neutralizing antibody and IgG
+Violin plot graphs showed alterations in neutralizing anti-
+The SARS-CoV-2 neutralizing antibody was detected bodies and IgG during the recovery process of COVID-
+based on the ELISA method [20]. SARS-CoV-2 IgG 19 (Fig. 2a, Additional file 2: Table S2). The antibody level
+assays were conducted by direct chemiluminometric of CPR1s was significantly lower than that of CPR0s;
+microparticle technology [21]. Details are described in however, it was significantly higher than that of HCs
+the Additional file 1: Supplementary methods. (P < 0.05). The oral microbial α diversity was significantly
+decreased, which was an important characteristic of con-
+Statistical analysis firmed patients [9]. Then, the α diversity analysis showed
+Statistical analyses were performed using SPSS v.20.0 that the α diversity of the oral microbiome gradually
+for Windows (SPSS, Chicago, Illinois, USA). Continu- increased as COVID-19 recovered (Fig. 2b, Additional
+ous variables between two groups were compared by file 2: Table S3). The abundance of rare species was signif-
+Student’s t-test or Wilcoxon rank-sum test. Normally icantly increased during the recovery process according
+distributed values are presented as mean SD (stand- to the Chao index and observed OTUs index (P < 0.05,
+±
+ard deviation), and Nonnormally distributed values are Additional file 3: Fig. S1a). The Venn diagram shows the
+presented as median (interquartile range). Categorical shared and unique oral microbial OTUs between the
+variables between two groups were compared by the three groups (Additional file 3: Fig. S1b). In addition, β
+χ2 test or Fisher’s exact test. Differences among three diversity indicated the process of gradually returning to
+groups were evaluated by one-way analysis of variance. normal by principal coordinate analysis (PCoA), princi-
+A P-value < 0.05 (two-sided) was considered to indicate pal component analysis (PCA) and nonmetric multidi-
+a significant difference. mensional scaling (NMDS) analysis (Fig. 2c, Additional
+file 3: Fig. S1c).
+Results The average composition of the oral microbiome
+Study design and flow diagram among the three groups was similar (Additional file 2:
+The confirmed patients provided specimens at the time Table S4; Additional file 3: Fig. S1d). At the genus level,
+of recovery discharge (CPR0) and recovered 1 year the abundances of Prevotella, Neisseria, Veillonella,
+(CRP1). A total of 497 samples were prospectively col- Streptococcus and Porphyromonas accounted for 65%
+lected from participants. After strict exclusion criteria, of all species. In addition, linear discriminant analysis
+455 samples were included for further analysis, includ- effect size (LEfSe) was used to compare the estimated
+ing 200 tongue-coating samples, 115 stool samples and phylotypes of the oral microbiome. The oral microbial
+
+===== PAGE 4 =====
+Cui et al. Military Medical Research (2022) 9:32 Page 4 of 13
+Fig. 1 Study design and flow diagram. A total of 35 confirmed patients were recruited and completed a 1‑year follow‑up after recovery. In
+addition, 160 healthy controls (HCs) were enrolled. A total of 497 samples were prospectively collected, including 219 tongue‑coating samples,
+129 stool samples and 149 plasma samples. In addition, 455 samples were included for further analysis after strict inclusion and exclusion criteria.
+16S rRNA MiSeq sequencing was conducted on tongue‑coating samples and stool samples, and untargeted metabolomics testing on liquid
+chromatography‑mass spectrometry (LC–MS) analysis was carried out on plasma samples. CPR0 confirmed patients recover at discharge, CPR1
+confirmed patients recover 1 year, HCs healthy controls, UPLC‑MS ultra‑performance liquid chromatography‑mass spectrometry, RFC random forest
+model
+characteristics were illustrated at the genus level among Noninvasive prediction model for CPR1 neutralizing
+the three groups [LDA score ( log ) > 3] (Additional antibodies based on the oral microbiome
+10
+file 2: Table S5, Additional file 3: Fig. S1e). At the phylum In this study, there were 16 participants in CPR0s and
+level, in the process of recovery, the abundance of Act- CPR1s in a one-to-one correspondence. We analyzed the
+inobacteriota gradually increased. In contrast, the abun- oral microbiome of these 16 CPR0s. The 16 CPR0s were
+dance of Campilobacterota and Fusobacteriota gradually divided into confirmed patients who recovered at dis-
+decreased (P < 0.001, Fig. 2d, Additional file 2: Table S6). charge with higher neutralizing antibodies 1 year later
+At the genus level, in the process of recovery, the abun- (CPR0-H) and those with lower neutralizing antibodies
+dance of unclassified Enterobacteriaceae, Peptostrepto- 1 year later (CPR0-L) according to the cutoff value of 70%
+coccus, Halomonas, Actinomyces and Rothia gradually of the inhibition rate of neutralizing antibodies. One year
+increased. In contrast, the abundances of Veillonella, later, the neutralizing antibody and IgG levels of CPR0-L
+Leptotrichia, Lachnoanaerobaculum, Capnocytophaga were significantly lower than those of CPR0-H (P < 0.05,
+and Campylobacter gradually decreased (P < 0.001, Additional file 2: Table S7; Additional file 3: Fig. S2a). There
+Fig. 2d). The heatmap displayed the gradual recovery of was no significant difference in the α diversity of the oral
+the key OTUs in the oral microbiome (Fig. 2e). microbiome between CPR0-L and CPR0-H (P > 0.05, Addi-
+tional file 2: Table S8, Additional file 3: Fig. S2b). The Venn
+diagram showed that 434 of 679 OTUs were common to
+both groups, while 175 OTUs were unique to CPR0-L
+
+===== PAGE 11 =====
+C ui et al. Military Medical Research (2022) 9:32 Page 11 of 13
+Discussion microbiomes benefited affected individuals and health-
+COVID-19 has caused serious disease burden globally. care and promoted the recovery of COVID-19.
+Most COVID-19 patients experience a long recovery
+period after nucleic acid tests become negative. However, Strengths and limitations in this study
+few studies have evaluated the features of the oral and gut This study has several strengths. We first reported the
+microbiomes and metabonomics of these convalescents. characterization of the oral and gut microbiome and
+Therefore, this study was the first to report the character- metabonomics in a one-year convalescent of COVID-19.
+istics of the oral and gut microbiomes and metabonom- The previous study only reported six-month follow-up of
+ics in one-year convalescents. Then, we clarified the gut microbiota richness in patients with COVID-19 [38].
+dynamic alterations in the microbiome and metabonom- The particularly striking finding was those compared with
+ics during the gradual recovery of COVID-19. Finally, we patients at the time of discharge, the oral and gut micro-
+established prediction models based on the microbiome biome and metabolomics characteristics of the one-year
+and metabolites of the patients at the time of discharge to convalescents were restored to a large extent but did not
+predict the level of neutralizing antibodies one year later. completely return to normal. In addition, the predictive
+models established based on the oral and gut microbiome
+Key metabolic and microbial biomarkers promote and metabolomics of the confirmed patients at the time of
+the recovery discharge reached high efficiency in predicting their neu-
+In the context of 3PM, accurate prediction and treat- tralizing antibody levels one year later. Moreover, all con-
+ment based on key biomarkers are particularly important valescents and healthy controls were from the same region
+[24, 25]. S1P, which is a signaling molecule, exerts mul- with similar eating habits. Collectively, the results of this
+tiple functions, including regulating the cytokine storm study are relatively rigorous. This study has some limita-
+through its specific G protein-coupled receptors. S1P was tions. The prediction model for CPR1 neutralizing anti-
+significantly reduced in the peripheral blood of patients bodies based on microbiome and metabolites is the result
+with COVID-19, and lower S1P meant worse prognosis of a small sample size. Although the predictive models
+[15, 22, 26]. In this study, S1P was found to have the low- reached high efficiency, the small sample size may impact
+est level at the time of discharge and gradually increased the robustness of this model. Large sample verification was
+during the recovery process. SARS-CoV-2 infection led needed before clinical practice. Moreover, it is an observa-
+to an increase in proinflammatory cytokines and pro- tional study and cannot indicate how the key microbiome
+moted an increase in S1P in the interstitial fluid, which and metabolites promote the recovery process. Future
+in turn enhanced the secretion of cytokines in different mechanistic studies are warranted to confirm the impact
+cells, leading to a cytokine storm [27]. Anemia caused of the key microbiome and metabolites on the convales-
+by cytokine storms reduces the production of S1P [28]. cents. It is also not certain whether similar alterations are
+Additionally, the acute phase reaction in the liver led observed in convalescents in other geographical regions.
+to a decrease in negative acute-phase proteins, includ-
+Conclusions
+ing albumin and apoM, which acted as transporters to
+move S1P into the blood circulation [29, 30]. In addition, In conclusion, this study reported for the first time the
+S1P can be used as a potential modulator and therapeu- characterization of the oral and gut microbiome and meta-
+tic target for SARS-CoV-2 infection [31, 32]. Moreover, bonomics in the one-year convalescents of COVID-19. The
+in the process of disease recovery, there was a gradual key microbiome and metabolites in the process of recovery
+increase in beneficial microbes and a decrease in harm- were identified and provided new treatment ideas for accel-
+ful microbes [33, 34]. In this study, increasing S1P was erating recovery. And the predictive models based on the
+positively correlated with the abundance of some ben- microbiome and metabolomics afford new insights for pre-
+eficial microbes and negatively correlated with some dicting the recovery situation which benefited affected indi-
+harmful microbes. In the recovery process, the well- viduals and the healthcare in the context of 3PM approach.
+known probiotic Bifidobacterium gradually increased,
+and butyrate-producing Faecalibacterium also gradually
+Abbreviations
+increased in the gut microbiome. In contrast, lipopoly- COVID‑19: Coronavirus disease 2019; CPR0: Confirmed patients recover at
+saccharide (LPS)-producing Burkholderiales gradu- discharge; CPR1: Confirmed patients recover 1 year; HC: Healthy control;
+CPR0‑H: Confirmed patients who recovered at discharge with higher neutral‑
+ally decreased in the oral microbiome. The increase in
+izing antibodies 1 year later; CPR0‑L: Confirmed patients who recovered
+butyrate and Bifidobacterium and decrease in LPS could at discharge with lower neutralizing antibodies 1 year later; PCA: Principal
+accelerate the recovery of many diseases [35–37]. There- component analysis; PCoA: Principal coordinate analysis; PLS‑DA: Partial least
+squares discrimination analysis; OPLS‑DA: Orthogonal partial least squares
+fore, the increasing abundance of beneficial microbiomes
+discrimination analysis; NMDS: Nonmetric multidimensional scaling; LC–MS:
+and metabolites and the gradual decrease in harmful Liquid chromatography‑mass spectrometry; LDA: Linear discriminant analysis;
+
+===== PAGE 12 =====
+Cui et al. Military Medical Research (2022) 9:32 Page 12 of 13
+POD: Probability of disease; CI: Confidence interval; AUC : Area under the curve; Acknowledgements
+3PM: Predictive, preventive and personalized medicine; SARS‑CoV‑2: Severe We thank all the generous volunteer subjects who enrolled in the study.
+acute respiratory syndrome coronavirus 2; OTU: Operational taxonomy unit.
+Author contributions
+ZGR and ZJY designed the study. GYC, BCR, ZHZ, XMW, TR, HYW, HL, SYD, JJT,
+Supplementary Information
+ZGL and YWZ collected clinical samples. HYR and GYC extracted the bacterial
+The online version contains supplementary material available at https:// doi. DNA. HYR and CL performed MiSeq sequencing and metabolomics testing.
+org/ 10. 1186/ s40779‑ 022‑ 00387‑y. ZGR, BCR, HYW and CL analyzed the data. BCR, GYC XMW, and TR wrote the
+manuscript. All authors read and approved the final manuscript.
+Additional file 1: Consent informed and Supplementary methods
+Funding
+Additional file 2: Table S1. Clinical characteristics of participants in this This study was sponsored by grants from the National Key Research and
+study. Table S2. Level of neutralizing antibodies and IgG in the process of Development Program of China (2018YFC2000501), and National Natural Sci‑
+recovery. Table S3. Detail of the oral microbial α diversity index among ence Foundation of China (U2004121, 82070643, and U1904164).
+the three groups. Table S4. Abundance and average composition at the
+genus level and phylum level of oral microbiome in each sample among Availability of data and materials
+the three groups. Table S5. Corresponding LDA value and P‑value of The raw Illumina read data for all samples were available through the
+the biomarkers of oral microbiome among the three groups. Table S6. European Nucleotide Archive at the European Bioinformatics Institute under
+Different degree of genus and phylum level (P‑value) of oral microbiome accession number PRJNA756623.
+in each sample among the three groups. Table S7. One year later neutral‑
+izing antibody and IgG of CPR0‑L were significantly lower than those of
+CPR0‑H. Table S8. Detail of the oral microbial α diversity index between Declarations
+CPR0‑L and CPR0‑H. Table S9. Different degree of genus and phylum level
+(P‑value) of oral microbiome in each sample between CPR0‑L and CPR0‑H. Ethics approval and consent to participate
+Table S10. By random forest classifier model, the corresponding output Ethical approval for this study was granted by the Ethics Committee of the
+value of each optimal oral microbial marker and the corresponding POD First Affiliated Hospital of Zhengzhou University (2020‑KY‑055) and Guangshan
+value for each sample in CPR0‑L and CPR0‑H. Table S11. Detail of the Country People’s Hospital (2020–001). Written informed consent was collected
+gut microbial α diversity index among the three groups. Table S12. Cor‑ from each participant.
+responding LDA value and P‑value of the biomarkers of gut microbiome
+among the three groups. Table S13. Different degree of genus and phy‑ Consent for publication
+lum level (P‑value) of gut microbiome in each sample among the three Not applicable.
+groups. Table S14. Relative abundance and distribution of the key gut
+microbial OTUs between CPR1 and HC groups. Table S15. Detail of the Competing interests
+gut microbial α diversity index between CPR0‑L and CPR0‑H. Table S16. All authors declare that they have no competing interests.
+Different degree of genus and family level (P‑value) of gut microbiome
+in each sample between CPR0‑L and CPR0‑H. Table S17. By random Author details
+forest classifier model, the corresponding output value of each optimal 1 Department of Infectious Diseases, the First Affiliated Hospital of Zhengzhou
+gut microbial marker and the corresponding POD value for each sample University, Zhengzhou 450052, China. 2 Gene Hospital of Henan Province/Pre‑
+in CPR0‑L and CPR0‑H. Table S18. Raw data obtained from positive ion cision Medicine Center, the First Affiliated Hospital of Zhengzhou University,
+mode of plasma metabonomics among the three groups. Table S19. Raw Zhengzhou 450052, China. 3 Department of Infectious Diseases, Guangshan
+data obtained from negative ion mode of plasma metabonomics among County People’s Hospital, Guangshan County, Xinyang 465450, Henan, China.
+the three groups. Table S20. Abundance and average composition of 4 Department of Breast Surgery, Affiliated Cancer Hospital of Zhengzhou
+plasma metabonomics among the three groups. Table S21. Different University, Zhengzhou 450052, China. 5 Shanghai Mobio Biomedical Technol‑
+degree of family level (P‑value) of plasma metabonomics among the ogy Co., Ltd, Shanghai 201111, China. 6 Health Management Center, the First
+three groups. Table S22. Correlation between 204 different metabolites Affiliated Hospital of Zhengzhou University, Zhengzhou 450052, China.
+from CPR1s and CPR0s. Table S23. Correlation between 216 different
+metabolites from CPR1s and HCs. Table S24. Raw data obtained from Received: 10 December 2021 Accepted: 26 May 2022
+positive ion mode of plasma metabonomics between CPR0‑L and CPR0‑
+H. Table S25. Raw data obtained from negative ion mode of plasma
+metabonomics between CPR0‑L and CPR0‑H. Table S26. Abundance
+and average composition of plasma metabonomics between CPR0‑L and
+CPR0‑H. Table S27. Different degree of family level (P‑value) of plasma References
+metabonomics between CPR0‑L and CPR0‑H. Table S28. By random forest 1. Organization WH. Coronavirus disease (COVID‑19) Weekly epidemiologi‑
+classifier model, the corresponding output value of each optimal metabo‑ cal update and Weekly operational update, 2020. Available: https:// www.
+lites’ marker and the corresponding POD value for each sample in CPR0‑L who. int/ emerg encies/ disea ses/ novel‑ coron avirus‑ 2019/ situa tion‑ repor
+and CPR0‑H. Table S29. Correlation in the gradual recovery process from ts/. 2020.
+CPR0 to CPR1 to HC. Table S30. Correlation in gut and oral microbiome 2. O’Dowd A. Covid‑19: third of people infected have long term symptoms.
+and plasma metabonomics and clinical indicators between CPR1 and HC. BMJ. 2021;373: n1626.
+3. Nehme M, Braillard O, Chappuis F, Courvoisier DS, Guessous I. CoviCare
+Additional file 3: Fig. S1. Gradual recovery of the oral microbiome. Fig.
+study team. Prevalence of symptoms more than seven months after diag‑
+S2. Noninvasive prediction model for CPR1 neutralizing antibodies based
+nosis of symptomatic COVID‑19 in an outpatient setting. Ann Intern Med.
+on the oral microbiome. Fig. S3. Gradual recovery of the gut microbiome.
+2021;174(9):1252–60.
+Fig. S4. Noninvasive prediction model for CPR1 neutralizing antibodies
+4. Blomberg B, Mohn KG, Brokstad KA, Zhou F, Linchausen DW, Hansen BA,
+based on the gut microbiome. Fig. S5. Correlation between 204 different
+et al. Long COVID in a prospective cohort of home‑isolated patients. Nat
+metabolites from CPR1 and CPR0 was identified. Fig. S6. Correlation
+Med. 2021;27(9):1607–13.
+between 216 different metabolites from CPR1 and HC was figured out.
+5. Osmanov IM, Spiridonova E, Bobkova P, Gamirova A, Shikhaleva A,
+Fig. S7. Noninvasive prediction model for CPR1 neutralizing antibod‑
+Andreeva M, et al. Risk factors for post‑COVID‑19 condition in previ‑
+ies based on plasma metabolomics. Fig. S8. Correlation in gut and oral
+ously hospitalised children using the ISARIC Global follow‑up protocol: a
+microbiome and plasma metabonomics and clinical indicators between
+prospective cohort study. Eur Respir J. 2022;59(2):2101341.
+CPR1 and HC.
+
+===== PAGE 13 =====
+C ui et al. Military Medical Research (2022) 9:32 Page 13 of 13
+6. Huang C, Huang L, Wang Y, Li X, Ren L, Gu X, et al. 6‑month consequences 29. Streetz KL, Wüstefeld T, Klein C, Manns MP, Trautwein C. Mediators of
+of COVID‑19 in patients discharged from hospital: a cohort study. Lancet. inflammation and acute phase response in the liver. Cell Mol Biol (Noisy‑
+2021;397(10270):220–32. le‑grnd). 2021;47(4):661–73.
+7. Wang W, Yan Y, Guo Z, Hou H, Garcia M, Tan X, et al. All around suboptimal 30. Christensen PM, Bosteen MH, Hajny S, Nielsen LB, Christoffersen C. Apoli‑
+health‑a joint position paper of the suboptimal health study consortium poprotein M mediates sphingosine‑1‑phosphate efflux from erythro‑
+and European Association for predictive preventive and personalised cytes. Sci Rep. 2017;7(1):14983.
+medicine. EPMA J. 2021;12(4):403–33. 31. McGowan EM, Haddadi N, Nassif NT, Lin Y. Targeting the SphK‑S1P‑SIPR
+8. Wang LY, Cui JJ, Ouyang QY, Zhan Y, Wang YM, Xu XY, et al. Complex pathway as a potential therapeutic approach for COVID‑19. Int J Mol Sci.
+analysis of the personalized pharmacotherapy in the management of 2020;21(19):7189.
+COVID‑19 patients and suggestions for applications of predictive, preven‑ 32. Törnquist K, Asghar MY, Srinivasan V, Korhonen L, Lindholm D. Sphin‑
+tive, and personalized medicine attitude. EPMA J. 2021;12(3):307–24. golipids as modulators of SARS‑CoV‑2 infection. Front Cell Dev Biol.
+9. Ren Z, Wang H, Cui G, Lu H, Wang L, Luo H, et al. Alterations in the 2021;9: 689854.
+human oral and gut microbiomes and lipidomics in COVID‑19. Gut. 33. Zhang X, Zhang D, Jia H, Feng Q, Wang D, Liang D, et al. The oral and gut
+2021;70(7):1253–65. microbiomes are perturbed in rheumatoid arthritis and partly normalized
+10. Yeoh YK, Zuo T, Lui GC, Zhang F, Liu Q, Li AY, et al. Gut microbiota compo‑ after treatment. Nat Med. 2015;21(8):895–905.
+sition reflects disease severity and dysfunctional immune responses in 34. Chen C, Hemme C, Beleno J, Shi ZJ, Ning D, Qin Y, et al. Oral microbiota
+patients with COVID‑19. Gut. 2021;70(4):698–706. of periodontal health and disease and their changes after nonsurgical
+11. Zuo T, Zhang F, Lui GCY, Yeoh YK, Li AYL, Zhan H, et al. Alterations in gut periodontal therapy. ISME J. 2018;12(5):1210–24.
+microbiota of patients with COVID‑19 during time of hospitalization. 35. Sanders ME, Merenstein DJ, Reid G, Gibson GR, Rastall RA. Probiotics and
+Gastroenterology. 2020;159(3):944‑55.e8. prebiotics in intestinal health and disease: from biology to the clinic. Nat
+12. Weiss RH, Kim K. Metabolomics in the study of kidney diseases. Nat Rev Rev Gastroenterol Hepatol. 2019;16(10):605–16.
+Nephrol. 2011;8(1):22–33. 36. Sanna S, van Zuydam NR, Mahajan A, Kurilshikov A, Vich Vila A, Vosa U,
+13. Beyoğlu D, Idle JR. The metabolomic window into hepatobiliary disease. J et al. Causal relationships among the gut microbiome, short‑chain fatty
+Hepatol. 2013;59(4):842–58. acids and metabolic diseases. Nat Genet. 2019;51(4):600–5.
+14. Ussher JR, Elmariah S, Gerszten RE, Dyck JR. The emerging role of metabo‑ 37. Fan Y, Pedersen O. Gut microbiota in human metabolic health and dis‑
+lomics in the diagnosis and prognosis of cardiovascular disease. J Am Coll ease. Nat Rev Microbiol. 2021;19(1):55–71.
+Cardiol. 2016;68(25):2850–70. 38. Chen Y, Gu S, Chen Y, Lu H, Shi D, Guo J, et al. Six‑month follow‑up of gut
+15. Shen B, Yi X, Sun Y, Bi X, Du J, Zhang C, et al. Proteomic and metabolomic microbiota richness in patients with COVID‑19. Gut. 2022;71(1):222–5.
+characterization of COVID‑19 patient sera. Cell. 2020;182(1):59‑72.e15.
+16. Song JW, Lam SM, Fan X, Cao WJ, Wang SY, Tian H, et al. Omics‑driven sys‑
+tems interrogation of metabolic dysregulation in COVID‑19 pathogenesis.
+Cell Metab. 2020;32(2):188‑202.e5.
+17. Ren Z, Li A, Jiang J, Zhou L, Yu Z, Lu H, et al. Gut microbiome analysis as
+a tool towards targeted non‑invasive biomarkers for early hepatocellular
+carcinoma. Gut. 2019;68(6):1014–23.
+18. Edgar RC. UPARSE: highly accurate OTU sequences from microbial ampli‑
+con reads. Nat Methods. 2013;10(10):996–8.
+19. Wang Q, Garrity GM, Tiedje JM, Cole JR. Naive Bayesian classifier for rapid
+assignment of rRNA sequences into the new bacterial taxonomy. Appl
+Environ Microbiol. 2007;73(16):5261–7.
+20. Tan CW, Chia WN, Qin X, Liu P, Chen MI, Tiu C, et al. A SARS‑CoV‑2
+surrogate virus neutralization test based on antibody‑mediated
+blockage of ACE2‑spike protein‑protein interaction. Nat Biotechnol.
+2020;38(9):1073–8.
+21. Qian C, Zhou M, Cheng F, Lin X, Gong Y, Xie X, et al. Development and
+multicenter performance evaluation of fully automated SARS‑CoV‑2 IgM
+and IgG immunoassays. Clin Chem Lab Med. 2020;58(9):1601–7.
+22. Marfia G, Navone S, Guarnaccia L, Campanella R, Mondoni M, Locatelli M,
+et al. Decreased serum level of sphingosine‑1‑phosphate: a novel predic‑
+tor of clinical severity in COVID‑19. EMBO Mol Med. 2021;13(1): e13424.
+23. Frost F, Kacprowski T, Rühlemann M, Pietzner M, Bang C, Franke A, et al.
+Long‑term instability of the intestinal microbiome is associated with
+metabolic liver disease, low microbiota diversity, diabetes mellitus and
+impaired exocrine pancreatic function. Gut. 2021;70(3):522–30.
+24. Tachalov VV, Orekhova LY, Kudryavtseva TV, Loboda ES, Pachkoriia MG,
+Berezkina IV, et al. Making a complex dental care tailored to the person:
+population health in focus of predictive, preventive and personalised (3P)
+medical approach. EPMA J. 2021;12(2):129–40. RReeaaddyy ttoo ssuubbmmiitt yyoouurr rreesseeaarrcchh ?? CChhoooossee BBMMCC aanndd bbeenneeffiitt ffrroomm::
+25. Zhan X, Li J, Guo Y, Golubnitschaja O. Mass spectrometry analysis of
+• fast, convenient online submission
+human tear fluid biomarkers specific for ocular and systemic diseases in
+the context of 3P medicine. EPMA J. 2021;12(4):449–75. • thorough peer review by experienced rese archers in your field
+26. Rosen H, Oldstone MBA. The riddle of the Sphinx: why sphingosine‑ • rapid publication on acceptance
+1‑phosphate may help define molecular mechanisms underlying risk
+• support for research data, including large and complex data types
+stratification for serious COVID‑19 infections. EMBO Mol Med. 2021;13(1):
+e13533. • gold Open Access which fosters wider collaboration and increased citations
+27. Huang C, Wang Y, Li X, Ren L, Zhao J, Hu Y, et al. Clinical features of • maximum visibility for your research: over 100M website views per year
+patients infected with 2019 novel coronavirus in Wuhan. China Lancet.
+2020;395(10223):497–506. At BMC, research is always in progress.
+28. Hänel P, Andréani P, Gräler MH. Erythrocytes store and release sphingo‑
+sine 1‑phosphate in blood. FASEB J. 2007;21(4):1202–9. Learn more biomedcentral.com/submissions
+

@@ -1,0 +1,291 @@
+---
+title: "R Notebook: Metadata Processing Workflow"
+output: github_document
+---
+
+# Step 1: Obtain Initial Metadata from Each Project
+
+This step sets the project directory and loads the raw SRA metadata.
+
+```{r message=FALSE, warning=FALSE}
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(cowplot)
+
+# (1) Setting working directory
+project_id <- "PRJDB9395"
+
+base_dir <- "E:/工作区/VSCode/RNAproject/collect_metadata_respon/project"
+setwd(file.path(base_dir, project_id))
+
+# (2) Loading raw SRA metadata file
+sra_file <- "SraRunTable.csv"
+initial_meta <- read.csv(sra_file, header = TRUE, stringsAsFactors = FALSE)
+```
+
+# Step 2: Data Overview
+
+First, you need to get an overview of the data, which includes two steps: reading the article and reading the initial metadata. This step is very IMPORTANT!
+
+```{r message=FALSE, warning=FALSE}
+# (1) Read the article in the following order: abstract, the beginning of the results section, and the methods.
+# Paper summary used for this project:
+# - Title: Discriminating Microbial Community Structure Between Peri-Implantitis and Periodontitis With Integrated Metagenomic, Metatranscriptomic, and Network Analysis
+# - Study design: paired within-subject oral disease comparison between peri-implantitis and periodontitis sites
+# - The paper text reports 21 recruited subjects with both diseases in the same oral cavity, but the deposited 16S SRA table contains 46 rows with 23 repeated numeric subject stems; row-level age/sex cannot be assigned confidently from the available files
+# - Sampling site in Methods: subgingival plaque from periodontitis teeth and peri-implantitis-affected implants
+# - Sequencing from Methods: 16S rDNA sequencing on Illumina MiSeq using 2 x 300 bp paired-end reads targeting the V3-V4 hypervariable region
+# - The accessible Methods text does not explicitly state the PCR primer names
+# - This curation covers the deposited 16S dataset only, not the metagenomic or metatranscriptomic subsets discussed elsewhere in the paper
+
+# (2) IMPORTANT: MUST go through each column of initial_meta
+head(initial_meta, 10)
+colnames(initial_meta)
+table(initial_meta$Sample_name)
+table(initial_meta$geo_loc_name_country)
+table(initial_meta$HOST)
+table(initial_meta$Instrument)
+table(initial_meta$LibrarySource)
+table(sub("(PI|PT)$", "", initial_meta$Sample_name))
+# All deposited rows are human oral samples from Japan.
+# Sample_name encodes paired disease-site labels: PI = peri-implantitis, PT = periodontitis.
+# The repeated numeric stems indicate matched paired samples across the two diseases.
+```
+
+# Step 3: Removing Control and Non-human Samples
+
+First, we need to remove control samples(including both negative controls and positive controls) and non-human samples.
+
+```{r}
+# (1) Parameter setup
+control_column <- ""
+control_keywords <- c()
+
+species_column <- "HOST"
+unique(initial_meta[[species_column]])
+non_human_keywords <- c()
+
+# (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
+n_samples <- nrow(initial_meta)
+# Control evaluation
+if (length(control_keywords) > 0) {
+  if (is.null(control_column) || control_column == "") {
+    stop("Error: control_keywords provided but control_column is missing.")
+  }
+
+  if (!(control_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+  }
+
+  control_pattern <- paste(control_keywords, collapse = "|")
+  control_text <- initial_meta[[control_column]]
+  is_control <- grepl(control_pattern, control_text)
+
+} else {
+  is_control <- rep(FALSE, n_samples)
+}
+
+# Non-human evaluation
+if (length(non_human_keywords) > 0) {
+  if (is.null(species_column) || species_column == "") {
+    stop("Error: non_human_keywords provided but species_column is missing.")
+  }
+
+  if (!(species_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
+  }
+
+  non_human_pattern <- paste(non_human_keywords, collapse = "|")
+  species_text <- initial_meta[[species_column]]
+  is_non_human <- grepl(non_human_pattern, species_text)
+} else {
+  is_non_human <- rep(FALSE, n_samples)
+}
+
+# Execute removal
+samples_to_remove <- is_control | is_non_human
+initial_meta <- initial_meta[!samples_to_remove, ]
+
+cat("Initial samples counts:", n_samples, "\n")
+cat("Removed control samples:", sum(is_control), "\n")
+cat("Removed non-human samples:", sum(is_non_human), "\n")
+cat("Total samples removed ", sum(samples_to_remove), "\n")
+cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
+```
+
+# Step 4: Creating a Uniform Metadata Template
+
+This step converts the raw SRA table into the standard metadata format used in our meta-analysis.
+
+```{r}
+subject_id <- sub("(PI|PT)$", "", initial_meta$Sample_name)
+
+metadata <- data.frame(
+  bioproject = initial_meta$BioProject,
+  sample_id = initial_meta$Run,
+  subject_id = subject_id,
+  age = NA_real_,
+  age_info = "older adults; paper reports 67.2 ± 7.8 years for the recruited cohort",
+  bmi = NA_real_,
+  sex = NA_character_,
+  sequencing_region = "V3-V4",
+  platform = "Illumina MiSeq",
+  country = initial_meta$geo_loc_name_country,
+  raw_status = initial_meta$Sample_name,
+  site = "pending",
+  site_group = "pending",
+  public_time = sub("T.*$", "", initial_meta$ReleaseDate),
+  pcr_primers = NA_character_,
+  title = "Discriminating Microbial Community Structure Between Peri-Implantitis and Periodontitis With Integrated Metagenomic, Metatranscriptomic, and Network Analysis",
+  disease_study = "yes",
+  status = "pending",
+  matched_samples = "pending",
+  is_time_series = "no",
+  stringsAsFactors = FALSE
+)
+
+# Source notes for non-obvious fields:
+# - subject_id is derived from the numeric stem of Sample_name, removing the PI/PT suffix.
+# - age is left NA because the paper reports only cohort-level summary age and the deposited 16S table does not provide a confident row-level age mapping.
+# - sex is left NA because only cohort-level sex counts are available in the paper and cannot be assigned safely to the deposited rows.
+# - sequencing_region and platform come from the Methods section, not from SRA.
+# - site is derived from the disease-specific source structure: peri-implantitis samples come from the implant sulcus and periodontitis samples come from the periodontal pocket.
+# - pcr_primers remains NA because the accessible Methods text describes the V3-V4 protocol but does not explicitly name the primer pair.
+# - raw_status preserves the original PI/PT suffix so disease labels can be mapped conservatively.
+metadata$public_time <- as.Date(metadata$public_time)
+```
+
+# Step 5: Manually solving pending issues
+
+This step involves two parts: (1) handle the columns with the `raw_` prefix, and next (2) handle the `site_group` and `matched_samples` columns.
+
+```{r}
+# (1) Handle the columns with the `raw_` prefix.
+metadata <- metadata %>%
+  mutate(
+    status = case_when(
+      grepl("PI$", raw_status) ~ "peri-implantitis",
+      grepl("PT$", raw_status) ~ "periodontitis",
+      TRUE ~ NA_character_
+    ),
+    site = case_when(
+      status == "peri-implantitis" ~ "implant sulcus",
+      status == "periodontitis" ~ "periodontal pocket",
+      TRUE ~ NA_character_
+    )
+  )
+```
+
+```{r}
+# (2) Filling the 'site_group' and 'matched_samples' columns
+unique(metadata$site)
+Oral_site = c("implant sulcus", "periodontal pocket")
+Gut_site = c("feces")
+
+metadata <- metadata %>%
+  mutate(site_group = case_when(
+    site %in% Oral_site ~ "oral",
+    site %in% Gut_site ~ "gut",
+    TRUE ~ "other"
+  ))
+
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+  "yes",
+  "no"
+)
+# The same subject stem appears once with PI and once with PT in the deposited 16S table, so these are matched disease-site pairs rather than longitudinal samples.
+```
+
+```{r}
+# (3) check if there is pending value in metadata. If there is pending value, go on modify the metadata.
+has_pending <- function(col) {
+  if (is.character(col) || is.factor(col)) {
+    any(col == "pending", na.rm = TRUE)
+  } else {
+    FALSE
+  }
+}
+
+any_pending_value <- any(sapply(metadata, has_pending))
+
+if (!any_pending_value) {
+  message("Good! No cell contains the value 'pending'.")
+} else {
+  pending_cols <- names(metadata)[sapply(metadata, has_pending)]
+  message("Columns containing 'pending': ", paste(pending_cols, collapse = ", "))
+  message("Please continue to resolve these pending columns!")
+}
+```
+
+# Step 6: Visualize the Metadata
+
+This step makes a quick set of plots for checking the distribution of key metadata fields.
+
+```{r}
+plot_data <- metadata %>%
+  select(-bioproject, -sample_id, -subject_id, -title, -raw_status)
+
+create_simple_plots <- function(data) {
+  plots <- list()
+  continuous_vars <- c("age", "bmi")
+
+  for (col in colnames(data)) {
+    if (all(is.na(data[[col]]))) {
+      p <- ggplot() +
+        annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
+        labs(title = col) +
+        theme_void()
+    } else if (col %in% continuous_vars && is.numeric(data[[col]])) {
+      p <- ggplot(data, aes(x = .data[[col]])) +
+        geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
+        labs(title = col, x = col, y = "Count") +
+        theme_minimal()
+    } else {
+      count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
+      p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
+        geom_col(fill = "red", alpha = 0.6) +
+        labs(title = col, x = NULL, y = "Count") +
+        theme_minimal() +
+        theme(axis.text.x = element_text(angle = 15, hjust = 1))
+    }
+    plots[[col]] <- p
+  }
+
+  return(plots)
+}
+
+plots <- create_simple_plots(plot_data)
+p <- plot_grid(plots$age,
+               plots$bmi,
+               plots$sex,
+               plots$site,
+               plots$site_group,
+               plots$sequencing_region,
+               plots$platform,
+               plots$country,
+               plots$status,
+               plots$matched_samples,
+               ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+```
+
+```{r}
+knitr::include_graphics("Metadata_Summary.png")
+```
+
+# Step 7: Sort and export the metadata
+
+This step saves the cleaned metadata table as the final `metadata_v2.csv` file.
+
+```{r}
+fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
+                "country", "site", "site_group", "disease_study", "status",
+                "title", "public_time", "matched_samples", "is_time_series")
+metadata <- metadata %>%
+  select(all_of(fixed_cols), starts_with("raw_"))
+
+write.csv(metadata, file = "metadata_v2.csv", quote = TRUE, row.names = FALSE)
+```

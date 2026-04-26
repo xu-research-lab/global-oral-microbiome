@@ -1,0 +1,17 @@
+patient_id,age,gender,race,hiv_status,past_medical_history,plaque_score,medications,oral_pathology,cd4_percent,cd4_absolute_count_cells_per_mm3,viral_load_copies_per_ml
+1,13,Male,African American,HIV/B1,None,Poor,"LPV/r; TDF; ZDV",None,40,770,Undetectable
+2,13,Female,African American,HIV/C3,None,Fair,"d4T; NFV; DDI",None,60,1200,<100
+3,12,Male,African American,HIV,None,Poor,"LPV/r; 3TC; ZDV",LGE,30,530,Undetectable
+4,10,Female,African American,HIV/B3,None,Poor,"ABC/3TC; EFV; TMP/SMX",None,30,370,<100
+6,15,Male,African American,HIV/B3,None,Fair,"LPV/r; TDF; d4T",None,30,350,<100
+7,15,Female,African American,HIV/B2,None,Fair,"d4T; ABC; LPV/r",None,20,620,<150
+8,13,Male,African American,HIV,Asthma,Fair,Unknown,Unknown,Unknown,Unknown,Unknown
+9,14,Female,Native American,HIV/N1,None,Poor,"NVP; ABC; d4T",None,36,1930,Undetectable
+11,17,Female,African American,HIV/C3,None,Fair,"EFV/FTC/TDF",None,40,760,Undetectable
+12,5,Female,African American,HIV,None,Fair,"ZDV; 3TC; NVP",None,40,1970,Undetectable
+13,12,Female,African American,HIV/B2,None,Fair,NVP,None,20,380,<1500
+10,10,Male,African American,Neg.,None,Fair,None,None,N/A,N/A,N/A
+14,12,Male,White,Neg.,None,Fair,None,None,N/A,N/A,N/A
+15,16,Female,White,Neg.,None,Good,None,None,N/A,N/A,N/A
+16,8,Female,African American,Neg.,None,Fair,None,None,N/A,N/A,N/A
+17,4,Female,African American,Neg.,None,Good,None,None,N/A,N/A,N/A

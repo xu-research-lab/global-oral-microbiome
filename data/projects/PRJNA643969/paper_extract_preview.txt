@@ -1,0 +1,320 @@
+pages	13
+metadata	{'ModDate': "D:20211125091910+05'30'", 'Creator': 'Arbortext Advanced Print Publisher 11.0.3433/W Unicode', 'CreationDate': "D:20211124194813-08'00'", 'Producer': 'PDFlib+PDI 9.0.3p4 (C++/Win32)', 'Title': 'DMSO_A_325073 4641..4653', 'EPSprocessor': 'PStill version 1.84.36'}
+
+=== PAGE 1 ===
+Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy Dovepress
+open access to scientific and medical research
+Open Access Full Text Article ORIGINAL RESEARCH
+Dysbiosis of the Salivary Microbiome is
+Associated with Hypertension and Correlated
+with Metabolic Syndrome Biomarkers
+Muhammad U Sohail1 Background: Hypertension (HT) is an idiopathic disease with severe complications and
+Lars Hedin2 a high incidence of global mortality. Although the disease shares characteristic features with
+Maha Al-Asmakh 3–5 diabetes and obesity, the complex interplay of endogenous and environmental factors is not
+well characterized. The oral microbiome has recently been studied to better understand the
+1Proteomics Core, Weill Cornell role of commensal microorganisms in metabolic disorders, including HT, although its role in
+Medicine-Qatar, Doha, Qatar; 2The Royal
+Norwegian Ministry of Health and Care disease etiology is unclear.
+Services, Molde Kommune, 6413, Methods: To bridge this gap, we compared the oral microbiome and clinical chemistry of
+Norway; 3Department of Biomedical
+adult subjects enrolled at Qatar Biobank. Clinical chemistry was performed using Roche Science, College of Health Sciences, QU
+Health, Qatar University, Doha, 2713, Cobas-6000 analyzer. Saliva samples were subjected to 16S rRNA sequencing using Illumina
+Qatar; 4Biomedical Research Center,
+MiSeq platform. Cross-gender comparisons were made between control (males/females)
+Qatar University, Doha, 2713, Qatar;
+5Biomedical and Pharmaceutical Research (C-M and C-F) and HT (HT-M and HT-F) groups.
+Unit, QU Health, Qatar University, Doha, Results: The HT groups had higher (p ≤ 0.05) BMI, plasma glucose, insulin, C-peptide, and
+Qatar
+alkaline phosphatase (ALP) concentrations. Triglycerides, cholesterol, LDL-cholesterol, and
+sodium ions were similar among the groups. The microbiome was predominantly occupied
+by Firmicutes, Bacteroidetes, Proteobacteria, and Actinobacteria. Firmicutes were higher
+(p ≤ 0.05) in the HT groups, whereas Proteobacteria was only higher in the C-F group.
+Prevotella and Veillonella were significantly higher in the HT groups and exhibited a positive
+correlation with blood pressure and hyperglycemia. In contrast to other studies, the mathe-
+matical summation of priori-select microbes reveals that nitrate-reducing microbes were
+higher in the HT groups compared with the controls.
+Conclusion: In conclusion, these observations suggest a strong association of HT with
+microbial dysbiosis, where microbial species other than nitrate-reducing microbes contribute
+to blood pressure regulation. The findings affirm plausible microbial signatures of hyperten-
+sion and suggest manipulating these microbes as a novel treatment modality. Future experi-
+ments are warranted for the mechanistic investigation of hypertension metagenomics and
+microbial activity.
+Keywords: hypertension, salivary microbiome, Qatar Biobank, lipid profile, Prevotella,
+Veillonella
+Introduction
+Hypertension (HT) is one of the leading causes of global morbidity and mortality.
+The disease contributes to several metabolic and cardiovascular complications and
+bears the greatest disease burden in terms of lost years of life with disability.1
+Correspondence: Maha Al-Asmakh
+Tel +974 4403 4789 Hypertension is a major risk factor for stroke, heart failure, retinopathy, nephro-
+Fax +974-4403-1351
+Email maha.alasmakh@qu.edu.qa pathy, and peripheral vascular diseases.2 About 34% of deaths in the United States
+Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy 2021:14 4641–4653 4641
+Received: 16 June 2021 © 2021 Sohail et al. This work is published by Dove Medical Press Limited, and licensed under a Creative Commons Attribution License. The full terms of the License are
+Accepted: 4 September 2021 available at http://creativecommons.org/licenses/by/4.0/. The license permits unrestricted use, distribution, and reproduction in any medium, provided the original author
+Published: 25 November 2021 and source are credited.
+/moc.sserpevod.www//:sptth
+morf
+dedaolnwod
+ytisebO
+dna
+emordnyS
+cilobateM
+,setebaiD
+.ylno
+esu
+lanosrep
+roF
+
+=== PAGE 2 ===
+Sohail et al Dovepress
+were associated with HT during the past decade.3 The Few studies have recently explored the oral micro-
+Qatar STEPwise survey4 reports a 32.9% prevalence rate biome of hypertensive subjects and suggested a wide
+of HT among the Qatari population. The disease has sev- range of possible microbes that may contribute to the
+eral fixed (age, sex, and ethnicity) and modifiable (smok- pathogenesis of hypertension.18–22 To further expand this
+ing, inactive lifestyle, obesity, and diet) risk factors. knowledge, we examined the salivary microbiome, clinical
+Although significant lifestyle modifications and intensive chemistry, and BP in Qatari adults enrolled at Qatar
+therapeutic interventions are applied, only two-thirds of Biobank (QBB). While corroborating previous evidence
+the patients manage to control their blood pressure (BP) on the microbial dysbiosis in HT, our findings are targeted
+when prescribed three or more medications, while the rest to unveil characteristic microbial signature that potentially
+develop a treatment-resistant HT stage.1 In particular, HT links HBP with hyperglycemia and dyslipidemia.
+is associated with diabetes and obesity, which may lead to
+a treatment-resistant state due to associated vascular and Materials and Methods
+renal damage. Precise control and treatment interventions
+Study Cohort
+are immediately required, especially for the resistance
+Qatar Biobank (QBB) is a large-scale health initiative to
+stage, but so far, the exact etiology and pathogenesis of
+provide biological samples and population data to scien-
+HT are not fully understood.
+tists for research support to guide healthcare strategies for
+The emerging evidence highlights the significance of
+effective prevention of diseases and the development of
+commensal microbial communities that densely inhabit
+new treatments (https://www.qatarbiobank.org.qa/).23 At
+our mucosal surfaces and affect several physiological
+QBB, out of 13,800 registered participants, 2277 (16.5%)
+traits.5,6 These microbes virtually out-number our body
+subjects have self-reported high blood pressure (HBP),
+cells and carry more genetic material. In brief, literature
+clinically diagnosed diabetes (15.5%), and obesity (44%).
+depicts how these microbes contribute to the host meta-
+In the current study, ninety-six subjects (53 females and 43
+bolic, immunologic, neurologic, and endocrine
+males), aged 30–60 years (mean 47.5), were divided into
+homeostasis.7,8 Furthermore, these microbial taxa, such
+HT (N = 56) and healthy control (Con; N = 40) groups.
+as Streptococcus salivarius produce bacteriocins to pre-
+The HT subjects self-reported clinical history of HBP
+vent the growth of Gram-negative bacteria, responsible for
+(systolic BP ≥ 140 mmHg and diastolic ≥ 90 mmHg)
+halitosis and periodontitis.9 Notably, certain microbes are
+and the regular use of antihypertensive medication. Three
+involved in reducing nitrate to nitrite and subsequently
+measurements for pulse rates, systolic and diastolic BP
+contributing to nitric oxide synthesis, which is
+were taken at random intervals from each participant dur-
+a powerful vasodilator.10–13 A recent microbiome
+ing their visit. Their height and weight were also mea-
+research-call by National Heart, Lung, and Blood
+sured. Information on general health, disease history,
+Institute (NHLBI, 2017) highlights the role of the oral medication, feeding habits, and smoking was collected
+microbiome in HT development and BP management.6 on a designed questionnaire. Out of 96 subjects, only 35
+Impaired production of nitric oxide due to the absence of (HT = 20, Con = 15) mentioned mouth ulcers, toothache,
+nitrate reductase microbial enzymes is suggested to be an loose teeth, gums pain, or bleeding during the past twelve
+important factor in the pathogenesis of HT.14 Oral infec- months. Data for these oral conditions were summed up
+tions, glucose intolerance, and insulin resistance study and referred to as oral health. Furthermore, for micro-
+(ORIGINS) developed a list of nitrate-reducing taxa that biome analysis, the Con and HT groups were divided
+actively participate in the entero-salivary nitrate-nitrite- into Males (C-M, HT-M) and Females (C-F, HT-F).
+NO pathway.15 Contrary to this, suppression of oral micro- Smoking, antibiotic use, fast food consumption, and
+biota by extensive antiseptic mouth-wash or antibiotics dairy product use were all recorded and scaled from 1 to
+may cause high BP (HBP).16 The oral microbiome is 5, with the lowest or no consumption of a product being
+a dynamic microbial community that changes significantly rated as 1 and the greatest consumption being measured as
+with the host lifestyle and dietary habits. Therefore, the 5.8 Data for clinical chemistry measurements of enzymes,
+therapeutic approaches to recolonize specific bacterial metabolites, hormones, and minerals were obtained
+clades, associated with nitrate reduction, are suggested (Figures 1 and 2) from QBB. Saliva samples (50 μL)
+for the man
+
+=== PAGE 3 ===
+Dovepress Sohail et al
+Figure 1 Blood pressure, pulse rate, BMI and clinical chemistry profile of the study cohort. Box and whisker plots show mean, median, and standard error for each group.
+Small black dots above the boxes show outlier samples in each group. Statistical comparisons between the groups were made using Kruskal Wallis ANOVA. Asterisks in each
+box indicate the corrected P-value; ***≤ 0.001 and *≤ 0.05. Dissimilar superscripts (a and b) above each bar show statistical differences among the groups.
+into sterile tubes and immediately frozen at −80°C. These and metabolites, as described previously.23,24 HOMA-IR
+saliva samples were used for microbiome analysis. All the (Homeostatic Model Assessment for Insulin Resistance)
+participants enrolled in this study signed an informed was calculated using following equation:
+consent form to use their data and biological samples as HOMA-IR (= (FPI × FPG)/22.5
+anonymous volunteers. The study was approved by the FPI is fasting plasma insulin concentration (mU/L),
+QBB institutional review board (IRB) (E-2019-RES-ACC and FPG is fasting plasma glucose (mmol/L).
+-0134-0079) and Qatar University IRB (QU IRB 1127-EA
+/19). During the laboratory and data analysis, the research Saliva Microbiome Analysis
+team followed research ethics, moral and biosafety guide- Saliva samples were transported on ice from QBB to Qatar
+lines according to the regulation by Qatar University, and University. Saliva samples were subjected to DNA extrac-
+maintained participants’ anonymity. tion using a commercially available DNA extraction kit
+(QIAamp DNA Mini Kit, 51306, MD, USA). The concen-
+Clinical Chemistry tration and quality of the DNA were measured using
+All the participants provided blood samples in EDTA- Qubit-4 (Life Technologies, Carlsbad, California, US)
+coated tubes (Cat# 362788; BD, ON, Canada). Blood and NanoDrop-2000 (Thermo Fisher Scientific, Waltham
+was subjected to plasma extraction by centrifuging blood Massachusetts, US). Purified DNA samples were subjected
+at 1300 g for 10 minutes at room temperature. Plasma to PCR amplification using 16S rRNA V3, V4 primer pair
+samples were transported on ice to Hamad Medical (337F/805R).25 Fragment length of PCR products was
+Corporation (HMC) diagnostic laboratory for clinical ana- measured using Agilent 2100 bioanalyzer (Agilent
+lysis measurements. Cobas 6000 analyzer (Roche Technologies, Palo Alto, CA, US). PCR products were
+Diagnostics) was used for measuring enzymes, hormones, washed using magnetic beads (Agencourt Ampure XP
+Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy 2021:14 https://doi.org/10.2147/DMSO.S325073 4 6 4 3
+DovePress
+PPoowweerreedd bbyy TTCCPPDDFF ((wwwwww..ttccppddff..oorrgg))
+
+=== PAGE 4 ===
+Sohail et al Dovepress
+Figure 2 Plasma concentrations of different metabolites and enzymes of the study cohort. Box and whisker plots show mean, median, and standard error for each group.
+Small black dots above the boxes show outlier samples in each group. Statistical comparisons between the groups were made using Kruskal Wallis ANOVA. Asterisks in each
+box indicate the corrected P-value; ***≤ 0.001. Dissimilar superscripts (a and b) above each bar show statistical differences among the groups.
+beads, A63881, Beckman) and subjected to another PCR Taxonomic classification was performed using Silva 132
+reaction to add of indexes in the amplicons using Illumina (99% OTUs full-length sequences) as a reference database.
+Nextera XT index kit V2 (FC-131-2001). Finally, all
+libraries were pooled and denatured before loading them Microbiome Hypertension Index
+in the Illumina MiSeq Cartridge. Sequencing was per-
+An extensive literature review was conducted to identify
+formed on Illumina MiSeq instrument using MiSeq
+microbes that are known for their nitrate-reducing
+reagent kit V3 (600 cycles, MS-102-3003). capacities.15,21,29 Population proportions of the priori–
+selected taxa with nitrate-reducing capacity were summed
+Bioinformatics Analysis to predict hypertension (nitrate reducer) index.15
+The MiSeq run’s output was printed in MiSeq reporter
+software in the form of FASTA and FASTQ files. Statistical Analysis
+FASTQ raw data files were used for subsequent bioinfor- The clinical chemistry data were presented as mean ±
+matics analysis using the QIIME2 pipeline.26 Different standard deviation. Kruskal–Wallis (KW) one-way
+plugins available in QIIME2 were used for quality- ANOVA was used to compare differences among the
+control, annotation, assembly, alignment, and statistical study groups. Microbiome diversity analysis was per-
+analysis. In brief, FASTX-toolkit was used to remove formed at 7234 sequencing depth. Alpha diversity analysis
+chimeras and low-quality reads from the data. Thereafter, was performed using the faith_PD index, and the KW test
+FeatureTable [Frequency] and FeatureData [Sequence] was used to compare differences in alpha diversity
+were generated using DADA2 plugin.27 Taxonomy classi- between the groups. Beta diversity analysis was performed
+fication of bacterial 16S rRNA marker-gene was per- using a weighted_unifrac distance metric, and the relative
+formed using VSEARCH and BLAST+ tools.28 differences between the samples were projected in the 3D
+4644 https://doi.org/10.2147/DMSO.S325073 D i a b e t e s , M e t a b o l i c S y n d r o m e a n d O b e s i t y : T a r g e t s a nd Therapy 2021:14
+DovePress
+PPoowweerreedd bbyy TTCCPPDDFF ((wwwwww..ttccppddff..oorrgg))
+
+=== PAGE 5 ===
+Dovepress Sohail et al
+PCoA plot. PERMANOVA test was used to observe beta
+diversity significance between the groups. Phylogenetic
+analysis of the microbiome was performed at phylum,
+family, and genus levels. Only those taxa with a mean
+relative abundance of at least 0.5% and who were
+expressed in more than 50% of the samples were included
+in the statistical analysis. The remaining data were dis-
+carded. Mean ± standard deviation was calculated for the
+relative percentage of each taxon, and statistical compar-
+isons were made using the KW test. The Benjamini–
+Hochberg false discovery rate was applied for p-values
+correction. Finally, Spearman correlation and stepwise lin-
+ear regression analysis were performed between clinical
+measurements and microbial taxa count.
+Results
+Figure 3 Venn diagram of microbiome. Venn diagram shows unique and core
+Clinical Measurements
+microbiome of the study cohort.
+The means for pulse rate and BP were calculated per group
+and presented in Figure 1. The HT groups had a higher diverse bacterial phyla constituting 125 bacterial species.
+systolic/diastolic BP and BMI compared with the However, more than 30% of the species belonged to the
+C groups. The HT groups also had higher (p ≤ 0.01) genus Streptococcus and Veillonella. Bacteroidetes,
+plasma glucose, insulin/C-peptide, and HOMA-IR, reflect- the second most abundant phylum, contained 104 bacterial
+ing that HT subjects were also hyperglycemic and had species, out of which more than 10% species belong to the
+lower insulin sensitivity. Plasma sodium ion concentration, genus Prevotella.
+cholesterol, LDL-cholesterol, and triglyceride concentra- First, the microbiome of the controls (C) and hyperten-
+tions were similar (Figure 2). However, HDL-cholesterol, sive (HT) subjects was compared (Figure 4). Statistical
+which is considered the “good cholesterol”, was highest analysis revealed that Firmicutes (p ≤ 0.002),
+(p ≤ 0.001) in the C-F and lowest in the HT-M. Alkaline Atopobiacea (p ≤ 0.002), Prevotellaceae (p ≤ 0.04);
+phosphatase and C-peptide concentrations were higher Veillionellaceae (p ≤ 0.004), Atopobium (p ≤ 0.002),
+(p ≤ 0.001) in the HT groups compared with the C groups. Prevotella (p ≤ 0.001), and Veillonella (p ≤ 0.005) were
+all higher in the HT groups. In contrast, Fusobacteria (p ≤
+Microbiome 0.035), Proteobacteria (p ≤ 0.043), Fusobacteriaceae (p ≤
+Paired-end 16S rRNA amplicon sequencing of 96 samples 0.004) and Fusobacterium (p ≤ 0.004) were higher in the
+yielded 8,656,948 reads (mean = 90176.54). After quality C groups. When the C and HT subjects were separated into
+filtration, denoising, and chimera removal, only 2,359,969 males (M) and females (F) (Figure 5), Proteobacteria were
+sequences of good quality were left for further analysis. higher in the C-F group compared with the other groups
+These good quality reads belonged to 443 bacterial taxa (Figure 5). Genus Fusobacterium and family
+(Figure 3). The Venn diagram showed that out of 443 Fusobacteriaceae of phylum Fusobacteria were signifi-
+bacterial taxa, 153 microbial taxa were present in all the cantly higher in the C groups compared with the HT
+four groups and referred to as the core microbiome of the groups. In contrast, the family Veillonellaceae, and genera
+oral cavity. The oral microbiome was classified in twenty Veillonella and Prevotella were higher (p ≤ 0.05) in the HT
+phyla, thirty-five classes, seventy-six orders, one hundred groups. Family Atopobiaceae and genus Atopobium of
+thirty-one families, two hundred forty-five genera, and Actinobacteria were significantly lower in C-F groups
+four hundred forty-three species. The core oral micro- compared with the other study groups. The mathematical
+biome was predominantly occupied by Firmicutes summation of nitrate reducing microbes was highest in the
+(45.2%), Bacteroidetes (22.8%), Proteobacteria (11.2%), HT group (42.2%) and the lowest in the C group (32.3%)
+and Actinobacteria (8.4%). Firmicutes were the most (Figure 6).
+Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy 2021:14 https://doi.org/10.2147/DMSO.S325073 4 6 4 5
+DovePress
+PPoowweerreedd bbyy TTCCPPDDFF ((wwwwww..ttccppddff..oorrgg))
+
+=== PAGE 6 ===
+Sohail et al Dovepress
+Figure 4 Comparison between the Control and Hypertension groups for the relative percentage of selected microbial taxa at phylum, family, and genus levels. Box and
+whisker plots show mean, median, and standard error for each group. Small black dots above the boxes show outlier samples in each group. Statistical comparisons between
+the groups were made using Mann–Whitney U-test. P-values present statistical differences between the groups.
+Figure 7 presents alpha rarefaction curves and pairwise associated (p ≤ 0.01) with BMI and reduced oral health.
+KW analysis of the faith_PD alpha diversity. No signifi- Atopobium, Prevotella, and Veillonella were also posi-
+cant difference in alpha species richness was observed tively correlated with glucose and HOMA-IR. Poor oral
+between the study groups. Weighted_unifrac beta diversity health, which includes mouth ulcers, painful gums, gums
+showed that microbiome in C-F group was different (p ≤ bleeding, and toothache, was positively associated (p ≤
+0.05) than HT-M and HT-F groups (Figure 8). 0.01) with phylum Firmicutes, family Streptococcaceae,
+and genus Streptococcus. Antibiotic use during the past
+Correlation Analysis twelve months was positively associated with
+Spearman correlation analysis between clinical measure- Actinobacteria and negatively with Fusobacteria.
+ments and microbiome taxa is presented as a heatmap in
+Figure 9. The color intensity (red or green) and the size of Discussion
+the circle indicate r-value, and asterisks on these circles Hypertension is a major risk factor for stroke and cardio-
+indicate p values. Microbial genera belonging to vascular diseases, which are leading causes of death
+Actinobacteria (Atopobium) and Firmicutes (Prevotella worldwide.30,31 Although the disease incidence rate is
+and Veillonella) were positively associated (p ≤ 0.05; r ≤ increasing at an alarming pace, the etiology and pathogen-
++0.5) with BP values. However, a negative correlation esis of HT are still poorly explained. In particular, there are
+existed between members of Fusobacteria still limited studies that investigate the role of host-
+(Fusobacteriaceae and Fusobacterium) and host BP. microbiome in HT pathogenesis. To address these gaps,
+Similarly, these members of the Fusobacteria phylum we analyzed the oral microbiome of the Qatari nationals
+were also negatively correlated with antibiotic usage. who volunteered their biological samples at QBB and
+Firmicutes and the genus Streptococcus were positively compared their oral microbiome with clinical chemistry.
+4646 https://doi.org/10.2147/DMSO.S325073 D i a b e t e s , M e t a b o l i c S y n d r o m e a n d O b e s i t y : T a r g e t s a nd Therapy 2021:14
+DovePress
+PPoowweerreedd bbyy TTCCPPDDFF ((wwwwww..ttccppddff..oorrgg))
+
+=== PAGE 7 ===
+Dovepress Sohail et al
+Figure 5 Relative abundance of the major bacterial taxa. Box and whisker plots show mean, median, and standard error for each group. Small black dots above the boxes
+show outlier samples in each group. Statistical comparisons between the groups were made using Kruskal Wallis ANOVA. Asterisks in each box indicate the corrected
+P-value; **s*≤ 0.001, **≤ 0.01 and *≤ 0.05. Dissimilar superscripts (a and b) above each bar show statistical differences among the groups.
+Hypertensive subjects had higher plasma glucose and secretion, is also reported as a hypertensive factor in
+insulin/C-peptide concentrations. In general, elevated diabetic patients.36 The mechanisms for the positive
+LDL-cholesterol or a decrease in LDL-cholesterol is association of higher C-peptide levels with the risk of
+linked with HT.32 Our observations suggested that HT hypertension have not yet been elucidated. However, it is
+subjects had hyperglycemic and dyslipidemic phenotype known that elevated levels are associated with insulin
+and were exposed to a more complex metabolic disorder. resistance and hyperglycemia,37 as observed in the cur-
+Bozkurt et al31 suggest that these comorbidities share rent study.
+common etiological factors and management guidelines. In recent years, there has been growing interest in
+Moreover, epidemiological studies show that HT, diabetes, exploring the potential role of the microbiome in the
+and dyslipidemia frequently coexist, and their combined etiology and pathogenesis of metabolic and cardiovascular
+effect worsens cardiovascular health.31 diseases, including HT.38,39 Studies from America, China,
+Previous studies have shown that alkaline phospha- and Brazil have reported the role of gut microbial dysbio-
+tase and C-peptide are associated with hypertension and sis in BP regulation and the development of HT.40–43
+diabetes pathogenesis.33,34 Alkaline phosphatase pro- However, fewer studies have explored the role of the
+motes protein catabolism and inhibits vascular oral microbiome in HT subjects. To bridge this gap, we
+calcification.33 Here, we observed that both proteins performed 16S rRNA amplicon sequencing on saliva sam-
+were elevated in HT subjects compared with the ples from ninety-six adults and correlated microbiome
+C groups. Although the exact cause for the rise of ALP composition with clinical chemistry and demographic
+in HT subjects is unknown, Orita et al35 suggest data.
+a protective role of ALP in calcified vascular tissue Our data showed a microbial dysbiosis of the oral
+lesions. Similarly, C-peptide, used as a marker for insulin microbiome in HT subjects, characterized by a distinct
+Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy 2021:14 https://doi.org/10.2147/DMSO.S325073 4 6 4 7
+DovePress
+PPoowweerreedd bbyy TTCCPPDDFF ((wwwwww..ttccppddff..oorrgg))
+
+=== PAGE 8 ===
+Sohail et al Dovepress
+Figure 6 Mathematical summation of relative percentages of priori-select nitrate-reducing microbes to develop hypertension index.
+Figure 7 Alpha rarefaction curves and Kruskal Wallis ANOVA table for Faith_PD index of alpha diversity analysis.
+4648 https://doi.org/10.2147/DMSO.S325073 D i a b e t e s , M e t a b o l i c S y n d r o m e a n d O b e s i t y : T a r g e t s a nd Therapy 2021:14
+DovePress
+PPoowweerreedd bbyy TTCCPPDDFF ((wwwwww..ttccppddff..oorrgg))

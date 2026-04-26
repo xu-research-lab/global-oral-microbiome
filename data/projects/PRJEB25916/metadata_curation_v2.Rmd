@@ -5,7 +5,7 @@ output: github_document
 
 # Step 1: Obtain Initial Metadata from Each Project
 
-This step sets the project directory, loads the raw SRA metadata, and keeps only the oral 16S samples used for this repository.
+This step sets the project directory, loads the raw SRA metadata, and keeps the deduplicated 16S samples across the retained body habitats used for this repository.
 
 ```{r message=FALSE, warning=FALSE}
 # Load libraries
@@ -25,11 +25,11 @@ sra_file <- "SraRunTable.csv"
 initial_meta <- read.csv(sra_file, header = TRUE, stringsAsFactors = FALSE)
 
 # This deposited table mixes ITS1 and 16S runs across skin, oral, and gut habitats.
-# Keep only the oral 16S rows for this repository and collapse duplicate runs for the same submitted sample_name.
+# Keep the retained 16S rows across the study body habitats and collapse duplicate runs for the same submitted sample_name.
 initial_meta <- initial_meta %>%
   filter(grepl("^16S_", sample_name)) %>%
   mutate(site_code = sub("^16S_[0-9]+([A-Za-z]{1,2})[0-9]+$", "\\1", sample_name)) %>%
-  filter(site_code %in% c("O", "OW")) %>%
+  filter(site_code %in% c("L", "R", "F", "U", "O", "OW", "G")) %>%
   arrange(sample_name, desc(Bases)) %>%
   distinct(sample_name, .keep_all = TRUE)
 
@@ -59,10 +59,11 @@ First, you need to get an overview of the data, which includes two steps: readin
 # - Title: Age-Related Variation of Bacterial and Fungal Communities in Different Body Habitats across the Young, Elderly, and Centenarians in Sardinia
 # - Study design: cross-sectional healthy aging cohort with skin, oral, and gut sampling across young, elderly, and centenarian groups in Sardinia, Italy
 # - Recruited subjects from Results/Table 1: 65 total (young 19, elderly 24, centenarians 22)
+# - Sampled body habitats from Methods/Results: skin (left palm, right palm, forehead, umbilicus), oral cavity / oral wash, and gut
 # - Oral sampling from Methods: oral cavity wash / saliva collection after mouth rinsing, then centrifuged and DNA extracted from the sediment
 # - Sequencing from Methods: V3-V4 16S rRNA sequencing on Illumina MiSeq; primers 341F/806R and ITS1F/ITS2 for fungi
-# - This curation covers only the retained oral 16S rows, not ITS1 runs or non-oral body habitats
-# - The SRA oral 16S subset contains duplicate runs for several submitted sample_name values; the highest-Bases run is retained per sample_name to represent each deposited oral sample once
+# - This curation covers the retained 16S rows across the study body habitats, not ITS1 runs
+# - The SRA 16S subset contains duplicate runs for several submitted sample_name values; the highest-Bases run is retained per sample_name to represent each deposited sample once
 
 # (2) IMPORTANT: MUST go through each column of initial_meta
 head(initial_meta, 10)
@@ -72,7 +73,7 @@ table(initial_meta$site_code)
 table(initial_meta$geo_loc_name_country)
 table(initial_meta$ReleaseDate)
 initial_meta[initial_meta$sample_name %in% c("16S_6O3", "16S_6O4", "16S_6O5", "16S_6O7", "16S_6O12"), c("Run", "BioSample", "sample_name", "Bases")]
-# After oral 16S filtering and de-duplicating repeated submitted sample names, 65 oral samples remain, matching the paper's recruited cohort size.
+# After retaining all deduplicated 16S body-habitat rows, 381 samples remain: 255 skin, 65 oral, and 61 gut.
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -184,10 +185,10 @@ metadata <- data.frame(
 )
 
 # Source notes for non-obvious fields:
-# - The retained oral subset uses submitted sample_name values matching ^16S_ and site codes O/OW only; duplicate submitted sample names are collapsed by keeping the run with the highest Bases value.
+# - The retained 16S subset uses submitted sample_name values matching ^16S_ and site codes L/R/F/U/O/OW/G; duplicate submitted sample names are collapsed by keeping the run with the highest Bases value.
 # - subject_id keeps the batch digit and trailing numeric token from sample_name (e.g. 16S_7O35 -> 7_35), matching the clinical workbook entries after removing the leading cohort letter and site code.
 # - age, bmi, sex, and age_info come from the Clinical_data sheet in msphere.00558-19-sd001.xlsx.
-# - sequencing_region, platform, pcr_primers, and oral collection method come from Materials and Methods, not SRA.
+# - sequencing_region, platform, pcr_primers, and body-habitat sampling context come from Materials and Methods, not SRA.
 # - status is standardized to HC for all retained rows because this is a non-disease healthy cohort; the healthy aging strata are preserved in age_info.
 metadata$public_time <- as.Date(metadata$public_time)
 ```
@@ -201,20 +202,25 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 metadata <- metadata %>%
   mutate(
     site = case_when(
-      raw_site_code == "O" ~ "saliva",
-      raw_site_code == "OW" ~ "oral wash",
+      raw_site_code == "L" ~ "left palm",
+      raw_site_code == "R" ~ "right palm",
+      raw_site_code == "F" ~ "forehead",
+      raw_site_code == "U" ~ "umbilicus",
+      raw_site_code == "O" ~ "oral cavity",
+      raw_site_code == "OW" ~ "oral cavity",
+      raw_site_code == "G" ~ "gut",
       TRUE ~ NA_character_
     ),
     status = "HC"
   )
-# The paper's oral protocol collects an oral cavity wash / saliva specimen; O and OW are retained as saliva and oral wash to preserve the deposited oral-sample distinction while staying specific.
+# Retain all deposited 16S body habitats in this cohort; raw_site_code preserves the submitted O versus OW distinction even though both map to oral cavity in the standardized site field.
 ```
 
 ```{r}
 # (2) Filling the 'site_group' and 'matched_samples' columns
 unique(metadata$site)
-Oral_site = c("saliva", "oral wash")
-Gut_site = c("feces")
+Oral_site = c("oral cavity")
+Gut_site = c("gut")
 
 metadata <- metadata %>%
   mutate(site_group = case_when(
@@ -228,7 +234,7 @@ metadata$matched_samples <- ifelse(
   "yes",
   "no"
 )
-# The same subject may contribute multiple body-habitat samples in the full project, but after restricting to one retained oral sample per subject, the oral subset resolves to unmatched rows only.
+# Subjects are sampled across multiple retained body habitats, so matched_samples is yes whenever a subject contributes more than one deduplicated site-level sample.
 ```
 
 ```{r}

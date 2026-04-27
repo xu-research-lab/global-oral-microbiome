@@ -194,7 +194,7 @@ metadata <- data.frame(
   pcr_primers = "341F-806R",  # From paper Methods: 341F (5'-CCTAYGGGRBGCASCAG-3') and 806R (5'-GGACTACNNGGGTATCTAAT-3')
   title = "Effects of Long-Term Enclosed Environment on Human Health Based on the Analysis of Salivary Microbiota and Cytokines",  # From paper
   disease_study = "no",  # Healthy crewmembers with no disease history (paper Materials and Methods)
-  status = NA,
+  status = "HC",
   matched_samples = "pending",
   is_time_series = "yes",  # Same 4 crewmembers sampled at 19+ chronologically ordered timepoints to track temporal dynamics (paper Results and Fig. 6c)
   stringsAsFactors = FALSE

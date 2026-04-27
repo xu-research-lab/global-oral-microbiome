@@ -3,23 +3,25 @@ title: "R Notebook: Metadata Processing Workflow"
 output: github_document
 ---
 
+```{r}
 # =============================================================
 # Curation Notes - PRJDB8324
 # subject_id : extracted from Sample_name column (last token, e.g. CAN_001)
-# age        : not available in metadata; paper (Table 1) only reports group means (DTC: 66.4±10.2, controls: 66.4±10.3)
+# age        : not available in metadata; paper (Table 1) only reports group means (digestive tract cancer: 66.4±10.2, controls: 66.4±10.3)
 # sex        : not available in metadata
 # bmi        : not available in metadata
 # platform   : Paper Methods — Ion Torrent PGM (Ion PGM); metadata Platform col = ION_TORRENT (consistent)
 # region     : Paper Methods — V1-V2 (8F / 338R primers)
 # pcr_primers: Paper Methods — 8F-338R
 # site       : env_local_scale and env_medium both = "Saliva"; confirmed by paper (saliva samples)
-# disease_study: "yes" — case-control study comparing DTC patients vs. healthy controls
-# status     : "DTC" for samples collected 2015-2017 (CAN_001 to CAN_059), "healthy" for 2012 (CAN_060 to CAN_177); resolved via Collection_Date column
+# disease_study: "yes" — case-control study comparing digestive tract cancer patients vs. healthy controls
+# status     : "digestive tract cancer" for samples collected 2015-2017 (CAN_001 to CAN_059), "healthy" for 2012 (CAN_060 to CAN_177); resolved via Collection_Date column
 # is_time_series: "no" — single timepoint case-control design; each participant sampled once
 # controls   : none in metadata (no control_column); lab/sequencing controls not deposited separately
 # non-human  : none (all Organism = Homo sapiens)
 # age_info   : NA — paper only provides group means±SD, no explicit age range given
 # =============================================================
+```
 
 # Step 1: Obtain Initial Metadata from Each Project
 
@@ -45,7 +47,7 @@ initial_meta <- read.csv(sra_file, header = TRUE)
 
 ```{r message=FALSE, warning=FALSE}
 # (1) Paper: Kageyama et al. (2019) Front. Microbiol. 10:1780
-# Case-control study; 59 DTC patients + 118 matched control subjects; all saliva samples from Japan.
+# Case-control study; 59 digestive tract cancer patients + 118 matched control subjects; all saliva samples from Japan.
 # DTC patient subgroups: tongue/pharyngeal (n=13), esophageal (n=12), gastric (n=10), colorectal (n=24).
 # Platform: Ion PGM; primers 8F-338R; V1-V2 region.
 
@@ -120,7 +122,7 @@ metadata <- data.frame(
   # subject_id: extracted from Sample_name last token (e.g. "CAN_001")
   subject_id = sub(".*\\s(\\S+)$", "\\1", initial_meta$Sample_name),
   age = NA,
-  age_info = NA,   # paper only reports group means±SD (DTC: 66.4±10.2, controls: 66.4±10.3)
+  age_info = NA,   # paper only reports group means±SD (digestive tract cancer: 66.4±10.2, controls: 66.4±10.3)
   bmi = NA,
   sex = NA,
   sequencing_region = "V1-V2",  # paper Methods: "V1-V2 regions of 16S rRNA gene"
@@ -131,8 +133,8 @@ metadata <- data.frame(
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "8F-338R",      # paper Methods: 8F and 338R primers for V1-V2
   title = "Characteristics of the Salivary Microbiota in Patients With Various Digestive Tract Cancers",
-  disease_study = "yes",        # case-control study comparing DTC patients to healthy controls
-  status = ifelse(as.integer(substr(initial_meta$Collection_Date, 1, 4)) >= 2015, "DTC", "healthy"),
+  disease_study = "yes",        # case-control study comparing digestive tract cancer patients to healthy controls
+  status = ifelse(as.integer(substr(initial_meta$Collection_Date, 1, 4)) >= 2015, "digestive tract cancer", "healthy"),
   matched_samples = "pending",
   is_time_series = "no",        # single timepoint per subject; case-control cross-sectional design
   stringsAsFactors = FALSE

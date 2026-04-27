@@ -201,7 +201,7 @@ metadata <- data.frame(
   pcr_primers = "515F-806R",                     # from PCR_primers column (515F / 806rcbc0); V4 region standard primers
   title = "Response of the human gut and saliva microbiome to urbanization in Cameroon", # paper title
   disease_study = "no",                          # healthy adult volunteers; no disease groups
-  status = NA,                                   # all participants declared currently healthy
+  status = "HC",                                   # all participants declared currently healthy
   matched_samples = "pending",                   # modify later
   is_time_series = "no",                         # cross-sectional single-timepoint study
   stringsAsFactors = FALSE

@@ -190,7 +190,7 @@ metadata <- data.frame(
   sequencing_region = "V4",  # from paper Methods: 515F-806R (EMP protocol) targets V4 region
   platform = "Illumina MiSeq",  # from paper Methods
   country = initial_meta$geo_loc_name_country,
-  site = "stimulated saliva",  # env_broad_scale=saliva + env_local_scale=stimulated in SRA metadata
+  site = "saliva",  # env_broad_scale=saliva + env_local_scale=stimulated in SRA metadata
   site_group = "pending",  # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "515F-806R",  # from paper Methods, Earth Microbiome Project protocol
@@ -224,7 +224,7 @@ metadata <- metadata %>%
 # editing site_group
 unique(metadata$site)
 # EDIT HERE: add oral sites
-Oral_site = c("stimulated saliva")
+Oral_site = c("saliva")
 # EDIT HERE: add gut sites
 Gut_site = c()
 # just run

@@ -196,7 +196,7 @@ metadata <- data.frame(
   site = "saliva",                          # paper Methods: unstimulated whole saliva (SWS) for microbial analysis
   site_group = "pending",
   public_time = substr(initial_meta$ReleaseDate, 1, 10),
-  pcr_primers = "27FYM-519R",              # paper Methods: "degenerate primers 27FYM and 519R"
+  pcr_primers = "27F-519R",              # paper Methods: "degenerate primers 27FYM and 519R"
   title = "Salivary Oral Microbiome of Children With Juvenile Idiopathic Arthritis: A Norwegian Cross-Sectional Study",
   disease_study = "yes",                   # study includes JIA patients vs healthy controls
   raw_status = initial_meta$Library.Name,  # contains "JIA" or "Healthy" for each sample

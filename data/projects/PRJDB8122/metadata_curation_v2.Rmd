@@ -3,15 +3,31 @@ title: "R Notebook: Metadata Processing Workflow"
 output: github_document
 ---
 
+```{r}
+# =============================================================
+# Curation Notes - PRJDB8122
+# subject_id    : Numeric suffix of Sample_name (FT1→"1", SO8→"8"); same individual across sites and time points
+# age           : From paper Table 1; mapped by subject number (subjects 1-8: 74,86,60,77,83,89,69,92)
+# sex           : From paper Table 1; mapped by subject number (1=F,2=M,3=M,4=M,5=M,6=F,7=M,8=F)
+# bmi           : From paper Table 1 baseline BMI; mapped by subject number
+# platform      : Paper Methods — Illumina MiSeq ("The MiSeq platform (Illumina, San Diego, CA, USA)")
+# region        : Paper Methods — V3-V4 ("16S rDNA V3-V4 region")
+# site          : From env_medium; "faces" (database typo) corrected to "feces"
+# disease_study : "yes" — post-stroke dysphagia patients
+# status        : "dysphagia" — all subjects are post-stroke dysphagia patients; no HC group
+# is_time_series: "no" — only two time points (tube feeding vs. 4 weeks oral food intake); paired before-after design, not a longitudinal time series
+# pcr_primers   : Not explicitly stated in paper; cited as "previously described (Komazaki et al., 2017)"; NA
+# controls      : none
+# non-human     : none (all Homo sapiens)
+# =============================================================
+```
+
 # Step 1: Obtain Initial Metadata from Each Project
 
-To obtain the initial metadata:
-1. Search for the BioProject ID (e.g., "PRJEBXXXX") on the [NCBI SRA website](https://www.ncbi.nlm.nih.gov/Traces/study/).
-2. In the "Select" table, click on "Metadata" and download the file.
-3. The downloaded file is typically named "SraRunTable.csv" and contains metadata for the project.
+This step sets the project directory, loads the raw SRA metadata, and optionally merges supplement tables.
 
 ```{r message=FALSE, warning=FALSE}
-# Load necessary libraries
+# Load libraries
 library(dplyr)
 library(ggplot2)
 library(cowplot)
@@ -36,7 +52,7 @@ initial_meta <- read.csv(sra_file, header = TRUE)
 
 First, you need to get an overview of the data, which includes two steps: reading the article and reading the initial metadata. This step is very IMPORTANT!
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 # (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
 
 # (2) IMPORTANT: MUST go through each column of initial_meta
@@ -63,7 +79,6 @@ control_keywords <- c()     # Enter exact keywords
 
 species_column <- "Organism"          # column name in initial_meta
 unique(initial_meta[[species_column]])
-
 non_human_keywords <- c()            # All samples are human (Homo sapiens / human metagenome)
 
 
@@ -94,7 +109,7 @@ if (length(non_human_keywords) > 0) {
   }
 
   if (!(species_column %in% colnames(initial_meta))) {
-    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
   }
 
   non_human_pattern <- paste(non_human_keywords, collapse = "|")
@@ -117,24 +132,47 @@ cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
 
 # Step 4: Creating a Uniform Metadata Template
 
-This step converts the raw SRA table into the standard metadata format used in our meta-analysis. The uniform metadata should include the following columns:
-1. **bioproject**: Project ID from SRA or other database e.g. `PRJNA1234`, `CNP1234`, 'OEP1234', 'qiita_1234'
-2. **sample_id**: SRA sample/run ID. Unique id for each sample! e.g. `DRR1234567`, `ERR1234567` and `SRR1234567`. If no such column exists, can use column like sample_name.
-3. **subject_id**: subject id for each person if available. e.g. `patient_01`, `Host_03_before`, `subject12`
-4. **age**: Age of the subject if available. e.g. `35`, `42` | not `adult`, `chilren`
-5. **age_info**: If the age is not explicitly stated but approximate age range information is available, mark it in this column. e.g., `18-55`, `children`, `infant`, `elder`
-6. **bmi**: Body Mass Index if available. e.g. `22.5`, `18.9` | not `normal`, `overweight`
-7. **sex**: Sex of the subject. Mandatory to write as M/F | not `female`, `woman`
-8. **sequencing_region**: Targeted 16S rRNA region. e.g. `V3-V4`, `V4`
-9. **platform**: Sequencing platform. e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent`
-10. **country**: Country of sample origin. e.g. `China`, `Japan` | not city name like `Beijing`
-11. **site**: Sampling site. For oral and gut sites, specify the exact sites as detailed as possible. For example, if it is known to be supragingival plaque, do not record it as 'dental plaque', unless the original text provides only a vague description. e.g. `saliva`, `tongue coating` | not broad term like `oral`
+This step converts the raw SRA table into the standard metadata format used in our meta-analysis.
+The uniform metadata should include the following columns:
+1. **bioproject**: Project ID from SRA or other database
+   e.g. `PRJNA1234`, `CNP1234`, 'OEP1234', 'qiita_1234'
+2. **sample_id**: SRA sample/run ID. Unique id for each sample!
+   e.g. `DRR1234567`, `ERR1234567` and `SRR1234567`. If no such column exists, can use column like sample_name.
+3. **subject_id**: subject id for each person if available.
+   e.g. `patient_01`, `Host_03_before`, `subject12`
+4. **age**: Age of the subject if available.
+   e.g. `35`, `42` | not `adult`, `chilren`
+5. **age_info**: If the age is not explicitly stated but approximate age range information is available, mark it in this column.
+   e.g., `18-55`, `children`, `infant`, `elder`
+6. **bmi**: Body Mass Index if available.
+   e.g. `22.5`, `18.9` | not `normal`, `overweight`
+7. **sex**: Sex of the subject.
+   Mandatory to write as M/F | not `female`, `woman`
+8. **sequencing_region**: Targeted 16S rRNA region.
+   e.g. `V3-V4`, `V4`
+9. **platform**: Sequencing platform.
+   e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent`
+10. **country**: Country of sample origin.
+   e.g. `China`, `Japan` | not city name like `Beijing`
+11. **site**: Sampling site. For oral and gut sites, specify the exact sites as detailed as possible. For example, if it is known to be supragingival plaque, do not record it as 'dental plaque', unless the original text provides only a vague description.
+    e.g. `saliva`, `tongue coating` | not broad term like `oral`
 12. **site_group**: only accepts one of following three values: 'oral', 'gut', or 'other'.
-13. **public_time**: Data release date. e.g. `2021-06-22` | not `June 2021`
-14. **pcr_primers**: PCR primers used. e.g. `515F-806R`, `27F-338R` | not primer sequences
+13. **public_time**: Data release date.
+    e.g. `2021-06-22` | not `June 2021`
+14. **pcr_primers**: PCR primers used.
+    e.g. `515F-806R`, `27F-338R` | not primer sequences
 15. **title**: Title of the associated publication.
 16. **disease_study**: Whether the study involves disease samples. If it's not clear, can record as NA. Only three values accepted: 'yes', 'no' or NA
-17. **status**: Disease status for each sample if available, else record as NA. Only accept following abbreviations, Write full names for all other diseases. HC: healthy control CD: Crohn's disease CRC: colorectal cancer COPD: chronic obstructive pulmonary disease HIV: human immunodeficiency virus ICU: intensive care unit OSCC: oral squamous cell carcinoma RA: rheumatoid arthritis UC: ulcerative colitis
+17. **status**: Disease status for each sample if available, else record as NA. Only accept following abbreviations, Write full names for all other diseases.
+    HC: healthy control
+    CD: Crohn's disease
+    CRC: colorectal cancer
+    COPD: chronic obstructive pulmonary disease
+    HIV: human immunodeficiency virus
+    ICU: intensive care unit
+    OSCC: oral squamous cell carcinoma
+    RA: rheumatoid arthritis
+    UC: ulcerative colitis
 18. **matched_samples**: Whether the subject has matched samples. Only accept 'yes' or 'no'.
 19. **is_time_series**: Whether the study is a time series study. Only accept 'yes' or 'no'.
 
@@ -190,7 +228,6 @@ metadata$site <- ifelse(metadata$raw_site == "faces", "feces", metadata$raw_site
 # (2) Filling the 'site_group' and 'matched_samples' columns
 # editing site_group
 unique(metadata$site)
-
 # EDIT HERE: add oral sites
 Oral_site = c("saliva")
 # EDIT HERE: add gut sites
@@ -238,7 +275,7 @@ if (!any_pending_value) {
 
 This step makes a quick set of plots for checking the distribution of key metadata fields.
 
-```{r,fig.width=8, fig.height=6, fig.align='center',include=FALSE}
+```{r}
 # Select columns for visualization, just run
 plot_data <- metadata %>%
   select(-bioproject, -sample_id, -subject_id, -title)

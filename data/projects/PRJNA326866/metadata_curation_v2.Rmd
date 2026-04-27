@@ -17,7 +17,8 @@ This step sets the project directory, loads the raw SRA metadata, and optionally
 #                 available for saliva samples only — stool samples have no individual age
 # sex           : "F" hardcoded — paper: all participants are premenopausal women;
 #                 saliva metadata confirms sex="female"; stool rows have empty sex column
-# subject_id    : From initial_meta host_subject_id (C001-C025 = controls, P001-P025 = PCOS)
+# subject_id    : From initial_meta Sample Name (e.g. C001.T0.Saliva1, C001.T0.Stool1);
+#                 format: {subject}.{timepoint}.{tissue}; same subject has both saliva and stool → matched
 # status        : Derived from host_subject_id prefix: P = Polycystic ovary syndrome, C = HC;
 #                 Host_disease column empty for saliva rows so prefix used for all
 # platform      : Paper Methods — Illumina MiSeq
@@ -185,7 +186,7 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$host_subject_id,
+  subject_id = sub("\\..*", "", initial_meta$Sample.Name),
   raw_age = initial_meta$AGE,  # European decimal format "47\,3"; only saliva rows have values; stool rows are NA
   age = "pending",
   age_info = NA,
@@ -207,10 +208,10 @@ metadata <- data.frame(
   title = "Alterations in Gut Microbiome Composition and Barrier Function Are Associated with Reproductive and Metabolic Defects in Women with Polycystic Ovary Syndrome (PCOS): A Pilot Study",
   disease_study = "yes",  # PCOS disease cohort compared against healthy controls
   status = case_when(
-    grepl("^P", initial_meta$host_subject_id) ~ "polycystic ovary syndrome",
-    grepl("^C", initial_meta$host_subject_id) ~ "HC",
+    grepl("^P", initial_meta$Sample.Name) ~ "polycystic ovary syndrome",
+    grepl("^C", initial_meta$Sample.Name) ~ "HC",
     TRUE ~ NA_character_
-  ),  # Derived from host_subject_id prefix: P = polycystic ovary syndrome patient, C = healthy Control
+  ),  # Derived from Sample Name prefix: P = polycystic ovary syndrome patient, C = healthy Control
   matched_samples = "pending",
   is_time_series = "no",  # From paper: "There was no follow-up visit"; all sample names contain T0
   stringsAsFactors = FALSE
@@ -227,6 +228,12 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 metadata <- metadata %>%
   mutate(age = suppressWarnings(as.numeric(gsub(",", ".", gsub("\\\\", "", raw_age)))))
   # AGE column uses European decimal notation "47\,3" (= 47.3 years); stool rows have empty AGE -> NA after conversion
+
+# Fill age for stool samples using saliva samples of the same subject_id
+metadata <- metadata %>%
+  group_by(subject_id) %>%
+  mutate(age = ifelse(all(is.na(age)), NA_real_, first(na.omit(age)))) %>%
+  ungroup()
 
 metadata$site <- tolower(metadata$raw_site)
 # tissue="saliva" -> "saliva"; env_material="Stool" -> "stool"
@@ -248,9 +255,10 @@ metadata <- metadata %>%
     TRUE ~ "other"
   ))
 
-# editing matched_samples, just run.
+# editing matched_samples — extract subject prefix from Sample Name (e.g. C001.T0.Saliva1 -> C001)
+subject_prefix <- sub("\\..*", "", initial_meta$Sample.Name)
 metadata$matched_samples <- ifelse(
-  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+  ave(seq_along(subject_prefix), subject_prefix, FUN = length) > 1,
   "yes", "no"
 )
 ```
@@ -350,7 +358,7 @@ fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
                 "country", "site", "site_group", "disease_study", "status",
                 "title", "public_time", "matched_samples", "is_time_series")
 metadata <- metadata %>%
-  select(all_of(fixed_cols), everything())
+  select(all_of(fixed_cols))
 
 # save metadata
 # head(metadata)

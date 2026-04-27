@@ -202,7 +202,7 @@ metadata <- data.frame(
   pcr_primers = "341F-806RB",            # From paper Methods: primers 341F/806RB for 16S V3-V4
   title = "Extent of Oral-Gut Transmission of Bacterial and Fungal Microbiota in Healthy Chinese Adults",  # From paper title
   disease_study = "no",                  # Healthy adult cohort (HKGutMicMap); no disease groups
-  status = NA,
+  status = "HC",
   matched_samples = "pending",
   is_time_series = "no",                 # Cross-sectional design; no repeated sampling of same individual
   stringsAsFactors = FALSE

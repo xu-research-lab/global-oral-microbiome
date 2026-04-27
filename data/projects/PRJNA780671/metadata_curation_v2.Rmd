@@ -197,7 +197,7 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,  # e.g. "N18", "SA1" -- unique per subject after ITS filter
   age = initial_meta$AGE,  # numeric age from initial_meta
-  age_info = "18-75",  # paper demographics: "18-75 years old"
+  age_info = NA,  # paper demographics: "18-75 years old"
   bmi = NA,
   raw_sex = initial_meta$sex,  # "male" / "female"; needs conversion to M/F
   sex = "pending",
@@ -243,7 +243,7 @@ metadata$site <- ifelse(metadata$raw_site == "oral drooling", "saliva", NA_chara
 metadata <- metadata %>%
   mutate(status = case_when(
     raw_status == "Non-infected" ~ "HC",
-    raw_status == "Infected" ~ "Coronavirus disease of 2019",
+    raw_status == "Infected" ~ "coronavirus disease of 2019",
     TRUE ~ NA_character_
   ))
 ```

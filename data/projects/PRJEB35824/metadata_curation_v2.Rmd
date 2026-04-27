@@ -10,8 +10,8 @@ This step sets the project directory, loads the raw SRA metadata, and optionally
 ```{r message=FALSE, warning=FALSE}
 # =============================================================
 # Curation Notes - PRJEB35824
-# subject_id : Extracted from Submitter_Id via regex; pattern OMIC{subject_id}-{seq_num}-{visit_num}-swab
-# age        : Derived from visit number in Submitter_Id; 1=2days(0yr), 2=3mo(0.25yr), 3=18mo(1.5yr), 4=3yr(3), 5=5yr(5)
+# subject_id : NA — OMIC naming encodes cohort/batch info, not individual subject identity; cannot link same person across visits
+# age        : Derived from visit number in Submitter_Id; 1=2days(~0.0055yr), 2=3mo(0.25yr), 3=18mo(1.5yr), 4=3yr(3), 5=5yr(5)
 # age_info   : NA — specific year values available in age column
 # sex        : Not available in deposited metadata
 # bmi        : Not available
@@ -182,8 +182,12 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  # Subject ID extracted from Submitter_Id; pattern: OMIC{subject_id}-{seq_num}-{visit_num}-swab
-  subject_id = sub("^OMIC(.+)-[0-9]+-[0-9]+-swab$", "\\1", initial_meta$Submitter_Id),
+  # OMIC naming convention (e.g., OMIC7.1-1-1-swab) uses a prefix that encodes
+  # cohort/batch info (e.g., "7.", "10.") rather than individual subject identity.
+  # The same prefix appears in different visits with non-continuous seq numbers,
+  # making it impossible to link samples from the same person across timepoints.
+  # Subject ID set to NA - cannot be determined from deposited metadata.
+  subject_id = NA_character_,
   # Visit number extracted from Submitter_Id to derive approximate age per sample
   raw_visit = as.integer(sub("^OMIC.+-[0-9]+-(\\d+)-swab$", "\\1", initial_meta$Submitter_Id)),
   age = "pending",
@@ -199,7 +203,7 @@ metadata <- data.frame(
   pcr_primers = "341F-806R",  # From paper Methods: 341F (ACGGGAGGCAGCAG) and 806R (GGACTACHVGGGTWTCTAAT)
   title = "A longitudinal study of the development of the saliva microbiome in infants 2 days to 5 years compared to the microbiome in adolescents",  # From paper
   disease_study = "no",  # Healthy cohort: healthy infants (n=206) and healthy young adults (n=175)
-  status = NA,  # All participants are healthy; no disease groups
+  status = "HC",  # All participants are healthy; no disease groups
   matched_samples = "pending",
   is_time_series = "yes",  # Same children repeatedly sampled at 5 chronologically ordered timepoints: 2d, 3m, 18m, 3y, 5y
   stringsAsFactors = FALSE
@@ -220,7 +224,7 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # Visit 4 = 3 years, Visit 5 = 5 years
 metadata <- metadata %>%
   mutate(age = case_when(
-    raw_visit == 1 ~ 0,
+    raw_visit == 1 ~ 2/365.25,  # ~0.0055 yr (2 days old, avoid 0 for log/regression)
     raw_visit == 2 ~ 0.25,
     raw_visit == 3 ~ 1.5,
     raw_visit == 4 ~ 3,
@@ -245,12 +249,8 @@ metadata <- metadata %>%
     TRUE ~ "other"
   ))
 
-# editing matched_samples, just run.
-metadata$matched_samples <- ifelse(
-  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
-  "yes",
-  "no"
-)
+# editing matched_samples: NA because subject_id is unknown, cannot determine if samples are from same person
+metadata$matched_samples <- NA_character_
 ```
 
 ```{r}

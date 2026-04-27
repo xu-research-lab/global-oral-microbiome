@@ -3,6 +3,7 @@ title: "R Notebook: Metadata Processing Workflow"
 output: github_document
 ---
 
+```{r}
 # =============================================================
 # Curation Notes - PRJEB18476
 # age        : From initial_meta$host_age; format "54 years" → stripped to numeric
@@ -19,7 +20,7 @@ output: github_document
 # non-human  : Organism column; keyword "Saccharomyces cerevisiae" (yeast QC sample)
 # age_info   : NA — individual ages available in host_age column
 # =============================================================
-
+```
 # Step 1: Obtain Initial Metadata from Each Project
 
 This step sets the project directory, loads the raw SRA metadata, and optionally merges supplement tables.

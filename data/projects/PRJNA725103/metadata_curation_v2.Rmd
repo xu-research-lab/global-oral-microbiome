@@ -173,7 +173,7 @@ metadata <- data.frame(
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
   #raw_site = initial_meta$isolation_source,
-  site = "supragingival plaque",
+  site = "subgingival plaque",
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "341F-805R", # Format: xxF-xxR

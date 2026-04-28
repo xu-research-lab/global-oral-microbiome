@@ -1,0 +1,14 @@
+# .gitignore 文件内容
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# Jupyter 缓存
+.ipynb_checkpoints/
+
+# Gitignore all metadata_curation_notes.md
+metadata_curation_notes.md
+
+#
+projects/

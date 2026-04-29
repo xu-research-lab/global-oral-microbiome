@@ -243,11 +243,11 @@ metadata$status[metadata$raw_status == "precancer"] <- "Precancer"
 metadata$status[metadata$raw_status == "Precancer"] <- "Precancer"
 metadata$status[metadata$raw_status=="Healthy normal"] <- "HC"
 metadata$status[metadata$raw_status=="Normal"] <- "HC"
-metadata$status[metadata$raw_status=="CIS"] <- "OSCC"
+metadata$status[metadata$raw_status=="CIS"] <- "Carcinoma in situ"
 metadata$status[metadata$raw_status=="Cancer"] <- "OSCC"
 metadata <- metadata %>%
   mutate(status = case_when(
-    status %in% c("OSCC", "Precancer", "HC") ~ status,
+    status %in% c("OSCC", "Precancer", "HC","Carcinoma in situ") ~ status,
     TRUE ~ "Precancer"
   ))
 

@@ -188,7 +188,7 @@ metadata$public_time <- as.Date(metadata$public_time)
 metadata <- metadata %>% 
   mutate(status = case_when(
     grepl("C",subject_id) ~ "HC",
-    grepl("T",subject_id) ~ "HC",
+    grepl("T",subject_id) ~ "Long-term tobacco chewers",
     TRUE ~ "OSCC"
   ))
 ```

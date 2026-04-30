@@ -198,19 +198,20 @@ metadata <- metadata %>%
     raw_site_code = sapply(strsplit(as.character(raw_site), "\\."), `[`, 3)
   ) %>%
   mutate(
-    lit_num_id = ifelse(sra_num_id > 5, sra_num_id - 1, sra_num_id),
-    subject_id = paste0("Subject_", lit_num_id),
+    subject_id = paste0("Subject_", sra_num_id),
     age = case_when(
-      lit_num_id == 1 ~ 31, lit_num_id == 2 ~ 31, lit_num_id == 3 ~ 29,
-      lit_num_id == 4 ~ 31, lit_num_id == 5 ~ 33, lit_num_id == 6 ~ 28,
-      lit_num_id == 7 ~ 28, lit_num_id == 8 ~ 33, lit_num_id == 9 ~ 32,
-      lit_num_id == 10 ~ 29, TRUE ~ NA_real_
+      sra_num_id == 1 ~ 31, sra_num_id == 2 ~ 31, sra_num_id == 3 ~ 29,
+      sra_num_id == 4 ~ 31, sra_num_id == 5 ~ 33, sra_num_id == 7 ~ 28,
+      sra_num_id == 8 ~ 33, sra_num_id == 9 ~ 32, sra_num_id == 10 ~ 29, 
+      TRUE ~ NA_real_
     ),
+
     sex = case_when(
-      lit_num_id %in% c(1, 3, 4) ~ "F",
-      lit_num_id %in% c(2, 5, 6, 7, 8, 9, 10) ~ "M",
+      sra_num_id %in% c(1, 3, 4) ~ "F",
+      sra_num_id %in% c(2, 5, 7, 8, 9, 10) ~ "M",
       TRUE ~ NA_character_
     ),
+
     site = case_when(
       raw_site_code == "bu" ~ "buccal mucosa",
       raw_site_code == "hp" ~ "hard palate",

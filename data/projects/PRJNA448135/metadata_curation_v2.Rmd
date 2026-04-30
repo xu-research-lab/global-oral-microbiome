@@ -162,7 +162,7 @@ metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
   raw_rel = initial_meta$host_family_relationship,
-  subject_id = initial_meta$Sample_Name,
+  subject_id = initial_meta$host_family_relationship,
   age = NA,
   age_info = "pending",
   bmi = NA,

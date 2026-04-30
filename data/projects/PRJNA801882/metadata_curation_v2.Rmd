@@ -21,7 +21,7 @@ base_dir <- "/home/hby/oral-metadata/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
-sra_file <- "SraRunTable_v2.csv"
+sra_file <- "SraRunTable.csv"
 initial_meta <- read.csv(sra_file, header = TRUE)
 
 # (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
@@ -176,7 +176,7 @@ metadata <- data.frame(
   pcr_primers = "515F-806R", # Format: xxF-xxR
   title = "The Oral Microbiome and Lung Cancer Risk: An Analysis of 3 Prospective Cohort Studies", # extract from article
   disease_study = "yes", # determine according to the article
-  raw_status = initial_meta$lung_cancer,
+  raw_status = initial_meta$colorectal_cancer,
   status = "pending",
   matched_samples = "pending", # modify later
   is_time_series = "no", # determine according to the article

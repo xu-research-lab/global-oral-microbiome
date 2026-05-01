@@ -164,7 +164,8 @@ metadata <- data.frame(
   subject_id = initial_meta$host_subject_id,
   raw_age = initial_meta$host_subject_id, 
   age = "pending", # and mark as "pending"
-  age_info = "20-45",
+  raw_age_info = initial_meta$host_subject_id,
+  age_info = "pending", # modify later
   raw_bmi = initial_meta$host_subject_id, 
   bmi = "pending", # and mark as "pending"
   raw_sex = initial_meta$host_subject_id, # if need modify, then create a column start with 'raw_'
@@ -195,6 +196,13 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata <- metadata %>%
+  mutate(age_info = case_when(
+    raw_age_info == "MO" ~ "20-45",
+    raw_age_info == "ME" ~ "20-45",
+    TRUE ~ NA_character_
+  )) # According to the 'host_subject_id' column of initial_meta
+
 metadata <- metadata %>%
   mutate(age = case_when(
     raw_age == "MA" ~ "40",

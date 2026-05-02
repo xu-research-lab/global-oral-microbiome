@@ -149,7 +149,7 @@ metadata <- data.frame(
   bmi = NA,
   raw_sex = NA,
   sex = "pending",
-  sequencing_region = NA, # paper says "301bp PE on Illumina" but does not specify targeted 16S region or primers; cannot confirm V4
+  sequencing_region = "V4",
   platform = initial_meta$Instrument,
   country = "USA",
   raw_site = NA,

@@ -170,7 +170,7 @@ metadata <- data.frame(
   sex = "pending", # modify later
   sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
-  country = initial_meta$geo_loc_name_country,
+  country = "USA", # The reason for filling USA is the puerto rico value in the geo_loc_name_country column of initial_meta, which belongs to the territory of USA.
   site = initial_meta$env_material,
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,

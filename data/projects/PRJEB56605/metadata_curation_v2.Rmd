@@ -53,6 +53,8 @@ table(initial_meta$Instrument) # output is 'Illumina MiSeq'. according to the me
 First, we need to remove control samples(including both negative controls and positive controls) and non-human samples.
 
 ```{r}
+initial_meta <- initial_meta[!grepl("-2", initial_meta$Submitter_Id), ] # Filter out rows containing '-2', i.e., filter out duplicate samples
+
 # (1) EDIT HERE: Parameter setup
 control_column <- "" # column name in initial_meta
 # unique(initial_meta[[control_column]])

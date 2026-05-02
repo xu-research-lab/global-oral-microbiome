@@ -189,6 +189,9 @@ metadata$pcr_primers <- "343F-798R"
 metadata$title <- "B-cell-depletion reverses dysbiosis of the microbiome in multiple sclerosis patients"
 metadata$disease_study <- "yes"
 
+# All subjects are multiple sclerosis patients
+metadata$status <- "multiple sclerosis"
+
 # Keep only oral swab samples
 keep_subjects <- metadata$subject_id[metadata$site == "oral swab"]
 metadata <- metadata[metadata$subject_id %in% keep_subjects, ]

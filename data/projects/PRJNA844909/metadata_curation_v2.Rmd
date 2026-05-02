@@ -182,7 +182,7 @@ metadata$sex <- NA_character_
 
 # Assign site and sequencing_region
 metadata$site <- "saliva"
-metadata$sequencing_region <- "V4"
+metadata$sequencing_region <- NA_character_
 
 metadata$title <- "Oral microbiota signatures in post-traumatic stress disorder (PTSD) veterans"
 metadata$disease_study <- "yes"

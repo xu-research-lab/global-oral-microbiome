@@ -143,7 +143,7 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample.Name,
+  raw_subject_id = initial_meta$Library.Name,
   age = NA,
   age_info = NA,
   bmi = NA,
@@ -177,25 +177,44 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # IMPORTANT: Add comments if the modification is not straightforward!!
 metadata$sex <- NA_character_
 
-# Determine status from subject_id pattern (COV*=COVID, CO1-CO9=healthy controls)
-metadata$status <- ifelse(
-  grepl("^COV", metadata$subject_id), "COVID-19",
-  ifelse(grepl("^CO[1-9]", metadata$subject_id), "HC", NA)
-)
+# NOTE: Subject ID is encoded in "Library Name" (not Sample.Name).
+# Format: "COVID oral_22", "Healthy control gut_10", etc.
+# Group + number = same person; site_type = oral/gut.
+# Example: COVID oral_22 and COVID gut_22 share subject COVID_22.
+parse_libname <- function(libname) {
+  parts <- strsplit(libname, "_")
+  sapply(parts, function(p) {
+    info <- p[length(p) - 1]
+    num <- p[length(p)]
+    if (grepl("COVID", info, ignore.case = TRUE)) {
+      status <- "COVID-19"
+      subj <- paste0("COVID_", num)
+    } else {
+      status <- "HC"
+      subj <- paste0("HC_", num)
+    }
+    if (grepl("gut", info, ignore.case = TRUE)) {
+      site <- "stool"
+      site_group <- "gut"
+    } else {
+      site <- "saliva"
+      site_group <- "oral"
+    }
+    c(subject_id = subj, site = site,
+      site_group = site_group, status = status)
+  })
+}
 
-# Remap site from isolation_source
-metadata$site <- ifelse(
-  grepl("gut", metadata$raw_site), "feces",
-  ifelse(grepl("oral", metadata$raw_site), "saliva", NA)
-)
+parsed <- parse_libname(metadata$raw_subject_id)
+metadata$subject_id <- parsed["subject_id", ]
+metadata$site <- parsed["site", ]
+metadata$site_group <- parsed["site_group", ]
+metadata$status <- parsed["status", ]
 
 # Add publication information
 metadata$pcr_primers <- "341F-806R"
-metadata$title <- "Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected Patients in Bangladesh: Elucidating the Role of Opportunistic Gut Microbes"
+metadata$title <- "Dysbiosis of Oral and Gut Microbiomes in SARS-CoV-2 Infected Patients in Bangladesh"
 metadata$disease_study <- "yes"
-
-# Keep only saliva samples
-metadata <- metadata[metadata$site == "saliva", ]
 
 ```
 

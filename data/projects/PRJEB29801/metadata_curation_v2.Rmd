@@ -175,16 +175,19 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
 # IMPORTANT: Add comments if the modification is not straightforward!!
-#all subjects are Male
+# All subjects are Male
 metadata$sex <- "M"
+
+# Assign site from article: all samples are saliva
+metadata$site <- "saliva"
+
+# All saliva samples are oral
+metadata$site_group <- "oral"
 
 metadata$title <- "Analysis of the Effects of Dietary Pattern on the Oral Microbiome of Elite Endurance Athletes"
 metadata$disease_study <- "no"
-metadata$status <- NA_character_
-
-# Keep only saliva samples
-keep_subjects <- metadata$subject_id[metadata$raw_site == "saliva"]
-metadata <- metadata[metadata$subject_id %in% keep_subjects, ]
+# Restore status: all subjects are healthy
+metadata$status <- "HC"
 
 ```
 

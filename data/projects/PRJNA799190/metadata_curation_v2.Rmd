@@ -189,6 +189,7 @@ metadata$site <- ifelse(
 
 metadata$title <- "Clinical helminth infections alter host gut and saliva microbiota"
 metadata$disease_study <- "yes"
+metadata$status <- "helminth infection"
 
 # Keep only subjects who have saliva samples (including their paired gut samples)
 saliva_subjects <- unique(metadata$subject_id[which(metadata$site == "saliva")])

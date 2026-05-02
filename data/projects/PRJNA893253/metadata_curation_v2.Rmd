@@ -145,7 +145,7 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
   age = NA,
-  age_info = NA,
+  age_info = "20-44 years",
   bmi = NA,
   raw_sex = NA,
   sex = "pending",

@@ -217,12 +217,12 @@ metadata <- metadata %>%
       TRUE ~ gsub("UBERON:", "", raw_site) 
     ),
     country = case_when(
-      country == "usa"             ~ "USA",
-      country == "united kingdom"  ~ "United Kingdom",
-      country == "ireland"         ~ "Ireland",
-      country == "morocco"         ~ "Morocco",
-      country == "denmark"         ~ "Denmark",
-      TRUE                         ~ as.character(country)
+      raw_country == "usa"             ~ "USA",
+      raw_country == "united kingdom"  ~ "United Kingdom",
+      raw_country == "ireland"         ~ "Ireland",
+      raw_country == "morocco"         ~ "Morocco",
+      raw_country == "denmark"         ~ "Denmark",
+      TRUE                         ~ NA_character_
     )
   )
 # metadata$site <- gsub("UBERON:", "", metadata$raw_site)

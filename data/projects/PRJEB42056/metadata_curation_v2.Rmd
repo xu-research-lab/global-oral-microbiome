@@ -173,8 +173,8 @@ metadata <- data.frame(
   sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
-  #raw_site = initial_meta$sample_type,
-  site = initial_meta$sample_type,
+  raw_site = initial_meta$host_body_site,
+  site = "pending",
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "515F-806R", # Format: xxF-xxR
@@ -201,7 +201,7 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 #     raw_sex == 48 ~ "F",
 #     TRUE ~ NA_character_
 #   )) # According to the 'family_relationship' column of initial_meta, 47 was matched to father; 48 were mother.
-# metadata$site <- gsub("UBERON:", "", metadata$raw_site)
+metadata$site <- gsub("UBERON:", "", metadata$raw_site)
 ```
 
 ```{r}

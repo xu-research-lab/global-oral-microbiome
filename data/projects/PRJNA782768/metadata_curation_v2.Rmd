@@ -148,7 +148,7 @@ metadata <- data.frame(
   raw_subject_id = initial_meta$Sample.Name,
   subject_id = "pending",
   age = NA,
-  age_info = NA,
+  age_info = "18-75 years",
   bmi = NA,
   raw_sex = NA,
   sex = "pending",
@@ -183,28 +183,30 @@ metadata$sex <- NA_character_
 # NOTE: This project has two SraRunTable files (SraRunTable.csv + SraRunTable1.csv) combined in Step 1
 # Sample.Name encodes sample type prefix + subject number: DT094=T2DM tongue pt 94, HT012=healthy tongue pt 12, Tb20=healthy tongue pt 20, T02a=healthy tongue pt 2, F20=healthy feces pt 20, DF061=T2DM feces pt 61
 
-# Determine disease status and site from Sample.Name type prefix BEFORE extracting subject_id
-metadata$status <- ifelse(
-  grepl("^DT", metadata$subject_id), "T2DM",
-  ifelse(grepl("^(HT|Tb|T)", metadata$subject_id), "HC", NA_character_)
-)
-
-metadata$site <- ifelse(
-  grepl("^(F|DF)", metadata$subject_id), "stool",
-  "tongue coating"
-)
-
+# Sample.Name encodes sample type prefix + subject number:
+# DT094=T2DM tongue pt 94, DF061=T2DM feces pt 61,
+# HT012=healthy tongue pt 12, Tb20=healthy tongue pt 20, F20=healthy feces pt 20
 # Extract subject_id by removing sample type prefix and letter suffix
 metadata$subject_id <- gsub("^(DT|DF|HT|Tb|T|F)", "", metadata$raw_subject_id)
 metadata$subject_id <- gsub("[a-z]", "", metadata$subject_id)
 
-# Add publication information
-metadata$pcr_primers <- "338F-806R"
-metadata$title <- "Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus"
-metadata$disease_study <- "yes"
+# Determine disease status from Sample.Name type prefix
+metadata$status <- case_when(
+  grepl("^(DT|DF)", metadata$raw_subject_id) ~ "T2DM",
+  grepl("^(HT|Tb|T|F)", metadata$raw_subject_id) ~ "HC",
+  TRUE ~ NA_character_
+)
 
-# Keep only tongue coating samples
-metadata <- metadata[metadata$site == "tongue coating", ]
+# Determine site from Sample.Name type prefix
+metadata$site <- ifelse(
+  grepl("^(F|DF)", metadata$raw_subject_id), "stool",
+  "tongue coating"
+)
+
+# Keep only subjects who have at least one tongue coating sample
+# (oral-gut paired design: retain both oral and gut for matched subjects)
+keep_subjects <- metadata$subject_id[metadata$site == "tongue coating"]
+metadata <- metadata[metadata$subject_id %in% keep_subjects, ]
 
 ```
 

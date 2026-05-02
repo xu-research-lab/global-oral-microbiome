@@ -151,7 +151,7 @@ metadata <- data.frame(
   sex = "pending",
   sequencing_region = "V3-V4",
   platform = initial_meta$Instrument,
-  country = initial_meta$geo_loc_name_country,
+  country = "US",
   raw_site = initial_meta$sample_type,
   site = "pending",
   site_group = "pending",
@@ -160,7 +160,7 @@ metadata <- data.frame(
   pcr_primers = NA,
   title = NA,
   disease_study = NA,
-  status = "pending",
+  status = NA,
   matched_samples = "pending",
   is_time_series = "no",
   stringsAsFactors = FALSE
@@ -185,10 +185,12 @@ metadata <- metadata %>%
     TRUE ~ NA_character_
   ))
 
-# Remap disease_status from SRA to standardized status names
-metadata$status <- ifelse(
-  grepl("Case", metadata$raw_status), "HNC",
-  ifelse(grepl("Control", metadata$raw_status), "HC", NA_character_)
+# Remap status from v1 values to v2 format
+# Control -> HC; Case (head and neck cancer and pancreatic cancer) -> HNC
+metadata$status <- case_when(
+  metadata$raw_status == "Control" ~ "HC",
+  metadata$raw_status == "Case" ~ "HNC",
+  TRUE ~ NA_character_
 )
 
 # Assign site from raw_site, lowercased

@@ -179,8 +179,15 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # IMPORTANT: Add comments if the modification is not straightforward!!
 metadata$sex <- NA_character_
 
-# Extract status from raw_status (isolate column contained health status)
-metadata$status <- metadata$raw_status
+# Map status based on site: abscess pus + adjacent periodontal pocket
+# are from periodontal abscess patients; patient healthy crevice is from
+# periodontitis patients (no abscess); healthy control crevice is HC.
+metadata$status <- case_when(
+  metadata$site %in% c("abscess pus", "adjacent periodontal pocket") ~ "periodontal abscess",
+  metadata$site == "patient healthy crevice" ~ "periodontitis",
+  metadata$site == "healthy control crevice" ~ "HC",
+  TRUE ~ NA_character_
+)
 
 # Remap site from isolate column (which encoded site and health status); remapped to site names
 metadata <- metadata %>% mutate(site = case_when(

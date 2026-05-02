@@ -226,7 +226,8 @@ metadata <- metadata %>% mutate(site = case_when(
 metadata$pcr_primers <- "341F-806R"
 metadata$title <- "Child Weight Gain Trajectories Linked To Oral Microbiota Composition"
 metadata$disease_study <- "no"
-metadata$status <- NA_character_
+# All subjects are healthy (normal weight children and mothers)
+metadata$status <- "HC"
 
 # Keep only saliva samples
 keep_subjects <- metadata$subject_id[metadata$site == "saliva"]

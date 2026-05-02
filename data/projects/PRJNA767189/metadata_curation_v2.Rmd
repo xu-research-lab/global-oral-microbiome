@@ -145,13 +145,13 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
   age = NA,
-  age_info = NA,
+  age_info = "age-matched",
   bmi = NA,
   raw_sex = "F",
   sex = "pending",
   sequencing_region = "V4",
   platform = initial_meta$Instrument,
-  country = initial_meta$geo_loc_name_country,
+  country = "Ghana",
   raw_site = initial_meta$material,
   site = "pending",
   site_group = "pending",
@@ -184,7 +184,12 @@ metadata$site <- tolower(metadata$raw_site)
 metadata$sex <- "F"
 
 # Remap status from sample_type
-metadata$status <- gsub("Cancer", "Breast cancer", metadata$raw_status) # sample_type used 'Cancer'; remapped to specific disease name
+metadata$status <- case_when(
+  metadata$raw_status == "Cancer" ~ "Breast cancer",
+  metadata$raw_status == "Benign" ~ "benign breast disease",
+  metadata$raw_status %in% c("Control", "Repeated Control") ~ "HC",
+  TRUE ~ NA_character_
+)
 
 # Add publication information
 metadata$pcr_primers <- "515F-806R"

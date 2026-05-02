@@ -152,16 +152,15 @@ metadata <- data.frame(
   sex = "pending",
   sequencing_region = "V4",
   platform = initial_meta$Instrument,
-  country = "USA",
-  raw_site = initial_meta$tissue,
+  country = "China",
+  raw_site = initial_meta$isolate,
   site = "pending",
   site_group = "pending",
   public_time = initial_meta$ReleaseDate,
-  raw_status = initial_meta$Diabetes,
   pcr_primers = NA,
   title = NA,
   disease_study = NA,
-  status = "pending",
+  status = "Tumor",
   matched_samples = "pending",
   is_time_series = "no",
   stringsAsFactors = FALSE
@@ -187,25 +186,26 @@ metadata <- metadata %>%
   ))
 
 # Extract subject_id from Sample.Name (e.g., "PT4_2" → "PT4")
-metadata$subject_id <- gsub("_.*$", "", metadata$subject_id)
+metadata$subject_id <- gsub("_.*$", "", metadata$raw_subject_id)
 
-# Map site from tissue column
+# Site from isolate column (tissue column in SRA is uncalculated; isolate has correct anatomical sites)
+metadata$site <- tolower(metadata$raw_site)
+
+# Standardize non-standard site names to anatomical terms
 metadata$site <- case_when(
-  metadata$raw_site == "saliva" ~ "saliva",
-  metadata$raw_site == "swab" ~ "oral swab",
-  metadata$raw_site == "para" ~ "palate",
-  metadata$raw_site == "caout" ~ "caout",
-  TRUE ~ metadata$raw_site
-) # tissue column: swab=oral swab, para=palate, caout=unknown oral site
-
-# Map status from Diabetes column (0=no diabetes, 1=diabetes)
-metadata$status <- ifelse(
-  metadata$raw_status == "1", "Diabetes",
-  ifelse(metadata$raw_status == "0", "Non-diabetes", NA_character_)
+  metadata$site == "tongue" ~ "tongue dorsum",
+  metadata$site == "gingival" ~ "gingiva",
+  metadata$site == "oralfloor" ~ "oral floor",
+  metadata$site == "buccal" ~ "buccal mucosa",
+  metadata$site == "palate" ~ "hard palate",
+  TRUE ~ metadata$site
 )
 
+# All samples are tumor tissue from oral cancer patients
+metadata$status <- "oral cancer"
+
 metadata$pcr_primers <- "515F-806R"
-metadata$title <- "Dental caries as a risk factor for bacterial blood stream infection (BSI) in children undergoing hematopoietic cell transplantation (HCT)"
+metadata$title <- "The oral cancer microbiome contains tumor space specific and clinicopathologyspecific bacteria"
 metadata$disease_study <- "yes"
 
 ```
@@ -215,7 +215,7 @@ metadata$disease_study <- "yes"
 # editing site_group
 unique(metadata$site)
 # EDIT HERE: add oral sites
-Oral_site = c("saliva", "mouth", "tongue coating", "supragingival plaque", "subgingival plaque", "oral swab", "denture", "tooth", "abscess pus", "adjacent periodontal pocket", "patient healthy crevice", "healthy control crevice", "gingival crevicular fluid", "subgingival plaque", "palate", "caout")
+Oral_site = c("saliva", "mouth", "tongue coating", "supragingival plaque", "subgingival plaque", "oral swab", "denture", "tooth", "abscess pus", "adjacent periodontal pocket", "patient healthy crevice", "healthy control crevice", "gingival crevicular fluid", "subgingival plaque", "palate", "caout", "tongue dorsum", "gingiva", "oral floor", "buccal mucosa", "hard palate")
 # EDIT HERE: add gut sites
 Gut_site = c("feces", "stool")
 # just run

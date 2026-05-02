@@ -145,7 +145,7 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
   age = initial_meta$Host_age,
-  age_info = NA,
+  age_info = "46 (38-50) RA, 43 (37-49) HC",
   bmi = initial_meta$host_body_mass_index,
   raw_sex = "F",
   sex = "pending",
@@ -176,9 +176,13 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # (1) Handle the columns with the `raw_` prefix.
 # IMPORTANT: Add comments if the modification is not straightforward!!
 
-# Extract disease status from sample_name pattern
+# Extract disease status from sample_name in SRA metadata
+# v1 sample_name encoded group: RA116C = HC (control), RA115 = RA (patient)
+# Run IDs don't encode this, so we map from SRA Sample.Name
+sra_names <- initial_meta$Sample.Name
 metadata$status <- case_when(
-  grepl("C|c", metadata$sample_id) ~ "HC",
+  grepl("C$", sra_names) ~ "HC",
+  grepl("^[A-Z]+[0-9]+C$", sra_names) ~ "HC",
   TRUE ~ "RA"
 )
 
@@ -186,7 +190,8 @@ metadata$status <- case_when(
 metadata$site <- "oral swab"
 metadata$sex <- "F"
 
-# NOTE: BMI column may contain outlier values that should be set to NA
+# Remove BMI outlier (maximum value is erroneous)
+metadata$bmi[which.max(metadata$bmi)] <- NA
 
 # Add publication information
 metadata$title <- "Oral Microbial Signature of Rheumatoid Arthritis in Female Patients"

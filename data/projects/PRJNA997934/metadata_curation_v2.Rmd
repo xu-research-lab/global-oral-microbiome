@@ -54,13 +54,13 @@ First, we need to remove control samples(including both negative controls and po
 
 ```{r}
 # (1) EDIT HERE: Parameter setup
-control_column <- "sample_type..run." # column name in initial_meta
+control_column <- "removed_after_QC" # column name in initial_meta
 # unique(initial_meta[[control_column]])
-control_keywords <- c("BD", "BP") # Enter exact keywords. DNA isolation blanks (BD), sequencing blanks (BP)
+control_keywords <- c("TRUE") # Enter exact keywords. Low-quality samples in this study were excluded.
 
 species_column <- "sample_type..run." # column name in initial_meta
 unique(initial_meta[[species_column]])
-non_human_keywords <- c("ZMCB", "ZMCD") # Enter exact keywords. Zymo mock bacteria (ZMCB), Zymo mock DNA (ZMCD)
+non_human_keywords <- c("ZMCB", "ZMCD", "BD", "BP") # Enter exact keywords. Zymo mock bacteria (ZMCB), Zymo mock DNA (ZMCD), DNA isolation blanks (BD) and sequencing blanks (BP)
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
 n_samples <- nrow(initial_meta)

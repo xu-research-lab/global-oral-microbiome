@@ -218,7 +218,7 @@ initial_meta = initial_meta%>% fill(disease, .direction = "down")
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Library.Name,
+  subject_id = initial_meta$id,
   age = NA,
   age_info = NA,
   bmi = NA,

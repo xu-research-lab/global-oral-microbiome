@@ -11,6 +11,7 @@ optionally merges supplement tables.
 library(dplyr)
 library(ggplot2)
 library(cowplot)
+library(stringr)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
@@ -48,6 +49,7 @@ is very IMPORTANT!
 # table(initial_meta$platform..exp.) # output is Illumina. according to the methods, Illumina is correct.
 # table(initial_meta$target_subfragment..exp.)
 initial_meta$group = substr(initial_meta$Library.Name,start = 1,stop = 2)
+initial_meta$sex = substr(initial_meta$Library.Name,start = 3,stop = 3)
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -59,7 +61,7 @@ controls and positive controls) and non-human samples.
 # (1) EDIT HERE: Parameter setup
 control_column <- "group"   # column name in initial_meta
 # unique(initial_meta[[control_column]])
-control_keywords <- c('CO','AO')     # Enter exact keywords
+control_keywords <- c('CB','AB')     # Enter exact keywords
 
 species_column <- "HOST"          # column name in initial_meta
 unique(initial_meta[[species_column]])
@@ -214,11 +216,11 @@ accept ‘yes’ or ‘no’.
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample.Name,
+  subject_id = initial_meta$Library.Name,
   age = NA,
   age_info = '20-27',
   bmi = NA,
-  raw_sex = NA, # if need modify, then create a column start with 'raw_'
+  raw_sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
   sex = "pending", # and mark as "pending"
   sequencing_region = 'V4',
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
@@ -249,8 +251,8 @@ columns.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
 metadata <- metadata %>%
   mutate(sex = case_when(
-    raw_sex == 'male' ~ "M",
-    raw_sex == 'female' ~ "F",
+    raw_sex == 'W' ~ "F",
+    raw_sex == 'M' ~ "M",
     TRUE ~ NA_character_
   )) # According to the 'family_relationship' column of initial_meta, 47 was matched to father; 48 were mother.
 metadata$site <- metadata$raw_site

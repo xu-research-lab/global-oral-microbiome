@@ -169,7 +169,7 @@ metadata <- data.frame(
   #raw_sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
   sex = NA, # and mark as "pending"
   sequencing_region = "V3-V4",
-  platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
+  platform = "Illumina Novaseq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
   site = "tongue coating",
   site_group = "pending", # modify later

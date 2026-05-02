@@ -170,7 +170,7 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
   age = NA,
-  age_info = "age-matched",
+  age_info = "18-74 years",
   bmi = NA,
   raw_sex = "F",
   sex = "pending",
@@ -203,6 +203,9 @@ columns.
 ``` r
 # (1) Handle the columns with the `raw_` prefix.
 # IMPORTANT: Add comments if the modification is not straightforward!!
+
+# Clean subject_id: strip sample-level suffixes (e.g., "SC103605-PC31763-F-10" → "SC103605")
+metadata$subject_id <- gsub("-.*$", "", metadata$subject_id)
 
 # Extract site from raw_site
 metadata$site <- tolower(metadata$raw_site)

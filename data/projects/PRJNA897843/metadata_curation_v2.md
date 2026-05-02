@@ -226,14 +226,16 @@ metadata$disease_study <- "no"
 metadata$status <- "HC"
 
 # Clean up merged supplementary columns (keep only age and BMI values)
+# Column names from read.csv have spaces converted to dots
 metadata$Age <- NULL
 metadata$BMI <- NULL
 metadata$Lenght <- NULL
 metadata$Duration <- NULL
-metadata$`Oral contraceptives or HRT` <- NULL
-metadata$`Physical activitya Current` <- NULL
-metadata$`current smoker` <- NULL
-metadata$`Mediterranean diet` <- NULL
+# Remove extra lifestyle columns brought in by left_join
+extra_cols <- c("Oral.contraceptives.or.HRT", "Physical.activitya.Current",
+                "current.smoker", "Mediterranean.diet", "Pregnancy")
+extra_cols <- extra_cols[extra_cols %in% colnames(metadata)]
+if (length(extra_cols) > 0) metadata[extra_cols] <- NULL
 
 # Remove raw_ columns from final output
 metadata$raw_subject_id <- NULL

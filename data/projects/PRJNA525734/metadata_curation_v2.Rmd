@@ -187,7 +187,7 @@ metadata <- metadata %>%
 metadata$title <- "Analysis of oral microbiota in Japanese oral cancer patients using 16S rRNA sequencing"
 metadata$disease_study <- "yes"
 metadata$site <- "saliva"
-metadata$status <- "oral cancer"
+metadata$status <- "OSCC"
 
 ```
 

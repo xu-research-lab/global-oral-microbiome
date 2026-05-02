@@ -216,7 +216,7 @@ metadata <- metadata %>%
 # Control -> HC; Case (head and neck cancer and pancreatic cancer) -> HNC
 metadata$status <- case_when(
   metadata$raw_status == "Control" ~ "HC",
-  metadata$raw_status == "Case" ~ "HNC",
+  metadata$raw_status == "Case" ~ "head and neck cancer and pancreatic cancer",
   TRUE ~ NA_character_
 )
 

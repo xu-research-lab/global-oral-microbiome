@@ -206,17 +206,7 @@ columns.
 # IMPORTANT: Add comments if the modification is not straightforward!!
 metadata$sex <- NA_character_
 
-# Map status based on site: abscess pus + adjacent periodontal pocket
-# are from periodontal abscess patients; patient healthy crevice is from
-# periodontitis patients (no abscess); healthy control crevice is HC.
-metadata$status <- case_when(
-  metadata$site %in% c("abscess pus", "adjacent periodontal pocket") ~ "periodontal abscess",
-  metadata$site == "patient healthy crevice" ~ "periodontitis",
-  metadata$site == "healthy control crevice" ~ "HC",
-  TRUE ~ NA_character_
-)
-
-# Remap site from isolate column (which encoded site and health status); remapped to site names
+# Remap site from isolate column (which encoded site and health status)
 metadata <- metadata %>% mutate(site = case_when(
   raw_site == "periodontal abscess" ~ "abscess pus",
   raw_site == "periodontal pocket" ~ "adjacent periodontal pocket",
@@ -224,6 +214,17 @@ metadata <- metadata %>% mutate(site = case_when(
   raw_site == "periodontal health control" ~ "healthy control crevice",
   TRUE ~ raw_site
 ))
+
+# Map status based on remapped site
+# abscess pus + adjacent periodontal pocket = periodontal abscess patients
+# patient healthy crevice = periodontitis patients (no abscess)
+# healthy control crevice = HC
+metadata$status <- case_when(
+  metadata$site %in% c("abscess pus", "adjacent periodontal pocket") ~ "periodontal abscess",
+  metadata$site == "patient healthy crevice" ~ "periodontitis",
+  metadata$site == "healthy control crevice" ~ "HC",
+  TRUE ~ NA_character_
+)
 
 # Remove group suffix from subject_id (e.g., "052004A_Pocket" → "052004A")
 metadata$subject_id <- gsub("_.*$", "", metadata$raw_subject_id)

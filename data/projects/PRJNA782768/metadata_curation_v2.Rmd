@@ -160,7 +160,7 @@ metadata <- data.frame(
   site_group = "pending",
   public_time = initial_meta$ReleaseDate,
   pcr_primers = NA,
-  title = NA,
+  title = "Distribution characteristics of oral microbiota and its relationship with intestinal microbiota in patients with type 2 diabetes mellitus",
   disease_study = NA,
   status = "pending",
   matched_samples = "pending",

@@ -174,7 +174,7 @@ metadata <- data.frame(
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "338F-806R", # Format: xxF-xxR
-  title = "Cohabiting family members share microbiota with one another and with their dogs", # extract from article
+  title = "Microbial and metabolomic analysis of gingival crevicular fluid in general chronic periodontitis patients: lessons for a predictive,preventive, and personalized medical approach", # extract from article
   disease_study = "yes", # determine according to the article
   status = "pending", 
   matched_samples = "pending", # modify later

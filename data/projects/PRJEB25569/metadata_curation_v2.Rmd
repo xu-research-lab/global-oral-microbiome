@@ -171,7 +171,7 @@ The uniform metadata should include the following columns:
 # site        : From initial_meta 'common_name' — "human oral metagenome" = saliva, "human gut metagenome" = feces
 # country     : From initial_meta 'geo_loc_name_country' — Spain
 # disease_study : "yes" — HIV infection study
-# is_time_series: "yes" — same individuals at baseline (F1) and post-prebiotic (F2); paired sample naming
+# is_time_series: "no" — same individuals at baseline (F1) and post-prebiotic (F2); paired sample naming
 # status      : From paper Table 1 — Control -> "HC"; INR -> "immunological ART non-responder"; IR -> "immunological ART responder"; VU -> "viremic ART-untreated"; mapped via subject_id
 # controls    : none
 # non-human   : none — all human samples
@@ -211,7 +211,7 @@ metadata <- data.frame(
   status = "pending",
   matched_samples = "pending", # modify later
   # From paper: same individuals sampled at baseline (F1) and post-prebiotic (F2); sample naming confirms paired samples (e.g., S-F1-23 and S-F2-23)
-  is_time_series = "yes",
+  is_time_series = "no",
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
@@ -238,9 +238,9 @@ metadata <- metadata %>%
   mutate(status = case_when(
     subject_id %in% c("11", "17", "21", "23", "28", "29", "30", "31", "32",
                       "45", "48", "49", "50", "60") ~ "HC",
-    subject_id %in% c("3", "5", "9", "13", "22", "25", "27", "54", "56", "58") ~ "immunological ART non-responder",
+    subject_id %in% c("3", "5", "9", "13", "22", "25", "27", "54","58") ~ "immunological ART non-responder",
     subject_id %in% c("1", "2", "4", "6", "7", "8", "10", "12", "14", "15",
-                      "16", "18", "19", "20", "24", "26", "33") ~ "immunological ART responder",
+                      "16", "18", "19", "20", "24", "26", "33" ,"56") ~ "immunological ART responder",
     subject_id %in% c("34", "35", "36", "37", "38", "39", "40", "44", "46",
                       "47", "51", "53") ~ "viremic ART-untreated",
     TRUE ~ NA_character_
@@ -347,12 +347,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
-# Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+# Insert Metadata_Summary_v2.png into the current Rmd output
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

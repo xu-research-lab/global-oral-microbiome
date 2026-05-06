@@ -145,7 +145,7 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$SampleID,
   age = initial_meta$AGE,
-  age_info = NA,
+  age_info = ">40 years",
   bmi = NA,
   raw_sex = initial_meta$sex,
   sex = "pending",
@@ -187,6 +187,7 @@ metadata <- metadata %>%
 metadata$title <- "Analysis of oral microbiota in Japanese oral cancer patients using 16S rRNA sequencing"
 metadata$disease_study <- "yes"
 metadata$site <- "saliva"
+metadata$status <- "OSCC"
 
 ```
 

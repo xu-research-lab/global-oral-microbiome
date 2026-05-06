@@ -58,9 +58,9 @@ control_column <- "empo_1" # column name in initial_meta
 # unique(initial_meta[[control_column]])
 control_keywords <- c("Control") # Enter exact keywords
 
-species_column <- ""  # column name in initial_meta
+species_column <- "type"  # column name in initial_meta 
 unique(initial_meta[[species_column]])
-non_human_keywords <- c() # Enter exact keywords
+non_human_keywords <- c("not collected") # Because the original text explicitly mentions 1107 subgingival plaque samples, it is necessary to filter out the ambiguous samples so that the number of samples in initial_metadata is consistent with that in the original pdf. The original sentence is ' In total, 16S rRNA gene amplicon sequencing data from 1107 subgingival plaque samples and 282 saliva samples were generated for analysis. '
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
 n_samples <- nrow(initial_meta)

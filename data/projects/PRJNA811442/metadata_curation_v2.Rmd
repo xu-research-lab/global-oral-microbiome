@@ -193,7 +193,9 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
-metadata$subject_id<- gsub("_1|_2", "", metadata$raw_subject_id) # According to the 'Sample.Name' column of initial_meta
+metadata <- metadata %>%
+  mutate(subject_id = gsub("_1|_2", "", raw_subject_id)) %>%
+  distinct(subject_id, .keep_all = TRUE) # According to the 'Sample.Name' column of initial_meta, and the repeated samples are removed.
 
 metadata <- metadata %>%
   mutate(sex = case_when(

@@ -23,7 +23,9 @@ setwd(file.path(base_dir, project_id))
 sra_file <- "SraRunTable.csv"
 initial_meta <- read.csv("SraRunTable.csv", header = TRUE)
 
-# (3) NOTE: supplementary.csv is NOT used per project rules - keep only SRA metadata.
+# (3) Merge supplementary table for age and BMI info
+supp_table <- read.csv("supplementary.csv", header = TRUE, stringsAsFactors = FALSE)
+# supp_table columns: Subject, Age, BMI, Lenght, Duration, Oral contraceptives or HRT, ...
 ```
 
 # Step 2: Data Overview
@@ -169,7 +171,7 @@ metadata <- data.frame(
   raw_subject_id = initial_meta$Sample.Name,
   subject_id = "pending",
   age = NA,
-  age_info = NA,
+  age_info = "26-77 years",
   bmi = NA,
   raw_sex = NA,
   sex = "pending",
@@ -205,9 +207,10 @@ columns.
 # Extract subject_id from Sample.Name: e.g., "M15-14_HS_040_14 day" → "M15", "MP13_HS_033_Post-menopausal" → "MP13"
 metadata$subject_id <- sub("[-_].*", "", metadata$raw_subject_id)
 
-# No age/BMI info available from SRA (supplementary.csv not used)
-metadata$age <- NA
-metadata$bmi <- NA
+# Merge with supplementary table for age and BMI
+metadata <- left_join(metadata, supp_table, by = c("subject_id" = "Subject"))
+metadata$age <- metadata$Age
+metadata$bmi <- metadata$BMI
 
 # All subjects are female (study focuses on menstrual cycle and menopausal women)
 metadata$sex <- "F"
@@ -218,6 +221,26 @@ metadata$sequencing_region <- "V2-V3-V4-V6-V7-V8-V9" # Ion 16S Metagenomics Kit 
 
 metadata$title <- "Analysis of the oral microbiome during hormonal cycle and its alterations in menopausal women the AMICA project"
 metadata$disease_study <- "no"
+
+# All subjects are healthy controls (study of normal hormonal variation, not disease)
+metadata$status <- "HC"
+
+# Clean up merged supplementary columns (keep only age and BMI values)
+# Column names from read.csv have spaces converted to dots
+metadata$Age <- NULL
+metadata$BMI <- NULL
+metadata$Lenght <- NULL
+metadata$Duration <- NULL
+# Remove extra lifestyle columns brought in by left_join
+extra_cols <- c("Oral.contraceptives.or.HRT", "Physical.activitya.Current",
+                "current.smoker", "Mediterranean.diet", "Pregnancy")
+extra_cols <- extra_cols[extra_cols %in% colnames(metadata)]
+if (length(extra_cols) > 0) metadata[extra_cols] <- NULL
+
+# Remove raw_ columns from final output
+metadata$raw_subject_id <- NULL
+metadata$raw_sex <- NULL
+metadata$raw_site <- NULL
 ```
 
 ``` r

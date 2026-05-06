@@ -25,6 +25,9 @@ setwd(file.path(base_dir, project_id))
 sra_file <- "OEP00000837_Data_1758007425482.xlsx"
 initial_meta <- read_xlsx("OEP00000837_Data_1758007425482.xlsx", sheet = "sheet1")
 
+# Deduplicate: SRA export has each sample listed twice (duplicate run_id/sample_name)
+initial_meta <- initial_meta[!duplicated(initial_meta$run_id), ]
+
 # (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
 # supp_table <- read.csv("supplemental_table.csv", header = TRUE)
 # initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
@@ -188,6 +191,7 @@ metadata$site <- case_when(
   grepl("C", metadata$raw_site) ~ "paracancerous tissue"
 ) # sample_name encodes sample type: TY=saliva, T|t=tumor, C=paracancerous
 
+# All subjects are OSCC patients; status is the disease itself.
 metadata$status <- "OSCC"
 
 # Add publication information
@@ -196,7 +200,7 @@ metadata$title <- "Oral Microbiota Analysis of Tissue Pairs and Saliva Samples F
 metadata$disease_study <- "yes"
 
 # Keep only subjects with saliva samples
-keep_subjects <- metadata$subject_id[metadata$site == "saliva"]
+keep_subjects <- metadata$subject_id[grepl("-TY", metadata$raw_site)]
 metadata <- metadata[metadata$subject_id %in% keep_subjects, ]
 
 ```

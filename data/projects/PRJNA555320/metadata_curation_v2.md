@@ -215,7 +215,8 @@ accept ‘yes’ or ‘no’.
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample.Name,
+  raw_subject_id = initial_meta$Sample.Name,
+  subject_id = "pending",
   raw_age = initial_meta$host_age_in_months,
   age = "pending",
   age_info = NA,
@@ -250,6 +251,7 @@ columns.
 ``` r
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata$subject_id = str_extract(metadata$raw_subject_id, "[^.]+$")
 metadata <- metadata %>%
   mutate(sex = case_when(
     raw_sex == 'male' ~ "M",

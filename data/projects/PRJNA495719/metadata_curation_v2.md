@@ -11,6 +11,7 @@ optionally merges supplement tables.
 library(dplyr)
 library(ggplot2)
 library(cowplot)
+library(stringr)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
@@ -47,6 +48,7 @@ is very IMPORTANT!
 # table(initial_meta$sequencing_meth..exp.) # output is pyrosequencing
 # table(initial_meta$platform..exp.) # output is Illumina. according to the methods, Illumina is correct.
 # table(initial_meta$target_subfragment..exp.)
+initial_meta$group = str_extract(initial_meta$Sample.Name, "^[A-Za-z]+")
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -213,7 +215,8 @@ accept ‘yes’ or ‘no’.
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample.Name,
+  raw_subject_id = initial_meta$Sample.Name,
+  subject_id = "pending",
   age = NA,
   age_info = 'elder',
   bmi = NA,
@@ -222,14 +225,15 @@ metadata <- data.frame(
   sequencing_region = 'V3-V4',
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = 'China',
-  raw_site = 'dental plaque',
+  raw_site = initial_meta$group,
   site = "pending",
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "338F-806R", # Format: xxF-xxR
   title = "The Oral Microbiome in the Elderly With Dental Caries and Health", # extract from article
   disease_study = "yes", # determine according to the article
-  status = NA,
+  raw_status = initial_meta$group,
+  status = "pending",
   matched_samples = "pending", # modify later
   is_time_series = "no", # determine according to the article
   stringsAsFactors = FALSE
@@ -246,13 +250,29 @@ columns.
 ``` r
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata$subject_id = paste0(substr(metadata$raw_subject_id, 1, 1), substr(metadata$raw_subject_id, 3, nchar(metadata$raw_subject_id)))
 metadata <- metadata %>%
   mutate(sex = case_when(
     raw_sex == 'male' ~ "M",
     raw_sex == 'female' ~ "F",
     TRUE ~ NA_character_
   )) # According to the 'family_relationship' column of initial_meta, 47 was matched to father; 48 were mother.
-metadata$site <- metadata$raw_site
+metadata <- metadata%>%
+  mutate(site = case_when(
+    raw_site == 'CP' ~ "dental plaque",
+    raw_site == 'TP' ~ "dental plaque",
+    raw_site == 'CS' ~ "saliva",
+    raw_site == 'TS' ~ "saliva",
+    TRUE ~ NA_character_
+  ))
+metadata <- metadata%>%
+  mutate(status = case_when(
+    raw_status == 'CP' ~ "HC",
+    raw_status == 'TP' ~ "caries",
+    raw_status == 'CS' ~ "HC",
+    raw_status == 'TS' ~ "caries",
+    TRUE ~ NA_character_
+  ))
 ```
 
 ``` r
@@ -261,7 +281,7 @@ metadata$site <- metadata$raw_site
 unique(metadata$site)
 ```
 
-    ## [1] "dental plaque"
+    ## [1] "dental plaque" "saliva"
 
 ``` r
 # EDIT HERE: add oral sites

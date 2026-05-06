@@ -46,6 +46,24 @@ First, you need to get an overview of the data, which includes two steps: readin
 # table(initial_meta$sequencing_meth..exp.) # output is pyrosequencing
 # table(initial_meta$platform..exp.) # output is Illumina. according to the methods, Illumina is correct.
 # table(initial_meta$target_subfragment..exp.)
+convert_id <- function(id) {
+  # 正则匹配：前缀（可选，字母数字混合），F或P，数字部分
+  match <- regexec("^([A-Z0-9]*)([FP])([0-9]+)$", id)
+  parts <- regmatches(id, match)
+  # 如果匹配成功，parts[[1]] 长度为 4：全串、前缀、F/P、数字
+  if (length(parts[[1]]) == 4) {
+    prefix <- parts[[1]][2]
+    number <- parts[[1]][4]
+    if (prefix == "") {
+      return(number)           # 无前缀：只返回数字
+    } else {
+      return(paste0(prefix, "_", number))  # 有前缀：前缀_数字
+    }
+  } else {
+    return(NA)   # 格式不符合预期时返回缺失值
+  }
+}
+initial_meta$subjectid = sapply(initial_meta$Sample.Name, convert_id, USE.NAMES = FALSE)
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -182,7 +200,7 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample.Name,
+  subject_id = initial_meta$subjectid,
   age = NA,
   age_info = '60-80',
   bmi = NA,
@@ -242,7 +260,11 @@ metadata <- metadata %>%
   ))
 
 # editing matched_samples, just run.
-metadata$matched_samples <- 'yes'
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1, 
+  "yes", 
+  "no"
+)
 ```
 
 ```{r}

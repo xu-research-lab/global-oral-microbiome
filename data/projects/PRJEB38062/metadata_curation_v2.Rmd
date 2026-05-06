@@ -206,7 +206,7 @@ metadata <- metadata %>%
     raw_status == "1" ~ "grade 1 OM",
     raw_status %in% c("2", "3", "4") ~ "severe-OM",
     TRUE ~ NA_character_
-  ))
+  )) # These patients received hematopoietic stem cell transplantation (HSCT) before the study started.
 # metadata$site <- gsub("UBERON:", "", metadata$raw_site)
 ```
 

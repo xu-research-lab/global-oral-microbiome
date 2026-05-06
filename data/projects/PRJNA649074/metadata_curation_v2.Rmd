@@ -24,9 +24,11 @@ setwd(file.path(base_dir, project_id))
 sra_file <- "SraRunTable.csv"
 initial_meta <- read.csv("SraRunTable.csv", header = TRUE)
 
-# (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
-# supp_table <- read.csv("supplemental_table.csv", header = TRUE)
-# initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
+# (3) Load supplementary clinical data
+supp_table <- read.csv("supplementary.csv", header = TRUE)
+# Supplementary file uses "number" column (e.g., "CKD_1", "hzCKD_56") with clinical data
+# Metadata subject_id uses "OhzCKD_56" (Hangzhou) or "CKD_15" (Zhengzhou) format
+# Mapping: strip "O" prefix from OhzCKD to match hzCKD; CKD IDs match directly
 ```
 
 # Step 2: Data Overview
@@ -176,12 +178,31 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # (1) Handle the columns with the `raw_` prefix.
 # IMPORTANT: Add comments if the modification is not straightforward!!
 
-# Assign site and sex; isolation_source only says "oral" but paper describes pharyngeal swab collection
+# Merge clinical data from supplementary.csv
+# Subject ID mapping: OhzCKD_56 -> hzCKD_56 (strip "O"); CKD_15 -> CKD_15 (direct)
+supp_table$numeric_id <- as.integer(gsub("[A-Za-z_]", "", supp_table[[1]]))
+metadata$supp_key <- ifelse(grepl("^Ohz", metadata$subject_id),
+  paste0("hzCKD_", gsub("^OhzCKD_", "", metadata$subject_id)),
+  metadata$subject_id)
+metadata$supp_numeric <- as.integer(gsub("[A-Za-z_]", "", metadata$supp_key))
+match_idx <- match(metadata$supp_numeric, supp_table$numeric_id)
+
+bmi_col <- grep("^BMI", colnames(supp_table), value = TRUE)
+sex_col <- grep("^gender", colnames(supp_table), value = TRUE)
+
+metadata$age <- ifelse(!is.na(match_idx), as.numeric(supp_table$age[match_idx]), NA)
+metadata$bmi <- ifelse(!is.na(match_idx), as.numeric(supp_table[[bmi_col]][match_idx]), NA)
+raw_gender <- ifelse(!is.na(match_idx), supp_table[[sex_col]][match_idx], NA)
+metadata$sex <- ifelse(raw_gender == 0, "M", ifelse(raw_gender == 1, "F", NA_character_))
+
+metadata$supp_key <- NULL
+metadata$supp_numeric <- NULL
+
+# Assign site; isolation_source only says "oral" but paper describes pharyngeal swab collection
 metadata$site <- "oral swab"
-metadata$sex <- NA_character_
 
 metadata$pcr_primers <- "341F-805R"
-metadata$title <- "Salivary Microbiome in Chronic Kidney Disease"
+metadata$title <- "Characteristics of human oral microbiome and its noninvasive diagnostic value in chronic kidney disease"
 metadata$disease_study <- "yes"
 metadata$status <- "chronic kidney disease"
 

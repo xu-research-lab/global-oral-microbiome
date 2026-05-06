@@ -25,8 +25,9 @@ sra_file <- "SraRunTable.csv"
 initial_meta <- read.csv(sra_file, header = TRUE)
 
 # (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
-# supp_table <- read.csv("supplemental_table.csv", header = TRUE)
-# initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
+library(readxl)
+supp_table <- read_excel("F1.xlsx")
+initial_meta <- left_join(initial_meta, supp_table, by = c("Sample.Name"="#SampleID"))
 ```
 
 # Step 2: Data Overview
@@ -167,8 +168,8 @@ metadata <- data.frame(
   age = initial_meta$Host_age,
   age_info = NA,
   bmi = NA,
-  #raw_sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
-  sex = NA, # and mark as "pending"
+  raw_sex = initial_meta$Sex, # if need modify, then create a column start with 'raw_'
+  sex = "pending", # and mark as "pending"
   sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
@@ -193,7 +194,12 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
-
+metadata <- metadata %>%
+  mutate(sex = case_when(
+    raw_sex %in% "female" ~ "F",
+    raw_sex %in% "male" ~ "M",
+    TRUE ~ "other" 
+  ))
 ```
 
 ```{r}

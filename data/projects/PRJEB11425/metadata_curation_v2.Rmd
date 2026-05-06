@@ -56,9 +56,10 @@ control_column <- "sample_type"   # column name in initial_meta
 # unique(initial_meta[[control_column]])
 control_keywords <- c("control blank")     # Enter exact keywords
 
-species_column <- "role"          # column name in initial_meta
-unique(initial_meta[[species_column]])
-non_human_keywords <- c("Pet")            # Enter exact keywords
+# NOTE: ICU study with human samples only. Control samples identified by sample_type="control blank"
+species_column <- NA          # column name in initial_meta
+# unique(initial_meta[[species_column]])  # uncomment to explore
+non_human_keywords <- c()            # Enter exact keywords
 
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
@@ -144,7 +145,7 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$host_subject_id,
   age = initial_meta$AGE,
-  age_info = NA,
+  age_info = ">18 years",
   bmi = initial_meta$BMI,
   raw_sex = initial_meta$sex,
   sex = "pending",
@@ -155,7 +156,7 @@ metadata <- data.frame(
   site = "pending",
   site_group = "pending",
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = NA,
+  pcr_primers = "515F-806R", # SRA pcr_primers (exp): GTGCCAGCMGCCGCGGTAA / GGACTACHVGGGTWTCTAAT
   title = NA,
   disease_study = NA,
   status = NA,

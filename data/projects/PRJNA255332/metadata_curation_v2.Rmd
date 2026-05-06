@@ -162,7 +162,8 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample.Name,
+  raw_subject_id = initial_meta$Sample.Name,
+  subject_id = "pending",
   age = NA,
   age_info = "average 58 years", # Table 1
   bmi = NA,
@@ -175,7 +176,7 @@ metadata <- data.frame(
   site = "oral mucosal surfaces",
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = "27F-338R", # Format: xxF-xxRF:5'-AGAGTTTGATCMTGGCTCAG-3', R:5'-TTACTCACCCGTICGCCRCT-3'
+  pcr_primers = "F:5'-AGAGTTTGATCMTGGCTCAG-3'-R:5'-TTACTCACCCGTICGCCRCT-3'", # Format: xxF-xxRF:5'-AGAGTTTGATCMTGGCTCAG-3', R:5'-TTACTCACCCGTICGCCRCT-3'
   title = "Alcohol and tobacco consumption affects bacterial richness in oral cavity mucosa biofilms", # extract from article
   disease_study = "no", # determine according to the article
   raw_status = initial_meta$env_feature,
@@ -224,6 +225,7 @@ metadata <- metadata %>%
     TRUE ~ "other" 
   ))
 
+metadata$subject_id <- gsub("-run-\\d+$", "", metadata$raw_subject_id)
 # editing matched_samples, just run.
 metadata$matched_samples <- ifelse(
   ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1, 

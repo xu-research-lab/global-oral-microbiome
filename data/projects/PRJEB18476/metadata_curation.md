@@ -1,289 +1,343 @@
 R Notebook: Metadata Processing Workflow
 ================
 
+# =============================================================
+
+# Curation Notes - PRJEB18476
+
+# age : From initial_meta$host_age; format "54 years" → stripped to numeric
+# sex        : Derived from paper Table 1; SCC_08 and H_18 are F, all others M
+# subject_id : From initial_meta$Submitter_Id (e.g. SCC_01, H_15)
+
+# platform : Paper Methods — Illumina MiSeq
+
+# region : Paper Methods — V4 (primers 515F-806R target V4 per Caporaso 2012)
+
+# site : environment\_(material) column — “saliva” (no transformation needed)
+
+# status : host_disease_status: “healthy” → HC; T-stage coded entries → OSCC
+
+# disease_study : “yes” — OSCC case-control pilot study
+
+# is_time_series: “no” — single timepoint; sampled once before treatment
+
+# pcr_primers: Paper Methods — 515F-806R
+
+# controls : none (extraction blanks not deposited in SRA)
+
+# non-human : Organism column; keyword “Saccharomyces cerevisiae” (yeast QC sample)
+
+# age_info : NA — individual ages available in host_age column
+
+# =============================================================
+
 # Step 1: Obtain Initial Metadata from Each Project
 
-To obtain the initial metadata: 1. Search for the BioProject ID (e.g.,
-“PRJEBXXXX”) on the [NCBI SRA
-website](https://www.ncbi.nlm.nih.gov/Traces/study/). 2. In the “Select”
-table, click on “Metadata” and download the file. 3. The downloaded file
-is typically named “SraRunTable.csv” and contains metadata for the
-project.
+This step sets the project directory, loads the raw SRA metadata, and
+optionally merges supplement tables.
 
 ``` r
-# Load necessary libraries
+# Load libraries
 library(dplyr)
 library(ggplot2)
 library(cowplot)
-# Set working directory (update this path to your local directory)
-setwd("/Users/dongbiao/Documents/oral/global-oral-microbiome/data/projects/PRJEB18476/")
 
-# Read the initial metadata files
-initial_meta<-read.csv("SraRunTable.csv",header = T) %>% filter(Sample_name != "b12ac170-2412-11e7-b93e-3c4a9275d6c8")
+# (1) Setting working directory
+# EDIT HERE: change project_id for each study
+project_id <- "PRJEB18476"
 
-head(initial_meta)
+base_dir <- "/Users/dongbiao/Documents/软件开发/oral/metadata_collect"
+project_dir <- file.path(base_dir, project_id)
+
+# (2) Loading raw SRA metadata file
+sra_file <- file.path(project_dir, "SraRunTable.csv")
+initial_meta <- read.csv(sra_file, header = TRUE)
+
+# (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
+# supp_table <- read.csv("supplemental_table.csv", header = TRUE)
+# initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
 ```
 
-    ##          Run Assay.Type AvgSpotLen    Bases BioProject     BioSample    Bytes
-    ## 1 ERR1749153   AMPLICON        501 81665137 PRJEB18476 SAMEA19998418 46300563
-    ## 2 ERR1749154   AMPLICON        501 84592392 PRJEB18476 SAMEA19999168 48376165
-    ## 3 ERR1749155   AMPLICON        497 59372769 PRJEB18476 SAMEA19999918 33959974
-    ## 4 ERR1749156   AMPLICON        500 79040439 PRJEB18476 SAMEA20000668 44760770
-    ## 5 ERR1749157   AMPLICON        500 63194658 PRJEB18476 SAMEA20001418 35359318
-    ## 6 ERR1749158   AMPLICON        500 86319922 PRJEB18476 SAMEA20002168 48800486
-    ##   Center.Name common_name Consent DATASTORE.filetype DATASTORE.provider
-    ## 1           E       human  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ## 2           E       human  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ## 3           E       human  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ## 4           E       human  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ## 5           E       human  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ## 6           E       human  public   fastq,run.zq,sra     ena,gs,ncbi,s3
-    ##                           DATASTORE.region ENA.FIRST.PUBLIC..run.
-    ## 1 ena,gs.us-east1,ncbi.public,s3.us-east-1             2017-04-20
-    ## 2 ena,gs.us-east1,ncbi.public,s3.us-east-1             2017-04-20
-    ## 3 ena,gs.us-east1,ncbi.public,s3.us-east-1             2017-04-20
-    ## 4 ena,gs.us-east1,ncbi.public,s3.us-east-1             2017-04-20
-    ## 5 ena,gs.us-east1,ncbi.public,s3.us-east-1             2017-04-20
-    ## 6 ena,gs.us-east1,ncbi.public,s3.us-east-1             2017-04-20
-    ##   ENA_first_public ENA.LAST.UPDATE..run. Experiment   external_id
-    ## 1       2017-04-20            2018-11-16 ERX1818333 SAMEA19998418
-    ## 2       2017-04-20            2018-11-16 ERX1818334 SAMEA19999168
-    ## 3       2017-04-20            2018-11-16 ERX1818335 SAMEA19999918
-    ## 4       2017-04-20            2018-11-16 ERX1818336 SAMEA20000668
-    ## 5       2017-04-20            2018-11-16 ERX1818337 SAMEA20001418
-    ## 6       2017-04-20            2018-11-16 ERX1818338 SAMEA20002168
-    ##   INSDC_center_name    INSDC_last_update INSDC_status     Instrument
-    ## 1                 E 2016-12-05T13:39:01Z       public Illumina MiSeq
-    ## 2                 E 2016-12-05T13:39:01Z       public Illumina MiSeq
-    ## 3                 E 2016-12-05T13:39:01Z       public Illumina MiSeq
-    ## 4                 E 2016-12-05T13:39:01Z       public Illumina MiSeq
-    ## 5                 E 2016-12-05T13:39:01Z       public Illumina MiSeq
-    ## 6                 E 2016-12-05T13:39:01Z       public Illumina MiSeq
-    ##   Library.Name LibraryLayout LibrarySelection LibrarySource     Organism
-    ## 1  unspecified        PAIRED              PCR   METAGENOMIC Homo sapiens
-    ## 2  unspecified        PAIRED              PCR   METAGENOMIC Homo sapiens
-    ## 3  unspecified        PAIRED              PCR   METAGENOMIC Homo sapiens
-    ## 4  unspecified        PAIRED              PCR   METAGENOMIC Homo sapiens
-    ## 5  unspecified        PAIRED              PCR   METAGENOMIC Homo sapiens
-    ## 6  unspecified        PAIRED              PCR   METAGENOMIC Homo sapiens
-    ##   Platform          ReleaseDate          create_date version   Sample.Name
-    ## 1 ILLUMINA 2017-04-21T00:00:00Z 2017-04-21T07:47:00Z       1 SAMEA19998418
-    ## 2 ILLUMINA 2017-04-21T00:00:00Z 2017-04-21T07:47:00Z       1 SAMEA19999168
-    ## 3 ILLUMINA 2017-04-21T00:00:00Z 2017-04-21T07:47:00Z       1 SAMEA19999918
-    ## 4 ILLUMINA 2017-04-21T00:00:00Z 2017-04-21T07:48:00Z       1 SAMEA20000668
-    ## 5 ILLUMINA 2017-04-21T00:00:00Z 2017-04-21T07:48:00Z       1 SAMEA20001418
-    ## 6 ILLUMINA 2017-04-21T00:00:00Z 2017-04-21T07:48:00Z       1 SAMEA20002168
-    ##   Sample_name SRA.Study Submitter_Id Collection_Date ENA_last_update
-    ## 1      SCC_01 ERP020408       SCC_01            2016      2016-12-05
-    ## 2      SCC_02 ERP020408       SCC_02            2016      2016-12-05
-    ## 3      SCC_04 ERP020408       SCC_04            2016      2016-12-05
-    ## 4      SCC_05 ERP020408       SCC_05            2016      2016-12-05
-    ## 5      SCC_06 ERP020408       SCC_06            2016      2016-12-05
-    ## 6      SCC_07 ERP020408       SCC_07            2016      2016-12-05
-    ##   environment_.biome. environment_.feature. environment_.material.
-    ## 1         human mouth            mouth cave                 saliva
-    ## 2         human mouth            mouth cave                 saliva
-    ## 3         human mouth            mouth cave                 saliva
-    ## 4         human mouth            mouth cave                 saliva
-    ## 5         human mouth            mouth cave                 saliva
-    ## 6         human mouth            mouth cave                 saliva
-    ##   geo_loc_name_country geo_loc_name_country_continent
-    ## 1              Austria                         Europe
-    ## 2              Austria                         Europe
-    ## 3              Austria                         Europe
-    ## 4              Austria                         Europe
-    ## 5              Austria                         Europe
-    ## 6              Austria                         Europe
-    ##   geographic_location_.country_and.or_sea. geographic_location_.latitude.
-    ## 1                                  Austria                       47.07667
-    ## 2                                  Austria                       47.07667
-    ## 3                                  Austria                       47.07667
-    ## 4                                  Austria                       47.07667
-    ## 5                                  Austria                       47.07667
-    ## 6                                  Austria                       47.07667
-    ##   geographic_location_.longitude. host_age host_disease_status
-    ## 1                        15.42137 54 years                  4b
-    ## 2                        15.42137 68 years                   1
-    ## 3                        15.42137 57 years                  4a
-    ## 4                        15.42137 54 years                   1
-    ## 5                        15.42137 64 years                   2
-    ## 6                        15.42137 61 years                   2
-    ##   humam_oral_environmental_package INSDC_center_alias   INSDC_first_public
-    ## 1                       human-oral                  E 2017-04-20T17:18:57Z
-    ## 2                       human-oral                  E 2017-04-20T17:18:57Z
-    ## 3                       human-oral                  E 2017-04-20T17:18:57Z
-    ## 4                       human-oral                  E 2017-04-20T17:18:57Z
-    ## 5                       human-oral                  E 2017-04-20T17:18:57Z
-    ## 6                       human-oral                  E 2017-04-20T17:18:57Z
-    ##   investigation_type
-    ## 1         metagenome
-    ## 2         metagenome
-    ## 3         metagenome
-    ## 4         metagenome
-    ## 5         metagenome
-    ## 6         metagenome
-    ##                                              nucleic_acid_extraction
-    ## 1 Magna Lyser instrument and the MagNA pure LC DNA Isolation Kit III
-    ## 2 Magna Lyser instrument and the MagNA pure LC DNA Isolation Kit III
-    ## 3 Magna Lyser instrument and the MagNA pure LC DNA Isolation Kit III
-    ## 4 Magna Lyser instrument and the MagNA pure LC DNA Isolation Kit III
-    ## 5 Magna Lyser instrument and the MagNA pure LC DNA Isolation Kit III
-    ## 6 Magna Lyser instrument and the MagNA pure LC DNA Isolation Kit III
-    ##      project_name sample_collection_device_or_method Sequencing_method
-    ## 1 OSCC microbiome                Salivette® Cortisol    Illumina Miseq
-    ## 2 OSCC microbiome                Salivette® Cortisol    Illumina Miseq
-    ## 3 OSCC microbiome                Salivette® Cortisol    Illumina Miseq
-    ## 4 OSCC microbiome                Salivette® Cortisol    Illumina Miseq
-    ## 5 OSCC microbiome                Salivette® Cortisol    Illumina Miseq
-    ## 6 OSCC microbiome                Salivette® Cortisol    Illumina Miseq
-    ##     target_gene nose.mouth.teeth.throat_disorder ArrayExpress.Phenotype
-    ## 1 16S rRNA gene                           cancer                       
-    ## 2 16S rRNA gene                           cancer                       
-    ## 3 16S rRNA gene                           cancer                       
-    ## 4 16S rRNA gene                           cancer                       
-    ## 5 16S rRNA gene                           cancer                       
-    ## 6 16S rRNA gene                           cancer                       
-    ##   ArrayExpress.SPECIES nucleic_acid_amplification phenotype Scientific_Name
-    ## 1                                                                          
-    ## 2                                                                          
-    ## 3                                                                          
-    ## 4                                                                          
-    ## 5                                                                          
-    ## 6                                                                          
-    ##   subject_id
-    ## 1           
-    ## 2           
-    ## 3           
-    ## 4           
-    ## 5           
-    ## 6
+# Step 2: Data Overview
 
-# Step 2: Create a Uniform Metadata Template
-
-The uniform metadata should include the following columns:
-
-1.  **BioProject**: Project ID (e.g., “PRJNA339212”)
-2.  **Run**: Sample ID (e.g., “ERRXXXXXX” or “SRRXXXXXX”)
-3.  **sample_name**: Original sample name submitted by the authors (not
-    the database-assigned ID)
-4.  **Age**: Age of the subject (if available)
-5.  **BMI**: Body Mass Index (if available)
-6.  **Sex**: Sex of the subject (“F” or “M”)
-7.  **Region**: Targeted 16S rRNA region (e.g., “V3-V4”)
-8.  **Platform**: Sequencing platform (e.g., “Illumina MiSeq”)
-9.  **Country**: Country of sample origin (e.g., “China”)
-10. **Site**: Sample site (e.g., “saliva”, “dental plaque”)
-11. **public_time**: Data release date (format: “YYYY-MM-DD”)
-12. **PCR_primers**: PCR primers used (e.g., “515F-806R”)
-13. **title**: Title of the associated publication
-14. **Disease_study**: Whether the study involves a disease (“YES” or
-    “NO”)
-15. **Status**: Disease status (e.g., “T2DM”, “HC”). Note: If the study
-    includes both disease and healthy samples, this must be specified
-    per sample.
-16. **matched_samples** : matched samples (“YES” or “NO”)
+First, you need to get an overview of the data, which includes two
+steps: reading the article and reading the initial metadata. This step
+is very IMPORTANT!
 
 ``` r
-# Create a uniform metadata dataframe
+# (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
+
+# (2) IMPORTANT: MUST go through each column of initial_meta
+# head(initial_meta, 10)
+
+# IMPORTANT: Check the unique values in the column of interest or query column.
+# lapply(initial_meta[c('environment_(material)', 'humam_oral_environmental_package')], table) # site
+# table(initial_meta$Organism)           # organism: "Homo sapiens" and "Saccharomyces cerevisiae"
+# table(initial_meta$Submitter_Id)       # subject ids: SCC_01..SCC_12, H_15..H_25
+# table(initial_meta$host_disease_status) # "healthy" for controls; T-stage codes for patients
+# table(initial_meta$host_age)           # "29 years", "31 years", ... format
+# table(initial_meta$Platform)          # ILLUMINA — confirmed Illumina MiSeq by paper Methods
+```
+
+# Step 3: Removing Control and Non-human Samples
+
+First, we need to remove control samples(including both negative
+controls and positive controls) and non-human samples.
+
+``` r
+# (1) EDIT HERE: Parameter setup
+control_column <- ""   # column name in initial_meta — no control samples in SRA
+# unique(initial_meta[[control_column]])
+control_keywords <- c()     # Enter exact keywords
+
+species_column <- "Organism"          # column name in initial_meta
+unique(initial_meta[[species_column]])
+```
+
+    ## [1] "Saccharomyces cerevisiae" "Homo sapiens"
+
+``` r
+non_human_keywords <- c("Saccharomyces cerevisiae")  # yeast QC sample
+
+
+# (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
+n_samples <- nrow(initial_meta)
+# Control evaluation
+if (length(control_keywords) > 0) {
+  if (is.null(control_column) || control_column == "") {
+    stop("Error: control_keywords provided but control_column is missing.")
+  }
+
+  if (!(control_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+  }
+
+  control_pattern <- paste(control_keywords, collapse = "|")
+  control_text <- initial_meta[[control_column]]
+  is_control <- grepl(control_pattern, control_text)
+
+} else {
+  is_control <- rep(FALSE, n_samples)
+}
+
+# Non-human evaluation
+if (length(non_human_keywords) > 0) {
+  if (is.null(species_column) || species_column == "") {
+    stop("Error: non_human_keywords provided but species_column is missing.")
+  }
+
+  if (!(species_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
+  }
+
+  non_human_pattern <- paste(non_human_keywords, collapse = "|")
+  species_text <- initial_meta[[species_column]]
+  is_non_human <- grepl(non_human_pattern, species_text)
+} else {
+  is_non_human <- rep(FALSE, n_samples)
+}
+
+# Execute removal
+samples_to_remove <- is_control | is_non_human
+initial_meta <- initial_meta[!samples_to_remove, ]
+
+cat("Initial samples counts:",n_samples,"\n")
+```
+
+    ## Initial samples counts: 22
+
+``` r
+cat("Removed control samples:", sum(is_control), "\n")
+```
+
+    ## Removed control samples: 0
+
+``` r
+cat("Removed non-human samples:", sum(is_non_human), "\n")
+```
+
+    ## Removed non-human samples: 1
+
+``` r
+cat("Total samples removed ", sum(samples_to_remove), "\n")
+```
+
+    ## Total samples removed  1
+
+``` r
+cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
+```
+
+    ## Remaining samples after Step 2: 21
+
+# Step 4: Creating a Uniform Metadata Template
+
+This step converts the raw SRA table into the standard metadata format
+used in our meta-analysis. The uniform metadata should include the
+following columns: 1. **bioproject**: Project ID from SRA or other
+database e.g. `PRJNA1234`, `CNP1234`, ‘OEP1234’, ‘qiita_1234’ 2.
+**sample_id**: SRA sample/run ID. Unique id for each sample!
+e.g. `DRR1234567`, `ERR1234567` and `SRR1234567`. If no such column
+exists, can use column like sample_name. 3. **subject_id**: subject id
+for each person if available. e.g. `patient_01`, `Host_03_before`,
+`subject12` 4. **age**: Age of the subject if available. e.g. `35`, `42`
+\| not `adult`, `chilren` 5. **age_info**: If the age is not explicitly
+stated but approximate age range information is available, mark it in
+this column. e.g., `18-55`, `children`, `infant`, `elder` 6. **bmi**:
+Body Mass Index if available. e.g. `22.5`, `18.9` \| not `normal`,
+`overweight` 7. **sex**: Sex of the subject. Mandatory to write as M/F
+\| not `female`, `woman` 8. **sequencing_region**: Targeted 16S rRNA
+region. e.g. `V3-V4`, `V4` 9. **platform**: Sequencing platform.
+e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent` 10.
+**country**: Country of sample origin. e.g. `China`, `Japan` \| not city
+name like `Beijing` 11. **site**: Sampling site. For oral and gut sites,
+specify the exact sites as detailed as possible. For example, if it is
+known to be supragingival plaque, do not record it as ‘dental plaque’,
+unless the original text provides only a vague description.
+e.g. `saliva`, `tongue coating` \| not broad term like `oral` 12.
+**site_group**: only accepts one of following three values: ‘oral’,
+‘gut’, or ‘other’. 13. **public_time**: Data release date.
+e.g. `2021-06-22` \| not `June 2021` 14. **pcr_primers**: PCR primers
+used. e.g. `515F-806R`, `27F-338R` \| not primer sequences 15.
+**title**: Title of the associated publication. 16. **disease_study**:
+Whether the study involves disease samples. If it’s not clear, can
+record as NA. Only three values accepted: ‘yes’, ‘no’ or NA 17.
+**status**: Disease status for each sample if available, else record as
+NA. Only accept following abbreviations, Write full names for all other
+diseases. HC: healthy control CD: Crohn’s disease CRC: colorectal cancer
+COPD: chronic obstructive pulmonary disease HIV: human immunodeficiency
+virus ICU: intensive care unit OSCC: oral squamous cell carcinoma RA:
+rheumatoid arthritis UC: ulcerative colitis 18. **matched_samples**:
+Whether the subject has matched samples. Only accept ‘yes’ or ‘no’. 19.
+**is_time_series**: Whether the study is a time series study. Only
+accept ‘yes’ or ‘no’.
+
+``` r
+# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as "pending". (3) Need to find or determine based on the article.
 metadata <- data.frame(
-  BioProject = initial_meta$BioProject,
-  Run = initial_meta$Run,
-  sample_name = initial_meta$Sample_name,
-  Age = as.integer(gsub("[^0-9]", "", initial_meta$host_age)),
-  BMI = NA,
-  Sex=NA,
-  Region = "V4",
-  Platform = initial_meta$Instrument,
-  Country = initial_meta$geo_loc_name_country,
-  Site = initial_meta$`environment_.material.`,
-  public_time = initial_meta$ReleaseDate,
+  bioproject = initial_meta$BioProject,
+  sample_id = initial_meta$Run,
+  subject_id = initial_meta$Submitter_Id,  # SCC_01..SCC_12, H_15..H_25
+  raw_age = initial_meta$host_age,  # format "54 years" — needs numeric extraction
+  age = "pending",
+  age_info = NA,
+  bmi = NA,
+  sex = case_when(
+    initial_meta$Submitter_Id %in% c("SCC_08", "H_18") ~ "F",
+    TRUE ~ "M"
+  ),  # From paper Table 1: SCC_08 (patient 7, age 55) and H_18 (control 15, age 55) are female; all others male
+  sequencing_region = "V4",  # From paper Methods: primers 515F-806R target V4 region (Caporaso 2012)
+  platform = "Illumina MiSeq",  # From paper Methods section
+  country = initial_meta$geo_loc_name_country,
+  site = initial_meta[["environment_.material."]],  # "saliva" — direct, no transformation
+  site_group = "pending",
+  public_time = as.Date(substr(initial_meta$ReleaseDate, 1, 10)),
+  pcr_primers = "515F-806R",  # From paper Methods: "primers 515F and 806R"
+  title = "The salivary microbiome as an indicator of carcinogenesis in patients with oropharyngeal squamous cell carcinoma: A pilot study",  # From paper
+  disease_study = "yes",  # OSCC case-control study
+  status = case_when(
+    initial_meta$host_disease_status == "healthy" ~ "HC",
+    TRUE ~ "OSCC"
+  ),  # host_disease_status: controls="healthy" → HC; patients have T-stage codes (e.g. 4b, 1) → OSCC
+  matched_samples = "pending",
+  is_time_series = "no",  # Single timepoint; samples collected once before any treatment
   stringsAsFactors = FALSE
 )
 ```
 
-# Step 3: Manually Add Information from the Publication
+# Step 5: Manually solving pending issues
 
-Some information (e.g. PCR primers, study title, disease status) must be
-manually extracted from the publication and added to the metadata.
+This step involves two parts: (1) handle the columns with the `raw_`
+prefix, and next (2) handle the `site_group` and `matched_samples`
+columns.
 
 ``` r
-# Add information obtained from the publication
-metadata$PCR_primers <- "515F-806R"
-metadata$title <- "The salivary microbiome as an indicator of carcinogenesis in patients with oropharyngeal squamous cell carcinoma: A pilot study"
-metadata$Disease_study <- "YES"
-
-# Assign disease status based on sample_name patterns
-metadata$Status <- sub("_.*", "", initial_meta$Submitter_Id)
-
-# Create matched_samples column
-metadata$matched_samples <- "NO"
-
-# Check initial data distribution
-cat("Initial sample distribution:\n")
+# (1) Handle the columns with the `raw_` prefix.
+# Strip " years" suffix from host_age and convert to numeric
+metadata <- metadata %>%
+  mutate(age = as.numeric(gsub(" years", "", raw_age)))  # host_age format: "54 years" → 54
 ```
 
-    ## Initial sample distribution:
-
 ``` r
-table(metadata$sample_name)
+# (2) Filling the 'site_group' and 'matched_samples' columns
+# editing site_group
+unique(metadata$site)
 ```
 
-    ## 
-    ##   H_15   H_16   H_17   H_18   H_19   H_20   H_21   H_23   H_24   H_25 SCC_01 
-    ##      1      1      1      1      1      1      1      1      1      1      1 
-    ## SCC_02 SCC_04 SCC_05 SCC_06 SCC_07 SCC_08 SCC_09 SCC_10 SCC_11 SCC_12 
-    ##      1      1      1      1      1      1      1      1      1      1
+    ## [1] "saliva"
 
 ``` r
-table(metadata$Site)
+# EDIT HERE: add oral sites
+Oral_site = c("saliva")
+# EDIT HERE: add gut sites
+Gut_site = c()
+# just run
+metadata <- metadata %>%
+  mutate(site_group = case_when(
+    site %in% Oral_site ~ "oral",
+    site %in% Gut_site ~ "gut",
+    TRUE ~ "other"
+  ))
+
+# editing matched_samples, just run.
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+  "yes",
+  "no"
+)
 ```
 
-    ## 
-    ## saliva 
-    ##     21
-
-# Step 4: Summarize and Validate the Metadata
-
 ``` r
-# Check the number of unique runs and sample names
-print(paste("Number of unique runs:", length(unique(metadata$Run))))
+# (3) check if there is pending value in metadata. If there is pending value, go on modify the metadata.
+# Function to check if a column contains "pending"
+has_pending <- function(col) {
+  if (is.character(col) || is.factor(col)) {
+    any(col == "pending", na.rm = TRUE)
+  } else {
+    FALSE
+  }
+}
+
+# Check for any pending value
+any_pending_value <- any(sapply(metadata, has_pending))
+
+if (!any_pending_value) {
+  message("Good! No cell contains the value 'pending'.")
+} else {
+  pending_cols <- names(metadata)[sapply(metadata, has_pending)]
+  message("Columns containing 'pending': ", paste(pending_cols, collapse = ", "))
+  message("Please continue to resolve these pending columns!")
+}
 ```
 
-    ## [1] "Number of unique runs: 21"
+    ## Good! No cell contains the value 'pending'.
+
+# Step 6: Visualize the Metadata
+
+This step makes a quick set of plots for checking the distribution of
+key metadata fields.
 
 ``` r
-print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
-```
-
-    ## [1] "Number of unique sample names: 21"
-
-# Step 5: Visualize the Metadata
-
-``` r
-# Select columns for visualization
+# Select columns for visualization, just run
 plot_data <- metadata %>%
-  select(-BioProject, -Run, -sample_name, -title)
+  select(-bioproject, -sample_id, -subject_id, -title)
 
-# Function to create simple plots for each column
 create_simple_plots <- function(data) {
   plots <- list()
-  
+  continuous_vars <- c("age", "bmi")
+
   for (col in colnames(data)) {
-    # Check if the column is all NA
     if (all(is.na(data[[col]]))) {
-      # Create an empty plot with text indicating all NA
       p <- ggplot() +
         annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
         labs(title = col) +
         theme_void()
-    } else if (is.numeric(data[[col]])) {
-      # Numeric variable: histogram
+    } else if (col %in% continuous_vars && is.numeric(data[[col]])) {
       p <- ggplot(data, aes(x = .data[[col]])) +
         geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
-        labs(title = col) +
+        labs(title = col, x = col, y = "Count") +
         theme_minimal()
     } else {
-      # Categorical variable: bar plot (remove NA values)
       count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
       p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
         geom_col(fill = "red", alpha = 0.6) +
@@ -293,87 +347,50 @@ create_simple_plots <- function(data) {
     }
     plots[[col]] <- p
   }
-  
+
   return(plots)
 }
 
 # Generate and arrange plots
 plots <- create_simple_plots(plot_data)
-p<-plot_grid(plots$Age, 
-          plots$BMI, 
-          plots$Sex, 
-          plots$Region, 
-          plots$Platform, 
-          plots$Country, 
-          plots$Site,
-          plots$public_time, 
-          plots$PCR_primers,
-          plots$Disease_study,
-          plots$Status,
-          plots$matched_samples,# add 
-          ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+p <- plot_grid(plots$age,
+               plots$age_info,
+               plots$bmi,
+               plots$sex,
+               plots$site,
+               plots$site_group,
+               plots$sequencing_region,
+               plots$platform,
+               plots$country,
+               plots$pcr_primers,
+               plots$status,
+               plots$matched_samples,
+               ncol = 3, align = "hv", axis = "lb")
+ggsave(file.path(project_dir, "Metadata_Summary.png"), plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ``` r
-knitr::include_graphics("Metadata_Summary.png")
+# Insert Metadata_Summary.png into the current Rmd output
+knitr::include_graphics(file.path(project_dir, "Metadata_Summary.png"))
 ```
 
 <img src="Metadata_Summary.png" width="1200" />
 
-# Step 6: Finalize and Export the Metadata
+# Step 7: Sort and export the metadata
+
+This step saves the cleaned metadata table as the final `metadata.csv`
+file.
 
 ``` r
-# Reorder columns to match the desired format
-metadata <- metadata[, c(
-  "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
-  "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
-)]
+# Reorder the data frame
+fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
+                "country", "site", "site_group", "disease_study", "status",
+                "title", "public_time", "matched_samples", "is_time_series")
+metadata <- metadata %>%
+  select(all_of(fixed_cols), everything())
 
-# Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
-head(metadata)
+# save metadata
+# head(metadata)
+write.csv(metadata, file = file.path(project_dir, "metadata_v2.csv"), quote = TRUE)
 ```
-
-    ##   BioProject        Run sample_name Age BMI Sex Region       Platform Country
-    ## 1 PRJEB18476 ERR1749153      SCC_01  54  NA  NA     V4 Illumina MiSeq Austria
-    ## 2 PRJEB18476 ERR1749154      SCC_02  68  NA  NA     V4 Illumina MiSeq Austria
-    ## 3 PRJEB18476 ERR1749155      SCC_04  57  NA  NA     V4 Illumina MiSeq Austria
-    ## 4 PRJEB18476 ERR1749156      SCC_05  54  NA  NA     V4 Illumina MiSeq Austria
-    ## 5 PRJEB18476 ERR1749157      SCC_06  64  NA  NA     V4 Illumina MiSeq Austria
-    ## 6 PRJEB18476 ERR1749158      SCC_07  61  NA  NA     V4 Illumina MiSeq Austria
-    ##     Site          public_time PCR_primers
-    ## 1 saliva 2017-04-21T00:00:00Z   515F-806R
-    ## 2 saliva 2017-04-21T00:00:00Z   515F-806R
-    ## 3 saliva 2017-04-21T00:00:00Z   515F-806R
-    ## 4 saliva 2017-04-21T00:00:00Z   515F-806R
-    ## 5 saliva 2017-04-21T00:00:00Z   515F-806R
-    ## 6 saliva 2017-04-21T00:00:00Z   515F-806R
-    ##                                                                                                                             title
-    ## 1 The salivary microbiome as an indicator of carcinogenesis in patients with oropharyngeal squamous cell carcinoma: A pilot study
-    ## 2 The salivary microbiome as an indicator of carcinogenesis in patients with oropharyngeal squamous cell carcinoma: A pilot study
-    ## 3 The salivary microbiome as an indicator of carcinogenesis in patients with oropharyngeal squamous cell carcinoma: A pilot study
-    ## 4 The salivary microbiome as an indicator of carcinogenesis in patients with oropharyngeal squamous cell carcinoma: A pilot study
-    ## 5 The salivary microbiome as an indicator of carcinogenesis in patients with oropharyngeal squamous cell carcinoma: A pilot study
-    ## 6 The salivary microbiome as an indicator of carcinogenesis in patients with oropharyngeal squamous cell carcinoma: A pilot study
-    ##   Disease_study Status matched_samples
-    ## 1           YES    SCC              NO
-    ## 2           YES    SCC              NO
-    ## 3           YES    SCC              NO
-    ## 4           YES    SCC              NO
-    ## 5           YES    SCC              NO
-    ## 6           YES    SCC              NO
-
-## Notes for Students:
-
-1.  **Metadata Accuracy**: Always cross-check the metadata with the
-    original publication to ensure accuracy.
-2.  **Manual Entries**: Columns like `PCR_primers`, and `Status` often
-    require manual entry based on the publication.
-3.  **Disease Status**: Be careful when assigning `Status`—some studies
-    include both disease and healthy samples.
-4.  **Visualization**: The plots help quickly identify the distribution
-    of values in each column, which is useful for quality control.
-5.  **Reproducibility**: Update the working directory and file paths to
-    match your local environment.

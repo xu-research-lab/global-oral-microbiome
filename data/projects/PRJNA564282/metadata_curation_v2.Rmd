@@ -15,9 +15,9 @@ library(cowplot)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
-project_id <- "PRJNA564282" 
+project_id <- "PRJNA564282"
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "D:/metadata_collect/oral_metadata_new/update"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -34,19 +34,25 @@ initial_meta <- read.csv(sra_file, header = TRUE)
 First, you need to get an overview of the data, which includes two steps: reading the article and reading the initial metadata. This step is very IMPORTANT!
 
 ```{r message=FALSE, warning=FALSE}
-# (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
+# (1) Article summary (from paper PDF):
+# Title: "Dysbiosis of the Oral Ecosystem in Severe Congenital Neutropenia Patients"
+# 10 SCN patients (5-23 years, 9F/1M) from Turkey + 12 healthy gender-matched controls (5-22 years, 11F/1M)
+# Sampling sites: unstimulated saliva and subgingival plaque
+# SCN patients re-evaluated after 6 months following oral hygiene therapy -> time series + matched samples
+# Disease: Severe Congenital Neutropenia (SCN), a rare genetic disorder
+# All subjects received scaling and oral hygiene instructions
+# SCN patients given antibiotic prophylaxis (amoxicillin+clavulanic acid) 1 day before sample collection
 
-# (2) IMPORTANT: MUST go through each column of initial_meta
-head(initial_meta, 10)
+# (2) Column overview of initial_meta (SraRunTable.csv):
+# head(initial_meta, 10)
 
-# IMPORTANT: Check the unique values in the column of interest or query column.
-# lapply(initial_meta[c('body_habitat', 'body_product', 'body_site')], table) # site
-# lapply(initial_meta[c('common_name', 'env_biome', 'env_feature', 'env_matter', 'host_common_name', 'Organism', 'role', 'pet_farm_animal')], table) # organism: the dog sample counts in these columns are different! 512 in pet_farm_animal,217 in env_biome, env_feature and role, 210 in host_common_name. Majority rule, so we determine to use column role to filter dog samples
-# table(initial_meta$host_subject_id) # subject id
-# table(initial_meta$sequencing_meth..exp.) # output is pyrosequencing
-# table(initial_meta$platform..exp.) # output is Illumina. according to the methods, Illumina is correct.
-# table(initial_meta$target_subfragment..exp.)
-table(initial_meta$HOST)
+# Unique values inspection:
+# unique(initial_meta$Sample Name) # subject-level labels encoding treatment status
+# unique(initial_meta$host_subject_id) # numeric subject IDs: 101-110 (SCN patients), 201-212 (controls)
+# unique(initial_meta$sample_type) # "plaque", "saliva"
+# unique(initial_meta$treat) # "baseline", "control", "treat"
+# unique(initial_meta$Instrument) # "Illumina MiSeq"
+# unique(initial_meta$Organism) # "metagenome" (all samples)
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -55,20 +61,22 @@ First, we need to remove control samples(including both negative controls and po
 
 ```{r}
 # (1) EDIT HERE: Parameter setup
-control_column <- ""   # column name in initial_meta
+# The 'treat' column contains: "baseline" (SCN patients at baseline), "control" (healthy controls), "treat" (SCN patients at 6-month follow-up)
+# No negative/positive control samples in this dataset - all are human oral samples
+control_column <- NA   # no control samples to remove
 # unique(initial_meta[[control_column]])
 control_keywords <- c()     # Enter exact keywords
 
-species_column <- ""          # column name in initial_meta
+species_column <- "Organism"          # column name in initial_meta
 unique(initial_meta[[species_column]])
-non_human_keywords <- c()            # Enter exact keywords
+non_human_keywords <- c()            # all samples are human (Homo sapiens), Organism column says "metagenome" for all
 
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
 n_samples <- nrow(initial_meta)
 # Control evaluation
 if (length(control_keywords) > 0) {
-  if (is.null(control_column) || control_column == "") {
+  if (is.na(control_column) || is.null(control_column) || control_column == "") {
     stop("Error: control_keywords provided but control_column is missing.")
   }
   
@@ -159,39 +167,33 @@ The uniform metadata should include the following columns:
 19. **is_time_series**: Whether the study is a time series study. Only accept 'yes' or 'no'.
 
 ```{r}
-# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as “pending”. (3) Need to find or determine based on the article.
+# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as "pending". (3) Need to find or determine based on the article.
 metadata <- data.frame(
-  bioproject = initial_meta$BioProject,
-  sample_id = initial_meta$Run,
-  subject_id = initial_meta$host_subject_id,
-  new_subject_id = initial_meta$Sample.Name,
-  age = NA,
-  age_info = "5-23",
-  bmi = NA,
-  #raw_sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
-  sex = NA, # and mark as "pending"
-  sequencing_region = "V4",
-  platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
-  country = "Turkey",
-  raw_site = initial_meta$env_medium,
-  site = "pending",
+  bioproject = initial_meta$BioProject, # SRA column: BioProject, all PRJNA564282
+  sample_id = initial_meta$Run, # SRA column: Run, e.g. SRR10948663
+  subject_id = initial_meta$host_subject_id, # SRA column: host_subject_id; 101-110=SCN patients, 201-212=controls
+  raw_age = "pending", # paper Table 1 (p.3) has Gender/age for SCN patients; controls NA
+  age = "pending", # will be filled in Step 5 from paper Table 1 (p.3) for SCN patients; controls NA
+  age_info = "5-23 years", # paper p.2: "Ten SCN patients (5-23 years old) and 12 healthy controls (5-22 years old)"
+  bmi = NA, # not reported in paper or CSV
+  sex = "pending", # paper Table 1 (p.3) for SCN patients; controls 11F/1M but no per-subject mapping
+  sequencing_region = "V4", # paper p.7 methods: "V4 hypervariable region of the 16S rRNA gene was amplified"
+  platform = "Illumina MiSeq", # paper p.7 methods + SRA column: Instrument
+  country = "Turkey", # paper p.1: authors from Ege University, Izmir, Turkey; p.2: "from different parts of Turkey"
+  raw_site = initial_meta$sample_type, # SRA column: sample_type, values "saliva" and "plaque"
+  site = "pending", # will be filled in Step 5; "plaque" = subgingival plaque per paper p.7
   site_group = "pending", # modify later
-  public_time = initial_meta$ReleaseDate,
-  pcr_primers = "515F-806R", # Format: xxF-xxR
-  title = "Dysbiosis of the Oral Ecosystem in Severe Congenital Neutropenia Patients", # extract from article
-  disease_study = "yes", # determine according to the article
-  status = "pending", 
+  public_time = initial_meta$ReleaseDate, # SRA column: ReleaseDate, 2020-07-01
+  pcr_primers = NA, # paper cites ref [18] Kozich et al. 2013 for V4 amplification, but primer names not explicitly stated
+  title = "Dysbiosis of the Oral Ecosystem in Severe Congenital Neutropenia Patients", # paper title, p.1
+  disease_study = "yes", # study involves SCN patients vs healthy controls
+  status = "pending", # SCN patients = disease, healthy controls = HC; derived from 'treat' column
+  raw_status = initial_meta$treat, # SRA column: treat, values "baseline", "control", "treat"
   matched_samples = "pending", # modify later
-  is_time_series = "no", # determine according to the article
+  is_time_series = "no", # 6-month follow-up is an intervention pre/post design, not a natural time series study
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
-metadata <- metadata %>% 
-  mutate(status=case_when(
-    grepl("ctrl",new_subject_id)~"HC",
-    grepl("C",new_subject_id)~"HC",
-    TRUE~"SCN"
-  ))
 ```
 
 # Step 5: Manually solving pending issues
@@ -199,15 +201,58 @@ metadata <- metadata %>%
 This step involves two parts: (1) handle the columns with the `raw_` prefix, and next (2) handle the `site_group` and `matched_samples` columns.
 
 ```{r}
-# (1) Handle the columns with the `raw_` prefix.
-# In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
-metadata <- metadata %>%
-  mutate(site = case_when(
-    raw_site == "saliva" ~ "saliva",
-    raw_site == "plaque" ~ "subgingival",
-    TRUE ~ NA_character_
-  )) # According to the 'family_relationship' column of initial_meta, 47 was matched to father; 48 were mother.
+# (1) Handle the columns with the `raw_` prefix and fill missing values.
 
+sid <- trimws(as.character(initial_meta$host_subject_id)) # ensure character type for named lookup
+
+# Age: from paper Table 1 (p.3) "Gender/age" column for SCN patients (101-110)
+# e.g. "F/8y8mo" = 8 + 8/12 = 8.67 years; controls have no per-subject age data
+metadata$raw_age <- ifelse(
+  sid %in% c("101","102","103","104","105","106","107","108","109","110"),
+  "see Table 1, paper p.3",
+  NA
+) # SCN patients have age in Table 1; controls have no per-subject age
+age_map <- c(
+  "101" = 8.67, "102" = 7.58, "103" = 7.25, "104" = 22.67, "105" = 23.33,
+  "106" = 7, "107" = 10, "108" = 5.75, "109" = 15.92, "110" = 7
+) # paper Table 1 (p.3): SCN patient ages
+metadata$age <- ifelse(
+  sid %in% names(age_map),
+  age_map[sid],
+  NA
+) # SCN patients from Table 1; controls NA (paper p.2 only gives range "5-22 years", no per-subject mapping)
+cat("Age mapping check: unique ages =", paste(unique(metadata$age), collapse=", "), "\n")
+
+# Site: SRA sample_type has "saliva" and "plaque". Per paper p.7 methods, plaque = "subgingival plaque"
+metadata$site <- ifelse(
+  initial_meta$sample_type == "saliva", "saliva",
+  ifelse(initial_meta$sample_type == "plaque", "subgingival plaque", NA)
+) # SRA column: sample_type
+
+# Sex: per-subject sex from paper Table 1 (p.3). Subjects 101-110 are SCN patients, 201-212 are controls.
+# From Table 1: 101=F, 102=F, 103=F, 104=M, 105=F, 106=F, 107=F, 108=F, 109=F, 110=F
+# Controls: paper p.2 says "11F/1M gender-matched" but no per-subject mapping is provided.
+# Since exact control sex cannot be determined, mark as NA.
+raw_sex_map <- c(
+  "101" = "F", "102" = "F", "103" = "F", "104" = "M", "105" = "F",
+  "106" = "F", "107" = "F", "108" = "F", "109" = "F", "110" = "F"
+) # paper Table 1 (p.3): Gender/age column
+metadata$sex <- ifelse(
+  sid %in% names(raw_sex_map),
+  raw_sex_map[sid],
+  NA
+) # SCN patients from Table 1; controls = NA (paper only gives overall ratio 11F/1M, no per-subject data)
+cat("Sex mapping check: unique sexes =", paste(unique(metadata$sex), collapse=", "), "\n")
+
+# Status: derived from SRA 'treat' column
+# "baseline" -> Severe congenital neutropenia (SCN patients at baseline)
+# "treat" -> Severe congenital neutropenia (SCN patients at 6-month follow-up)
+# "control" -> HC (healthy controls)
+metadata$status <- ifelse(
+  initial_meta$treat == "control", "HC",
+  "Severe congenital neutropenia"
+) # SRA column: treat; paper p.2: Severe congenital neutropenia patients vs healthy controls
+cat("Status mapping check: unique statuses =", paste(unique(metadata$status), collapse=", "), "\n")
 ```
 
 ```{r}
@@ -215,15 +260,15 @@ metadata <- metadata %>%
 # editing site_group
 unique(metadata$site)
 # EDIT HERE: add oral sites
-Oral_site = c("subgingival","saliva")
+Oral_site = c("saliva", "subgingival plaque") # paper p.7 methods: saliva and subgingival plaque samples
 # EDIT HERE: add gut sites
-Gut_site = c("stool")
+Gut_site = c("feces")
 # just run
 metadata <- metadata %>%
   mutate(site_group = case_when(
     site %in% Oral_site ~ "oral",
     site %in% Gut_site ~ "gut",
-    TRUE ~ "other" 
+    TRUE ~ "other"
   ))
 
 # editing matched_samples, just run.
@@ -310,12 +355,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150, bg = "white")
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
-# Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+# Insert Metadata_Summary_v2.png into the current Rmd output
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

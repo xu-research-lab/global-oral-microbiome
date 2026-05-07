@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJEB4953" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419/"
+base_dir <- "../"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -218,13 +218,13 @@ metadata <- data.frame(
   sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = "USA",
-  raw_status = initial_meta$`sample type`,
   site = initial_meta$Site,
   site_group = "oral", # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "515F-806R", # Format: xxF-xxR
   title = "Changes in Abundance of Oral Microbiota Associated with Oral Cancer", # extract from article
   disease_study = "yes", # determine according to the article
+  raw_status = initial_meta$project_name,
   status = "pending", 
   matched_samples = "pending", # modify later
   is_time_series = "no", # determine according to the article
@@ -239,17 +239,19 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
-metadata$status[metadata$raw_status == "precancer"] <- "Precancer"
-metadata$status[metadata$raw_status == "Precancer"] <- "Precancer"
-metadata$status[metadata$raw_status=="Healthy normal"] <- "HC"
-metadata$status[metadata$raw_status=="Normal"] <- "HC"
-metadata$status[metadata$raw_status=="CIS"] <- "Carcinoma in situ"
-metadata$status[metadata$raw_status=="Cancer"] <- "OSCC"
+
 metadata <- metadata %>%
   mutate(status = case_when(
-    status %in% c("OSCC", "Precancer", "HC","Carcinoma in situ") ~ status,
-    TRUE ~ "Precancer"
+    subject_id %in% pone010$`Patient id` ~ "OSCC",
+    subject_id %in% pone011$`Patient id` ~ "Carcinoma in situ",
+    subject_id %in% pone012$`Patient id` ~ "pre-cancer",
+    subject_id %in% pone013$`Patient id` ~ "HC",
+    TRUE ~ "Other" # 包含原位癌或重复样本等
   ))
+
+metadata$site <- gsub("FOM", "floor of Mouth", metadata$site)
+
+
 
 ```
 

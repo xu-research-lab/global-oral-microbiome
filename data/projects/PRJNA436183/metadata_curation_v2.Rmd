@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA436183" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "../"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -185,7 +185,7 @@ metadata <- data.frame(
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
-metadata <- metadata %>% mutate(status=case_when(grepl("O",subject_id)~"HC",grepl("LP",subject_id)~"OLP"))
+metadata <- metadata %>% mutate(status=case_when(grepl("O",subject_id)~ NA,grepl("LP",subject_id)~"OLP"))
 ```
 
 # Step 5: Manually solving pending issues

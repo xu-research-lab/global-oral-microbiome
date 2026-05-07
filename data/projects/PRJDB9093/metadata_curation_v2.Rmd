@@ -201,6 +201,29 @@ metadata <- data.frame(
 metadata$public_time <- as.Date(metadata$public_time)
 ```
 
+# Step 2.5: Extract age information from Supplementary Tables S1 and S2
+
+This step creates a lookup table for individual patient ages from Supplementary Table S1 (NRTI(+) group) and Table S2 (NRTI(-) groups).
+
+```{r}
+# Age data extracted from Supplementary Table S1 and S2
+# Table S1: NRTI(+) group demographics
+# Table S2: NRTI(-)PI(-) and NRTI(-)PI(+) group demographics
+# Source: Supplementary_Information_v2.pdf, Tables S1 and S2
+age_lookup <- c(
+  # NRTI(+) group (Table S1)
+  "MB101" = 30, "MB102" = 40, "MB105" = 44,
+  "MB107" = 31, "MB108" = 31, "MB110" = 48,
+  # NRTI(-)PI(-) group (Table S2)
+  "MB201" = 56, "MB204" = 73, "MB206" = 54,
+  "MB208" = 46, "MB209" = 43, "MB214" = 69,
+  "MB215" = 53, "MB216" = 61, "MB219" = 25,
+  # NRTI(-)PI(+) group (Table S2)
+  "MB203" = 45, "MB211" = 52, "MB212" = 45,
+  "MB217" = 60, "MB218" = 44
+)
+```
+
 # Step 5: Manually solving pending issues
 
 This step involves two parts: (1) handle the columns with the `raw_` prefix and resolve `status`/`sex`, and next (2) handle the `site_group` and `matched_samples` columns.
@@ -213,6 +236,7 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix and 
 # Set status: HD prefix = healthy control (HC), MB prefix = HIV-1-infected (HIV-1)
 # Source: paper "Demographics" section - 13 HD volunteers + 20 HIV-1-infected patients
 # Set sex: patients = all M (paper: "Japanese HIV-1-infected males"), HD = individual M/F not reported (Table 1 only gives group counts)
+# Set age: fill from supplementary Tables S1/S2 via age_lookup (HD samples have no individual age reported)
 metadata <- metadata %>%
   mutate(site = case_when(
     grepl("_stool$", raw_site) ~ "feces",
@@ -228,6 +252,11 @@ metadata <- metadata %>%
     grepl("^HD", subject_id),
     NA_character_,
     "M"
+  )) %>%
+  mutate(age = ifelse(
+    grepl("^MB", subject_id),
+    age_lookup[subject_id],
+    NA_integer_
   ))
 ```
 

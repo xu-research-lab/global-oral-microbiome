@@ -14,9 +14,9 @@ library(cowplot)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
-project_id <- "PRJNA844909" 
+project_id <- "PRJNA744870" 
 
-base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-YL-02"
+base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-YL-03"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -24,8 +24,8 @@ sra_file <- "SraRunTable.csv"
 initial_meta <- read.csv(sra_file, header = TRUE)
 
 # (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
-#supp_table <- read.csv("supplemental_table_v2.csv", header = TRUE)
-#initial_meta <- left_join(initial_meta, supp_table, by = "Sample.Name") 
+# supp_table <- read.csv("supplemental_table.csv", header = TRUE)
+# initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
 ```
 
 # Step 2: Data Overview
@@ -42,170 +42,185 @@ head(initial_meta, 10)
 ```
 
     ##            Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample
-    ## 1  SRR19523482   AMPLICON        602 33787852 PRJNA844909 SAMN28841056
-    ## 2  SRR19523483   AMPLICON        602 38452750 PRJNA844909 SAMN28841055
-    ## 3  SRR19523484   AMPLICON        602 36068830 PRJNA844909 SAMN28841054
-    ## 4  SRR19523485   AMPLICON        602 41894986 PRJNA844909 SAMN28840982
-    ## 5  SRR19523486   AMPLICON        602 35732914 PRJNA844909 SAMN28841053
-    ## 6  SRR19523487   AMPLICON        602 31883124 PRJNA844909 SAMN28841052
-    ## 7  SRR19523488   AMPLICON        602 37001930 PRJNA844909 SAMN28841051
-    ## 8  SRR19523489   AMPLICON        602 40306910 PRJNA844909 SAMN28841050
-    ## 9  SRR19523490   AMPLICON        602 31443062 PRJNA844909 SAMN28841049
-    ## 10 SRR19523491   AMPLICON        602 34124972 PRJNA844909 SAMN28841048
-    ##                 BioSampleModel    Bytes
-    ## 1  Metagenome or environmental 20149581
-    ## 2  Metagenome or environmental 22892427
-    ## 3  Metagenome or environmental 21477196
-    ## 4  Metagenome or environmental 24842554
-    ## 5  Metagenome or environmental 21002873
-    ## 6  Metagenome or environmental 18946376
-    ## 7  Metagenome or environmental 22158954
-    ## 8  Metagenome or environmental 23526405
-    ## 9  Metagenome or environmental 18504544
-    ## 10 Metagenome or environmental 20168213
-    ##                                 Center.Name Collection_Date Consent
-    ## 1  FACULTY OF MEDICINE, TEL AVIV UNIVERSITY  not applicable  public
-    ## 2  FACULTY OF MEDICINE, TEL AVIV UNIVERSITY  not applicable  public
-    ## 3  FACULTY OF MEDICINE, TEL AVIV UNIVERSITY  not applicable  public
-    ## 4  FACULTY OF MEDICINE, TEL AVIV UNIVERSITY  not applicable  public
-    ## 5  FACULTY OF MEDICINE, TEL AVIV UNIVERSITY  not applicable  public
-    ## 6  FACULTY OF MEDICINE, TEL AVIV UNIVERSITY  not applicable  public
-    ## 7  FACULTY OF MEDICINE, TEL AVIV UNIVERSITY  not applicable  public
-    ## 8  FACULTY OF MEDICINE, TEL AVIV UNIVERSITY  not applicable  public
-    ## 9  FACULTY OF MEDICINE, TEL AVIV UNIVERSITY  not applicable  public
-    ## 10 FACULTY OF MEDICINE, TEL AVIV UNIVERSITY  not applicable  public
-    ##    DATASTORE.filetype DATASTORE.provider                     DATASTORE.region
-    ## 1    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 2    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 3    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 4    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 5    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 6    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 7    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 8    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 9    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 10   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ##     Experiment geo_loc_name_country geo_loc_name_country_continent geo_loc_name
-    ## 1  SRX15576013               Israel                           Asia       Israel
-    ## 2  SRX15576012               Israel                           Asia       Israel
-    ## 3  SRX15576011               Israel                           Asia       Israel
-    ## 4  SRX15576010               Israel                           Asia       Israel
-    ## 5  SRX15576009               Israel                           Asia       Israel
-    ## 6  SRX15576008               Israel                           Asia       Israel
-    ## 7  SRX15576007               Israel                           Asia       Israel
-    ## 8  SRX15576006               Israel                           Asia       Israel
-    ## 9  SRX15576005               Israel                           Asia       Israel
-    ## 10 SRX15576004               Israel                           Asia       Israel
-    ##    health_state         HOST host_subject_id     Instrument isolation_source
-    ## 1          PTSD Homo sapiens            2350 Illumina MiSeq           saliva
-    ## 2       Healthy Homo sapiens            2311 Illumina MiSeq           saliva
-    ## 3          PTSD Homo sapiens            2290 Illumina MiSeq           saliva
-    ## 4          PTSD Homo sapiens             240 Illumina MiSeq           saliva
-    ## 5       Healthy Homo sapiens            2271 Illumina MiSeq           saliva
-    ## 6       Healthy Homo sapiens            2221 Illumina MiSeq           saliva
-    ## 7       Healthy Homo sapiens            2191 Illumina MiSeq           saliva
-    ## 8          PTSD Homo sapiens            2190 Illumina MiSeq           saliva
-    ## 9          PTSD Homo sapiens            2100 Illumina MiSeq           saliva
-    ## 10      Healthy Homo sapiens            2061 Illumina MiSeq           saliva
-    ##           lat_lon Library.Name LibraryLayout LibrarySelection LibrarySource
-    ## 1  not applicable      2350lib        PAIRED              PCR   METAGENOMIC
-    ## 2  not applicable      2311lib        PAIRED              PCR   METAGENOMIC
-    ## 3  not applicable      2290lib        PAIRED              PCR   METAGENOMIC
-    ## 4  not applicable       240lib        PAIRED              PCR   METAGENOMIC
-    ## 5  not applicable      2271lib        PAIRED              PCR   METAGENOMIC
-    ## 6  not applicable      2221lib        PAIRED              PCR   METAGENOMIC
-    ## 7  not applicable      2191lib        PAIRED              PCR   METAGENOMIC
-    ## 8  not applicable      2190lib        PAIRED              PCR   METAGENOMIC
-    ## 9  not applicable      2100lib        PAIRED              PCR   METAGENOMIC
-    ## 10 not applicable      2061lib        PAIRED              PCR   METAGENOMIC
-    ##            Organism Platform          ReleaseDate          create_date version
-    ## 1  human metagenome ILLUMINA 2023-06-22T00:00:00Z 2022-06-02T13:13:00Z       1
-    ## 2  human metagenome ILLUMINA 2023-06-22T00:00:00Z 2022-06-02T13:14:00Z       1
-    ## 3  human metagenome ILLUMINA 2023-06-22T00:00:00Z 2022-06-02T13:14:00Z       1
-    ## 4  human metagenome ILLUMINA 2023-06-22T00:00:00Z 2022-06-02T13:14:00Z       1
-    ## 5  human metagenome ILLUMINA 2023-06-22T00:00:00Z 2022-06-02T13:14:00Z       1
-    ## 6  human metagenome ILLUMINA 2023-06-22T00:00:00Z 2022-06-02T13:14:00Z       1
-    ## 7  human metagenome ILLUMINA 2023-06-22T00:00:00Z 2022-06-02T13:14:00Z       1
-    ## 8  human metagenome ILLUMINA 2023-06-22T00:00:00Z 2022-06-02T13:15:00Z       1
-    ## 9  human metagenome ILLUMINA 2023-06-22T00:00:00Z 2022-06-02T13:14:00Z       1
-    ## 10 human metagenome ILLUMINA 2023-06-22T00:00:00Z 2022-06-02T13:14:00Z       1
-    ##    Sample.Name SRA.Study
-    ## 1         2350 SRP378203
-    ## 2         2311 SRP378203
-    ## 3         2290 SRP378203
-    ## 4          240 SRP378203
-    ## 5         2271 SRP378203
-    ## 6         2221 SRP378203
-    ## 7         2191 SRP378203
-    ## 8         2190 SRP378203
-    ## 9         2100 SRP378203
-    ## 10        2061 SRP378203
+    ## 1  SRR15719926   AMPLICON        602 23042754 PRJNA744870 SAMN21215907
+    ## 2  SRR15719937   AMPLICON        602 23526160 PRJNA744870 SAMN21215897
+    ## 3  SRR15719951   AMPLICON        602 28818944 PRJNA744870 SAMN21215884
+    ## 4  SRR15719961   AMPLICON        602 22373932 PRJNA744870 SAMN21215816
+    ## 5  SRR15719966   AMPLICON        602  4212796 PRJNA744870 SAMN21215815
+    ## 6  SRR15719973   AMPLICON        602 36488424 PRJNA744870 SAMN21215951
+    ## 7  SRR15719989   AMPLICON        602  5851440 PRJNA744870 SAMN21215830
+    ## 8  SRR15720004   AMPLICON        602  4814194 PRJNA744870 SAMN21215826
+    ## 9  SRR15720010   AMPLICON        602  7121058 PRJNA744870 SAMN21215825
+    ## 10 SRR15720015   AMPLICON        602 21083244 PRJNA744870 SAMN21215837
+    ##                 BioSampleModel    Bytes                         Center.Name
+    ## 1  Metagenome or environmental 15416009 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 2  Metagenome or environmental 15389328 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 3  Metagenome or environmental 17930945 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 4  Metagenome or environmental 13334903 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 5  Metagenome or environmental  2130157 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 6  Metagenome or environmental 22725477 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 7  Metagenome or environmental  2882275 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 8  Metagenome or environmental  2357889 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 9  Metagenome or environmental  3421802 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 10 Metagenome or environmental 12511086 THE CHINESE UNIVERSITY OF HONG KONG
+    ##    Collection_Date Consent DATASTORE.filetype DATASTORE.provider
+    ## 1             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 2             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 3             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 4             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 5             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 6             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 7             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 8             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 9             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 10            2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ##                        DATASTORE.region  Experiment geo_loc_name_country
+    ## 1  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015501            Hong Kong
+    ## 2  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015490            Hong Kong
+    ## 3  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015476            Hong Kong
+    ## 4  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015466            Hong Kong
+    ## 5  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015461            Hong Kong
+    ## 6  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015834            Hong Kong
+    ## 7  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015818            Hong Kong
+    ## 8  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015803            Hong Kong
+    ## 9  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015797            Hong Kong
+    ## 10 gs.us-east1,ncbi.public,s3.us-east-1 SRX12015792            Hong Kong
+    ##    geo_loc_name_country_continent geo_loc_name         HOST     Instrument
+    ## 1                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 2                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 3                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 4                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 5                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 6                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 7                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 8                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 9                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 10                           Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ##    lat_lon             Library.Name LibraryLayout LibrarySelection
+    ## 1  missing    Health26-Oral-16SV3V4        PAIRED              PCR
+    ## 2  missing    Health16-Oral-16SV3V4        PAIRED              PCR
+    ## 3  missing    Health03-Oral-16SV3V4        PAIRED              PCR
+    ## 4  missing Patient11-PostM3-16SV3V4        PAIRED              PCR
+    ## 5  missing Patient10-PostM3-16SV3V4        PAIRED              PCR
+    ## 6  missing    Health70-Oral-16SV3V4        PAIRED              PCR
+    ## 7  missing Patient25-PostM1-16SV3V4        PAIRED              PCR
+    ## 8  missing Patient21-PostM6-16SV3V4        PAIRED              PCR
+    ## 9  missing Patient20-PostM3-16SV3V4        PAIRED              PCR
+    ## 10 missing Patient32-PostM3-16SV3V4        PAIRED              PCR
+    ##    LibrarySource        Organism Platform          ReleaseDate
+    ## 1        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 2        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 3        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 4        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 5        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 6        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 7        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 8        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 9        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 10       GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ##             create_date version Sample.Name SRA.Study   isolate sample_type
+    ## 1  2021-09-04T12:36:00Z       1    Health26 SRP328065  Health26  oral rinse
+    ## 2  2021-09-04T12:36:00Z       1    Health16 SRP328065  Health16  oral rinse
+    ## 3  2021-09-04T12:37:00Z       1    Health03 SRP328065  Health03  oral rinse
+    ## 4  2021-09-04T12:36:00Z       1   Patient11 SRP328065 Patient11  oral rinse
+    ## 5  2021-09-04T12:36:00Z       1   Patient10 SRP328065 Patient10  oral rinse
+    ## 6  2021-09-04T12:36:00Z       1    Health70 SRP328065  Health70  oral rinse
+    ## 7  2021-09-04T12:36:00Z       1   Patient25 SRP328065 Patient25  oral rinse
+    ## 8  2021-09-04T12:36:00Z       1   Patient21 SRP328065 Patient21  oral rinse
+    ## 9  2021-09-04T12:36:00Z       1   Patient20 SRP328065 Patient20  oral rinse
+    ## 10 2021-09-04T12:37:00Z       1   Patient32 SRP328065 Patient32  oral rinse
+    ##      strain isolation_source
+    ## 1  Bacteria               NA
+    ## 2  Bacteria               NA
+    ## 3  Bacteria               NA
+    ## 4  Bacteria               NA
+    ## 5  Bacteria               NA
+    ## 6  Bacteria               NA
+    ## 7  Bacteria               NA
+    ## 8  Bacteria               NA
+    ## 9  Bacteria               NA
+    ## 10 Bacteria               NA
 
 ``` r
 # IMPORTANT: Check the unique values in the column of interest or query column.
-lapply(initial_meta[c('isolation_source')], table) # site
+lapply(initial_meta[c('sample_type')], table) # site
 ```
 
-    ## $isolation_source
+    ## $sample_type
     ## 
-    ## saliva 
-    ##    189
+    ## oral rinse 
+    ##        384
 
 ``` r
-lapply(initial_meta[c('Organism', 'HOST')], table) # organism
+lapply(initial_meta[c('Organism')], table) # organism
 ```
 
     ## $Organism
     ## 
-    ## human metagenome 
-    ##              189 
-    ## 
-    ## $HOST
-    ## 
-    ## Homo sapiens 
-    ##          189
+    ## human oral metagenome       oral metagenome 
+    ##                     4                   380
 
 ``` r
 table(initial_meta$Sample.Name) # subject id
 ```
 
     ## 
-    ##   11   51   60   70   71  130  150  190  240  250  290  301  310  330  370  371 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ##  391  401  411  490  501  521  580  601  640  690  760  771  780  781  800  830 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ##  861  960 1070 1120 1170 1190 1191 1220 1251 1261 1270 1311 1320 1330 1361 1390 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ## 1410 1411 1440 1441 1450 1451 1480 1521 1550 1571 1581 1620 1661 1681 1711 1720 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ## 1721 1741 1801 1830 1850 1901 1931 1960 2030 2031 2061 2100 2190 2191 2221 2271 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ## 2290 2311 2350 2351 2370 2380 2391 2400 2470 2540 2560 2691 2741 2931 2951 2970 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ## 2981 3000 3020 3030 3050 3061 3130 3140 3191 3210 3230 3240 3251 3270 3301 3340 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ## 3381 3390 3411 3421 3450 3471 3480 3491 3520 3560 3590 3591 3610 3630 3640 3691 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ## 3880 3910 3920 3930 4001 4071 4090 4150 4180 4251 4330 4600 4720 4831 4840 4850 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ## 4871 4900 4930 4931 4961 5151 5221 5240 5250 5290 5351 5371 5431 5451 5471 5510 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ## 5520 5540 5551 5580 5591 5641 5700 5710 5751 5770 5850 5871 5930 5980 6071 6130 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
-    ## 6180 6190 6191 6200 6230 6260 6270 6391 6480 6490 6491 6620 8011 
-    ##    1    1    1    1    1    1    1    1    1    1    1    1    1
+    ##   Health01   Health02   Health03   Health04   Health05   Health06   Health07 
+    ##          1          1          1          1          1          1          1 
+    ##   Health08   Health09   Health10   Health11   Health12   Health13   Health14 
+    ##          1          1          1          1          1          1          1 
+    ##   Health15   Health16   Health17   Health18   Health19   Health20   Health21 
+    ##          1          1          1          1          1          1          1 
+    ##   Health22   Health23   Health24   Health25   Health26   Health27   Health28 
+    ##          1          1          1          1          1          1          1 
+    ##   Health29   Health30   Health31   Health32   Health33   Health34   Health35 
+    ##          1          1          1          1          1          1          1 
+    ##   Health36   Health37   Health38   Health39   Health40   Health41   Health42 
+    ##          1          1          1          1          1          1          1 
+    ##   Health43   Health44   Health45   Health46   Health47   Health48   Health49 
+    ##          1          1          1          1          1          1          1 
+    ##   Health50   Health51   Health52   Health53   Health54   Health55   Health56 
+    ##          1          1          1          1          1          1          1 
+    ##   Health57   Health58   Health59   Health60   Health61   Health62   Health63 
+    ##          1          1          1          1          1          1          1 
+    ##   Health64   Health65   Health66   Health67   Health68   Health69   Health70 
+    ##          1          1          1          1          1          1          1 
+    ##   Health71   Health72   Health73   Health74   Health75   Health76  Patient01 
+    ##          1          1          1          1          1          1          4 
+    ## Patient01R  Patient02  Patient03  Patient04  Patient05  Patient06  Patient07 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient08  Patient09  Patient10  Patient11  Patient12  Patient13  Patient14 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient15  Patient16  Patient17  Patient18  Patient19  Patient20  Patient21 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient22  Patient23  Patient24  Patient25  Patient26  Patient27  Patient28 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient29  Patient30  Patient31  Patient32  Patient33  Patient34  Patient35 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient36  Patient37  Patient38  Patient39  Patient40  Patient41  Patient42 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient43  Patient44  Patient45  Patient46  Patient47  Patient48  Patient49 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient50  Patient51  Patient52  Patient53  Patient54  Patient55  Patient56 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient57  Patient58  Patient59  Patient60  Patient61  Patient62  Patient63 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient64  Patient65  Patient66  Patient67  Patient68  Patient69  Patient70 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient71  Patient72  Patient73  Patient74  Patient75  Patient76 
+    ##          4          4          4          4          4          4
 
 ``` r
-#table(initial_meta$sequencing_meth..exp.) # output is pyrosequencing
-table(initial_meta$Platform) # output is Illumina. according to the methods, Illumina is correct.
+#table(initial_meta$sequencing_meth..exp.) # output is Sequencing by synthesis
+table(initial_meta$Platform) # output is Illumina. according to the methods,  Illumina is correct.
 ```
 
     ## 
     ## ILLUMINA 
-    ##      189
+    ##      384
 
 ``` r
-# table(initial_meta$target_subfragment..exp.)
+#table(initial_meta$target_subfragment) # output is V4
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -272,7 +287,7 @@ initial_meta <- initial_meta[!samples_to_remove, ]
 cat("Initial samples counts:",n_samples,"\n")
 ```
 
-    ## Initial samples counts: 189
+    ## Initial samples counts: 384
 
 ``` r
 cat("Removed control samples:", sum(is_control), "\n")
@@ -296,7 +311,7 @@ cat("Total samples removed ", sum(samples_to_remove), "\n")
 cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
 ```
 
-    ## Remaining samples after Step 2: 189
+    ## Remaining samples after Step 2: 384
 
 # Step 4: Creating a Uniform Metadata Template
 
@@ -346,23 +361,23 @@ metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
-  age = NA,
-  age_info = "56-84", # determine according to the supplemental material
+  age = NA, 
+  age_info = "above 18 years old", # extract from methods section 
   bmi = NA,
   sex = NA,
-  sequencing_region = NA, # extract from methods section
+  sequencing_region = "V3-V4", # extract from methods section
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
-  country = initial_meta$geo_loc_name_country,
-  site = initial_meta$isolation_source,
+  country = "China",
+  site = initial_meta$sample_type, 
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = NA, # Format: xxF-xxR
-  title = "Oral microbiota signatures in post-traumatic stress disorder (PTSD) veterans", # extract from article
+  pcr_primers = "341F-806R", # Format: xxF-xxR
+  title = "Restoration of the oral microbiota after surgery for head and neck squamous cell carcinoma is associated with patient outcomes", # extract from article
   disease_study = "yes", # determine according to the article
-  raw_status = initial_meta$health_state,  
+  raw_status = initial_meta$Sample.Name,
   status = "pending", # modify later
   matched_samples = "pending", # modify later
-  is_time_series = "no", # determine according to the article
+  is_time_series = "no", 
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
@@ -379,10 +394,10 @@ columns.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
 metadata <- metadata %>%
   mutate(status = case_when(
-    grepl("PTSD", raw_status) ~ "PTSD",
-    grepl("Healthy", raw_status) ~ "HC", 
+    grepl("Patient", raw_status) ~ "head and neck squamous cell carcinoma",
+    grepl("Health", raw_status) ~ "HC",
     TRUE ~ NA_character_
-  )) # according to the 'health_state' column of initial_meta
+  )) # according to the 'Sample.Name' column of initial_meta
 ```
 
 ``` r
@@ -391,7 +406,7 @@ metadata <- metadata %>%
 unique(metadata$site)
 ```
 
-    ## [1] "saliva"
+    ## [1] "oral rinse"
 
 ``` r
 # EDIT HERE: add oral sites

@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA692359" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419/新增"
+base_dir <- "E:/oral_metadata/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file

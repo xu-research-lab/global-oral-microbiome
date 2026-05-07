@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA873789" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "E:/oral_metadata/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -55,9 +55,9 @@ First, we need to remove control samples(including both negative controls and po
 
 ```{r}
 # (1) EDIT HERE: Parameter setup
-control_column <- ""   # column name in initial_meta
+control_column <- "misc_param_iga_fraction"   # column name in initial_meta
 # unique(initial_meta[[control_column]])
-control_keywords <- c()     # Enter exact keywords
+control_keywords <- c('Allbac')     # Enter exact keywords
 
 species_column <- ""          # column name in initial_meta
 unique(initial_meta[[species_column]])
@@ -173,7 +173,7 @@ metadata <- data.frame(
   sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
-  raw_site = initial_meta$env_medium,
+  raw_site = initial_meta$Sample.Name,
   site = "pending",
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
@@ -190,11 +190,15 @@ metadata$public_time <- as.Date(metadata$public_time)
 metadata$subject_id <- gsub("[^0-9]", "", metadata$raw_subject_id)
 metadata$age <- gsub(" years", "", metadata$age)
 metadata$age <- as.numeric(metadata$age)
-metadata$site <- "saliva"
 metadata <- metadata %>% 
   mutate(status=case_when(
     grepl("axial",raw_status)~"axSpA",
     grepl("healthy control",raw_status)~"HC"
+  ))
+metadata <- metadata %>% 
+  mutate(site=case_when(
+    grepl("saliva",raw_site)~"saliva",
+    grepl("feces",raw_site)~"feces"
   ))
 ```
 
@@ -220,7 +224,7 @@ unique(metadata$site)
 # EDIT HERE: add oral sites
 Oral_site = c("saliva")
 # EDIT HERE: add gut sites
-Gut_site = c("stool")
+Gut_site = c("feces")
 # just run
 metadata <- metadata %>%
   mutate(site_group = case_when(

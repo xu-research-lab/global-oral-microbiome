@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA828047" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "E:/oral_metadata/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -176,7 +176,7 @@ metadata <- data.frame(
   site = initial_meta$env_broad_scale,
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = NA, # Format: xxF-xxR
+  pcr_primers = '515F-806R', # Format: xxF-xxR
   title = "Differences in the subgingival microbiome according to stage of periodontitis: A comparison of two geographic regions", # extract from article
   disease_study = "yes", # determine according to the article
   status = NA, #无法一一对应疾病健康状态

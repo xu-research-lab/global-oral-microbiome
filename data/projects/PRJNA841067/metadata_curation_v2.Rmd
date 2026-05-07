@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA841067" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "E:/oral_metadata/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -165,11 +165,11 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
   age = NA,
-  age_info = "18-46",
+  age_info = "average age 32.03",
   bmi = NA,
   #raw_sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
   sex = NA, # and mark as "pending"
-  sequencing_region = "V2,V3,V4,V6-V7,V8-V9",
+  sequencing_region = "V2,V3,V4,V6-V7,V8,V9",
   platform = "Ion Torrent", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
   #raw_site = initial_meta$isolation_source,
@@ -179,7 +179,7 @@ metadata <- data.frame(
   pcr_primers = NA, # Format: xxF-xxR
   title = "Characteristics of oral microbiome of healthcare workers in different clinical scenarios: a cross-sectional analysis", # extract from article
   disease_study = "no", # determine according to the article
-  status = "HC", 
+  status = NA, 
   matched_samples = "pending", # modify later
   is_time_series = "no", # determine according to the article
   stringsAsFactors = FALSE

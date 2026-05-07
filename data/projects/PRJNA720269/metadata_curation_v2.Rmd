@@ -163,10 +163,10 @@ metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
-  age = NA,
-  age_info = "pending",
+  age = initial_meta$Host_Age,
+  age_info = NA,
   bmi = NA,
-  sex = NA, # and mark as "pending"
+  sex = initial_meta$host_sex, # and mark as "pending"
   sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
@@ -191,8 +191,7 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
-metadata$age_info <- ifelse(grepl("YQ",metadata$subject_id),"47.35±11.28",
-                            ifelse(grepl("mishan",metadata$subject_id),"46.01±10.02","46.93±10.33"))
+
 
 ```
 

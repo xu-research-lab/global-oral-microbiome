@@ -53,6 +53,8 @@ table(initial_meta$target_subfragment..exp.)
 First, we need to remove control samples(including both negative controls and positive controls) and non-human samples.
 
 ```{r}
+initial_meta <- initial_meta[!grepl("2P", initial_meta$host_subject_id), ] # Because the original text explicitly mentions 56 samples, it is necessary to filter out the samples that are not clear or repeatedly collected by the same person, so that the number of samples in initial_metadata follows. The original sentence is 'We collected 56 samples from 22 subjects'. 
+
 # (1) EDIT HERE: Parameter setup
 control_column <- "empo_1" # column name in initial_meta
 # unique(initial_meta[[control_column]])
@@ -173,7 +175,7 @@ metadata <- data.frame(
   site = initial_meta$sample_type,
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = "338F-518R", # Format: xxF-xxR
+  pcr_primers = "515F-806R", # Format: xxF-xxR
   title = "Assessing saliva microbiome collection and processing methods", # extract from article
   disease_study = "no", # determine according to the article
   status = "HC", 

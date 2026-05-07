@@ -13,6 +13,7 @@ This step sets the project directory, loads the raw SRA metadata, and optionally
 library(dplyr)
 library(ggplot2)
 library(cowplot)
+library(stringr)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
@@ -161,7 +162,8 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample_name,
+  raw_subject_id = initial_meta$Sample_name,
+  subject_id = "pending",
   age = NA,
   age_info = '35-40',
   bmi = NA,
@@ -193,6 +195,7 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata$subject_id = str_extract(metadata$raw_subject_id,'P1|P2|P3')
 metadata <- metadata %>%
   mutate(sex = case_when(
     raw_sex == 'male' ~ "M",
@@ -306,12 +309,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

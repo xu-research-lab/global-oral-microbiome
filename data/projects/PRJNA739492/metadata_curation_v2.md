@@ -213,7 +213,7 @@ accept ‘yes’ or ‘no’.
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample.Name,
+  subject_id = initial_meta$Library.Name,
   age = initial_meta$Host_Age,
   age_info = NA,
   bmi = NA,

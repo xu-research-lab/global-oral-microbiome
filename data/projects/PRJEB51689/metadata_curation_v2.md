@@ -11,6 +11,7 @@ optionally merges supplement tables.
 library(dplyr)
 library(ggplot2)
 library(cowplot)
+library(stringr)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
@@ -213,7 +214,8 @@ accept ‘yes’ or ‘no’.
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample_name,
+  raw_subject_id = initial_meta$Sample_name,
+  subject_id = "pending",
   age = NA,
   age_info = '31-65',
   bmi = NA,
@@ -246,6 +248,7 @@ columns.
 ``` r
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata$subject_id = substr(metadata$raw_subject_id,1,3)
 metadata <- metadata %>%
   mutate(sex = case_when(
     raw_sex == 'male' ~ "M",

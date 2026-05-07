@@ -36,7 +36,7 @@ First, you need to get an overview of the data, which includes two steps: readin
 # - Main cohort: 7 Afro-descendants with Grade C/molar-incisor pattern periodontitis (GC/MIP) and 7 age/race/gender-matched controls.
 # - Sampling design: oral biofilms and feces were both part of the study; oral biofilms included supragingival biofilm plus subgingival healthy and affected-site biofilms depending on group.
 # - Unstimulated saliva was collected for nitrite analysis, not as the primary 16S sequencing sample type retained in this metadata table.
-# - Sequencing workflow: bacterial 16S rRNA V4-V5 region amplified with Bakt_341F (CCTACGGGNGGCWGCAG) and Bakt_805R (GACTACHVGGGTATCTAATCC), sequenced on Illumina MiSeq 2 x 250.
+# - Sequencing workflow: bacterial 16S rRNA V4-V5 region amplified with 341F-805R, sequenced on Illumina MiSeq 2 x 250.
 # - Recruitment geography: University of São Paulo, São Paulo, Brazil.
 # - Local SRA has 48 rows total = 35 oral rows + 13 fecal rows across 14 subjects; all rows are female and ages are 18-25 years.
 # - Controls have 3 rows per subject (feces, supragingival, subgingival healthy); most GC/MIP subjects have 4 rows (feces, supragingival, subgingival healthy, subgingival affected), with one GC/MIP subject lacking a fecal row in the local SRA.
@@ -154,7 +154,7 @@ metadata <- data.frame(
   site = "pending",
   site_group = "pending",
   public_time = sub("T.*$", "", initial_meta$ReleaseDate),
-  pcr_primers = "F-CCTACGGGNGGCWGCAG,R-GACTACHVGGGTATCTAATCC",
+  pcr_primers = "341F-805R",
   title = "Oral and Fecal Microbiome in Molar-Incisor Pattern Periodontitis",
   disease_study = "yes",
   status = "pending",
@@ -183,8 +183,8 @@ metadata <- metadata %>%
   mutate(
     site = case_when(
       raw_site == "Supragingival" ~ "supragingival dental plaque",
-      raw_site == "Subgingival healthy" ~ "subgingival dental plaque, healthy site",
-      raw_site == "Subgingival affected" ~ "subgingival dental plaque, affected site",
+      raw_site == "Subgingival healthy" ~ "subgingival dental plaque (PD ≤3 mm)",
+      raw_site == "Subgingival affected" ~ "subgingival dental plaque (PD ≥4 mm)",
       raw_site == "Feces" ~ "feces",
       TRUE ~ NA_character_
     ),
@@ -202,8 +202,8 @@ metadata <- metadata %>%
 # (2) Filling the 'site_group' and 'matched_samples' columns
 unique(metadata$site)
 Oral_site = c("supragingival dental plaque",
-              "subgingival dental plaque, healthy site",
-              "subgingival dental plaque, affected site")
+              "subgingival dental plaque (PD ≤3 mm)",
+              "subgingival dental plaque (PD ≥4 mm)")
 Gut_site = c("feces")
 
 metadata <- metadata %>%

@@ -145,7 +145,7 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
   age = initial_meta$AGE,
-  age_info = NA,
+  age_info = "47.9±13.7 (glioma), 46.3±11.2 (HC)",
   bmi = NA,
   raw_sex = initial_meta$sex,
   sex = "pending",
@@ -188,8 +188,12 @@ metadata <- metadata %>%
 # Clean age column by removing ' years' suffix and converting to numeric
 metadata$age <- as.numeric(gsub(" years", "", metadata$age)) # AGE column in SRA contained 'X years' format
 
-# Disease status from SRA health_state column
-metadata$status <- metadata$raw_status
+# Disease status from SRA health_state column (remapped: health→HC, disease→Gliomas)
+metadata$status <- case_when(
+  metadata$raw_status == "health" ~ "HC",
+  metadata$raw_status == "disease" ~ "Gliomas",
+  TRUE ~ NA_character_
+)
 
 # Add publication information
 metadata$pcr_primers <- "338F-806R"

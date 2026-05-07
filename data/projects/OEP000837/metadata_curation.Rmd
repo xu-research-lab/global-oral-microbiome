@@ -18,7 +18,7 @@ library(cowplot)
 library(readxl)
 
 # Set working directory (update this path to your local directory)
-setwd("/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects/OEP000837")
+setwd("D:/oral_project/OEP000837")
 
 # Read the initial metadata files
 initial_meta<-read_xlsx("OEP00000837_Data_1758007425482.xlsx",sheet = "sheet1")
@@ -59,7 +59,7 @@ The uniform metadata should include the following columns:
 # Create a uniform metadata dataframe
 metadata <- data.frame(
   BioProject = "OEP000837",
-  Run = initial_meta$sample_name,
+  Run = initial_meta$run_id,
   sample_name = initial_meta$sample_name,
   Age = NA,
   BMI = NA,

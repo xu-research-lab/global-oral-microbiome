@@ -174,7 +174,7 @@ metadata <- data.frame(
   site = initial_meta$isolation_source,
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = "338F-806R", # Format: xxF-xxR
+  pcr_primers = "F:5'-ACTCCTACGGGAGGCAGCA-3'-R:5'-GGACTACHVGGGTWTCTAAT-3'", # Format: xxF-xxR
   title = "Alterations in the human oral and gut microbiomes and lipidomics in COVID-19", # extract from article
   disease_study = "yes", # determine according to the article
   raw_status = initial_meta$Sample.Name,

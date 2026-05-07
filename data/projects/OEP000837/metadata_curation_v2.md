@@ -1,12 +1,10 @@
----
-title: "R Notebook: Metadata Processing Workflow"
-output: github_document
----
+R Notebook: Metadata Processing Workflow
+================
 
 # Step 1: Obtain Initial Metadata from Each Project
 
-This step sets the project directory, loads the raw SRA metadata, and optionally merges supplement tables.
-
+This step sets the project directory, loads the raw SRA metadata, and
+optionally merges supplement tables.
 
 ``` r
 # Load libraries
@@ -26,6 +24,9 @@ setwd(file.path(base_dir, project_id))
 sra_file <- "OEP00000837_Data_1758007425482.xlsx"
 initial_meta <- read_xlsx("OEP00000837_Data_1758007425482.xlsx", sheet = "sheet1")
 
+# Deduplicate: SRA export has each sample listed twice (duplicate run_id/sample_name)
+initial_meta <- initial_meta[!duplicated(initial_meta$run_id), ]
+
 # (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
 # supp_table <- read.csv("supplemental_table.csv", header = TRUE)
 # initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
@@ -33,8 +34,9 @@ initial_meta <- read_xlsx("OEP00000837_Data_1758007425482.xlsx", sheet = "sheet1
 
 # Step 2: Data Overview
 
-First, you need to get an overview of the data, which includes two steps: reading the article and reading the initial metadata. This step is very IMPORTANT!
-
+First, you need to get an overview of the data, which includes two
+steps: reading the article and reading the initial metadata. This step
+is very IMPORTANT!
 
 ``` r
 # (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
@@ -51,8 +53,8 @@ First, you need to get an overview of the data, which includes two steps: readin
 
 # Step 3: Removing Control and Non-human Samples
 
-First, we need to remove control samples(including both negative controls and positive controls) and non-human samples.
-
+First, we need to remove control samples(including both negative
+controls and positive controls) and non-human samples.
 
 ``` r
 # (1) EDIT HERE: Parameter setup
@@ -110,66 +112,56 @@ initial_meta <- initial_meta[!samples_to_remove, ]
 cat("Initial samples counts:",n_samples,"\n")
 ```
 
-```
-## Initial samples counts: 192
-```
+    ## Initial samples counts: 96
 
 ``` r
 cat("Removed control samples:", sum(is_control), "\n")
 ```
 
-```
-## Removed control samples: 0
-```
+    ## Removed control samples: 0
 
 ``` r
 cat("Removed non-human samples:", sum(is_non_human), "\n")
 ```
 
-```
-## Removed non-human samples: 0
-```
+    ## Removed non-human samples: 0
 
 ``` r
 cat("Total samples removed ", sum(samples_to_remove), "\n")
 ```
 
-```
-## Total samples removed  0
-```
+    ## Total samples removed  0
 
 ``` r
 cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
 ```
 
-```
-## Remaining samples after Step 2: 192
-```
+    ## Remaining samples after Step 2: 96
 
 # Step 4: Creating a Uniform Metadata Template
 
-This step converts the raw SRA table into the standard metadata format used in our meta-analysis.
-The uniform metadata should include the following columns:
-1. **bioproject**: Project ID from SRA or other database
-2. **sample_id**: SRA sample/run ID. Unique id for each sample!
-3. **subject_id**: subject id for each person if available.
-4. **age**: Age of the subject if available. e.g. `35`, `42`
-5. **age_info**: If the age is not explicitly stated but approximate age range information is available, mark it in this column.
-6. **bmi**: Body Mass Index if available.
-7. **sex**: Sex of the subject. Mandatory to write as M/F
-8. **sequencing_region**: Targeted 16S rRNA region.
-9. **platform**: Sequencing platform.
-10. **country**: Country of sample origin.
-11. **site**: Sampling site. For oral and gut sites, specify the exact sites as detailed as possible.
-12. **site_group**: only accepts one of following three values: 'oral', 'gut', or 'other'.
-13. **public_time**: Data release date.
-14. **pcr_primers**: PCR primers used.
-15. **title**: Title of the associated publication.
-16. **disease_study**: Whether the study involves disease samples. Only three values accepted: 'yes', 'no' or NA
-17. **status**: Disease status for each sample if available, else record as NA.
-18. **matched_samples**: Whether the subject has matched samples. Only accept 'yes' or 'no'.
-19. **is_time_series**: Whether the study is a time series study. Only accept 'yes' or 'no'.
-
+This step converts the raw SRA table into the standard metadata format
+used in our meta-analysis. The uniform metadata should include the
+following columns: 1. **bioproject**: Project ID from SRA or other
+database 2. **sample\_id**: SRA sample/run ID. Unique id for each
+sample! 3. **subject\_id**: subject id for each person if available. 4.
+**age**: Age of the subject if available. e.g. `35`, `42` 5.
+**age\_info**: If the age is not explicitly stated but approximate age
+range information is available, mark it in this column. 6. **bmi**: Body
+Mass Index if available. 7. **sex**: Sex of the subject. Mandatory to
+write as M/F 8. **sequencing\_region**: Targeted 16S rRNA region. 9.
+**platform**: Sequencing platform. 10. **country**: Country of sample
+origin. 11. **site**: Sampling site. For oral and gut sites, specify the
+exact sites as detailed as possible. 12. **site\_group**: only accepts
+one of following three values: ‘oral’, ‘gut’, or ‘other’. 13.
+**public\_time**: Data release date. 14. **pcr\_primers**: PCR primers
+used. 15. **title**: Title of the associated publication. 16.
+**disease\_study**: Whether the study involves disease samples. Only
+three values accepted: ‘yes’, ‘no’ or NA 17. **status**: Disease status
+for each sample if available, else record as NA. 18.
+**matched\_samples**: Whether the subject has matched samples. Only
+accept ‘yes’ or ‘no’. 19. **is\_time\_series**: Whether the study is a
+time series study. Only accept ‘yes’ or ‘no’.
 
 ``` r
 # Extract columns from initial_meta as follows:
@@ -207,8 +199,9 @@ metadata$public_time <- as.Date(metadata$public_time)
 
 # Step 5: Manually solving pending issues
 
-This step involves two parts: (1) handle the columns with the `raw_` prefix, and next (2) handle the `site_group` and `matched_samples` columns.
-
+This step involves two parts: (1) handle the columns with the `raw_`
+prefix, and next (2) handle the `site_group` and `matched_samples`
+columns.
 
 ``` r
 # (1) Handle the columns with the `raw_` prefix.
@@ -225,6 +218,7 @@ metadata$site <- case_when(
   grepl("C", metadata$raw_site) ~ "paracancerous tissue"
 ) # sample_name encodes sample type: TY=saliva, T|t=tumor, C=paracancerous
 
+# All subjects are OSCC patients; status is the disease itself.
 metadata$status <- "OSCC"
 
 # Add publication information
@@ -233,10 +227,9 @@ metadata$title <- "Oral Microbiota Analysis of Tissue Pairs and Saliva Samples F
 metadata$disease_study <- "yes"
 
 # Keep only subjects with saliva samples
-keep_subjects <- metadata$subject_id[metadata$site == "saliva"]
+keep_subjects <- metadata$subject_id[grepl("-TY", metadata$raw_site)]
 metadata <- metadata[metadata$subject_id %in% keep_subjects, ]
 ```
-
 
 ``` r
 # (2) Filling the 'site_group' and 'matched_samples' columns
@@ -244,9 +237,7 @@ metadata <- metadata[metadata$subject_id %in% keep_subjects, ]
 unique(metadata$site)
 ```
 
-```
-## [1] "saliva"               "paracancerous tissue" "tumor"
-```
+    ## [1] "saliva"               "paracancerous tissue" "tumor"
 
 ``` r
 # EDIT HERE: add oral sites
@@ -268,7 +259,6 @@ metadata$matched_samples <- ifelse(
   "no"
 )
 ```
-
 
 ``` r
 # (3) check if there is pending value in metadata. If there is pending value, go on modify the metadata.
@@ -293,14 +283,12 @@ if (!any_pending_value) {
 }
 ```
 
-```
-## Good! No cell contains the value 'pending'.
-```
+    ## Good! No cell contains the value 'pending'.
 
 # Step 6: Visualize the Metadata
 
-This step makes a quick set of plots for checking the distribution of key metadata fields.
-
+This step makes a quick set of plots for checking the distribution of
+key metadata fields.
 
 ``` r
 # Select columns for visualization, just run
@@ -354,18 +342,17 @@ p <- plot_grid(plots$age,
 ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
-
 ``` r
 # Insert Metadata_Summary.png into the current Rmd output
 knitr::include_graphics("Metadata_Summary.png")
 ```
 
-![plot of chunk unnamed-chunk-9](Metadata_Summary.png)
+<img src="Metadata_Summary.png" alt="" width="1200" />
 
 # Step 7: Sort and export the metadata
 
-This step saves the cleaned metadata table as the final `metadata.csv` file.
-
+This step saves the cleaned metadata table as the final `metadata.csv`
+file.
 
 ``` r
 # Reorder the data frame

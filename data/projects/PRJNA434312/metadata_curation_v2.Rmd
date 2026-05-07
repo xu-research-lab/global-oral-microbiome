@@ -187,7 +187,7 @@ metadata <- metadata %>%
 
 # Remap disease_status from SRA to standardized status names
 metadata$status <- ifelse(
-  grepl("Case", metadata$raw_status), "HNC",
+  grepl("Case", metadata$raw_status), "head and neck cancer and pancreatic cancer",
   ifelse(grepl("Control", metadata$raw_status), "HC", NA_character_)
 )
 

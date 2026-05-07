@@ -215,7 +215,8 @@ accept ‘yes’ or ‘no’.
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Library.Name,
+  raw_subject_id = initial_meta$Library.Name,
+  subject_id = "pending",
   age = NA,
   age_info = 'adult',
   bmi = NA,
@@ -248,6 +249,7 @@ columns.
 ``` r
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata$subject_id = str_extract(metadata$raw_subject_id, "^[^.]+") 
 metadata <- metadata %>%
   mutate(sex = case_when(
     raw_sex == 'male' ~ "M",
@@ -282,7 +284,11 @@ metadata <- metadata %>%
   ))
 
 # editing matched_samples, just run.
-metadata$matched_samples <- "yes"
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1, 
+  "yes", 
+  "no"
+)
 ```
 
 ``` r
@@ -364,15 +370,15 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ``` r
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
-![](Metadata_Summary.png)<!-- -->
+![](Metadata_Summary_v2.png)<!-- -->
 
 # Step 7: Sort and export the metadata
 

@@ -146,7 +146,7 @@ metadata <- data.frame(
   raw_subject_id = initial_meta$Sample.Name,
   subject_id = "pending",
   age = NA,
-  age_info = NA,
+  age_info = "69.2±0.7 (HTN), 66.3±1.4 (control)",
   bmi = NA,
   raw_sex = NA,
   sex = "pending",
@@ -178,11 +178,15 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # IMPORTANT: Add comments if the modification is not straightforward!!
 metadata$sex <- NA_character_
 
-# Extract subject_id by removing sample type prefix (F/S/P)
-metadata$subject_id <- gsub("^[FSP]", "", metadata$raw_subject_id) # Sample.Name encoded sample type as prefix
+# Extract subject_id by removing sample type suffix (F/S/P + digits)
+# Sample.Name format: "181215F2" → subject "181215"
+metadata$subject_id <- gsub("[FSP][0-9]+$", "", metadata$raw_subject_id)
 
 # Assign site from raw_site, lowercased
 metadata$site <- tolower(metadata$raw_site)
+
+# Fix typo in site name
+metadata$site <- gsub("subgingival palque", "subgingival plaque", metadata$site)
 
 # Add publication information
 metadata$pcr_primers <- "338F-806R"
@@ -197,7 +201,7 @@ metadata$status <- "hypertension"
 # editing site_group
 unique(metadata$site)
 # EDIT HERE: add oral sites
-Oral_site = c("saliva", "mouth", "tongue coating", "supragingival plaque", "subgingival plaque", "oral swab", "denture", "tooth", "abscess pus", "adjacent periodontal pocket", "patient healthy crevice", "healthy control crevice", "gingival crevicular fluid", "subgingival plaque", "subgingival palque")
+Oral_site = c("saliva", "mouth", "tongue coating", "supragingival plaque", "subgingival plaque", "oral swab", "denture", "tooth", "abscess pus", "adjacent periodontal pocket", "patient healthy crevice", "healthy control crevice", "gingival crevicular fluid", "subgingival plaque")
 # EDIT HERE: add gut sites
 Gut_site = c("feces", "stool")
 # just run

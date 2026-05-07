@@ -173,7 +173,7 @@ metadata <- data.frame(
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = NA, # Format: xxF-xxR
-  title = "Oral microbial signature of rheumatoid arthritis in female patients", # extract from article
+  title = "Oral microbiota signatures in post-traumatic stress disorder (PTSD) veterans", # extract from article
   disease_study = "yes", # determine according to the article
   raw_status = initial_meta$health_state,  
   status = "pending", # modify later

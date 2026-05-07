@@ -1,0 +1,30 @@
+"Patient","Sex","Age.(in.months)","dmf-t","fistula/abscess","CHD(Warnes Classification)","Heart.surgery","medication"
+"CHD01","f",62,3,"-","Hypoplastic left heart syndrome (3)","-",NA
+"CHD02","m",36,1,"+","Tricuspid atresia (3)","Fontan-Operation,Glenn-Procedure","Acetylsalicylic  acid"
+"CHD03","m",67,12,"-","Pulmonary 
+insufficiency/ 
+interrupted aortic arch (3)","Fontan-Operation,
+Comprehensive stage 2 
+procedure","Acetylsalicylic acid, ACE 
+inhibitor, Beta-Blocker"
+"CHD04","m",24,18,"-","Pulmonary atresia (3)","-","Diuretics"
+"CHD05","f",60,5,"-","Hypoplastic left heart syndrome/ VSD (3)","Glenn 
+anastomoses, Norwood 
+operation","Acetylsalicylic acid"
+"CHD06","f",36,9,"+","Mital valve 
+insufficiency (3)","LIMA-LAD Bypass","-"
+"CHD07","m",36,6,"-","Tetralogy of Fallot (3)","Conduit replacement, VSD -Closure","Beta-Blocker, Diuretics"
+"CHD08","f",62,11,"-","VSD, Truncus arteriosus 
+communis (3)","VSD-Closure, Aortic reconstruction","-"
+"CHD09","m",62,10,"-","ASD (1)","-","Acetylsalicylic acid"
+"CHD10","m",61,5,"-","ASD (1)","-","-"
+"CHD11","m",63,5,"-","Patent foramen ovale (1)","n.a.","n.a."
+"HCG01","f",64,3,"-","n.a.","n.a.","n.a."
+"HCG02","m",62,8,"-","n.a.","n.a.","n.a."
+"HCG04","f",69,14,"+","n.a.","n.a.","n.a."
+"HCG05","m",64,9,"-","n.a.","n.a.","n.a."
+"HCG06","m",63,3,"-","n.a.","n.a.","n.a."
+"HCG07","m",67,7,"-","n.a.","n.a.","n.a."
+"HCG08","f",24,10,"+","n.a.","n.a.","n.a."
+"HCG09","f",62,11,"+","n.a.","n.a.","n.a."
+"HCG10","f",62,6,"+","n.a.","n.a.","n.a."

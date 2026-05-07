@@ -173,7 +173,7 @@ metadata <- data.frame(
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "341F-805R", # Format: xxF-xxR
-  title = "Salivary microbiota analysis of patients with membranous nephropathy", # extract from article
+  title = "Oral and gut dysbiosis leads to functional alterations in parkinson's disease", # extract from article
   disease_study = "yes", # determine according to the article
   raw_status = initial_meta$patient.control_label,
   status = "pending", # modify later 

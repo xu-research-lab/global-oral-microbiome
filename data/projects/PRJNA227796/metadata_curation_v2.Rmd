@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA227796" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "../"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -165,7 +165,7 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
   age = NA,
-  age_info = NA,
+  age_info = "adult",
   bmi = NA,
   raw_sex = initial_meta$host_sex, # if need modify, then create a column start with 'raw_'
   sex = "pending", # and mark as "pending"
@@ -176,8 +176,7 @@ metadata <- data.frame(
   site = initial_meta$material,
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
-  raw_primers = "F-CCTACGGGRSGCAAGCAG,R-ATTACGCGCGCTCT",
-  pcr_primers = NA_character_, # 文中没明确 只写了引物的序列
+  pcr_primers = "F-CCTACGGGRSGCAAGCAG,R-ATTACGCGCGCTCT", # 文中没明确 只写了引物的序列
   title = "Enhanced microbial diversity in the saliva microbiome induced by short-term probiotic intake revealed by 16S rRNA sequencing on the IonTorrent PGM platform", # extract from article
   disease_study = "no", # determine according to the article
   status = "HC", 

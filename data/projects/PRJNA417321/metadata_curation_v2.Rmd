@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA417321" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "../"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -173,7 +173,7 @@ metadata <- data.frame(
   sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = "USA",
-  raw_site = initial_meta$env_material,
+  raw_site = initial_meta$env_feature,
   site = "pending",
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
@@ -203,8 +203,8 @@ metadata <- metadata %>%
   )) 
 metadata <- metadata %>% 
   mutate(site = case_when(
-    grepl("G",raw_subject_id)~"subgingival plaque",
-    grepl("S",raw_subject_id)~"subgingival plaque of implant"
+    grepl("Natural",raw_site)~"subgingival plaque",
+    grepl("Implant",raw_site)~"subgingival plaque of implant"
   ))
 ```
 

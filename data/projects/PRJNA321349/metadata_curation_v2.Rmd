@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA321349" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "../"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -203,9 +203,9 @@ metadata <- metadata %>%
 metadata <- metadata %>%
   mutate(status = case_when(
     grepl("^HC", subject_id) ~ "HC",
-    grepl("^GI", subject_id) ~ "functional GI complaints",
+    grepl("^GI", subject_id) ~ "functional gastrointestinal complaints",
     grepl("^CD", subject_id) ~ "Celiac disease",
-    grepl("^RCD", subject_id) ~ "Refractory CD",
+    grepl("^RCD", subject_id) ~ "Refractory Celiac disease",
   ))
 ```
 

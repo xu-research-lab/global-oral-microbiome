@@ -199,7 +199,7 @@ metadata <- data.frame(
   site = "saliva",  # From paper abstract: "saliva samples collected"; confirmed by environment_(material) column
   site_group = "pending",  # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = "341F-805R",  # From paper Methods: Illumina 16S Metagenomic Library Preparation (Klindworth et al. V3-V4 primers)
+  pcr_primers = "341F-785R",  # From paper Methods: Illumina 16S Metagenomic Library Preparation (Klindworth et al. V3-V4 primers)
   title = "Oral microbiome development during childhood: an ecological succession influenced by postnatal factors and associated with tooth decay",  # From paper
   disease_study = "yes",  # Paper investigates dental caries (tooth decay) development
   status = NA,  # Caries status (CF/CA) determined at age 7; not available per sample in SRA metadata

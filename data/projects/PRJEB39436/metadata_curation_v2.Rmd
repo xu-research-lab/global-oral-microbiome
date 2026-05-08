@@ -173,7 +173,7 @@ metadata <- data.frame(
   sex = NA, # and mark as "pending"
   sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
-  country = NA,
+  country = "USA",
   raw_site = initial_meta$Organism,
   site = "pending",
   site_group = "pending", # modify later

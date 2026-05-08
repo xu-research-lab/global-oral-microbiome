@@ -12,12 +12,13 @@ This step sets the project directory, loads the raw SRA metadata, and optionally
 library(dplyr)
 library(ggplot2)
 library(cowplot)
+library(stringr)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA700849" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419/新增"
+base_dir <- "E:/oral_metadata/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -55,9 +56,9 @@ First, we need to remove control samples(including both negative controls and po
 
 ```{r}
 # (1) EDIT HERE: Parameter setup
-control_column <- ""   # column name in initial_meta
+control_column <- "Sample.Name"   # column name in initial_meta
 # unique(initial_meta[[control_column]])
-control_keywords <- c()     # Enter exact keywords
+control_keywords <- c('Replicate 2','Replicate 3')     # Enter exact keywords
 
 species_column <- ""          # column name in initial_meta
 unique(initial_meta[[species_column]])
@@ -163,28 +164,37 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample.Name,
+  raw_subject_id = initial_meta$Sample.Name,
+  subject_id = "pending",
   age = NA,
-  age_info = "37.8-64.5",
+  age_info = "37-76",
   bmi = NA,
   #raw_sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
-  sex = "M", # and mark as "pending"
-  sequencing_region = "V3-V4",
+  sex = NA, # and mark as "pending"
+  sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
   raw_site = initial_meta$host_tissue_sampled,
   site = "saliva",
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = "341F/806R", # Format: xxF-xxR
-  title = "Taxonomic and Functional Dysregulation in Salivary Microbiomes During Oral Carcinogenesis", # extract from article
+  pcr_primers = "515F-806R", # Format: xxF-xxR
+  title = "Meta-omics analysis indicates the saliva microbiome and its proteins associated with the prognosis of oral cancer patients", # extract from article
   disease_study = "yes", # determine according to the article
-  status = NA,#不清楚样本疾病健康状态 
+  raw_status = initial_meta$Sample.Name,#不清楚样本疾病健康状态
+  status = "pending",
   matched_samples = "pending", # modify later
   is_time_series = "no", # determine according to the article
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
+metadata$subject_id = sub(" .*", "", metadata$raw_subject_id)
+metadata = metadata%>%mutate(
+  subject_id = case_when(
+    subject_id == 'MiSeqC9' ~ 'C9',
+    TRUE ~ subject_id
+  )
+)
 ```
 
 # Step 5: Manually solving pending issues
@@ -193,6 +203,14 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
+metadata = metadata%>%mutate(
+  status = case_when(
+    str_detect(subject_id, "S") ~ "OSCC",
+    str_detect(subject_id, "C") ~ "HC"
+  )
+)
+
+
 ```
 
 ```{r}

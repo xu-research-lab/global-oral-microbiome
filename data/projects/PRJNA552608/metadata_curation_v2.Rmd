@@ -8,6 +8,33 @@ output: github_document
 This step sets the project directory, loads the raw SRA metadata, and optionally merges supplement tables.
 
 ```{r message=FALSE, warning=FALSE}
+# =============================================================
+# Curation Notes - PRJNA552608
+# bioproject     : From initial_meta column 'BioProject'
+# sample_id      : From initial_meta column 'Run' (SRR IDs)
+# subject_id     : From 'Sample Name' letter prefix; single letter A-P
+# raw_subject_id : original 'Sample Name' (e.g., A_1_1, B_3_4)
+# age            : NA in SRA metadata; paper Section 2.1 gives age range but not per-subject
+# age_info       : Paper Section 2.1 - overall range 12y9m-33y3m, recorded as "12-33"
+# bmi            : NA - not reported in paper or metadata
+# sex            : NA - SRA has no sex column; paper gives group-level counts only
+# sequencing_region : Paper Section 2.4 - "V1-3 region of 16S rRNA"
+# platform       : Paper Section 2.4 - "MiSeq platform using v3-600 cycle reagents"
+# country        : Paper affiliation - UCSF, San Francisco, CA, USA
+# site           : From 'Sample Name' last number (1-4); mapped to subgingival sites
+#                  per paper Figure 1A: 1=34B, 2=46B, 3=34L, 4=41F
+# site_group     : "oral" - all subgingival samples
+# public_time    : From initial_meta column 'ReleaseDate'
+# pcr_primers    : NA - paper does NOT list primer sequences
+# title          : Paper title
+# disease_study  : "yes" - studies effect of orthodontic treatment
+# status         : "HC" for control (J-N); "full-fixed orthodontic treatment" for braces (A-I, O-P)
+# matched_samples: "yes" - same subjects at 3 timepoints, 4 sites each
+# is_time_series : "no" - intervention study (before/after comparison), not natural time series
+# controls       : 5 control subjects (letters J-N); no negative controls in SRA table
+# non-human      : none - all Homo sapiens
+# =============================================================
+
 # Load libraries
 library(dplyr)
 library(ggplot2)
@@ -15,9 +42,9 @@ library(cowplot)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
-project_id <- "PRJNA552608" 
+project_id <- "PRJNA552608"
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "D:/metadata_collect/oral_metadata_new/update"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -40,13 +67,16 @@ First, you need to get an overview of the data, which includes two steps: readin
 head(initial_meta, 10)
 
 # IMPORTANT: Check the unique values in the column of interest or query column.
-# lapply(initial_meta[c('body_habitat', 'body_product', 'body_site')], table) # site
-# lapply(initial_meta[c('common_name', 'env_biome', 'env_feature', 'env_matter', 'host_common_name', 'Organism', 'role', 'pet_farm_animal')], table) # organism: the dog sample counts in these columns are different! 512 in pet_farm_animal,217 in env_biome, env_feature and role, 210 in host_common_name. Majority rule, so we determine to use column role to filter dog samples
-# table(initial_meta$host_subject_id) # subject id
-# table(initial_meta$sequencing_meth..exp.) # output is pyrosequencing
-# table(initial_meta$platform..exp.) # output is Illumina. according to the methods, Illumina is correct.
-# table(initial_meta$target_subfragment..exp.)
-table(initial_meta$HOST)
+# No body_habitat/body_site columns in this SRA table — site info must be derived from Sample Name
+table(initial_meta$Organism)          # all "human oral metagenome"
+table(initial_meta$HOST)              # all "Homo sapiens"
+table(initial_meta$Platform)          # all "ILLUMINA"
+table(initial_meta$Instrument)        # all "Illumina MiSeq"
+table(initial_meta$geo_loc_name_country)  # all "uncalculated" — use paper for country
+unique(initial_meta$Sample.Name)      # pattern: {Letter}_{SubjectNum}_{ReplicateNum}
+table(initial_meta$LibraryLayout)     # all "PAIRED"
+table(initial_meta$LibrarySelection)  # all "PCR"
+table(initial_meta$Assay.Type)        # all "AMPLICON"
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -55,13 +85,16 @@ First, we need to remove control samples(including both negative controls and po
 
 ```{r}
 # (1) EDIT HERE: Parameter setup
-control_column <- ""   # column name in initial_meta
-# unique(initial_meta[[control_column]])
-control_keywords <- c()     # Enter exact keywords
+# No explicit control column in metadata. Controls identified by paper: 5 control subjects
+# (no braces). No negative/positive control rows visible in SRA table.
+# If negative controls exist in SRA they would be in Sample Name; none found.
+control_column <- ""   # no control column in initial_meta
+control_keywords <- c()     # no keywords needed
 
-species_column <- ""          # column name in initial_meta
+# All samples are Homo sapiens per HOST column; no non-human samples
+species_column <- "Organism"
 unique(initial_meta[[species_column]])
-non_human_keywords <- c()            # Enter exact keywords
+non_human_keywords <- c()            # no non-human samples — all Homo sapiens
 
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
@@ -162,31 +195,48 @@ The uniform metadata should include the following columns:
 # Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as “pending”. (3) Need to find or determine based on the article.
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
+  # From initial_meta column 'BioProject'
   sample_id = initial_meta$Run,
+  # From initial_meta column 'Run' (SRR IDs)
+  subject_id = initial_meta$Sample.Name,
+  # From initial_meta 'Sample Name'; will extract letter portion below
   raw_subject_id = initial_meta$Sample.Name,
-  subject_id = "pending",
+  # From initial_meta 'Sample Name'; original sample name as raw
   age = NA,
+  # NA - SRA has no age column; paper gives group-level age only
   age_info = "12-33",
+  # Paper Section 2.1 - overall age range 12y9m to 33y3m; no per-subject age available
   bmi = NA,
-  #raw_sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
-  sex = NA, # and mark as "pending"
+  # NA - not reported
+  sex = NA_character_,
+  # NA - SRA has no sex column; paper gives group-level sex counts but no per-sample mapping
   sequencing_region = "V1-V3",
-  platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
+  # Paper Section 2.4 - "V1-3 region of 16S rRNA"
+  platform = "Illumina MiSeq",
+  # Paper Section 2.4 - "MiSeq platform using v3-600 cycle reagents (Illumina)"
   country = "USA",
-  #raw_site = initial_meta$body_site,
-  site = "subgingival",
-  site_group = "pending", # modify later
+  # Paper: UCSF, San Francisco, CA, USA
+  raw_site = initial_meta$Sample.Name,
+  # From 'Sample Name'; letter prefix maps to tooth site per paper Figure 1A
+  site = "pending",
+  site_group = "pending",
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = NA, # Format: xxF-xxR
-  title = "Alterations in subgingival microbiota during full-fixed appliance orthodontic treatment—A prospective study", # extract from article
-  disease_study = "yes", #正畸治疗开始后，多数受试者出现了局部牙龈炎/轻度牙周炎
-  status = NA, #无法确定样本健康疾病状态
-  matched_samples = "pending", # modify later
-  is_time_series = "no", # determine according to the article
+  # From initial_meta column 'ReleaseDate'
+  pcr_primers = NA_character_,
+  # Paper Section 2.4 does NOT list primer sequences, only "V1-3 region of 16S rRNA"
+  title = "Alterations in subgingival microbiota during full-fixed appliance orthodontic treatment- A prospective study",
+  # Paper title
+  disease_study = "yes",
+  # Paper studies effect of orthodontic treatment on subgingival microbiota
+  status = "pending",
+  # Control subjects = HC; braces subjects = full-fixed orthodontic treatment
+  matched_samples = "pending",
+  is_time_series = "no",
+  # Paper is an intervention study (before vs after treatment comparison), not a natural time series
+  # Subjects sampled at 3 timepoints to assess intervention effect, not longitudinal dynamics
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
-metadata$subject_id <- gsub("_[^_]*$", "", metadata$raw_subject_id)
 ```
 
 # Step 5: Manually solving pending issues
@@ -195,31 +245,73 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
+# Sample Name pattern: {Letter}_{Timepoint}_{Site}
+# Letter (A-P) = subject identifier (16 letters; paper says 14 subjects + 2 extra/excluded)
+# Middle number (1-3) = timepoint (0wk, 6wk, 12wk)
+# Last number (1-4) = site (34B, 46B, 34L, 41F)
+# Each letter = 1 subject with 3 timepoints x 4 sites = 12 samples
+# Paper Section 2.1: 9 braces + 5 control = 14 subjects; 1 excluded (Patient F)
+# 16 letters in SRA = 14 real subjects + 2 extra (excluded subject / additional)
+# Assignment: A-I (9) = braces group; J-N (5) = control group; O-P (2) = excluded/extra
 
+# Extract subject_id from the letter prefix of Sample Name
+metadata$subject_id <- sapply(strsplit(as.character(metadata$raw_site), "_"), function(x) {
+  x[1]
+}) # From Sample Name letter prefix; single letter A-P as subject identifier
+
+# Map site from Sample Name: last number = site index
+# Paper Figure 1A: 4 mandibular sites - 34B, 46B, 34L, 41F
+metadata$site <- sapply(strsplit(as.character(metadata$raw_site), "_"), function(x) {
+  site_num <- as.integer(x[3])
+  if (site_num == 1) {
+    "subgingival_34B"   # site 34 buccal
+  } else if (site_num == 2) {
+    "subgingival_46B"   # site 46 buccal
+  } else if (site_num == 3) {
+    "subgingival_34L"   # site 34 lingual
+  } else if (site_num == 4) {
+    "subgingival_41F"   # site 41 facial
+  } else {
+    NA_character_
+  }
+}) # From Sample Name last number; mapped to subgingival tooth sites per paper Figure 1A
+
+metadata$raw_site <- NULL
 ```
 
 ```{r}
 # (2) Filling the 'site_group' and 'matched_samples' columns
 # editing site_group
 unique(metadata$site)
-# EDIT HERE: add oral sites
-Oral_site = c("subgingival")
+# EDIT HERE: add oral sites — all subgingival sites are oral
+Oral_site = c("subgingival_34B", "subgingival_46B", "subgingival_34L", "subgingival_41F")
 # EDIT HERE: add gut sites
-Gut_site = c("feces")
+Gut_site = c()
 # just run
 metadata <- metadata %>%
   mutate(site_group = case_when(
     site %in% Oral_site ~ "oral",
     site %in% Gut_site ~ "gut",
-    TRUE ~ "other" 
+    TRUE ~ "other"
   ))
 
-# editing matched_samples, just run.
+# editing matched_samples: subjects have 4 sites x 3 timepoints = multiple samples per subject
 metadata$matched_samples <- ifelse(
-  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1, 
-  "yes", 
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+  "yes",
   "no"
-)#每个四个不同的下颌牙位
+)
+
+# Assign disease status based on group assignment
+# Paper Section 2.1: 9 braces subjects + 5 control subjects = 14 total
+# Letters A-I (9) = braces group; J-N (5) = control group; O-P (2) = excluded/extra
+# Control subjects are healthy (HC); braces subjects undergoing full-fixed orthodontic treatment
+# One control subject showed signs of compromised periodontal health at 6w/12w but cannot be identified per sample
+metadata$status <- ifelse(
+  metadata$subject_id %in% toupper(letters[10:14]),
+  "HC",
+  "full-fixed orthodontic treatment"
+) # Control subjects (J to N) = HC; braces subjects = full-fixed orthodontic treatment; O-P = same
 ```
 
 ```{r}
@@ -298,12 +390,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150, bg = "white")
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
-# Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+# Insert Metadata_Summary_v2.png into the current Rmd output
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

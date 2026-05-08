@@ -1,0 +1,211 @@
+Unnamed: 0,bioproject,sample_id,subject_id,age,age_info,bmi,sex,platform,sequencing_region,pcr_primers,country,site,site_group,disease_study,status,title,public_time,matched_samples,is_time_series,raw_sex,raw_status,pair_id
+3,PRJEB11425,ERR1076085,980-1,67,,42.1,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-1_D10 or D/C
+4,PRJEB11425,ERR1076086,980-1,67,,42.1,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-1_D10 or D/C
+14,PRJEB11425,ERR1076096,980-5,50,,48.2,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-5_ADMISSION
+15,PRJEB11425,ERR1076097,980-5,50,,48.2,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-5_ADMISSION
+27,PRJEB11425,ERR1076109,980-7,43,,25.1,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-7_D10 or D/C
+28,PRJEB11425,ERR1076110,980-7,43,,25.1,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-7_D10 or D/C
+38,PRJEB11425,ERR1076120,980-10,49,,24.9,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-10_D10 or D/C
+39,PRJEB11425,ERR1076121,980-10,49,,24.9,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-10_D10 or D/C
+41,PRJEB11425,ERR1076123,980-11,57,,35.4,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-11_ADMISSION
+42,PRJEB11425,ERR1076124,980-11,57,,35.4,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-11_ADMISSION
+44,PRJEB11425,ERR1076126,980-11,57,,35.4,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-11_D10 or D/C
+45,PRJEB11425,ERR1076127,980-11,57,,35.4,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-11_D10 or D/C
+56,PRJEB11425,ERR1076138,980-15,61,,35.8,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-15_ADMISSION
+57,PRJEB11425,ERR1076139,980-15,61,,35.8,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-15_ADMISSION
+58,PRJEB11425,ERR1076140,980-15,61,,35.8,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-15_D10 or D/C
+59,PRJEB11425,ERR1076141,980-15,61,,35.8,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-15_D10 or D/C
+70,PRJEB11425,ERR1076152,980-19,71,,33.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-19_ADMISSION
+71,PRJEB11425,ERR1076153,980-19,71,,33.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-19_ADMISSION
+73,PRJEB11425,ERR1076155,980-19,71,,33.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-19_D10 or D/C
+74,PRJEB11425,ERR1076156,980-19,71,,33.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-19_D10 or D/C
+76,PRJEB11425,ERR1076158,980-20,73,,28.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-20_ADMISSION
+77,PRJEB11425,ERR1076159,980-20,73,,28.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-20_ADMISSION
+79,PRJEB11425,ERR1076161,980-20,73,,28.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-20_D10 or D/C
+80,PRJEB11425,ERR1076162,980-20,73,,28.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-20_D10 or D/C
+82,PRJEB11425,ERR1076164,980-21,82,,30.4,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-21_ADMISSION
+83,PRJEB11425,ERR1076165,980-21,82,,30.4,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-21_ADMISSION
+85,PRJEB11425,ERR1076167,980-21,82,,30.4,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-21_D10 or D/C
+86,PRJEB11425,ERR1076168,980-21,82,,30.4,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-21_D10 or D/C
+90,PRJEB11425,ERR1076172,980-22,42,,29.3,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-22_D10 or D/C
+91,PRJEB11425,ERR1076173,980-22,42,,29.3,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-22_D10 or D/C
+95,PRJEB11425,ERR1076177,980-23,62,,32.7,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-23_D10 or D/C
+96,PRJEB11425,ERR1076178,980-23,62,,32.7,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-23_D10 or D/C
+98,PRJEB11425,ERR1076180,980-24,54,,25.3,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-24_ADMISSION
+99,PRJEB11425,ERR1076181,980-24,54,,25.3,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-24_ADMISSION
+101,PRJEB11425,ERR1076183,980-24,54,,25.3,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-24_D10 or D/C
+102,PRJEB11425,ERR1076184,980-24,54,,25.3,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-24_D10 or D/C
+106,PRJEB11425,ERR1076188,980-25,51,,22.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-25_D10 or D/C
+107,PRJEB11425,ERR1076189,980-25,51,,22.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-25_D10 or D/C
+109,PRJEB11425,ERR1076191,980-26,58,,27.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-26_ADMISSION
+110,PRJEB11425,ERR1076192,980-26,58,,27.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-26_ADMISSION
+112,PRJEB11425,ERR1076194,980-26,58,,27.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-26_D10 or D/C
+113,PRJEB11425,ERR1076195,980-26,58,,27.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-26_D10 or D/C
+117,PRJEB11425,ERR1076199,980-28,88,,27.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-28_ADMISSION
+118,PRJEB11425,ERR1076200,980-28,88,,27.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-28_ADMISSION
+120,PRJEB11425,ERR1076202,980-28,88,,27.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-28_D10 or D/C
+121,PRJEB11425,ERR1076203,980-28,88,,27.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-28_D10 or D/C
+125,PRJEB11425,ERR1076207,980-29,53,,27.9,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-29_D10 or D/C
+126,PRJEB11425,ERR1076208,980-29,53,,27.9,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-29_D10 or D/C
+128,PRJEB11425,ERR1076210,980-30,59,,23.8,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-30_ADMISSION
+129,PRJEB11425,ERR1076211,980-30,59,,23.8,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-30_ADMISSION
+131,PRJEB11425,ERR1076213,980-30,59,,23.8,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-30_D10 or D/C
+132,PRJEB11425,ERR1076214,980-30,59,,23.8,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-30_D10 or D/C
+136,PRJEB11425,ERR1076218,980-31,46,,22.2,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-31_D10 or D/C
+137,PRJEB11425,ERR1076219,980-31,46,,22.2,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-31_D10 or D/C
+139,PRJEB11425,ERR1076221,980-32,84,,37.6,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-32_ADMISSION
+140,PRJEB11425,ERR1076222,980-32,84,,37.6,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-32_ADMISSION
+148,PRJEB11425,ERR1076230,980-34,74,,26.4,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-34_ADMISSION
+149,PRJEB11425,ERR1076231,980-34,74,,26.4,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-34_ADMISSION
+151,PRJEB11425,ERR1076233,980-34,74,,26.4,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-34_D10 or D/C
+152,PRJEB11425,ERR1076234,980-34,74,,26.4,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-34_D10 or D/C
+156,PRJEB11425,ERR1076238,980-35,63,,25.7,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-35_D10 or D/C
+157,PRJEB11425,ERR1076239,980-35,63,,25.7,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-35_D10 or D/C
+159,PRJEB11425,ERR1076241,980-36,75,,27.3,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-36_ADMISSION
+160,PRJEB11425,ERR1076242,980-36,75,,27.3,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-36_ADMISSION
+166,PRJEB11425,ERR1076248,980-38,74,,44.1,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-38_ADMISSION
+167,PRJEB11425,ERR1076249,980-38,74,,44.1,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-38_ADMISSION
+171,PRJEB11425,ERR1076253,980-39,52,,32.9,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-39_ADMISSION
+172,PRJEB11425,ERR1076254,980-39,52,,32.9,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-39_ADMISSION
+180,PRJEB11425,ERR1076262,980-41,50,,22.8,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-41_ADMISSION
+181,PRJEB11425,ERR1076263,980-41,50,,22.8,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-41_ADMISSION
+183,PRJEB11425,ERR1076265,980-41,50,,22.8,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-41_D10 or D/C
+184,PRJEB11425,ERR1076266,980-41,50,,22.8,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-41_D10 or D/C
+186,PRJEB11425,ERR1076268,980-42,53,,35.8,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-42_ADMISSION
+187,PRJEB11425,ERR1076269,980-42,53,,35.8,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-42_ADMISSION
+189,PRJEB11425,ERR1076271,980-42,53,,35.8,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-42_D10 or D/C
+190,PRJEB11425,ERR1076272,980-42,53,,35.8,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-42_D10 or D/C
+192,PRJEB11425,ERR1076274,980-43,57,,27.7,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-43_ADMISSION
+193,PRJEB11425,ERR1076275,980-43,57,,27.7,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-43_ADMISSION
+195,PRJEB11425,ERR1076277,980-43,57,,27.7,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-43_D10 or D/C
+196,PRJEB11425,ERR1076278,980-43,57,,27.7,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-43_D10 or D/C
+198,PRJEB11425,ERR1076280,980-44,68,,33.7,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-44_ADMISSION
+199,PRJEB11425,ERR1076281,980-44,68,,33.7,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-44_ADMISSION
+201,PRJEB11425,ERR1076283,980-44,68,,33.7,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-44_D10 or D/C
+202,PRJEB11425,ERR1076284,980-44,68,,33.7,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-44_D10 or D/C
+206,PRJEB11425,ERR1076288,980-46,62,,33.5,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-46_ADMISSION
+207,PRJEB11425,ERR1076289,980-46,62,,33.5,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-46_ADMISSION
+210,PRJEB11425,ERR1076292,980-47,50,,31.7,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-47_ADMISSION
+211,PRJEB11425,ERR1076293,980-47,50,,31.7,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-47_ADMISSION
+212,PRJEB11425,ERR1076294,980-47,50,,31.7,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-47_D10 or D/C
+213,PRJEB11425,ERR1076295,980-47,50,,31.7,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-47_D10 or D/C
+219,PRJEB11425,ERR1076301,980-49,63,,55.1,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-49_ADMISSION
+220,PRJEB11425,ERR1076302,980-49,63,,55.1,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-49_ADMISSION
+222,PRJEB11425,ERR1076304,980-49,63,,55.1,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-49_D10 or D/C
+223,PRJEB11425,ERR1076305,980-49,63,,55.1,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-49_D10 or D/C
+225,PRJEB11425,ERR1076307,980-50,61,,27.1,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-50_ADMISSION
+226,PRJEB11425,ERR1076308,980-50,61,,27.1,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-50_ADMISSION
+228,PRJEB11425,ERR1076310,980-50,61,,27.1,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-50_D10 or D/C
+229,PRJEB11425,ERR1076311,980-50,61,,27.1,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-50_D10 or D/C
+231,PRJEB11425,ERR1076313,980-51,69,,29.9,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-51_ADMISSION
+232,PRJEB11425,ERR1076314,980-51,69,,29.9,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-51_ADMISSION
+236,PRJEB11425,ERR1076318,980-52,63,,34.3,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-52_ADMISSION
+237,PRJEB11425,ERR1076319,980-52,63,,34.3,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-52_ADMISSION
+239,PRJEB11425,ERR1076321,980-53,48,,25.5,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-53_ADMISSION
+240,PRJEB11425,ERR1076322,980-53,48,,25.5,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-53_ADMISSION
+244,PRJEB11425,ERR1076326,980-54,52,,35.6,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-54_ADMISSION
+245,PRJEB11425,ERR1076327,980-54,52,,35.6,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-54_ADMISSION
+247,PRJEB11425,ERR1076329,980-54,52,,35.6,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-54_D10 or D/C
+248,PRJEB11425,ERR1076330,980-54,52,,35.6,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-54_D10 or D/C
+250,PRJEB11425,ERR1076332,980-55,35,,26.7,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-55_ADMISSION
+251,PRJEB11425,ERR1076333,980-55,35,,26.7,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-55_ADMISSION
+253,PRJEB11425,ERR1076335,980-55,35,,26.7,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-55_D10 or D/C
+254,PRJEB11425,ERR1076336,980-55,35,,26.7,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-55_D10 or D/C
+256,PRJEB11425,ERR1076338,980-56,32,,24.0,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-56_ADMISSION
+257,PRJEB11425,ERR1076339,980-56,32,,24.0,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-56_ADMISSION
+260,PRJEB11425,ERR1076342,980-57,32,,78.8,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-57_ADMISSION
+261,PRJEB11425,ERR1076343,980-57,32,,78.8,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-57_ADMISSION
+277,PRJEB11425,ERR1076359,980-62,59,,31.5,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-62_ADMISSION
+278,PRJEB11425,ERR1076360,980-62,59,,31.5,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-62_ADMISSION
+280,PRJEB11425,ERR1076362,980-62,59,,31.5,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-62_D10 or D/C
+281,PRJEB11425,ERR1076363,980-62,59,,31.5,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-62_D10 or D/C
+283,PRJEB11425,ERR1076365,980-63,66,,26.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-63_ADMISSION
+284,PRJEB11425,ERR1076366,980-63,66,,26.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-63_ADMISSION
+286,PRJEB11425,ERR1076368,980-63,66,,26.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-63_D10 or D/C
+287,PRJEB11425,ERR1076369,980-63,66,,26.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-63_D10 or D/C
+291,PRJEB11425,ERR1076373,980-64,56,,29.8,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-64_D10 or D/C
+292,PRJEB11425,ERR1076374,980-64,56,,29.8,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-64_D10 or D/C
+298,PRJEB11425,ERR1076380,980-66,65,,34.2,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-66_ADMISSION
+299,PRJEB11425,ERR1076381,980-66,65,,34.2,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,980-66_ADMISSION
+301,PRJEB11425,ERR1076383,980-66,65,,34.2,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-66_D10 or D/C
+302,PRJEB11425,ERR1076384,980-66,65,,34.2,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,980-66_D10 or D/C
+304,PRJEB11425,ERR1076386,980-67,61,,39.9,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-67_ADMISSION
+305,PRJEB11425,ERR1076387,980-67,61,,39.9,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-67_ADMISSION
+309,PRJEB11425,ERR1076391,980-68,19,,18.3,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-68_ADMISSION
+310,PRJEB11425,ERR1076392,980-68,19,,18.3,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,980-68_ADMISSION
+312,PRJEB11425,ERR1076394,980-68,19,,18.3,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-68_D10 or D/C
+313,PRJEB11425,ERR1076395,980-68,19,,18.3,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,980-68_D10 or D/C
+346,PRJEB11425,ERR1076428,780-1,58,,49.1,M,Illumina MiSeq,V4,,Canada,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,780-1_ADMISSION
+347,PRJEB11425,ERR1076429,780-1,58,,49.1,M,Illumina MiSeq,V4,,Canada,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,780-1_ADMISSION
+350,PRJEB11425,ERR1076432,780-2,75,,27.4,M,Illumina MiSeq,V4,,Canada,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,780-2_D10 or D/C
+351,PRJEB11425,ERR1076433,780-2,75,,27.4,M,Illumina MiSeq,V4,,Canada,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,780-2_D10 or D/C
+352,PRJEB11425,ERR1076434,780-15,71,,30.1,F,Illumina MiSeq,V4,,Canada,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,780-15_ADMISSION
+353,PRJEB11425,ERR1076435,780-15,71,,30.1,F,Illumina MiSeq,V4,,Canada,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,780-15_ADMISSION
+354,PRJEB11425,ERR1076436,780-15,71,,30.1,F,Illumina MiSeq,V4,,Canada,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,780-15_D10 or D/C
+355,PRJEB11425,ERR1076437,780-15,71,,30.1,F,Illumina MiSeq,V4,,Canada,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,780-15_D10 or D/C
+357,PRJEB11425,ERR1076439,780-3,65,,26.1,M,Illumina MiSeq,V4,,Canada,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,780-3_ADMISSION
+358,PRJEB11425,ERR1076440,780-3,65,,26.1,M,Illumina MiSeq,V4,,Canada,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,780-3_ADMISSION
+359,PRJEB11425,ERR1076441,780-3,65,,26.1,M,Illumina MiSeq,V4,,Canada,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,780-3_D10 or D/C
+360,PRJEB11425,ERR1076442,780-3,65,,26.1,M,Illumina MiSeq,V4,,Canada,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,780-3_D10 or D/C
+379,PRJEB11425,ERR1076461,1017-17,58,,26.8,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-17_ADMISSION
+380,PRJEB11425,ERR1076462,1017-17,58,,26.8,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-17_ADMISSION
+382,PRJEB11425,ERR1076464,1017-17,58,,26.8,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-17_D10 or D/C
+383,PRJEB11425,ERR1076465,1017-17,58,,26.8,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-17_D10 or D/C
+385,PRJEB11425,ERR1076467,1017-13,23,,21.4,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-13_ADMISSION
+386,PRJEB11425,ERR1076468,1017-13,23,,21.4,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-13_ADMISSION
+387,PRJEB11425,ERR1076469,1017-13,23,,21.4,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-13_D10 or D/C
+388,PRJEB11425,ERR1076470,1017-13,23,,21.4,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-13_D10 or D/C
+390,PRJEB11425,ERR1076472,1017-11,35,,24.8,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-11_ADMISSION
+391,PRJEB11425,ERR1076473,1017-11,35,,24.8,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-11_ADMISSION
+393,PRJEB11425,ERR1076475,1017-11,35,,24.8,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-11_D10 or D/C
+394,PRJEB11425,ERR1076476,1017-11,35,,24.8,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-11_D10 or D/C
+396,PRJEB11425,ERR1076478,1017-5,56,,74.9,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-5_ADMISSION
+397,PRJEB11425,ERR1076479,1017-5,56,,74.9,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-5_ADMISSION
+398,PRJEB11425,ERR1076480,1017-5,56,,74.9,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-5_D10 or D/C
+399,PRJEB11425,ERR1076481,1017-5,56,,74.9,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-5_D10 or D/C
+402,PRJEB11425,ERR1076484,1017-10,36,,22.0,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-10_D10 or D/C
+403,PRJEB11425,ERR1076485,1017-10,36,,22.0,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-10_D10 or D/C
+405,PRJEB11425,ERR1076487,1017-6,19,,22.9,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-6_ADMISSION
+406,PRJEB11425,ERR1076488,1017-6,19,,22.9,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-6_ADMISSION
+408,PRJEB11425,ERR1076490,1017-6,19,,22.9,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-6_D10 or D/C
+409,PRJEB11425,ERR1076491,1017-6,19,,22.9,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-6_D10 or D/C
+411,PRJEB11425,ERR1076493,1017-3,64,,25.0,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-3_ADMISSION
+412,PRJEB11425,ERR1076494,1017-3,64,,25.0,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-3_ADMISSION
+414,PRJEB11425,ERR1076496,1017-3,64,,25.0,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-3_D10 or D/C
+415,PRJEB11425,ERR1076497,1017-3,64,,25.0,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-3_D10 or D/C
+417,PRJEB11425,ERR1076499,1017-2,20,,23.0,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-2_ADMISSION
+418,PRJEB11425,ERR1076500,1017-2,20,,23.0,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-2_ADMISSION
+420,PRJEB11425,ERR1076502,1017-12,35,,28.6,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-12_ADMISSION
+421,PRJEB11425,ERR1076503,1017-12,35,,28.6,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-12_ADMISSION
+423,PRJEB11425,ERR1076505,1017-12,35,,28.6,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-12_D10 or D/C
+424,PRJEB11425,ERR1076506,1017-12,35,,28.6,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-12_D10 or D/C
+426,PRJEB11425,ERR1076508,1017-15,76,,31.2,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-15_ADMISSION
+427,PRJEB11425,ERR1076509,1017-15,76,,31.2,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-15_ADMISSION
+429,PRJEB11425,ERR1076511,1017-15,76,,31.2,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-15_D10 or D/C
+430,PRJEB11425,ERR1076512,1017-15,76,,31.2,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-15_D10 or D/C
+432,PRJEB11425,ERR1076514,1017-16,19,,22.5,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-16_ADMISSION
+433,PRJEB11425,ERR1076515,1017-16,19,,22.5,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-16_ADMISSION
+435,PRJEB11425,ERR1076517,1017-16,19,,22.5,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-16_D10 or D/C
+436,PRJEB11425,ERR1076518,1017-16,19,,22.5,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-16_D10 or D/C
+440,PRJEB11425,ERR1076522,1017-7,87,,24.1,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-7_D10 or D/C
+441,PRJEB11425,ERR1076523,1017-7,87,,24.1,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-7_D10 or D/C
+443,PRJEB11425,ERR1076525,1017-9,38,,22.5,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-9_ADMISSION
+444,PRJEB11425,ERR1076526,1017-9,38,,22.5,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-9_ADMISSION
+446,PRJEB11425,ERR1076528,1017-9,38,,22.5,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-9_D10 or D/C
+447,PRJEB11425,ERR1076529,1017-9,38,,22.5,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-9_D10 or D/C
+449,PRJEB11425,ERR1076531,1017-8,68,,67.3,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-8_ADMISSION
+450,PRJEB11425,ERR1076532,1017-8,68,,67.3,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-8_ADMISSION
+452,PRJEB11425,ERR1076534,1017-8,68,,67.3,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-8_D10 or D/C
+453,PRJEB11425,ERR1076535,1017-8,68,,67.3,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-8_D10 or D/C
+455,PRJEB11425,ERR1076537,1017-4,63,,30.5,F,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-4_ADMISSION
+456,PRJEB11425,ERR1076538,1017-4,63,,30.5,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,ADMISSION,1017-4_ADMISSION
+458,PRJEB11425,ERR1076540,1017-4,63,,30.5,F,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-4_D10 or D/C
+459,PRJEB11425,ERR1076541,1017-4,63,,30.5,F,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,female,D10 or D/C,1017-4_D10 or D/C
+465,PRJEB11425,ERR1076547,1017-19,22,,25.1,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-19_ADMISSION
+466,PRJEB11425,ERR1076548,1017-19,22,,25.1,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-19_ADMISSION
+468,PRJEB11425,ERR1076550,1017-19,22,,25.1,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-19_D10 or D/C
+469,PRJEB11425,ERR1076551,1017-19,22,,25.1,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-19_D10 or D/C
+471,PRJEB11425,ERR1076553,1017-20,66,,34.6,M,Illumina MiSeq,V4,,USA,feces,gut,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-20_ADMISSION
+472,PRJEB11425,ERR1076554,1017-20,66,,34.6,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,ICU,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,ADMISSION,1017-20_ADMISSION
+474,PRJEB11425,ERR1076556,1017-20,66,,34.6,M,Illumina MiSeq,V4,,USA,feces,gut,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-20_D10 or D/C
+475,PRJEB11425,ERR1076557,1017-20,66,,34.6,M,Illumina MiSeq,V4,,USA,saliva,oral,yes,,Extreme dysbiosis of the microbiome in critical illness,2015-10-28,yes,no,male,D10 or D/C,1017-20_D10 or D/C

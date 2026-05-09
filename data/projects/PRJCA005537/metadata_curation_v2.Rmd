@@ -42,7 +42,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJCA005537"
 
-base_dir <- "D:/metadata_collect"
+base_dir <- "D:/oral_project/验证/metadata_BIOM_check/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -223,7 +223,7 @@ raw_status <- initial_meta$Public.description
 metadata <- data.frame(
   bioproject = initial_meta$Project.accession,
   # From initial_meta column 'Project accession' -> all PRJCA005537
-  sample_id = initial_meta$Accession,
+  sample_id = initial_meta$Sample.name,
   # From initial_meta column 'Accession' -> SAMC identifiers
   subject_id = initial_meta$Sample.name,
   # From initial_meta column 'Sample name' -> unique identifiers like "B-135", "A-078"

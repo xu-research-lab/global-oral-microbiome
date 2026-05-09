@@ -171,7 +171,7 @@ time series study. Only accept ‘yes’ or ‘no’.
 
 metadata <- data.frame(
   bioproject = "OEP000837",
-  sample_id = initial_meta$run_id,
+  sample_id = initial_meta$sample_name,
   subject_id = "pending",
   age = NA,
   age_info = "62.7 ±12.1",
@@ -181,7 +181,6 @@ metadata <- data.frame(
   sequencing_region = "V3-V4",
   platform = "Illumina MiSeq",
   country = "China",
-  raw_site = initial_meta$sample_name,
   site = "pending",
   site_group = "pending",
   public_time = "2020-04-14",
@@ -208,15 +207,16 @@ columns.
 # IMPORTANT: Add comments if the modification is not straightforward!!
 metadata$sex <- NA_character_
 
-# Extract subject_id by removing sample type suffix from sample_name
-metadata$subject_id <- gsub("-C|-T|-TY|-t", "", metadata$raw_site) # sample_name encodes sample type: -T=tumor, -C=paracancerous, -TY=saliva
+# Extract subject_id by removing sample type suffix from sample_id
+# sample_id format: S001-C, S001-T, S002-TY, etc. (suffix: -C=paracancerous, -T=tumor, -TY=saliva)
+metadata$subject_id <- gsub("-.*$", "", metadata$sample_id)
 
-# Determine site based on raw_site pattern
+# Determine site based on sample_id pattern
 metadata$site <- case_when(
-  grepl("TY", metadata$raw_site) ~ "saliva",
-  grepl("T|t", metadata$raw_site) ~ "tumor",
-  grepl("C", metadata$raw_site) ~ "paracancerous tissue"
-) # sample_name encodes sample type: TY=saliva, T|t=tumor, C=paracancerous
+  grepl("TY", metadata$sample_id) ~ "saliva",
+  grepl("-[Tt]", metadata$sample_id) ~ "tumor",
+  grepl("C", metadata$sample_id) ~ "paracancerous tissue"
+)
 
 # All subjects are OSCC patients; status is the disease itself.
 metadata$status <- "OSCC"
@@ -227,7 +227,7 @@ metadata$title <- "Oral Microbiota Analysis of Tissue Pairs and Saliva Samples F
 metadata$disease_study <- "yes"
 
 # Keep only subjects with saliva samples
-keep_subjects <- metadata$subject_id[grepl("-TY", metadata$raw_site)]
+keep_subjects <- metadata$subject_id[grepl("TY", metadata$sample_id)]
 metadata <- metadata[metadata$subject_id %in% keep_subjects, ]
 ```
 

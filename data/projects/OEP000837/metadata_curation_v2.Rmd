@@ -179,9 +179,8 @@ The uniform metadata should include the following columns:
 # Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as “pending”. (3) Need to find or determine based on the article.
 metadata <- data.frame(
   bioproject = "OEP000837",
-  sample_id = initial_meta$experiment_id,
-  raw_subject_id = initial_meta$sample_name,
-  subject_id = "pending", # modify later
+  sample_id = initial_meta$sample_name,
+  subject_id = "pending",
   age = NA,
   age_info = "61.9±12.3", # extract from TABLE 1 of the article: Tissues (23)
   bmi = NA,
@@ -189,16 +188,15 @@ metadata <- data.frame(
   sequencing_region = "V3-V4", # extract from abstract section
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = "China",
-  raw_site = initial_meta$sample_name,
-  site = "pending", # modify later
-  site_group = "pending", # modify later
-  public_time = "2020-04-14", # extract from: The sequencing data from this study have been deposited in the National Omics Data Encyclopedia (NODE, https://www.biosino.org/node/index) under accession number OEX003132
-  pcr_primers = "338F-806R", # Format: xxF-xxR
-  title = "Oral microbiota analysis of tissue pairs and saliva samples from patients with oral squamous cell carcinoma – a pilot study", # extract from article
-  disease_study = "yes", # determine according to the article
-  status = "OSCC", 
-  matched_samples = "pending", # modify later
-  is_time_series = "no", # determine according to the article
+  site = "pending",
+  site_group = "pending",
+  public_time = "2020-04-14",
+  pcr_primers = NA,
+  title = NA,
+  disease_study = NA,
+  status = "pending",
+  matched_samples = "pending",
+  is_time_series = "no",
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
@@ -210,8 +208,31 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
-# In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
-metadata$subject_id <- gsub("-TY|-T|-C", "", metadata$raw_subject_id) # according to the 'sample_name' column of initial_meta
+# IMPORTANT: Add comments if the modification is not straightforward!!
+metadata$sex <- NA_character_
+
+# Extract subject_id by removing sample type suffix from sample_id
+# sample_id format: S001-C, S001-T, S002-TY, etc. (suffix: -C=paracancerous, -T=tumor, -TY=saliva)
+metadata$subject_id <- gsub("-.*$", "", metadata$sample_id)
+
+# Determine site based on sample_id pattern
+metadata$site <- case_when(
+  grepl("TY", metadata$sample_id) ~ "saliva",
+  grepl("-[Tt]", metadata$sample_id) ~ "tumor",
+  grepl("C", metadata$sample_id) ~ "paracancerous tissue"
+)
+
+# All subjects are OSCC patients; status is the disease itself.
+metadata$status <- "OSCC"
+
+# Add publication information
+metadata$pcr_primers <- "338F-806R"
+metadata$title <- "Oral Microbiota Analysis of Tissue Pairs and Saliva Samples From Patients With Oral Squamous Cell Carcinoma A Pilot Study"
+metadata$disease_study <- "yes"
+
+# Keep only subjects with saliva samples
+keep_subjects <- metadata$subject_id[grepl("TY", metadata$sample_id)]
+metadata <- metadata[metadata$subject_id %in% keep_subjects, ]
 
 metadata <- metadata %>%
   mutate(site = case_when(

@@ -14,20 +14,23 @@ library(cowplot)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
-project_id <- "PRJNA649074"
+project_id <- "PRJNA649074" 
 
-base_dir <- "/beegfs/huangxiaochang/global_oral/global-oral-microbiome/data/projects/"
+base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-YL-02"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
 sra_file <- "SraRunTable.csv"
-initial_meta <- read.csv("SraRunTable.csv", header = TRUE)
+initial_meta <- read.csv(sra_file, header = TRUE)
 
-# (3) Load supplementary clinical data
-supp_table <- read.csv("supplementary.csv", header = TRUE)
-# Supplementary file uses "number" column (e.g., "CKD_1", "hzCKD_56") with clinical data
-# Metadata subject_id uses "OhzCKD_56" (Hangzhou) or "CKD_15" (Zhengzhou) format
-# Mapping: strip "O" prefix from OhzCKD to match hzCKD; CKD IDs match directly
+# (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
+supp_table <- read.csv("supplemental_table_v2.csv", header = TRUE)
+supp_table <- supp_table %>%
+  mutate(number = ifelse(grepl("^hz", number) & !grepl("^Ohz", number), 
+                         paste0("O", number), 
+                         number))
+initial_meta <- supp_table %>%
+  left_join(initial_meta, by = c("number" = "Sample.Name"))
 ```
 
 # Step 2: Data Overview
@@ -40,13 +43,222 @@ is very IMPORTANT!
 # (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
 
 # (2) IMPORTANT: MUST go through each column of initial_meta
-# head(initial_meta, 10)
+head(initial_meta, 10)
+```
 
+    ##    number age gender.male.0.female.1. BMI..kg... hypertension..no.0.yes.1.
+    ## 1   CKD_1  56                       0      26.12                         0
+    ## 2   CKD_2  23                       1      18.43                         0
+    ## 3   CKD_3  30                       1      30.84                         1
+    ## 4   CKD_4  55                       1      22.17                         1
+    ## 5   CKD_5  58                       1      24.08                         1
+    ## 6   CKD_6  52                       0      17.57                         1
+    ## 7   CKD_8  27                       1      21.09                         0
+    ## 8  CKD_10  30                       0      23.24                         1
+    ## 9  CKD_11  35                       1      21.33                         1
+    ## 10 CKD_15  33                       0      24.11                         0
+    ##                   WBC  RBC X24hUTP  ALB  BUN Scr  UA    eGFR    TG calcium.
+    ## 1  4.9000000000000004 4.37    8.89 30.1  6.9  58 314 108.341  6.01     2.09
+    ## 2                 7.5 4.54    1.44 46.7  5.8  83 369  85.904  0.73     2.29
+    ## 3                 5.7 3.95    3.85 39.0  8.7 199 579  28.413 11.11     2.40
+    ## 4                 6.6 5.41    0.58 43.6  7.0  97 479  56.826  1.30     2.33
+    ## 5  8.3000000000000007 3.88    1.28 44.5  4.5  74 287  77.180  3.05     2.38
+    ## 6                 6.6 3.25    1.30 40.4 26.9 616 345   8.240  0.17     1.75
+    ## 7                 5.4 4.63    1.89 46.7  3.9  60 381 120.337  1.16     2.51
+    ## 8                 5.2 4.28    2.76 39.4  7.7 198 460  37.929  0.78     2.27
+    ## 9                 4.3 3.87    0.92 44.3 13.3 239 311  22.138  1.86     2.15
+    ## 10                5.9 4.32    2.89 29.0  4.0  65 436 121.513  8.08     2.06
+    ##    phosphate.         Run Assay.Type AvgSpotLen    Bases  BioProject
+    ## 1        1.05 SRR12338156   AMPLICON        600 39325094 PRJNA649074
+    ## 2        0.97 SRR12338155   AMPLICON        600 34861858 PRJNA649074
+    ## 3        1.39 SRR12338141   AMPLICON        595 23483820 PRJNA649074
+    ## 4        1.03 SRR12338130   AMPLICON        599 23038032 PRJNA649074
+    ## 5        1.13 SRR12338119   AMPLICON        597 26352707 PRJNA649074
+    ## 6        2.72 SRR12338108   AMPLICON        598 19412685 PRJNA649074
+    ## 7        1.65 SRR12338097   AMPLICON        596 19778667 PRJNA649074
+    ## 8        1.12 SRR12338086   AMPLICON        598 53559059 PRJNA649074
+    ## 9        1.18 SRR12338075   AMPLICON        595 18260246 PRJNA649074
+    ## 10       1.34 SRR12338064   AMPLICON        588 21369912 PRJNA649074
+    ##       BioSample              BioSampleModel    Bytes
+    ## 1  SAMN15658623 Metagenome or environmental 22827922
+    ## 2  SAMN15658624 Metagenome or environmental 20015518
+    ## 3  SAMN15658625 Metagenome or environmental 13623530
+    ## 4  SAMN15658626 Metagenome or environmental 13134568
+    ## 5  SAMN15658627 Metagenome or environmental 15095719
+    ## 6  SAMN15658628 Metagenome or environmental 11240500
+    ## 7  SAMN15658629 Metagenome or environmental 11567808
+    ## 8  SAMN15658630 Metagenome or environmental 31144360
+    ## 9  SAMN15658631 Metagenome or environmental 10657856
+    ## 10 SAMN15658632 Metagenome or environmental 12288185
+    ##                                              Center.Name Collection_Date
+    ## 1  THE FIRST AFFILIATED HOSPITAL OF ZHENGZHOU UNIVERSITY      2019-04-05
+    ## 2  THE FIRST AFFILIATED HOSPITAL OF ZHENGZHOU UNIVERSITY      2019-04-06
+    ## 3  THE FIRST AFFILIATED HOSPITAL OF ZHENGZHOU UNIVERSITY      2019-04-09
+    ## 4  THE FIRST AFFILIATED HOSPITAL OF ZHENGZHOU UNIVERSITY      2019-04-17
+    ## 5  THE FIRST AFFILIATED HOSPITAL OF ZHENGZHOU UNIVERSITY      2019-04-26
+    ## 6  THE FIRST AFFILIATED HOSPITAL OF ZHENGZHOU UNIVERSITY      2019-04-26
+    ## 7  THE FIRST AFFILIATED HOSPITAL OF ZHENGZHOU UNIVERSITY      2019-05-07
+    ## 8  THE FIRST AFFILIATED HOSPITAL OF ZHENGZHOU UNIVERSITY      2019-05-13
+    ## 9  THE FIRST AFFILIATED HOSPITAL OF ZHENGZHOU UNIVERSITY      2019-05-15
+    ## 10 THE FIRST AFFILIATED HOSPITAL OF ZHENGZHOU UNIVERSITY      2019-05-15
+    ##    Consent DATASTORE.filetype DATASTORE.provider
+    ## 1   public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 2   public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 3   public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 4   public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 5   public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 6   public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 7   public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 8   public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 9   public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 10  public   fastq,run.zq,sra         gs,ncbi,s3
+    ##                        DATASTORE.region Experiment geo_loc_name_country
+    ## 1  gs.us-east1,ncbi.public,s3.us-east-1 SRX8837970                China
+    ## 2  gs.us-east1,ncbi.public,s3.us-east-1 SRX8837971                China
+    ## 3  gs.us-east1,ncbi.public,s3.us-east-1 SRX8837985                China
+    ## 4  gs.us-east1,ncbi.public,s3.us-east-1 SRX8837996                China
+    ## 5  gs.us-east1,ncbi.public,s3.us-east-1 SRX8838007                China
+    ## 6  gs.us-east1,ncbi.public,s3.us-east-1 SRX8838018                China
+    ## 7  gs.us-east1,ncbi.public,s3.us-east-1 SRX8838029                China
+    ## 8  gs.us-east1,ncbi.public,s3.us-east-1 SRX8838040                China
+    ## 9  gs.us-east1,ncbi.public,s3.us-east-1 SRX8838051                China
+    ## 10 gs.us-east1,ncbi.public,s3.us-east-1 SRX8838062                China
+    ##    geo_loc_name_country_continent     geo_loc_name    HOST     Instrument
+    ## 1                            Asia China:Zheng'zhou  CKD001 Illumina MiSeq
+    ## 2                            Asia China:Zheng'zhou  CKD002 Illumina MiSeq
+    ## 3                            Asia China:Zheng'zhou  CKD003 Illumina MiSeq
+    ## 4                            Asia China:Zheng'zhou  CKD004 Illumina MiSeq
+    ## 5                            Asia China:Zheng'zhou  CKD005 Illumina MiSeq
+    ## 6                            Asia China:Zheng'zhou  CKD006 Illumina MiSeq
+    ## 7                            Asia China:Zheng'zhou  CKD008 Illumina MiSeq
+    ## 8                            Asia China:Zheng'zhou CKD0010 Illumina MiSeq
+    ## 9                            Asia China:Zheng'zhou CKD0011 Illumina MiSeq
+    ## 10                           Asia China:Zheng'zhou CKD0015 Illumina MiSeq
+    ##    isolation_source          lat_lon Library.Name LibraryLayout
+    ## 1              oral 34.44 N 113.42 E        CKD_1        PAIRED
+    ## 2              oral 34.44 N 113.42 E        CKD_2        PAIRED
+    ## 3              oral 34.44 N 113.42 E        CKD_3        PAIRED
+    ## 4              oral 34.44 N 113.42 E        CKD_4        PAIRED
+    ## 5              oral 34.44 N 113.42 E        CKD_5        PAIRED
+    ## 6              oral 34.44 N 113.42 E        CKD_6        PAIRED
+    ## 7              oral 34.44 N 113.42 E        CKD_8        PAIRED
+    ## 8              oral 34.44 N 113.42 E       CKD_10        PAIRED
+    ## 9              oral 34.44 N 113.42 E       CKD_11        PAIRED
+    ## 10             oral 34.44 N 113.42 E       CKD_15        PAIRED
+    ##    LibrarySelection LibrarySource              Organism Platform
+    ## 1               PCR         OTHER human oral metagenome ILLUMINA
+    ## 2               PCR         OTHER human oral metagenome ILLUMINA
+    ## 3               PCR         OTHER human oral metagenome ILLUMINA
+    ## 4               PCR         OTHER human oral metagenome ILLUMINA
+    ## 5               PCR         OTHER human oral metagenome ILLUMINA
+    ## 6               PCR         OTHER human oral metagenome ILLUMINA
+    ## 7               PCR         OTHER human oral metagenome ILLUMINA
+    ## 8               PCR         OTHER human oral metagenome ILLUMINA
+    ## 9               PCR         OTHER human oral metagenome ILLUMINA
+    ## 10              PCR         OTHER human oral metagenome ILLUMINA
+    ##             ReleaseDate          create_date version SRA.Study
+    ## 1  2020-07-28T00:00:00Z 2020-07-28T10:07:00Z       1 SRP273916
+    ## 2  2020-07-28T00:00:00Z 2020-07-28T10:07:00Z       1 SRP273916
+    ## 3  2020-07-28T00:00:00Z 2020-07-28T10:07:00Z       1 SRP273916
+    ## 4  2020-07-28T00:00:00Z 2020-07-28T10:07:00Z       1 SRP273916
+    ## 5  2020-07-28T00:00:00Z 2020-07-28T10:07:00Z       1 SRP273916
+    ## 6  2020-07-28T00:00:00Z 2020-07-28T10:07:00Z       1 SRP273916
+    ## 7  2020-07-28T00:00:00Z 2020-07-28T10:07:00Z       1 SRP273916
+    ## 8  2020-07-28T00:00:00Z 2020-07-28T10:07:00Z       1 SRP273916
+    ## 9  2020-07-28T00:00:00Z 2020-07-28T10:06:00Z       1 SRP273916
+    ## 10 2020-07-28T00:00:00Z 2020-07-28T10:06:00Z       1 SRP273916
+
+``` r
 # IMPORTANT: Check the unique values in the column of interest or query column.
-# lapply(initial_meta[c('body_habitat', 'body_product', 'body_site')], table) # site
-# table(initial_meta$host_subject_id) # subject id
-# table(initial_meta$platform..exp.) # output is Illumina
-# table(initial_meta$target_subfragment..exp.)
+lapply(initial_meta[c('isolation_source')], table) # site
+```
+
+    ## $isolation_source
+    ## 
+    ## oral 
+    ##  103
+
+``` r
+lapply(initial_meta[c('HOST', 'Organism')], table) # organism
+```
+
+    ## $HOST
+    ## 
+    ##    CKD001   CKD0010   CKD0011   CKD0015   CKD0017   CKD0018   CKD0019    CKD002 
+    ##         1         1         1         1         1         1         1         1 
+    ##   CKD0020   CKD0021   CKD0025   CKD0027   CKD0028   CKD0029    CKD003   CKD0030 
+    ##         1         1         1         1         1         1         1         1 
+    ##   CKD0031   CKD0032   CKD0034   CKD0036   CKD0037   CKD0038   CKD0039    CKD004 
+    ##         1         1         1         1         1         1         1         1 
+    ##   CKD0040   CKD0043   CKD0044   CKD0045   CKD0046   CKD0047   CKD0048    CKD005 
+    ##         1         1         1         1         1         1         1         1 
+    ##   CKD0050   CKD0051   CKD0052   CKD0054   CKD0057   CKD0058   CKD0059    CKD006 
+    ##         1         1         1         1         1         1         1         1 
+    ##   CKD0061   CKD0064   CKD0066    CKD008  hzCKD001 hzCKD0010 hzCKD0011 hzCKD0012 
+    ##         1         1         1         1         1         1         1         1 
+    ## hzCKD0013 hzCKD0014 hzCKD0015 hzCKD0016 hzCKD0017 hzCKD0018 hzCKD0019  hzCKD002 
+    ##         1         1         1         1         1         1         1         1 
+    ## hzCKD0020 hzCKD0021 hzCKD0022 hzCKD0023 hzCKD0024 hzCKD0025 hzCKD0026 hzCKD0027 
+    ##         1         1         1         1         1         1         1         1 
+    ## hzCKD0028 hzCKD0029  hzCKD003 hzCKD0030 hzCKD0031 hzCKD0032 hzCKD0033 hzCKD0034 
+    ##         1         1         1         1         1         1         1         1 
+    ## hzCKD0035 hzCKD0036 hzCKD0037 hzCKD0038 hzCKD0039  hzCKD004 hzCKD0040 hzCKD0041 
+    ##         1         1         1         1         1         1         1         1 
+    ## hzCKD0042 hzCKD0043 hzCKD0044 hzCKD0045 hzCKD0046 hzCKD0047 hzCKD0048 hzCKD0049 
+    ##         1         1         1         1         1         1         1         1 
+    ##  hzCKD005 hzCKD0050 hzCKD0051 hzCKD0052 hzCKD0053 hzCKD0054 hzCKD0055 hzCKD0056 
+    ##         1         1         1         1         1         1         1         1 
+    ## hzCKD0057 hzCKD0058 hzCKD0059  hzCKD006  hzCKD007  hzCKD008  hzCKD009 
+    ##         1         1         1         1         1         1         1 
+    ## 
+    ## $Organism
+    ## 
+    ## human oral metagenome 
+    ##                   103
+
+``` r
+table(initial_meta$number) # subject id
+```
+
+    ## 
+    ##     CKD_1    CKD_10    CKD_11    CKD_15    CKD_17    CKD_18    CKD_19     CKD_2 
+    ##         1         1         1         1         1         1         1         1 
+    ##    CKD_20    CKD_21    CKD_25    CKD_27    CKD_28    CKD_29     CKD_3    CKD_30 
+    ##         1         1         1         1         1         1         1         1 
+    ##    CKD_31    CKD_32    CKD_34    CKD_36    CKD_37    CKD_38    CKD_39     CKD_4 
+    ##         1         1         1         1         1         1         1         1 
+    ##    CKD_40    CKD_43    CKD_44    CKD_45    CKD_46    CKD_47    CKD_48     CKD_5 
+    ##         1         1         1         1         1         1         1         1 
+    ##    CKD_50    CKD_51    CKD_52    CKD_54    CKD_57    CKD_58    CKD_59     CKD_6 
+    ##         1         1         1         1         1         1         1         1 
+    ##    CKD_61    CKD_64    CKD_66     CKD_8  OhzCKD_1 OhzCKD_10 OhzCKD_11 OhzCKD_12 
+    ##         1         1         1         1         1         1         1         1 
+    ## OhzCKD_13 OhzCKD_14 OhzCKD_15 OhzCKD_16 OhzCKD_17 OhzCKD_18 OhzCKD_19  OhzCKD_2 
+    ##         1         1         1         1         1         1         1         1 
+    ## OhzCKD_20 OhzCKD_21 OhzCKD_22 OhzCKD_23 OhzCKD_24 OhzCKD_25 OhzCKD_26 OhzCKD_27 
+    ##         1         1         1         1         1         1         1         1 
+    ## OhzCKD_28 OhzCKD_29  OhzCKD_3 OhzCKD_30 OhzCKD_31 OhzCKD_32 OhzCKD_33 OhzCKD_34 
+    ##         1         1         1         1         1         1         1         1 
+    ## OhzCKD_35 OhzCKD_36 OhzCKD_37 OhzCKD_38 OhzCKD_39  OhzCKD_4 OhzCKD_40 OhzCKD_41 
+    ##         1         1         1         1         1         1         1         1 
+    ## OhzCKD_42 OhzCKD_43 OhzCKD_44 OhzCKD_45 OhzCKD_46 OhzCKD_47 OhzCKD_48 OhzCKD_49 
+    ##         1         1         1         1         1         1         1         1 
+    ##  OhzCKD_5 OhzCKD_50 OhzCKD_51 OhzCKD_52 OhzCKD_53 OhzCKD_54 OhzCKD_55 OhzCKD_56 
+    ##         1         1         1         1         1         1         1         1 
+    ## OhzCKD_57 OhzCKD_58 OhzCKD_59  OhzCKD_6  OhzCKD_7  OhzCKD_8  OhzCKD_9 
+    ##         1         1         1         1         1         1         1
+
+``` r
+#table(initial_meta$sequencing_meth..exp.) # output is Sequencing by synthesis
+table(initial_meta$Platform) # output is Illumina. according to the methods,  Illumina is correct.
+```
+
+    ## 
+    ## ILLUMINA 
+    ##      103
+
+``` r
+#table(initial_meta$target_subfragment..exp.)
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -56,15 +268,18 @@ controls and positive controls) and non-human samples.
 
 ``` r
 # (1) EDIT HERE: Parameter setup
-# NOTE: This project has no lab control samples (blanks/positives) or non-human samples. Leave keywords empty to skip filtering.
-control_column <- NA   # column name in initial_meta
-# unique(initial_meta[[control_column]])  # uncomment to explore
-control_keywords <- c()     # Enter exact keywords
+control_column <- "" # column name in initial_meta
+# unique(initial_meta[[control_column]])
+control_keywords <- c() # Enter exact keywords
 
-species_column <- NA          # column name in initial_meta
-# unique(initial_meta[[species_column]])  # uncomment to explore
-non_human_keywords <- c()            # Enter exact keywords
+species_column <- "" # column name in initial_meta
+unique(initial_meta[[species_column]])
+```
 
+    ## NULL
+
+``` r
+non_human_keywords <- c() # Enter exact keywords
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
 n_samples <- nrow(initial_meta)
@@ -73,15 +288,15 @@ if (length(control_keywords) > 0) {
   if (is.null(control_column) || control_column == "") {
     stop("Error: control_keywords provided but control_column is missing.")
   }
-
+  
   if (!(control_column %in% colnames(initial_meta))) {
     stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
   }
-
+  
   control_pattern <- paste(control_keywords, collapse = "|")
   control_text <- initial_meta[[control_column]]
   is_control <- grepl(control_pattern, control_text)
-
+  
 } else {
   is_control <- rep(FALSE, n_samples)
 }
@@ -91,11 +306,11 @@ if (length(non_human_keywords) > 0) {
   if (is.null(species_column) || species_column == "") {
     stop("Error: non_human_keywords provided but species_column is missing.")
   }
-
+  
   if (!(species_column %in% colnames(initial_meta))) {
-    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
   }
-
+  
   non_human_pattern <- paste(non_human_keywords, collapse = "|")
   species_text <- initial_meta[[species_column]]
   is_non_human <- grepl(non_human_pattern, species_text)
@@ -141,57 +356,68 @@ cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
 This step converts the raw SRA table into the standard metadata format
 used in our meta-analysis. The uniform metadata should include the
 following columns: 1. **bioproject**: Project ID from SRA or other
-database 2. **sample\_id**: SRA sample/run ID. Unique id for each
-sample! 3. **subject\_id**: subject id for each person if available. 4.
-**age**: Age of the subject if available. e.g. `35`, `42` 5.
-**age\_info**: If the age is not explicitly stated but approximate age
-range information is available, mark it in this column. 6. **bmi**: Body
-Mass Index if available. 7. **sex**: Sex of the subject. Mandatory to
-write as M/F 8. **sequencing\_region**: Targeted 16S rRNA region. 9.
-**platform**: Sequencing platform. 10. **country**: Country of sample
-origin. 11. **site**: Sampling site. For oral and gut sites, specify the
-exact sites as detailed as possible. 12. **site\_group**: only accepts
-one of following three values: ‘oral’, ‘gut’, or ‘other’. 13.
-**public\_time**: Data release date. 14. **pcr\_primers**: PCR primers
-used. 15. **title**: Title of the associated publication. 16.
-**disease\_study**: Whether the study involves disease samples. Only
-three values accepted: ‘yes’, ‘no’ or NA 17. **status**: Disease status
-for each sample if available, else record as NA. 18.
-**matched\_samples**: Whether the subject has matched samples. Only
-accept ‘yes’ or ‘no’. 19. **is\_time\_series**: Whether the study is a
-time series study. Only accept ‘yes’ or ‘no’.
+database e.g. `PRJNA1234`, `CNP1234`, ‘OEP1234’, ‘qiita_1234’ 2.
+**sample_id**: SRA sample/run ID. Unique id for each sample!
+e.g. `DRR1234567`, `ERR1234567` and `SRR1234567`. If no such column
+exists, can use column like sample_name. 3. **subject_id**: subject id
+for each person if available. e.g. `patient_01`, `Host_03_before`,
+`subject12` 4. **age**: Age of the subject if available. e.g. `35`, `42`
+\| not `adult`, `chilren` 5. **age_info**: If the age is not explicitly
+stated but approximate age range information is available, mark it in
+this column. e.g., `18-55`, `children`, `infant`, `elder` 6. **bmi**:
+Body Mass Index if available. e.g. `22.5`, `18.9` \| not `normal`,
+`overweight` 7. **sex**: Sex of the subject. Mandatory to write as M/F
+\| not `female`, `woman` 8. **sequencing_region**: Targeted 16S rRNA
+region. e.g. `V3-V4`, `V4` 9. **platform**: Sequencing platform.
+e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent` 10.
+**country**: Country of sample origin. e.g. `China`, `Japan` \| not city
+name like `Beijing` 11. **site**: Sampling site. For oral and gut sites,
+specify the exact sites as detailed as possible. For example, if it is
+known to be supragingival plaque, do not record it as ‘dental plaque’,
+unless the original text provides only a vague description.
+e.g. `saliva`, `tongue coating` \| not broad term like `oral` 12.
+**site_group**: only accepts one of following three values: ‘oral’,
+‘gut’, or ‘other’. 13. **public_time**: Data release date.
+e.g. `2021-06-22` \| not `June 2021` 14. **pcr_primers**: PCR primers
+used. e.g. `515F-806R`, `27F-338R` \| not primer sequences 15.
+**title**: Title of the associated publication. 16. **disease_study**:
+Whether the study involves disease samples. If it’s not clear, can
+record as NA. Only three values accepted: ‘yes’, ‘no’ or NA 17.
+**status**: Disease status for each sample if available, else record as
+NA. Only accept following abbreviations, Write full names for all other
+diseases. HC: healthy control CD: Crohn’s disease CRC: colorectal cancer
+COPD: chronic obstructive pulmonary disease HIV: human immunodeficiency
+virus ICU: intensive care unit OSCC: oral squamous cell carcinoma RA:
+rheumatoid arthritis UC: ulcerative colitis 18. **matched_samples**:
+Whether the subject has matched samples. Only accept ‘yes’ or ‘no’. 19.
+**is_time_series**: Whether the study is a time series study. Only
+accept ‘yes’ or ‘no’.
 
 ``` r
-# Extract columns from initial_meta as follows:
-# (1) No modification needed → extract directly.
-# (2) Modification needed → create a column start with 'raw_' and mark the target column as "pending".
-# (3) Need to find or determine based on the article.
-
+# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as “pending”. (3) Need to find or determine based on the article.
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample.Name,
-  age = NA,
+  subject_id = initial_meta$number,
+  age = initial_meta$age,
   age_info = NA,
-  bmi = NA,
-  raw_sex = NA,
-  sex = "pending",
-  sequencing_region = "V3-V4",
-  platform = initial_meta$Instrument,
+  bmi = initial_meta$BMI..kg...,
+  raw_sex = initial_meta$gender.male.0.female.1., 
+  sex = "pending", # modify later
+  sequencing_region = "V3-V4", # extract from methods section
+  platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
-  raw_site = initial_meta$isolation_source,
-  site = "pending",
-  site_group = "pending",
+  site = "oral swab",
+  site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = NA,
-  title = NA,
-  disease_study = NA,
-  status = "chronic kidney disease",
-  matched_samples = "pending",
-  is_time_series = "no",
+  pcr_primers = "341F-805R", # Format: xxF-xxR
+  title = "Characteristics of human oral microbiome and its non-invasive diagnostic value in chronic kidney disease", # extract from article
+  disease_study = "yes", # determine according to the article
+  status = "chronic kidney disease", 
+  matched_samples = "pending", # modify later
+  is_time_series = "no", 
   stringsAsFactors = FALSE
 )
-
 metadata$public_time <- as.Date(metadata$public_time)
 ```
 
@@ -203,35 +429,13 @@ columns.
 
 ``` r
 # (1) Handle the columns with the `raw_` prefix.
-# IMPORTANT: Add comments if the modification is not straightforward!!
-
-# Merge clinical data from supplementary.csv
-# Subject ID mapping: OhzCKD_56 -> hzCKD_56 (strip "O"); CKD_15 -> CKD_15 (direct)
-supp_table$numeric_id <- as.integer(gsub("[A-Za-z_]", "", supp_table[[1]]))
-metadata$supp_key <- ifelse(grepl("^Ohz", metadata$subject_id),
-  paste0("hzCKD_", gsub("^OhzCKD_", "", metadata$subject_id)),
-  metadata$subject_id)
-metadata$supp_numeric <- as.integer(gsub("[A-Za-z_]", "", metadata$supp_key))
-match_idx <- match(metadata$supp_numeric, supp_table$numeric_id)
-
-bmi_col <- grep("^BMI", colnames(supp_table), value = TRUE)
-sex_col <- grep("^gender", colnames(supp_table), value = TRUE)
-
-metadata$age <- ifelse(!is.na(match_idx), as.numeric(supp_table$age[match_idx]), NA)
-metadata$bmi <- ifelse(!is.na(match_idx), as.numeric(supp_table[[bmi_col]][match_idx]), NA)
-raw_gender <- ifelse(!is.na(match_idx), supp_table[[sex_col]][match_idx], NA)
-metadata$sex <- ifelse(raw_gender == 0, "M", ifelse(raw_gender == 1, "F", NA_character_))
-
-metadata$supp_key <- NULL
-metadata$supp_numeric <- NULL
-
-# Assign site; isolation_source only says "oral" but paper describes pharyngeal swab collection
-metadata$site <- "oral swab"
-
-metadata$pcr_primers <- "341F-805R"
-metadata$title <- "Characteristics of human oral microbiome and its noninvasive diagnostic value in chronic kidney disease"
-metadata$disease_study <- "yes"
-metadata$status <- "chronic kidney disease"
+# In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata <- metadata %>%
+  mutate(sex = case_when(
+    raw_sex == 0 ~ "M",
+    raw_sex == 1 ~ "F",
+    TRUE ~ NA_character_
+  )) # according to the 'gender.male.0.female.1.' column of initial_meta
 ```
 
 ``` r
@@ -244,21 +448,21 @@ unique(metadata$site)
 
 ``` r
 # EDIT HERE: add oral sites
-Oral_site = c("saliva", "mouth", "tongue coating", "supragingival plaque", "subgingival plaque", "oral swab", "denture", "tooth", "abscess pus", "adjacent periodontal pocket", "patient healthy crevice", "healthy control crevice", "gingival crevicular fluid", "subgingival plaque", "oral")
+Oral_site = unique(metadata$site)
 # EDIT HERE: add gut sites
-Gut_site = c("feces", "stool")
+Gut_site = c()
 # just run
 metadata <- metadata %>%
   mutate(site_group = case_when(
     site %in% Oral_site ~ "oral",
     site %in% Gut_site ~ "gut",
-    TRUE ~ "other"
+    TRUE ~ "other" 
   ))
 
 # editing matched_samples, just run.
 metadata$matched_samples <- ifelse(
-  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
-  "yes",
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1, 
+  "yes", 
   "no"
 )
 ```
@@ -342,15 +546,15 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ``` r
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
-<img src="Metadata_Summary.png" alt="" width="1200" />
+<img src="Metadata_Summary_v2.png" alt="" width="1200" />
 
 # Step 7: Sort and export the metadata
 
@@ -360,13 +564,13 @@ file.
 ``` r
 # Reorder the data frame
 fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
-                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
-                "country", "site", "site_group", "disease_study", "status",
-                "title", "public_time", "matched_samples", "is_time_series")
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers", 
+                "country", "site", "site_group", "disease_study", "status", 
+                "title", "public_time", "matched_samples", "is_time_series")  
 metadata <- metadata %>%
   select(all_of(fixed_cols), everything())
 
-# save metadata
+# save metadata 
 # head(metadata)
-write.csv(metadata, file = "metadata_v2.csv", quote = TRUE, row.names = FALSE)
+write.csv(metadata, file = "metadata_v2.csv", quote = TRUE)
 ```

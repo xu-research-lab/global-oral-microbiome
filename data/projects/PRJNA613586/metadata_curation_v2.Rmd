@@ -14,20 +14,39 @@ library(ggplot2)
 library(cowplot)
 
 # (1) Setting working directory
-# EDIT HERE: change project_id for each study
-project_id <- "PRJNA613586" 
+project_id <- "PRJNA613586"
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "D:/metadata_collect/oral_metadata_new/update"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
 sra_file <- "SraRunTable.csv"
 initial_meta <- read.csv(sra_file, header = TRUE)
+```
 
-# (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
-library(readxl)
-supp_table <- read_excel("F1.xlsx")
-initial_meta <- left_join(initial_meta, supp_table, by = c("Sample.Name"="#SampleID"))
+```{r}
+# =============================================================
+# Curation Notes - PRJNA613586
+# Paper: "Oral microbiota and dental caries data from
+#   monozygotic and dizygotic twin children" (Scientific Data, 2020)
+#
+# sample_id    : initial_meta column 'Run' (SRR IDs)
+# subject_id   : extracted from 'Sample Name' (format "NUM-Txx"), numeric part
+# age          : initial_meta column 'Host_age' (numeric, years)
+# age_info     : Paper Methods — "3-15" (children 3-15 years old)
+# sex          : NA — not available in CSV or paper
+# bmi          : NA — not recorded
+# platform     : Paper Methods — Illumina MiSeq (300 bp paired-end)
+# region       : Paper Methods — V3-V4
+# pcr_primers  : Paper Methods — 341F-805R (Bakt_341F / Bakt_805R)
+# country      : initial_meta column 'geo_loc_name_country' = "Turkey"
+# site         : initial_meta column 'host_body_product' = "saliva"
+# disease_study: "yes" — dental caries study
+# status       : NA — no per-sample disease status in CSV
+# is_time_series: "no" — cross-sectional twin design
+# controls     : none in SRA data; paper mentions negative PCR control only
+# non-human    : none — all samples Homo sapiens
+# =============================================================
 ```
 
 # Step 2: Data Overview
@@ -41,13 +60,14 @@ First, you need to get an overview of the data, which includes two steps: readin
 head(initial_meta, 10)
 
 # IMPORTANT: Check the unique values in the column of interest or query column.
-# lapply(initial_meta[c('body_habitat', 'body_product', 'body_site')], table) # site
-# lapply(initial_meta[c('common_name', 'env_biome', 'env_feature', 'env_matter', 'host_common_name', 'Organism', 'role', 'pet_farm_animal')], table) # organism: the dog sample counts in these columns are different! 512 in pet_farm_animal,217 in env_biome, env_feature and role, 210 in host_common_name. Majority rule, so we determine to use column role to filter dog samples
-# table(initial_meta$host_subject_id) # subject id
-# table(initial_meta$sequencing_meth..exp.) # output is pyrosequencing
-# table(initial_meta$platform..exp.) # output is Illumina. according to the methods, Illumina is correct.
-# table(initial_meta$target_subfragment..exp.)
-table(initial_meta$Host)
+table(initial_meta$host_body_product)       # all "saliva"
+table(initial_meta$Host)                     # all "Homo sapiens"
+table(initial_meta$Organism)                 # all "Homo sapiens"
+table(initial_meta$geo_loc_name_country)     # all "Turkey"
+table(initial_meta$Instrument)               # all "Illumina MiSeq"
+table(initial_meta$platform..exp.)           # all "ILLUMINA"
+unique(initial_meta$Host_age)                # ages 5-15
+table(initial_meta$twin_id)                  # twin pair groups (T1-T99)
 ```
 
 # Step 3: Removing Control and Non-human Samples
@@ -55,14 +75,13 @@ table(initial_meta$Host)
 First, we need to remove control samples(including both negative controls and positive controls) and non-human samples.
 
 ```{r}
-# (1) EDIT HERE: Parameter setup
-control_column <- ""   # column name in initial_meta
-# unique(initial_meta[[control_column]])
-control_keywords <- c()     # Enter exact keywords
+# (1) Parameter setup
+control_column <- ""   # no control column in initial_meta; paper mentions PCR negative control but not in SRA table
+control_keywords <- c()     # no controls to filter
 
-species_column <- ""          # column name in initial_meta
+species_column <- "Organism"          # column name in initial_meta
 unique(initial_meta[[species_column]])
-non_human_keywords <- c()            # Enter exact keywords
+non_human_keywords <- c()            # all samples are Homo sapiens, no non-human to filter
 
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
@@ -72,15 +91,15 @@ if (length(control_keywords) > 0) {
   if (is.null(control_column) || control_column == "") {
     stop("Error: control_keywords provided but control_column is missing.")
   }
-  
+
   if (!(control_column %in% colnames(initial_meta))) {
     stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
   }
-  
+
   control_pattern <- paste(control_keywords, collapse = "|")
   control_text <- initial_meta[[control_column]]
   is_control <- grepl(control_pattern, control_text)
-  
+
 } else {
   is_control <- rep(FALSE, n_samples)
 }
@@ -90,11 +109,11 @@ if (length(non_human_keywords) > 0) {
   if (is.null(species_column) || species_column == "") {
     stop("Error: non_human_keywords provided but species_column is missing.")
   }
-  
+
   if (!(species_column %in% colnames(initial_meta))) {
     stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
   }
-  
+
   non_human_pattern <- paste(non_human_keywords, collapse = "|")
   species_text <- initial_meta[[species_column]]
   is_non_human <- grepl(non_human_pattern, species_text)
@@ -132,15 +151,15 @@ The uniform metadata should include the following columns:
 7. **sex**: Sex of the subject.
    Mandatory to write as M/F | not `female`, `woman`
 8. **sequencing_region**: Targeted 16S rRNA region.
-   e.g. `V3-V4`, `V4` 
+   e.g. `V3-V4`, `V4`
 9. **platform**: Sequencing platform.
    e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent`
 10. **country**: Country of sample origin.
-   e.g. `China`, `Japan` | not city name like `Beijing`
-11. **site**: Sampling site. For oral and gut sites, specify the exact sites as detailed as possible. For example, if it is known to be supragingival plaque, do not record it as 'dental plaque', unless the original text provides only a vague description. 
+    e.g. `China`, `Japan` | not city name like `Beijing`
+11. **site**: Sampling site. For oral and gut sites, specify the exact sites as detailed as possible. For example, if it is known to be supragingival plaque, do not record it as 'dental plaque', unless the original text provides only a vague description.
     e.g. `saliva`, `tongue coating` | not broad term like `oral`
 12. **site_group**: only accepts one of following three values: 'oral', 'gut', or 'other'.
-13. **public_time**: Data release date. 
+13. **public_time**: Data release date.
     e.g. `2021-06-22` | not `June 2021`
 14. **pcr_primers**: PCR primers used.
     e.g. `515F-806R`, `27F-338R` | not primer sequences
@@ -160,29 +179,27 @@ The uniform metadata should include the following columns:
 19. **is_time_series**: Whether the study is a time series study. Only accept 'yes' or 'no'.
 
 ```{r}
-# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as “pending”. (3) Need to find or determine based on the article.
+# Extract columns from initial_meta as follows: (1) No modification needed -> extract directly. (2) Modification needed -> create a new column with the prefix raw_ and mark the original column as "pending". (3) Need to find or determine based on the article.
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = initial_meta$Sample.Name,
+  subject_id = sub("-.*", "", initial_meta$Sample.Name),  # extract numeric part from "NUM-Txx" format
   age = initial_meta$Host_age,
-  age_info = NA,
-  bmi = NA,
-  raw_sex = initial_meta$Sex, # if need modify, then create a column start with 'raw_'
-  sex = "pending", # and mark as "pending"
-  sequencing_region = "V4",
-  platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
+  age_info = "3-15",                          # Paper Methods: "Children between 3-15 years old"
+  bmi = NA,                                   # not recorded in CSV or paper
+  sex = NA_character_,                        # no sex column in CSV, not reported per-sample in paper
+  sequencing_region = "V3-V4",               # Paper Methods: "V3-V4 region of the bacterial 16S rRNA gene"
+  platform = "Illumina MiSeq",               # Paper Methods: "MiSeq instrument (Illumina, USA)"
   country = initial_meta$geo_loc_name_country,
-  #raw_site = initial_meta$host_body_product,
-  site = initial_meta$host_body_product,
-  site_group = "pending", # modify later
+  site = initial_meta$host_body_product,      # all "saliva" from initial_meta column
+  site_group = "pending",                     # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = "341F-805R", # Format: xxF-xxR
-  title = "Oral microbiota and dental caries data from monozygotic and dizygotic twin children", # extract from article
-  disease_study = "yes", # determine according to the article
-  status = NA, #不知道具体健康疾病情况
-  matched_samples = "pending", # modify later
-  is_time_series = "no", # determine according to the article
+  pcr_primers = "341F-805R",                 # Paper Methods: Bakt_341F / Bakt_805R
+  title = "Oral microbiota and dental caries data from monozygotic and dizygotic twin children",
+  disease_study = "yes",                      # Paper title + abstract: dental caries study
+  status = NA,                                # no per-sample disease status in CSV
+  matched_samples = "pending",                # modify later
+  is_time_series = "no",                      # cross-sectional twin design, no repeated sampling
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
@@ -193,35 +210,29 @@ metadata$public_time <- as.Date(metadata$public_time)
 This step involves two parts: (1) handle the columns with the `raw_` prefix, and next (2) handle the `site_group` and `matched_samples` columns.
 
 ```{r}
-# (1) Handle the columns with the `raw_` prefix.
-metadata <- metadata %>%
-  mutate(sex = case_when(
-    raw_sex %in% "female" ~ "F",
-    raw_sex %in% "male" ~ "M",
-    TRUE ~ "other" 
-  ))
+# (1) No raw_ columns to resolve: sex is NA (data not available), site is directly extracted as "saliva"
 ```
 
 ```{r}
 # (2) Filling the 'site_group' and 'matched_samples' columns
 # editing site_group
 unique(metadata$site)
-# EDIT HERE: add oral sites
+# Oral sites: saliva
 Oral_site = c("saliva")
-# EDIT HERE: add gut sites
-Gut_site = c("stool")
+# Gut sites: none
+Gut_site = c()
 # just run
 metadata <- metadata %>%
   mutate(site_group = case_when(
     site %in% Oral_site ~ "oral",
     site %in% Gut_site ~ "gut",
-    TRUE ~ "other" 
+    TRUE ~ "other"
   ))
 
 # editing matched_samples, just run.
 metadata$matched_samples <- ifelse(
-  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1, 
-  "yes", 
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+  "yes",
   "no"
 )
 ```
@@ -302,12 +313,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150, bg = "white")
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
-# Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+# Insert Metadata_Summary_v2.png into the current Rmd output
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata
@@ -317,13 +328,13 @@ This step saves the cleaned metadata table as the final `metadata.csv` file.
 ```{r}
 # Reorder the data frame
 fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
-                "bmi", "sex", "platform", "sequencing_region", "pcr_primers", 
-                "country", "site", "site_group", "disease_study", "status", 
-                "title", "public_time", "matched_samples", "is_time_series")  
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
+                "country", "site", "site_group", "disease_study", "status",
+                "title", "public_time", "matched_samples", "is_time_series")
 metadata <- metadata %>%
   select(all_of(fixed_cols), everything())
 
-# save metadata 
+# save metadata
 # head(metadata)
 write.csv(metadata, file = "metadata_v2.csv", quote = TRUE)
 ```

@@ -174,7 +174,7 @@ metadata <- data.frame(
   site = "pending",
   site_group = "pending",
   public_time = sub("T.*$", "", metadata$ReleaseDate),
-  pcr_primers = "341F-806R",
+  pcr_primers = "338F-806R",
   title = "Age-Related Variation of Bacterial and Fungal Communities in Different Body Habitats across the Young, Elderly, and Centenarians in Sardinia",
   disease_study = "no",
   raw_status = metadata$group_label,
@@ -206,20 +206,20 @@ metadata <- metadata %>%
       raw_site_code == "R" ~ "right palm",
       raw_site_code == "F" ~ "forehead",
       raw_site_code == "U" ~ "umbilicus",
-      raw_site_code == "O" ~ "oral cavity",
-      raw_site_code == "OW" ~ "oral cavity",
+      raw_site_code == "O" ~ "saliva",
+      raw_site_code == "OW" ~ "saliva",
       raw_site_code == "G" ~ "gut",
       TRUE ~ NA_character_
     ),
     status = "HC"
   )
-# Retain all deposited 16S body habitats in this cohort; raw_site_code preserves the submitted O versus OW distinction even though both map to oral cavity in the standardized site field.
+# Retain all deposited 16S body habitats in this cohort; raw_site_code preserves the submitted O versus OW distinction even though both map to saliva in the standardized site field.
 ```
 
 ```{r}
 # (2) Filling the 'site_group' and 'matched_samples' columns
 unique(metadata$site)
-Oral_site = c("oral cavity")
+Oral_site = c("saliva")
 Gut_site = c("gut")
 
 metadata <- metadata %>%

@@ -55,7 +55,7 @@ head(initial_meta, 10)
 # lapply(initial_meta[c('common_name', 'env_biome', 'env_feature', 'env_matter', 'host_common_name', 'Organism', 'role', 'pet_farm_animal')], table) # organism
 # table(initial_meta$host_subject_id) # subject id
 table(initial_meta$Host_disease) # output: Rheumatoid arthritis=105, Healthy=92, not applicable=2 (batch controls)
-# table(initial_meta$host_family_relationship) # Healthy samples: First-degree relative of RA patient; Rheumatoid arthritis: not applicable
+# table(initial_meta$host_family_relationship) # Healthy samples split: First-degree relative of RA patient (55 FDR) + not applicable (37 true HC); RA samples: not applicable
 table(initial_meta$host_tissue_sampled) # Tongue scraping + not applicable (for batch controls)
 # table(initial_meta$sequencing_meth..exp.) # not present in this CSV
 # table(initial_meta$Platform) # ILLUMINA
@@ -193,8 +193,9 @@ metadata <- data.frame(
   pcr_primers = NA,                    # NA: primer names not specified in main text or supplemental material
   title = "Streptococcus species enriched in the oral cavity of patients with RA are a source of peptidoglycan-polysaccharide polymers that can induce arthritis in mice", # source: paper.pdf, article title
   disease_study = "yes",               # source: paper.pdf, study compares RA patients vs controls
-  status = dplyr::case_when(           # source: SraRunTable.csv, Host_disease column mapping
+  status = dplyr::case_when(           # source: SraRunTable.csv, Host_disease + host_family_relationship column mapping
     initial_meta$Host_disease == "Rheumatoid arthritis" ~ "RA",
+    initial_meta$Host_disease == "Healthy" & initial_meta$host_family_relationship == "First-degree relative of RA patient" ~ "first-degree relatives",
     initial_meta$Host_disease == "Healthy" ~ "HC",
     TRUE ~ NA_character_
   ),
@@ -326,12 +327,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
-# Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+# Insert Metadata_Summary_v2.png into the current Rmd output
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

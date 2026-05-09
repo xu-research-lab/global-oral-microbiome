@@ -14,18 +14,18 @@ library(cowplot)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
-project_id <- "PRJNA841771"
+project_id <- "PRJNA841771" 
 
-base_dir <- "/beegfs/huangxiaochang/global_oral/global-oral-microbiome/data/projects/"
+base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-YL-02"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
 sra_file <- "SraRunTable.csv"
-initial_meta <- read.csv("SraRunTable.csv", header = TRUE)
+initial_meta <- read.csv(sra_file, header = TRUE)
 
 # (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
-# supp_table <- read.csv("supplemental_table.csv", header = TRUE)
-# initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
+#supp_table <- read.csv("supplemental_table_v2.csv", header = TRUE)
+#initial_meta <- left_join(initial_meta, supp_table, by = "Sample.Name") 
 ```
 
 # Step 2: Data Overview
@@ -38,12 +38,196 @@ is very IMPORTANT!
 # (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
 
 # (2) IMPORTANT: MUST go through each column of initial_meta
-# head(initial_meta, 10)
+head(initial_meta, 10)
+```
 
+    ##            Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample
+    ## 1  SRR19370359   AMPLICON        426 42826040 PRJNA841771 SAMN28614607
+    ## 2  SRR19370361   AMPLICON        425 39071076 PRJNA841771 SAMN28614605
+    ## 3  SRR19370362   AMPLICON        425 33200097 PRJNA841771 SAMN28614604
+    ## 4  SRR19370363   AMPLICON        423 37374803 PRJNA841771 SAMN28614603
+    ## 5  SRR19370365   AMPLICON        427 35248253 PRJNA841771 SAMN28614602
+    ## 6  SRR19370366   AMPLICON        426 34796910 PRJNA841771 SAMN28614601
+    ## 7  SRR19370367   AMPLICON        425 30914847 PRJNA841771 SAMN28614600
+    ## 8  SRR19370368   AMPLICON        421 35651565 PRJNA841771 SAMN28614599
+    ## 9  SRR19370369   AMPLICON        421 34193139 PRJNA841771 SAMN28614598
+    ## 10 SRR19370370   AMPLICON        424 31160711 PRJNA841771 SAMN28614597
+    ##                                 BioSampleModel    Bytes
+    ## 1  MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 13795394
+    ## 2  MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 12646566
+    ## 3  MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 10674463
+    ## 4  MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 12395752
+    ## 5  MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 11412076
+    ## 6  MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 11821928
+    ## 7  MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 10123695
+    ## 8  MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 11783946
+    ## 9  MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 11376260
+    ## 10 MIMARKS.survey,MIGS/MIMS/MIMARKS.human-oral 10321536
+    ##                                             Center.Name Collection_Date Consent
+    ## 1  CENTER FOR LIFE SCIENCES, NATIONAL LABORATORY ASTANA      2020-08-27  public
+    ## 2  CENTER FOR LIFE SCIENCES, NATIONAL LABORATORY ASTANA      2020-08-26  public
+    ## 3  CENTER FOR LIFE SCIENCES, NATIONAL LABORATORY ASTANA      2020-08-26  public
+    ## 4  CENTER FOR LIFE SCIENCES, NATIONAL LABORATORY ASTANA      2020-08-26  public
+    ## 5  CENTER FOR LIFE SCIENCES, NATIONAL LABORATORY ASTANA      2020-08-26  public
+    ## 6  CENTER FOR LIFE SCIENCES, NATIONAL LABORATORY ASTANA      2020-08-25  public
+    ## 7  CENTER FOR LIFE SCIENCES, NATIONAL LABORATORY ASTANA      2020-08-25  public
+    ## 8  CENTER FOR LIFE SCIENCES, NATIONAL LABORATORY ASTANA      2020-08-25  public
+    ## 9  CENTER FOR LIFE SCIENCES, NATIONAL LABORATORY ASTANA      2020-08-25  public
+    ## 10 CENTER FOR LIFE SCIENCES, NATIONAL LABORATORY ASTANA      2020-08-25  public
+    ##    DATASTORE.filetype DATASTORE.provider                     DATASTORE.region
+    ## 1    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 2    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 3    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 4    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 5    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 6    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 7    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 8    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 9    fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ## 10   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
+    ##    env_broad_scale env_local_scale    env_medium ETHNICITY  Experiment
+    ## 1    ENVO:00000428   ENVO:00000364 ENVO:00010483    kazakh SRX15428860
+    ## 2    ENVO:00000428   ENVO:00000362 ENVO:00010483    kazakh SRX15428858
+    ## 3    ENVO:00000428   ENVO:00000361 ENVO:00010483    kazakh SRX15428857
+    ## 4    ENVO:00000428   ENVO:00000360 ENVO:00010483    kazakh SRX15428856
+    ## 5    ENVO:00000428   ENVO:00000359 ENVO:00010483    kazakh SRX15428854
+    ## 6    ENVO:00000428   ENVO:00000358 ENVO:00010483    kazakh SRX15428853
+    ## 7    ENVO:00000428   ENVO:00000357 ENVO:00010483    kazakh SRX15428852
+    ## 8    ENVO:00000428   ENVO:00000356 ENVO:00010483    kazakh SRX15428851
+    ## 9    ENVO:00000428   ENVO:00000355 ENVO:00010483    kazakh SRX15428850
+    ## 10   ENVO:00000428   ENVO:00000354 ENVO:00010483    kazakh SRX15428849
+    ##    geo_loc_name_country geo_loc_name_country_continent           geo_loc_name
+    ## 1            Kazakhstan                           Asia Kazakhstan: Nur-Sultan
+    ## 2            Kazakhstan                           Asia Kazakhstan: Nur-Sultan
+    ## 3            Kazakhstan                           Asia Kazakhstan: Nur-Sultan
+    ## 4            Kazakhstan                           Asia Kazakhstan: Nur-Sultan
+    ## 5            Kazakhstan                           Asia Kazakhstan: Nur-Sultan
+    ## 6            Kazakhstan                           Asia Kazakhstan: Nur-Sultan
+    ## 7            Kazakhstan                           Asia Kazakhstan: Nur-Sultan
+    ## 8            Kazakhstan                           Asia Kazakhstan: Nur-Sultan
+    ## 9            Kazakhstan                           Asia Kazakhstan: Nur-Sultan
+    ## 10           Kazakhstan                           Asia Kazakhstan: Nur-Sultan
+    ##    Host_age host_body_mass_index host_body_product         Host
+    ## 1        33             20.44914       oral cavity Homo sapiens
+    ## 2        39             21.64412       oral cavity Homo sapiens
+    ## 3        54             21.35991       oral cavity Homo sapiens
+    ## 4        51             23.03005       oral cavity Homo sapiens
+    ## 5        55             29.51594       oral cavity Homo sapiens
+    ## 6        48             27.00513       oral cavity Homo sapiens
+    ## 7        34             25.45236       oral cavity Homo sapiens
+    ## 8        32             28.12500       oral cavity Homo sapiens
+    ## 9        46             21.87500       oral cavity Homo sapiens
+    ## 10       41             23.03005       oral cavity Homo sapiens
+    ##               Instrument         lat_lon Library.Name LibraryLayout
+    ## 1  Illumina NovaSeq 6000 51.10 N 71.26 E       RA116C        SINGLE
+    ## 2  Illumina NovaSeq 6000 51.10 N 71.26 E       RA114C        SINGLE
+    ## 3  Illumina NovaSeq 6000 51.10 N 71.26 E       RA113C        SINGLE
+    ## 4  Illumina NovaSeq 6000 51.10 N 71.26 E       RA112C        SINGLE
+    ## 5  Illumina NovaSeq 6000 51.10 N 71.26 E       RA111C        SINGLE
+    ## 6  Illumina NovaSeq 6000 51.10 N 71.26 E       RA110C        SINGLE
+    ## 7  Illumina NovaSeq 6000 51.10 N 71.26 E       RA109C        SINGLE
+    ## 8  Illumina NovaSeq 6000 51.10 N 71.26 E       RA108C        SINGLE
+    ## 9  Illumina NovaSeq 6000 51.10 N 71.26 E       RA107C        SINGLE
+    ## 10 Illumina NovaSeq 6000 51.10 N 71.26 E       RA106C        SINGLE
+    ##    LibrarySelection LibrarySource   Organism Platform          ReleaseDate
+    ## 1               PCR   METAGENOMIC metagenome ILLUMINA 2022-05-24T00:00:00Z
+    ## 2               PCR   METAGENOMIC metagenome ILLUMINA 2022-05-24T00:00:00Z
+    ## 3               PCR   METAGENOMIC metagenome ILLUMINA 2022-05-24T00:00:00Z
+    ## 4               PCR   METAGENOMIC metagenome ILLUMINA 2022-05-24T00:00:00Z
+    ## 5               PCR   METAGENOMIC metagenome ILLUMINA 2022-05-24T00:00:00Z
+    ## 6               PCR   METAGENOMIC metagenome ILLUMINA 2022-05-24T00:00:00Z
+    ## 7               PCR   METAGENOMIC metagenome ILLUMINA 2022-05-24T00:00:00Z
+    ## 8               PCR   METAGENOMIC metagenome ILLUMINA 2022-05-24T00:00:00Z
+    ## 9               PCR   METAGENOMIC metagenome ILLUMINA 2022-05-24T00:00:00Z
+    ## 10              PCR   METAGENOMIC metagenome ILLUMINA 2022-05-24T00:00:00Z
+    ##             create_date version Sample.Name SRA.Study
+    ## 1  2022-05-24T03:18:00Z       1      RA116C SRP376757
+    ## 2  2022-05-24T03:19:00Z       1      RA114C SRP376757
+    ## 3  2022-05-24T03:18:00Z       1      RA113C SRP376757
+    ## 4  2022-05-24T03:18:00Z       1      RA112C SRP376757
+    ## 5  2022-05-24T03:18:00Z       1      RA111C SRP376757
+    ## 6  2022-05-24T03:18:00Z       1      RA110C SRP376757
+    ## 7  2022-05-24T03:18:00Z       1      RA109C SRP376757
+    ## 8  2022-05-24T03:18:00Z       1      RA108C SRP376757
+    ## 9  2022-05-24T03:18:00Z       1      RA107C SRP376757
+    ## 10 2022-05-24T03:18:00Z       1      RA106C SRP376757
+
+``` r
 # IMPORTANT: Check the unique values in the column of interest or query column.
-# lapply(initial_meta[c('body_habitat', 'body_product', 'body_site')], table) # site
-# table(initial_meta$host_subject_id) # subject id
-# table(initial_meta$platform..exp.) # output is Illumina
+lapply(initial_meta[c('host_body_product')], table) # site
+```
+
+    ## $host_body_product
+    ## 
+    ## oral cavity 
+    ##         189
+
+``` r
+lapply(initial_meta[c('Organism', 'Host')], table) # organism
+```
+
+    ## $Organism
+    ## 
+    ## metagenome 
+    ##        189 
+    ## 
+    ## $Host
+    ## 
+    ## Homo sapiens 
+    ##          189
+
+``` r
+table(initial_meta$Sample.Name) # subject id
+```
+
+    ## 
+    ##  RA001 RA001C  RA002 RA002C  RA003 RA003C  RA004 RA004C  RA005 RA005C  RA006 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## RA006C  RA007 RA007C  RA008 RA008C  RA009 RA009C  RA010  RA011 RA011C  RA012 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  RA013 RA013C  RA014 RA014C  RA015 RA015C  RA016 RA016C  RA017 RA017C  RA018 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## RA018C  RA019 RA019C  RA020 RA020C  RA021 RA021C  RA022 RA022C  RA023 RA023C 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  RA024 RA024C  RA025 RA025C  RA026 RA026C RA027C  RA028 RA028C  RA029 RA029C 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  RA030 RA030C  RA031 RA031C  RA032 RA032C  RA033 RA033C  RA034 RA034C  RA035 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## RA035C  RA036 RA036C  RA037 RA037C RA038C RA039C  RA040 RA040C  RA041 RA041C 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  RA042 RA042C  RA043 RA043C  RA044 RA044C  RA045 RA045C  RA046 RA046C  RA047 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## RA047C  RA048 RA048C  RA049 RA049C RA050C  RA051 RA051C  RA052 RA052C  RA053 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## RA053C  RA054 RA054C  RA055 RA055C  RA056 RA056C  RA057 RA057C  RA058 RA058C 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  RA059 RA059C RA060C  RA061 RA061C  RA062 RA062C  RA063  RA064 RA064C  RA065 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## RA065C  RA066 RA066C  RA067 RA067C  RA068 RA068C  RA069 RA069C  RA070 RA070C 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  RA071 RA071C  RA072 RA072C  RA073 RA073C  RA074 RA074C  RA075 RA075C RA076C 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ##  RA077 RA077C  RA078 RA078C  RA079 RA079C  RA080 RA080C RA081C  RA082 RA083C 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## RA084C RA086C RA087C RA088C RA090C RA091C RA092C RA093C RA094C RA095C RA096C 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## RA097C RA098C RA099C RA100C RA101C RA102C RA103C RA104C RA105C RA106C RA107C 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## RA108C RA109C RA110C RA111C RA112C RA113C RA114C RA115C RA116C RA117C RA118C 
+    ##      1      1      1      1      1      1      1      1      1      1      1 
+    ## RA119C RA120C 
+    ##      1      1
+
+``` r
+#table(initial_meta$sequencing_meth..exp.) # output is pyrosequencing
+table(initial_meta$Platform) # output is Illumina. according to the methods, Illumina is correct.
+```
+
+    ## 
+    ## ILLUMINA 
+    ##      189
+
+``` r
 # table(initial_meta$target_subfragment..exp.)
 ```
 
@@ -54,15 +238,18 @@ controls and positive controls) and non-human samples.
 
 ``` r
 # (1) EDIT HERE: Parameter setup
-# NOTE: This project has no lab control samples (blanks/positives) or non-human samples. Leave keywords empty to skip filtering.
-control_column <- NA   # column name in initial_meta
-# unique(initial_meta[[control_column]])  # uncomment to explore
-control_keywords <- c()     # Enter exact keywords
+control_column <- "" # column name in initial_meta
+# unique(initial_meta[[control_column]])
+control_keywords <- c() # Enter exact keywords
 
-species_column <- NA          # column name in initial_meta
-# unique(initial_meta[[species_column]])  # uncomment to explore
-non_human_keywords <- c()            # Enter exact keywords
+species_column <- "" # column name in initial_meta
+unique(initial_meta[[species_column]])
+```
 
+    ## NULL
+
+``` r
+non_human_keywords <- c() # Enter exact keywords
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
 n_samples <- nrow(initial_meta)
@@ -71,15 +258,15 @@ if (length(control_keywords) > 0) {
   if (is.null(control_column) || control_column == "") {
     stop("Error: control_keywords provided but control_column is missing.")
   }
-
+  
   if (!(control_column %in% colnames(initial_meta))) {
     stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
   }
-
+  
   control_pattern <- paste(control_keywords, collapse = "|")
   control_text <- initial_meta[[control_column]]
   is_control <- grepl(control_pattern, control_text)
-
+  
 } else {
   is_control <- rep(FALSE, n_samples)
 }
@@ -89,11 +276,11 @@ if (length(non_human_keywords) > 0) {
   if (is.null(species_column) || species_column == "") {
     stop("Error: non_human_keywords provided but species_column is missing.")
   }
-
+  
   if (!(species_column %in% colnames(initial_meta))) {
-    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
   }
-
+  
   non_human_pattern <- paste(non_human_keywords, collapse = "|")
   species_text <- initial_meta[[species_column]]
   is_non_human <- grepl(non_human_pattern, species_text)
@@ -139,57 +326,69 @@ cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
 This step converts the raw SRA table into the standard metadata format
 used in our meta-analysis. The uniform metadata should include the
 following columns: 1. **bioproject**: Project ID from SRA or other
-database 2. **sample\_id**: SRA sample/run ID. Unique id for each
-sample! 3. **subject\_id**: subject id for each person if available. 4.
-**age**: Age of the subject if available. e.g. `35`, `42` 5.
-**age\_info**: If the age is not explicitly stated but approximate age
-range information is available, mark it in this column. 6. **bmi**: Body
-Mass Index if available. 7. **sex**: Sex of the subject. Mandatory to
-write as M/F 8. **sequencing\_region**: Targeted 16S rRNA region. 9.
-**platform**: Sequencing platform. 10. **country**: Country of sample
-origin. 11. **site**: Sampling site. For oral and gut sites, specify the
-exact sites as detailed as possible. 12. **site\_group**: only accepts
-one of following three values: ‘oral’, ‘gut’, or ‘other’. 13.
-**public\_time**: Data release date. 14. **pcr\_primers**: PCR primers
-used. 15. **title**: Title of the associated publication. 16.
-**disease\_study**: Whether the study involves disease samples. Only
-three values accepted: ‘yes’, ‘no’ or NA 17. **status**: Disease status
-for each sample if available, else record as NA. 18.
-**matched\_samples**: Whether the subject has matched samples. Only
-accept ‘yes’ or ‘no’. 19. **is\_time\_series**: Whether the study is a
-time series study. Only accept ‘yes’ or ‘no’.
+database e.g. `PRJNA1234`, `CNP1234`, ‘OEP1234’, ‘qiita_1234’ 2.
+**sample_id**: SRA sample/run ID. Unique id for each sample!
+e.g. `DRR1234567`, `ERR1234567` and `SRR1234567`. If no such column
+exists, can use column like sample_name. 3. **subject_id**: subject id
+for each person if available. e.g. `patient_01`, `Host_03_before`,
+`subject12` 4. **age**: Age of the subject if available. e.g. `35`, `42`
+\| not `adult`, `chilren` 5. **age_info**: If the age is not explicitly
+stated but approximate age range information is available, mark it in
+this column. e.g., `18-55`, `children`, `infant`, `elder` 6. **bmi**:
+Body Mass Index if available. e.g. `22.5`, `18.9` \| not `normal`,
+`overweight` 7. **sex**: Sex of the subject. Mandatory to write as M/F
+\| not `female`, `woman` 8. **sequencing_region**: Targeted 16S rRNA
+region. e.g. `V3-V4`, `V4` 9. **platform**: Sequencing platform.
+e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent` 10.
+**country**: Country of sample origin. e.g. `China`, `Japan` \| not city
+name like `Beijing` 11. **site**: Sampling site. For oral and gut sites,
+specify the exact sites as detailed as possible. For example, if it is
+known to be supragingival plaque, do not record it as ‘dental plaque’,
+unless the original text provides only a vague description.
+e.g. `saliva`, `tongue coating` \| not broad term like `oral` 12.
+**site_group**: only accepts one of following three values: ‘oral’,
+‘gut’, or ‘other’. 13. **public_time**: Data release date.
+e.g. `2021-06-22` \| not `June 2021` 14. **pcr_primers**: PCR primers
+used. e.g. `515F-806R`, `27F-338R` \| not primer sequences 15.
+**title**: Title of the associated publication. 16. **disease_study**:
+Whether the study involves disease samples. If it’s not clear, can
+record as NA. Only three values accepted: ‘yes’, ‘no’ or NA 17.
+**status**: Disease status for each sample if available, else record as
+NA. Only accept following abbreviations, Write full names for all other
+diseases. HC: healthy control CD: Crohn’s disease CRC: colorectal cancer
+COPD: chronic obstructive pulmonary disease HIV: human immunodeficiency
+virus ICU: intensive care unit OSCC: oral squamous cell carcinoma RA:
+rheumatoid arthritis UC: ulcerative colitis 18. **matched_samples**:
+Whether the subject has matched samples. Only accept ‘yes’ or ‘no’. 19.
+**is_time_series**: Whether the study is a time series study. Only
+accept ‘yes’ or ‘no’.
 
 ``` r
-# Extract columns from initial_meta as follows:
-# (1) No modification needed → extract directly.
-# (2) Modification needed → create a column start with 'raw_' and mark the target column as "pending".
-# (3) Need to find or determine based on the article.
-
+# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as “pending”. (3) Need to find or determine based on the article.
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
   age = initial_meta$Host_age,
-  age_info = "46 (38-50) RA, 43 (37-49) HC",
+  age_info = NA,
   bmi = initial_meta$host_body_mass_index,
-  raw_sex = "F",
-  sex = "pending",
-  sequencing_region = "V3-V4",
-  platform = initial_meta$Instrument,
+  sex = NA,
+  sequencing_region = NA, # extract from methods section
+  platform = "Illumina NovaSeq 6000", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
-  raw_site = NA,
-  site = "oral swab",
-  site_group = "pending",
+  raw_site = initial_meta$host_body_product,
+  site = "pending", # modify later
+  site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = NA,
-  title = NA,
-  disease_study = NA,
-  status = "pending",
-  matched_samples = "pending",
-  is_time_series = "no",
+  pcr_primers = NA, # Format: xxF-xxR
+  title = "Oral microbial signature of rheumatoid arthritis in female patients", # extract from article
+  disease_study = "yes", # determine according to the article
+  raw_status = initial_meta$Sample.Name,  
+  status = "pending", # modify later
+  matched_samples = "pending", # modify later
+  is_time_series = "no", # determine according to the article
   stringsAsFactors = FALSE
 )
-
 metadata$public_time <- as.Date(metadata$public_time)
 ```
 
@@ -201,28 +400,19 @@ columns.
 
 ``` r
 # (1) Handle the columns with the `raw_` prefix.
-# IMPORTANT: Add comments if the modification is not straightforward!!
+# In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata <- metadata %>%
+  mutate(site = case_when(
+    grepl("oral cavity", raw_site) ~ "oral scraping", # During the visit, scrapings were collected from the surface of the tongue, gums, tonsils, and plaque.
+    TRUE ~ NA_character_
+  )) # according to the 'host_body_product' column of initial_meta
 
-# Extract disease status from sample_name in SRA metadata
-# v1 sample_name encoded group: RA116C = HC (control), RA115 = RA (patient)
-# Run IDs don't encode this, so we map from SRA Sample.Name
-sra_names <- initial_meta$Sample.Name
-metadata$status <- case_when(
-  grepl("C$", sra_names) ~ "HC",
-  grepl("^[A-Z]+[0-9]+C$", sra_names) ~ "HC",
-  TRUE ~ "RA"
-)
-
-# Assign site and sex (all female patients, oral swab samples)
-metadata$site <- "oral swab"
-metadata$sex <- "F"
-
-# Remove BMI outlier (maximum value is erroneous)
-metadata$bmi[which.max(metadata$bmi)] <- NA
-
-# Add publication information
-metadata$title <- "Oral Microbial Signature of Rheumatoid Arthritis in Female Patients"
-metadata$disease_study <- "yes"
+metadata <- metadata %>%
+  mutate(status = case_when(
+    !grepl("C$", raw_status) ~ "RA", # rheumatoid arthritis (RA)
+    grepl("C$", raw_status) ~ "HC", 
+    TRUE ~ NA_character_
+  )) # according to the 'Sample.Name' column of initial_meta
 ```
 
 ``` r
@@ -231,25 +421,25 @@ metadata$disease_study <- "yes"
 unique(metadata$site)
 ```
 
-    ## [1] "oral swab"
+    ## [1] "oral scraping"
 
 ``` r
 # EDIT HERE: add oral sites
-Oral_site = c("saliva", "mouth", "tongue coating", "supragingival plaque", "subgingival plaque", "oral swab", "denture", "tooth", "abscess pus", "adjacent periodontal pocket", "patient healthy crevice", "healthy control crevice", "gingival crevicular fluid", "subgingival plaque")
+Oral_site = unique(metadata$site)
 # EDIT HERE: add gut sites
-Gut_site = c("feces", "stool")
+Gut_site = c()
 # just run
 metadata <- metadata %>%
   mutate(site_group = case_when(
     site %in% Oral_site ~ "oral",
     site %in% Gut_site ~ "gut",
-    TRUE ~ "other"
+    TRUE ~ "other" 
   ))
 
 # editing matched_samples, just run.
 metadata$matched_samples <- ifelse(
-  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
-  "yes",
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1, 
+  "yes", 
   "no"
 )
 ```
@@ -333,15 +523,15 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ``` r
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
-<img src="Metadata_Summary.png" alt="" width="1200" />
+<img src="Metadata_Summary_v2.png" alt="" width="1200" />
 
 # Step 7: Sort and export the metadata
 
@@ -351,13 +541,13 @@ file.
 ``` r
 # Reorder the data frame
 fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
-                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
-                "country", "site", "site_group", "disease_study", "status",
-                "title", "public_time", "matched_samples", "is_time_series")
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers", 
+                "country", "site", "site_group", "disease_study", "status", 
+                "title", "public_time", "matched_samples", "is_time_series")  
 metadata <- metadata %>%
   select(all_of(fixed_cols), everything())
 
-# save metadata
+# save metadata 
 # head(metadata)
-write.csv(metadata, file = "metadata_v2.csv", quote = TRUE, row.names = FALSE)
+write.csv(metadata, file = "metadata_v2.csv", quote = TRUE)
 ```

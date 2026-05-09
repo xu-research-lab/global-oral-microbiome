@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA807496" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "E:/oral_metadata/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -196,8 +196,9 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # (1) Handle the columns with the `raw_` prefix.
 metadata <- metadata %>% 
   mutate(status=case_when(
-    grepl("adult",raw_status)~"HC",
-    TRUE~"diabetes and periodontitis"
+    raw_status == "Healthy adult" ~ 'HC',
+    raw_status == "Adult with Diabetes and Periodontitis" ~ "diabetes and periodontitis",
+    TRUE~ NA
   ))
 ```
 

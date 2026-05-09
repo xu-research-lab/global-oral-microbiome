@@ -177,9 +177,10 @@ metadata <- data.frame(
   pcr_primers = "515F-806R", # Format: xxF-xxR
   title = "Changes in the Gut Microbiota of Urban Subjects during an Immersion in the Traditional Diet and Lifestyle of a Rainforest Village", # extract from article
   disease_study = "no", # determine according to the article
-  status = "HC", 
+  status = NA, 
   matched_samples = "pending", # modify later
-  is_time_series = "no", # determine according to the article
+  raw_is_time_series = initial_meta$samplegroup,
+  is_time_series = "pending", # determine according to the article
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
@@ -202,6 +203,12 @@ metadata <- metadata %>%
   mutate(sex = case_when(
     raw_sex == "male"   ~ "M",
     raw_sex == "female" ~ "F",
+    TRUE ~ NA_character_
+  ))
+metadata <- metadata %>%
+  mutate(is_time_series = case_when(
+    raw_is_time_series == "Villagers"   ~ "no",
+    raw_is_time_series == "Visitors" ~ "yes",
     TRUE ~ NA_character_
   ))
 # metadata$site <- gsub("UBERON:", "", metadata$raw_site)

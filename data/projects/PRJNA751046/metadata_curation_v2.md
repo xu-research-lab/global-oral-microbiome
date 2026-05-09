@@ -246,18 +246,18 @@ controls and positive controls) and non-human samples.
 
 ``` r
 # (1) EDIT HERE: Parameter setup
-control_column <- "env_local_scale" # column name in initial_meta
+control_column <- "" # column name in initial_meta
 # unique(initial_meta[[control_column]])
-control_keywords <- c("not applicable") # Enter exact keywords. Exclude samples not mentioned in the article. Article: Thirty subjects in the study were classified into three groups - Healthy (control, n=10), OSCC (OC, n=10) and long-term tobacco chewers (tobacco, n=10), each consisting of ten individuals.
+control_keywords <- c() # Enter exact keywords
 
-species_column <- "env_medium" # column name in initial_meta
+species_column <- "" # column name in initial_meta
 unique(initial_meta[[species_column]])
 ```
 
-    ## [1] NA           "missing"    "oral rinse"
+    ## NULL
 
 ``` r
-non_human_keywords <- c("missing") # Enter exact keywords. Exclude samples not mentioned in the article. Article: Thirty subjects in the study were classified into three groups - Healthy (control, n=10), OSCC (OC, n=10) and long-term tobacco chewers (tobacco, n=10), each consisting of ten individuals.
+non_human_keywords <- c() # Enter exact keywords
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
 n_samples <- nrow(initial_meta)
@@ -309,25 +309,25 @@ cat("Initial samples counts:",n_samples,"\n")
 cat("Removed control samples:", sum(is_control), "\n")
 ```
 
-    ## Removed control samples: 20
+    ## Removed control samples: 0
 
 ``` r
 cat("Removed non-human samples:", sum(is_non_human), "\n")
 ```
 
-    ## Removed non-human samples: 65
+    ## Removed non-human samples: 0
 
 ``` r
 cat("Total samples removed ", sum(samples_to_remove), "\n")
 ```
 
-    ## Total samples removed  85
+    ## Total samples removed  0
 
 ``` r
 cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
 ```
 
-    ## Remaining samples after Step 2: 27
+    ## Remaining samples after Step 2: 112
 
 # Step 4: Creating a Uniform Metadata Template
 
@@ -378,7 +378,7 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   subject_id = initial_meta$Sample.Name,
   age = initial_meta$Host_Age, 
-  age_info = "above 18 years old", # extract from methods section 
+  age_info = "41±10", # extract from Table S1: Control 
   bmi = NA,
   sex = NA,
   sequencing_region = "V6-V8", # extract from methods section
@@ -388,9 +388,9 @@ metadata <- data.frame(
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "969F-1406R", # Format: xxF-xxR
-  title = "Identification & correlation of bacterial diversity in oral cancer and long-term tobacco chewers- a case-control pilot study", # extract from article
+  title = "Oral microbial signatures of tobacco chewers and oral cancer patients in India", # extract from article
   disease_study = "yes", # determine according to the article
-  raw_status = initial_meta$env_local_scale, 
+  raw_status = initial_meta$Sample.Name, 
   status = "pending", # modify later
   matched_samples = "pending", # modify later
   is_time_series = "no", 
@@ -410,10 +410,10 @@ columns.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
 metadata <- metadata %>%
   mutate(status = case_when(
-    grepl("healthy", raw_status) ~ "HC",
-    grepl("OSCC", raw_status) ~ "OSCC",
+    grepl("OC|O", raw_status) ~ "OSCC",
+    grepl("C|T", raw_status) ~ "HC", # According to Table S1 : Clinical characteristics of participants, long-term tobacco chewers are healthy people
     TRUE ~ NA_character_
-  )) # according to the 'env_local_scale' column of initial_meta
+  )) # according to the 'Sample.Name' column of initial_meta
 ```
 
 ``` r

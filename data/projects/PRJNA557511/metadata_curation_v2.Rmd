@@ -25,20 +25,12 @@ sra_file <- "SraRunTable.csv"
 initial_meta <- read.csv(sra_file, header = TRUE)
 
 # (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
-supp_table <- read.csv("supplemental_table_v2.csv", header = TRUE)
-
-mapping <- initial_meta %>%
-  filter(grepl("^ZZ_ORAL_HC_|^HC__", Sample.Name)) %>% # Because there are 384 samples in initial_meta, which is inconsistent with the 132 samples provided by supplemental_table_v2.csv, the samples that do not exist in supplemental_table_v2.csv should be filtered out first. 
-  mutate(number = sub("^ZZ_ORAL_HC_|^HC__", "HC_", Sample.Name)) %>% # In addition, The values in the 'Sample.Name' column of 'SraRunTable.csv' are in the HC__2 format (double underscore), while the values in the 'number' column of 'supplemental_table_v2.csv' are in the HC_2 format (single underscore). The single underscore needs to be replaced with a double underscore in order to merge 'supplemental_table_v2.csv' into 'SraRunTable.csv'.
-  group_by(number) %>%
-  arrange(desc(Sample.Name)) %>% 
-  slice(1) %>% 
-  ungroup() %>%
-  select(number, Sample.Name) # The original sentence of the article is: After a rigorous diagnosis and exclusion procedures, 235 samples completed the Miseq sequencing, 44 patients with CKD and 88 healthy controls samples from Zhengzhou, China, and 59 patients with CKD and 44 HCs samples from Hangzhou, China, were included (Figure 1)
-
-initial_meta <- supp_table %>%
-  inner_join(mapping, by = "number") %>% 
-  left_join(initial_meta, by = "Sample.Name") 
+supp_table <- read.csv("supplemental_table_v2.csv", header = TRUE) # Supplemental_table_v2.csv is not from this article Oral microbiome characteristics in patients with autoimmune hepatitis. It comes from another article Characteristics of human oral microbiome and its non-invasive diagnostic value in chronic kidney disease. Because Characteristics of human oral microbiome and its non-invasive diagnostic value in chronic kidney disease this article is also used by PRJNA557511 (Article: The raw Illumina read data for all samples were deposited in the European Bioinformatics Institute European Nucleotide Archive database under the accession number PRJNA557511(HC group) and PRJNA649074(CKD group).). According to supplemental_table_v2.csv, it can correspond to a part of the samples in SraRunTable.csv of PRJNA557511.
+initial_meta <- initial_meta %>%
+  mutate(match_key = sub("^ZZ_ORAL_HC_", "HC_", Sample.Name)) %>%
+  left_join(supp_table, by = c("match_key" = "number")) %>%
+  select(-match_key) # There are 99 samples with the prefix of HC__ and 69 samples with the prefix of AIH__ in the Sample.Name column of initial_metadata, which are not mentioned in the article. According to the prefix part, they are classified into HC group and autoimmune hepatitis group in the status column. 
+# In the Sample.Name column, there are 68 values prefixed with ZZ_ORAL_AIH, 136 values prefixed with ZZ_ORAL_HC, and 12 values prefixed with HZ_ORAL_hzAIH_.These samples are clearly mentioned in the article. The original text is: we collected 204 saliva samples including 68 AIH patients and 136 healthy controls and performed microbial MiSeq sequencing after screening. Moreover, we collected samples of 12 AIH patients from Hangzhou for cross-regional validation.
 ```
 
 # Step 2: Data Overview
@@ -179,16 +171,17 @@ metadata <- data.frame(
   bmi = initial_meta$BMI,
   raw_sex = initial_meta$gender.male.0.female.1., # if need modify, then create a column start with 'raw_'
   sex = "pending", # and mark as "pending"
-  sequencing_region = "V3-V4",
+  sequencing_region = NA,
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
   site = initial_meta$isolation_source,
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = "341F-805R", # Format: xxF-xxR
-  title = "Characteristics of human oral microbiome and its non-invasive diagnostic value in chronic kidney disease", # extract from article
+  pcr_primers = "F:5'-ACTCCTACGGGAGGCAGCA-3';R:5'-GGACTACHVGGGTWTCTAAT-3'", # Format: xxF-xxR
+  title = "Oral microbiome characteristics in patients with autoimmune hepatitis", # extract from article
   disease_study = "yes", # determine according to the article
-  status = "HC", # the original sentence of the article is: After a rigorous diagnosis and exclusion procedures, 235 samples completed the Miseq sequencing, 44 patients with CKD and 88 healthy controls samples from Zhengzhou, China, and 59 patients with CKD and 44 HCs samples from Hangzhou, China, were included (Figure 1).
+  raw_status = initial_meta$Sample.Name, 
+  status = "pending", # modify later
   matched_samples = "pending", # modify later
   is_time_series = "no", # determine according to the article
   stringsAsFactors = FALSE
@@ -209,6 +202,13 @@ metadata <- metadata %>%
     raw_sex == "1" ~ "F", # 1 value represents female
     TRUE ~ NA_character_
   )) # According to the 'gender.male.0.female.1.' column of initial_meta
+
+metadata <- metadata %>%
+  mutate(status = case_when(
+    grepl("AIH", raw_status) ~ "autoimmune hepatitis", # 
+    grepl("HC", raw_status) ~ "HC",
+    TRUE ~ NA_character_
+  )) # according to the 'Sample.Name' column of initial_meta
 ```
 
 ```{r}

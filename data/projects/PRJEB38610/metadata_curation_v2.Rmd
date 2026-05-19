@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJEB38610" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419"
+base_dir <- "../"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -171,7 +171,7 @@ metadata <- data.frame(
   raw_sex = initial_meta$host_sex, # if need modify, then create a column start with 'raw_'
   sex = "pending", # and mark as "pending"
   sequencing_region = "V4",
-  platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
+  platform = "Illumina NextSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
   #raw_site = initial_meta$environment_.material.,
   raw_site = initial_meta$environment_.material.,

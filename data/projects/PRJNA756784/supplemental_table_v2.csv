@@ -1,0 +1,60 @@
+"Sample_number","Gender","Food.habit","Age","Place","Tobacco","Diabetic.status","Systolic.BP.mean","BMI","Area.affected","Family.history","Duration.of.chewing.(years)"
+"HTC-1","Male","Non-vegetarian",42,"New Delhi","Khaini/Guthkha","No",132,22.3,NA,NA,NA
+"HTC-2","Male","Non-vegetarian",45,"New Delhi","Khaini","No",134,25.6,NA,NA,NA
+"HTC-3","Male","Vegetarian",40,"New Delhi","Loose leaves/Khaini","No",122,28.9,NA,NA,NA
+"HTC-4","Male","Vegetarian",40,"New Delhi","Loose leaves/Kuber","No",146,21.6,NA,NA,NA
+"HTC-5","Male","Non-vegetarian",24,"New Delhi","Khaini/Surti","No",118,27.7,NA,NA,NA
+"HTC-6","Male","Non-vegetarian",24,"New Delhi","Khaini/Guthkha","No",112,24.8,NA,NA,NA
+"HTC-7","Male","Non-vegetarian",46,"New Delhi","Khaini","No",138,29.1,NA,NA,NA
+"HTC-8","Male","Vegetarian",40,"New Delhi","Khaini","No",126,24.6,NA,NA,NA
+"HTC-9","Male","Vegetarian",37,"New Delhi","Gutkha/Khaini","No",134,26.9,NA,NA,NA
+"HTC-10","Female","Non-vegetarian",52,"New Delhi","Khaini/Loose leaves","Yes",116,27.3,NA,NA,NA
+"HTC-11","Male","Vegetarian",41,"New Delhi","Khaini","No",118,24.9,NA,NA,NA
+"HTC-12","Female","Vegetarian",35,"New Delhi","Loose leaves/Gutkha/Khaini","No",120,23.8,NA,NA,NA
+"HTC-13","Male","Non-vegetarian",50,"New Delhi","Khaini/Loose leaves","No",132,26.6,NA,NA,NA
+"HTC-14","Male","Non-vegetarian",28,"New Delhi","Loose leaves/Gutkha/Khaini","No",128,22.9,NA,NA,NA
+"HTC-15","Male","Non-vegetarian",35,"New Delhi","Khaini","No",124,22.6,NA,NA,NA
+"HTC-16","Male","Non-vegetarian",58,"New Delhi","Loose leaves/Gutkha/Kuber","No",128,21.9,NA,NA,NA
+"HTC-17","Male","Vegetarian",60,"New Delhi","Loose leaves/Gutkha/Khaini","No",132,27.3,NA,NA,NA
+"HTC-18","Female","Vegetarian",54,"New Delhi","Khaini/loose leaves/Guthkha","Yes",134,27.1,NA,NA,NA
+"HTC-19","Female","Vegetarian",51,"New Delhi","Khaini/Loose leaves","No",112,26.3,NA,NA,NA
+"HTC-20","Male","Non-vegetarian",55,"New Delhi","Loose leaves/Gutkha/Khaini","No",124,25.3,NA,NA,NA
+"HI1","Male","Non-Vegetarian",30,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI2","Male","Vegetarian",24,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI3","Female","Vegetarian",27,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI4","Male","Vegetarian",57,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI5","Male","Non-Vegetarian",51,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI7","Female","Vegetarian",30,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI8","Male","Vegetarian",30,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI9","Male","Vegetarian",34,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI10","Male","Non-Vegetarian",22,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI11","Male","Non-Vegetarian",24,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI12","Male","Vegetarian",21,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI13","Male","Vegetarian",21,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI14","Female","Vegetarian",35,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI16","Female","Vegetarian",21,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI17","Female","Vegetarian",32,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI18","Female","Vegetarian",22,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI19","Male","Vegetarian",21,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI20","Male","Vegetarian",55,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI21","Female","Vegetarian",50,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"HI22","Female","Vegetarian",20,"New Delhi",NA,NA,NA,NA,NA,NA,NA
+"CP2","Female","Vegetarian",40,NA,"Loose leaves and pan masala","No",120,24.7,"Tongue left lateral","No",7
+"CP3","Male","Non-vegetarian",45,NA,"Loose leaves and CaCO3","Yes",130,28.9,"Middle of tongue","No",30
+"CP4","Male","Non-vegetarian",44,NA,"Pan masala","No",140,24.5,"Right cheek","Elder brother",4
+"CP5","Male","Non-vegetarian",63,NA,"Loose leaves and pan masala","Yes",134,26.8,"Left check and gums","No",20
+"CP6","Male","Non-vegetarian",35,NA,"Gutkha","No",124,32,"Left cheek","No",10
+"CP7","Male","Vegetarian",63,NA,"Loose leaves and gutkha","No",118,22,"Left cheek","No",10
+"CP8","Male","Vegetarian",52,NA,"Tobacco","No",112,28.8,"Tongue","No",10
+"CP9","Male","Vegetarian",56,NA,"Loose leaves and gutkha","No",126,24.6,"Tongue cancer","No",10
+"CP10","Male","Non-vegetarian",60,NA,"Surti alone","No",122,30,"Deep inside the teeth","No",5
+"CP11","Male","Non-vegetarian",50,NA,"Surti and CaCO3","No",136,24.5,"Right cheek","No",10
+"CP12","Male","Non-vegetarian",65,NA,"Surti and CaCO3","Yes",142,27.8,"Right cheek","No",40
+"CP13","Female","Non-vegetarian",53,NA,"Loose leaves and gutkha","No",116,22.9,"Supragingival epithelial squamous","No",5
+"CP14","Male","Non-vegetarian",48,NA,"Loose leaves and gutkha","No",132,23.7,"Squamous epithelium hyperplasia","No",6
+"CP15","Male","Non-vegetarian",27,NA,"Loose leaves and gutkha","No",124,24.8,"OSCC","No",5
+"CP16","Male","Non-vegetarian",50,NA,"Leaves, khaini, and gutkha","No",120,27.4,"Left cheek","No",5
+"CP17","Male","Non-vegetarian",46,NA,"Leaves, khaini, and gutkha","No",128,28.7,"Lateral tongue","No",5
+"CP18","Female","Non-vegetarian",52,NA,"Leaves and khaini","No",118,22.3,"Right cheek OSCC","No",5
+"CP19","Female","Vegetarian",56,NA,"Leaves and khaini","No",120,21.8,"Left cheek","No",5
+"CP20","Male","Non-vegetarian",33,NA,"Leaves and khaini","No",130,26.7,"Left cheek","No",6

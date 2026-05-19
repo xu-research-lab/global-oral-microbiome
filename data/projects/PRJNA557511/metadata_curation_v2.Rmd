@@ -188,8 +188,7 @@ metadata <- data.frame(
   pcr_primers = "341F-805R", # Format: xxF-xxR
   title = "Characteristics of human oral microbiome and its non-invasive diagnostic value in chronic kidney disease", # extract from article
   disease_study = "yes", # determine according to the article
-  raw_status = initial_meta$Sample.Name, 
-  status = "pending", # modify later
+  status = "HC", # the original sentence of the article is: After a rigorous diagnosis and exclusion procedures, 235 samples completed the Miseq sequencing, 44 patients with CKD and 88 healthy controls samples from Zhengzhou, China, and 59 patients with CKD and 44 HCs samples from Hangzhou, China, were included (Figure 1).
   matched_samples = "pending", # modify later
   is_time_series = "no", # determine according to the article
   stringsAsFactors = FALSE
@@ -210,20 +209,6 @@ metadata <- metadata %>%
     raw_sex == "1" ~ "F", # 1 value represents female
     TRUE ~ NA_character_
   )) # According to the 'gender.male.0.female.1.' column of initial_meta
-
-
-metadata <- metadata %>%
-  mutate(sex = case_when(
-    raw_sex == "0" ~ "M", # 0 value represents male
-    raw_sex == "1" ~ "F", # 1 value represents female
-    TRUE ~ NA_character_
-  )) # According to the 'gender.male.0.female.1.' column of initial_meta
-
-metadata <- metadata %>%
-  mutate(status = case_when(
-    grepl("HC__", raw_status) ~ "HC",
-    TRUE ~ NA_character_
-  )) # According to the 'Sample.Name' column of initial_meta. In addition, the original sentence of the article is: After a rigorous diagnosis and exclusion procedures, 235 samples completed the Miseq sequencing, 44 patients with CKD and 88 healthy controls samples from Zhengzhou, China, and 59 patients with CKD and 44 HCs samples from Hangzhou, China, were included (Figure 1).
 ```
 
 ```{r}
@@ -326,12 +311,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

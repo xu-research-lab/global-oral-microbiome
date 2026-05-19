@@ -43,7 +43,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "CNP0002325"
 
-base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects"
+base_dir <- "D:/oral_project/验证/metadata_BIOM_check/"
 proj_dir <- file.path(base_dir, project_id)
 knitr::opts_knit$set(root.dir = proj_dir)
 setwd(proj_dir)
@@ -199,7 +199,7 @@ The uniform metadata should include the following columns:
 # (3) Need to find or determine based on the article.
 metadata <- data.frame(
   bioproject = initial_meta$project_accession,        # from project_accession column
-  sample_id = initial_meta$run_accession,             # CNR... run IDs
+  sample_id = initial_meta$sample_name,             # CNR... run IDs
   subject_id = initial_meta$sample_name,              # B1, C12, D7, S15... unique per subject
   age = NA,                                           # individual age not in metadata
   age_info = "6-14",                                  # paper inclusion criteria: "Aged 6-14 years"

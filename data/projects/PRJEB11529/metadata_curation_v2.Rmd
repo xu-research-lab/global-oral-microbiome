@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJEB11529" 
 
-base_dir <- "D:/studylearning/董彪师兄项目/任务_v2_20260419/"
+base_dir <- "../"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -199,7 +199,7 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
-metadata[which(metadata$raw_site=="SP"),]$site <- "supragingival"
+metadata[which(metadata$raw_site=="SP"),]$site <- "supragingival plaque"
 metadata[which(metadata$raw_site=="T"),]$site <- "tongue"
 metadata[which(metadata$raw_site=="SA"),]$site <- "saliva"
 ```
@@ -209,7 +209,7 @@ metadata[which(metadata$raw_site=="SA"),]$site <- "saliva"
 # editing site_group
 unique(metadata$site)
 # EDIT HERE: add oral sites
-Oral_site = c("supragingival","saliva","tongue")
+Oral_site = c("supragingival plaque","saliva","tongue")
 # EDIT HERE: add gut sites
 Gut_site = c("feces")
 # just run

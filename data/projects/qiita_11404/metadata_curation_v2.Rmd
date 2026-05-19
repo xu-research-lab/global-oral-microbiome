@@ -17,12 +17,12 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "qiita_11404" 
 
-base_dir <- "D:/oral-metadata/"
+base_dir <- "D:/oral_project/验证/metadata_BIOM_check/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
 sra_file <- "SraRunTable.tsv"
-initial_meta <- read.csv(sra_file, sep = "\t", header = TRUE)
+initial_meta <- read.csv(sra_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE, colClasses = "character")
 
 # (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
 # supp_table <- read.csv("supplemental_table.csv", header = TRUE)

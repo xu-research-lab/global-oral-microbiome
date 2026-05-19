@@ -1,0 +1,20 @@
+================ Merge Report ================
+Execution Time: 2026-05-10 22:45:07.469455
+Total subdirectories checked: 345
+Successfully merged metadata_v2.csv files: 334
+
+[1. Subdirectories missing metadata_v2.csv]
+ - PRJDB12444
+ - PRJEB28369
+ - PRJEB34486
+ - PRJNA216965
+ - PRJNA328521
+ - PRJNA411767
+ - PRJNA524629
+ - PRJNA649980
+ - PRJNA662100
+ - PRJNA725877
+ - PRJNA804331
+
+[2. Files missing required columns]
+None. All read files contain the 19 required columns.

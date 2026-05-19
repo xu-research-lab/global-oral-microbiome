@@ -1,0 +1,685 @@
+---
+title: "R Notebook: Metadata Processing Workflow (Oral-Gut-Pair)"
+output: github_document
+---
+
+# Step 1: Obtain Initial Metadata from Each Project
+
+This step sets the project directory, loads the raw SRA metadata, and optionally merges supplement tables.
+
+```{r message=FALSE, warning=FALSE}
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(cowplot)
+library(tidyverse)
+library(countrycode)
+library(tools)
+
+# (1) Setting working directory
+# EDIT HERE: change project_id for each study
+project_id <- "PRJNA535518" 
+
+base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-merge-YL/pair/260518/single pair/"
+setwd(file.path(base_dir, project_id))
+
+# (2) Loading raw SRA metadata file
+sra_file <- "SraRunTable.csv"
+initial_meta <- read.csv(sra_file, header = TRUE)
+
+# (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
+# supp_table <- read.csv("supplemental_table.csv", header = TRUE)
+# initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
+```
+
+# Step 2: Data Overview
+
+First, you need to get an overview of the data, which includes two steps: reading the article and reading the initial metadata. This step is very IMPORTANT!
+
+```{r message=FALSE, warning=FALSE}
+# (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
+
+# (2) IMPORTANT: MUST go through each column of initial_meta
+head(initial_meta, 10)
+
+# IMPORTANT: Check the unique values in the column of interest or query column.
+# lapply(initial_meta[c('body_habitat', 'body_product', 'body_site')], table) # site
+# lapply(initial_meta[c('common_name', 'env_biome', 'env_feature', 'env_matter', 'host_common_name', 'Organism', 'role', 'pet_farm_animal')], table) # organism: the dog sample counts in these columns are different! 512 in pet_farm_animal,217 in env_biome, env_feature and role, 210 in host_common_name. Majority rule, so we determine to use column role to filter dog samples
+# table(initial_meta$host_subject_id) # subject id
+# table(initial_meta$sequencing_meth..exp.) # output is pyrosequencing
+# table(initial_meta$platform..exp.) # output is Illumina. according to the methods, Illumina is correct.
+# table(initial_meta$target_subfragment..exp.)
+table(initial_meta$HOST)
+```
+
+# Step 3: Removing Control and Non-human Samples
+
+First, we need to remove control samples(including both negative controls and positive controls) and non-human samples.
+
+```{r}
+# (1) EDIT HERE: Parameter setup
+control_column <- ""   # column name in initial_meta
+# unique(initial_meta[[control_column]])
+control_keywords <- c()     # Enter exact keywords
+
+species_column <- ""          # column name in initial_meta
+unique(initial_meta[[species_column]])
+non_human_keywords <- c()            # Enter exact keywords
+
+
+# (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
+n_samples <- nrow(initial_meta)
+# Control evaluation
+if (length(control_keywords) > 0) {
+  if (is.null(control_column) || control_column == "") {
+    stop("Error: control_keywords provided but control_column is missing.")
+  }
+  
+  if (!(control_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+  }
+  
+  control_pattern <- paste(control_keywords, collapse = "|")
+  control_text <- initial_meta[[control_column]]
+  is_control <- grepl(control_pattern, control_text)
+  
+} else {
+  is_control <- rep(FALSE, n_samples)
+}
+
+# Non-human evaluation
+if (length(non_human_keywords) > 0) {
+  if (is.null(species_column) || species_column == "") {
+    stop("Error: non_human_keywords provided but species_column is missing.")
+  }
+  
+  if (!(species_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
+  }
+  
+  non_human_pattern <- paste(non_human_keywords, collapse = "|")
+  species_text <- initial_meta[[species_column]]
+  is_non_human <- grepl(non_human_pattern, species_text)
+} else {
+  is_non_human <- rep(FALSE, n_samples)
+}
+
+# Execute removal
+samples_to_remove <- is_control | is_non_human
+initial_meta <- initial_meta[!samples_to_remove, ]
+
+cat("Initial samples counts:",n_samples,"\n")
+cat("Removed control samples:", sum(is_control), "\n")
+cat("Removed non-human samples:", sum(is_non_human), "\n")
+cat("Total samples removed ", sum(samples_to_remove), "\n")
+cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
+```
+
+# Step 4: Creating a Uniform Metadata Template
+
+This step converts the raw SRA table into the standard metadata format used in our meta-analysis.
+The uniform metadata should include the following columns:
+1. **bioproject**: Project ID from SRA or other database
+   e.g. `PRJNA1234`, `CNP1234`, 'OEP1234', 'qiita_1234'
+2. **sample_id**: SRA sample/run ID. Unique id for each sample!
+   e.g. `DRR1234567`, `ERR1234567` and `SRR1234567`. If no such column exists, can use column like sample_name.
+3. **subject_id**: subject id for each person if available.
+   e.g. `patient_01`, `Host_03_before`, `subject12`
+4. **age**: Age of the subject if available.
+   e.g. `35`, `42` | not `adult`, `chilren`
+5. **age_info**: If the age is not explicitly stated but approximate age range information is available, mark it in this column.
+   e.g., `18-55`, `children`, `infant`, `elder`
+6. **bmi**: Body Mass Index if available.
+   e.g. `22.5`, `18.9` | not `normal`, `overweight`
+7. **sex**: Sex of the subject.
+   Mandatory to write as M/F | not `female`, `woman`
+8. **sequencing_region**: Targeted 16S rRNA region.
+   e.g. `V3-V4`, `V4` 
+9. **platform**: Sequencing platform.
+   e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent`
+10. **country**: Country of sample origin.
+   e.g. `China`, `Japan` | not city name like `Beijing`
+11. **site**: Sampling site. For oral and gut sites, specify the exact sites as detailed as possible. For example, if it is known to be supragingival plaque, do not record it as 'dental plaque', unless the original text provides only a vague description. 
+    e.g. `saliva`, `tongue coating` | not broad term like `oral`
+12. **site_group**: only accepts one of following three values: 'oral', 'gut', or 'other'.
+13. **public_time**: Data release date. 
+    e.g. `2021-06-22` | not `June 2021`
+14. **pcr_primers**: PCR primers used.
+    e.g. `515F-806R`, `27F-338R` | not primer sequences
+15. **title**: Title of the associated publication.
+16. **disease_study**: Whether the study involves disease samples. If it's not clear, can record as NA. Only three values accepted: 'yes', 'no' or NA
+17. **status**: Disease status for each sample if available, else record as NA. Only accept following abbreviations, Write full names for all other diseases.
+    HC: healthy control
+    CD: Crohn's disease
+    CRC: colorectal cancer
+    COPD: chronic obstructive pulmonary disease
+    HIV: human immunodeficiency virus
+    ICU: intensive care unit
+    OSCC: oral squamous cell carcinoma
+    RA: rheumatoid arthritis
+    UC: ulcerative colitis
+18. **matched_samples**: Whether the subject has matched samples. Only accept 'yes' or 'no'.
+19. **is_time_series**: Whether the study is a time series study. Only accept 'yes' or 'no'.
+
+```{r}
+# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as “pending”. (3) Need to find or determine based on the article.
+metadata <- data.frame(
+  bioproject = initial_meta$BioProject,
+  sample_id = initial_meta$Run,
+  subject_id = initial_meta$subject_id,
+  age = initial_meta$AGE_067,
+  age_info = NA,
+  bmi = NA,
+  #raw_sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
+  sex = NA, # and mark as "pending"
+  sequencing_region = "V4",
+  platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
+  country = initial_meta$geo_loc_name_country,
+  #raw_site = initial_meta$env_medium,
+  site = initial_meta$env_medium,
+  site_group = "pending", # modify later
+  public_time = initial_meta$ReleaseDate,
+  pcr_primers = NA, # Format: xxF-xxR
+  title = "Alterations in Oral Microbiota in HIV Are Related to Decreased Pulmonary Function", # extract from article
+  disease_study = "yes", # determine according to the article
+  status = NA, #无法确定每个样本的疾病健康状态
+  matched_samples = "pending", # modify later
+  is_time_series = "no", # determine according to the article
+  stringsAsFactors = FALSE
+)
+metadata$public_time <- as.Date(metadata$public_time)
+```
+
+# Step 5: Manually solving pending issues
+
+This step involves two parts: (1) handle the columns with the `raw_` prefix, and next (2) handle the `site_group` and `matched_samples` columns.
+
+```{r}
+# (1) Handle the columns with the `raw_` prefix.
+
+```
+
+```{r}
+# (2) Filling the 'site_group' and 'matched_samples' columns
+# editing site_group
+unique(metadata$site)
+# EDIT HERE: add oral sites
+Oral_site = c("saliva")
+# EDIT HERE: add gut sites
+Gut_site = c("stool")
+# just run
+metadata <- metadata %>%
+  mutate(site_group = case_when(
+    site %in% Oral_site ~ "oral",
+    site %in% Gut_site ~ "gut",
+    TRUE ~ "other" 
+  ))
+
+# editing matched_samples, just run.
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1, 
+  "yes", 
+  "no"
+)
+```
+
+```{r}
+# (3) check if there is pending value in metadata. If there is pending value, go on modify the metadata.
+# Function to check if a column contains "pending"
+has_pending <- function(col) {
+  if (is.character(col) || is.factor(col)) {
+    any(col == "pending", na.rm = TRUE)
+  } else {
+    FALSE
+  }
+}
+
+# Check for any pending value
+any_pending_value <- any(sapply(metadata, has_pending))
+
+if (!any_pending_value) {
+  message("Good! No cell contains the value 'pending'.")
+} else {
+  pending_cols <- names(metadata)[sapply(metadata, has_pending)]
+  message("Columns containing 'pending': ", paste(pending_cols, collapse = ", "))
+  message("Please continue to resolve these pending columns!")
+}
+```
+
+
+# Step 6: Column Cleaning for Merger and Analysis
+# Note : Do not change the code here !!!
+
+This step is to clean some of the 19 columns collected previously for merging into the summary table and subsequent analysis.
+
+```{r}
+# Define the core cleaning function
+generate_cleaned_cols <- function(df) {
+  df %>%
+    mutate(
+      # Age Cleaning 
+      age_cleaned = case_when(
+        str_detect(as.character(age), "(?i)week") ~ as.character(as.numeric(str_replace_all(as.character(age), "[^0-9.]", "")) / 52),
+        TRUE ~ as.character(age) 
+      ),
+      age_numeric = as.numeric(age_cleaned),
+      
+      age_cleaned_group_base = case_when(
+        !is.na(age_numeric) & (age_numeric < 0 | age_numeric > 150) ~ "Anomaly",
+        !is.na(age_numeric) & age_numeric <= 0.5 ~ "0-6 months",
+        !is.na(age_numeric) & age_numeric > 0.5 & age_numeric <= 3 ~ "6-36 months",
+        !is.na(age_numeric) & age_numeric > 3 & age_numeric <= 12 ~ "3-12 years",
+        !is.na(age_numeric) & age_numeric > 12 & age_numeric <= 18 ~ "12-18 years",
+        !is.na(age_numeric) & age_numeric > 18 & age_numeric <= 60 ~ "18-60 years",
+        !is.na(age_numeric) & age_numeric > 60 ~ "＞60 years",
+        TRUE ~ NA_character_
+      ),
+
+      age_info_lower = tolower(trimws(as.character(age_info))),
+
+      age_info_cleaned = case_when(
+        is.na(age_info_lower) ~ NA_character_,
+        age_info_lower %in% c(">=21", "≥21", "1-3 years at enrollment; longitudinal follow-up saliva samples in sra span approximately 1.34-5.57 years", "50+", "8 months-25 years", "age_group_1", "baby", "children", "child", "chilren", "elderly adults", "elder", "full cohort median age 41.5 years; healthy 38 (20-66), gingivitis 43 (18-71), chronic periodontitis 43 (21-60)", "infant", "not provided", "over 18 years", "toddlers 1-3 years; children 4-12 years; teenager-adults 13-59 years", "unspecified") ~ NA_character_,
+        age_info_lower %in% c("adult male betel-quid users", "adult male non-smokers; cohort mean age 44 years (range 31-60)", "adult participants; eligibility age >=18 years; total cohort median age 40.0 years (iqr 31.0-50.0)", "adults; group means reported separately by disease severity", "control 30.50±5.74; osa 40.11±11.25; htn 36.22±10.20; osa+htn 42.17±9.52; male adults >18 years", "control non-cp: 34.7 ± 15.9 years; control cp: 46.3 ± 13.2 years; sle non-cp: 31.2 ± 5.2 years; sle cp: 40.5 ± 10.1 years", "healthy dental students; mean age 26.36 +/- 1.58 years") ~ "18-60 years",
+        str_detect(age_info_lower, "^\\(\\s*\\d+\\.?\\d*\\s*,\\s*\\d+\\.?\\d*\\s*\\)$") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 12 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 18 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+        str_detect(age_info_lower, "month") & str_detect(age_info_lower, "\\d+") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+")) <= 6 ~ "0-6 months",
+          as.numeric(str_extract(age_info_lower, "\\d+")) <= 36 ~ "6-36 months",
+          TRUE ~ NA_character_
+        ),
+        str_detect(age_info_lower, "^\\s*\\d+\\.?\\d*\\s*-\\s*\\d+\\.?\\d*\\s*$") ~ case_when(
+          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 0.5 ~ "0-6 months",
+          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 3 ~ "6-36 months",
+          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 12 ~ "3-12 years",
+          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 18 ~ "12-18 years",
+          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+        str_detect(age_info_lower, "average|mean") & !str_detect(age_info_lower, "±|\\+-|;|migraine") & str_detect(age_info_lower, "\\d+") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 12 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 18 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+        str_detect(age_info_lower, "\\b[1-9]0s\\b") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d{2}")) < 12 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d{2}")) < 18 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d{2}")) < 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+        str_detect(age_info_lower, "±") & str_count(age_info_lower, "±") == 1 & str_detect(age_info_lower, "\\d+") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 12 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 18 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+        str_detect(age_info_lower, ";") & str_detect(age_info_lower, "25-58 years; migraine mean 39\\.5") ~ "18-60 years",
+        str_detect(age_info_lower, "60\\+|above 60") ~ "＞60 years",
+        age_info_lower %in% c("adult", "adults") ~ "18-60 years",
+        str_detect(age_info_lower, "centenarians") ~ "＞60 years",
+        str_count(age_info_lower, "±") >= 2 ~ "18-60 years",
+        str_detect(age_info_lower, "child \\(\\d+-year-olds\\)") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+")) <= 0.5 ~ "0-6 months",
+          as.numeric(str_extract(age_info_lower, "\\d+")) <= 3 ~ "6-36 months",
+          as.numeric(str_extract(age_info_lower, "\\d+")) <= 12 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) <= 18 ~ "12-18 years",
+          TRUE ~ NA_character_
+        ),
+        str_detect(age_info_lower, "newborn|preterm infant") ~ "0-6 months",
+        str_detect(age_info_lower, "older adults.*±") ~ "＞60 years",
+        age_info_lower %in% c("teen", "teenager") ~ "12-18 years",
+        age_info_lower == "young adults" ~ "18-60 years",
+        str_detect(age_info_lower, "mean.*\\+-") & str_detect(age_info_lower, "\\d+") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 18 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+        TRUE ~ NA_character_
+      ),
+
+      age_cleaned_group = case_when(
+        !is.na(age_cleaned_group_base) & age_cleaned_group_base != "Anomaly" ~ age_cleaned_group_base,
+        !is.na(age_info_cleaned) ~ age_info_cleaned,
+        ("raw_host" %in% names(df) && !is.na(df$raw_host) && tolower(trimws(as.character(df$raw_host))) == "pregnant women") ~ "18-60 years",
+        !is.na(age_cleaned_group_base) & age_cleaned_group_base == "Anomaly" ~ "Anomaly",
+        TRUE ~ NA_character_
+      ),
+
+      # BMI Cleaning
+      bmi_calc = case_when(
+        bioproject == "PRJEB34272" & as.character(bmi) == "not collected" ~ NA_character_,
+        TRUE ~ as.character(bmi) 
+      ),
+      bmi_raw_numeric = as.numeric(bmi_calc),
+      bmi_cleaned = case_when(
+        bmi_raw_numeric > 50 ~ NA_character_,
+        TRUE ~ bmi_calc
+      ),
+      bmi_numeric = as.numeric(bmi_cleaned),
+      bmi_cleaned_group = case_when(
+        is.na(bmi_numeric) & bmi_raw_numeric > 50 ~ "Anomaly_High",
+        is.na(bmi_numeric) ~ NA_character_,
+        bmi_numeric < 0 ~ "Anomaly_High",
+        bmi_numeric < 18.5 ~ "＜18.5",
+        bmi_numeric >= 18.5 & bmi_numeric < 24.0 ~ "18.5-24.0",
+        bmi_numeric >= 24.0 & bmi_numeric < 28.0 ~ "24.0-28.0",
+        bmi_numeric >= 28.0 ~ "≥28.0",
+        TRUE ~ NA_character_
+      ),
+      
+      # General Variables Cleaning
+      sex_cleaned = case_when(
+        bioproject %in% c("PRJDB12092", "PRJNA720269", "PRJDB10426") & as.character(sex) == "female" ~ "F",
+        bioproject %in% c("PRJDB12092", "PRJNA720269", "PRJDB10426") & as.character(sex) == "male" ~ "M",
+        TRUE ~ as.character(sex)
+      ),
+      platform_cleaned = case_when(
+        is.na(platform) ~ NA_character_,
+        bioproject == "PRJNA659632" & as.character(platform) == "ION TORRENT" ~ "Ion Torrent",
+        bioproject == "PRJNA745286" & as.character(platform) == "Illumina iSeq 100" ~ "Illumina MiSeq",
+        bioproject == "PRJNA362794" & as.character(platform) == "Illumina PE250" ~ "Illumina MiSeq",
+        as.character(platform) == "Illumina Miseq" ~ "Illumina MiSeq",
+        str_detect(as.character(platform), "(?i)NextSeq") ~ "Illumina NextSeq",
+        str_detect(as.character(platform), "(?i)454") ~ "454 GS FLX Titanium",
+        str_detect(as.character(platform), "(?i)HiSeq") ~ "Illumina HiSeq",
+        str_detect(as.character(platform), "(?i)NovaSeq") ~ "Illumina NovaSeq",
+        str_detect(as.character(platform), "(?i)Ion Torrent") ~ "Ion Torrent",
+        str_detect(as.character(platform), "(?i)GAIIx|Genome Analyzer IIx") ~ "Illumina GAIIx",
+        TRUE ~ as.character(platform)
+      ),
+      sequencing_region_cleaned = case_when(
+        is.na(sequencing_region) ~ NA_character_,
+        bioproject == "PRJNA659632" & as.character(sequencing_region) == "V2, V3, V4, V6-7, V8, V9" ~ "V2,V3,V4,V6-V7,V8,V9",
+        bioproject == "PRJNA391982" & as.character(sequencing_region) == "V1-V3/V7-V9" ~ "V1-V3,V7-V9",
+        str_detect(as.character(sequencing_region), "[–—_]") ~ str_replace_all(as.character(sequencing_region), "[–—_]+", "-"),
+        TRUE ~ as.character(sequencing_region)
+      ),
+      country_cleaned = case_when(
+        bioproject == "PRJEB12953" & as.character(country) == "Korean" ~ "Republic of Korea",
+        bioproject == "PRJNA489752" & as.character(country) == "Korea" ~ "Republic of Korea",
+        bioproject == "PRJEB11419" & as.character(country) == "Korea, Republic of" ~ "Republic of Korea",
+        bioproject == "PRJEB11419" & as.character(country) %in% c("Not provided", "Unspecified") ~ NA_character_,
+        as.character(country) %in% c("South Korea", "South Korean") ~ "Republic of Korea",
+        as.character(country) %in% c("United States of America", "USA", "United States Minor Outlying Islands") ~ "United States",
+        TRUE ~ as.character(country)
+      ),
+      continent_temp = countrycode(country_cleaned, origin = "country.name", destination = "continent", warn = FALSE),
+      continent_group = case_when(
+        bioproject %in% c("PRJEB12953", "PRJNA489752") ~ "Asia",
+        is.na(country_cleaned) ~ NA_character_,
+        continent_temp == "Africa" ~ "Africa",
+        continent_temp == "Asia" ~ "Asia",
+        continent_temp == "Europe" ~ "Europe",
+        continent_temp == "Oceania" ~ "Oceania",
+        continent_temp == "Americas" & countrycode(country_cleaned, origin="country.name", destination="un.regionsub.name", warn=FALSE) %in% c("Northern America") ~ "North America",
+        continent_temp == "Americas" ~ "South America",
+        str_detect(tolower(country_cleaned), "antarctica") ~ "Antarctica",
+        TRUE ~ NA_character_ 
+      ),
+      site_lower = tolower(as.character(site)),
+      site_cleaned = case_when(
+        is.na(site) ~ NA_character_,
+        bioproject == "PRJEB4953" & as.character(site) %in% c("Right retromolar trigone", "Right post maxilla ging", "Right floor of mouth", "Right alveolar ridge", "Midline hard palate", "Left retromolar trigone", "Left floor of mouth", "Left alveolar ridge", "floor of Mouth", "floor of mouth") ~ "oral mucosa",
+        bioproject == "PRJNA542898" & as.character(site) == "buccal surfaces" ~ "oral mucosa",
+        bioproject == "PRJNA412445" & as.character(site) == "mucous" ~ "oral mucosa",
+        bioproject == "PRJNA820027" & as.character(site) == "oral_cavity" ~ "other", 
+        bioproject == "PRJNA362794" & as.character(site) == "paracancerous tissues" ~ "other",
+        bioproject == "PRJNA595346" & as.character(site) == "posterior oropharyngeal swab" ~ "oral swab",
+        bioproject == "PRJNA48333" & as.character(site) == "throat" ~ "oral swab",
+        bioproject == "PRJNA841771" & as.character(site) == "oral scraping" ~ "other",
+        as.character(site) == "Left post mandible ging" ~ "gingiva",
+        str_detect(site_lower, "hard palate") ~ "oral mucosa", 
+        str_detect(site_lower, "oropharyngeal swab|throat") ~ "oral swab",
+        site_lower %in% tolower(c("paracancerous tissues", "paracancerous tissue", "tumor tissue", "tumor", "oral cavity")) ~ "other",
+        as.character(site) %in% c("Right post maxilla ging", "implant sulcus") ~ "gingiva",
+        as.character(site) == "faucial pillars" ~ "oral mucosa",
+        as.character(site) %in% c("oral rinse", "oral washing", "oral lavage") ~ "saliva",
+        as.character(site) %in% c("cancer surface", "cancer tissue", "cancerous lesions", "oral", "normal tissue", "oral tissue (location unspecified)", "swab_nasopharynx_or_oropharynx", "cleft") ~ "other",
+        str_detect(site_lower, "plaque|supragingival|subgingival|dental|carious dentin tissue|periodontal|carious|dentition") ~ "tooth",
+        str_detect(site_lower, "oral wash|mouthwash|mouth wash") ~ "saliva",
+        str_detect(site_lower, "mucosa|mucosal|buccal swab|buccal mucosa swabs") ~ "oral mucosa",
+        str_detect(site_lower, "tongue") ~ "tongue",
+        str_detect(site_lower, "gingiva|gingival") ~ "gingiva",
+        str_detect(site_lower, "tonsil") ~ "Other",
+        str_detect(site_lower, "oral swab") ~ "oral swab",
+        str_detect(site_lower, "saliva") ~ "saliva",
+        str_detect(site_lower, "faeces|fecal|feces|gut|rectal swab|rectum|stool") ~ "feces",
+        TRUE ~ as.character(site)
+      ),
+      site_group_cleaned = case_when(
+        bioproject == "PRJNA659632" & as.character(site_group) == "other" ~ "oral",
+        TRUE ~ as.character(site_group)
+      ),
+      
+      # Disease Study Cleaning
+      disease_study_cleaned = case_when(
+        bioproject %in% c("PRJEB38610", "PRJEB39420", "PRJEB39436", "PRJNA417321", "PRJNA451534", "PRJNA876796") & tolower(disease_study) == "no" ~ NA_character_,
+        bioproject %in% c("PRJNA380250", "PRJNA685840", "PRJNA847970", "PRJNA762545") ~ "yes",
+        bioproject %in% c("PRJNA518756", "PRJNA613363", "PRJNA782768") ~ "no",
+        TRUE ~ as.character(disease_study)
+      ),
+
+      # Status Cleaning
+      status_lower = tolower(as.character(status)),
+      status_temp = case_when(
+        is.na(status) ~ NA_character_,
+        status_lower %in% tolower(c("mucositis healed", "pre-conditioning", "atopic non-asthmatic controls", "pre-cancer", "full-term", "allogeneic hematopoietic stem cell transplantation recipient", "immunological ART responder", "dentally compromised", "preterm newborns", "preterm", "pulmonary nodule", "thyroid nodules", "black dental stain", "thyroid nodules patient", "epithelial precursor lesion")) ~ NA_character_,
+        str_detect(status_lower, "breastfed|full-term|orthodontic|third molar extraction|non-responder|high-risk for ra") ~ NA_character_,
+        bioproject == "PRJNA417321" & as.character(status) == "dental implant" ~ NA_character_,
+        status_lower %in% tolower(c("halitosis", "dysphagia", "watery diarrhea NOS", "truncal ataxia NOS", "oral benign tumors", "cancer patient", "Carcinoma in situ", "Chronic mucosal inflammation", "acute pancreatitis", "aortic thrombosis", "tibial fracture", "hip fracture", "hypotension", "STEMI", "NSTEMI", "temporal lobe epilepsy", "Fanconi anemia with leukoplakia", "Fanconi anemia with OSCC", "systemic lupus erythematosus with chronic periodontitis", "systemic lupus erythematosus", "acute lymphoblastic leukemia", "helminth infection", "pre-eclampsia", "stomatitis", "early childhood caries and congenital heart disease", "proliferative verrucous leukoplakia", "Refractory Celiac disease", "IBD+Diabetes")) ~ "Other",
+        status_lower == tolower("Lung Cancer") ~ "Lung Cancer",
+        status_lower == tolower("Breast Cancer") ~ "Breast Cancer",
+        status_lower == tolower("Pancreatic Cancer") ~ "Pancreatic Cancer",
+        status_lower == tolower("Oral Cancer") ~ "Oral Cancer",
+        status_lower == tolower("Digestive Tract Cancer") ~ "Digestive Tract Cancer",
+        status_lower == tolower("Prostate Cancer") ~ "Prostate Cancer",
+        status_lower == tolower("Esophageal Cancer") ~ "Esophageal Cancer",
+        status_lower == tolower("Colon Cancer") ~ "Colon Cancer",
+        status_lower == tolower("viremic ART-untreated") ~ "HIV",
+        status_lower %in% tolower(c("functional dyspepsia and gastroesophageal reflux disease", "GERD", "Reflux Esophagitis", "reflux esophagitis")) ~ "Gastroesophageal Reflux Disease",
+        status_lower == tolower("RAU") ~ "Aphthous",
+        status_lower == tolower("chronic periodontitis associated with type 2 diabetes mellitus") ~ "Diabetes and Periodontitis",
+        bioproject == "PRJNA316469" & as.character(disease_study) == "no" & as.character(status) %in% c("never smoker", "current smoker") ~ "HC",
+        bioproject == "PRJEB40804" & as.character(status) == "certified saturation divers with valid health certificates" ~ "HC",
+        bioproject == "PRJNA784772" & as.character(status) == "DTC" ~ "differentiated thyroid carcinoma",
+        bioproject == "PRJNA656387" & as.character(status) == "first-degree relatives" ~ "HC",
+        bioproject == "PRJNA853196" & as.character(status) == "ESCC" ~ "esophageal squamous cell carcinoma",
+        bioproject == "PRJDB8324" & as.character(status) == "healthy" ~ "HC",
+        bioproject == "PRJNA873789" & as.character(status) == "axSpA" ~ "axial spondyloarthritis",
+        bioproject == "PRJEB11419" & as.character(status) == "C.diff" ~ "Clostridium difficile infection",
+        bioproject == "PRJEB11419" & as.character(status) == "IBD+C.diff" ~ "IBD and Clostridium difficile infection",
+        bioproject == "PRJNA362643" & as.character(status) == "Sjögren’s syndrome" ~ "Sjögren's syndrome",
+        bioproject == "PRJNA664107" & as.character(status) == "chronic periodontitis associated with T2DM" ~ "Diabetes and Periodontitis",
+        bioproject == "PRJNA663926" & as.character(status) %in% c("hand, foot and mouth disease symptomatic", "hand, foot and mouth disease asymptomatic") ~ "hand, foot and mouth disease",
+        bioproject == "PRJNA544600" & as.character(status) == "obstructive sleep apnea syndrome" ~ "obstructive sleep apnea",
+        as.character(status) == "caries" ~ "dental caries",
+        as.character(status) == "recurrent aphthous ulcer" ~ "aphthous",
+        status_lower == tolower("CD and UC") ~ "CD and UC",
+        status_lower == tolower("no-OM") ~ "HC",
+        str_detect(status_lower, "periodontitis|gingivitis|periodontal|peri-implantitis") ~ "periodontal disease",
+        str_detect(status_lower, "caries") ~ "dental caries",
+        str_detect(status_lower, "coronavirus disease of 2019|covid") ~ "COVID-19",
+        str_detect(status_lower, "chagas") ~ "chagas disease",
+        str_detect(status_lower, "hiv") ~ "HIV",
+        str_detect(status_lower, "obese|obesity") ~ "obesity",
+        str_detect(status_lower, "aphthous") ~ "aphthous",
+        str_detect(status_lower, "type 2 diabetes mellitus|t2dm|type-2 diabetes|type 1 diabetes|diabetes") ~ "diabetes",
+        str_detect(status_lower, "atherosclerosis") ~ "cardiovascular disease",
+        str_detect(status_lower, "oral mucositis|severe-om|grade 1 om") ~ "oral mucositis",
+        str_detect(status_lower, "olp") ~ "oral lichen planus",
+        str_detect(status_lower, "helicobacter pylori") ~ "helicobacter pylori infection",
+        str_detect(status_lower, "thyroid cancer") ~ "thyroid cancer",
+        str_detect(status_lower, "cancer") ~ "cancer",
+        str_detect(status_lower, "reflux esophagitis") ~ "Gastroesophageal Reflux Disease",
+        str_detect(status_lower, "axspa") ~ "axial spondyloarthritis",
+        str_detect(status_lower, "nasopharyngeal carcinoma") ~ "nasopharyngeal carcinoma",
+        str_detect(status_lower, "oscc|oral squamous cell carcinoma") ~ "OSCC",
+        str_detect(status_lower, "head and neck squamous cell carcinoma|hnscc|head and neck cancer|hnc") ~ "head and neck cancer",
+        str_detect(status_lower, "cleft lip and palate|clp") ~ "cleft lip and palate",
+        str_detect(status_lower, "ad|alzheimer") ~ "Alzheimer's disease",
+        str_detect(status_lower, "parkinson") ~ "Parkinson's disease",
+        str_detect(status_lower, "post-traumatic stress disorder|ptsd") ~ "PTSD",
+        TRUE ~ as.character(status)
+      ),
+      status_cleaned = ifelse(!is.na(status_temp) & tolower(status_temp) != "na", tools::toTitleCase(status_temp), NA_character_)
+    ) %>%
+    # Final Case Adjustments and Missing Value Handling
+    mutate(across(c(sex_cleaned, platform_cleaned, sequencing_region_cleaned, 
+                    country_cleaned, continent_group, site_cleaned, 
+                    site_group_cleaned, disease_study_cleaned, status_cleaned),
+                  ~ ifelse(!is.na(.), tools::toTitleCase(as.character(.)), NA_character_))) %>%
+    mutate(status_cleaned = case_when(
+      is.na(status) & bioproject %in% c("PRJEB1799", "PRJEB20889", "PRJEB20890", "PRJEB20894", "PRJEB27304", "PRJEB28088", "PRJEB28769", "PRJEB33119", "PRJEB42056", "PRJEB6518", "PRJNA255332", "PRJNA395436", "PRJNA427101", "PRJNA634162", "PRJNA689848", "PRJNA721325", "PRJNA747639", "PRJNA778070", "PRJNA828039", "PRJNA841067") ~ "HC",
+      status_cleaned == "Hiv" ~ "HIV",
+      status_cleaned == "Oscc" ~ "OSCC",
+      status_cleaned == "Hc" ~ "HC",
+      status_cleaned == "Cd And Uc" ~ "CD and UC",
+      status_cleaned == "Covid-19" ~ "COVID-19",
+      status_cleaned == "Gastroesophageal Reflux Disease" ~ "Gastroesophageal Reflux Disease",
+      TRUE ~ status_cleaned
+    )) %>%
+    mutate(
+      across(c(age_cleaned, bmi_cleaned, age_cleaned_group, bmi_cleaned_group, sex_cleaned, platform_cleaned, 
+               sequencing_region_cleaned, country_cleaned, continent_group, 
+               site_cleaned, site_group_cleaned, disease_study_cleaned, status_cleaned),
+             ~ ifelse(trimws(.) %in% c("", "NA"), NA_character_, .)),
+      age_cleaned_group = ifelse(age_cleaned_group == "Anomaly", NA_character_, age_cleaned_group),
+      bmi_cleaned_group = ifelse(bmi_cleaned_group == "Anomaly_High", NA_character_, bmi_cleaned_group)
+    ) %>%
+    # Remove intermediate computational columns
+    select(-age_numeric, -age_cleaned_group_base, -age_info_lower, 
+           -bmi_calc, -bmi_raw_numeric, -bmi_numeric, 
+           -continent_temp, -site_lower, -status_lower, -status_temp) %>%
+    # Remove rows where site_group_cleaned contains "other", keep only "oral" and "gut"
+    filter(tolower(site_group_cleaned) %in% c("oral", "gut"))
+}
+
+# Execute the core cleaning function
+metadata <- generate_cleaned_cols(metadata)
+```
+
+# Step 7: Supplement oral-gut pairing information
+
+This step is to create some columns of oral and gut pairing information.
+
+```{r}
+# 1. Generate raw_pair_time_point based on timepoint column
+# Note : the code must be changed here ! ! !
+metadata <- metadata %>%
+  left_join(
+    initial_meta %>% select(Run, Sample.Name), 
+    by = c("sample_id" = "Run") 
+  ) %>%
+  
+  # Combined with the original text of the article, it can be seen that because the value containing A in the Sample_ID column is triplicate01, the value containing B is triplicate02, and the value containing C is triplicate03, only one value containing A is triplicate01.
+# Article: Bacterial DNA was isolated from stool and saliva and this was used to determine the V4 variable region of the 16S rRNA gene sequence composition of the samples in triplicate.
+  
+  mutate(
+    raw_pair_time_point = NA,
+    
+    # 2. Normalizes the display of the pair_time_point column 
+    pair_time_point = NA,
+    
+    # 3. Combination generates unique pair_id
+    pair_id = paste(subject_id, raw_pair_time_point, sep = "_")
+  ) 
+```
+
+```{r}
+# Note : Do not change the code here !!!
+# (2) Matching rules to evaluate body sites
+gut_pattern <- "(?i)feces|fece|stool|gut"
+oral_pattern <- "(?i)saliva|tooth|oral|plaque|tongue|buccal|gingiva"
+
+# (3) Temporarily replace NA and deduplicate at the sample_id level to confirm true site origins
+sample_level_data <- metadata %>%
+  mutate(
+    temp_site = replace_na(as.character(site), ""),
+    temp_site_group = replace_na(as.character(site_group), ""),
+    is_gut = str_detect(temp_site, gut_pattern) | str_detect(temp_site_group, gut_pattern),
+    is_oral = str_detect(temp_site, oral_pattern) | str_detect(temp_site_group, oral_pattern)
+  ) %>%
+  group_by(bioproject, subject_id, sample_id) %>%
+  summarise(
+    is_gut = any(is_gut, na.rm = TRUE),
+    is_oral = any(is_oral, na.rm = TRUE),
+    .groups = 'drop'
+  ) %>%
+  filter(is_gut | is_oral)
+
+# (4) Aggregate on subject_id to evaluate matched pair conditions
+subject_stats <- sample_level_data %>%
+  group_by(bioproject, subject_id) %>%
+  summarise(
+    gut_count = sum(is_gut),
+    oral_count = sum(is_oral),
+    .groups = 'drop'
+  ) %>%
+  filter(gut_count >= 1 & oral_count >= 1) %>%
+  mutate(
+    subj_pair_type = if_else(gut_count == 1 & oral_count == 1, "one pair", "many pairs"),
+    subj_actual_pairs = pmin(gut_count, oral_count)
+  )
+
+# (5) Final summary at the bioproject level
+pair_summary <- subject_stats %>%
+  group_by(bioproject) %>%
+  summarise(
+    pair_type = case_when(
+      all(subj_pair_type == "one pair") ~ "one pair",
+      all(subj_pair_type == "many pairs") ~ "many pairs",
+      TRUE ~ "one pair and many pairs"
+    ),
+    pair_sample_number = sum(subj_actual_pairs),
+    pair_subject_number = n(),
+    .groups = 'drop'
+  )
+
+# (6) Join pair_summary variables back into the main metadata table
+metadata <- metadata %>%
+  left_join(pair_summary, by = "bioproject") %>%
+  mutate(pair_bioproject = bioproject)
+```
+
+# Step 8: Sort and export the metadata
+
+This step saves the cleaned metadata table as the final `metadata_oral_gut_pair_curation_v2.csv` file.
+
+```{r}
+# Note : Do not change the code here !!!
+# 1. Recover unselected original metadata from initial_meta
+cols_to_add <- setdiff(names(initial_meta), names(metadata))
+metadata <- metadata %>%
+  left_join(
+    initial_meta %>% select(Run, all_of(cols_to_add)), 
+    by = c("sample_id" = "Run")
+  )
+
+# 2. Strict standard column sorting array
+fixed_cols <- c(
+  "pair_id", "pair_time_point", "pair_bioproject", "pair_type", "pair_sample_number", "pair_subject_number", 
+  "bioproject", "sample_id", "subject_id", "age", "age_info", "bmi", "sex", "platform", 
+  "sequencing_region", "pcr_primers", "country", "site", "site_group", "disease_study", "status", 
+  "title", "public_time", "matched_samples", "is_time_series", "age_cleaned", "bmi_cleaned", 
+  "age_cleaned_group", "age_info_cleaned", "bmi_cleaned_group", "sex_cleaned", "platform_cleaned", 
+  "sequencing_region_cleaned", "country_cleaned", "continent_group", "site_cleaned", 
+  "site_group_cleaned", "disease_study_cleaned", "status_cleaned"
+)  
+
+metadata <- metadata %>%
+  select(all_of(fixed_cols), everything())
+
+# 3. Export to CSV (suppressing automatic row names)
+write.csv(metadata, file = "metadata_oral_gut_pair_v2.csv", row.names = FALSE, quote = TRUE)
+```

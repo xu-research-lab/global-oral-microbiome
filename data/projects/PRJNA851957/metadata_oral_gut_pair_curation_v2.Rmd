@@ -21,7 +21,7 @@ library(tools)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA851957" 
 
-base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-merge-YL/pair/260518/single pair/"
+base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-merge-YL/pair/260518/pair-v2/single pair-0519/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -50,20 +50,18 @@ First, you need to get an overview of the data, which includes two steps: readin
 # table(initial_meta$platform..exp.) # output is Illumina. according to the methods, Illumina is correct.
 # table(initial_meta$target_subfragment..exp.)
 convert_id <- function(id) {
-  # 正则匹配：前缀（可选，字母数字混合），F或P，数字部分
   match <- regexec("^([A-Z0-9]*)([FP])([0-9]+)$", id)
   parts <- regmatches(id, match)
-  # 如果匹配成功，parts[[1]] 长度为 4：全串、前缀、F/P、数字
   if (length(parts[[1]]) == 4) {
     prefix <- parts[[1]][2]
     number <- parts[[1]][4]
     if (prefix == "") {
-      return(number)           # 无前缀：只返回数字
+      return(number) 
     } else {
-      return(paste0(prefix, "_", number))  # 有前缀：前缀_数字
+      return(paste0(prefix, "_", number))
     }
   } else {
-    return(NA)   # 格式不符合预期时返回缺失值
+    return(NA)
   }
 }
 initial_meta$subjectid = sapply(initial_meta$Sample.Name, convert_id, USE.NAMES = FALSE)
@@ -303,7 +301,7 @@ This step is to clean some of the 19 columns collected previously for merging in
 generate_cleaned_cols <- function(df) {
   df %>%
     mutate(
-      # Age Cleaning 
+      # ---------------- Age Cleaning ----------------
       age_cleaned = case_when(
         str_detect(as.character(age), "(?i)week") ~ as.character(as.numeric(str_replace_all(as.character(age), "[^0-9.]", "")) / 52),
         TRUE ~ as.character(age) 
@@ -325,8 +323,88 @@ generate_cleaned_cols <- function(df) {
 
       age_info_cleaned = case_when(
         is.na(age_info_lower) ~ NA_character_,
-        age_info_lower %in% c(">=21", "≥21", "1-3 years at enrollment; longitudinal follow-up saliva samples in sra span approximately 1.34-5.57 years", "50+", "8 months-25 years", "age_group_1", "baby", "children", "child", "chilren", "elderly adults", "elder", "full cohort median age 41.5 years; healthy 38 (20-66), gingivitis 43 (18-71), chronic periodontitis 43 (21-60)", "infant", "not provided", "over 18 years", "toddlers 1-3 years; children 4-12 years; teenager-adults 13-59 years", "unspecified") ~ NA_character_,
-        age_info_lower %in% c("adult male betel-quid users", "adult male non-smokers; cohort mean age 44 years (range 31-60)", "adult participants; eligibility age >=18 years; total cohort median age 40.0 years (iqr 31.0-50.0)", "adults; group means reported separately by disease severity", "control 30.50±5.74; osa 40.11±11.25; htn 36.22±10.20; osa+htn 42.17±9.52; male adults >18 years", "control non-cp: 34.7 ± 15.9 years; control cp: 46.3 ± 13.2 years; sle non-cp: 31.2 ± 5.2 years; sle cp: 40.5 ± 10.1 years", "healthy dental students; mean age 26.36 +/- 1.58 years") ~ "18-60 years",
+
+        # Explicit NA matches
+        age_info_lower %in% c(
+          "1-3 years at enrollment; longitudinal follow-up saliva samples in sra span approximately 1.34-5.57 years",
+          "not provided", "unspecified", "age_group_1",
+          "full cohort median age 41.5 years; healthy 38 (20-66), gingivitis 43 (18-71), chronic periodontitis 43 (21-60)",
+          "toddlers 1-3 years; children 4-12 years; teenager-adults 13-59 years"
+        ) ~ NA_character_,
+
+        # Age ranges with "years" suffix
+        str_detect(age_info_lower, "\\d+\\.?\\d*\\s*[-–—]\\s*\\d+\\.?\\d*\\s*years") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 12 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 18 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+
+        # >= / ≥ thresholds
+        str_detect(age_info_lower, "^\\s*[≥>]=?\\s*\\d+") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+")) >= 60 ~ "＞60 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 18 ~ "18-60 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 12 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 3 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 0.5 ~ "6-36 months",
+          TRUE ~ "0-6 months"
+        ),
+
+        # above / over X years
+        str_detect(age_info_lower, "above\\s+\\d+\\s*years?\\s*old|over\\s+\\d+\\s*years?|above\\s+\\d+\\s*years?") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+")) >= 60 ~ "＞60 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 18 ~ "18-60 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 12 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 3 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 0.5 ~ "6-36 months",
+          TRUE ~ "0-6 months"
+        ),
+
+        # median age
+        str_detect(age_info_lower, "median age.*\\d+") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 12 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 18 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+
+        # average/mean ... years
+        str_detect(age_info_lower, "(average|mean).*\\d+\\.?\\d*\\s*years") & !str_detect(age_info_lower, "±|\\+-") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 12 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 18 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+
+        # simple numeric range without "years"
+        str_detect(age_info_lower, "^\\s*\\d+\\.?\\d*\\s*[-–—]\\s*\\d+\\.?\\d*\\s*$") ~ case_when(
+          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 0.5 ~ "0-6 months",
+          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 3 ~ "6-36 months",
+          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 12 ~ "3-12 years",
+          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 18 ~ "12-18 years",
+          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+
+        # Exact String Matches -> 18-60 years
+        age_info_lower %in% c(
+          "adult male betel-quid users",
+          "adult male non-smokers; cohort mean age 44 years (range 31-60)",
+          "adult participants; eligibility age >=18 years; total cohort median age 40.0 years (iqr 31.0-50.0)",
+          "adult participants; eligibility age >=18 years; total cohort median age 40.0 years (IQR 31.0-50.0)",
+          "adults; group means reported separately by disease severity",
+          "control 30.50±5.74; osa 40.11±11.25; htn 36.22±10.20; osa+htn 42.17±9.52; male adults >18 years",
+          "control non-cp: 34.7 ± 15.9 years; control cp: 46.3 ± 13.2 years; sle non-cp: 31.2 ± 5.2 years; sle cp: 40.5 ± 10.1 years",
+          "healthy dental students; mean age 26.36 +/- 1.58 years"
+        ) ~ "18-60 years",
+
+        # Range Mapping: (A, B)
         str_detect(age_info_lower, "^\\(\\s*\\d+\\.?\\d*\\s*,\\s*\\d+\\.?\\d*\\s*\\)$") ~ case_when(
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
@@ -335,20 +413,16 @@ generate_cleaned_cols <- function(df) {
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
           TRUE ~ "＞60 years"
         ),
+
+        # Month-based mapping
         str_detect(age_info_lower, "month") & str_detect(age_info_lower, "\\d+") ~ case_when(
           as.numeric(str_extract(age_info_lower, "\\d+")) <= 6 ~ "0-6 months",
           as.numeric(str_extract(age_info_lower, "\\d+")) <= 36 ~ "6-36 months",
           TRUE ~ NA_character_
         ),
-        str_detect(age_info_lower, "^\\s*\\d+\\.?\\d*\\s*-\\s*\\d+\\.?\\d*\\s*$") ~ case_when(
-          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 0.5 ~ "0-6 months",
-          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 3 ~ "6-36 months",
-          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 12 ~ "3-12 years",
-          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 18 ~ "12-18 years",
-          (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 60 ~ "18-60 years",
-          TRUE ~ "＞60 years"
-        ),
-        str_detect(age_info_lower, "average|mean") & !str_detect(age_info_lower, "±|\\+-|;|migraine") & str_detect(age_info_lower, "\\d+") ~ case_when(
+
+        # Average/Mean mapping (without "years" suffix)
+        str_detect(age_info_lower, "average|mean") & !str_detect(age_info_lower, "±|\\+-|;") & str_detect(age_info_lower, "\\d+") ~ case_when(
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 12 ~ "3-12 years",
@@ -356,12 +430,16 @@ generate_cleaned_cols <- function(df) {
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
           TRUE ~ "＞60 years"
         ),
+
+        # Decade strings (20s, 30s)
         str_detect(age_info_lower, "\\b[1-9]0s\\b") ~ case_when(
           as.numeric(str_extract(age_info_lower, "\\d{2}")) < 12 ~ "3-12 years",
           as.numeric(str_extract(age_info_lower, "\\d{2}")) < 18 ~ "12-18 years",
           as.numeric(str_extract(age_info_lower, "\\d{2}")) < 60 ~ "18-60 years",
           TRUE ~ "＞60 years"
         ),
+
+        # Variance: A ± B
         str_detect(age_info_lower, "±") & str_count(age_info_lower, "±") == 1 & str_detect(age_info_lower, "\\d+") ~ case_when(
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
@@ -370,11 +448,25 @@ generate_cleaned_cols <- function(df) {
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
           TRUE ~ "＞60 years"
         ),
+
+        # Complex ';' statements & 60+ mappings
         str_detect(age_info_lower, ";") & str_detect(age_info_lower, "25-58 years; migraine mean 39\\.5") ~ "18-60 years",
-        str_detect(age_info_lower, "60\\+|above 60") ~ "＞60 years",
-        age_info_lower %in% c("adult", "adults") ~ "18-60 years",
+        str_detect(age_info_lower, "\\d+\\+") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+")) >= 60 ~ "＞60 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 18 ~ "18-60 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 12 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 3 ~ "3-12 years",
+          as.numeric(str_extract(age_info_lower, "\\d+")) > 0.5 ~ "6-36 months",
+          TRUE ~ "0-6 months"
+        ),
+        str_detect(age_info_lower, "above 60") ~ "＞60 years",
+
+        # Text-based matches
+        age_info_lower %in% c("adult", "adults", "young adults") ~ "18-60 years",
         str_detect(age_info_lower, "centenarians") ~ "＞60 years",
         str_count(age_info_lower, "±") >= 2 ~ "18-60 years",
+
+        # Child mapping
         str_detect(age_info_lower, "child \\(\\d+-year-olds\\)") ~ case_when(
           as.numeric(str_extract(age_info_lower, "\\d+")) <= 0.5 ~ "0-6 months",
           as.numeric(str_extract(age_info_lower, "\\d+")) <= 3 ~ "6-36 months",
@@ -382,11 +474,34 @@ generate_cleaned_cols <- function(df) {
           as.numeric(str_extract(age_info_lower, "\\d+")) <= 18 ~ "12-18 years",
           TRUE ~ NA_character_
         ),
-        str_detect(age_info_lower, "newborn|preterm infant") ~ "0-6 months",
-        str_detect(age_info_lower, "older adults.*±") ~ "＞60 years",
+
+        str_detect(age_info_lower, "newborn|preterm infant|infant|baby") ~ "0-6 months",
+        age_info_lower %in% c("children", "child", "chilren") ~ "3-12 years",
+        age_info_lower %in% c("elderly adults", "elderly people and adults", "elder") ~ "＞60 years",
         age_info_lower %in% c("teen", "teenager") ~ "12-18 years",
-        age_info_lower == "young adults" ~ "18-60 years",
+
+        # Variance: mean A +- B
         str_detect(age_info_lower, "mean.*\\+-") & str_detect(age_info_lower, "\\d+") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 18 ~ "12-18 years",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+
+        # between X and Y years
+        str_detect(age_info_lower, "between\\s+\\d+\\.?\\d*\\s+and\\s+\\d+\\.?\\d*\\s*years") ~ case_when(
+          (as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "(?<=and\\s)\\d+\\.?\\d*"))) / 2 <= 0.5 ~ "0-6 months",
+          (as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "(?<=and\\s)\\d+\\.?\\d*"))) / 2 <= 3 ~ "6-36 months",
+          (as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "(?<=and\\s)\\d+\\.?\\d*"))) / 2 <= 12 ~ "3-12 years",
+          (as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "(?<=and\\s)\\d+\\.?\\d*"))) / 2 <= 18 ~ "12-18 years",
+          (as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "(?<=and\\s)\\d+\\.?\\d*"))) / 2 <= 60 ~ "18-60 years",
+          TRUE ~ "＞60 years"
+        ),
+
+        # catch-all for remaining text with numbers
+        str_detect(age_info_lower, "\\d+\\.?\\d*\\s*[-–—]\\s*\\d+\\.?\\d*") ~ case_when(
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
+          as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 12 ~ "3-12 years",
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 18 ~ "12-18 years",
           as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 60 ~ "18-60 years",
           TRUE ~ "＞60 years"
@@ -402,7 +517,7 @@ generate_cleaned_cols <- function(df) {
         TRUE ~ NA_character_
       ),
 
-      # BMI Cleaning
+      # ---------------- BMI Cleaning ----------------
       bmi_calc = case_when(
         bioproject == "PRJEB34272" & as.character(bmi) == "not collected" ~ NA_character_,
         TRUE ~ as.character(bmi) 
@@ -424,7 +539,7 @@ generate_cleaned_cols <- function(df) {
         TRUE ~ NA_character_
       ),
       
-      # General Variables Cleaning
+      # ---------------- General Variables Cleaning ----------------
       sex_cleaned = case_when(
         bioproject %in% c("PRJDB12092", "PRJNA720269", "PRJDB10426") & as.character(sex) == "female" ~ "F",
         bioproject %in% c("PRJDB12092", "PRJNA720269", "PRJDB10426") & as.character(sex) == "male" ~ "M",
@@ -456,6 +571,7 @@ generate_cleaned_cols <- function(df) {
         bioproject == "PRJNA489752" & as.character(country) == "Korea" ~ "Republic of Korea",
         bioproject == "PRJEB11419" & as.character(country) == "Korea, Republic of" ~ "Republic of Korea",
         bioproject == "PRJEB11419" & as.character(country) %in% c("Not provided", "Unspecified") ~ NA_character_,
+        as.character(country) == "Korean" ~ "Republic of Korea",
         as.character(country) %in% c("South Korea", "South Korean") ~ "Republic of Korea",
         as.character(country) %in% c("United States of America", "USA", "United States Minor Outlying Islands") ~ "United States",
         TRUE ~ as.character(country)
@@ -473,9 +589,16 @@ generate_cleaned_cols <- function(df) {
         str_detect(tolower(country_cleaned), "antarctica") ~ "Antarctica",
         TRUE ~ NA_character_ 
       ),
+      
       site_lower = tolower(as.character(site)),
       site_cleaned = case_when(
         is.na(site) ~ NA_character_,
+        str_detect(site_lower, "feces|faeces|fecal|stool|rectal swab|rectum|^gut$") ~ "feces",
+        str_detect(site_lower, "skin|face|forehead|palm|scalp|axilla|cheek-nose crease|umbilicus|antecubital fossa|retroauricular crease|sebum|periumbilical|forearm|areola") ~ "skin",
+        str_detect(site_lower, "nasal cavity|anterior nares|nasal swab|nasal mucosa|nasal mucus|nostril mucus|nasopharyngeal|nasopharynx") ~ "nasal",
+        str_detect(site_lower, "vagina|cervical mucus|posterior fornix|mid vagina") ~ "vaginal",
+        str_detect(site_lower, "^blood$|bronchoalveolar lavage|sputum|endotracheal aspirate") ~ "respiratory/blood",
+        str_detect(site_lower, "tears|milk|ear wax|gastric fluid") ~ "other",
         bioproject == "PRJEB4953" & as.character(site) %in% c("Right retromolar trigone", "Right post maxilla ging", "Right floor of mouth", "Right alveolar ridge", "Midline hard palate", "Left retromolar trigone", "Left floor of mouth", "Left alveolar ridge", "floor of Mouth", "floor of mouth") ~ "oral mucosa",
         bioproject == "PRJNA542898" & as.character(site) == "buccal surfaces" ~ "oral mucosa",
         bioproject == "PRJNA412445" & as.character(site) == "mucous" ~ "oral mucosa",
@@ -500,7 +623,6 @@ generate_cleaned_cols <- function(df) {
         str_detect(site_lower, "tonsil") ~ "Other",
         str_detect(site_lower, "oral swab") ~ "oral swab",
         str_detect(site_lower, "saliva") ~ "saliva",
-        str_detect(site_lower, "faeces|fecal|feces|gut|rectal swab|rectum|stool") ~ "feces",
         TRUE ~ as.character(site)
       ),
       site_group_cleaned = case_when(
@@ -508,34 +630,66 @@ generate_cleaned_cols <- function(df) {
         TRUE ~ as.character(site_group)
       ),
       
-      # Disease Study Cleaning
+      # ---------------- Disease Study Cleaning ----------------
       disease_study_cleaned = case_when(
         bioproject %in% c("PRJEB38610", "PRJEB39420", "PRJEB39436", "PRJNA417321", "PRJNA451534", "PRJNA876796") & tolower(disease_study) == "no" ~ NA_character_,
         bioproject %in% c("PRJNA380250", "PRJNA685840", "PRJNA847970", "PRJNA762545") ~ "yes",
         bioproject %in% c("PRJNA518756", "PRJNA613363", "PRJNA782768") ~ "no",
+        tolower(status) %in% c("preterm", "preterm newborns") ~ "yes",
         TRUE ~ as.character(disease_study)
       ),
 
-      # Status Cleaning
+      # ---------------- Status Cleaning ----------------
       status_lower = tolower(as.character(status)),
       status_temp = case_when(
         is.na(status) ~ NA_character_,
-        status_lower %in% tolower(c("mucositis healed", "pre-conditioning", "atopic non-asthmatic controls", "pre-cancer", "full-term", "allogeneic hematopoietic stem cell transplantation recipient", "immunological ART responder", "dentally compromised", "preterm newborns", "preterm", "pulmonary nodule", "thyroid nodules", "black dental stain", "thyroid nodules patient", "epithelial precursor lesion")) ~ NA_character_,
-        str_detect(status_lower, "breastfed|full-term|orthodontic|third molar extraction|non-responder|high-risk for ra") ~ NA_character_,
+        status_lower %in% c(
+          "mucositis healed", "pre-conditioning", "atopic non-asthmatic controls",
+          "allogeneic hematopoietic stem cell transplantation recipient",
+          "immunological art responder", "dentally compromised",
+          "black dental stain", "myasthenia gravis",
+          "functional gastrointestinal complaints", "missing", "full-term"
+        ) ~ NA_character_,
+        str_detect(status_lower, "tonsillar hyperplasia|tonsillar hypertrophy") ~ NA_character_,
+        str_detect(status_lower, "breastfed|never breastfed|full-term|orthodontic|non-responder|high-risk for ra") ~ NA_character_,
+        status_lower %in% c("never smoker", "current smoker") ~ NA_character_,
         bioproject == "PRJNA417321" & as.character(status) == "dental implant" ~ NA_character_,
-        status_lower %in% tolower(c("halitosis", "dysphagia", "watery diarrhea NOS", "truncal ataxia NOS", "oral benign tumors", "cancer patient", "Carcinoma in situ", "Chronic mucosal inflammation", "acute pancreatitis", "aortic thrombosis", "tibial fracture", "hip fracture", "hypotension", "STEMI", "NSTEMI", "temporal lobe epilepsy", "Fanconi anemia with leukoplakia", "Fanconi anemia with OSCC", "systemic lupus erythematosus with chronic periodontitis", "systemic lupus erythematosus", "acute lymphoblastic leukemia", "helminth infection", "pre-eclampsia", "stomatitis", "early childhood caries and congenital heart disease", "proliferative verrucous leukoplakia", "Refractory Celiac disease", "IBD+Diabetes")) ~ "Other",
-        status_lower == tolower("Lung Cancer") ~ "Lung Cancer",
-        status_lower == tolower("Breast Cancer") ~ "Breast Cancer",
-        status_lower == tolower("Pancreatic Cancer") ~ "Pancreatic Cancer",
-        status_lower == tolower("Oral Cancer") ~ "Oral Cancer",
-        status_lower == tolower("Digestive Tract Cancer") ~ "Digestive Tract Cancer",
-        status_lower == tolower("Prostate Cancer") ~ "Prostate Cancer",
-        status_lower == tolower("Esophageal Cancer") ~ "Esophageal Cancer",
-        status_lower == tolower("Colon Cancer") ~ "Colon Cancer",
-        status_lower == tolower("viremic ART-untreated") ~ "HIV",
-        status_lower %in% tolower(c("functional dyspepsia and gastroesophageal reflux disease", "GERD", "Reflux Esophagitis", "reflux esophagitis")) ~ "Gastroesophageal Reflux Disease",
-        status_lower == tolower("RAU") ~ "Aphthous",
-        status_lower == tolower("chronic periodontitis associated with type 2 diabetes mellitus") ~ "Diabetes and Periodontitis",
+        status_lower %in% c(
+          "pre-cancer", "epithelial precursor lesion", "pulmonary nodule",
+          "thyroid nodules", "thyroid nodules patient", "primary biliary cholangitis",
+          "autism spectrum disorder", "chronic fatigue syndrome",
+          "chronic recurrent multifocal osteomyelitis", "severe congenital neutropenia",
+          "methamphetamine addiction", "pre-eclampsia", "down syndrome",
+          "migraine", "polycystic ovary syndrome"
+        ) ~ NA_character_,
+        status_lower %in% c("preterm", "preterm newborns") ~ "Preterm",
+        status_lower %in% c(
+          "halitosis", "dysphagia", "watery diarrhea nos", "truncal ataxia nos",
+          "oral benign tumors", "cancer patient", "carcinoma in situ",
+          "chronic mucosal inflammation", "acute pancreatitis", "aortic thrombosis",
+          "tibial fracture", "hip fracture", "hypotension", "stemi", "nstemi",
+          "temporal lobe epilepsy", "fanconi anemia with leukoplakia",
+          "fanconi anemia with oscc", "systemic lupus erythematosus with chronic periodontitis",
+          "systemic lupus erythematosus", "acute lymphoblastic leukemia",
+          "helminth infection", "stomatitis", "early childhood caries and congenital heart disease",
+          "proliferative verrucous leukoplakia", "refractory celiac disease",
+          "ibd+diabetes", "bradycardia nos", "juvenile idiopathic arthritis",
+          "chronic tonsillitis", "liver cirrhosis", "chronic kidney disease",
+          "immunoglobulin a nephropathy", "membranous nephropathy",
+          "liver carcinoma", "gliomas"
+        ) ~ "Other",
+        status_lower == "lung cancer" ~ "Lung Cancer",
+        status_lower == "breast cancer" ~ "Breast Cancer",
+        status_lower == "pancreatic cancer" ~ "Pancreatic Cancer",
+        status_lower == "oral cancer" ~ "Oral Cancer",
+        status_lower == "digestive tract cancer" ~ "Digestive Tract Cancer",
+        status_lower == "prostate cancer" ~ "Prostate Cancer",
+        status_lower == "esophageal cancer" ~ "Esophageal Cancer",
+        status_lower == "colon cancer" ~ "Colon Cancer",
+        status_lower == "viremic art-untreated" ~ "HIV",
+        status_lower %in% c("functional dyspepsia and gastroesophageal reflux disease", "gerd", "reflux esophagitis") ~ "Gastroesophageal Reflux Disease",
+        status_lower == "rau" ~ "Aphthous",
+        status_lower == "chronic periodontitis associated with type 2 diabetes mellitus" ~ "Diabetes and Periodontitis",
         bioproject == "PRJNA316469" & as.character(disease_study) == "no" & as.character(status) %in% c("never smoker", "current smoker") ~ "HC",
         bioproject == "PRJEB40804" & as.character(status) == "certified saturation divers with valid health certificates" ~ "HC",
         bioproject == "PRJNA784772" & as.character(status) == "DTC" ~ "differentiated thyroid carcinoma",
@@ -549,10 +703,14 @@ generate_cleaned_cols <- function(df) {
         bioproject == "PRJNA664107" & as.character(status) == "chronic periodontitis associated with T2DM" ~ "Diabetes and Periodontitis",
         bioproject == "PRJNA663926" & as.character(status) %in% c("hand, foot and mouth disease symptomatic", "hand, foot and mouth disease asymptomatic") ~ "hand, foot and mouth disease",
         bioproject == "PRJNA544600" & as.character(status) == "obstructive sleep apnea syndrome" ~ "obstructive sleep apnea",
+        status_lower == "healthy" ~ "HC",
+        bioproject == "PRJNA841771" & as.character(status) == "oral benign tumors" ~ NA_character_,
+        status_lower == "cerebral palsy caries-free" ~ "HC",
+        status_lower %in% c("cerebral palsy with mild-moderate caries", "cerebral palsy with severe caries") ~ "dental caries",
         as.character(status) == "caries" ~ "dental caries",
         as.character(status) == "recurrent aphthous ulcer" ~ "aphthous",
-        status_lower == tolower("CD and UC") ~ "CD and UC",
-        status_lower == tolower("no-OM") ~ "HC",
+        status_lower == "cd and uc" ~ "CD and UC",
+        status_lower == "no-om" ~ "HC",
         str_detect(status_lower, "periodontitis|gingivitis|periodontal|peri-implantitis") ~ "periodontal disease",
         str_detect(status_lower, "caries") ~ "dental caries",
         str_detect(status_lower, "coronavirus disease of 2019|covid") ~ "COVID-19",
@@ -576,15 +734,40 @@ generate_cleaned_cols <- function(df) {
         str_detect(status_lower, "ad|alzheimer") ~ "Alzheimer's disease",
         str_detect(status_lower, "parkinson") ~ "Parkinson's disease",
         str_detect(status_lower, "post-traumatic stress disorder|ptsd") ~ "PTSD",
+        str_detect(status_lower, "celiac disease") ~ "celiac disease",
+        str_detect(status_lower, "obstructive sleep apnea") ~ "obstructive sleep apnea",
+        str_detect(status_lower, "copd") ~ "COPD",
+        str_detect(status_lower, "alcohol use disorder") ~ "Alcohol Use Disorder",
+        str_detect(status_lower, "atopic dermatitis") ~ "atopic dermatitis",
+        str_detect(status_lower, "atopic asthma") ~ "asthma",
         TRUE ~ as.character(status)
       ),
       status_cleaned = ifelse(!is.na(status_temp) & tolower(status_temp) != "na", tools::toTitleCase(status_temp), NA_character_)
     ) %>%
-    # Final Case Adjustments and Missing Value Handling
+    # ---------------- Final Case Adjustments & Missing Value Handling ----------------
     mutate(across(c(sex_cleaned, platform_cleaned, sequencing_region_cleaned, 
-                    country_cleaned, continent_group, site_cleaned, 
-                    site_group_cleaned, disease_study_cleaned, status_cleaned),
+                    country_cleaned, continent_group, site_group_cleaned, 
+                    disease_study_cleaned, status_cleaned),
                   ~ ifelse(!is.na(.), tools::toTitleCase(as.character(.)), NA_character_))) %>%
+    mutate(
+      site_cleaned = ifelse(!is.na(site_cleaned), tools::toTitleCase(as.character(site_cleaned)), NA_character_),
+      site_cleaned = case_when(
+        tolower(site_cleaned) == "feces" ~ "feces",
+        tolower(site_cleaned) == "skin" ~ "skin",
+        tolower(site_cleaned) == "nasal" ~ "nasal",
+        tolower(site_cleaned) == "vaginal" ~ "vaginal",
+        tolower(site_cleaned) == "respiratory/blood" ~ "respiratory/blood",
+        tolower(site_cleaned) == "other" ~ "other",
+        tolower(site_cleaned) == "oral mucosa" ~ "oral mucosa",
+        tolower(site_cleaned) == "oral swab" ~ "oral swab",
+        tolower(site_cleaned) == "saliva" ~ "saliva",
+        tolower(site_cleaned) == "tooth" ~ "tooth",
+        tolower(site_cleaned) == "tongue" ~ "tongue",
+        tolower(site_cleaned) == "gingiva" ~ "gingiva",
+        tolower(site_cleaned) == "other" ~ "Other", 
+        TRUE ~ site_cleaned
+      )
+    ) %>%
     mutate(status_cleaned = case_when(
       is.na(status) & bioproject %in% c("PRJEB1799", "PRJEB20889", "PRJEB20890", "PRJEB20894", "PRJEB27304", "PRJEB28088", "PRJEB28769", "PRJEB33119", "PRJEB42056", "PRJEB6518", "PRJNA255332", "PRJNA395436", "PRJNA427101", "PRJNA634162", "PRJNA689848", "PRJNA721325", "PRJNA747639", "PRJNA778070", "PRJNA828039", "PRJNA841067") ~ "HC",
       status_cleaned == "Hiv" ~ "HIV",
@@ -593,6 +776,25 @@ generate_cleaned_cols <- function(df) {
       status_cleaned == "Cd And Uc" ~ "CD and UC",
       status_cleaned == "Covid-19" ~ "COVID-19",
       status_cleaned == "Gastroesophageal Reflux Disease" ~ "Gastroesophageal Reflux Disease",
+      status_cleaned == "Ra" ~ "RA",
+      status_cleaned == "Cd" ~ "CD",
+      status_cleaned == "Uc" ~ "UC",
+      status_cleaned == "Hiv-1" ~ "HIV",
+      status_cleaned == "Ad" ~ "AD",
+      status_cleaned == "Copd" ~ "COPD",
+      status_cleaned == "Escc" ~ "ESCC",
+      status_cleaned == "Dtc" ~ "DTC",
+      status_cleaned == "Hnc" ~ "HNC",
+      status_cleaned == "Hnscc" ~ "HNSCC",
+      status_cleaned == "Olp" ~ "OLP",
+      status_cleaned == "Rau" ~ "RAU",
+      status_cleaned == "T2dm" ~ "T2DM",
+      status_cleaned == "Axspa" ~ "AxSpA",
+      status_cleaned == "Crc" ~ "CRC",
+      status_cleaned == "Gerd" ~ "GERD",
+      status_cleaned == "Ptst" ~ "PTSD",
+      status_cleaned == "Ibd" ~ "IBD",
+      status_cleaned == "Preterm" ~ "Preterm",
       TRUE ~ status_cleaned
     )) %>%
     mutate(
@@ -603,7 +805,7 @@ generate_cleaned_cols <- function(df) {
       age_cleaned_group = ifelse(age_cleaned_group == "Anomaly", NA_character_, age_cleaned_group),
       bmi_cleaned_group = ifelse(bmi_cleaned_group == "Anomaly_High", NA_character_, bmi_cleaned_group)
     ) %>%
-    # Remove intermediate computational columns
+    # ---------------- Filter & Removal of Intermediate Columns ----------------
     select(-age_numeric, -age_cleaned_group_base, -age_info_lower, 
            -bmi_calc, -bmi_raw_numeric, -bmi_numeric, 
            -continent_temp, -site_lower, -status_lower, -status_temp) %>%
@@ -620,87 +822,97 @@ metadata <- generate_cleaned_cols(metadata)
 This step is to create some columns of oral and gut pairing information.
 
 ```{r}
-# 1. Generate raw_pair_time_point based on timepoint column
-# Note : the code must be changed here ! ! !
-metadata <- metadata %>%
-  left_join(
-    initial_meta %>% select(Run, Sample.Name), 
-    by = c("sample_id" = "Run") 
-  ) %>%
-  
-  # Combined with the original text of the article, it can be seen that because the value containing A in the Sample_ID column is triplicate01, the value containing B is triplicate02, and the value containing C is triplicate03, only one value containing A is triplicate01.
-# Article: Bacterial DNA was isolated from stool and saliva and this was used to determine the V4 variable region of the 16S rRNA gene sequence composition of the samples in triplicate.
-  
-  mutate(
-    raw_pair_time_point = NA,
-    
-    # 2. Normalizes the display of the pair_time_point column 
-    pair_time_point = NA,
-    
-    # 3. Combination generates unique pair_id
-    pair_id = paste(subject_id, raw_pair_time_point, sep = "_")
-  ) 
-```
+# Manual adjustment area 
+# Please replace 'Sample_ID' with the real sample name column name in your current initial_meta data
+my_sample_col <- "Sample.Name" 
 
-```{r}
-# Note : Do not change the code here !!!
-# (2) Matching rules to evaluate body sites
+# (1) Universal matching rules for body sites
 gut_pattern <- "(?i)feces|fece|stool|gut"
 oral_pattern <- "(?i)saliva|tooth|oral|plaque|tongue|buccal|gingiva"
 
-# (3) Temporarily replace NA and deduplicate at the sample_id level to confirm true site origins
-sample_level_data <- metadata %>%
+# (2) Prepare Data & Rank Replicates
+metadata_prep <- metadata %>%
+  left_join(
+    initial_meta %>% select(Run, all_of(my_sample_col)), 
+    by = c("sample_id" = "Run") 
+  ) %>%
   mutate(
     temp_site = replace_na(as.character(site), ""),
     temp_site_group = replace_na(as.character(site_group), ""),
-    is_gut = str_detect(temp_site, gut_pattern) | str_detect(temp_site_group, gut_pattern),
-    is_oral = str_detect(temp_site, oral_pattern) | str_detect(temp_site_group, oral_pattern)
+    site_type = case_when(
+      str_detect(temp_site, gut_pattern) | str_detect(temp_site_group, gut_pattern) ~ "gut",
+      str_detect(temp_site, oral_pattern) | str_detect(temp_site_group, oral_pattern) ~ "oral",
+      TRUE ~ "other"
+    ),
+    # Base pair ID (Global unique)
+    base_pair_id = paste(bioproject, subject_id, sep = "_")
   ) %>%
-  group_by(bioproject, subject_id, sample_id) %>%
-  summarise(
-    is_gut = any(is_gut, na.rm = TRUE),
-    is_oral = any(is_oral, na.rm = TRUE),
-    .groups = 'drop'
-  ) %>%
-  filter(is_gut | is_oral)
-
-# (4) Aggregate on subject_id to evaluate matched pair conditions
-subject_stats <- sample_level_data %>%
-  group_by(bioproject, subject_id) %>%
-  summarise(
-    gut_count = sum(is_gut),
-    oral_count = sum(is_oral),
-    .groups = 'drop'
-  ) %>%
-  filter(gut_count >= 1 & oral_count >= 1) %>%
+  filter(site_type %in% c("gut", "oral")) %>%
+  group_by(base_pair_id, site_type) %>%
+  arrange(.data[[my_sample_col]], .by_group = TRUE) %>%
   mutate(
-    subj_pair_type = if_else(gut_count == 1 & oral_count == 1, "one pair", "many pairs"),
-    subj_actual_pairs = pmin(gut_count, oral_count)
-  )
+    site_count = n(),
+    rep_rank = row_number() 
+  ) %>%
+  ungroup()
 
-# (5) Final summary at the bioproject level
-pair_summary <- subject_stats %>%
+# (3) Output review files (Isolate Replicates & Orphans)
+# Action A : Extract the redundant technology that will be [discarded] repeated (ranking > 1, such as B and C).
+discarded_reps <- metadata_prep %>% filter(rep_rank > 1)
+if(nrow(discarded_reps) > 0){
+  write.csv(discarded_reps, "Review_1_Discarded_Replicates.csv", row.names = FALSE)
+  message("Found ", nrow(discarded_reps), " redundant technical replicates (e.g., B/C). Kept the primary ones (e.g., A). Check Review_1_Discarded_Replicates.csv.")
+}
+
+# Action B : Only retain the first [main sample] (e.g., retain A).
+metadata_primary <- metadata_prep %>% 
+  filter(rep_rank == 1) %>%
+  group_by(base_pair_id) %>%
+  mutate(
+    has_gut = any(site_type == "gut"),
+    has_oral = any(site_type == "oral"),
+    is_perfect_pair = has_gut & has_oral 
+  ) %>%
+  ungroup()
+
+# Action C : Extract the single sample (only the intestine or only the mouth)
+orphan_samples <- metadata_primary %>% filter(!is_perfect_pair)
+if(nrow(orphan_samples) > 0){
+  write.csv(orphan_samples, "Review_2_Orphan_Samples.csv", row.names = FALSE)
+  message("Found ", nrow(orphan_samples), " orphan samples. Check Review_2_Orphan_Samples.csv.")
+}
+
+# (4) Generate Bioproject Summary Statistics
+clean_metadata <- metadata_primary %>% filter(is_perfect_pair)
+
+pair_summary <- clean_metadata %>%
   group_by(bioproject) %>%
   summarise(
-    pair_type = case_when(
-      all(subj_pair_type == "one pair") ~ "one pair",
-      all(subj_pair_type == "many pairs") ~ "many pairs",
-      TRUE ~ "one pair and many pairs"
-    ),
-    pair_sample_number = sum(subj_actual_pairs),
-    pair_subject_number = n(),
+    pair_type = "single pair",
+    pair_subject_number = n_distinct(subject_id),
+    pair_sample_number = n_distinct(subject_id),
     .groups = 'drop'
   )
 
-# (6) Join pair_summary variables back into the main metadata table
-metadata <- metadata %>%
+# (5) Final Clean Metadata
+metadata <- clean_metadata %>%
   left_join(pair_summary, by = "bioproject") %>%
-  mutate(pair_bioproject = bioproject)
+  mutate(
+    pair_id = base_pair_id,
+    pair_bioproject = bioproject,
+    raw_pair_time_point = NA,
+    pair_time_point = NA
+  ) %>%
+
+  select(-temp_site, -temp_site_group, -site_type, -site_count, -rep_rank, 
+         -has_gut, -has_oral, -is_perfect_pair, -base_pair_id, 
+         -all_of(my_sample_col))
 ```
 
 # Step 8: Sort and export the metadata
+# Note : Do not change the code here !!!
 
-This step saves the cleaned metadata table as the final `metadata_oral_gut_pair_curation_v2.csv` file.
+This step saves the cleaned metadata table as the final `metadata_oral_gut_pair_v2.csv` file.
 
 ```{r}
 # Note : Do not change the code here !!!
@@ -729,3 +941,4 @@ metadata <- metadata %>%
 # 3. Export to CSV (suppressing automatic row names)
 write.csv(metadata, file = "metadata_oral_gut_pair_v2.csv", row.names = FALSE, quote = TRUE)
 ```
+

@@ -272,9 +272,9 @@ unique(metadata$site)
 
 ``` r
 # EDIT HERE: add oral sites
-Oral_site = c("saliva","stool","subgingival plaque")
+Oral_site = c("saliva","subgingival plaque")
 # EDIT HERE: add gut sites
-Gut_site = c("none")
+Gut_site = c("stool")
 # just run
 metadata <- metadata %>%
   mutate(site_group = case_when(

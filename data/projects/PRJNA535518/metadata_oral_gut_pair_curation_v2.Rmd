@@ -170,8 +170,7 @@ metadata <- data.frame(
   age = initial_meta$AGE_067,
   age_info = NA,
   bmi = NA,
-  #raw_sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
-  sex = NA, # and mark as "pending"
+  sex = "M", # extract from Article
   sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
@@ -196,10 +195,6 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
-
-```
-
-```{r}
 # (2) Filling the 'site_group' and 'matched_samples' columns
 # editing site_group
 unique(metadata$site)

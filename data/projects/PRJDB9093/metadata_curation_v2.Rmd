@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJDB9093" # Source: project ID
 
-base_dir <- "D:/metadata_collect"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -195,7 +195,7 @@ metadata <- data.frame(
   disease_study = "yes", # Source: paper - HIV-1-infected patients study
   status = "pending", # Source: HD samples = HC, patient samples = HIV; set below
   matched_samples = "pending", # modify later
-  is_time_series = "no", # Source: paper - longitudinal design with samples at 0/1/12/24 weeks and x/x+12 weeks, but set to no per project convention
+  is_time_series = "yes", # Source: paper - longitudinal design with samples at 0/1/12/24 weeks and x/x+12 weeks, but set to no per project convention
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)

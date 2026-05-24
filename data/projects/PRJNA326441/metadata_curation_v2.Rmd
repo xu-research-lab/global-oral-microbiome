@@ -36,7 +36,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA326441"
 
-base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -184,7 +184,8 @@ metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
   # From initial_meta$host_subject_id; ~597 unique subject IDs (EP-prefixed codes)
-  subject_id = initial_meta$host_subject_id,
+  raw_subject_id = initial_meta$host_subject_id,
+  subject_id = "pending",
   age = NA,
   # Library.Name suffix: B-prefix = neonatal, M-prefix = maternal; used to set age_info and sex
   raw_subject_type = ifelse(startsWith(sub(".*_", "", initial_meta$Library.Name), "B"), "neonatal",
@@ -225,6 +226,10 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata <- metadata %>%
+  mutate(
+    subject_id = paste0(raw_subject_id, raw_subject_type, sep = "_")
+  )
 
 # Distinguish maternal vs neonatal by Library.Name suffix (B-prefix = neonatal, M-prefix = maternal)
 # age_info: maternal = "15-40" (paper Table 1, range 15-40, mean 27.0); neonatal = "infant" (0-72h postpartum)
@@ -360,12 +365,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

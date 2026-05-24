@@ -36,7 +36,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJDB8122"
 
-base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -206,7 +206,7 @@ metadata <- data.frame(
   pcr_primers = NA,                                # Not explicitly stated in paper; cited as "previously described (Komazaki et al., 2017)"
   title = "Re-initiation of Oral Food Intake Following Enteral Nutrition Alters Oral and Gut Microbiota Communities",
   disease_study = "yes",                           # Post-stroke dysphagia patients
-  status = "dysphagia",                            # All subjects are post-stroke dysphagia patients; no HC group in study
+  status = "sub-acute stage of stroke with dysphagia",  # All subjects are post-stroke dysphagia patients; no HC group in study # All subjects are post-stroke dysphagia patients; no HC group in study
   matched_samples = "pending",
   is_time_series = "no",                           # Only two time points (tube feeding vs. oral feeding); paired before-after design, not time series
   stringsAsFactors = FALSE
@@ -324,12 +324,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

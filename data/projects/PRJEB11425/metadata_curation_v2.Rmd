@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJEB11425" 
 
-base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-YL-02"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -202,7 +202,7 @@ metadata <- metadata %>%
 metadata <- metadata %>%
   mutate(status = case_when(
     grepl("ADMISSION", raw_status) ~ "ICU", 
-    grepl("D10 or D/C", raw_status) ~ "NA",
+    grepl("D10 or D/C", raw_status) ~ "ICU discharge or on ICU day 10",
     TRUE ~ NA_character_
   )) # according to the 'tissue' column of initial_meta, Article: Samples were collected at two time points: within 48 h of ICU admission, and at ICU discharge or on ICU day 10.
 ```

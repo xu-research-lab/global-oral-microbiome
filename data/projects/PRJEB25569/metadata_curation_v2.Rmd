@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJEB25569" 
 
-base_dir <- "D:/metadata_collect"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -238,11 +238,11 @@ metadata <- metadata %>%
   mutate(status = case_when(
     subject_id %in% c("11", "17", "21", "23", "28", "29", "30", "31", "32",
                       "45", "48", "49", "50", "60") ~ "HC",
-    subject_id %in% c("3", "5", "9", "13", "22", "25", "27", "54","58") ~ "immunological ART non-responder",
+    subject_id %in% c("3", "5", "9", "13", "22", "25", "27", "54","58") ~ "HIV",
     subject_id %in% c("1", "2", "4", "6", "7", "8", "10", "12", "14", "15",
-                      "16", "18", "19", "20", "24", "26", "33" ,"56") ~ "immunological ART responder",
+                      "16", "18", "19", "20", "24", "26", "33" ,"56") ~ "HIV",
     subject_id %in% c("34", "35", "36", "37", "38", "39", "40", "44", "46",
-                      "47", "51", "53") ~ "viremic ART-untreated",
+                      "47", "51", "53") ~ "HIV",
     TRUE ~ NA_character_
   )) # From paper Table 1: Control -> HC; INR -> immunological ART non-responder; IR -> immunological ART responder; VU -> viremic ART-untreated
 ```

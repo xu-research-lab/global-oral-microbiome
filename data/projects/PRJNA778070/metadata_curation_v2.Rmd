@@ -16,7 +16,7 @@ library(cowplot)
 # (1) Setting working directory
 project_id <- "PRJNA778070"
 
-base_dir <- "E:/工作区/VSCode/RNAproject/collect_metadata_respon/project"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -76,9 +76,9 @@ control_column <- "isolation_source"
 # unique(initial_meta[[control_column]])
 control_keywords <- c("ATCC", "MiliQ water", "Qiagen Mini Stool Kit", "Saliva in-house extraction kit")
 
-species_column <- "Organism"
+species_column <- "Sample Name"
 unique(initial_meta[[species_column]])
-non_human_keywords <- c()
+non_human_keywords <- c("LF-Mock", "LF-Negative", "Stool-neg", "Saliva-neg", "Mock")
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
 n_samples <- nrow(initial_meta)
@@ -322,11 +322,11 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

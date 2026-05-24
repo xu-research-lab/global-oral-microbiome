@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA847970"
 
-base_dir <- "/home/hby/oral-metadata/"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -56,11 +56,10 @@ First, we need to remove control samples(including both negative controls and po
 # (1) EDIT HERE: Parameter setup
 control_column <- "Status" # column name in initial_meta
 # unique(initial_meta[[control_column]])
-control_keywords <- c("Control") # Enter exact keywords
-
-species_column <- "" # column name in initial_meta
+control_keywords <- c("PCR_Amplification_Negative_Control", "Extraction_Kit_Negative_Control", "PCR_Amplification_PositiveZymo_Control") # Enter exact keywords
+species_column <- "replicate" # column name in initial_meta
 unique(initial_meta[[species_column]])
-non_human_keywords <- c() # Enter exact keywords
+non_human_keywords <- c("C01", "C02", "C03") # Enter exact keywords
 
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
@@ -175,10 +174,10 @@ metadata <- data.frame(
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "515F-806R", # Format: xxF-xxR
   title = "Gut and oral microbiota associations with viral mitigation behaviors during the COVID-19 pandemic", # extract from article
-  disease_study = "no", # determine according to the article
-  status = NA,
+  disease_study = "yes", # determine according to the article # Article:  Participants were selected without bias from a large ongoing observational cohort (MedBio) consisting of a collection of UPMC patient registries and clinical investigations... These studies span a range of chronic illnesses and disease status." 
+  status = NA, # It is impossible to identify which disease from the sample level, so the NA is filled in the disease status column. In the article, it is said that most people suffer from at least one underlying disease (chronic disease). At the same time, these subjects were not infected with the novel coronavirus (COVID-19) during the study period. The main underlying diseases (comorbidities) listed in the article include : High Blood Pressure, Diabetes, Sleep Apnea, Asthma, Cancer-active treatment, Immune System Disease.
   matched_samples = "pending", # modify later
-  is_time_series = "yes", # determine according to the article
+  is_time_series = "no", # determine according to the article
   stringsAsFactors = FALSE
 )
 metadata$public_time <- as.Date(metadata$public_time)
@@ -195,9 +194,6 @@ metadata <- metadata %>%
   mutate(
     site = tolower(raw_site)
   )
-
-
-
 
 # (2) Filling the 'site_group' and 'matched_samples' columns
 # editing site_group

@@ -44,7 +44,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJEB69530" # From project ID provided
 
-base_dir <- "D:/metadata_collect"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -204,7 +204,8 @@ metadata <- data.frame(
   pcr_primers = "515F-806R",             # Paper Methods + CSV pcr_primers (exp): FWD:GTGCCAGCMGCCGCGGTAA; REV:GGACTACHVGGGTWTCTAAT
   title = "Ecological relationships between human gut bacteria predicted from analysis of dense microbiome time series data from US travelers in Bangladesh", # Paper title page
   disease_study = "yes",                 # Paper: subjects experienced traveler's diarrhea during study
-  status = NA_character_,                # No formal case/control design; all subjects had diarrhea
+  raw_status = initial_meta$Collection_Date,               # No formal case/control design; all subjects had diarrhea
+  status = "pending", # Four subjects were healthy before departure, but all of them were acute diarrhea during travel in Bangladesh. After returning to the United States, they entered the recovery period. They could not determine the physical status of the subjects according to the sampling time, so the NA was marked in the disease status column
   matched_samples = "pending",           # modify later
   is_time_series = "yes",                # Paper: dense longitudinal design, same 4 individuals sampled repeatedly over weeks
   stringsAsFactors = FALSE
@@ -226,6 +227,32 @@ metadata <- metadata %>%
     grepl("^F", subject_id) ~ "F",
     TRUE ~ NA_character_
   )) # subject_id prefix: M=male, F=female (matches "three males and one female" in paper)
+
+metadata <- metadata %>%
+  left_join(
+    initial_meta %>% select(Run, Collection_Date),
+    by = c("sample_id" = "Run")
+  ) %>%
+  mutate(
+    Date_Format = as.Date(Collection_Date, format = "%Y-%m-%d")
+  ) %>%
+  group_by(subject_id) %>%
+  mutate(
+    Days_Since_Start = as.numeric(Date_Format - min(Date_Format, na.rm = TRUE)),
+    
+    raw_pair_time_point = if_else(is.na(Days_Since_Start), NA_character_, as.character(Days_Since_Start)),
+    
+    pair_time_point = case_when(
+      is.na(Days_Since_Start) ~ NA_character_,
+      Days_Since_Start == 0   ~ "baseline",
+      Days_Since_Start == 1   ~ "1 day since experiment start(Four subjects were healthy before departure, but all of them were acute diarrhea during travel in Bangladesh. After returning to the United States, they entered the recovery period. They could not determine the physical status of the subjects according to the sampling time, so the NA was marked in the disease status column)",
+      TRUE                    ~ paste0(Days_Since_Start, " days since experiment start(Four subjects were healthy before departure, but all of them were acute diarrhea during travel in Bangladesh. After returning to the United States, they entered the recovery period. They could not determine the physical status of the subjects according to the sampling time, so the NA was marked in the disease status column)")
+    ),
+    
+    status = if_else(pair_time_point == "baseline", "HC", NA_character_)
+  ) %>%
+  ungroup() %>%
+  select(-Date_Format, -Days_Since_Start)
 ```
 
 ```{r}

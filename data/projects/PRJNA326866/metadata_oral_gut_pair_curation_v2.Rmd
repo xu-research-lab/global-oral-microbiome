@@ -820,91 +820,167 @@ metadata <- generate_cleaned_cols(metadata)
 This step is to create some columns of oral and gut pairing information.
 
 ```{r}
-# Manual adjustment area 
-# Please replace 'Sample_ID' with the real sample name column name in your current initial_meta data
+# [PRE-STEP] Project-Specific Data Curation
+# Note: Before entering the universal pairing process, please prepare the following columns based on the current project's specific situation.
+# subject_id: Mandatory, and the format must be clean.
+# site_cleaned: Mandatory, records the specific sampling site (e.g., feces, saliva, etc.).
+# raw_pair_time_point / pair_time_point: If the project has time points, generate them here. If not, you can skip this directly.
+metadata <- metadata %>%
+  mutate(
+    raw_pair_time_point = NA_character_, 
+    
+    pair_time_point = case_when(
+      status == "polycystic ovary syndrome" ~ "polycystic ovary syndrome",
+      TRUE ~ NA_character_
+    )
+  )
+
+
+# [UNIVERSAL STEP] Universal Pairing & Ranking Algorithm
+# Please modify according to the actual column name in initial_meta (used only for tie-breaking during deduplication)
 my_sample_col <- "Sample.Name" 
 
 # (1) Universal matching rules for body sites
 gut_pattern <- "(?i)feces|fece|stool|gut"
 oral_pattern <- "(?i)saliva|tooth|oral|plaque|tongue|buccal|gingiva"
 
-# (2) Prepare Data & Rank Replicates
+# Automatic column check: If it is a pure cross-sectional project without extracted time points, automatically add the columns and assign NA
+if (!"raw_pair_time_point" %in% names(metadata)) {
+  metadata$raw_pair_time_point <- NA_character_
+}
+if (!"pair_time_point" %in% names(metadata)) {
+  metadata$pair_time_point <- NA_character_
+}
+
+# (2) Prepare Data & Construct Robust Base ID
 metadata_prep <- metadata %>%
   left_join(
     initial_meta %>% select(Run, all_of(my_sample_col)), 
     by = c("sample_id" = "Run") 
   ) %>%
   mutate(
-    temp_site = replace_na(as.character(site), ""),
+    # Directly call the cleaned site_cleaned column as the basis for site judgment
+    temp_site = replace_na(as.character(site_cleaned), "unknown_site"),
     temp_site_group = replace_na(as.character(site_group), ""),
+    
     site_type = case_when(
       str_detect(temp_site, gut_pattern) | str_detect(temp_site_group, gut_pattern) ~ "gut",
       str_detect(temp_site, oral_pattern) | str_detect(temp_site_group, oral_pattern) ~ "oral",
       TRUE ~ "other"
     ),
-    # Base pair ID (Global unique)
-    base_pair_id = paste(bioproject, subject_id, sep = "_")
+    
+    # Construct base pair ID (handles both longitudinal and cross-sectional)
+    base_pair_id = case_when(
+      is.na(raw_pair_time_point) | raw_pair_time_point == "" ~ paste(bioproject, subject_id, sep = "_"),
+      TRUE ~ paste(bioproject, subject_id, raw_pair_time_point, sep = "_")
+    )
   ) %>%
   filter(site_type %in% c("gut", "oral")) %>%
-  group_by(base_pair_id, site_type) %>%
+  
+  # Step 2.1: Deduplicate technical replicates (e.g., 2 exactly same sites sampled at the exact same time)
+  group_by(base_pair_id, temp_site) %>% 
   arrange(.data[[my_sample_col]], .by_group = TRUE) %>%
-  mutate(
-    site_count = n(),
-    rep_rank = row_number() 
-  ) %>%
+  mutate(rep_rank = row_number()) %>%
   ungroup()
 
-# (3) Output review files (Isolate Replicates & Orphans)
-# Action A : Extract the redundant technology that will be [discarded] repeated (ranking > 1, such as B and C).
+# Output review files Action A: Extract pure technical replicates
 discarded_reps <- metadata_prep %>% filter(rep_rank > 1)
 if(nrow(discarded_reps) > 0){
   write.csv(discarded_reps, "Review_1_Discarded_Replicates.csv", row.names = FALSE)
-  message("Found ", nrow(discarded_reps), " redundant technical replicates (e.g., B/C). Kept the primary ones (e.g., A). Check Review_1_Discarded_Replicates.csv.")
+  message("Found ", nrow(discarded_reps), " redundant technical replicates.")
 }
 
-# Action B : Only retain the first [main sample] (e.g., retain A).
-metadata_primary <- metadata_prep %>% 
+# Step 2.2: 1-to-1 Primary Pairing Logic with Custom Site Priority
+metadata_paired <- metadata_prep %>% 
   filter(rep_rank == 1) %>%
+  mutate(
+    # Define exact hierarchical priority for oral sites (lower number = higher priority)
+    site_priority = case_when(
+      site_type == "gut" ~ 1,
+      grepl("(?i)Saliva", temp_site) ~ 1,
+      grepl("(?i)Tooth", temp_site) ~ 2,
+      grepl("(?i)Oral Mucosa", temp_site) ~ 3,
+      grepl("(?i)Oral Swab", temp_site) ~ 4,
+      grepl("(?i)Tongue", temp_site) ~ 5,
+      grepl("(?i)Gingiva", temp_site) ~ 6,
+      grepl("(?i)Other", temp_site) ~ 7,
+      TRUE ~ 8
+    )
+  ) %>%
+  # Rank gut and oral samples separately within each time point
+  group_by(base_pair_id, site_type) %>%
+  arrange(site_priority, .data[[my_sample_col]], .by_group = TRUE) %>% 
+  mutate(site_type_rank = row_number()) %>%
+  ungroup() %>%
   group_by(base_pair_id) %>%
   mutate(
-    has_gut = any(site_type == "gut"),
-    has_oral = any(site_type == "oral"),
-    is_perfect_pair = has_gut & has_oral 
+    # A valid pair requires 1 gut and 1 oral. If 1 gut and 3 orals, max_valid_pairs is 1.
+    max_valid_pairs = min(sum(site_type == "gut"), sum(site_type == "oral")),
+    
+    # Mark as primary pair ONLY if its rank falls within the max valid limit
+    is_primary_pair = (site_type %in% c("gut", "oral")) & (site_type_rank <= max_valid_pairs)
   ) %>%
   ungroup()
 
-# Action C : Extract the single sample (only the intestine or only the mouth)
-orphan_samples <- metadata_primary %>% filter(!is_perfect_pair)
+# Output review files Action C: Extract true orphans and extra unpaired multi-site samples
+orphan_samples <- metadata_paired %>% filter(!is_primary_pair)
 if(nrow(orphan_samples) > 0){
-  write.csv(orphan_samples, "Review_2_Orphan_Samples.csv", row.names = FALSE)
-  message("Found ", nrow(orphan_samples), " orphan samples. Check Review_2_Orphan_Samples.csv.")
+  write.csv(orphan_samples, "Review_2_Orphan_And_Extra_Samples.csv", row.names = FALSE)
+  message("Found ", nrow(orphan_samples), " unpaired samples (orphans or extra multi-sites).")
 }
 
-# (4) Generate Bioproject Summary Statistics
-clean_metadata <- metadata_primary %>% filter(is_perfect_pair)
+# (3) Keep all valid samples & Assign Pair IDs
+clean_metadata <- metadata_paired %>% 
+  # As long as the time point successfully paired at least 1 pair, retain ALL samples from that time point
+  filter(max_valid_pairs >= 1) %>%
+  mutate(
+    # The selected primary gut and oral get the pair ID. 
+    pair_id = ifelse(
+      is_primary_pair, 
+      base_pair_id, 
+      paste(base_pair_id, gsub(" ", "_", temp_site), sep = "_")
+    ),
+    pair_bioproject = bioproject
+  )
 
-pair_summary <- clean_metadata %>%
+# (4) Generate Bioproject Summary Statistics and pair type determination
+subject_stats <- clean_metadata %>%
+  group_by(bioproject, subject_id) %>%
+  summarise(
+    n_timepoints = n_distinct(base_pair_id),
+    total_valid_samples = n(),
+    total_pairs = sum(is_primary_pair, na.rm = TRUE) / 2, 
+    
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    # If total samples > (timepoints * 2), it means multi-site sampling exists classified as many pairs
+    is_many_pairs_type = (n_timepoints > 1) | (total_valid_samples > (n_timepoints * 2))
+  )
+
+pair_summary <- subject_stats %>%
   group_by(bioproject) %>%
   summarise(
-    pair_type = "single pair",
-    pair_subject_number = n_distinct(subject_id),
-    pair_sample_number = n_distinct(subject_id),
+    pair_subject_number = n_distinct(subject_id), 
+    pair_sample_number = sum(total_pairs),            
+    
+    pair_type = case_when(
+      all(!is_many_pairs_type) ~ "single pair",
+      all(is_many_pairs_type)  ~ "many pairs",
+      TRUE ~ "single pair and many pairs"
+    ),
     .groups = 'drop'
   )
 
-# (5) Final Clean Metadata
+# (5) Output the final clean Metadata table
 metadata <- clean_metadata %>%
   left_join(pair_summary, by = "bioproject") %>%
-  mutate(
-    pair_id = base_pair_id,
-    pair_bioproject = bioproject,
-    raw_pair_time_point = NA,
-    pair_time_point = NA
-  ) %>%
-
-  select(-temp_site, -temp_site_group, -site_type, -site_count, -rep_rank, 
-         -has_gut, -has_oral, -is_perfect_pair, -base_pair_id, 
+  select(-temp_site, -temp_site_group, -site_type, -rep_rank, 
+         -site_priority, -site_type_rank, -max_valid_pairs, -is_primary_pair, -base_pair_id, 
          -all_of(my_sample_col))
+
+message("Universal pairing algorithm completed successfully. Resulting pair type: ", 
+        unique(metadata$pair_type))
 ```
 
 # Step 8: Sort and export the metadata

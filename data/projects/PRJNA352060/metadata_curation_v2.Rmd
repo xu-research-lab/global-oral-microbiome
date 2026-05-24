@@ -12,12 +12,13 @@ This step sets the project directory, loads the raw SRA metadata, and optionally
 library(dplyr)
 library(ggplot2)
 library(cowplot)
+library(tidyverse)
 
 # (1) Setting working directory
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA352060"
 
-base_dir <- "/home/hby/oral-metadata/"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -194,12 +195,9 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
 metadata <- metadata %>%
   mutate(
-    subject_id = sub(".*-(P[0-9]+)-.*", "\\1", raw_subject_id),
+    subject_id = str_extract(raw_subject_id, "P[0-9]+[a-zA-Z]?"), 
     site = tolower(raw_site)
   )
-
-
-
 
 # (2) Filling the 'site_group' and 'matched_samples' columns
 # editing site_group

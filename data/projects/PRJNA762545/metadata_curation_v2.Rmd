@@ -164,7 +164,8 @@ metadata <- data.frame(
   sample_id = initial_meta$Run,
   raw_subject_id = initial_meta$Sample.Name,
   subject_id = "pending",
-  age = initial_meta$host_age,
+  raw_age = initial_meta$host_age,
+  age = "pending",
   age_info = NA,
   bmi = NA,
   raw_sex = initial_meta$host_sex, # if need modify, then create a column start with 'raw_'
@@ -195,6 +196,8 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
 metadata$subject_id <- sub("\\..*", "", metadata$raw_subject_id)
 metadata$sex <- ifelse(metadata$raw_sex == "male","M","F")
+metadata$age <- gsub(" weeks", "", metadata$raw_age) %>% as.numeric() / 52
+
 ```
 
 ```{r}

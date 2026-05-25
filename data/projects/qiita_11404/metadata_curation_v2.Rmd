@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "qiita_11404" 
 
-base_dir <- "D:/oral_project/验证/metadata_BIOM_check/"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -54,13 +54,12 @@ First, we need to remove control samples(including both negative controls and po
 
 ```{r}
 # (1) EDIT HERE: Parameter setup
-control_column <- ""   # column name in initial_meta
+control_column <- "cat"   # column name in initial_meta
 # unique(initial_meta[[control_column]])
-control_keywords <- c()     # Enter exact keywords
-
-species_column <- ""          # column name in initial_meta
+control_keywords <- c("yes")     # Enter exact keywords
+species_column <- "dog"          # column name in initial_meta
 unique(initial_meta[[species_column]])
-non_human_keywords <- c()            # Enter exact keywords
+non_human_keywords <- c("yes")            # Enter exact keywords
 
 
 # (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
@@ -180,7 +179,7 @@ metadata <- data.frame(
   pcr_primers = "515F-806R", # Format: xxF-xxR."according  to  the  Earth  Microbiome  Project  Protocols"
   title = "A multi-cultural characterization of human-environmental interaction through metabolomic and microbiome profiling", # extract from article
   disease_study = "no", # determine according to the article
-  status = NA,  
+  status = "HC",  
   matched_samples = "pending", # modify later
   is_time_series = "no", # determine according to the article.
   stringsAsFactors = FALSE
@@ -329,12 +328,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

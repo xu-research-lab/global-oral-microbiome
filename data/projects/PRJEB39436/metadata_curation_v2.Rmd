@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJEB39436" 
 
-base_dir <- "D:/oral-metadata/"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -180,8 +180,8 @@ metadata <- data.frame(
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "515F-806R", # Format: xxF-xxR. csv:pcr_primers (exp)
   title = "Multiomic Analyses of Nascent Preterm Infant Microbiomes Differentiation Suggest Opportunities for Targeted Intervention", # extract from article
-  disease_study = "no", # determine according to the article
-  status = NA,  
+  disease_study = "yes", # determine according to the article
+  status = "preterm infant",  
   matched_samples = "pending", # modify later
   raw_is_time_series = "the development of the gut, skin, and oral microbiomes of infants is profiled daily for the first week after birth",
   is_time_series = "yes", # determine according to the article."Eighty-five preterm infants (60 LP and 25 VLBW) were recruited from the UC San Diego NICU for approximately daily sampling of the oral, skin, and feces during the duration of their stay."
@@ -316,12 +316,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

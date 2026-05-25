@@ -88,7 +88,7 @@ df_new <- df %>%
       # --- NEW: >= / ≥ thresholds ---
       str_detect(age_info_lower, "^\\s*[≥>]=?\\s*\\d+") ~ case_when(
         as.numeric(str_extract(age_info_lower, "\\d+")) >= 60 ~ "＞60 years",
-        as.numeric(str_extract(age_info_lower, "\\d+")) > 18 ~ "18-60 years",
+        as.numeric(str_extract(age_info_lower, "\\d+")) >= 18 ~ "18-60 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) > 12 ~ "12-18 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) > 3 ~ "3-12 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) > 0.5 ~ "6-36 months",
@@ -98,7 +98,7 @@ df_new <- df %>%
       # --- NEW: above / over X years ---
       str_detect(age_info_lower, "above\\s+\\d+\\s*years?\\s*old|over\\s+\\d+\\s*years?|above\\s+\\d+\\s*years?") ~ case_when(
         as.numeric(str_extract(age_info_lower, "\\d+")) >= 60 ~ "＞60 years",
-        as.numeric(str_extract(age_info_lower, "\\d+")) > 18 ~ "18-60 years",
+        as.numeric(str_extract(age_info_lower, "\\d+")) >= 18 ~ "18-60 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) > 12 ~ "12-18 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) > 3 ~ "3-12 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) > 0.5 ~ "6-36 months",
@@ -198,7 +198,7 @@ df_new <- df %>%
       # 60+ / 50+ / general X+ mappings
       str_detect(age_info_lower, "\\d+\\+") ~ case_when(
         as.numeric(str_extract(age_info_lower, "\\d+")) >= 60 ~ "＞60 years",
-        as.numeric(str_extract(age_info_lower, "\\d+")) > 18 ~ "18-60 years",
+        as.numeric(str_extract(age_info_lower, "\\d+")) >= 18 ~ "18-60 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) > 12 ~ "12-18 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) > 3 ~ "3-12 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) > 0.5 ~ "6-36 months",
@@ -439,7 +439,7 @@ df_new <- df %>%
       status_lower %in% tolower(c(
         "myasthenia gravis",
         "functional gastrointestinal complaints", "missing",
-        "pre-conditioning"
+        "pre-conditioning", "icu discharge or on icu day 10"
       )) ~ NA_character_,
 
       # --- NEW: full-term -> HC ---
@@ -472,7 +472,7 @@ df_new <- df %>%
         "helminth infection", "stomatitis",
         "early childhood caries and congenital heart disease",
         "proliferative verrucous leukoplakia", "Refractory Celiac disease",
-        "IBD+Diabetes"
+        "IBD+Diabetes", "acute diarrhea", "acute diarrhea"
       )) ~ "Other",
 
       # --- Kept as NA: conditions restored from Other back to NA ---
@@ -487,14 +487,14 @@ df_new <- df %>%
       )) ~ NA_character_,
 
       # --- NEW: preterm conditions (kept as distinct, disease_study set to yes later) ---
-      status_lower %in% tolower(c("preterm", "preterm newborns")) ~ "Preterm",
+      status_lower %in% tolower(c("preterm", "preterm infant", "preterm newborns")) ~ "Preterm",
 
       # --- NEW: additional rare conditions -> Other ---
       status_lower %in% tolower(c(
         "bradycardia NOS", "juvenile idiopathic arthritis",
         "chronic tonsillitis", "liver cirrhosis", "chronic kidney disease",
         "immunoglobulin A nephropathy", "membranous nephropathy",
-        "liver carcinoma", "gliomas"
+        "liver carcinoma", "gliomas", "sub-acute stage of stroke with dysphagia"
       )) ~ "Other",
 
       # --- NEW: additional fracture / vascular -> Other ---

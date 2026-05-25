@@ -171,7 +171,7 @@ metadata <- data.frame(
   sequencing_region = "V2, V3, V4, V6-7, V8, V9",
   platform = "ION TORRENT", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
-  site = "tongue",
+  site = "tongue dorsum",
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = NA, # Format: xxF-xxR

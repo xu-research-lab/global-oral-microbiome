@@ -166,7 +166,8 @@ metadata <- data.frame(
   age = initial_meta$Host_Age,
   age_info = NA,
   bmi = NA,
-  sex = initial_meta$host_sex, # and mark as "pending"
+  raw_sex = initial_meta$host_sex, # and mark as "pending"
+  sex = "pending",
   sequencing_region = "V4",
   platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
@@ -191,7 +192,7 @@ This step involves two parts: (1) handle the columns with the `raw_` prefix, and
 ```{r}
 # (1) Handle the columns with the `raw_` prefix.
 # In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
-
+metadata$sex <- ifelse(metadata$raw_sex == "male","M","F")
 
 ```
 

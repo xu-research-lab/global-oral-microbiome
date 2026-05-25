@@ -166,7 +166,8 @@ metadata <- data.frame(
   age = initial_meta$AGE,
   age_info = NA,
   bmi = NA,
-  sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
+  raw_sex = initial_meta$sex, # if need modify, then create a column start with 'raw_'
+  sex = "pending",
   sequencing_region = "V1–V2",
   platform = "Illumina Miseq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
@@ -198,6 +199,7 @@ metadata <- metadata %>%
     raw_status == "healthy" ~ "HC",
     TRUE ~ NA_character_
   )) 
+metadata$sex <- ifelse(metadata$raw_sex == "male","M","F")
 ```
 
 ```{r}

@@ -365,25 +365,20 @@ df_new <- df %>%
     site_cleaned = case_when(
       is.na(site) ~ NA_character_,
 
-      # --- NEW: gut / fecal mapping ---
+      site_lower == tolower("right maxillary dentition") ~ "tooth",
+      site_lower %in% tolower(c("gingival surface", "Right post maxilla ging")) ~ "gingiva",
+      site_lower %in% tolower(c("buccal surfaces", "mucosal surface of the soft palate", "oral mucosal surfaces")) ~ "oral mucosa",
+      site_lower %in% tolower(c("the anterior dorsal tongue surface", "tongue tumor surface")) ~ "tongue",
+      site_lower %in% tolower(c("cancer surface", "swab_nasopharynx_or_oropharynx")) ~ "other",
+      site_lower == tolower("tonsil surface") ~ "Other",
+
       str_detect(site_lower, "feces|faeces|fecal|stool|rectal swab|rectum|^gut$") ~ "feces",
-
-      # --- NEW: skin mapping ---
       str_detect(site_lower, "skin|face|forehead|palm|scalp|axilla|cheek-nose crease|umbilicus|antecubital fossa|retroauricular crease|sebum|periumbilical|forearm|areola") ~ "skin",
-
-      # --- NEW: nasal mapping ---
       str_detect(site_lower, "nasal cavity|anterior nares|nasal swab|nasal mucosa|nasal mucus|nostril mucus|nasopharyngeal|nasopharynx") ~ "nasal",
-
-      # --- NEW: vaginal mapping ---
       str_detect(site_lower, "vagina|cervical mucus|posterior fornix|mid vagina") ~ "vaginal",
-
-      # --- NEW: blood / respiratory mapping ---
       str_detect(site_lower, "^blood$|bronchoalveolar lavage|sputum|endotracheal aspirate") ~ "respiratory/blood",
-
-      # --- NEW: other body sites ---
       str_detect(site_lower, "tears|milk|ear wax|gastric fluid") ~ "other",
 
-      # Original oral site mappings
       bioproject == "PRJEB4953" & site %in% c("Right retromolar trigone", "Right post maxilla ging", "Right floor of mouth", "Right alveolar ridge", "Midline hard palate", "Left retromolar trigone", "Left floor of mouth", "Left alveolar ridge", "floor of Mouth", "floor of mouth") ~ "oral mucosa",
       bioproject == "PRJNA542898" & site == "buccal surfaces" ~ "oral mucosa",
       bioproject == "PRJNA412445" & site == "mucous" ~ "oral mucosa",
@@ -410,8 +405,15 @@ df_new <- df %>%
       str_detect(site_lower, "saliva") ~ "saliva",
       TRUE ~ site
     ),
+    
     site_group_cleaned = case_when(
-      bioproject == "PRJNA659632" & site_group == "other" ~ "oral",
+      site_lower %in% tolower(c(
+        "swab_nasopharynx_or_oropharynx", "buccal surfaces", "cancer surface",
+        "gingival surface", "mucosal surface of the soft palate", "oral mucosal surfaces",
+        "right maxillary dentition", "Right post maxilla ging",
+        "the anterior dorsal tongue surface", "tongue tumor surface", "tonsil surface"
+      )) ~ "oral",
+      
       TRUE ~ site_group
     ),
 
@@ -454,8 +456,8 @@ df_new <- df %>%
       # --- NEW: smoker controls -> NA (already covered by current smoker in oral script; extend to never smoker) ---
       status_lower %in% tolower(c("never smoker", "current smoker")) ~ NA_character_,
 
-      # --- NEW: breastfed variations -> NA ---
-      str_detect(status_lower, "breastfed|never breastfed") ~ NA_character_,
+      # --- NEW: breastfed variations and third molar extraction -> NA ---
+      str_detect(status_lower, "breastfed|never breastfed|third molar extraction") ~ NA_character_,
 
       # Original bioproject-specific NA
       bioproject == "PRJNA417321" & status == "dental implant" ~ NA_character_,
@@ -706,11 +708,13 @@ message(sprintf("Rows: %d | Columns: %d\n", nrow(df_final), ncol(df_final)))
 # 4. Export Oral-Only Subset (matching original oral script filtering logic)
 # ------------------------------------------------------------------------------
 oral_output_file <- "/beegfs/huangxiaochang/global_oral/metadata_v2_merge/metadata-v2-merge-oral.csv"
+
 df_oral <- df_final %>%
   filter(
-    (tolower(site_group) == "oral" | bioproject == "PRJNA659632") &
-      !(bioproject == "PRJNA471556" & tolower(site) == "stool" & tolower(site_group) == "oral")
+    tolower(site_group_cleaned) == "oral" & 
+      !(bioproject == "PRJNA471556" & tolower(site) == "stool" & tolower(site_group_cleaned) == "oral")
   )
+
 write_csv(df_oral, oral_output_file)
 message(sprintf("Oral-only subset saved to: %s\n", oral_output_file))
 message(sprintf("Oral subset rows: %d | Columns: %d\n", nrow(df_oral), ncol(df_oral)))

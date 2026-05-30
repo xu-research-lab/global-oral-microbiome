@@ -840,7 +840,7 @@ metadata <- metadata %>%
         day(parsed_time), "_",
         hour(parsed_time), ":",
         sprintf("%02d", minute(parsed_time)), # Ensures minutes like "0" become "00"
-        ifelse(hour(parsed_time) < 12, "a.m.(sample_collection_times)", "p.m.(sample_collection_times)") # Appends a.m. / p.m.
+        ifelse(hour(parsed_time) < 12, "a.m.(This refers only to the time of sample collection; the study is not a time-series study)", "p.m.(This refers only to the time of sample collection; the study is not a time-series study)") # Appends a.m. / p.m.
       )
     ),
     

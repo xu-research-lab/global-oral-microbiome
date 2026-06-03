@@ -18,7 +18,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA779698" 
 
-base_dir <- "E:/oral_metadata/global-oral-microbiome/data/projects/"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -182,7 +182,7 @@ The uniform metadata should include the following columns:
 metadata <- data.frame(
   bioproject = initial_meta$BioProject,
   sample_id = initial_meta$Run,
-  subject_id = NA,
+  subject_id = initial_meta$Run,
   age = NA,
   age_info = NA,
   bmi = NA,

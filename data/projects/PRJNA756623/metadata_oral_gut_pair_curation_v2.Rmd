@@ -19,7 +19,7 @@ library(tools)
 # (1) Setting working directory
 project_id <- "PRJNA756623"
 
-base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-merge-YL/pair/260518/pair-v2/single pair-0519/"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -844,8 +844,7 @@ metadata <- clean_metadata %>%
     pair_bioproject = bioproject,
     raw_pair_time_point = stringr::str_extract(.data[[my_sample_col]], "KF0|KF12"),
     pair_time_point = case_when(
-      raw_pair_time_point == "KF0" ~ "
-Coronavirus disease 2019 patients recover at discharge (CPR0)",
+      raw_pair_time_point == "KF0" ~ "Coronavirus disease 2019 patients recover at discharge (CPR0)",
       raw_pair_time_point == "KF12" ~ "Coronavirus disease 2019 patients recover 1 year (CPR1)",
       TRUE ~ NA_character_
     )

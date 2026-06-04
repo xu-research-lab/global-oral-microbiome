@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Metadata QC Pipeline Documentation</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1180px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.6; }
+h1 { border-bottom: 2px solid #333; padding-bottom: 8px; }
+h2 { margin-top: 32px; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+h3 { margin-top: 24px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: #f5f5f5; }
+tr:nth-child(even) { background: #fafafa; }
+code { background: #f0f0f0; padding: 1px 5px; border-radius: 3px; font-size: 0.92em; }
+.small { font-size: 0.88em; }
+.flow { background: #e8f5e9; border-left: 4px solid #4caf50; padding: 12px 16px; margin: 16px 0; }
+.note { background: #fff3e0; border-left: 4px solid #ff9800; padding: 12px 16px; margin: 16px 0; }
+.ok { background: #e3f2fd; border-left: 4px solid #2196f3; padding: 12px 16px; margin: 16px 0; }
+.plot-img { display: block; width: 100%; max-width: 1160px; height: auto; margin: 12px 0 28px 0; border: 1px solid #ddd; }
+.figure-title { font-weight: 600; margin-top: 20px; }
+</style>
+</head>
+<body>
+<h1>Global Oral Microbiome Metadata QC Pipeline</h1>
+<p>Date: 2026-06-03 &nbsp;|&nbsp; Directory: <code>/beegfs/huangxiaochang/global_oral/new_analysis/</code></p>
+<div class="note"><strong>Current update:</strong> The pipeline was rerun from the updated <code>metadata-v2-merge-cleaned.csv</code>. Closed-reference read retention &lt;50% is restored as a study-level exclusion criterion.</div>
+<div class="ok"><strong>Merge rule:</strong> <code>metadata_all_for_qc_raw.tsv</code> preserves the row count, study count, sample IDs, and subject IDs from <code>metadata-v2-merge-cleaned.csv</code>. <code>subject_id</code> is the third column in all generated metadata TSV files.</div>
+<h2>1. Input Files</h2>
+<table>
+<tr><th>File</th><th>Source</th><th>Content Used</th></tr>
+<tr><td><code>metadata-v2-merge-cleaned.csv</code></td><td>metadata curation</td><td>Authoritative metadata base</td></tr>
+<tr><td><code>sample_asv_counts_new.tsv</code></td><td><code>count_sample_asvs.py</code> from <code>DADA2.biom</code></td><td>ASV count per sample</td></tr>
+<tr><td><code>oral_chim_perc_YL_260519.csv</code></td><td>DADA2 chimera detection</td><td>chimera percentage per sample</td></tr>
+<tr><td><code>raw_reads_stats.tsv</code></td><td><code>count_raw_reads.py</code></td><td>total raw reads per sample</td></tr>
+<tr><td><code>alpha_diversity_data.csv</code></td><td>closed-reference OTU picking</td><td><code>Observed</code>, <code>Shannon</code>, <code>Simpson</code>, <code>InvSimpson</code>, <code>Chao1</code></td></tr>
+<tr><td><code>study_close_reference_keeping_rate_cleaned_all.csv</code></td><td>closed-reference read retention summary</td><td>study-level closed-reference retention ratio</td></tr>
+<tr><td><code>table_gg2_id99_cleaned_62782_115345_all.biom</code></td><td>closed-reference BIOM table</td><td>source BIOM for all filtered BIOM tables</td></tr>
+</table>
+<h2>2. Scripts</h2>
+<table>
+<tr><th>Script</th><th>Purpose</th></tr>
+<tr><td><code>merge_all_for_qc_raw.py</code></td><td>Left-join QC metrics onto the authoritative metadata base and add QC flag columns</td></tr>
+<tr><td><code>generate_metadata_tables.py</code></td><td>Generate QC-filtered metadata tables and corresponding BIOM tables</td></tr>
+<tr><td><code>QC/plot_metadata_raw_qc_panels.R</code></td><td>Generate study-level and sample-level QC plots</td></tr>
+<tr><td><code>count_sample_asvs.py</code></td><td>Count non-zero ASVs per sample from <code>DADA2.biom</code></td></tr>
+</table>
+<h2>3. Output Tables</h2>
+<table>
+<tr><th>File</th><th>Samples</th><th>Studies</th><th>Subjects</th><th>Description</th></tr>
+<tr><td><code>metadata_all_for_qc_raw.tsv</code></td><td>116,643</td><td>334</td><td>45,880</td><td>Raw QC merge, no filtering</td></tr>
+<tr><td><code>metadata_all_qc.tsv</code></td><td>92,850</td><td>287</td><td>42,658</td><td>QC-filtered, all body sites</td></tr>
+<tr><td><code>metadata_oral_qc.tsv</code></td><td>71,649</td><td>287</td><td>40,745</td><td>QC-filtered oral subset, not deduplicated</td></tr>
+<tr><td><code>metadata_oral_qc_dedup.tsv</code></td><td>43,490</td><td>278</td><td>40,745</td><td>Oral subset deduplicated to 1 sample per subject_id x site_cleaned</td></tr>
+</table>
+<h3>BIOM Tables</h3>
+<table>
+<tr><th>File</th><th>OTUs</th><th>Samples</th><th>Matches Metadata</th></tr>
+<tr><td><code>biom_all_qc.biom</code></td><td>59,198</td><td>92,850</td><td><code>metadata_all_qc.tsv</code></td></tr>
+<tr><td><code>biom_oral_qc.biom</code></td><td>41,405</td><td>71,649</td><td><code>metadata_oral_qc.tsv</code></td></tr>
+<tr><td><code>biom_oral_qc_dedup.biom</code></td><td>34,058</td><td>43,490</td><td><code>metadata_oral_qc_dedup.tsv</code></td></tr>
+</table>
+<h2>4. Current QC Rules</h2>
+<div class="flow"><strong>Step 1. Merge:</strong> <code>metadata_all_for_qc_raw.tsv</code>: 116,643 samples, 334 studies, 45,880 subjects. Oral raw subset: 86,255 samples, 334 studies, 44,326 subjects.</div>
+<div class="flow"><strong>Step 2. Study-level filter:</strong> Remove a study if <code>ASV &lt;= 30</code> in &gt;50% samples, <code>chimera &gt;25%</code> in &gt;30% samples, or <code>closed-reference retention &lt;50%</code>. Current result: 47 studies removed.</div>
+<div class="flow"><strong>Step 3. Sample-level ASV filter:</strong> Remove remaining samples with <code>asv_count &lt;= 30</code>.</div>
+<div class="flow"><strong>Step 4. Completeness filter:</strong> Remove remaining samples with <code>Observed == NA</code> or <code>subject_id == NA</code>.</div>
+<div class="flow"><strong>Step 5. Oral subset:</strong> Select <code>site_group == 'oral'</code>.</div>
+<div class="flow"><strong>Step 6. Oral deduplication:</strong> Keep one sample per <code>subject_id x site_cleaned</code> pair.</div>
+<h2>5. Per-Step Filtering Summary</h2>
+<p>This simplified table reports the main decreases at each retained QC step. Counts are shown as study / sample / subject changes.</p>
+<table>
+<tr><th>Step</th><th>Rule</th><th>All-site decrease</th><th>Oral decrease</th><th>All-site samples after step</th><th>Oral samples after step</th></tr>
+<tr><td>Study-level filter</td><td>Remove studies with ASV <=30 in >50% samples OR chimera >25% in >30% samples OR closed-reference retention <50%</td><td>47 / 13,208 / 2,249</td><td>47 / 8,748 / 2,226</td><td>103,435</td><td>77,507</td></tr>
+<tr><td>Sample-level ASV filter</td><td>Remove remaining samples with ASV <=30</td><td>0 / 10,334 / 917</td><td>0 / 5,706 / 1,300</td><td>93,101</td><td>71,801</td></tr>
+<tr><td>Oral subset</td><td>Keep site_group == 'oral'</td><td>0 / 21,201 / 1,913</td><td>0 / 0 / 0</td><td>71,649</td><td>71,649</td></tr>
+<tr><td>Oral deduplication</td><td>Keep 1 sample per subject_id x site_cleaned</td><td>9 / 28,159 / 0</td><td>9 / 28,159 / 0</td><td>43,490</td><td>43,490</td></tr>
+</table>
+<p class="small">Note: the alpha/subject completeness filter is still applied before generating <code>metadata_all_qc.tsv</code>, but it is omitted here to keep this summary focused on the main retained steps.</p>
+<h2>6. Oral Site Distribution</h2>
+<table>
+<tr><th>Table</th><th>site_cleaned distribution</th></tr>
+<tr><td><code>metadata_oral_qc.tsv</code></td><td>saliva (38,426), tooth (17,187), oral mucosa (5,194), oral swab (3,754), other (3,512), tongue (3,203), gingiva (358), NA (15)</td></tr>
+<tr><td><code>metadata_oral_qc_dedup.tsv</code></td><td>saliva (27,583), tooth (4,466), oral swab (3,489), oral mucosa (3,134), other (2,931), tongue (1,657), gingiva (228), NA (2)</td></tr>
+</table>
+<h2>7. QC Flag Columns</h2>
+<table>
+<tr><th>Column</th><th>Meaning</th><th>Values</th></tr>
+<tr><td><code>asv_le_30</code></td><td>Sample has ASV count &lt;= 30</td><td>yes / no / NA</td></tr>
+<tr><td><code>study_asv_lt30_high</code></td><td>Study has &gt;50% samples with ASV count &lt;= 30</td><td>yes / no / NA</td></tr>
+<tr><td><code>chim_gt_25</code></td><td>Sample has chimera percentage &gt;25%</td><td>yes / no / NA</td></tr>
+<tr><td><code>study_chim_gt25_high</code></td><td>Study has &gt;30% samples with chimera percentage &gt;25%</td><td>yes / no / NA</td></tr>
+<tr><td><code>study_cr_retention_rate</code></td><td>Closed-reference read retention ratio</td><td>numeric / NA</td></tr>
+<tr><td><code>study_cr_retention_low</code></td><td>Study has closed-reference read retention ratio &lt;50%</td><td>yes / no / NA</td></tr>
+</table>
+<h2>8. Key Statistics</h2>
+<ul>
+<li>16,255 raw samples (13.9%) have ASV count &lt;= 30.</li>
+<li>2,636 raw samples (2.3%) have chimera percentage &gt;25%.</li>
+<li>13 studies have &gt;50% low-ASV samples.</li>
+<li>25 studies have &gt;30% high-chimera samples.</li>
+<li>12 studies have closed-reference retention &lt;50%.</li>
+<li>47 studies are excluded by the current study-level filter.</li>
+<li>40,745 unique subjects in <code>metadata_oral_qc.tsv</code>.</li>
+<li>40,745 unique subjects in <code>metadata_oral_qc_dedup.tsv</code>.</li>
+</ul>
+<h2>9. Regenerated QC Plots</h2>
+<table>
+<tr><th>File</th><th>Description</th></tr>
+<tr><td><code>QC/metadata_raw_qc_panels_study_level.pdf</code></td><td>Study-level QC panels with sample count and unique-subject overlay</td></tr>
+<tr><td><code>QC/metadata_raw_qc_panels_sample_level.pdf</code></td><td>Sample-level QC panels</td></tr>
+<tr><td><code>QC/metadata_raw_qc_panels_study_metrics.csv</code></td><td>Study-level metrics used for plotting</td></tr>
+<tr><td><code>QC/metadata_raw_qc_panels_sample_threshold_summary.csv</code></td><td>Sample-level threshold summary</td></tr>
+</table>
+<p class="figure-title">Study-level QC panels</p>
+<img class="plot-img" src="QC/metadata_raw_qc_panels_study_level.png" alt="Study-level QC panels">
+<p class="figure-title">Sample-level QC panels</p>
+<img class="plot-img" src="QC/metadata_raw_qc_panels_sample_level.png" alt="Sample-level QC panels">
+</body>
+</html>

@@ -6,8 +6,8 @@ library(tools)
 # ------------------------------------------------------------------------------
 # 1. Path Setup & Initialization
 # ------------------------------------------------------------------------------
-input_file <- "/beegfs/huangxiaochang/global_oral/metadata_v2_merge/metadata-v2-merge.csv"
-output_file <- "/beegfs/huangxiaochang/global_oral/metadata_v2_merge/metadata-v2-merge-cleaned.csv"
+input_file <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/260525/metadata-v2-merge.csv"
+output_file <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/260603/metadata-v2-merge-cleaned.csv"
 
 required_cols <- c(
   "bioproject", "sample_id", "subject_id", "age", "age_info",
@@ -405,15 +405,15 @@ df_new <- df %>%
       str_detect(site_lower, "saliva") ~ "saliva",
       TRUE ~ site
     ),
-    
-    site_group_cleaned = case_when(
+
+        site_group_cleaned = case_when(
       site_lower %in% tolower(c(
         "swab_nasopharynx_or_oropharynx", "buccal surfaces", "cancer surface",
         "gingival surface", "mucosal surface of the soft palate", "oral mucosal surfaces",
         "right maxillary dentition", "Right post maxilla ging",
         "the anterior dorsal tongue surface", "tongue tumor surface", "tonsil surface"
       )) ~ "oral",
-      
+
       TRUE ~ site_group
     ),
 
@@ -670,6 +670,20 @@ df_new <- df_new %>%
     TRUE ~ status_cleaned
   ))
 
+# --- NEW (260603): status_cleaned category mergers ---
+df_new <- df_new %>%
+  mutate(status_cleaned = case_when(
+    status_cleaned == "Colon Cancer" ~ "CRC",
+    status_cleaned == "Differentiated Thyroid Carcinoma" ~ "Thyroid Cancer",
+    status_cleaned == "Esophageal Squamous Cell Carcinoma" ~ "Esophageal Cancer",
+    status_cleaned == "Oral Cancer" ~ "OSCC",
+    status_cleaned == "IBD and Clostridium Difficile Infection" ~ "IBD",
+    status_cleaned %in% c("UC", "CD", "CD and UC") ~ "IBD",
+    status_cleaned == "Nasopharyngeal Carcinoma" ~ "Head and Neck Cancer",
+    status_cleaned %in% c("Oral Verrucous Hyperplasia", "Oral Submucous Fibrosis", "Oral Lichen Planus") ~ "Oral Potentially Malignant Disorders",
+    TRUE ~ status_cleaned
+  ))
+
 # Standardize NA and empty strings and resolve specific anomalies to NAs
 df_new <- df_new %>%
   mutate(
@@ -680,6 +694,18 @@ df_new <- df_new %>%
     age_cleaned_group = ifelse(age_cleaned_group == "Anomaly", NA_character_, age_cleaned_group),
     bmi_cleaned_group = ifelse(bmi_cleaned_group == "Anomaly_High", NA_character_, bmi_cleaned_group)
   )
+
+# --- NEW: fill subject_id NA with sample_id for specific bioprojects ---
+subject_id_fill_bioprojects <- c(
+  "PRJEB35824", "PRJNA779698", "PRJNA876796", "PRJEB36081",
+  "PRJNA820027", "PRJNA545410", "PRJNA770171", "PRJNA663437"
+)
+df_new <- df_new %>%
+  mutate(subject_id = ifelse(
+    bioproject %in% subject_id_fill_bioprojects & is.na(subject_id),
+    sample_id,
+    subject_id
+  ))
 
 # ------------------------------------------------------------------------------
 # 3. Reorder Columns and Save Output
@@ -707,11 +733,11 @@ message(sprintf("Rows: %d | Columns: %d\n", nrow(df_final), ncol(df_final)))
 # ------------------------------------------------------------------------------
 # 4. Export Oral-Only Subset (matching original oral script filtering logic)
 # ------------------------------------------------------------------------------
-oral_output_file <- "/beegfs/huangxiaochang/global_oral/metadata_v2_merge/metadata-v2-merge-oral.csv"
+oral_output_file <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/260603/metadata-v2-merge-oral.csv"
 
 df_oral <- df_final %>%
   filter(
-    tolower(site_group_cleaned) == "oral" & 
+    tolower(site_group_cleaned) == "oral" &
       !(bioproject == "PRJNA471556" & tolower(site) == "stool" & tolower(site_group_cleaned) == "oral")
   )
 

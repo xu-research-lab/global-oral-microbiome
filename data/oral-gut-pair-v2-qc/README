@@ -1,0 +1,41 @@
+# Oral-Gut Pair Metadata and BIOM Feature Table Collection (V2 QC Release)
+
+## Introduction
+
+This directory contains the V2 quality-controlled (QC) metadata files and the corresponding feature table for the oral-gut paired samples. The files are stored in **CSV**, **TXT**, and **BIOM (Biological Observation Matrix)** formats.
+
+These datasets organize the paired microbiome samples into primary pairs, additional oral sites, and samples with unknown status. A unified BIOM feature table is also provided, encompassing all samples across the distinct metadata subsets.
+
+## File Descriptions
+
+Below is a detailed list of the files in this directory, summarizing their contents, associated BioProjects, and sample dimensions.
+
+### Metadata Files
+
+* `metadata_oral_gut_pair_v2_merge_qc.csv`
+* **Dimensions**: 43 BioProjects, 7,034 Samples (3,517 Oral-Gut Pairs)
+* **Description**: The primary metadata table containing the finalized, QC-filtered oral-gut paired samples.
+
+
+* `metadata_pair_v2_additional_oral_site_merge_qc.csv`
+* **Dimensions**: 2 BioProjects, 90 Samples
+* **Description**: Metadata for additional oral site samples associated with the paired cohorts.
+
+
+* `metadata_pair_v2_status_unknown_merge_qc.csv`
+* **Dimensions**: 4 BioProjects, 1,120 Samples
+* **Description**: Metadata for samples where the specific pair mapping or status is currently unknown.
+
+
+
+### BIOM Feature Table
+
+* `biom_oral_gut_pair_v2_qc.biom`
+* **Description**: The unified feature table. This single BIOM file contains the abundance data for **all** samples listed across the three metadata CSV files above (`metadata_oral_gut_pair_v2_merge_qc.csv`, `metadata_pair_v2_additional_oral_site_merge_qc.csv`, and `metadata_pair_v2_status_unknown_merge_qc.csv`).
+
+
+
+### Project Lists
+
+* `project_oral_gut_pair_list_qc.txt`
+* **Description**: A plain text list containing the names of the 43 BioProjects that make up the primary `metadata_oral_gut_pair_v2_merge_qc.csv` dataset.

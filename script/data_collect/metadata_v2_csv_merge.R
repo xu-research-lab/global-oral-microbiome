@@ -2,12 +2,12 @@ library(tidyverse)
 library(fs)
 
 # Define paths and required columns
-base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects"
-output_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-merge-YL/results"
+base_dir <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-v2/global-oral-microbiome/data/projects/"
+output_dir <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-v2/results/"
 
 dir_create(output_dir)
 
-output_csv <- file.path(output_dir, "metadata-v2-merge-260616.csv")
+output_csv <- file.path(output_dir, "metadata-v2-merge.csv")
 log_file <- file.path(output_dir, "merge_report.txt")
 
 required_cols <- c(

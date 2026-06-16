@@ -6,8 +6,8 @@ library(tools)
 # ------------------------------------------------------------------------------
 # 1. Path Setup & Initialization
 # ------------------------------------------------------------------------------
-input_file <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/260525/metadata-v2-merge.csv"
-output_file <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/260603/metadata-v2-merge-cleaned.csv"
+input_file <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-v2/results/metadata-v2-merge.csv"
+output_file <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-v2/results/metadata-v2-merge-cleaned.csv"
 
 required_cols <- c(
   "bioproject", "sample_id", "subject_id", "age", "age_info",
@@ -75,7 +75,7 @@ df_new <- df %>%
         "not provided", "unspecified"
       ) ~ NA_character_,
 
-      # --- NEW: age ranges with "years" suffix ---
+      # age ranges with "years" suffix
       str_detect(age_info_lower, "\\d+\\.?\\d*\\s*[-–—]\\s*\\d+\\.?\\d*\\s*years") ~ case_when(
         as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
         as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
@@ -85,7 +85,7 @@ df_new <- df %>%
         TRUE ~ "＞60 years"
       ),
 
-      # --- NEW: >= / ≥ thresholds ---
+      # >= / ≥ thresholds
       str_detect(age_info_lower, "^\\s*[≥>]=?\\s*\\d+") ~ case_when(
         as.numeric(str_extract(age_info_lower, "\\d+")) >= 60 ~ "＞60 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) >= 18 ~ "18-60 years",
@@ -95,7 +95,7 @@ df_new <- df %>%
         TRUE ~ "0-6 months"
       ),
 
-      # --- NEW: above / over X years ---
+      # above / over X years
       str_detect(age_info_lower, "above\\s+\\d+\\s*years?\\s*old|over\\s+\\d+\\s*years?|above\\s+\\d+\\s*years?") ~ case_when(
         as.numeric(str_extract(age_info_lower, "\\d+")) >= 60 ~ "＞60 years",
         as.numeric(str_extract(age_info_lower, "\\d+")) >= 18 ~ "18-60 years",
@@ -105,7 +105,7 @@ df_new <- df %>%
         TRUE ~ "0-6 months"
       ),
 
-      # --- NEW: median age ---
+      # median age
       str_detect(age_info_lower, "median age.*\\d+") ~ case_when(
         as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
         as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
@@ -115,7 +115,7 @@ df_new <- df %>%
         TRUE ~ "＞60 years"
       ),
 
-      # --- NEW: average/mean ... years ---
+      # average/mean ... years
       str_detect(age_info_lower, "(average|mean).*\\d+\\.?\\d*\\s*years") & !str_detect(age_info_lower, "±|\\+-") ~ case_when(
         as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
         as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
@@ -125,7 +125,7 @@ df_new <- df %>%
         TRUE ~ "＞60 years"
       ),
 
-      # --- NEW: simple numeric range without "years" (e.g., 0-1.5, 15-40) ---
+      # simple numeric range without "years"
       str_detect(age_info_lower, "^\\s*\\d+\\.?\\d*\\s*[-–—]\\s*\\d+\\.?\\d*\\s*$") ~ case_when(
         (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 0.5 ~ "0-6 months",
         (as.numeric(str_extract(age_info_lower, "^\\s*\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*\\s*$"))) / 2 <= 3 ~ "6-36 months",
@@ -222,30 +222,14 @@ df_new <- df %>%
 
       # Pre-adult mapping
       str_detect(age_info_lower, "newborn|preterm infant") ~ "0-6 months",
-
-      # --- NEW: infant mapping (moved from explicit NA list) ---
       age_info_lower == "infant" ~ "0-6 months",
-
-      # --- NEW: children mapping (moved from explicit NA list) ---
       age_info_lower %in% c("children", "child", "chilren") ~ "3-12 years",
-
-      # --- NEW: elder/elderly mapping (moved from explicit NA list) ---
       age_info_lower %in% c("elderly adults", "elderly people and adults", "elder") ~ "＞60 years",
-
-      # --- NEW: baby mapping (moved from explicit NA list) ---
       age_info_lower == "baby" ~ "0-6 months",
-
-      # --- NEW: teen/teenager/young adults (already present, keep) ---
       age_info_lower %in% c("teen", "teenager") ~ "12-18 years",
       age_info_lower == "young adults" ~ "18-60 years",
-
-      # --- NEW: age_group_1 (moved from explicit NA list, keep as NA) ---
       age_info_lower == "age_group_1" ~ NA_character_,
-
-      # --- NEW: full cohort median age... (already in NA list) ---
       age_info_lower == "full cohort median age 41.5 years; healthy 38 (20-66), gingivitis 43 (18-71), chronic periodontitis 43 (21-60)" ~ NA_character_,
-
-      # --- NEW: toddlers... (already in NA list) ---
       age_info_lower == "toddlers 1-3 years; children 4-12 years; teenager-adults 13-59 years" ~ NA_character_,
 
       # Variance: mean A +- B
@@ -255,7 +239,7 @@ df_new <- df %>%
         TRUE ~ "＞60 years"
       ),
 
-      # --- NEW: between X and Y years ---
+      # between X and Y years
       str_detect(age_info_lower, "between\\s+\\d+\\.?\\d*\\s+and\\s+\\d+\\.?\\d*\\s*years") ~ case_when(
         (as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "(?<=and\\s)\\d+\\.?\\d*"))) / 2 <= 0.5 ~ "0-6 months",
         (as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) + as.numeric(str_extract(age_info_lower, "(?<=and\\s)\\d+\\.?\\d*"))) / 2 <= 3 ~ "6-36 months",
@@ -265,7 +249,7 @@ df_new <- df %>%
         TRUE ~ "＞60 years"
       ),
 
-      # --- NEW: catch-all for remaining text with numbers (e.g., "8 months-25 years", "18-45", etc.) ---
+      # catch-all for remaining text with numbers
       str_detect(age_info_lower, "\\d+\\.?\\d*\\s*[-–—]\\s*\\d+\\.?\\d*") ~ case_when(
         as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 0.5 ~ "0-6 months",
         as.numeric(str_extract(age_info_lower, "\\d+\\.?\\d*")) <= 3 ~ "6-36 months",
@@ -341,7 +325,6 @@ df_new <- df %>%
       bioproject == "PRJNA489752" & country == "Korea" ~ "Republic of Korea",
       bioproject == "PRJEB11419" & country == "Korea, Republic of" ~ "Republic of Korea",
       bioproject == "PRJEB11419" & country %in% c("Not provided", "Unspecified") ~ NA_character_,
-      # --- NEW: general Korean mapping (not limited to specific bioproject) ---
       country == "Korean" ~ "Republic of Korea",
       country %in% c("South Korea", "South Korean") ~ "Republic of Korea",
       country %in% c("United States of America", "USA", "United States Minor Outlying Islands") ~ "United States",
@@ -364,7 +347,6 @@ df_new <- df %>%
     site_lower = tolower(site),
     site_cleaned = case_when(
       is.na(site) ~ NA_character_,
-
       site_lower == tolower("right maxillary dentition") ~ "tooth",
       site_lower %in% tolower(c("gingival surface", "Right post maxilla ging")) ~ "gingiva",
       site_lower %in% tolower(c("buccal surfaces", "mucosal surface of the soft palate", "oral mucosal surfaces")) ~ "oral mucosa",
@@ -406,14 +388,13 @@ df_new <- df %>%
       TRUE ~ site
     ),
 
-        site_group_cleaned = case_when(
+    site_group_cleaned = case_when(
       site_lower %in% tolower(c(
         "swab_nasopharynx_or_oropharynx", "buccal surfaces", "cancer surface",
         "gingival surface", "mucosal surface of the soft palate", "oral mucosal surfaces",
         "right maxillary dentition", "Right post maxilla ging",
         "the anterior dorsal tongue surface", "tongue tumor surface", "tonsil surface"
       )) ~ "oral",
-
       TRUE ~ site_group
     ),
 
@@ -426,43 +407,28 @@ df_new <- df %>%
       status_lower %in% tolower(c("preterm", "preterm newborns")) ~ "yes",
       TRUE ~ disease_study
     ),
+    
     status_temp = case_when(
       is.na(status) ~ NA_character_,
 
-      # NA / Control categories (original)
+      # NA / Control categories
       status_lower %in% tolower(c(
         "mucositis healed", "pre-conditioning", "atopic non-asthmatic controls",
         "allogeneic hematopoietic stem cell transplantation recipient",
         "immunological ART responder", "dentally compromised",
-        "black dental stain"
-      )) ~ NA_character_,
-
-      # --- NEW: additional NA / control mappings ---
-      status_lower %in% tolower(c(
-        "myasthenia gravis",
+        "black dental stain", "myasthenia gravis",
         "functional gastrointestinal complaints", "missing",
-        "pre-conditioning", "icu discharge or on icu day 10"
+        "icu discharge or on icu day 10"
       )) ~ NA_character_,
 
-      # --- NEW: full-term -> HC ---
       status_lower == "full-term" ~ "HC",
-
-      # --- NEW: tonsillar conditions -> NA ---
       str_detect(status_lower, "tonsillar hyperplasia|tonsillar hypertrophy") ~ NA_character_,
-
-      # Original regex NA matches
-      str_detect(status_lower, "breastfed|full-term|orthodontic|non-responder|high-risk for ra") ~ NA_character_,
-
-      # --- NEW: smoker controls -> NA (already covered by current smoker in oral script; extend to never smoker) ---
+      str_detect(status_lower, "breastfed|never breastfed|full-term|orthodontic|non-responder|high-risk for ra|third molar extraction") ~ NA_character_,
       status_lower %in% tolower(c("never smoker", "current smoker")) ~ NA_character_,
-
-      # --- NEW: breastfed variations and third molar extraction -> NA ---
-      str_detect(status_lower, "breastfed|never breastfed|third molar extraction") ~ NA_character_,
-
-      # Original bioproject-specific NA
       bioproject == "PRJNA417321" & status == "dental implant" ~ NA_character_,
+      bioproject == "PRJNA841771" & status == "oral benign tumors" ~ NA_character_,
 
-      # Original Other category (rare / non-target diseases)
+      # Other category (rare / non-target diseases)
       status_lower %in% tolower(c(
         "halitosis", "dysphagia", "watery diarrhea NOS", "truncal ataxia NOS",
         "oral benign tumors", "cancer patient", "Carcinoma in situ",
@@ -474,10 +440,13 @@ df_new <- df %>%
         "helminth infection", "stomatitis",
         "early childhood caries and congenital heart disease",
         "proliferative verrucous leukoplakia", "Refractory Celiac disease",
-        "IBD+Diabetes", "acute diarrhea", "acute diarrhea"
+        "IBD+Diabetes", "acute diarrhea", "bradycardia NOS", "juvenile idiopathic arthritis",
+        "chronic tonsillitis", "liver cirrhosis", "chronic kidney disease",
+        "immunoglobulin A nephropathy", "membranous nephropathy",
+        "liver carcinoma", "gliomas", "sub-acute stage of stroke with dysphagia"
       )) ~ "Other",
 
-      # --- Kept as NA: conditions restored from Other back to NA ---
+      # Kept as NA: conditions restored from Other back to NA
       status_lower %in% tolower(c(
         "pre-cancer", "epithelial precursor lesion", "pulmonary nodule",
         "thyroid nodules", "thyroid nodules patient",
@@ -488,120 +457,95 @@ df_new <- df %>%
         "polycystic ovary syndrome"
       )) ~ NA_character_,
 
-      # --- NEW: preterm conditions (kept as distinct, disease_study set to yes later) ---
+      # Preterm
       status_lower %in% tolower(c("preterm", "preterm infant", "preterm newborns")) ~ "Preterm",
 
-      # --- NEW: additional rare conditions -> Other ---
-      status_lower %in% tolower(c(
-        "bradycardia NOS", "juvenile idiopathic arthritis",
-        "chronic tonsillitis", "liver cirrhosis", "chronic kidney disease",
-        "immunoglobulin A nephropathy", "membranous nephropathy",
-        "liver carcinoma", "gliomas", "sub-acute stage of stroke with dysphagia"
-      )) ~ "Other",
+      # ==============================================================================
+      # CRITICAL FIX: Cancers (Correct Order & Capitalization)
+      # ==============================================================================
+      str_detect(status_lower, "head and neck squamous cell carcinoma|hnscc|head and neck cancer|hnc|nasopharyngeal carcinoma") ~ "Head and Neck Cancer",
+      str_detect(status_lower, "oscc|oral squamous cell carcinoma|oral cancer") ~ "OSCC",
+      str_detect(status_lower, "esophageal squamous cell carcinoma|escc|esophageal cancer") ~ "Esophageal Cancer",
+      str_detect(status_lower, "thyroid cancer|differentiated thyroid carcinoma|dtc") ~ "Thyroid Cancer",
+      str_detect(status_lower, "colon cancer|colorectal cancer|crc") ~ "Colorectal Cancer",
+      str_detect(status_lower, "lung cancer") ~ "Lung Cancer",
+      str_detect(status_lower, "breast cancer") ~ "Breast Cancer",
+      str_detect(status_lower, "pancreatic cancer") ~ "Pancreatic Cancer",
+      str_detect(status_lower, "digestive tract cancer") ~ "Digestive Tract Cancer",
+      str_detect(status_lower, "prostate cancer") ~ "Prostate Cancer",
+      str_detect(status_lower, "cancer") ~ "Other Cancer", 
 
-      # --- NEW: additional fracture / vascular -> Other ---
-      status_lower %in% tolower(c("aortic thrombosis", "bradycardia NOS")) ~ "Other",
+      # ==============================================================================
+      # CRITICAL FIX: OPMD & Local Diseases (No merging, exact capitalization)
+      # ==============================================================================
+      str_detect(status_lower, "oral verrucous hyperplasia") ~ "Oral Verrucous Hyperplasia",
+      str_detect(status_lower, "oral submucous fibrosis") ~ "Oral Submucous Fibrosis",
+      str_detect(status_lower, "olp|oral lichen planus") ~ "Oral Lichen Planus",
+      str_detect(status_lower, "periodontitis|gingivitis|periodontal|peri-implantitis") ~ "Periodontal Disease",
+      str_detect(status_lower, "caries") ~ "Dental Caries",
+      str_detect(status_lower, "aphthous|rau") ~ "Aphthous",
+      str_detect(status_lower, "oral mucositis|severe-om|grade 1 om") ~ "Oral Mucositis",
+      str_detect(status_lower, "cleft lip and palate|clp") ~ "Cleft Lip and Palate",
+      
+      # Cerebral Palsy Caries mapping
+      status_lower == "cerebral palsy caries-free" ~ "HC",
+      status_lower %in% tolower(c("cerebral palsy with mild-moderate caries", "cerebral palsy with severe caries")) ~ "Dental Caries",
 
-      # Cancer exact matches (original)
-      status_lower == tolower("Lung Cancer") ~ "Lung Cancer",
-      status_lower == tolower("Breast Cancer") ~ "Breast Cancer",
-      status_lower == tolower("Pancreatic Cancer") ~ "Pancreatic Cancer",
-      status_lower == tolower("Oral Cancer") ~ "Oral Cancer",
-      status_lower == tolower("Digestive Tract Cancer") ~ "Digestive Tract Cancer",
-      status_lower == tolower("Prostate Cancer") ~ "Prostate Cancer",
-      status_lower == tolower("Esophageal Cancer") ~ "Esophageal Cancer",
-      status_lower == tolower("Colon Cancer") ~ "Colon Cancer",
-      status_lower == tolower("viremic ART-untreated") ~ "HIV",
+      # ==============================================================================
+      # CRITICAL FIX: Systemic / Autoimmune / GI (Preserving exact acronyms)
+      # ==============================================================================
+      str_detect(status_lower, "functional dyspepsia and gastroesophageal reflux disease|gerd|reflux esophagitis") ~ "Gastroesophageal Reflux Disease",
+      str_detect(status_lower, "cd and uc|uc|ulcerative colitis|cd|crohn's disease|ibd|inflammatory bowel disease") ~ "IBD",
+      status_lower == "ibd+c.diff" ~ "IBD", 
+      status_lower == "c.diff" ~ "Clostridium Difficile Infection",
+      str_detect(status_lower, "type 2 diabetes mellitus|t2dm|type-2 diabetes|type 1 diabetes|diabetes") ~ "Diabetes",
+      str_detect(status_lower, "obese|obesity") ~ "Obesity",
+      str_detect(status_lower, "atherosclerosis") ~ "Cardiovascular Disease",
+      str_detect(status_lower, "coronavirus disease of 2019|covid") ~ "COVID-19",
+      str_detect(status_lower, "hiv|viremic art-untreated") ~ "HIV",
+      str_detect(status_lower, "axspa|axial spondyloarthritis") ~ "Axial Spondyloarthritis",
+      str_detect(status_lower, "sjögren's syndrome|sjögren’s syndrome") ~ "Sjögren's Syndrome",
+      str_detect(status_lower, "ad|alzheimer") ~ "Alzheimer's Disease",
+      str_detect(status_lower, "parkinson") ~ "Parkinson's Disease",
+      str_detect(status_lower, "copd") ~ "COPD",
+      str_detect(status_lower, "obstructive sleep apnea") ~ "Obstructive Sleep Apnea",
+      str_detect(status_lower, "post-traumatic stress disorder|ptsd") ~ "PTSD",
+      str_detect(status_lower, "celiac disease") ~ "Celiac Disease",
+      str_detect(status_lower, "alcohol use disorder") ~ "Alcohol Use Disorder",
+      str_detect(status_lower, "atopic dermatitis") ~ "Atopic Dermatitis",
+      str_detect(status_lower, "atopic asthma|asthma") ~ "Asthma",
+      str_detect(status_lower, "chagas") ~ "Chagas Disease",
+      str_detect(status_lower, "helicobacter pylori") ~ "Helicobacter pylori Infection",
 
-      # GERD / reflux esophagitis (original)
-      status_lower %in% tolower(c(
-        "functional dyspepsia and gastroesophageal reflux disease", "GERD",
-        "Reflux Esophagitis", "reflux esophagitis"
-      )) ~ "Gastroesophageal Reflux Disease",
-
-      # RAU (original)
-      status_lower == tolower("RAU") ~ "Aphthous",
-
-      # Diabetes and periodontitis (original)
-      status_lower == tolower("chronic periodontitis associated with type 2 diabetes mellitus") ~ "Diabetes and Periodontitis",
-
-      # Bioproject-specific overrides (original)
+      # Bioproject-specific overrides & direct HC matches
+      status_lower %in% c("healthy", "no-om") ~ "HC",
       bioproject == "PRJNA316469" & disease_study == "no" & status %in% c("never smoker", "current smoker") ~ "HC",
       bioproject == "PRJEB40804" & status == "certified saturation divers with valid health certificates" ~ "HC",
-      bioproject == "PRJNA784772" & status == "DTC" ~ "differentiated thyroid carcinoma",
       bioproject == "PRJNA656387" & status == "first-degree relatives" ~ "HC",
-      bioproject == "PRJNA853196" & status == "ESCC" ~ "esophageal squamous cell carcinoma",
       bioproject == "PRJDB8324" & status == "healthy" ~ "HC",
-      bioproject == "PRJNA873789" & status == "axSpA" ~ "axial spondyloarthritis",
-      bioproject == "PRJEB11419" & status == "C.diff" ~ "Clostridium difficile infection",
-      bioproject == "PRJEB11419" & status == "IBD+C.diff" ~ "IBD and Clostridium difficile infection",
-      bioproject == "PRJNA362643" & status == "Sjögren's syndrome" ~ "Sjögren's syndrome",
-      bioproject == "PRJNA664107" & status == "chronic periodontitis associated with T2DM" ~ "Diabetes and Periodontitis",
-      bioproject == "PRJNA663926" & status %in% c("hand, foot and mouth disease symptomatic", "hand, foot and mouth disease asymptomatic") ~ "hand, foot and mouth disease",
-      bioproject == "PRJNA544600" & status == "obstructive sleep apnea syndrome" ~ "obstructive sleep apnea",
+      bioproject == "PRJNA663926" & status %in% c("hand, foot and mouth disease symptomatic", "hand, foot and mouth disease asymptomatic") ~ "Hand, Foot and Mouth Disease",
+      
+      # Explicit HC assignments for specific bioprojects when status is NA
+      is.na(status) & bioproject %in% c(
+        "PRJEB1799", "PRJEB20889", "PRJEB20890", "PRJEB20894", "PRJEB27304",
+        "PRJEB28088", "PRJEB28769", "PRJEB33119", "PRJEB42056", "PRJEB6518",
+        "PRJNA255332", "PRJNA395436", "PRJNA427101", "PRJNA634162", "PRJNA689848",
+        "PRJNA721325", "PRJNA747639", "PRJNA778070", "PRJNA828039", "PRJNA841067"
+      ) ~ "HC",
 
-      # --- NEW: additional bioproject / exact mappings ---
-      status_lower == "healthy" ~ "HC",
-      bioproject == "PRJNA841771" & status == "oral benign tumors" ~ NA_character_,
-
-      # --- NEW: cerebral palsy caries mappings ---
-      status_lower == "cerebral palsy caries-free" ~ "HC",
-      status_lower %in% tolower(c(
-        "cerebral palsy with mild-moderate caries",
-        "cerebral palsy with severe caries"
-      )) ~ "dental caries",
-
-      # Original caries / aphthous mappings
-      status == "caries" ~ "dental caries",
-      status == "recurrent aphthous ulcer" ~ "aphthous",
-      status_lower == tolower("CD and UC") ~ "CD and UC",
-      status_lower == tolower("no-OM") ~ "HC",
-
-      # Original regex disease mappings
-      str_detect(status_lower, "periodontitis|gingivitis|periodontal|peri-implantitis") ~ "periodontal disease",
-      str_detect(status_lower, "caries") ~ "dental caries",
-      str_detect(status_lower, "coronavirus disease of 2019|covid") ~ "COVID-19",
-      str_detect(status_lower, "chagas") ~ "chagas disease",
-      str_detect(status_lower, "hiv") ~ "HIV",
-      str_detect(status_lower, "obese|obesity") ~ "obesity",
-      str_detect(status_lower, "aphthous") ~ "aphthous",
-      str_detect(status_lower, "type 2 diabetes mellitus|t2dm|type-2 diabetes|type 1 diabetes|diabetes") ~ "diabetes",
-      str_detect(status_lower, "atherosclerosis") ~ "cardiovascular disease",
-      str_detect(status_lower, "oral mucositis|severe-om|grade 1 om") ~ "oral mucositis",
-      str_detect(status_lower, "olp") ~ "oral lichen planus",
-      str_detect(status_lower, "helicobacter pylori") ~ "helicobacter pylori infection",
-      str_detect(status_lower, "thyroid cancer") ~ "thyroid cancer",
-      str_detect(status_lower, "cancer") ~ "cancer",
-      str_detect(status_lower, "reflux esophagitis") ~ "Gastroesophageal Reflux Disease",
-      str_detect(status_lower, "axspa") ~ "axial spondyloarthritis",
-      str_detect(status_lower, "nasopharyngeal carcinoma") ~ "nasopharyngeal carcinoma",
-      str_detect(status_lower, "oscc|oral squamous cell carcinoma") ~ "OSCC",
-      str_detect(status_lower, "head and neck squamous cell carcinoma|hnscc|head and neck cancer|hnc") ~ "head and neck cancer",
-      str_detect(status_lower, "cleft lip and palate|clp") ~ "cleft lip and palate",
-      str_detect(status_lower, "ad|alzheimer") ~ "Alzheimer's disease",
-      str_detect(status_lower, "parkinson") ~ "Parkinson's disease",
-      str_detect(status_lower, "post-traumatic stress disorder|ptsd") ~ "PTSD",
-
-      # --- NEW: additional regex mappings ---
-      str_detect(status_lower, "celiac disease") ~ "celiac disease",
-      str_detect(status_lower, "obstructive sleep apnea") ~ "obstructive sleep apnea",
-      str_detect(status_lower, "copd") ~ "COPD",
-      str_detect(status_lower, "alcohol use disorder") ~ "Alcohol Use Disorder",
-      str_detect(status_lower, "atopic dermatitis") ~ "atopic dermatitis",
-      str_detect(status_lower, "atopic asthma") ~ "asthma",
-
-      TRUE ~ status
+      TRUE ~ tools::toTitleCase(status) # Fallback for anything not caught above
     ),
-    status_cleaned = ifelse(!is.na(status_temp) & tolower(status_temp) != "na", tools::toTitleCase(status_temp), NA_character_)
+    
+    # Directly assign status_temp without doing another toTitleCase which destroys Acronyms
+    status_cleaned = ifelse(!is.na(status_temp) & tolower(status_temp) != "na", status_temp, NA_character_)
   ) %>%
-  select(-age_cleaned_group_base, -age_info_lower)
+  select(-age_cleaned_group_base, -age_info_lower, -status_temp) # Clean up temp variables
 
-# Uniform Title Case processing
-# NOTE: do NOT apply to site_cleaned because we need "feces", "skin", etc. to stay lowercase
+# Apply Uniform Title Case processing, BUT exclude status_cleaned to protect acronyms
 df_new <- df_new %>%
   mutate(across(c(sex_cleaned, platform_cleaned, sequencing_region_cleaned,
                   country_cleaned, continent_group, site_group_cleaned,
-                  disease_study_cleaned, status_cleaned),
+                  disease_study_cleaned),
                 ~ ifelse(!is.na(.), tools::toTitleCase(as.character(.)), NA_character_)))
 
 # Apply TitleCase to site_cleaned BUT keep standard categories consistent
@@ -631,58 +575,6 @@ fix_site_case <- function(x) {
 
 df_new <- df_new %>%
   mutate(site_cleaned = fix_site_case(site_cleaned))
-
-# Final mapping adjustments and condition to convert NA to HC for specific bioprojects (original logic)
-df_new <- df_new %>%
-  mutate(status_cleaned = case_when(
-    is.na(status) & bioproject %in% c(
-      "PRJEB1799", "PRJEB20889", "PRJEB20890", "PRJEB20894", "PRJEB27304",
-      "PRJEB28088", "PRJEB28769", "PRJEB33119", "PRJEB42056", "PRJEB6518",
-      "PRJNA255332", "PRJNA395436", "PRJNA427101", "PRJNA634162", "PRJNA689848",
-      "PRJNA721325", "PRJNA747639", "PRJNA778070", "PRJNA828039", "PRJNA841067"
-    ) ~ "HC",
-    status_cleaned == "Hiv" ~ "HIV",
-    status_cleaned == "Oscc" ~ "OSCC",
-    status_cleaned == "Hc" ~ "HC",
-    status_cleaned == "Cd And Uc" ~ "CD and UC",
-    status_cleaned == "Covid-19" ~ "COVID-19",
-    status_cleaned == "Gastroesophageal Reflux Disease" ~ "Gastroesophageal Reflux Disease",
-    # --- NEW: additional corrections ---
-    status_cleaned == "Ra" ~ "RA",
-    status_cleaned == "Cd" ~ "CD",
-    status_cleaned == "Uc" ~ "UC",
-    status_cleaned == "Hiv-1" ~ "HIV",
-    status_cleaned == "Ad" ~ "AD",
-    status_cleaned == "Copd" ~ "COPD",
-    status_cleaned == "Escc" ~ "ESCC",
-    status_cleaned == "Dtc" ~ "DTC",
-    status_cleaned == "Hnc" ~ "HNC",
-    status_cleaned == "Hnscc" ~ "HNSCC",
-    status_cleaned == "Olp" ~ "OLP",
-    status_cleaned == "Rau" ~ "RAU",
-    status_cleaned == "T2dm" ~ "T2DM",
-    status_cleaned == "Axspa" ~ "AxSpA",
-    status_cleaned == "Crc" ~ "CRC",
-    status_cleaned == "Gerd" ~ "GERD",
-    status_cleaned == "Ptst" ~ "PTSD",
-    status_cleaned == "Ibd" ~ "IBD",
-    status_cleaned == "Preterm" ~ "Preterm",
-    TRUE ~ status_cleaned
-  ))
-
-# --- NEW (260603): status_cleaned category mergers ---
-df_new <- df_new %>%
-  mutate(status_cleaned = case_when(
-    status_cleaned == "Colon Cancer" ~ "CRC",
-    status_cleaned == "Differentiated Thyroid Carcinoma" ~ "Thyroid Cancer",
-    status_cleaned == "Esophageal Squamous Cell Carcinoma" ~ "Esophageal Cancer",
-    status_cleaned == "Oral Cancer" ~ "OSCC",
-    status_cleaned == "IBD and Clostridium Difficile Infection" ~ "IBD",
-    status_cleaned %in% c("UC", "CD", "CD and UC") ~ "IBD",
-    status_cleaned == "Nasopharyngeal Carcinoma" ~ "Head and Neck Cancer",
-    status_cleaned %in% c("Oral Verrucous Hyperplasia", "Oral Submucous Fibrosis", "Oral Lichen Planus") ~ "Oral Potentially Malignant Disorders",
-    TRUE ~ status_cleaned
-  ))
 
 # Standardize NA and empty strings and resolve specific anomalies to NAs
 df_new <- df_new %>%
@@ -733,7 +625,7 @@ message(sprintf("Rows: %d | Columns: %d\n", nrow(df_final), ncol(df_final)))
 # ------------------------------------------------------------------------------
 # 4. Export Oral-Only Subset (matching original oral script filtering logic)
 # ------------------------------------------------------------------------------
-oral_output_file <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/260603/metadata-v2-merge-oral.csv"
+oral_output_file <- "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-v2/results/metadata-v2-merge-oral.csv"
 
 df_oral <- df_final %>%
   filter(

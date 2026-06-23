@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA434300" 
 
-base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-YL-02"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -176,10 +176,10 @@ metadata <- data.frame(
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "347F-803R", # Format: xxF-xxR
   title = "Elevated Dietary Carbohydrate and Glycemic Intake Associate with an Altered Oral Microbial Ecosystem in Two Large U.S. Cohorts", # extract from article
-  disease_study = "yes", # determine according to the article
+  disease_study = "no", # determine according to the article
   raw_status_01 = initial_meta$type,
   raw_status_02 = initial_meta$disease_status, 
-  status = "pending", # modify later
+  status = "HC", # modify later
   matched_samples = "pending", # modify later
   is_time_series = "no", 
   stringsAsFactors = FALSE
@@ -206,14 +206,6 @@ metadata <- metadata %>%
     grepl("Mouthwash", raw_site) ~ "oral wash samples",
     TRUE ~ NA_character_
   )) # according to the 'sample_type' column of initial_meta
-
-metadata <- metadata %>%
-  mutate(status = case_when(
-    raw_status_02 == "Case" & raw_status_01 == "HNC" ~ "head and neck cancer",
-    raw_status_02 == "Case" & raw_status_01 == "PC" ~ "pancreatic cancer",
-    raw_status_02 == "Control" & raw_status_01 %in% c("PC", "HNC") ~ "HC",
-    TRUE ~ NA_character_
-  )) # according to the 'disease_status' column and 'type' column of initial_meta
 ```
 
 ```{r}

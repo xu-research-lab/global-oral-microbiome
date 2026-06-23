@@ -18,7 +18,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA674379" 
 
-base_dir <- "E:/oral_metadata/global-oral-microbiome/data/projects/"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -196,7 +196,7 @@ metadata <- data.frame(
   site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
   pcr_primers = "27F-534R", # Format: xxF-xxR
-  title = "Old age and other factors associated with salivary microbiome variation", # extract from article
+  title = "salivary microbiome with gastroesophageal refux disease and treatment", # extract from article
   disease_study = "yes", # determine according to the article
   raw_status = initial_meta$host_disease, 
   status = "pending",
@@ -225,7 +225,7 @@ metadata$site <- 'saliva'
 
 
 metadata = metadata%>%mutate(status = case_when(
-  raw_status == 'GERD' ~ 'GERD',
+  raw_status == 'GERD' ~ 'gastroesophageal reflux disease',
   raw_status == 'CON' ~ 'HC',
   raw_status == 'Control' ~ 'HC',
   TRUE ~ NA_character_

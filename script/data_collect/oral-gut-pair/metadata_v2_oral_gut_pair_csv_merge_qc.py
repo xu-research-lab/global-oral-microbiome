@@ -5,7 +5,7 @@ import numpy as np
 from biom import load_table
 
 # ----------------------- Configure Paths -----------------------
-out_dir = "/home/yanglun/YSD/global_oral/global_oral_v2/scripts/filter/filter-pair-0602/qc-pair-0603/results/"
+out_dir = "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-v2/oral-gut-pair/results/py-results/"
 os.makedirs(out_dir, exist_ok=True)
 
 ref_file     = "/home/yanglun/YSD/global_oral/global_oral_v2/metadata-v2/metadata_oral_qc.tsv"
@@ -13,9 +13,9 @@ ref_all_file = "/home/yanglun/YSD/global_oral/global_oral_v2/metadata-v2/metadat
 biom_file    = "/home/yanglun/YSD/global_oral/global_oral_v2/metadata-v2/biom_all_qc.biom"
 
 files = {
-    "pair": "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-gut-pair/260602-update/metadata_oral_gut_pair_v2_merge.csv",
-    "add":  "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-gut-pair/260602-update/metadata_pair_v2_additional_oral_site_merge.csv",
-    "unk":  "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-gut-pair/260602-update/metadata_pair_v2_status_unknown_merge.csv"
+    "pair": "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-v2/oral-gut-pair/results/metadata_oral_gut_pair_v2_merge.csv",
+    "add":  "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-v2/oral-gut-pair/results/metadata_pair_v2_additional_oral_site_merge.csv",
+    "unk":  "/home/yanglun/YSD/global_oral/metadata_v2_merge/oral-v2/oral-gut-pair/results/metadata_pair_v2_status_unknown_merge.csv"
 }
 
 # ------------------ Helper Functions ------------------

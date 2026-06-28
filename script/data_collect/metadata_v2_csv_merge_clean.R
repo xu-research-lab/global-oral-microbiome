@@ -409,6 +409,13 @@ df_new <- df %>%
     ),
     
     status_temp = case_when(
+     is.na(status) & bioproject %in% c(
+       "PRJEB1799", "PRJEB20889", "PRJEB20890", "PRJEB20894", "PRJEB27304",
+       "PRJEB28088", "PRJEB28769", "PRJEB33119", "PRJEB42056", "PRJEB6518",
+       "PRJNA255332", "PRJNA395436", "PRJNA427101", "PRJNA634162", "PRJNA689848",
+       "PRJNA721325", "PRJNA747639", "PRJNA778070", "PRJNA828039", "PRJNA841067"
+      ) ~ "HC",
+
       is.na(status) ~ NA_character_,
 
       # NA / Control categories
@@ -417,10 +424,10 @@ df_new <- df %>%
         "allogeneic hematopoietic stem cell transplantation recipient",
         "immunological ART responder", "dentally compromised",
         "black dental stain", "myasthenia gravis",
-        "functional gastrointestinal complaints", "missing",
-        "icu discharge or on icu day 10"
+        "functional gastrointestinal complaints", "missing"
       )) ~ NA_character_,
 
+      status_lower == "icu discharge or on icu day 10" ~ "ICU discharge or on ICU day 10",
       status_lower == "full-term" ~ "HC",
       str_detect(status_lower, "tonsillar hyperplasia|tonsillar hypertrophy") ~ NA_character_,
       str_detect(status_lower, "breastfed|never breastfed|full-term|orthodontic|non-responder|high-risk for ra|third molar extraction") ~ NA_character_,
@@ -481,6 +488,7 @@ df_new <- df %>%
       str_detect(status_lower, "oral verrucous hyperplasia") ~ "Oral Verrucous Hyperplasia",
       str_detect(status_lower, "oral submucous fibrosis") ~ "Oral Submucous Fibrosis",
       str_detect(status_lower, "olp|oral lichen planus") ~ "Oral Lichen Planus",
+      status_lower == "chronic periodontitis associated with type 2 diabetes mellitus" ~ "Periodontal Disease",
       str_detect(status_lower, "periodontitis|gingivitis|periodontal|peri-implantitis") ~ "Periodontal Disease",
       str_detect(status_lower, "caries") ~ "Dental Caries",
       str_detect(status_lower, "aphthous|rau") ~ "Aphthous",
@@ -488,7 +496,7 @@ df_new <- df %>%
       str_detect(status_lower, "cleft lip and palate|clp") ~ "Cleft Lip and Palate",
       
       # Cerebral Palsy Caries mapping
-      status_lower == "cerebral palsy caries-free" ~ "HC",
+      status_lower == "cerebral palsy caries-free" ~ "Other",
       status_lower %in% tolower(c("cerebral palsy with mild-moderate caries", "cerebral palsy with severe caries")) ~ "Dental Caries",
 
       # ==============================================================================
@@ -501,7 +509,9 @@ df_new <- df %>%
       str_detect(status_lower, "type 2 diabetes mellitus|t2dm|type-2 diabetes|type 1 diabetes|diabetes") ~ "Diabetes",
       str_detect(status_lower, "obese|obesity") ~ "Obesity",
       str_detect(status_lower, "atherosclerosis") ~ "Cardiovascular Disease",
-      str_detect(status_lower, "coronavirus disease of 2019|covid") ~ "COVID-19",
+      str_detect(status_lower, "coronavirus disease of 2019|covid") & !str_detect(status_lower, "discharge|convalescent") ~ "COVID-19",
+      status_lower == "covid-19 discharge" ~ "COVID-19 discharge",
+      status_lower == "1-year covid-19 convalescent" ~ "1-year COVID-19 convalescent",
       str_detect(status_lower, "hiv|viremic art-untreated") ~ "HIV",
       str_detect(status_lower, "axspa|axial spondyloarthritis") ~ "Axial Spondyloarthritis",
       str_detect(status_lower, "sjögren's syndrome|sjögren’s syndrome") ~ "Sjögren's Syndrome",
@@ -524,14 +534,6 @@ df_new <- df %>%
       bioproject == "PRJNA656387" & status == "first-degree relatives" ~ "HC",
       bioproject == "PRJDB8324" & status == "healthy" ~ "HC",
       bioproject == "PRJNA663926" & status %in% c("hand, foot and mouth disease symptomatic", "hand, foot and mouth disease asymptomatic") ~ "Hand, Foot and Mouth Disease",
-      
-      # Explicit HC assignments for specific bioprojects when status is NA
-      is.na(status) & bioproject %in% c(
-        "PRJEB1799", "PRJEB20889", "PRJEB20890", "PRJEB20894", "PRJEB27304",
-        "PRJEB28088", "PRJEB28769", "PRJEB33119", "PRJEB42056", "PRJEB6518",
-        "PRJNA255332", "PRJNA395436", "PRJNA427101", "PRJNA634162", "PRJNA689848",
-        "PRJNA721325", "PRJNA747639", "PRJNA778070", "PRJNA828039", "PRJNA841067"
-      ) ~ "HC",
 
       TRUE ~ tools::toTitleCase(status) # Fallback for anything not caught above
     ),

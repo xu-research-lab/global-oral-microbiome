@@ -85,10 +85,12 @@ def write_sample_ids(rows, output_path):
 
 def subset_biom(sample_rows, id_path, output_biom):
     # BIOM sample IDs are in "bioproject|sample_id" format
-    # Build BIOM-compatible keys for each sample
+    # Build BIOM-compatible keys for each sample, and a mapping to metadata sample_id
     biom_keys = [f"{r['bioproject_id']}|{r['sample_id']}" for r in sample_rows]
+    # Map: biom_key -> metadata sample_id for later renaming
+    key_to_sample_id = {f"{r['bioproject_id']}|{r['sample_id']}": r['sample_id'] for r in sample_rows}
 
-    # Load BIOM first to get valid sample IDs, then intersect with our list
+    # Load BIOM and subset using Python API (no temp CLI files to save disk space)
     full_table = biom.load_table(SOURCE_BIOM)
     biom_ids = set(full_table.ids(axis='sample'))
 
@@ -102,24 +104,30 @@ def subset_biom(sample_rows, id_path, output_biom):
         print(f'    ERROR: No valid sample IDs for {output_biom}, skipping')
         return
 
-    # Write the BIOM-format keys for subsetting
+    # Write the sample ID list (BIOM-format keys) for reference
     Path(id_path).write_text('\n'.join(valid_keys) + '\n')
-    tmp_biom = f'{output_biom}.tmp'
-    sorted_tmp_biom = f'{output_biom}.sorted.tmp'
-    subprocess.run([
-        'biom', 'subset-table',
-        '-i', SOURCE_BIOM,
-        '-a', 'sample',
-        '-s', id_path,
-        '-o', tmp_biom,
-    ], check=True)
 
-    table = biom.load_table(tmp_biom)
-    sorted_table = table.sort_order(valid_keys, axis='sample')
-    with biom_open(sorted_tmp_biom, 'w') as handle:
+    # Subset table in-memory using Python BIOM API
+    subset_table = full_table.filter(valid_keys, axis='sample', inplace=False)
+
+    # Rename sample IDs from "bioproject|sample_id" to just "sample_id"
+    current_ids = subset_table.ids(axis='sample')
+    id_map = {}
+    for sid in current_ids:
+        if sid in key_to_sample_id:
+            id_map[sid] = key_to_sample_id[sid]
+        elif '|' in sid:
+            id_map[sid] = sid.split('|')[-1]
+    renamed_table = subset_table.update_ids(id_map, axis='sample', inplace=False)
+
+    # Sort by the renamed sample IDs
+    sample_order = [key_to_sample_id[k] for k in valid_keys if k in set(current_ids)]
+    sorted_table = renamed_table.sort_order(sample_order, axis='sample')
+
+    # Write directly to output
+    with biom_open(output_biom, 'w') as handle:
         sorted_table.to_hdf5(handle, 'metadata_qc_pipeline')
-    os.replace(sorted_tmp_biom, output_biom)
-    os.remove(tmp_biom)
+    print(f'    Renamed {len(id_map)} sample IDs to metadata format')
 
 
 def regenerate_biom_tables(step3, oral_rows, dedup_rows):

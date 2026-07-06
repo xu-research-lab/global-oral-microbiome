@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJEB7825"
 
-base_dir <- "D:/metadata_collect"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -174,7 +174,7 @@ metadata <- data.frame(
   bmi = NA, # Source: NA; BMI not reported in CSV or article
   raw_sex = initial_meta$sex, # Source: CSV column "sex", values: "male"/"female"
   sex = "pending", # Source: pending; derived from raw_sex
-  sequencing_region = initial_meta$target_subfragment..exp., # Source: CSV column "target_subfragment..exp.", all values = "V2"
+  sequencing_region = "V1", # The sequencing region (V2) specified in the SRA table contradicts the provided universal primers (FWD: AGAGTTTGATCCTGGCTCAG; REV: TGCTGCCTCCCGTAGGAGT)
   platform = "Illumina GAIIx", # Source: CSV column "platform..exp." and article Methods; all samples use Illumina GAIIx
   country = "Venezuela", # Source: CSV column "COUNTRY" (values "Venezuela: GAZ"), simplified to country name
   raw_site = initial_meta$body_site, # Source: CSV column "body_site", values: "UBERON:skin of arm", "UBERON:feces", "UBERON:mouth"

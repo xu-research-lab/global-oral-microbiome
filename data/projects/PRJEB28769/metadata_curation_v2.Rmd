@@ -34,7 +34,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJEB28769"
 
-base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -189,7 +189,7 @@ metadata <- data.frame(
   sex = NA,        # sex not in SRA metadata; paper total: 27M / 32F, not assignable per sample
   # Platform from SRA Instrument column (Illumina HiSeq 2500) confirmed by paper ("Illumina HiSeq technology")
   platform = "Illumina HiSeq 2500",
-  sequencing_region = NA,  # not stated in this paper; see companion study ref [35]
+  sequencing_region = "V3-V4",  # The article does not mention it. According to the 35th reference in the article, it is V3-V4
   # Country from paper affiliation: University of Milan, Italy
   country = "Italy",
   # Site from paper Methods: "swab on the surface, rolling and touching edges, tip, and all defined areas of the tongue (~2/3 of tongue length)"
@@ -319,12 +319,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

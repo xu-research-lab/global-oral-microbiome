@@ -19,7 +19,7 @@ library(stringr)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA730970" 
 
-base_dir <- "E:/oral_metadata/global-oral-microbiome/data/projects/"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -190,7 +190,7 @@ metadata <- data.frame(
   bmi = NA,
   raw_sex = NA, # if need modify, then create a column start with 'raw_'
   sex = "pending", # and mark as "pending"
-  sequencing_region = 'V3-V5',
+  sequencing_region = 'V4-V5', # The sequencing region described in the article (V3–V5) contradicts the provided universal primers (515F and 907R)
   platform = "Illumina HiSeq", # extract from methods section, NOT initial_meta
   country = initial_meta$geo_loc_name_country,
   raw_site = initial_meta$env_local_scale,

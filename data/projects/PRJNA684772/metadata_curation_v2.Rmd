@@ -32,7 +32,7 @@ library(cowplot)
 # (1) Setting working directory
 project_id <- "PRJNA684772"
 
-base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -193,7 +193,7 @@ metadata <- data.frame(
   age_info = "18-23",  # From paper Methods: "Twenty volunteers aged between 18 and 23"
   bmi = NA,
   sex = NA,  # Paper: 5M+5F per group, but no per-subject sex mapping available in metadata
-  sequencing_region = "V3-V4",  # From paper Methods: "V3-V4 region of the 16S rRNA gene"
+  sequencing_region = "V4",  # The sequencing region described in the article contradicts the general primers provided
   platform = "Illumina MiSeq",  # From paper Methods: "sequenced on an Illumina MiSeq platform"
   country = initial_meta$geo_loc_name_country,  # "China" for all samples
   site = initial_meta$env_medium,  # "saliva" or "supragingival plaque" — exact values, no transform needed
@@ -317,12 +317,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

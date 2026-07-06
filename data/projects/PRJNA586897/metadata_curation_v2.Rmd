@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA586897"
 
-base_dir <- "D:/metadata_collect/oral_metadata_new/update"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -194,7 +194,7 @@ metadata <- data.frame(
   # No sex data in SRA metadata
   sex = NA,
   # Pending: will be filled from paper (V4 region)
-  sequencing_region = NA,
+  sequencing_region = "V3-V4", # The sequencing region (V4) described in the article contradicts the provided universal primers (319F and 806R)
   # From paper Methods: "sequenced on the Illumina Miseq System"
   platform = "Illumina MiSeq",
   # Paper Methods: Prince Philip Dental Hospital, Hong Kong; geo_loc_name_country="Hong Kong" -> China

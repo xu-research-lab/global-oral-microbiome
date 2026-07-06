@@ -16,7 +16,7 @@ library(cowplot)
 # (1) Setting working directory
 project_id <- "PRJNA509532"
 
-base_dir <- "E:/工作区/VSCode/RNAproject/collect_metadata_respon/project"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -143,7 +143,7 @@ metadata <- data.frame(
   age_info = "pending",
   bmi = NA_real_,
   sex = NA_character_,
-  sequencing_region = "V4-V5",
+  sequencing_region = "V3-V4", # The sequencing region (V4-V5) described in the article contradicts the provided universal primers (338F and 806R)
   platform = "Illumina MiSeq",
   country = initial_meta$geo_loc_name_country,
   raw_site = initial_meta$isolation_source,
@@ -300,11 +300,11 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

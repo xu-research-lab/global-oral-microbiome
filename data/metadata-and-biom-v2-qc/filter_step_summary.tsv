@@ -1,6 +1,0 @@
-step	rule	all_before_studies	all_before_samples	all_before_subjects	all_removed_studies	all_removed_samples	all_removed_subjects	all_after_studies	all_after_samples	all_after_subjects	oral_before_studies	oral_before_samples	oral_before_subjects	oral_removed_studies	oral_removed_samples	oral_removed_subjects	oral_after_studies	oral_after_samples	oral_after_subjects
-1. Study-level filter	Remove studies with ASV <=30 in >50% samples OR chimera >25% in >30% samples OR closed-reference retention <50%	334	116643	45880	47	13208	2249	287	103435	43631	334	86255	44326	47	8748	2226	287	77507	42100
-2. Sample-level ASV filter	Remove remaining samples with ASV <=30	287	103435	43631	0	10334	917	287	93101	42714	287	77507	42100	0	5706	1300	287	71801	40800
-3. Completeness filter	Remove remaining samples with Observed == NA or subject_id == NA	287	93101	42714	0	251	56	287	92850	42658	287	71801	40800	0	152	55	287	71649	40745
-4. Oral subset	Keep site_group == 'oral'	287	92850	42658	0	21201	1913	287	71649	40745	287	71649	40745	0	0	0	287	71649	40745
-5. Oral deduplication	Keep 1 sample per subject_id x site_cleaned	287	71649	40745	9	28159	0	278	43490	40745	287	71649	40745	9	28159	0	278	43490	40745

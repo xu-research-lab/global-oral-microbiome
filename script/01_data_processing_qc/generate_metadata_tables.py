@@ -1,21 +1,27 @@
 #!/usr/bin/env python3
 """
-Generate three derived metadata tables from metadata_all_for_qc_raw.tsv:
-  1. metadata_all_qc.tsv        - quality-filtered, all body sites
-  2. metadata_oral_qc.tsv       - oral subset (by site_group='oral'), not deduplicated
-  3. metadata_oral_qc_dedup.tsv - oral subset, deduplicated by (subject_id, site_cleaned)
+Generate QC metadata tables and BIOM subsets from metadata_all_for_qc_raw.tsv.
 
-Filters applied:
-  - Exclude abnormal studies where ASV <= 30 in >50% samples OR
-    chimera >25% in >30% samples OR study-level closed-reference mapping rate <30%
-  - Exclude remaining samples with asv_count <= 30
-  - Exclude remaining samples with closed-reference sample mapping rate <30%
-  - Exclude remaining samples with NA Observed (alpha diversity) or NA subject_id
-  - Oral tables: include all samples where site_group = 'oral'
+Filtering is intentionally funnel-shaped:
+  Dataset-level filters, evaluated on oral samples only:
+    1. chimera: remove studies where >30% oral samples have chimera >25%
+    2. ASV: remove studies where >50% oral samples have ASV <= 30
+    3. closed-reference: remove studies where aggregate GG2 CR mapping <30%
+
+  Sample-level filters, applied after dataset filters:
+    4. chimera: keep only samples with chimera flag == no
+    5. ASV: keep only samples with ASV flag == no
+    6. closed-reference: keep only samples with GG2 CR mapping flag == no
+
+Outputs:
+  - metadata_all_qc.tsv
+  - metadata_oral_qc.tsv
+  - metadata_oral_qc_dedup.tsv
+  - biom_all_qc.biom, biom_oral_qc.biom, biom_oral_qc_dedup.biom
+  - QC/filter_funnel_summary.tsv
+  - QC/removed_studies_by_step.tsv
 """
 import csv
-import os
-import subprocess
 from collections import defaultdict, Counter
 from pathlib import Path
 
@@ -27,15 +33,17 @@ RAW = f'{BASE}/metadata_all_for_qc_raw.tsv'
 ALL_QC = f'{BASE}/metadata_all_qc.tsv'
 ORAL_QC = f'{BASE}/metadata_oral_qc.tsv'
 ORAL_DEDUP = f'{BASE}/metadata_oral_qc_dedup.tsv'
-SOURCE_BIOM = '/beegfs/huangxiaochang/global_oral/ASV_vs_HOMD_analysis/containment_derep/unified_gg2_closed_reference_profile/biom_exports/gg2_reference_id_profile.biom'
+SOURCE_BIOM = '/beegfs/dongbiao/oral/table_gg2_id99_61235_115338_v2.biom'
 BIOM_ALL_QC = f'{BASE}/biom_all_qc.biom'
 BIOM_ORAL_QC = f'{BASE}/biom_oral_qc.biom'
 BIOM_ORAL_DEDUP = f'{BASE}/biom_oral_qc_dedup.biom'
 QC_DIR = f'{BASE}/QC'
+FUNNEL_SUMMARY = f'{QC_DIR}/filter_funnel_summary.tsv'
+REMOVED_STUDIES = f'{QC_DIR}/removed_studies_by_step.tsv'
+CR_THRESHOLD = 0.30
 
 
 def dedupe_fieldnames(fieldnames):
-    """Keep the first occurrence of duplicated columns."""
     seen = set()
     deduped = []
     dropped = []
@@ -48,100 +56,7 @@ def dedupe_fieldnames(fieldnames):
     return deduped, dropped
 
 
-def get_abnormal_studies(rows):
-    """Identify studies to exclude under the current rule:
-    remove any study where (based on ORAL samples only):
-    >50% oral samples have ASV <= 30, OR
-    >30% oral samples have chimera >25%, OR
-    study-level closed-reference mapping rate (oral samples) <30%.
-    """
-    study_data = defaultdict(list)
-    for r in rows:
-        study_data[r['bioproject_id']].append(r)
-
-    abnormal = set()
-    for study, samples in study_data.items():
-        if len(samples) == 0:
-            continue
-        # Use only oral samples for threshold computation
-        oral_samples = [r for r in samples if r.get('site_group', '') == 'oral']
-        n_oral = len(oral_samples)
-        if n_oral == 0:
-            continue
-        low_asv = sum(1 for r in oral_samples if r.get('asv_le_30') == 'yes') / n_oral
-        high_chim = sum(1 for r in oral_samples if r.get('chim_gt_25') == 'yes') / n_oral
-        low_cr_mapping = any(r.get('study_cr_mapping_low') == 'yes' for r in samples)
-        if low_asv > 0.5 or high_chim > 0.3 or low_cr_mapping:
-            abnormal.add(study)
-    return abnormal
-
-
-
-def write_sample_ids(rows, output_path):
-    # BIOM uses "bioproject|sample_id" format; construct keys for subsetting
-    biom_keys = [f"{r['bioproject_id']}|{r['sample_id']}" for r in rows]
-    Path(output_path).write_text('\n'.join(biom_keys) + '\n')
-
-
-def subset_biom(sample_rows, id_path, output_biom):
-    # BIOM sample IDs are in "bioproject|sample_id" format
-    # Build BIOM-compatible keys for each sample, and a mapping to metadata sample_id
-    biom_keys = [f"{r['bioproject_id']}|{r['sample_id']}" for r in sample_rows]
-    # Map: biom_key -> metadata sample_id for later renaming
-    key_to_sample_id = {f"{r['bioproject_id']}|{r['sample_id']}": r['sample_id'] for r in sample_rows}
-
-    # Load BIOM and subset using Python API (no temp CLI files to save disk space)
-    full_table = biom.load_table(SOURCE_BIOM)
-    biom_ids = set(full_table.ids(axis='sample'))
-
-    # Filter to only samples present in the BIOM table
-    valid_keys = [k for k in biom_keys if k in biom_ids]
-    n_missing = len(biom_keys) - len(valid_keys)
-    if n_missing > 0:
-        print(f'    Warning: {n_missing} sample IDs not found in BIOM, will be excluded from {output_biom}')
-
-    if not valid_keys:
-        print(f'    ERROR: No valid sample IDs for {output_biom}, skipping')
-        return
-
-    # Write the sample ID list (BIOM-format keys) for reference
-    Path(id_path).write_text('\n'.join(valid_keys) + '\n')
-
-    # Subset table in-memory using Python BIOM API
-    subset_table = full_table.filter(valid_keys, axis='sample', inplace=False)
-
-    # Rename sample IDs from "bioproject|sample_id" to just "sample_id"
-    current_ids = subset_table.ids(axis='sample')
-    id_map = {}
-    for sid in current_ids:
-        if sid in key_to_sample_id:
-            id_map[sid] = key_to_sample_id[sid]
-        elif '|' in sid:
-            id_map[sid] = sid.split('|')[-1]
-    renamed_table = subset_table.update_ids(id_map, axis='sample', inplace=False)
-
-    # Sort by the renamed sample IDs
-    sample_order = [key_to_sample_id[k] for k in valid_keys if k in set(current_ids)]
-    sorted_table = renamed_table.sort_order(sample_order, axis='sample')
-
-    # Write directly to output
-    with biom_open(output_biom, 'w') as handle:
-        sorted_table.to_hdf5(handle, 'metadata_qc_pipeline')
-    print(f'    Renamed {len(id_map)} sample IDs to metadata format')
-
-
-def regenerate_biom_tables(step3, oral_rows, dedup_rows):
-    Path(QC_DIR).mkdir(parents=True, exist_ok=True)
-    outputs = [
-        (step3, f'{QC_DIR}/sample_ids_all_qc.txt', BIOM_ALL_QC),
-        (oral_rows, f'{QC_DIR}/sample_ids_oral_qc.txt', BIOM_ORAL_QC),
-        (dedup_rows, f'{QC_DIR}/sample_ids_oral_qc_dedup.txt', BIOM_ORAL_DEDUP),
-    ]
-    for sample_rows, id_path, output_biom in outputs:
-        print(f'  Regenerating {output_biom} from {len(sample_rows)} samples')
-        subset_biom(sample_rows, id_path, output_biom)
-
-def main():
+def load_rows():
     rows = []
     with open(RAW, 'r') as f:
         reader = csv.DictReader(f, delimiter='\t')
@@ -149,78 +64,173 @@ def main():
         fieldnames, dropped_columns = dedupe_fieldnames(raw_fieldnames)
         for row in reader:
             rows.append({name: row.get(name, '') for name in fieldnames})
-    print(f"Read {len(rows)} rows from {RAW}")
+    return rows, fieldnames, dropped_columns
+
+
+def count_state(rows):
+    return {
+        'datasets': len({r['bioproject_id'] for r in rows if r.get('bioproject_id')}),
+        'samples_total': len(rows),
+        'samples_oral': sum(1 for r in rows if r.get('site_group') == 'oral'),
+    }
+
+
+def add_funnel_row(out, step_order, phase, step_name, criterion, before, after, removed_studies=None):
+    b = count_state(before)
+    a = count_state(after)
+    removed_studies = removed_studies or set()
+    out.append({
+        'step_order': step_order,
+        'phase': phase,
+        'step_name': step_name,
+        'criterion': criterion,
+        'datasets_before': b['datasets'],
+        'datasets_after': a['datasets'],
+        'datasets_removed': b['datasets'] - a['datasets'],
+        'samples_before': b['samples_total'],
+        'samples_after': a['samples_total'],
+        'samples_removed': b['samples_total'] - a['samples_total'],
+        'oral_samples_before': b['samples_oral'],
+        'oral_samples_after': a['samples_oral'],
+        'oral_samples_removed': b['samples_oral'] - a['samples_oral'],
+        'removed_study_count': len(removed_studies),
+        'removed_studies': ','.join(sorted(removed_studies)),
+    })
+
+
+def write_tsv(path, rows, fieldnames):
+    with open(path, 'w', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter='\t', extrasaction='ignore')
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def write_sample_ids(rows, output_path):
+    sample_ids = [r['sample_id'] for r in rows]
+    Path(output_path).write_text('\n'.join(sample_ids) + '\n')
+
+
+def subset_biom(sample_rows, id_path, output_biom, full_table):
+    sample_ids = [r['sample_id'] for r in sample_rows]
+    biom_ids = set(full_table.ids(axis='sample'))
+    valid_ids = [sid for sid in sample_ids if sid in biom_ids]
+    n_missing = len(sample_ids) - len(valid_ids)
+    if n_missing > 0:
+        print(f'    Warning: {n_missing} sample IDs not found in BIOM, will be excluded from {output_biom}')
+    if not valid_ids:
+        print(f'    ERROR: No valid sample IDs for {output_biom}, skipping')
+        return
+    Path(id_path).write_text('\n'.join(valid_ids) + '\n')
+    subset_table = full_table.filter(valid_ids, axis='sample', inplace=False)
+    sorted_table = subset_table.sort_order(valid_ids, axis='sample')
+    with biom_open(output_biom, 'w') as handle:
+        sorted_table.to_hdf5(handle, 'metadata_qc_pipeline_gg2_v2_cr30')
+    print(f'    Wrote {output_biom}: {len(valid_ids)} samples')
+
+def regenerate_biom_tables(all_rows, oral_rows, dedup_rows):
+    Path(QC_DIR).mkdir(parents=True, exist_ok=True)
+    print(f'  Loading source BIOM: {SOURCE_BIOM}')
+    full_table = biom.load_table(SOURCE_BIOM)
+    outputs = [
+        (all_rows, f'{QC_DIR}/sample_ids_all_qc.txt', BIOM_ALL_QC),
+        (oral_rows, f'{QC_DIR}/sample_ids_oral_qc.txt', BIOM_ORAL_QC),
+        (dedup_rows, f'{QC_DIR}/sample_ids_oral_qc_dedup.txt', BIOM_ORAL_DEDUP),
+    ]
+    for sample_rows, id_path, output_biom in outputs:
+        print(f'  Regenerating {output_biom} from {len(sample_rows)} metadata samples')
+        subset_biom(sample_rows, id_path, output_biom, full_table)
+
+
+def remove_studies(rows, flag_col):
+    remove = {r['bioproject_id'] for r in rows if r.get(flag_col) == 'yes'}
+    after = [r for r in rows if r['bioproject_id'] not in remove]
+    return after, remove
+
+
+def main():
+    Path(QC_DIR).mkdir(parents=True, exist_ok=True)
+    rows, fieldnames, dropped_columns = load_rows()
+    print(f'Read {len(rows)} rows from {RAW}')
     if dropped_columns:
-        print(f"Dropped {len(dropped_columns)} duplicated columns from input header")
+        print(f'Dropped {len(dropped_columns)} duplicated columns from input header')
 
-    # Identify abnormal studies
-    abnormal = get_abnormal_studies(rows)
-    print(f"Abnormal studies to exclude: {abnormal}")
+    funnel = []
+    removed_study_rows = []
+    current = rows
+    add_funnel_row(funnel, 0, 'start', 'Raw merged metadata', 'No filtering', current, current)
 
-    # Filter 1: exclude abnormal studies
-    step1 = [r for r in rows if r['bioproject_id'] not in abnormal]
-    n_removed_study = len(rows) - len(step1)
-    print(f"  After removing abnormal studies: {len(step1)} samples (-{n_removed_study})")
+    dataset_steps = [
+        (1, 'Dataset chimera filter', 'study_chim_gt25_high', 'Remove datasets where >30% oral samples have chimera >25%'),
+        (2, 'Dataset ASV filter', 'study_asv_lt30_high', 'Remove datasets where >50% oral samples have ASV <=30'),
+        (3, 'Dataset close-reference filter', 'study_cr_mapping_low', f'Remove datasets with aggregate oral GG2 CR mapping <{CR_THRESHOLD:.0%}'),
+    ]
+    for step_order, name, flag, criterion in dataset_steps:
+        before = current
+        current, removed = remove_studies(current, flag)
+        add_funnel_row(funnel, step_order, 'dataset', name, criterion, before, current, removed)
+        for study in sorted(removed):
+            samples = [r for r in before if r['bioproject_id'] == study]
+            removed_study_rows.append({
+                'step_order': step_order,
+                'step_name': name,
+                'bioproject_id': study,
+                'samples_total': len(samples),
+                'samples_oral': sum(1 for r in samples if r.get('site_group') == 'oral'),
+                'study_chim_gt25_high': samples[0].get('study_chim_gt25_high', 'NA') if samples else 'NA',
+                'study_asv_lt30_high': samples[0].get('study_asv_lt30_high', 'NA') if samples else 'NA',
+                'study_cr_mapping_rate': samples[0].get('study_cr_mapping_rate', 'NA') if samples else 'NA',
+                'study_cr_mapping_low': samples[0].get('study_cr_mapping_low', 'NA') if samples else 'NA',
+            })
+        print(f'  {name}: {len(removed)} datasets removed; {len(current)} samples remain')
 
-    # Filter 2: exclude asv <= 30
-    step2 = [r for r in step1 if r['asv_le_30'] != 'yes']
-    n_removed_asv = len(step1) - len(step2)
-    print(f"  After removing asv<=30: {len(step2)} samples (-{n_removed_asv})")
+    sample_steps = [
+        (4, 'Sample chimera filter', lambda r: r.get('chim_gt_25') == 'no', 'Keep only samples with chimera <=25% and non-missing chimera data'),
+        (5, 'Sample ASV filter', lambda r: r.get('asv_le_30') == 'no', 'Keep only samples with ASV >30 and non-missing ASV count'),
+        (6, 'Sample close-reference filter', lambda r: r.get('sample_cr_mapping_low') == 'no', f'Keep only samples with GG2 CR mapping >={CR_THRESHOLD:.0%} and non-missing CR data'),
+    ]
+    for step_order, name, keep_fn, criterion in sample_steps:
+        before = current
+        current = [r for r in current if keep_fn(r)]
+        add_funnel_row(funnel, step_order, 'sample', name, criterion, before, current)
+        print(f'  {name}: {len(before) - len(current)} samples removed; {len(current)} samples remain')
 
-    # Filter 3: exclude samples with closed-reference mapping rate < 30%
-    step3 = [r for r in step2 if r['sample_cr_mapping_low'] != 'yes']
-    n_removed_cr = len(step2) - len(step3)
-    print(f"  After removing sample_cr_mapping<30%: {len(step3)} samples (-{n_removed_cr})")
+    all_qc_rows = current
+    write_tsv(ALL_QC, all_qc_rows, fieldnames)
 
-    # Filter 4: exclude NA alpha or NA subject_id
-    step4 = [r for r in step3 if r['Observed'] != 'NA' and r['subject_id'] != 'NA']
-    n_removed_na = len(step3) - len(step4)
-    print(f"  After removing NA alpha/subject_id: {len(step4)} samples (-{n_removed_na})")
+    oral_rows = [r for r in all_qc_rows if r.get('site_group') == 'oral']
+    write_tsv(ORAL_QC, oral_rows, fieldnames)
 
-    # Table 1: all sites, QC
-    with open(ALL_QC, 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter='\t')
-        writer.writeheader()
-        writer.writerows(step4)
-
-    # Table 2: oral subset (by site_group='oral'), not deduplicated
-    oral_rows = [r for r in step4 if r['site_group'] == 'oral']
-    with open(ORAL_QC, 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter='\t')
-        writer.writeheader()
-        writer.writerows(oral_rows)
-
-    # Table 3: oral, deduplicated by (subject_id, site_cleaned)
     groups = defaultdict(list)
     for r in oral_rows:
-        key = (r['subject_id'], r['site_cleaned'])
-        groups[key].append(r)
+        groups[(r['subject_id'], r['site_cleaned'])].append(r)
     dedup_rows = [v[0] for v in groups.values()]
-    with open(ORAL_DEDUP, 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter='\t')
-        writer.writeheader()
-        writer.writerows(dedup_rows)
+    write_tsv(ORAL_DEDUP, dedup_rows, fieldnames)
 
-    # Summary
-    n_all = len(step4)
+    funnel_fields = list(funnel[0].keys())
+    write_tsv(FUNNEL_SUMMARY, funnel, funnel_fields)
+    removed_fields = ['step_order', 'step_name', 'bioproject_id', 'samples_total', 'samples_oral', 'study_chim_gt25_high', 'study_asv_lt30_high', 'study_cr_mapping_rate', 'study_cr_mapping_low']
+    write_tsv(REMOVED_STUDIES, removed_study_rows, removed_fields)
+
+    n_all = len(all_qc_rows)
     n_oral = len(oral_rows)
     n_dedup = len(dedup_rows)
     n_subjects = len(set(r['subject_id'] for r in dedup_rows))
-    n_studies_all = len(set(r['bioproject_id'] for r in step4))
+    n_studies_all = len(set(r['bioproject_id'] for r in all_qc_rows))
     n_studies_oral = len(set(r['bioproject_id'] for r in oral_rows))
-
     oral_sites = Counter(r['site_cleaned'] for r in oral_rows)
     d_sites = Counter(r['site_cleaned'] for r in dedup_rows)
 
-    print(f"\n=== Generated ===")
-    print(f"  metadata_all_qc.tsv:        {n_all:>7} samples, {n_studies_all} studies")
-    print(f"  metadata_oral_qc.tsv:       {n_oral:>7} samples, {n_studies_oral} studies")
-    print(f"    site_cleaned distribution: {dict(oral_sites.most_common(10))}")
-    print(f"  metadata_oral_qc_dedup.tsv: {n_dedup:>7} samples, {n_subjects} subjects (removed {n_oral - n_dedup} duplicates)")
-    print(f"    site_cleaned distribution: {dict(d_sites.most_common(10))}")
+    print('\n=== Generated ===')
+    print(f'  metadata_all_qc.tsv:        {n_all:>7} samples, {n_studies_all} studies')
+    print(f'  metadata_oral_qc.tsv:       {n_oral:>7} samples, {n_studies_oral} studies')
+    print(f'    site_cleaned distribution: {dict(oral_sites.most_common(10))}')
+    print(f'  metadata_oral_qc_dedup.tsv: {n_dedup:>7} samples, {n_subjects} subjects (removed {n_oral - n_dedup} duplicates)')
+    print(f'    site_cleaned distribution: {dict(d_sites.most_common(10))}')
+    print(f'  Funnel summary: {FUNNEL_SUMMARY}')
+    print(f'  Removed studies: {REMOVED_STUDIES}')
 
-    print(f"\n=== Regenerating BIOM tables from {SOURCE_BIOM} ===")
-    regenerate_biom_tables(step4, oral_rows, dedup_rows)
+    print(f'\n=== Regenerating BIOM tables from exact-derep close-reference BIOM ===')
+    regenerate_biom_tables(all_qc_rows, oral_rows, dedup_rows)
 
 
 if __name__ == '__main__':

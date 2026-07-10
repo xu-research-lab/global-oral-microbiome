@@ -215,27 +215,30 @@ study_boundaries[, boundary_rank := end_rank + 0.5]
 fwrite(
   sample_dt[, .(
     study_id, sample_id, sample_rank, raw_reads, dechimera_reads,
-    chim_perc = chim_perc_num, asv_count = asv_count_num, Observed = observed_num,
+    chim_perc = chim_perc_num, asv_count = asv_count_num,
+    sample_cr_mapping_rate = sample_cr_mapping_rate_num, Observed = observed_num,
     metadata_sample_count
   )],
   file.path(paths$outdir, paste0(paths$prefix, "_sample_ordered_values.csv"))
 )
 
 threshold_summary <- data.table(
-  metric = c("raw_reads", "dechimera_reads", "chim_perc", "asv_count", "Observed_na"),
+  metric = c("raw_reads", "dechimera_reads", "chim_perc", "asv_count", "sample_cr_mapping_rate", "Observed_na"),
   filter_rule = c(
     paste0("raw_reads < ", raw_reads_threshold),
     paste0("dechimera_reads < ", raw_reads_threshold),
     paste0("chim_perc > ", chimera_threshold),
     paste0("asv_count <= ", asv_threshold),
+    paste0("sample_cr_mapping_rate < ", cr_mapping_threshold, " or NA"),
     "Observed is NA"
   ),
-  threshold = c(raw_reads_threshold, raw_reads_threshold, chimera_threshold, asv_threshold, NA_real_),
+  threshold = c(raw_reads_threshold, raw_reads_threshold, chimera_threshold, asv_threshold, cr_mapping_threshold, NA_real_),
   failed_samples = c(
     sum(sample_dt$raw_reads < raw_reads_threshold, na.rm = TRUE),
     sum(sample_dt$dechimera_reads < raw_reads_threshold, na.rm = TRUE),
     sum(sample_dt$chim_perc_num > chimera_threshold, na.rm = TRUE),
     sum(sample_dt$asv_count_num <= asv_threshold, na.rm = TRUE),
+    sum(is.na(sample_dt$sample_cr_mapping_rate_num) | sample_dt$sample_cr_mapping_rate_num < cr_mapping_threshold),
     sum(is.na(sample_dt$observed_num))
   ),
   non_missing_samples = c(
@@ -243,6 +246,7 @@ threshold_summary <- data.table(
     sum(!is.na(sample_dt$dechimera_reads)),
     sum(!is.na(sample_dt$chim_perc_num)),
     sum(!is.na(sample_dt$asv_count_num)),
+    nrow(sample_dt),
     nrow(sample_dt)
   )
 )
@@ -322,17 +326,37 @@ p_asv <- ggplot(sample_dt, aes(sample_rank, asv_count_num, fill = study_color)) 
   ) +
   theme_sample_qc()
 
+
+p_cr_mapping <- ggplot(sample_dt, aes(sample_rank, sample_cr_mapping_rate_num, fill = study_color)) +
+  geom_col(width = 1, na.rm = TRUE) +
+  geom_hline(yintercept = cr_mapping_threshold, linetype = "dashed", color = "#D62728", linewidth = 1.1) +
+  geom_vline(
+    data = study_boundaries[boundary_rank < max(sample_dt$sample_rank)],
+    aes(xintercept = boundary_rank),
+    inherit.aes = FALSE,
+    color = "grey35",
+    linewidth = 0.15,
+    alpha = 0.35
+  ) +
+  scale_fill_identity() +
+  scale_y_continuous(labels = percent_format(accuracy = 1), limits = c(0, 1)) +
+  labs(
+    title = paste0("Sample closed-reference mapping rate (red line: ", cr_mapping_threshold * 100, "%)"),
+    y = "CR mapping rate"
+  ) +
+  theme_sample_qc()
+
 combined_sample <- aplot::plot_list(
-  gglist = list(p_reads, p_chimera, p_asv),
+  gglist = list(p_reads, p_chimera, p_asv, p_cr_mapping),
   ncol = 1,
-  heights = c(1, 1, 1),
+  heights = c(1, 1, 1, 1),
   output = "patchwork"
 )
 
 sample_pdf <- file.path(paths$outdir, paste0(paths$prefix, "_sample_level.pdf"))
 sample_png <- file.path(paths$outdir, paste0(paths$prefix, "_sample_level.png"))
-ggsave(sample_pdf, combined_sample, width = 28, height = 10.5, limitsize = FALSE)
-ggsave(sample_png, combined_sample, width = 28, height = 10.5, dpi = 300, limitsize = FALSE)
+ggsave(sample_pdf, combined_sample, width = 28, height = 14, limitsize = FALSE)
+ggsave(sample_png, combined_sample, width = 28, height = 14, dpi = 300, limitsize = FALSE)
 
 message("Done.")
 message("Study metrics: ", file.path(paths$outdir, paste0(paths$prefix, "_study_metrics.csv")))

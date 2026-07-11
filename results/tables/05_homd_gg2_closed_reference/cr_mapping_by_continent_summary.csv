@@ -1,0 +1,13 @@
+subset,continent,n_samples,n_studies,median_cr,mean_unmapped_pct,pct_below_floor
+all_amplicons,North America,46809,92,0.9678,6.78,1.11
+all_amplicons,Asia,19225,142,0.9129,15.24,5.13
+all_amplicons,Europe,10484,54,0.9462,9.43,2.1
+all_amplicons,Africa,1980,6,0.9208,18.47,9.7
+all_amplicons,Oceania,1457,9,0.949,11.9,2.13
+all_amplicons,South America,1215,16,0.9551,13.22,6.5
+V4_only,North America,26311,56,0.9772,4.16,0.42
+V4_only,Asia,3748,24,0.9574,12.91,7.23
+V4_only,Europe,3595,8,0.9641,7.28,3.0
+V4_only,Africa,1053,2,0.9427,6.63,0.19
+V4_only,Oceania,711,3,0.9552,16.81,4.36
+V4_only,South America,624,7,0.9515,15.0,8.49

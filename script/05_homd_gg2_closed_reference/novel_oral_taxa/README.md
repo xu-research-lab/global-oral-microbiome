@@ -40,5 +40,8 @@ Shared paths/thresholds are in `config.py` (cluster defaults; override via flags
 
 ## Status
 
-01 and 04 have real logic and are smoke-tested on synthetic input. 02/05 are tool wrappers
-(cluster). 03/06/07 to be added. None have been run on the real cluster data yet.
+All seven steps drafted. 01, 04, 06, 07 have real logic and are smoke-tested on synthetic
+input. 02 (vsearch) and 05 (QIIME2/SEPP) are tool wrappers, syntax/dry-run verified. 03
+(R/decontam) is syntax-checked; needs R + decontam on the cluster. None have been run on
+the real cluster data yet — thresholds (support, residence, novelty identity) are defaults
+to tune per data.

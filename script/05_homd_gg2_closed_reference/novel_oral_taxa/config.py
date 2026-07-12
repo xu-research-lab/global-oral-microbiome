@@ -21,10 +21,11 @@ PROJECT_ASV_COUNTS = "/beegfs/dongbiao/oral/{bioproject}/results/ASVs_counts.tsv
 
 # --- upstream pipeline outputs (scripts 14-15) -------------------------------
 PIPELINE_DIR = "/beegfs/huangxiaochang/global_oral/ASV_vs_HOMD_analysis/region_aware_pipeline"
-# Annotated low-HOMD table (script 15). NOTE: this is already prevalence-filtered
+# Annotated HOMD-uncaptured table (script 15). NOTE: this is already prevalence-filtered
 # (subject_prevalence >= 50). To keep the rare tail (Phase 1) prefer the pre-prevalence
 # table `low_identity_lt97_subject_prevalence_filtered.tsv` or the full derep+HOMD table.
-LOW_HOMD_ANNOTATED = PIPELINE_DIR + "/low_identity_lt97_subject_prevalence_filtered_gg2_annotated.tsv"
+# (The upstream filename keeps its historical `low_identity_lt97` name.)
+HOMD_UNCAPTURED_ANNOTATED = PIPELINE_DIR + "/low_identity_lt97_subject_prevalence_filtered_gg2_annotated.tsv"
 
 # --- tools -------------------------------------------------------------------
 VSEARCH = "/home/xuhuan/miniconda3/envs/vsearch_env/bin/vsearch"
@@ -32,7 +33,7 @@ VSEARCH = "/home/xuhuan/miniconda3/envs/vsearch_env/bin/vsearch"
 # --- pipeline output root ----------------------------------------------------
 OUT_ROOT = PIPELINE_DIR + "/novel_oral_taxa"
 
-# --- HOMD capture / low-HOMD thresholds --------------------------------------
+# --- HOMD capture / HOMD-uncaptured thresholds -------------------------------
 # "captured" = HOMD identity >= HOMD_ID_CAPTURE and query coverage >= QCOV_MIN.
 # Identity is GLOBAL (over the full query), so identity <= qcov and the qcov clause is
 # largely redundant; confirm vsearch --iddef is query-global (e.g. --iddef 1).

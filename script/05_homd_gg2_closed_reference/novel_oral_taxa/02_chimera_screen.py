@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Phase 1: reference-based chimera screen for low-HOMD candidates.
+"""Phase 1: reference-based chimera screen for HOMD-uncaptured candidates.
 
 DADA2 removes only within-run chimeras; cross-study / cross-taxon chimeras survive and
 can masquerade as novel taxa (a chimera partial-matches HOMD, so under GLOBAL identity it
-also looks low-HOMD). This runs `vsearch --uchime_ref` against a combined HOMD + GG2
+also looks HOMD-uncaptured). This runs `vsearch --uchime_ref` against a combined HOMD + GG2
 (+ SILVA) reference and splits candidates into non-chimeric / chimeric / borderline. Must
 run before any candidate is promoted to a novel phylotype.
 

@@ -13,7 +13,7 @@ part of this pipeline.
 ## Motivation
 
 Expanding the oral reference beyond HOMD is an explicit project aim. The existing
-low-HOMD funnel (2.90M dereplicated ASVs -> 1.90M low-HOMD -> 26k -> 1,416 -> 736
+HOMD-uncaptured funnel (2.90M dereplicated ASVs -> 1.90M HOMD-uncaptured -> 26k -> 1,416 -> 736
 bacterial) is not fit for that claim as built: its most prevalent "novel oral" ASVs are
 dominated by contaminants (marine *Vreelandella*, kit *Methylobacterium*/*Shewanella*,
 gut *Ruminococcus*/*Coprococcus*/*Enterocloster*, dietary *Cyanobacteriota*). The root
@@ -24,8 +24,12 @@ novel taxa that are the actual discovery. This plan fixes that.
 
 ## Definitions
 
-**Low-HOMD (candidate not-in-HOMD) ASV** = no HOMD hit, OR HOMD identity < 97%, OR
-query coverage (qcov) < 99%, evaluated **per amplicon region**.
+**HOMD-uncaptured ASV** (was "low-HOMD") = no HOMD hit, OR HOMD identity < 97%, OR
+query coverage (qcov) < 99%, evaluated **per amplicon region**. This is a neutral,
+operational label describing failure to match the reference — NOT a novelty claim.
+Two-tier vocabulary: candidates are *HOMD-uncaptured ASVs* at the generation stage; only
+after decontamination, residence, and the multi-DB check are validated phylotypes called
+*candidate novel oral phylotypes* (split into *uncatalogued-oral* vs *novel-to-all-references*).
 
 - Identity is **global** (computed over the full query), so identity <= qcov and an
   identity >= 97% already implies qcov >= 97%. Under this definition the `qcov < 99%`
@@ -44,7 +48,7 @@ cross-region variants collapse to one taxon.
 ## Phase 1 — Candidate generation
 
 1. Collect dereplicated ASVs with per-ASV read and subject support, **per amplicon region**.
-2. Map to HOMD (vsearch `--usearch_global`, query-global identity). Flag low-HOMD ASVs by
+2. Map to HOMD (vsearch `--usearch_global`, query-global identity). Flag HOMD-uncaptured ASVs by
    the definition above. **Keep the rare tail** — do not pre-filter at subject-prevalence
    >= 50; rare and population-specific taxa are the target, not noise to be removed.
 3. **Reference-based chimera removal** against a combined HOMD + GG2 + SILVA database
@@ -138,7 +142,7 @@ host-associated microbe.
 
 ## To build next
 
-- Phase 1 chimera-removal + per-region low-HOMD candidate export.
+- Phase 1 chimera-removal + per-region HOMD-uncaptured candidate export.
 - Phase 2 `decontam` within the 23 blank studies + cross-lab catalog builder + oral-vs-blank
   enrichment (extends scripts 25/26).
 - Phase 4 GG2 SEPP placement + phylotype definition + multi-DB novelty classification.

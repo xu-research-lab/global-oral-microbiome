@@ -2,7 +2,7 @@
 
 Implements the plan in `results/novel_oral_taxa_pipeline_plan.md`: identify candidate oral
 taxa absent from HOMD, with a contamination firewall and phylotype-level (not per-ASV)
-reporting. Fixes the failure mode of the legacy low-HOMD funnel, whose recurrent "novel
+reporting. Fixes the failure mode of the legacy HOMD-uncaptured funnel, whose recurrent "novel
 oral" set was dominated by reagent/marine/gut contaminants (recurrence across BioProjects
 is also the signature of contamination).
 
@@ -12,7 +12,7 @@ Upstream QC-gate changes are a **separate workstream** and are not part of this 
 
 | # | Script | Phase | Runs where |
 |---|---|---|---|
-| 01 | `01_export_low_homd_candidates.py` | 1 candidate generation | local/cluster |
+| 01 | `01_export_homd_uncaptured_candidates.py` | 1 candidate generation | local/cluster |
 | 02 | `02_chimera_screen.py` | 1 chimera removal | cluster (vsearch) |
 | 03 | `03_decontam_within_blanks.R` | 2 contamination firewall | cluster (R/decontam) |
 | 04 | `04_oral_vs_blank_enrichment.py` | 2/3 residence test | local/cluster |
@@ -27,7 +27,7 @@ Shared paths/thresholds are in `config.py` (cluster defaults; override via flags
 - **Keep the rare tail.** Candidate generation uses a relaxed support floor
   (>=2 BioProjects, >=50 reads) and *labels* support tiers rather than deleting rare taxa
   at subject-prevalence >= 50 — the rare/population-specific taxa are the target.
-- **Global identity.** Low-HOMD = no hit OR identity < 97% OR qcov < 99%, with identity
+- **Global identity.** HOMD-uncaptured = no hit OR identity < 97% OR qcov < 99%, with identity
   computed query-globally; the qcov clause is then largely redundant. Trim primers before
   mapping. Confirm vsearch `--iddef` is query-global.
 - **Chimera removal precedes novelty.** A low-coverage ASV is ambiguous (chimera vs

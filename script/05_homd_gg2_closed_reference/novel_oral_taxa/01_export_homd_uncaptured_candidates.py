@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""Phase 1: export low-HOMD candidate ASVs, keeping the rare tail.
+"""Phase 1: export HOMD-uncaptured candidate ASVs, keeping the rare tail.
 
-Reads the dereplicated ASV x HOMD table, applies the low-HOMD definition explicitly
+HOMD-uncaptured = failed to match HOMD at the capture threshold (no hit, or below the
+identity/coverage cutoff); a neutral operational label, NOT a novelty claim (novelty is
+only established after decontamination, residence, and the multi-DB check).
+
+Reads the dereplicated ASV x HOMD table, applies the HOMD-uncaptured definition explicitly
 (no hit OR HOMD identity < HOMD_ID_CAPTURE OR query coverage < QCOV_MIN, identity
 query-global), applies a RELAXED support floor (>= MIN_BIOPROJECTS, >= MIN_TOTAL_READS)
 so rare / population-specific taxa are retained, and LABELS each candidate with a support
@@ -43,7 +47,7 @@ def support_tier(subjects: float) -> str:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--table", default=C.LOW_HOMD_ANNOTATED, help="dereplicated ASV x HOMD table (TSV)")
+    ap.add_argument("--table", default=C.HOMD_UNCAPTURED_ANNOTATED, help="dereplicated ASV x HOMD table (TSV)")
     ap.add_argument("--outdir", default=os.path.join(C.OUT_ROOT, "01_candidates"))
     ap.add_argument("--homd-id-max", type=float, default=C.HOMD_ID_CAPTURE)
     ap.add_argument("--qcov-min", type=float, default=C.QCOV_MIN)
@@ -59,7 +63,7 @@ def main() -> None:
     df = pd.read_csv(args.table, sep="\t", low_memory=False)
     n0 = len(df)
 
-    # --- low-HOMD definition (explicit; identity is query-global) --------------
+    # --- HOMD-uncaptured definition (explicit; identity is query-global) -------
     ident = pd.to_numeric(df.get(args.id_col), errors="coerce")
     qcov = pd.to_numeric(df.get(args.qcov_col), errors="coerce")
     has_hit = df.get(args.hit_col)
@@ -67,9 +71,9 @@ def main() -> None:
         has_hit = has_hit.astype(str).str.lower().isin({"true", "1", "yes", "t"})
     else:
         has_hit = ident.notna()
-    is_low_homd = (~has_hit) | (ident < args.homd_id_max) | (qcov < args.qcov_min)
-    df = df[is_low_homd].copy()
-    n_low = len(df)
+    is_uncaptured = (~has_hit) | (ident < args.homd_id_max) | (qcov < args.qcov_min)
+    df = df[is_uncaptured].copy()
+    n_uncaptured = len(df)
 
     # --- relaxed support floor (keep the rare tail) ---------------------------
     nbp = pd.to_numeric(df.get("n_bioprojects"), errors="coerce").fillna(0)
@@ -106,14 +110,14 @@ def main() -> None:
     tier_counts = df["support_tier"].value_counts().to_dict()
     summ = pd.DataFrame(
         [{"metric": "input_rows", "value": n0},
-         {"metric": "low_homd", "value": n_low},
+         {"metric": "homd_uncaptured", "value": n_uncaptured},
          {"metric": "after_relaxed_support_floor", "value": n_supported},
          *[{"metric": f"tier_{k}", "value": v} for k, v in tier_counts.items()],
          *[{"metric": f"region_{r}", "value": n} for r, n in per_region_counts.items()]])
     summ.to_csv(os.path.join(args.outdir, "candidate_summary.tsv"), sep="\t", index=False)
 
     print(f"input rows: {n0}")
-    print(f"low-HOMD: {n_low}")
+    print(f"HOMD-uncaptured: {n_uncaptured}")
     print(f"after relaxed support floor (>= {args.min_bioprojects} BP, >= {args.min_reads} reads): {n_supported}")
     print(f"support tiers: {tier_counts}")
     print(f"regions: {per_region_counts}")

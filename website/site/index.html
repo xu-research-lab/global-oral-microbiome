@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global Oral Microbiome Atlas</title>
+<meta name="description" content="A harmonized atlas of the global human oral microbiome: 73,340 QC-passed 16S samples across 293 studies, six continents, and six oral sites.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <h1>Global Oral Microbiome Atlas</h1>
+    <p class="sub">A harmonized resource of the human oral microbiome &mdash; QC-passed 16S rRNA profiles
+      spanning six continents and six oral sites, with an interactive taxon explorer and a map of the
+      reference gap that hides non-Western oral diversity.</p>
+    <nav class="tabs" id="tabs">
+      <button data-tab="overview" class="active">Overview</button>
+      <button data-tab="studies">Studies</button>
+      <button data-tab="taxa">Taxon explorer</button>
+      <button data-tab="refgap">Reference gap</button>
+      <button data-tab="download">Data &amp; download</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- OVERVIEW -->
+  <section class="tab active" id="tab-overview">
+    <div class="stats" id="stat-tiles"></div>
+    <div class="grid cols-2">
+      <div class="card"><h2>Samples by continent</h2><p class="lead">QC-passed oral samples. Non-Western regions shaded red.</p><div id="bars-continent"></div></div>
+      <div class="card"><h2>Samples by oral site</h2><p class="lead">Body-site is the dominant axis of oral microbiome variation.</p><div id="bars-site"></div></div>
+      <div class="card"><h2>16S amplicon region</h2><p class="lead">Amplicon region is carried as a covariate throughout the resource.</p><div id="bars-amplicon"></div></div>
+      <div class="card"><h2>Disease cases</h2><p class="lead">Case samples by condition (studies with matched healthy controls).</p><div id="bars-disease"></div></div>
+    </div>
+  </section>
+
+  <!-- STUDIES -->
+  <section class="tab" id="tab-studies">
+    <div class="card">
+      <h2>Study &amp; cohort browser</h2>
+      <p class="lead">Every BioProject in the resource. Search titles/accessions; filter by geography, site, amplicon, or disease; click a column to sort.</p>
+      <div class="controls">
+        <input type="search" id="study-search" placeholder="Search accession or study title…">
+        <select id="study-continent"><option value="">All continents</option></select>
+        <select id="study-site"><option value="">All sites</option></select>
+        <select id="study-amplicon"><option value="">All amplicons</option></select>
+        <select id="study-disease"><option value="">All / disease</option><option value="__disease">Disease studies only</option></select>
+      </div>
+      <div class="count-note" id="study-count"></div>
+      <div class="tablewrap"><table id="study-table"></table></div>
+    </div>
+  </section>
+
+  <!-- TAXA -->
+  <section class="tab" id="tab-taxa">
+    <div class="grid cols-2">
+      <div class="card">
+        <h2>Taxon explorer</h2>
+        <p class="lead">5,220 genus-level taxa. Search a genus, then click a row to see how its prevalence and
+          mean relative abundance break down across oral sites, continents, and health status.</p>
+        <div class="controls">
+          <input type="search" id="taxa-search" placeholder="Search genus / family / phylum…">
+        </div>
+        <div class="count-note" id="taxa-count"></div>
+        <div class="tablewrap" style="max-height:560px; overflow-y:auto"><table id="taxa-table"></table></div>
+      </div>
+      <div class="card taxon-detail" id="taxon-detail">
+        <h2 id="td-name">—</h2>
+        <p class="tax-string" id="td-tax"></p>
+        <div class="pill-legend"><span class="prev">prevalence (% of samples present)</span><span class="mean">mean relative abundance</span></div>
+        <h3>By oral site</h3><div id="td-site"></div>
+        <h3>By continent</h3><div id="td-continent"></div>
+        <h3>By health status</h3><div id="td-status"></div>
+      </div>
+      <div class="card" id="taxon-placeholder"><p class="muted">Select a taxon on the left to view its distribution.</p></div>
+    </div>
+  </section>
+
+  <!-- REFERENCE GAP -->
+  <section class="tab" id="tab-refgap">
+    <div class="card">
+      <h2>The reference gap</h2>
+      <p class="lead">GG2 closed-reference mapping rate &mdash; the fraction of a sample's reads that match a
+        reference sequence &mdash; is lower in non-Western oral microbiomes, even after holding amplicon region constant.</p>
+      <div class="thesis" id="refgap-thesis"></div>
+    </div>
+    <div class="card">
+      <h3>Amplicon-adjusted continent effect</h3>
+      <p class="lead">Study-level weighted logit regression of mapping rate on continent + amplicon region
+        (reference = North America). Points are odds ratios of a read mapping; bars are 95% CIs. Red = significant
+        reference deficit.</p>
+      <div id="forest"></div>
+      <p class="muted" style="font-size:12px">Odds ratio &lt; 1 means reads from that continent map to the reference at lower odds than North America at the same amplicon. OR shown on a log axis.</p>
+    </div>
+    <div class="card">
+      <h3>Mapping rate by continent</h3>
+      <p class="lead">Descriptive summary from the pre-filter merged table. The all-amplicon gradient is partly an
+        amplicon artefact; the V4-only rows hold amplicon constant.</p>
+      <div class="tablewrap"><table id="refgap-table"></table></div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="tab" id="tab-download">
+    <div class="card">
+      <h2>Standardized data tables</h2>
+      <p class="lead">Feature tables (BIOM) and harmonized metadata (TSV), matched by sample ID. Large binary
+        artifacts are archived at a permanent DOI; this portal hosts the interactive views and small aggregates.</p>
+      <div class="notice" id="dl-doi">Permanent archive: <strong>Zenodo DOI — to be assigned on submission.</strong>
+        Replace this note with the DOI badge and update the download links below to point at the archived files.</div>
+      <div id="dl-list" style="margin-top:8px"></div>
+    </div>
+    <div class="card">
+      <h2>Data dictionary (key metadata fields)</h2>
+      <div class="tablewrap"><table id="dict-table"></table></div>
+    </div>
+    <div class="card">
+      <h2>How this atlas is built</h2>
+      <p class="lead">Fully reproducible: one script turns the metadata TSVs and the genus BIOM into the static
+        JSON this page reads. No server or database at serve time.</p>
+      <div class="dl-item"><div><code>website/precompute/build_data.py</code><br><span class="muted">Reads metadata + genus BIOM → overview / studies / taxa / refgap JSON</span></div></div>
+      <div class="dl-item"><div><code>website/site/</code><br><span class="muted">Static front-end (this page). Deploy as-is to Cloudflare Pages / any static host.</span></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  Global Oral Microbiome Resource · harmonized 16S atlas · <span id="foot-stats"></span>
+  · built as a static portal, no tracking.
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

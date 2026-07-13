@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA542018" 
 
-base_dir <- "D:/oral-metadata/"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -170,7 +170,7 @@ metadata <- data.frame(
   sex = "pending", # and mark as "pending"
   sequencing_region = "V4",
   platform = "Illumina HiSeq", # extract from methods section, NOT initial_meta
-  country = NA,
+  country = "China",
   #raw_site = initial_meta$body_site,
   site = "saliva",
   site_group = "pending", # modify later
@@ -317,12 +317,12 @@ p <- plot_grid(plots$age,
                plots$status,
                plots$matched_samples,
                ncol = 3, align = "hv", axis = "lb")
-ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
 ```{r}
 # Insert Metadata_Summary.png into the current Rmd output
-knitr::include_graphics("Metadata_Summary.png")
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
 # Step 7: Sort and export the metadata

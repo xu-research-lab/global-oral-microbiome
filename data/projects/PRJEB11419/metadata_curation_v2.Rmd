@@ -17,7 +17,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJEB11419"
 
-base_dir <- "D:/metadata_collect"
+base_dir <- "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/projects/"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -208,7 +208,7 @@ metadata <- data.frame(
   sex = "pending",
   sequencing_region = initial_meta$target_subfragment..exp.,
   platform = initial_meta$Instrument,
-  country = initial_meta$country_residence,
+  country = "United States",
   site = "oral",
   site_group = "oral",
   public_time = initial_meta$ReleaseDate,

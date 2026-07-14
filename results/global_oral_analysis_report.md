@@ -506,14 +506,56 @@ Host age prediction from the oral microbiome was evaluated in `global-oral-micro
 
 #### Key Results
 
-Age prediction performance varied substantially by oral site. Saliva (N=13,987, 49 studies) and tooth (N=1,966, 12 studies) showed the strongest cross-study predictions. An illustrative within-study checkpoint — a single saliva study (PRJEB35824, n=641) evaluated with within-study 5-fold CV — achieved R² = 0.855 and MAE = 0.34 years, highlighting the substantial gap between within-study and cross-study generalization.
+**Sample distribution by site.** Age distributions across the four major oral sites showed substantial variation. Saliva had the largest sample size and broadest age range (49 studies, 13,987 samples), while tooth, tongue, and oral mucosa had fewer studies and samples but still covered wide age ranges.
 
-![Age prediction scatter plot](figures/10_disease_prediction_and_age_prediction/age_prediction_rf_scatter.png)
+![Age site distribution](figures/10_disease_prediction_and_age_prediction/age_site_age_distribution.png)
 
-**Figure 27. Predicted versus true chronological age from leave-studies-out Random Forest models.**  
-Scatter plots compare OTU-level (RF-v1, top) and genus-level (RF-v2, bottom) feature representations for saliva (left) and tooth (right) sites. Each point is a held-out healthy-control sample pooled across all cross-validation folds. Red line = least-squares linear fit; black dashed line = identity (perfect prediction). Panels are annotated with R² and MAE.
+**Figure 27. Age distribution of samples across four oral sites after QC filtering.**  
+Histograms show the number of samples per age bin for saliva, tooth, tongue, and oral mucosa. Saliva dominates the dataset, with samples spanning from infancy to elderly.
 
-Status: The notebook contains complete cross-validation predictions, evaluation metrics, and figures. The final manuscript text should report site-specific R² and MAE from the genus-level model (pooled across all folds) and discuss the cross-study generalization gap relative to within-study performance.
+**Within-study vs cross-study generalization.** Within-study performance (samples from the same BioProject randomly split) was compared with cross-study performance (leave-studies-out, where test BioProjects were entirely unseen during training). Within-study Spearman correlations were high for all sites (ρ ≥ 0.70), but cross-study performance dropped substantially — revealing that a model trained on BioProjects from one set of studies generalizes poorly to unseen studies.
+
+![Within vs cross study comparison](figures/10_disease_prediction_and_age_prediction/age_within_vs_cross_study_comparison.png)
+
+**Figure 40. Within-study vs cross-study age prediction — Spearman ρ and MAE across oral sites (adults 18–65).**  
+Blue = within-study (samples randomly split within the same BioProject), orange = cross-study (leave-BioProjects-out). Left panel: Spearman rank correlation (higher is better). Right panel: Mean Absolute Error in years (lower is better). Bars show mean over folds; error bars show SD over folds. The large gap between within-study and cross-study bars demonstrates that memorizing study-specific signatures inflates apparent performance.
+
+**Cross-study scatter plots.** Predicted vs true age for each oral site under cross-study evaluation showed varying degrees of accuracy. Saliva and tooth showed moderate correlation, while tongue and oral mucosa predictions were weaker due to limited training data.
+
+![Cross-study scatter by site](figures/10_disease_prediction_and_age_prediction/age_cross_study_scatter_by_site.png)
+
+**Figure 41. Predicted versus true chronological age — cross-study (leave-BioProjects-out) evaluation by oral site.**  
+Each point is a held-out healthy-control sample pooled across all CV folds. Points are colored by density (steelblue = low density, yellow = high density). The diagonal reference line indicates perfect prediction.
+
+**Decomposing the apparent age signal.** When children (<18 years) and adults (18–65 years) were analyzed together, the apparent prediction accuracy was high (Spearman ρ ≈ 0.8 for saliva), but most of this signal came from the child/adult split — a simple BioProject lookup table (mapping each study to its mean age) outperformed the microbiome model. After removing study-level age structure (by regressing out study-mean age), the honest cross-study Spearman ρ for adults was near zero, indicating that the model primarily captures study-specific age structure rather than a universal microbial aging signature.
+
+![Apparent vs honest signal](figures/10_disease_prediction_and_age_prediction/age_apparent_vs_honest_signal.png)
+
+**Figure 42. Decomposing the apparent age prediction signal in saliva.**  
+(a) Predicted vs true age for children (orange) and adults (blue), showing the model captures the child/adult split. (b) A simple BioProject lookup table (map study → mean age) outperforms the microbiome model. (c) Over 90% of between-BioProject variance in age is collinear with study membership. (d) After removing study structure, the honest cross-study Spearman ρ is close to zero.
+
+**Within-study HC slope.** Within each BioProject, the microbiome age gap (predicted − true age) was regressed against chronological age in healthy controls. The median slope was negative (≈ −0.05), implying an α exponent (1 + slope) below 1 — i.e., the microbiome age gap decreases slightly with chronological age within a study.
+
+![Within study HC slope](figures/10_disease_prediction_and_age_prediction/age_within_study_hc_slope.png)
+
+**Figure 43. Within-study healthy-control regressions of microbiome age gap on chronological age.**  
+Left: Microbiome age gap vs chronological age across multiple BioProjects, each fit with an independent regression line. Right: Distribution of within-study slopes across BioProjects; most slopes are slightly negative, implying an α exponent < 1.
+
+**Disease-associated age acceleration.** Across diseases and oral sites, the microbiome age gap (Δ age gap vs HC) was compared between disease cases and healthy controls. Several diseases showed positive age acceleration (predicted age > chronological age relative to HC), suggesting disease-associated shifts in microbial community composition that resemble aging.
+
+![Disease microbiome age acceleration](figures/10_disease_prediction_and_age_prediction/age_disease_microbiome_age_acceleration.png)
+
+**Figure 44. Microbiome age acceleration relative to healthy controls across diseases and oral sites.**  
+Positive Δ age gap indicates greater predicted microbial age in disease samples compared with same-site healthy controls. Bubble size reflects sample size.
+
+**Disease effect as age offset.** The median age gap in disease cohorts was correlated with the cohort's mean age offset from HC (cohort mean age − HC mean age), suggesting that apparent disease effects on microbial age are confounded by age differences between disease and control groups within the same study.
+
+![Disease effect age offset](figures/10_disease_prediction_and_age_prediction/age_disease_effect_age_offset.png)
+
+**Figure 45. Disease effect as a function of age offset between disease and control cohorts.**  
+Each point represents one disease group within a BioProject. X-axis: cohort mean age minus HC mean age. Y-axis: median microbiome age gap. The correlation (ρ) indicates that much of the apparent "disease effect" on microbial age is explained by age differences between comparison groups.
+
+Status: The notebook contains complete cross-validation predictions, evaluation metrics, and figures. The final manuscript text should report site-specific metrics and discuss the finding that most cross-study age prediction signal reflects study-level structure rather than a universal microbial clock.
 
 ## 11. Random Forest Prediction of Geographic and Host Variables
 
@@ -610,31 +652,31 @@ All results were visualized with `plot_rf_results.py` and `plot_region_rf_combin
 
 ![Geography OVA heatmap](figures/11_random_forest_prediction_host_variables/region_ova_heatmap_combined.png)
 
-**Figure 28. Geography One-vs-All prediction — combined heatmap across sites.**  
+**Figure 40. Geography One-vs-All prediction — combined heatmap across sites.**  
 Heatmap showing mean AUC for RF classifiers predicting each target continent (OVA) within each oral site. Higher AUC indicates that the target continent's microbiome composition is more distinguishable from all others. Results aggregated across 5-fold × 5-repeat BioProject-stratified CV.
 
 ![Geography OVO heatmap](figures/11_random_forest_prediction_host_variables/region_ovo_heatmap_combined.png)
 
-**Figure 29. Geography One-vs-One prediction — combined heatmap.**  
+**Figure 41. Geography One-vs-One prediction — combined heatmap.**  
 Pairwise continent classification AUC across oral sites (Saliva, Tongue, Tooth) and Gut. Each cell shows the mean AUC for distinguishing the row continent from the column continent using microbiome features. Stronger discrimination (higher AUC) between geographically distant populations indicates biogeographic structure in the human microbiome.
 
 #### Sex Prediction
 
 ![Sex prediction BioProject LOO heatmap](figures/11_random_forest_prediction_host_variables/sex_bp_loo_heatmap.png)
 
-**Figure 30. Sex prediction — BioProject Leave-One-Out AUC heatmap.**  
+**Figure 42. Sex prediction — BioProject Leave-One-Out AUC heatmap.**  
 Mean AUC for predicting host sex (F vs M) within each oral site × continent stratum. Each cell summarizes per-BioProject AUCs from a leave-one-BioProject-out evaluation. Only strata with ≥2 valid BioProjects are shown.
 
 #### Oral Site Prediction
 
 ![Site OVA fold AUC boxplot](figures/11_random_forest_prediction_host_variables/site_ova_fold_auc_boxplot.png)
 
-**Figure 31. Oral site One-vs-All prediction — fold AUC distribution.**  
+**Figure 43. Oral site One-vs-All prediction — fold AUC distribution.**  
 Boxplots showing the distribution of per-fold AUCs across 5-fold × 5-repeat BioProject-stratified CV for each target oral site (OVA). The high AUCs for Tooth, Tongue, and Saliva demonstrate that oral site is strongly encoded in the microbiome profile.
 
 ![Site OVO heatmap](figures/11_random_forest_prediction_host_variables/site_ovo_heatmap.png)
 
-**Figure 32. Oral site One-vs-One prediction — pairwise AUC heatmap.**  
+**Figure 44. Oral site One-vs-One prediction — pairwise AUC heatmap.**  
 Heatmap showing mean AUC for distinguishing each pair of oral sites. Near-perfect discrimination for certain site pairs (e.g., Tooth vs Tongue, Saliva vs Tooth) reflects the strong site-specificity of the oral microbiome, while lower AUCs for others (e.g., Oral_swab vs Oral_Mucosa) indicate more similar community composition.
 
 ### Key Results
@@ -680,27 +722,27 @@ where *n_k* is the number of samples in study *k* available for the taxon pair. 
 
 ![Pooled correlation distribution](figures/13_co_occurrence_network_analysis/pooled_correlation_distribution.png)
 
-**Figure 34. Distribution of pooled (inverse-variance-weighted) correlations across all taxon pairs.**  
+**Figure 46. Distribution of pooled (inverse-variance-weighted) correlations across all taxon pairs.**  
 Histogram of the upper-triangle entries of the combined correlation matrix after NetMoss-style integration of per-study SparCC networks. The sharp peak near zero reflects the contribution of taxon pairs co-observed in only a small number of studies.
 
 ![Network comparison](figures/13_co_occurrence_network_analysis/network_comparison.png)
 
-**Figure 35. Comparison of per-study correlation networks versus the integrated consensus network.**  
+**Figure 47. Comparison of per-study correlation networks versus the integrated consensus network.**  
 Per-study SparCC networks (individual panels) are compared with the pooled consensus network. The consensus network highlights edges that are reproducibly detected across multiple independent cohorts.
 
 ![Network reproducibility](figures/13_co_occurrence_network_analysis/network_reproducibility.png)
 
-**Figure 36. Edge reproducibility as a function of multi-study support.**  
+**Figure 48. Edge reproducibility as a function of multi-study support.**  
 The reproducibility of network edges increases with the number of studies in which a taxon pair is co-observed, validating the integration approach.
 
 ![Saliva saturation](figures/13_co_occurrence_network_analysis/saliva_saturation.png)
 
-**Figure 37. Saturation analysis of the consensus network.**  
+**Figure 49. Saturation analysis of the consensus network.**  
 Cumulative unique edges discovered as additional studies are incorporated, showing convergence behavior of the integrated network.
 
 ![Network universality](figures/13_co_occurrence_network_analysis/network_universality.png)
 
-**Figure 38. Universality of top edges across geographic regions.**  
+**Figure 50. Universality of top edges across geographic regions.**  
 The most strongly co-occurring taxon pairs in the global consensus network are also detected within individual geographic regions, demonstrating the universal structure of the healthy oral microbiome.
 
 ### Key Results

@@ -338,8 +338,14 @@ df_new <- df %>%
       continent_temp == "Asia" ~ "Asia",
       continent_temp == "Europe" ~ "Europe",
       continent_temp == "Oceania" ~ "Oceania",
-      continent_temp == "Americas" & countrycode(country_cleaned, origin="country.name", destination="un.regionsub.name", warn=FALSE) %in% c("Northern America") ~ "North America",
-      continent_temp == "Americas" ~ "South America",
+      # Only true South American countries → "South America"
+      continent_temp == "Americas" & country_cleaned %in% c(
+        "Argentina", "Bolivia", "Brazil", "Chile", "Colombia",
+        "Ecuador", "Guyana", "Paraguay", "Peru", "Suriname",
+        "Uruguay", "Venezuela", "Falkland Islands"
+      ) ~ "South America",
+      # Everything else in the Americas (US, Canada, Mexico, Central America, Caribbean) → "North America"
+      continent_temp == "Americas" ~ "North America",
       str_detect(tolower(country_cleaned), "antarctica") ~ "Antarctica",
       TRUE ~ NA_character_
     ),
@@ -503,7 +509,7 @@ df_new <- df %>%
       # CRITICAL FIX: Systemic / Autoimmune / GI (Preserving exact acronyms)
       # ==============================================================================
       str_detect(status_lower, "functional dyspepsia and gastroesophageal reflux disease|gerd|reflux esophagitis") ~ "Gastroesophageal Reflux Disease",
-      str_detect(status_lower, "cd and uc|uc|ulcerative colitis|cd|crohn's disease|ibd|inflammatory bowel disease") ~ "IBD",
+      str_detect(status_lower, "cd and uc|\\buc\\b|ulcerative colitis|\\bcd\\b|crohn's disease|\\bibd\\b|inflammatory bowel disease") ~ "IBD",
       status_lower == "ibd+c.diff" ~ "IBD", 
       status_lower == "c.diff" ~ "Clostridium Difficile Infection",
       str_detect(status_lower, "type 2 diabetes mellitus|t2dm|type-2 diabetes|type 1 diabetes|diabetes") ~ "Diabetes",
@@ -562,6 +568,7 @@ fix_site_case <- function(x) {
     tolower(x) == "nasal" ~ "nasal",
     tolower(x) == "vaginal" ~ "vaginal",
     tolower(x) == "respiratory/blood" ~ "respiratory/blood",
+    x == "Other" ~ "Other",
     tolower(x) == "other" ~ "other",
     tolower(x) == "oral mucosa" ~ "oral mucosa",
     tolower(x) == "oral swab" ~ "oral swab",
@@ -569,7 +576,6 @@ fix_site_case <- function(x) {
     tolower(x) == "tooth" ~ "tooth",
     tolower(x) == "tongue" ~ "tongue",
     tolower(x) == "gingiva" ~ "gingiva",
-    tolower(x) == "other" ~ "Other",  # preserve original "Other" for tonsil etc.
     TRUE ~ x
   )
   x

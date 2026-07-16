@@ -1,0 +1,100 @@
+taxon	rank	classification	category	note	source
+# Curated reference for screening low-HOMD candidate ASVs. classification:
+#   oral_core   = genuine oral resident; PROTECT (never remove even if flagged elsewhere)
+#   auto_remove = not an oral resident (marine, obligate-gut, plant/plastid, soil/reagent); remove
+#   flag_review = genus with BOTH contaminant and possible oral/host members; flag, do not auto-remove
+# This is a starting list, not exhaustive; expert review required before publication.
+Streptococcus	genus	oral_core	oral	core oral	HOMD
+Veillonella	genus	oral_core	oral	core oral	HOMD
+Prevotella	genus	oral_core	oral	core oral (distinct from gut Bacteroides)	HOMD
+Neisseria	genus	oral_core	oral	core oral	HOMD
+Fusobacterium	genus	oral_core	oral	core oral	HOMD
+Porphyromonas	genus	oral_core	oral	core oral	HOMD
+Rothia	genus	oral_core	oral	core oral	HOMD
+Actinomyces	genus	oral_core	oral	core oral	HOMD
+Haemophilus	genus	oral_core	oral	core oral	HOMD
+Gemella	genus	oral_core	oral	core oral	HOMD
+Granulicatella	genus	oral_core	oral	core oral	HOMD
+Leptotrichia	genus	oral_core	oral	core oral	HOMD
+Capnocytophaga	genus	oral_core	oral	core oral	HOMD
+Selenomonas	genus	oral_core	oral	core oral	HOMD
+Dialister	genus	oral_core	oral	oral (D. invisus, D. pneumosintes)	HOMD
+Campylobacter	genus	oral_core	oral	oral species (C. concisus, C. gracilis)	HOMD
+Treponema	genus	oral_core	oral	oral spirochetes	HOMD
+Aggregatibacter	genus	oral_core	oral	core oral	HOMD
+Kingella	genus	oral_core	oral	core oral	HOMD
+Eikenella	genus	oral_core	oral	core oral	HOMD
+Lautropia	genus	oral_core	oral	core oral	HOMD
+Tannerella	genus	oral_core	oral	core oral	HOMD
+Alloprevotella	genus	oral_core	oral	core oral	HOMD
+Parvimonas	genus	oral_core	oral	core oral	HOMD
+Filifactor	genus	oral_core	oral	core oral	HOMD
+Solobacterium	genus	oral_core	oral	core oral	HOMD
+Saccharibacteria	genus	oral_core	oral_CPR	TM7; poorly referenced, expect novel oral	HOMD/eHOMD
+Absconditabacteria	genus	oral_core	oral_CPR	SR1; poorly referenced, expect novel oral	HOMD/eHOMD
+Fretibacterium	genus	oral_core	oral	core oral	HOMD
+Lachnoanaerobaculum	genus	oral_core	oral	oral	HOMD
+Oribacterium	genus	oral_core	oral	oral	HOMD
+Mogibacterium	genus	oral_core	oral	oral	HOMD
+Methylobacterium	genus	auto_remove	reagent_kit	canonical kit/reagent contaminant	Salter2014;Eisenhofer2019
+Bradyrhizobium	genus	auto_remove	reagent_kit	canonical kit/reagent contaminant	Salter2014;Eisenhofer2019
+Ralstonia	genus	auto_remove	reagent_kit	canonical kit/reagent contaminant	Salter2014;Eisenhofer2019
+Sphingomonas	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Herbaspirillum	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Cupriavidus	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Variovorax	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Massilia	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Janthinobacterium	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Novosphingobium	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Afipia	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Aquabacterium	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Delftia	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Devosia	genus	auto_remove	reagent_kit	reagent/environmental contaminant	Salter2014;Eisenhofer2019
+Rhizobium	genus	auto_remove	reagent_kit	soil/plant-associated	Salter2014;Eisenhofer2019
+Mesorhizobium	genus	auto_remove	reagent_kit	soil/plant-associated	Salter2014;Eisenhofer2019
+Phyllobacterium	genus	auto_remove	reagent_kit	soil/plant-associated	Salter2014;Eisenhofer2019
+Halomonas	genus	auto_remove	aquatic_marine	marine/halophilic; also reagent	Salter2014
+Vreelandella	genus	auto_remove	aquatic_marine	marine halophile (ex-Halomonas)	NCBI
+Shewanella	genus	auto_remove	aquatic_marine	aquatic; water contaminant	Eisenhofer2019
+Vibrio	genus	auto_remove	aquatic_marine	marine	NCBI
+Marinobacter	genus	auto_remove	aquatic_marine	marine	NCBI
+Idiomarina	genus	auto_remove	aquatic_marine	marine	NCBI
+Alteromonas	genus	auto_remove	aquatic_marine	marine	NCBI
+Pseudoalteromonas	genus	auto_remove	aquatic_marine	marine	NCBI
+Photobacterium	genus	auto_remove	aquatic_marine	marine	NCBI
+Ruminococcus	genus	auto_remove	gut_carryover	obligate gut anaerobe	Segata2012;HOMD-absent
+Coprococcus	genus	auto_remove	gut_carryover	obligate gut anaerobe	Segata2012;HOMD-absent
+Faecalibacterium	genus	auto_remove	gut_carryover	obligate gut anaerobe	Segata2012;HOMD-absent
+Roseburia	genus	auto_remove	gut_carryover	obligate gut anaerobe	Segata2012;HOMD-absent
+Blautia	genus	auto_remove	gut_carryover	obligate gut anaerobe	Segata2012;HOMD-absent
+Enterocloster	genus	auto_remove	gut_carryover	gut anaerobe (ex-Clostridium)	NCBI;HOMD-absent
+Agathobacter	genus	auto_remove	gut_carryover	gut anaerobe	NCBI;HOMD-absent
+Subdoligranulum	genus	auto_remove	gut_carryover	gut anaerobe	NCBI;HOMD-absent
+Anaerostipes	genus	auto_remove	gut_carryover	gut anaerobe	NCBI;HOMD-absent
+Bacteroides	genus	auto_remove	gut_carryover	gut (distinct from oral Prevotella)	Segata2012
+Akkermansia	genus	auto_remove	gut_carryover	gut mucin degrader	NCBI
+Bilophila	genus	auto_remove	gut_carryover	gut	NCBI
+Alistipes	genus	auto_remove	gut_carryover	gut	NCBI
+chloroplast	any	auto_remove	dietary_plastid	plant chloroplast (dietary)	standard
+mitochondria	any	auto_remove	dietary_plastid	host/eukaryote mitochondria	standard
+Streptophyta	any	auto_remove	dietary_plastid	land plants (dietary)	standard
+Magnoliophyta	any	auto_remove	dietary_plastid	flowering plants (dietary)	standard
+Cyanobacteriota	phylum	flag_review	dietary_plastid	often chloroplast in oral amplicons; verify vs true cyanobacteria	standard
+Cyanobacteria	phylum	flag_review	dietary_plastid	often chloroplast in oral amplicons; verify	standard
+Pseudomonas	genus	flag_review	reagent_dual	reagent contaminant but has host-associated members	Salter2014
+Acinetobacter	genus	flag_review	reagent_dual	reagent/skin; occasional oral	Salter2014
+Stenotrophomonas	genus	flag_review	reagent_dual	reagent contaminant; occasional clinical oral	Salter2014
+Staphylococcus	genus	flag_review	skin_dual	skin/reagent; some oral detection	Eisenhofer2019
+Corynebacterium	genus	flag_review	skin_dual	skin contaminant BUT C. matruchotii/durum are oral core	HOMD/Salter2014
+Cutibacterium	genus	flag_review	skin_dual	skin (ex-Propionibacterium); some oral	Eisenhofer2019
+Micrococcus	genus	flag_review	skin_dual	skin/reagent	Eisenhofer2019
+Escherichia	genus	flag_review	reagent_dual	reagent/gut; rare oral	Salter2014
+Klebsiella	genus	flag_review	reagent_dual	reagent/gut; occasional oral clinical	Eisenhofer2019
+Enterobacter	genus	flag_review	reagent_dual	reagent/gut	Eisenhofer2019
+Chryseobacterium	genus	flag_review	reagent_dual	reagent/environmental	Salter2014
+Flavobacterium	genus	flag_review	reagent_dual	reagent/environmental	Salter2014
+Comamonas	genus	flag_review	reagent_dual	reagent/environmental	Salter2014
+Brevundimonas	genus	flag_review	reagent_dual	reagent/environmental	Salter2014
+Microbacterium	genus	flag_review	reagent_dual	reagent/environmental	Salter2014
+Rhodococcus	genus	flag_review	reagent_dual	reagent/environmental	Salter2014
+Burkholderia	genus	flag_review	reagent_dual	reagent/environmental	Salter2014

@@ -66,27 +66,54 @@ extract_genus <- function(x) {
 # ============================================================================
 cat("\n=== Figure 1: Bubble matrix ===\n")
 
-bubble_data <- summary_counts %>%
-  filter(Site1 != Site2) %>%
-  select(Site1, Site2, N_Significant)
-
-# Sort by total significant taxa
-site_order <- TARGET_SITES
+# Build a 5x5 symmetric matrix -> upper triangle display with
+# diagonal labels from top-left (Saliva) to bottom-right (Tongue)
+# Step 1: compute per-site total weight for ordering
 site_weights <- setNames(
-  sapply(TARGET_SITES, function(s) sum(bubble_data$N_Significant[bubble_data$Site1 == s | bubble_data$Site2 == s])),
+  sapply(TARGET_SITES, function(s) {
+    sum(summary_counts$N_Significant[summary_counts$Site1 == s | summary_counts$Site2 == s])
+  }),
   TARGET_SITES
 )
 site_order <- names(sort(site_weights, decreasing = TRUE))
+n_sites <- length(site_order)
 
+# Step 2: build a named matrix and fill from summary_counts (both directions)
+bubble_mat <- matrix(0, nrow = n_sites, ncol = n_sites,
+                     dimnames = list(site_order, site_order))
+for (i in seq_len(nrow(summary_counts))) {
+  s1 <- summary_counts$Site1[i]
+  s2 <- summary_counts$Site2[i]
+  if (s1 != s2) {
+    bubble_mat[s1, s2] <- summary_counts$N_Significant[i]
+    bubble_mat[s2, s1] <- summary_counts$N_Significant[i]
+  }
+}
+
+# Step 3: keep only LOWER triangle display
+# x = site_order, y = rev(site_order) → diagonal top-left to bottom-right
+# Keep matrix upper.tri (row < col) → maps to plot lower triangle (x+y < n+1)
+bubble_mat[lower.tri(bubble_mat, diag = FALSE)] <- NA_real_
+diag(bubble_mat) <- NA_real_
+
+# Step 4: melt to data frame for ggplot
+# x = Site1 (row) with levels = site_order
+# y = Site2 (col) with levels = rev(site_order) → Saliva at top
+bubble_data <- as.data.frame(as.table(bubble_mat), stringsAsFactors = FALSE)
+names(bubble_data) <- c("Site1", "Site2", "N_Significant")
 bubble_data <- bubble_data %>%
-  mutate(Site1 = factor(Site1, levels = site_order),
-         Site2 = factor(Site2, levels = rev(site_order)))
+  filter(!is.na(N_Significant)) %>%
+  mutate(
+    Site1 = factor(Site1, levels = site_order),
+    Site2 = factor(Site2, levels = rev(site_order))
+  )
 
 max_n <- max(bubble_data$N_Significant)
 
+# Diagonal labels: top-left (Saliva) to bottom-right (Tongue)
 diag_labels <- data.frame(
   Site1 = factor(site_order, levels = site_order),
-  Site2 = factor(rev(site_order), levels = rev(site_order)),
+  Site2 = factor(site_order, levels = rev(site_order)),
   label = gsub("_", "\n", site_order)
 )
 
@@ -99,7 +126,7 @@ fig1 <- ggplot() +
             size = 5, vjust = 3.5, fontface = "bold") +
   geom_label(data = diag_labels,
              aes(x = Site1, y = Site2, label = label, fill = Site1),
-             size = 5, fontface = "bold", label.size = 0.5) +
+             size = 5, fontface = "bold", linewidth = 0.5) +
   scale_radius(range = c(4, 20), limits = c(0, max(max_n, 1) * 1.1)) +
   scale_fill_manual(values = site_colors) +
   scale_x_discrete(expand = expansion(mult = c(0.1, 0.2))) +

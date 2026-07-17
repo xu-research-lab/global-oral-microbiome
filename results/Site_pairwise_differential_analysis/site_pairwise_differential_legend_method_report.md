@@ -1,6 +1,6 @@
 # Figure: Pairwise Differential Abundance Analysis Across Oral Sites
 
-![Figure A](results/figureA_bubble_matrix.png) ![Figure B](results/figureB_heatmaps.png) ![Figure C](results/figureC_ridgeline.png)
+![Figure A](results/figureA_bubble_matrix.png) ![Figure B](results/figureB_heatmaps.png) ![Figure C](results/figureC_ridgeline_v2.png)
 
 ---
 

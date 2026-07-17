@@ -280,14 +280,10 @@ genus_long <- genus_rel_df %>%
   select(all_of(c(top5_by_abundance, "site_cleaned"))) %>%
   pivot_longer(cols = -site_cleaned, names_to = "taxon", values_to = "abundance") %>%
   filter(abundance > 0) %>%
-  filter(site_cleaned %in% sites_in_data) %>% # <-- Added this line to remove NA categories
   mutate(taxon = factor(taxon, levels = top5_by_abundance))
 
 fig_ridgeline <- ggplot(genus_long) +
-  geom_density_ridges(aes(x = log10(abundance), 
-                          y = factor(site_cleaned, levels = rev(sites_in_data)), 
-                          fill = site_cleaned), 
-                      quantile_lines = TRUE, quantiles = 2, alpha = 0.7) +
+  geom_density_ridges(aes(x = log10(abundance), y = factor(site_cleaned, levels = rev(sites_in_data)), fill = site_cleaned), quantile_lines = TRUE, quantiles = 2, alpha = 0.7) +
   scale_fill_manual(values = site_colors) +
   facet_grid(~ taxon, labeller = as_labeller(top5_genus_labels)) +
   labs(x = "log10(Relative Abundance)", y = NULL) + theme_minimal() +

@@ -32,9 +32,9 @@ The merged raw metadata table was generated from the curated metadata base table
 | File | Samples | Studies | Subjects | Description |
 |---|---:|---:|---:|---|
 | `metadata_all_for_qc_raw.tsv` | 116,099 | 334 | 45,825 | Raw merged metadata (DADA2-processed samples only). Preserves the authoritative metadata base and adds QC metrics. |
-| `metadata_all_qc.tsv` | 109,257 | 288 | 45,231 | QC-filtered metadata for all body sites. |
+| `metadata_all_qc.tsv` | 109,257 | 288 | 43,535 | QC-filtered metadata for all body sites. |
 | `metadata_oral_qc.tsv` | 81,069 | 288 | 42,307 | QC-filtered oral subset before subject/site deduplication. |
-| `metadata_oral_qc_dedup.tsv` | 46,409 | 277 | 42,307 | QC-filtered oral subset deduplicated to one sample per `subject_id` x `site_cleaned`. |
+| `metadata_oral_qc_dedup.tsv` | 51,348 | 288 | 42,307 | QC-filtered oral subset deduplicated to one sample per study × `subject_id` x `site_cleaned`. |
 
 ### BIOM Feature Tables
 

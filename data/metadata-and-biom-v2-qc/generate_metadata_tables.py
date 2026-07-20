@@ -213,7 +213,7 @@ def main():
 
     groups = defaultdict(list)
     for r in oral_rows:
-        groups[(r['subject_id'], r.get('site_cleaned', r.get('site', '')))].append(r)
+        groups[(r['bioproject_id'], r['subject_id'], r.get('site_cleaned', r.get('site', '')))].append(r)
     dedup_rows = [v[0] for v in groups.values()]
     write_tsv(ORAL_DEDUP, dedup_rows, fieldnames)
 

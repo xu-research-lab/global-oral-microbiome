@@ -16,7 +16,7 @@
 | QC-passed studies | 288 |
 | Studies removed | 46 |
 | Oral QC samples | 81,069 |
-| Oral dedup samples | 46,409 |
+| Oral dedup samples | 51,348 |
 | Unique subjects (dedup) | 42,307 |
 | Oral samples in raw | 86,040 |
 
@@ -30,7 +30,7 @@ Filtering is **dataset-level only**. All thresholds computed on **oral samples**
 | 1 — Chimera filter | >30% oral samples with chimera >25% | 22 | 1,853 | 114,246 |
 | 2 — **CR mapping filter** | **Oral aggregate GG2 CR mapping < 70%** | 24 | 4,989 | **109,257** |
 | 3 — Oral subset | `site_group='oral'` | — | — | 81,069 |
-| 4 — Dedup | 1 sample per (subject_id × site_cleaned) | — | — | **46,409** |
+| 4 — Dedup | 1 sample per (subject_id × site_cleaned) | — | — | **51,348** |
 
 > **v4 Changes:** Dataset-level only. ASV filter removed. CR threshold = 70%. No sample-level filters.
 
@@ -111,10 +111,10 @@ Filtering is **dataset-level only**. All thresholds computed on **oral samples**
 | `metadata_all_for_qc_raw.tsv` | 116,099 | — | 334 | — | 48 MB |
 | `metadata_all_qc.tsv` | 109,257 | — | 288 | — | 45 MB |
 | `metadata_oral_qc.tsv` | 81,069 | — | 288 | — | 34 MB |
-| `metadata_oral_qc_dedup.tsv` | 46,409 | — | 288 | 42,307 | 19 MB |
+| `metadata_oral_qc_dedup.tsv` | 51,348 | — | 288 | 42,307 | 21 MB |
 | `biom_all_qc.biom` | 108,691 | 61,235 | — | — | 72 MB |
 | `biom_oral_qc.biom` | 80,788 | 61,235 | — | — | 53 MB |
-| `biom_oral_qc_dedup.biom` | 46,223 | 61,235 | — | — | 35 MB |
+| `biom_oral_qc_dedup.biom` | 46,223 | 61,235 | — | — | 38 MB |
 | `biom_all_qc.qza` | — | — | — | — | 62 MB |
 | `genus_table_all_qc.qza` | — | — | — | — | 31 MB |
 | `genus_table_relabund_all_qc.qza` | — | — | — | — | 78 MB |

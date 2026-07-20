@@ -1,0 +1,52 @@
+pair_id,pair_time_point,pair_bioproject,pair_type,pair_sample_number,pair_subject_number
+PRJDB3211_TS01,NA,PRJDB3211,single pair,45,45
+PRJEB1799_FS_174,NA,PRJEB1799,single pair,169,169
+PRJEB22984_CU260699,NA,PRJEB22984,single pair,19,19
+PRJEB23853_10A,NA,PRJEB23853,single pair,154,154
+PRJEB24929_1048,Atherosclerosis,PRJEB24929,single pair,37,37
+PRJEB30836_BEB22,NA,PRJEB30836,single pair,95,95
+PRJEB42056_S1,NA,PRJEB42056,single pair,12,12
+PRJEB7825_10,NA,PRJEB7825,single pair,10,10
+PRJNA281060_HP10_baseline,immediately before administration of the antibiotic (baseline),PRJNA281060,single pair,65,65
+PRJNA326866_C001,NA,PRJNA326866,single pair,19,19
+PRJNA356414_CFP1,NA,PRJNA356414,single pair,20,20
+PRJNA451534_1,NA,PRJNA451534,single pair,38,38
+PRJNA545251_GU000522,NA,PRJNA545251,single pair,304,304
+PRJNA580506_Control 1,NA,PRJNA580506,single pair,13,13
+PRJNA735261_CPC1,NA,PRJNA735261,single pair,16,16
+PRJNA742875_Control No.001,NA,PRJNA742875,single pair,139,139
+PRJNA753008_1,NA,PRJNA753008,single pair,80,80
+PRJNA756623_KF0_801,Coronavirus disease 2019 patients recover at discharge (CPR0),PRJNA756623,single pair,43,43
+PRJNA767939_COVID_1,NA,PRJNA767939,single pair,37,37
+PRJNA782768_01,NA,PRJNA782768,single pair,40,40
+PRJNA798597_N10.fastq,NA,PRJNA798597,single pair,19,19
+PRJNA799190_USK005,NA,PRJNA799190,single pair,24,24
+PRJNA834584_HM0245,NA,PRJNA834584,single pair,470,470
+PRJNA851957_11,NA,PRJNA851957,single pair,59,59
+PRJNA865362_J14892,NA,PRJNA865362,single pair,23,23
+PRJNA873789_006,NA,PRJNA873789,single pair,9,9
+PRJNA910326_D094,NA,PRJNA910326,single pair,128,128
+PRJDB9093_HD01,NA,PRJDB9093,single pair and many pairs,65,33
+PRJEB11425_1017-10_D10 or D/C,at ICU discharge or on ICU day 10,PRJEB11425,single pair and many pairs,105,66
+PRJEB25569_11_F1,baseline,PRJEB25569,single pair and many pairs,79,45
+PRJEB25916_6_1,NA,PRJEB25916,single pair,60,60
+PRJEB28088_2015_102,NA,PRJEB28088,single pair and many pairs,99,82
+PRJEB39436_11713-10_1,1 day after birth(preterm infant),PRJEB39436,single pair and many pairs,114,25
+PRJNA420339_102C_child 2-year visit,child 2-year visit,PRJNA420339,single pair,177,177
+PRJNA471556_0004_V1,at the initial clinic visit,PRJNA471556,many pairs,81,50
+PRJNA595346_3673_7,7 days intubation in the ICU,PRJNA595346,single pair and many pairs,198,163
+PRJNA687361_JZLC-01_1,prior to initiation of immunotherapy,PRJNA687361,single pair and many pairs,35,27
+PRJNA764503_181013,NA,PRJNA764503,single pair,52,52
+PRJNA778070_J142,NA,PRJNA778070,single pair,113,113
+qiita_11404_03c0867966fe2299eb3b09291d5f0834310bdf5fceed9c9b7b397570bf8f2d2adaeb945c824ff0cb407abaf691b8173cfa03c4f8eb17e6dd9f6eda17502e66e4,NA,qiita_11404,single pair and many pairs,18,14
+PRJDB8122_1_O,at 4-weeks after re-initiation of oral food intake(patient：sub-acute stage of stroke with dysphagia),PRJDB8122,many pairs,16,8
+PRJDB8487_A01,NA,PRJDB8487,single pair,58,58
+PRJEB19825_F4_0,baseline,PRJEB19825,many pairs,450,2
+PRJEB27304_111_1,Week 1 day 1: first of three sampling days in the first week,PRJEB27304,many pairs,212,25
+PRJEB36860_Infant01_0,on the day of birth,PRJEB36860,single pair and many pairs,34,3
+PRJEB39420_11712-10_2,2 days after birth(preterm infant),PRJEB39420,many pairs,378,42
+PRJEB6518_2202:DonorA_100,100 days since experiment start,PRJEB6518,many pairs,263,1
+PRJEB69530_F01_0,baseline,PRJEB69530,single pair,4,4
+PRJNA48333_132902142,NA,PRJNA48333,single pair,168,168
+PRJNA489752_S-01,NA,PRJNA489752,single pair,10,10
+PRJNA503194_A003_Infant_10,on 10 days postpartum,PRJNA503194,many pairs,280,41

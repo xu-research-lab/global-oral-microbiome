@@ -1,0 +1,9 @@
+transition,count,pct
+"Stay undetected
+(0→0)",764,61.6129032258065
+"Persist detected
+(1→1)",301,24.2741935483871
+"Acquisition
+(0→1)",94,7.58064516129032
+"Loss
+(1→0)",81,6.53225806451613

@@ -6,8 +6,8 @@ import os
 import multiprocessing
 
 # === Path Configuration ===
-INPUT_DIR = "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/01-left-pipeline-right-map/input/"
-OUTPUT_DIR = "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/01-left-pipeline-right-map/output/"
+INPUT_DIR = "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-pipeline-map/input/"
+OUTPUT_DIR = "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-pipeline-map/output/"
 BIOM_FILE = os.path.join(INPUT_DIR, "biom_oral_qc.biom")
 META_FILE = os.path.join(INPUT_DIR, "metadata_oral_qc.tsv")
 OUT_FILE = os.path.join(OUTPUT_DIR, "rarefaction_pcofg.tsv")

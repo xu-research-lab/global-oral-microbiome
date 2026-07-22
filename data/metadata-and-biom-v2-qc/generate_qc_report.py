@@ -174,7 +174,7 @@ def size_mb(path):
 print("Assembling Markdown report...")
 md = f"""# Global Oral Microbiome — Metadata QC Pipeline v4
 
-**Date:** 2026-07-17
+**Date:** 2026-07-22
 **Directory:** `data/metadata-and-biom-v2-qc/`
 **Scripts:** `merge_all_for_qc_raw.py` → `generate_metadata_tables.py` → `generate_qza.py`
 
@@ -196,17 +196,17 @@ md = f"""# Global Oral Microbiome — Metadata QC Pipeline v4
 
 ## 2. Filter Pipeline
 
-Filtering is **dataset-level only**. All thresholds computed on **oral samples** (`site_group='oral'`).
+Filtering is **dataset-level only**. All thresholds computed on **oral samples** (`site_group='oral'`). CR=0 samples are removed upstream to ensure metadata matches the closed-reference BIOM.
 
 | Step | Criterion | Datasets Removed | Samples Removed | Remaining Samples |
 |------|-----------|:---:|:---:|---:|
-| 0 — Raw merge | DADA2-processed samples only (`sample_cr_mapping_rate != NA`) | — | — | {n_raw:,} |
+| 0 — Raw merge | DADA2-processed + CR mapping rate > 0 (`sample_cr_mapping_rate > 0`) | — | — | {n_raw:,} |
 | 1 — Chimera filter | >30% oral samples with chimera >25% | {n_chim_studies} | {removed_chim_samples:,} | {int(funnel[1]['samples_after']):,} |
 | 2 — **CR mapping filter** | **Oral aggregate GG2 CR mapping < {CR_THRESHOLD*100:.0f}%** | {n_cr_studies} | {removed_cr_samples:,} | **{n_qc:,}** |
 | 3 — Oral subset | `site_group='oral'` | — | — | {n_oral:,} |
 | 4 — Dedup | 1 sample per (subject_id × site_cleaned) | — | — | **{n_dedup:,}** |
 
-> **v4 Changes:** Dataset-level only. ASV filter removed. CR threshold = {CR_THRESHOLD*100:.0f}%. No sample-level filters.
+> **v4 Changes:** Dataset-level only. ASV filter removed. CR threshold = {CR_THRESHOLD*100:.0f}%. CR=0 samples removed to match closed-reference BIOM.
 
 ## 3. Sample Flow
 
@@ -262,7 +262,7 @@ Filtering is **dataset-level only**. All thresholds computed on **oral samples**
 
 ---
 
-*Generated 2026-07-17 by `generate_qc_report.py` | Filter: dataset-only, Chimera >25% in >30% oral, CR <{CR_THRESHOLD*100:.0f}% (oral aggregate)*
+*Generated 2026-07-22 by `generate_qc_report.py` | Filter: CR>0 + dataset-only (Chimera >25% in >30% oral, CR <{CR_THRESHOLD*100:.0f}% oral aggregate)*
 """
 
 with open(OUT_MD, 'w') as f:

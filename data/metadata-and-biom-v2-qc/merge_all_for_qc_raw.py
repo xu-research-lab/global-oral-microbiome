@@ -199,8 +199,16 @@ def main():
     print(f'  excluded (no CR data): {n_excluded}')
     merged = merged_cr
 
+    # ── Filter out CR=0 samples (absent from closed-reference BIOM) ──
+    print('\nStep 9: Remove samples with CR mapping rate == 0 (absent from closed-reference BIOM)')
+    n_cr_zero = sum(1 for r in merged if to_float(r['sample_cr_mapping_rate']) == 0.0)
+    merged_gt0 = [r for r in merged if to_float(r['sample_cr_mapping_rate']) != 0.0]
+    print(f'  removed (CR=0): {n_cr_zero}')
+    print(f'  retained: {len(merged_gt0)} samples')
+    merged = merged_gt0
+
     # ── Compute study-level QC flags (oral samples only) ──
-    print('\nStep 9: Compute study-level QC flags (oral samples only)')
+    print('\nStep 10: Compute study-level QC flags (oral samples only)')
     study_samples = defaultdict(list)
     for row in merged:
         study_samples[row['bioproject_id']].append(row)
@@ -267,7 +275,7 @@ def main():
     out_samples = unique_nonempty(r.get('sample_id') for r in merged)
     out_subjects = unique_nonempty(r.get('subject_id') for r in merged)
 
-    print(f'\nStep 10: Written {out_rows} rows to {OUT}')
+    print(f'\nStep 11: Written {out_rows} rows to {OUT}')
     print(f'  Columns: {len(out_fields)}')
     if dropped_out_fields:
         print(f'  Dropped duplicate output columns: {len(dropped_out_fields)}')

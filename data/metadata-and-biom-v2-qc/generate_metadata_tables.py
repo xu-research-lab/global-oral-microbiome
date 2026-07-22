@@ -3,10 +3,11 @@
 Generate QC metadata tables and BIOM/QZA subsets.
 
 Filtering — dataset-level only, evaluated on oral samples:
+  0. CR=0 removal: samples with closed-reference mapping rate == 0 (absent from BIOM)
   1. chimera: remove studies where >30% oral samples have chimera >25%
-  2. closed-reference: remove studies where oral aggregate CR mapping <30%
+  2. closed-reference: remove studies where oral aggregate CR mapping <70%
 
-No sample-level filtering.  ASV-based filtering removed (v4).
+CR=0 filtering ensures metadata matches the closed-reference BIOM table. ASV-based filtering removed (v4).
 
 Outputs (all in data/metadata-and-biom-v2-qc/):
   - metadata_all_qc.tsv, metadata_oral_qc.tsv, metadata_oral_qc_dedup.tsv
@@ -176,8 +177,8 @@ def main():
     funnel = []
     removed_study_rows = []
     current = rows
-    add_funnel_row(funnel, 0, 'start', 'Raw merged metadata (DADA2-processed only)',
-                   'No filtering', current, current)
+    add_funnel_row(funnel, 0, 'start', 'Raw merged metadata (DADA2-processed, CR>0)',
+                   'Samples with valid CR mapping rate > 0', current, current)
 
     # ── Dataset-level filters (2 steps) ──
     dataset_steps = [
@@ -204,7 +205,7 @@ def main():
             })
         print(f'  {name}: {len(removed)} datasets removed; {len(current)} samples remain')
 
-    # ── No sample-level filters ──
+    # ── No further sample-level filters (CR=0 already removed upstream) ──
     all_qc_rows = current
     write_tsv(ALL_QC, all_qc_rows, fieldnames)
 

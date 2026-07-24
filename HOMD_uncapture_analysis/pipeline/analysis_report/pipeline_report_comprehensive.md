@@ -178,64 +178,64 @@ Of the 56 candidate novel phylotypes, contamination flags are recorded per-phylo
 
 ### Complete List of 56 Candidate Novel Phylotypes
 
-| Phylotype | Novelty | Genus | Subj | BPs | Reads | ASVs | C97 | GenF | Concern |
-|-----------|---------|-------|------|-----|-------|------|-----|------|---------|
-| EDGE_101602 | **NOVEL** | Unknown | 117 | 6 | 2,360 | 3 | 0 | 0 | clean |
-| EDGE_111272 | known | Unknown | 153 | 9 | 4,311 | 4 | 0 | 0 | clean |
-| EDGE_112323 | known | Capnocytophaga | 1,846 | 36 | 887,163 | 112 | 0 | 3 | genus |
-| EDGE_135701 | known | Unknown | 130 | 5 | 2,554 | 3 | 0 | 0 | clean |
-| EDGE_137864 | known | Bacteroides | 393 | 11 | 1,179,219 | 10 | 10 | 1 | BOTH |
-| EDGE_140427 | known | Incertae Sedis | 246 | 7 | 51,875 | 9 | 7 | 1 | BOTH |
-| EDGE_140733 | **NOVEL** | Blvii28 wastewater-sludge | 803 | 21 | 40,426 | 20 | 13 | 1 | BOTH |
-| EDGE_15856 | **NOVEL** | Unknown | 124 | 9 | 11,948 | 4 | 0 | 0 | clean |
-| EDGE_160013 | known | Treponema | 104 | 4 | 2,805 | 2 | 0 | 1 | genus |
-| EDGE_160023 | known | Unknown | 81 | 19 | 22,454 | 25 | 0 | 0 | clean |
-| EDGE_175610 | **NOVEL** | Unknown | 148 | 6 | 2,199 | 1 | 0 | 0 | clean |
-| EDGE_176467 | known | Unknown | 158 | 6 | 3,507 | 3 | 0 | 0 | clean |
-| EDGE_19603 | known | Unknown | 168 | 10 | 23,276 | 5 | 0 | 0 | clean |
-| EDGE_207640 | known | Unknown | 158 | 26 | 22,400 | 29 | 0 | 0 | clean |
-| EDGE_215543 | known | Brevundimonas | 422 | 16 | 88,739 | 3 | 2 | 2 | BOTH |
-| EDGE_229563 | known | Unknown | 107 | 8 | 3,095 | 2 | 0 | 0 | clean |
-| EDGE_262631 | known | Unknown | 260 | 16 | 41,707 | 24 | 0 | 0 | clean |
-| EDGE_263382 | known | Tepidimonas | 359 | 3 | 31,597 | 1 | 1 | 1 | BOTH |
-| EDGE_265582 | known | Unknown | 339 | 2 | 22,613 | 4 | 0 | 0 | clean |
-| EDGE_27881 | **NOVEL** | Unknown | 179 | 13 | 11,094 | 4 | 0 | 0 | clean |
-| EDGE_284787 | known | Unknown | 758 | 32 | 273,859 | 36 | 0 | 0 | clean |
-| EDGE_301803 | known | Pseudomonas | 281 | 15 | 532,940 | 2 | 2 | 2 | BOTH |
-| EDGE_30676 | **NOVEL** | Unknown | 174 | 7 | 12,454 | 9 | 0 | 0 | clean |
-| EDGE_309337 | known | Unknown | 513 | 19 | 217,622 | 39 | 0 | 0 | clean |
-| EDGE_315416 | known | Acinetobacter | 280 | 19 | 888,053 | 3 | 0 | 2 | genus |
-| EDGE_342214 | known | Unknown | 3,328 | 23 | 52,938 | 3 | 3 | 0 | cluster97 |
-| EDGE_365498 | **NOVEL** | Unknown | 158 | 10 | 11,253 | 2 | 0 | 0 | clean |
-| EDGE_392759 | known | Incertae Sedis | 97 | 5 | 84,176 | 12 | 10 | 1 | BOTH |
-| EDGE_392764 | known | Streptobacillus | 1,368 | 25 | 2,012,125 | 185 | 0 | 2 | genus |
-| EDGE_393610 | known | Incertae Sedis | 2,547 | 27 | 6,372,739 | 140 | 115 | 10 | BOTH |
-| EDGE_393615 | known | Incertae Sedis | 288 | 22 | 393,015 | 65 | 61 | 2 | BOTH |
-| EDGE_393623 | known | Incertae Sedis | 1,208 | 21 | 3,698,157 | 201 | 110 | 11 | BOTH |
-| EDGE_395278 | **NOVEL** | Unknown | 156 | 7 | 6,686 | 2 | 0 | 0 | clean |
-| EDGE_430609 | known | Thermus | 960 | 11 | 47,764 | 7 | 7 | 2 | BOTH |
-| EDGE_468429 | known | Unknown | 122 | 7 | 3,343 | 4 | 0 | 0 | clean |
-| EDGE_470252 | **NOVEL** | Unknown | 98 | 4 | 6,635 | 6 | 0 | 0 | clean |
-| EDGE_488261 | **NOVEL** | Unknown | 1,867 | 17 | 184,768 | 3 | 3 | 0 | cluster97 |
-| EDGE_488275 | **NOVEL** | Unknown | 1,491 | 13 | 473,423 | 3 | 3 | 0 | cluster97 |
-| EDGE_489621 | known | Incertae Sedis | 1,676 | 30 | 298,425 | 103 | 0 | 3 | genus |
-| EDGE_490475 | known | Unknown | 460 | 5 | 30,517 | 10 | 0 | 0 | clean |
-| EDGE_490476 | known | Incertae Sedis | 1,104 | 20 | 70,727 | 16 | 0 | 4 | genus |
-| EDGE_497065 | known | Dubosiella | 97 | 6 | 2,442 | 6 | 6 | 1 | BOTH |
-| EDGE_502385 | known | Eperythrozoon | 134 | 2 | 5,726 | 1 | 1 | 1 | BOTH |
-| EDGE_553807 | known | Unknown | 226 | 23 | 23,886 | 23 | 0 | 0 | clean |
-| EDGE_593012 | **NOVEL** | Unknown | 108 | 6 | 15,256 | 5 | 0 | 0 | clean |
-| EDGE_606903 | known | Unknown | 556 | 25 | 192,253 | 55 | 0 | 0 | clean |
-| EDGE_610908 | known | Incertae Sedis | 494 | 20 | 17,797 | 11 | 0 | 2 | genus |
-| EDGE_615564 | known | Blautia | 664 | 13 | 326,767 | 8 | 8 | 1 | BOTH |
-| EDGE_626242 | known | Unknown | 92 | 2 | 7,056 | 1 | 0 | 0 | clean |
-| EDGE_643266 | known | Unknown | 150 | 28 | 64,185 | 41 | 0 | 0 | clean |
-| EDGE_643642 | **NOVEL** | Incertae Sedis | 192 | 4 | 1,991 | 1 | 1 | 1 | BOTH |
-| EDGE_650048 | **NOVEL** | Unknown | 114 | 6 | 6,325 | 3 | 0 | 0 | clean |
-| EDGE_655198 | known | Phascolarctobacterium | 510 | 18 | 900,492 | 13 | 12 | 3 | BOTH |
-| EDGE_6559 | known | Unknown | 140 | 7 | 4,833 | 2 | 0 | 0 | clean |
-| EDGE_657631 | known | Eperythrozoon | 628 | 3 | 46,722 | 2 | 1 | 1 | BOTH |
-| EDGE_660042 | known | Unknown | 660 | 33 | 56,264 | 18 | 0 | 0 | clean |
+| Phylotype | Novelty | GG2 Best ID | Subj | BPs | Reads | ASVs | C97 | GenF | Concern |
+|-----------|---------|------------|------|-----|-------|------|-----|------|---------|
+| EDGE_101602 | **NOVEL** | novel:UBA5272 sp002408565(72%) | 117 | 6 | 2,360 | 3 | 0 | 0 | clean |
+| EDGE_111272 | known | novel:UBA5272 sp002408565(79%) | 153 | 9 | 4,311 | 4 | 0 | 0 | clean |
+| EDGE_112323 | known | Capnocytophaga                 | 1,846 | 36 | 887,163 | 112 | 0 | 3 | genus |
+| EDGE_135701 | known | novel:Unknown(56%)             | 130 | 5 | 2,554 | 3 | 0 | 0 | clean |
+| EDGE_137864 | known | Bacteroides                    | 393 | 11 | 1,179,219 | 10 | 10 | 1 | BOTH |
+| EDGE_140427 | known | Lepagella muris                | 246 | 7 | 51,875 | 9 | 7 | 1 | BOTH |
+| EDGE_140733 | **NOVEL** | novel:Perlabentimonas gracilis | 803 | 21 | 40,426 | 20 | 13 | 1 | BOTH |
+| EDGE_15856 | **NOVEL** | novel:Micavibrio(50%)          | 124 | 9 | 11,948 | 4 | 0 | 0 | clean |
+| EDGE_160013 | known | GCA-2749205                    | 104 | 4 | 2,805 | 2 | 0 | 1 | genus |
+| EDGE_160023 | known | novel:Treponema(96%)           | 81 | 19 | 22,454 | 25 | 0 | 0 | clean |
+| EDGE_175610 | **NOVEL** | Unknown                        | 148 | 6 | 2,199 | 1 | 0 | 0 | clean |
+| EDGE_176467 | known | novel:XYB1-36-10 sp001821375(8 | 158 | 6 | 3,507 | 3 | 0 | 0 | clean |
+| EDGE_19603 | known | Enterococcus                   | 168 | 10 | 23,276 | 5 | 0 | 0 | clean |
+| EDGE_207640 | known | Wolinella succinogenes         | 158 | 26 | 22,400 | 29 | 0 | 0 | clean |
+| EDGE_215543 | known | Brevundimonas huaxiensis       | 422 | 16 | 88,739 | 3 | 2 | 2 | BOTH |
+| EDGE_229563 | known | Unknown                        | 107 | 8 | 3,095 | 2 | 0 | 0 | clean |
+| EDGE_262631 | known | Hylemonella                    | 260 | 16 | 41,707 | 24 | 0 | 0 | clean |
+| EDGE_263382 | known | novel:Tepidimonas taiwanensis( | 359 | 3 | 31,597 | 1 | 1 | 1 | BOTH |
+| EDGE_265582 | known | novel:Solimicrobium(93%)       | 339 | 2 | 22,613 | 4 | 0 | 0 | clean |
+| EDGE_27881 | **NOVEL** | novel:UBA5272 sp002408565(72%) | 179 | 13 | 11,094 | 4 | 0 | 0 | clean |
+| EDGE_284787 | known | novel:Neisseria subflava(97%)  | 758 | 32 | 273,859 | 36 | 0 | 0 | clean |
+| EDGE_301803 | known | Pseudomonas                    | 281 | 15 | 532,940 | 2 | 2 | 2 | BOTH |
+| EDGE_30676 | **NOVEL** | Unknown                        | 174 | 7 | 12,454 | 9 | 0 | 0 | clean |
+| EDGE_309337 | known | Faucicola mancuniensis         | 513 | 19 | 217,622 | 39 | 0 | 0 | clean |
+| EDGE_315416 | known | Acinetobacter ursingii         | 280 | 19 | 888,053 | 3 | 0 | 2 | genus |
+| EDGE_342214 | known | novel:Unknown(51%)             | 3,328 | 23 | 52,938 | 3 | 3 | 0 | cluster97 |
+| EDGE_365498 | **NOVEL** | novel:UBA2135(61%)             | 158 | 10 | 11,253 | 2 | 0 | 0 | clean |
+| EDGE_392759 | known | Streptobacillus felis          | 97 | 5 | 84,176 | 12 | 10 | 1 | BOTH |
+| EDGE_392764 | known | Pseudostreptobacillus hongkong | 1,368 | 25 | 2,012,125 | 185 | 0 | 2 | genus |
+| EDGE_393610 | known | Caldora sp010672925            | 2,547 | 27 | 6,372,739 | 140 | 115 | 10 | BOTH |
+| EDGE_393615 | known | Unknown                        | 288 | 22 | 393,015 | 65 | 61 | 2 | BOTH |
+| EDGE_393623 | known | Unknown                        | 1,208 | 21 | 3,698,157 | 201 | 110 | 11 | BOTH |
+| EDGE_395278 | **NOVEL** | Unknown                        | 156 | 7 | 6,686 | 2 | 0 | 0 | clean |
+| EDGE_430609 | known | Thermus                        | 960 | 11 | 47,764 | 7 | 7 | 2 | BOTH |
+| EDGE_468429 | known | novel:UBA5272 sp002408565(74%) | 122 | 7 | 3,343 | 4 | 0 | 0 | clean |
+| EDGE_470252 | **NOVEL** | novel:Defluviitalea(88%)       | 98 | 4 | 6,635 | 6 | 0 | 0 | clean |
+| EDGE_488261 | **NOVEL** | UBA9339 sp001801345            | 1,867 | 17 | 184,768 | 3 | 3 | 0 | cluster97 |
+| EDGE_488275 | **NOVEL** | novel:2-01-FULL-45-33 sp001778 | 1,491 | 13 | 473,423 | 3 | 3 | 0 | cluster97 |
+| EDGE_489621 | known | UBA660                         | 1,676 | 30 | 298,425 | 103 | 0 | 3 | genus |
+| EDGE_490475 | known | novel:Scybalousia(95%)         | 460 | 5 | 30,517 | 10 | 0 | 0 | clean |
+| EDGE_490476 | known | novel:Faecimonas sp900554315(9 | 1,104 | 20 | 70,727 | 16 | 0 | 4 | genus |
+| EDGE_497065 | known | Dubosiella newyorkensis        | 97 | 6 | 2,442 | 6 | 6 | 1 | BOTH |
+| EDGE_502385 | known | Eperythrozoon                  | 134 | 2 | 5,726 | 1 | 1 | 1 | BOTH |
+| EDGE_553807 | known | Anaerovoracaceae               | 226 | 23 | 23,886 | 23 | 0 | 0 | clean |
+| EDGE_593012 | **NOVEL** | novel:UBA2135(62%)             | 108 | 6 | 15,256 | 5 | 0 | 0 | clean |
+| EDGE_606903 | known | Chordicoccus                   | 556 | 25 | 192,253 | 55 | 0 | 0 | clean |
+| EDGE_610908 | known | novel:Lachnospiraceae(95%)     | 494 | 20 | 17,797 | 11 | 0 | 2 | genus |
+| EDGE_615564 | known | Blautia                        | 664 | 13 | 326,767 | 8 | 8 | 1 | BOTH |
+| EDGE_626242 | known | novel:Oribacterium asaccharoly | 92 | 2 | 7,056 | 1 | 0 | 0 | clean |
+| EDGE_643266 | known | Lachnospiraceae                | 150 | 28 | 64,185 | 41 | 0 | 0 | clean |
+| EDGE_643642 | **NOVEL** | novel:Unknown(82%)             | 192 | 4 | 1,991 | 1 | 1 | 1 | BOTH |
+| EDGE_650048 | **NOVEL** | novel:UBA5272 sp002408565(73%) | 114 | 6 | 6,325 | 3 | 0 | 0 | clean |
+| EDGE_655198 | known | Phascolarctobacterium          | 510 | 18 | 900,492 | 13 | 12 | 3 | BOTH |
+| EDGE_6559 | known | Enterococcus                   | 140 | 7 | 4,833 | 2 | 0 | 0 | clean |
+| EDGE_657631 | known | Eperythrozoon                  | 628 | 3 | 46,722 | 2 | 1 | 1 | BOTH |
+| EDGE_660042 | known | Nanosyncoccus sp003979185      | 660 | 33 | 56,264 | 18 | 0 | 0 | clean |
 
 ## Output Files
 

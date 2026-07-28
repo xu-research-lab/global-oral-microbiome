@@ -33,31 +33,37 @@ hc_age <- hc[, .(n = .N, rc_detection = mean(RedComplex_detected),
 print(hc_age)
 fwrite(hc_age, file.path(OUTDIR, "age_trajectory_hc_summary.csv"))
 
-# ── 2. GAM smooth: age vs RC in HC ──────────────────────────────
-cat("\n── 2. GAM: Age vs Red Complex in HC ──\n")
+# ── 2. GAM smooth: age vs RC in HC (controlling for BioProject) ─
+cat("\n── 2. GAM: Age vs Red Complex in HC (with BioProject random effect) ──\n")
+cat(sprintf("  HC samples: %d, BioProjects: %d\n", nrow(hc), uniqueN(hc$BioProject)))
 cat("  Fitting GAM for detection probability...\n")
-gam_detect <- gam(RedComplex_detected ~ s(Age, bs = "tp") + Site + Platform + SeqRegion + Sex,
+gam_detect <- gam(RedComplex_detected ~ s(Age, bs = "tp") + Site + Platform + SeqRegion + Sex +
+                    s(BioProject, bs = "re"),
                   data = hc, family = binomial(), method = "REML")
 cat(sprintf("  Detection GAM deviance explained: %.1f%%\n", summary(gam_detect)$dev.expl * 100))
 
 hc_det <- hc[RedComplex_detected == 1]
 cat("  Fitting GAM for log10 abundance (detected only)...\n")
-gam_abund <- gam(log10(RedComplexTotal + 1e-6) ~ s(Age, bs = "tp") + Site + Platform + SeqRegion + Sex,
+gam_abund <- gam(log10(RedComplexTotal + 1e-6) ~ s(Age, bs = "tp") + Site + Platform + SeqRegion + Sex +
+                   s(BioProject, bs = "re"),
                  data = hc_det, method = "REML")
 cat(sprintf("  Abundance GAM deviance explained: %.1f%%\n", summary(gam_abund)$dev.expl * 100))
 
-# Predictions
+# Predictions: use a new (unseen) BioProject level → random effect = 0 → population average
 age_grid <- data.table(Age = seq(0, 95, by = 0.5))
 age_grid[, `:=`(Site = factor("saliva", levels = levels(hc$Site)),
   Platform = factor("Illumina MiSeq", levels = levels(hc$Platform)),
   SeqRegion = factor("V4", levels = levels(hc$SeqRegion)),
-  Sex = factor("F", levels = levels(hc$Sex)))]
-pred_detect <- predict(gam_detect, newdata = age_grid, type = "link", se.fit = TRUE)
+  Sex = factor("F", levels = levels(hc$Sex)),
+  BioProject = factor("NewProject", levels = c(levels(hc$BioProject), "NewProject")))]
+pred_detect <- predict(gam_detect, newdata = age_grid, type = "link", se.fit = TRUE,
+                        exclude = "s(BioProject)")
 age_grid[, `:=`(detect_logit = pred_detect$fit, detect_se = pred_detect$se.fit,
   detect_prob = plogis(pred_detect$fit),
   detect_low = plogis(pred_detect$fit - 1.96 * pred_detect$se.fit),
   detect_high = plogis(pred_detect$fit + 1.96 * pred_detect$se.fit))]
-pred_abund <- predict(gam_abund, newdata = age_grid, type = "link", se.fit = TRUE)
+pred_abund <- predict(gam_abund, newdata = age_grid, type = "link", se.fit = TRUE,
+                       exclude = "s(BioProject)")
 age_grid[, `:=`(abund_log10 = pred_abund$fit, abund_se = pred_abund$se.fit,
   abund_low = 10^(pred_abund$fit - 1.96 * pred_abund$se.fit),
   abund_high = 10^(pred_abund$fit + 1.96 * pred_abund$se.fit))]
@@ -75,21 +81,21 @@ hc_interact[, Site := droplevels(Site)]
 
 # Model 1: No interaction (smooth age effect, same across sites)
 cat("\n  Fitting model WITHOUT interaction...\n")
-m_no_int <- gam(RedComplex_detected ~ s(Age, bs = "tp") + Site + Platform + SeqRegion + Sex,
+m_no_int <- gam(RedComplex_detected ~ s(Age, bs = "tp") + Site + Platform + SeqRegion + Sex + s(BioProject, bs = "re"),
                 data = hc_interact, family = binomial(), method = "REML")
 cat(sprintf("  No-interaction model: deviance explained = %.1f%%\n", summary(m_no_int)$dev.expl * 100))
 
 # Model 2: Factor-smooth interaction
 cat("  Fitting model WITH age×site factor-smooth interaction...\n")
 m_with_int <- tryCatch({
-  gam(RedComplex_detected ~ s(Age, bs = "tp", by = Site) + Site + Platform + SeqRegion + Sex,
+  gam(RedComplex_detected ~ s(Age, bs = "tp", by = Site) + Site + Platform + SeqRegion + Sex + s(BioProject, bs = "re"),
       data = hc_interact, family = binomial(), method = "REML")
 }, error = function(e) {
   cat(sprintf("  Factor-smooth interaction failed: %s\n", e$message))
   cat("  Trying ordered factor approach...\n")
   hc_interact[, Site_ordered := factor(Site, ordered = TRUE)]
   gam(RedComplex_detected ~ s(Age, bs = "tp") + s(Age, bs = "tp", by = Site_ordered) +
-      Site + Platform + SeqRegion + Sex,
+      Site + Platform + SeqRegion + Sex + s(BioProject, bs = "re"),
       data = hc_interact, family = binomial(), method = "REML")
 })
 
@@ -126,18 +132,20 @@ site_smooth <- rbindlist(lapply(major_sites, function(s) {
   sub <- hc[Site == s]
   if (nrow(sub) < 200) return(NULL)
   tryCatch({
-    covars <- "s(Age, bs = 'tp')"
+    covars <- "s(Age, bs = 'tp') + s(BioProject, bs = 're')"
     for (cv in c("Platform", "SeqRegion", "Sex")) {
       if (cv %in% names(sub) && nlevels(sub[[cv]]) >= 2) covars <- paste(covars, "+", cv)
     }
     formula_str <- paste("RedComplex_detected ~", covars)
     gam_site <- gam(as.formula(formula_str), data = sub, family = binomial(), method = "REML")
     age_site <- data.table(Site = s, Age = seq(max(0.5, min(sub$Age)), min(95, max(sub$Age)), by = 0.5))
+    age_site[, BioProject := factor("NewProject", levels = c(levels(sub$BioProject), "NewProject"))]
     for (col in c("Platform", "SeqRegion")) {
       if (col %in% names(sub) && nlevels(sub[[col]]) >= 2)
         age_site[[col]] <- factor(as.character(sub[[col]][1]), levels = levels(sub[[col]]))
     }
-    pred <- predict(gam_site, newdata = age_site, type = "link", se.fit = TRUE)
+    pred <- predict(gam_site, newdata = age_site, type = "link", se.fit = TRUE,
+                    exclude = "s(BioProject)")
     age_site[, `:=`(detect_prob = plogis(pred$fit),
       detect_low = plogis(pred$fit - 1.96 * pred$se.fit),
       detect_high = plogis(pred$fit + 1.96 * pred$se.fit), n_samples = nrow(sub))]
@@ -153,7 +161,7 @@ cat("\n── 4. Disease vs HC: Age-adjusted RC ──\n")
 pd <- dtc[DiseaseStatus == "Periodontal Disease" & !is.na(Age) & Age > 0 & Age < 100]
 
 # Use consistent covariates (Site + Sex) for fair comparison
-shared_formula <- RedComplex_detected ~ s(Age, bs = "tp") + Site + Sex
+shared_formula <- RedComplex_detected ~ s(Age, bs = "tp") + Site + Sex + s(BioProject, bs = "re")
 
 gam_hc_cmp <- gam(shared_formula, data = hc, family = binomial(), method = "REML")
 gam_pd_cmp <- gam(shared_formula, data = pd, family = binomial(), method = "REML")
@@ -161,22 +169,22 @@ gam_pd_cmp <- gam(shared_formula, data = pd, family = binomial(), method = "REML
 cat(sprintf("  HC GAM deviance: %.1f%%, PD GAM deviance: %.1f%%\n",
             summary(gam_hc_cmp)$dev.expl * 100, summary(gam_pd_cmp)$dev.expl * 100))
 
-# Test age×disease interaction
-cat("\n  Testing age × disease interaction...\n")
+# Test age×disease interaction (with BioProject control)
+cat("\n  Testing age × disease interaction (controlling for BioProject)...\n")
 hc_pd_combined <- rbind(
-  hc[, .(Age, Site, Sex, RedComplex_detected, DiseaseStatus = "HC")],
-  pd[, .(Age, Site, Sex, RedComplex_detected, DiseaseStatus = "Periodontal Disease")]
+  hc[, .(Age, Site, Sex, BioProject, RedComplex_detected, DiseaseStatus = "HC")],
+  pd[, .(Age, Site, Sex, BioProject, RedComplex_detected, DiseaseStatus = "Periodontal Disease")]
 )
 hc_pd_combined[, DiseaseStatus := factor(DiseaseStatus, levels = c("HC", "Periodontal Disease"))]
 hc_pd_combined[, Site := droplevels(Site)]
 hc_pd_combined[, Sex := droplevels(Sex)]
 
-m_disease_no_int <- gam(RedComplex_detected ~ s(Age, bs = "tp") + DiseaseStatus + Site + Sex,
+m_disease_no_int <- gam(RedComplex_detected ~ s(Age, bs = "tp") + DiseaseStatus + Site + Sex + s(BioProject, bs = "re"),
                         data = hc_pd_combined, family = binomial(), method = "REML")
 
 disease_int_p <- NA
 m_disease_with_int <- tryCatch({
-  gam(RedComplex_detected ~ s(Age, bs = "tp", by = DiseaseStatus) + DiseaseStatus + Site + Sex,
+  gam(RedComplex_detected ~ s(Age, bs = "tp", by = DiseaseStatus) + DiseaseStatus + Site + Sex + s(BioProject, bs = "re"),
       data = hc_pd_combined, family = binomial(), method = "REML")
 }, error = function(e) { NULL })
 
@@ -199,8 +207,10 @@ ref_sex <- if ("F" %in% levels(hc$Sex)) "F" else levels(hc$Sex)[1]
 
 age_hc_pred <- data.table(Age = seq(0.5, 95, by = 0.5))
 age_hc_pred[, `:=`(Site = factor(ref_site, levels = levels(hc$Site)),
-                    Sex = factor(ref_sex, levels = levels(hc$Sex)))]
-pred_hc_cmp <- predict(gam_hc_cmp, newdata = age_hc_pred, type = "link", se.fit = TRUE)
+                    Sex = factor(ref_sex, levels = levels(hc$Sex)),
+                    BioProject = factor("NewProject", levels = c(levels(hc$BioProject), "NewProject")))]
+pred_hc_cmp <- predict(gam_hc_cmp, newdata = age_hc_pred, type = "link", se.fit = TRUE,
+                         exclude = "s(BioProject)")
 age_hc_pred[, `:=`(DiseaseStatus = "HC",
   detect_prob = plogis(pred_hc_cmp$fit),
   detect_low = plogis(pred_hc_cmp$fit - 1.96 * pred_hc_cmp$se.fit),
@@ -208,8 +218,10 @@ age_hc_pred[, `:=`(DiseaseStatus = "HC",
 
 age_pd_pred <- data.table(Age = seq(10, 90, by = 0.5))
 age_pd_pred[, `:=`(Site = factor(ref_site, levels = levels(pd$Site)),
-                    Sex = factor(ref_sex, levels = levels(pd$Sex)))]
-pred_pd_cmp <- predict(gam_pd_cmp, newdata = age_pd_pred, type = "link", se.fit = TRUE)
+                    Sex = factor(ref_sex, levels = levels(pd$Sex)),
+                    BioProject = factor("NewProject", levels = c(levels(pd$BioProject), "NewProject")))]
+pred_pd_cmp <- predict(gam_pd_cmp, newdata = age_pd_pred, type = "link", se.fit = TRUE,
+                         exclude = "s(BioProject)")
 age_pd_pred[, `:=`(DiseaseStatus = "Periodontal Disease",
   detect_prob = plogis(pred_pd_cmp$fit),
   detect_low = plogis(pred_pd_cmp$fit - 1.96 * pred_pd_cmp$se.fit),

@@ -16,9 +16,17 @@
 
 **All 54,254 ASVs are retained throughout.** Contamination flags are added as columns, not used for deletion.
 
-![Contamination Flags and Phylotype Support](fig_phylotypes_composite.png)
+![Figure 1: ASV-weighted HOMD Identity Capture](../../figures/fig1_asv_weighted_identity_capture.png)
 
-![Phylotype Definition Gates](fig_gates.png)
+**Figure 1**: Distribution of HOMD global identity scores across all dereplicated ASVs, weighted by ASV abundance. Dashed line at 97% identity marks the capture threshold.
+
+![Figure 2: Prevalence by Identity](../../figures/fig2_prevalence_by_identity.png)
+
+**Figure 2**: Oral prevalence of candidate ASVs as a function of HOMD identity. Points are colored by residence test result (pass vs fail). Low-identity ASVs (< 90%) with high oral prevalence represent the most promising novel oral taxa.
+
+![Figure 3: Pipeline Funnel](../../figures/fig3_pipeline_funnel.png)
+
+**Figure 3**: Pipeline funnel showing the stepwise reduction from 3,396,776 raw ASVs to 56 candidate novel oral phylotypes through dereplication (to 2,844,174), HOMD-uncaptured filtering (to 1,843,301), support floor (to 69,820), chimera removal (to 54,254), contamination firewall (flags only), SEPP placement + phylotype gates (to 56).
 
 ---
 
@@ -236,6 +244,12 @@ Of the 56 candidate novel phylotypes, contamination flags are recorded per-phylo
 | EDGE_6559 | known | Enterococcus                   | 140 | 7 | 4,833 | 2 | 0 | 0 | clean |
 | EDGE_657631 | known | Eperythrozoon                  | 628 | 3 | 46,722 | 2 | 1 | 1 | BOTH |
 | EDGE_660042 | known | Nanosyncoccus sp003979185      | 660 | 33 | 56,264 | 18 | 0 | 0 | clean |
+
+## Phylogenetic Tree
+
+![Figure 5: Phylogenetic Tree of Candidate Novel Oral Phylotypes](phylotypes_ggtree_rect.png)
+
+**Figure 5**: Rectangular phylogram of 56 candidate novel oral phylotypes placed on the Greengenes2 backbone. **Tip point color** indicates contamination flag: green = Clean, yellow = 97% cluster, orange = Genus, red = Both. **Tip point size** indicates the number of ASVs per phylotype (range: 1–201). **Heatmap columns**: Subjects (red, log₁₀ scale), BioProjects (blue gradient), Continents (purple = present, white = absent).
 
 ## Output Files
 

@@ -1,0 +1,139 @@
+===== STEP: 05c_phylogenetic_annotation =====
+[05c_phylo_ann] Parsing jplace reference tree...
+[05c_phylo_ann]   nodes: 684,652 | tips: 353,383
+[05c_phylo_ann] Loading GG2 2022.10 taxonomy...
+[05c_phylo_ann]   tips with taxonomy: 331,269
+[05c_phylo_ann] Loading placed ASVs (step 05 output)...
+[05c_phylo_ann]   ASVs with placement: 54,277
+[05c_phylo_ann] Annotating by placement clade...
+[05c_phylo_ann]   annotated: 54,277 ASVs | edges not found: 0
+[05c_phylo_ann]   with genus: 44,029 | median LWR: 0.301
+[05c_phylo_ann]   saved 05c_asv_phylo_annotation.tsv
+[05c_phylo_ann] Aggregating to phylotype...
+[05c_phylo_ann]   saved 05c_phylotype_phylo_annotation.tsv (24,986 phylotypes)
+[05c_phylo_ann]   phylotypes with phylo_genus: 20,614
+[05c_phylo_ann] 
+Done!
+===== STEP: 06_novelty_classification =====
+[06_novelty] Loading HOMD catalog (genus + species sets)...
+[06_novelty]   HOMD refs: 6,600 | genera: 228 | species: 628
+[06_novelty] Loading phylotypes...
+[06_novelty]   24,986 phylotypes
+[06_novelty]   placement annotation: 24,986 phylotypes
+[06_novelty]   with resolvable species name: 9,803
+[06_novelty] 
+HOMD vsearch (iddef 2)...
+[06_novelty]   using cached: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/06_novelty/hits_homd_iddef2.tsv
+[06_novelty]   22,898 phylotypes with an HOMD hit
+[06_novelty] 
+Assigning novelty (placement-clade species vs HOMD)...
+[06_novelty] 
+Applying candidate novel gates...
+[06_novelty]   subject gate: max_subject_prevalence >= 10 (distinct (bioproject,subject_id))
+[06_novelty]   candidate novel phylotypes: 4,990 / 24,986
+[06_novelty] 
+=== Novelty Classification Summary ===
+[06_novelty] Total phylotypes: 24,986
+[06_novelty]   homd_captured: 505
+[06_novelty]   known_not_in_homd: 9,303
+[06_novelty]   novel_all_refs: 15,178
+[06_novelty] 
+novelty_class x oral_clade:
+oral_clade         False  True 
+novelty_class                  
+homd_captured         10    495
+known_not_in_homd   7350   1953
+novel_all_refs     14250    928
+[06_novelty] 
+Candidate novel (4,990):
+[06_novelty]   novel_all_refs: 3,094 | oral_clade: 217
+[06_novelty]   known_not_in_homd: 1,896 | oral_clade: 421
+[06_novelty] Saved: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/06_phylotypes_novelty_classified.tsv (24,986 rows)
+[06_novelty] Saved: 06_summary.json
+[06_novelty] Done!
+===== STEP: 06b_aggregate_phylotypes =====
+[06b_agg] Loading novelty-classified phylotypes...
+[06b_agg]   24,986 phylotypes
+[06b_agg] Loading support-floor ASVs (member annotations)...
+[06b_agg] Aggregating member composition...
+[06b_agg]   saved: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/06b_phylotypes_aggregated.tsv (24,986 rows)
+[06b_agg] 
+=== Diagnostic: clean phylotypes ===
+[06b_agg]   clean phylotypes: 16,133 / 24,986
+[06b_agg]   clean candidates (≥10 subjects, not homd): 3,025
+[06b_agg] 
+  clean candidates by support (for choosing 'strongest' cutoffs):
+[06b_agg]   max_subject_prevalence:
+[06b_agg]     [10,20): 1,735
+[06b_agg]     [20,50): 882
+[06b_agg]     [50,100): 257
+[06b_agg]     [100,200): 96
+[06b_agg]     [200,500): 46
+[06b_agg]     ≥500: 9
+[06b_agg]   n_bioprojects_total:
+[06b_agg]     [2,3): 517
+[06b_agg]     [3,5): 1,560
+[06b_agg]     [5,10): 565
+[06b_agg]     [10,20): 247
+[06b_agg]     ≥20: 136
+[06b_agg]   n_regions:
+[06b_agg]     [1,2): 1,405
+[06b_agg]     [2,3): 1,345
+[06b_agg]     [3,4): 169
+[06b_agg]     [4,5): 53
+[06b_agg]     ≥5: 53
+[06b_agg] 
+  example cutoffs (clean candidates only):
+[06b_agg]     strict  (subj≥50 & bp≥5 & reg≥2): 126
+[06b_agg]     medium  (subj≥30 & bp≥3 & reg≥2): 423
+[06b_agg]     relaxed (subj≥10 & bp≥2 & reg≥1): 3,025
+[06b_agg] 
+Saved: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/06b_summary.json
+[06b_agg] 
+Done!
+===== STEP: 07_build_candidate_tables =====
+[07_tables]   aggregated: 24,986 | novelty-classified: 24,986
+[07_tables]   strict candidates: 126
+[07_tables]   saved 07_strict_candidates.tsv (126 rows)
+[07_tables]   saved 07_supplementary_table.tsv (24,986 rows)
+[07_tables]   saved 07_summary.json
+[07_tables] Done!
+===== STEP: 09c_build_phylotype_anchors =====
+[09c_anchor]   strict phylotypes: 126
+[09c_anchor]   saved 07_phylotype_anchors.tsv (126 rows)
+[09c_anchor]   species labels: 126/126
+[09c_anchor] 
+Sample:
+ phylotype_id  anchor_tip              species_label  max_subject_prevalence  n_bioprojects_total  n_members
+  EDGE_112323  DEREP_2713      Capnocytophaga_820690                    1154                  216        112
+EDGE_489621_0  DEREP_9830              EDGE_489621_0                    1531                  176        102
+  EDGE_309337  DEREP_7184     Faucicola mancuniensis                     478                  131         39
+  EDGE_160015 DEREP_17538                GCA-2749205                     489                   81         37
+EDGE_160274_0 DEREP_13825 Treponema_D succinifaciens                     409                  131         74
+  EDGE_535874 DEREP_17270   Peptoanaerobacter_235884                     898                   44         16
+EDGE_140733_0 DEREP_23889            Perlabentimonas                     803                   49         17
+  EDGE_160014 DEREP_33783                GCA-2749205                     434                   80         29
+  EDGE_535876  DEREP_4036          Eubacterium yurii                     475                   96         81
+  EDGE_490062 DEREP_47409                EDGE_490062                     222                   90         43
+===== STEP: 06d_apply_tree_labels =====
+[06d_label] HOMD genera: 228
+Traceback (most recent call last):
+  File "/home/software/anaconda3/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'phylo_genus'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "06d_apply_tree_labels.py", line 45, in <module>
+    m["base"] = m["phylo_genus"].str.split("_").str[0].fillna("")
+  File "/home/software/anaconda3/lib/python3.8/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/software/anaconda3/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: 'phylo_genus'
+FAILED: 06d_apply_tree_labels

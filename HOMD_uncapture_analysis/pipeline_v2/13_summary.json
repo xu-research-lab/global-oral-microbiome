@@ -1,0 +1,15 @@
+{
+  "n_rows": 54290,
+  "n_columns": 53,
+  "n_with_phylotype": 54277,
+  "n_with_gg2_annotation": 52086,
+  "tier": {
+    "species": 30062,
+    "none": 17937,
+    "sgb": 6291
+  },
+  "n_contamination_flagged": 21662,
+  "n_ambiguous": 7329,
+  "n_in_headline_phylotypes": 470,
+  "n_in_supported_clean": 3230
+}

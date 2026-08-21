@@ -1,0 +1,15 @@
+{
+  "total_candidates": 1136142,
+  "stage1_cluster97_flagged": 160675,
+  "stage2_genus_flagged": 61245,
+  "any_flag": 217970,
+  "clean": 918172,
+  "flag_type_distribution": {
+    "clean": 918172,
+    "cluster97": 156725,
+    "genus_list": 57295,
+    "both": 3950
+  },
+  "annotated_with_gg2": 1007979,
+  "unique_genera_found": 7247
+}

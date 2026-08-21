@@ -1,0 +1,19 @@
+{
+  "n_phylotypes": 26311,
+  "novelty_class": {
+    "homd_captured": 1478,
+    "homd_uncaptured": 24833
+  },
+  "support_cutoffs": {
+    "subject": 50,
+    "bioprojects": 2,
+    "continents": 2
+  },
+  "n_supported": 500,
+  "n_supported_clean": 258,
+  "headline": 33,
+  "headline_by_oral_clade": {
+    "in_homd_genus": 9,
+    "outside_homd_genus": 24
+  }
+}

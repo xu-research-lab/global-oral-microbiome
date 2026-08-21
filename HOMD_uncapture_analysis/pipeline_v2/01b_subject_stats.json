@@ -1,0 +1,15 @@
+{
+  "total_distinct_subjects": 52298,
+  "target_dereps": 54290,
+  "dereps_detected_in_any_subject": 40036,
+  "subject_prevalence_range": [
+    0,
+    4405
+  ],
+  "projects_processed": 334,
+  "projects_missing_biom": 0,
+  "samples_unmapped_to_subject": 30059,
+  "samples_total": 116099,
+  "target_obs_rows_found_across_projects": 159721,
+  "elapsed_s": 79.6
+}

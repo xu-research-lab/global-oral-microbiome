@@ -1,0 +1,57 @@
+phylotype_id	tier	tier_label	tier_reason	novelty_class	member_genera	dominant_concern_level	n_residence_pass	n_members_contamination_concern	max_subject_prevalence	sum_total_reads	max_n_bioprojects	homd_best_id	gg2_best_id	silva_best_id
+EDGE_101602	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Unknown	clean	1	1	117	2360	6		71.8	51.4
+EDGE_111272	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	0	153	4311	9		71.0	100.0
+EDGE_112323	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Capnocytophaga	clean	2	7	1846	887163	36	91.2	100.0	100.0
+EDGE_135701	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	0	130	2554	5		99.6	51.9
+EDGE_137864	3	Tier 3 concern	tested_failed_residence	known_not_in_homd	Bacteroides	clean	1	2	393	1179219	11	96.9	100.0	100.0
+EDGE_140427	2	Tier 2 reproducibility-validated	reproducibility_validated	known_not_in_homd	Incertae Sedis	clean	1	4	246	51875	7	87.6	100.0	100.0
+EDGE_140733	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Blvii28 wastewater-sludge group	clean	1	3	803	40426	21	81.2	87.0	87.7
+EDGE_15856	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Unknown	clean	1	0	124	11948	9		61.0	50.5
+EDGE_160013	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Treponema	clean	1	0	104	2805	4	85.5	98.7	100.0
+EDGE_160023	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	3	81	22454	19	93.8	92.0	100.0
+EDGE_175610	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Unknown	clean	1	0	148	2199	6		70.2	50.4
+EDGE_176467	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	0	158	3507	6		68.5	100.0
+EDGE_19603	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	0	168	23276	10		100.0	52.6
+EDGE_207640	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	1	158	22400	26	89.9	97.5	98.6
+EDGE_215543	3	Tier 3 concern	tested_failed_residence	known_not_in_homd	Brevundimonas	literature_flag_review	1	3	422	88739	16	92.9	100.0	100.0
+EDGE_229563	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	1	107	3095	8	50.8	100.0	50.0
+EDGE_262631	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	4	260	41707	16	94.2	96.8	99.6
+EDGE_263382	-1	not in V2 phylotype space		known_not_in_homd	Tepidimonas	in_contaminant_catalog	1	1	359	31597	3	92.1	96.0	100.0
+EDGE_265582	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	0	339	22613	2	87.2	92.5	100.0
+EDGE_27881	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Unknown	clean	1	0	179	11094	13		69.3	53.2
+EDGE_284787	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	1	758	273859	32	96.4	96.8	100.0
+EDGE_301803	-1	not in V2 phylotype space		known_not_in_homd	Pseudomonas	literature_flag_review	1	2	281	532940	15	96.9	100.0	100.0
+EDGE_30676	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Unknown	clean	1	1	174	12454	7		87.0	51.9
+EDGE_309337	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	6	513	217622	19	93.4	100.0	100.0
+EDGE_315416	-1	not in V2 phylotype space		known_not_in_homd	Acinetobacter	literature_flag_review	1	3	280	888053	19	96.1	100.0	100.0
+EDGE_342214	-1	not in V2 phylotype space		known_not_in_homd	Unknown	in_contaminant_catalog	1	2	3328	52938	23	52.3	100.0	54.4
+EDGE_365498	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Unknown	clean	1	0	158	11253	10		61.1	51.6
+EDGE_392759	-1	not in V2 phylotype space		known_not_in_homd	Incertae Sedis	clean	1	1	97	84176	5	94.3	95.2	100.0
+EDGE_392764	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Streptobacillus	clean	3	22	1368	2012125	25	91.6	95.2	100.0
+EDGE_393610	3	Tier 3 concern	tested_failed_residence	known_not_in_homd	Incertae Sedis	clean	2	36	2547	6372739	27	85.5	100.0	100.0
+EDGE_393615	2	Tier 2 reproducibility-validated	reproducibility_validated	known_not_in_homd	Incertae Sedis	clean	1	8	288	393015	22	77.0	100.0	100.0
+EDGE_393623	3	Tier 3 concern	tested_failed_residence	known_not_in_homd	Incertae Sedis	clean	2	38	1208	3698157	21	84.6	100.0	100.0
+EDGE_395278	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Unknown	clean	1	0	156	6686	7	50.0	53.8	51.7
+EDGE_430609	2	Tier 2 reproducibility-validated	reproducibility_validated	known_not_in_homd	Thermus	clean	1	4	960	47764	11	68.3	100.0	100.0
+EDGE_468429	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	1	122	3343	7		70.3	100.0
+EDGE_470252	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Unknown	clean	1	2	98	6635	4		88.4	50.3
+EDGE_488261	3	Tier 3 concern	tested_failed_residence	novel_all_refs	Unknown	clean	1	2	1867	184768	17		51.2	51.4
+EDGE_488275	3	Tier 3 concern	tested_failed_residence	novel_all_refs	Unknown	residence_fail	1	3	1491	473423	13		50.8	52.1
+EDGE_489621	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Incertae Sedis	clean	4	15	1676	298425	30	77.2	92.1	100.0
+EDGE_490475	0	below threshold	below_threshold	known_not_in_homd	Unknown	clean	1	0	460	30517	5	80.9	93.1	100.0
+EDGE_490476	3	Tier 3 concern	tested_failed_residence	known_not_in_homd	Incertae Sedis	clean	1	5	1104	70727	20	78.1	91.6	100.0
+EDGE_497065	-1	not in V2 phylotype space		known_not_in_homd	Dubosiella	clean	1	3	97	2442	6	77.2	100.0	100.0
+EDGE_502385	-1	not in V2 phylotype space		known_not_in_homd	Eperythrozoon	in_contaminant_catalog	1	1	134	5726	2	84.2	100.0	100.0
+EDGE_553807	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	1	226	23886	23	96.9	93.4	100.0
+EDGE_593012	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Unknown	clean	1	1	108	15256	6		89.2	51.9
+EDGE_606903	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	7	556	192253	25	92.8	95.3	100.0
+EDGE_610908	3	Tier 3 concern	tested_failed_residence	known_not_in_homd	Incertae Sedis	clean	1	5	494	17797	20	89.0	92.1	99.2
+EDGE_615564	2	Tier 2 reproducibility-validated	reproducibility_validated	known_not_in_homd	Blautia	clean	1	1	664	326767	13	89.8	100.0	100.0
+EDGE_626242	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	0	92	7056	2	96.1	96.1	97.4
+EDGE_643266	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	2	150	64185	28	91.3	94.6	100.0
+EDGE_643642	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Incertae Sedis	clean	1	0	192	1991	4	75.0	81.6	85.5
+EDGE_650048	1	Tier 1 residence-validated	residence_pass_member	novel_all_refs	Unknown	clean	1	0	114	6325	6		73.2	50.8
+EDGE_655198	3	Tier 3 concern	tested_failed_residence	known_not_in_homd	Phascolarctobacterium	clean	1	4	510	900492	18	82.9	100.0	100.0
+EDGE_6559	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	0	140	4833	7		100.0	100.0
+EDGE_657631	0	below threshold	below_threshold	known_not_in_homd	Eperythrozoon	clean	1	1	628	46722	3	67.1	100.0	100.0
+EDGE_660042	1	Tier 1 residence-validated	residence_pass_member	known_not_in_homd	Unknown	clean	1	3	660	56264	33	96.8	99.3	100.0

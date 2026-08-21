@@ -1,0 +1,13 @@
+{
+  "total_candidates": 1136142,
+  "support_floor_pass": 54290,
+  "support_floor_clean": 32628,
+  "support_floor_flagged": 21662,
+  "support_floor_criteria": {
+    "min_bioprojects": 2,
+    "min_reads": 50
+  },
+  "sepp_reused": 54132,
+  "sepp_missing": 158,
+  "sepp_reuse_pct": 99.71
+}

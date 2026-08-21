@@ -1,0 +1,8 @@
+{
+  "clean_asvs": 949464,
+  "clusters": 336484,
+  "avg_asvs_per_cluster": 2.8,
+  "clusters_2bp_50reads": 62658,
+  "clusters_2bp_20reads": 84593,
+  "clusters_2bp_any": 112686
+}

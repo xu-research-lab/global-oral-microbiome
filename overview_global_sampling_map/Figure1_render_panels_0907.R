@@ -1,8 +1,43 @@
+#!/usr/bin/env Rscript
+# ----------------------------------------------------------------------------
+# figure1_render_panels_0907.R
+#
+# Renders the Figure 1 panels (and the two supplementary stacked-bar figures)
+# into PANEL_DIR as PNG files. This is the HEAVY analysis step: it reads the
+# 80,788-sample metadata, the phylum/class/order relative-abundance tables and
+# the rarefaction table, and can take ~15 minutes. Run it ONCE.
+#
+# After the panels exist, assemble the composite figure quickly and repeatedly
+# with the companion script:
+#     Rscript figure1_composite_all_in_one_0907.R
+# (that script only reads the panel PNGs and lays them out - it is fast).
+#
+# Panels / data inputs:
+#   A    : pipeline funnel                      (ggplot2, ggforce)      [unchanged]
+#   B    : sequencing-depth histogram           (tidyverse, scales)    [NEW]
+#   C    : global sampling world map            (tidyverse, sf, ...)    [unchanged]
+#   D    : core-taxa prevalence phylum/class/order (tidyverse,data.table) [NEW]
+#   E    : top-5 phylum relative-abundance density (tidyverse,data.table) [NEW]
+#   F    : alpha diversity (Shannon) histogram   (tidyverse, scales)   [NEW]
+#   G    : rarefaction / species-accumulation curves  (tidyverse, mgcv, scales) [unchanged]
+#   supp : phylum x continent, phylum x age stacked bars  (tidyverse, data.table)
+#
+# All phylum-colored panels (D, E, stacked bars) share one global top-N phylum
+# list and one color map (see helper section). New panels use all 80,788
+# samples in input/metadata_oral_qc.tsv (the dedup'd 51,186 count appears only
+# inside the funnel narrative).
+#
+# Input/output paths and env overrides are documented in the CONFIG block
+# below; on machines without the server tree all defaults fall back to
+# script-relative folders automatically.
+# ----------------------------------------------------------------------------
+
 suppressPackageStartupMessages({
-  library(png)
-  library(grid)
+  library(png)   # readPNG
+  library(grid)  # grid.raster / grid.text / gpar
 })
 
+# ---- Locate this script's directory (works with Rscript and source()) -----
 find_script_dir <- function() {
   if (interactive()) return(normalizePath(getwd()))
   args <- commandArgs(trailingOnly = FALSE)
@@ -12,9 +47,24 @@ find_script_dir <- function() {
 }
 script_dir <- find_script_dir()
 
+# ============================================================================
+# CONFIG
+# ============================================================================
+# Production tree. Its  input/  folder holds only biom / metadata / taxonomy,
+# so the rarefaction table and the phylum table keep their original server
+# paths below. Outputs go to .../overview_figure_1/results/. Absent this tree
+# (local checkout) everything falls back to script-relative folders. Env
+# overrides: FIG1_BASE_DIR, FIG1_PANEL_DIR, FIG1_METADATA, FIG1_RARE_TABLE,
+# FIG1_PHYLUM_TABLE, FIG1_AUTO_INSTALL.
 SERVER_ROOT <- "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-map-2/04-patch-pipeline-map/03-patch-pipeline-map"
+# Server-side output root for the collapsed relative tables (phylum/class/order).
+# These are produced by phylum_relative_collapse-260802.sh and
+# taxa_relative_collapse_multi_level.sh into .../02-patch-pipeline-map/output/.
 SERVER_OUT_ROOT <- "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-pipeline-map/output"
 LOCAL_BASE  <- normalizePath(file.path(script_dir, ".."))
+# True only on the production server, where BOTH the input tree and the
+# collapsed-table output root exist. A local checkout mirrors the input/ folder
+# but not the server output root, so it correctly falls back to local paths.
 on_server   <- dir.exists(file.path(SERVER_ROOT, "input")) &&
                dir.exists(SERVER_OUT_ROOT)
 if (on_server) {
@@ -41,6 +91,11 @@ abund_file    <- Sys.getenv("FIG1_PHYLUM_TABLE",
             "phylum-relative-table.tsv")
 else file.path(LOCAL_BASE, "output", "phylum-relative-table",
                "phylum-relative-table.tsv"))
+# Class/order collapsed relative tables: generated on the server by
+# taxa_relative_collapse_multi_level.sh (LEVELS="3 4") using the same
+# phylum_relative_collapse-260802.sh convention (writes into the parent
+# pipeline-map project's output/<level>-relative-table/). Defaults therefore
+# sit next to the phylum table; override via FIG1_CLASS_TABLE / FIG1_ORDER_TABLE.
 class_file    <- Sys.getenv("FIG1_CLASS_TABLE",
                             unset = if (on_server)
   file.path(SERVER_OUT_ROOT, "class-relative-table",
@@ -54,6 +109,10 @@ order_file    <- Sys.getenv("FIG1_ORDER_TABLE",
 else file.path(LOCAL_BASE, "output", "order-relative-table",
                "order-relative-table.tsv"))
 
+# Canonical panel filenames. Keys A/B/C are referenced by render functions kept
+# verbatim (funnel / rarefaction / map); new panels and the two supplementary
+# stacked-bar panels use their own keys. Composite letters are mapped
+# separately via COMPOSITE_ROWS.
 panel_png <- c(
   A     = "pipeline_two_stage_funnel_HD.png",
   B     = "rarefaction_curve.png",
@@ -66,6 +125,7 @@ panel_png <- c(
   AGE   = "supp_phylum_age_site_stacked.png"
 )
 
+# Composite figure settings
 compo_base    <- "Figure1_combined_260907"
 compo_w       <- 16L
 compo_dpi     <- 300L
@@ -75,12 +135,18 @@ compo_row_gap <- 0.18       # gap between rows (inches)
 compo_tag_inset <- c(x = 0.12, y = 0.10)
 compo_tag_size  <- 30
 
+# Row layout for the composite. Each entry is a named vector mapping the
+# composite letter (e.g. "A") to a panel_png key (e.g. "A"/"B"/"DEPTH"/...).
 composite_rows <- list(
   c(A = "A",     B = "DEPTH", G = "B"),
   c(C = "C",     E = "DENS",  F = "SHAN"),
   c(D = "PREV")
 )
 
+# ============================================================================
+# Small helpers
+# ============================================================================
+# Returns NULL when every package is available, else a message.
 load_pkgs <- function(pkgs, auto_install = FALSE) {
   pkgs <- pkgs[!vapply(pkgs, requireNamespace, logical(1), quietly = TRUE)]
   if (length(pkgs) == 0) return(invisible(NULL))
@@ -98,16 +164,25 @@ load_libs <- function(pkgs, auto_install = FALSE) {
   invisible(NULL)
 }
 
+# ============================================================================
+# Shared helpers for all phylum-colored panels (D, E, supplementary stacked bars)
+# ============================================================================
+# Fixed qualitative palette shared by every phylum color assignment; the first
+# n colors are tied (by rank) to the global top-n phyla, so panels always agree.
 core_palette <- c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3", "#FF7F00",
                   "#FFFF33", "#A65628", "#F781BF", "#999999")
 other_color  <- "#CCCCCC"
 
+# Terminal taxon name from a qiime2-collapsed label, e.g.
+#   "d__Bacteria; p__Firmicutes_X; c__Clostridia_Y"  ->  "Clostridia_Y"
+#   "d__Bacteria; p__Bacillota_A_1"                  ->  "Bacillota_A_1"
 last_taxon_name <- function(label) {
   vapply(strsplit(as.character(label), ";\\s*"), function(parts) {
     sub("^[dpcogfs]__\\s*", "", tail(parts, 1))
   }, character(1))
 }
 
+# Parent phylum ("p__..." segment) from a collapsed label, or NA if missing.
 extract_parent_phylum <- function(label) {
   vapply(as.character(label), function(x) {
     m <- regmatches(x, regexpr("p__[^;]+", x))
@@ -115,12 +190,19 @@ extract_parent_phylum <- function(label) {
   }, character(1))
 }
 
+# Metadata column resolution: always prefer the *_cleaned / *_cleaned_group
+# column; fall back to the raw column only when no clean variant exists in the
+# given metadata table. Returns the name to use (the preferred name even when
+# both are absent, so callers keep failing loudly in that case).
 pick_meta_col <- function(md, preferred, fallback = NULL) {
   if (preferred %in% names(md)) return(preferred)
   if (!is.null(fallback) && fallback %in% names(md)) return(fallback)
   preferred
 }
 
+# Read a collapsed relative-abundance table (top line starts with '#') and
+# return a long data.table: Taxon, sample_id, Abundance, parent_phylum,
+# Taxon_final.
 read_collapsed_rel_table <- function(file) {
   dt <- data.table::fread(file, header = TRUE, sep = "\t", skip = 1)
   sample_cols <- setdiff(names(dt), names(dt)[1])
@@ -134,6 +216,12 @@ read_collapsed_rel_table <- function(file) {
   long
 }
 
+# Fast, melt-free prevalence for a collapsed relative-abundance table.
+# Prevalence of a taxon is a pure row statistic (fraction of samples with
+# abundance > 0), so this avoids melting over the ~80k sample columns, which is
+# the dominant cost of the long-format approach for the class/order tables.
+# Averaging over taxa that collapse to the same (parent, final) name matches
+# the melt-based aggregation exactly.
 prevalence_collapsed_table <- function(file) {
   dt <- data.table::fread(file, header = TRUE, sep = "\t", skip = 1)
   sample_cols <- setdiff(names(dt), names(dt)[1])
@@ -147,18 +235,22 @@ prevalence_collapsed_table <- function(file) {
   out[, .(Count = mean(Count)), by = .(parent_phylum, Taxon_final)]
 }
 
+# Global top-n phyla by summed relative abundance across all samples.
 global_top_phyla <- function(long_dt, n = 9) {
   tot <- long_dt[, .(Total = sum(Abundance, na.rm = TRUE)), by = parent_phylum]
   tot <- tot[!is.na(parent_phylum) & parent_phylum != ""][order(-Total)]
   as.character(head(tot$parent_phylum, n))
 }
 
+# Named color vector: one color per top phylum (by rank), plus "Other" grey.
 phylum_color_map <- function(top_phyla) {
   pal <- rep(core_palette, length.out = length(top_phyla))
   c(setNames(pal, top_phyla), Other = other_color)
 }
 
-# Panel A : pipeline funnel
+# ============================================================================
+# Panel A : pipeline funnel (merged from pipeline_two_stage_funnel.R)
+# ============================================================================
 render_panel_A_funnel <- function(out_dir) {
   if (!is.null(err <- load_libs(c("ggplot2", "ggforce"), AUTO_INSTALL))) return(err)
 
@@ -174,6 +266,8 @@ render_panel_A_funnel <- function(out_dir) {
   txt_detail  <- "#6B6B6B"
   txt_excl    <- "#B75D69"
 
+  # Master font scale for panel A text (A_TXT inside step nodes, A_TXT_SUB for
+  # zone titles / side bullets).
   A_TXT     <- as.numeric(Sys.getenv("FIG1_A_TXT_SCALE",     unset = "1.40"))
   A_TXT_SUB <- as.numeric(Sys.getenv("FIG1_A_TXT_SCALE_SUB", unset = "1.25"))
 
@@ -188,9 +282,10 @@ render_panel_A_funnel <- function(out_dir) {
   arrowhead_down <- function(cx, cy, a = 3.2, b = 1.9)
     data.frame(x = c(cx - b, cx + b, cx), y = c(cy, cy, cy - a))
 
+  # Canvas & zones (x domain widened so the enlarged text fits inside its boxes)
   zones <- data.frame(
     name = c("1 . Sample retrieval from NCBI SRA", "2 . Metadata harmonization",
-             "3 . Filtering and sequencing-data linkage", "4 . Final dataset"),
+             "3 . Filtering and sequencing-data linkage", "4 . Deduplicated resource"),
     xmin = c(-40, 63, -40, -40), xmax = c(63, 160, 160, 160),
     ymin = c(82, 82, 17, -20), ymax = c(127.5, 127.5, 80, 15),
     key  = c("blue", "orange", "yellow", "green")
@@ -204,6 +299,7 @@ render_panel_A_funnel <- function(out_dir) {
             zones$xmax[i] - zones$xmin[i], zones$ymax[i] - zones$ymin[i], paste0("z", i))))
   zones_poly$fill <- rep(zones$fill, each = 4)
 
+  # Top modules (parallel tasks)
   bullet <- data.frame(
     x = c(rep(6.5, 4), rep(94.0, 4)),
     y = c(121, 118, 115, 112)
@@ -247,6 +343,7 @@ render_panel_A_funnel <- function(out_dir) {
   merge_head <- arrowhead_down(60, 73.0, a = 2.2, b = 1.3)
   merge_dot  <- data.frame(x = c(11.5, 111), y = c(80, 80))
 
+  # Funnel nodes
   step_pill <- data.frame(
     id = paste0("s", 1:4),
     cx = rep(60, 4), cy = c(64, 44, 24, -3),
@@ -277,7 +374,7 @@ render_panel_A_funnel <- function(out_dir) {
     data.frame(x = 60, y = -3 + c(14.375, 9.75, 5.125, 0.5, -5.125, -9.75, -14.375),
                label = c("51,186 samples", "after Step 7 · Deduplication",
                          "Excluded: >1 sample per subject × site",
-                         "−29,602 samples", "final curated dataset · 288 studies",
+                         "−29,602 samples", "deduplicated resource · 288 studies",
                          "42,224 subjects · 61,235 features",
                          "47 countries · 7 oral site categories"),
                size = c(5.2, 4.2, 3.8, 3.8, 4.2, 3.8, 3.8),
@@ -287,11 +384,14 @@ render_panel_A_funnel <- function(out_dir) {
 
   final_div <- data.frame(x = 36, y = -5.25, xend = 84, yend = -5.25)
 
+  # Apply the text-scale factor to the in-panel text (headlines/captions/notes)
   top_txt$size   <- top_txt$size  * A_TXT
   step_line$size <- step_line$size * A_TXT
   step_arrow <- data.frame(x = rep(60, 3), y = c(55.25, 35.25, 15.25),
                            xend = rep(60, 3), yend = c(52.75, 32.75, 14.20))
 
+  # Left-align zone bullets with the "." of each "N . Title" step label,
+  # measured at render time so the offset adapts to device/fonts.
   zone_font_pt <- 4.0 * A_TXT_SUB * ggplot2::.pt
   grid::pushViewport(grid::viewport(gp = grid::gpar(fontsize = zone_font_pt, fontface = "bold")))
   pref_blue_mm   <- as.numeric(grid::convertWidth(grid::stringWidth("1 "), "mm", valueOnly = TRUE))
@@ -346,7 +446,9 @@ render_panel_A_funnel <- function(out_dir) {
   invisible(NULL)
 }
 
-# Panel B : rarefaction curves
+# ============================================================================
+# Panel B : rarefaction curves (merged from rarefaction_curve_plot.R)
+# ============================================================================
 render_panel_B_rarefaction <- function(out_dir) {
   if (!is.null(err <- load_libs(c("tidyverse", "mgcv", "scales"), AUTO_INSTALL))) return(err)
   if (!file.exists(rare_file))
@@ -406,7 +508,10 @@ render_panel_B_rarefaction <- function(out_dir) {
   invisible(NULL)
 }
 
-# Panel B : sequencing-depth histogram
+# ============================================================================
+# Panel B : sequencing-depth histogram (new; 80,788-sample metadata)
+#   x = merged reads per sample on a log10 axis, dashed line = median
+# ============================================================================
 render_panel_depth <- function(out_dir) {
   if (!is.null(err <- load_libs(c("tidyverse", "scales"), AUTO_INSTALL))) return(err)
   if (!file.exists(metadata_path))
@@ -442,7 +547,9 @@ render_panel_depth <- function(out_dir) {
   invisible(NULL)
 }
 
+# ============================================================================
 # Panel F : alpha diversity (Shannon index) histogram
+# ============================================================================
 render_panel_shannon <- function(out_dir) {
   if (!is.null(err <- load_libs(c("tidyverse", "scales"), AUTO_INSTALL))) return(err)
   if (!file.exists(metadata_path))
@@ -475,7 +582,10 @@ render_panel_shannon <- function(out_dir) {
   invisible(NULL)
 }
 
+# ============================================================================
 # Panel E : top-5 phylum relative-abundance density (pseudo-log y axis)
+#   five coloured curves = global top-5 phyla, grey line = all other phyla
+# ============================================================================
 render_panel_density <- function(out_dir) {
   if (!is.null(err <- load_libs(c("tidyverse", "data.table"), AUTO_INSTALL))) return(err)
   if (!file.exists(abund_file))
@@ -500,6 +610,9 @@ render_panel_density <- function(out_dir) {
   dens_colors <- c(setNames(colmap[top5], top5), "Others" = "#9E9E9E")
 
   p <- ggplot(dens_data, aes(x = Abundance, color = Group)) +
+    # key_glyph = "path" overrides ggplot2 4.x's default hollow-rectangle key
+    # (GeomDensity inherits GeomArea/GeomRibbon) so each phylum is drawn as a
+    # coloured line segment in the legend.
     geom_density(linewidth = 0.9, key_glyph = "path") +
     scale_x_continuous(labels = scales::label_percent(accuracy = 1),
                        limits = c(0, 1), expand = expansion(mult = c(0.02, 0.02))) +
@@ -523,7 +636,16 @@ render_panel_density <- function(out_dir) {
   invisible(NULL)
 }
 
+# ============================================================================
 # Panel D : core-taxa prevalence, phylum / class / order
+#   Three independent horizontal-bar plots (one per level) stitched side by
+#   side with patchwork. Bars are sorted by descending sample count (longest at
+#   the top). Only the top-5 phyla get bright colours; every other phylum is
+#   grey. Class and order bars inherit the colour of their parent phylum, so
+#   the reader can see at a glance which phylum each class/order belongs to.
+#   Taxon names are drawn inside the bars; bars carry a thin outline, the panel
+#   background is warm white with vertical-only gridlines and a solid frame.
+# ============================================================================
 render_panel_prevalence <- function(out_dir) {
   if (!is.null(err <- load_libs(c("tidyverse", "data.table", "patchwork"),
                                 AUTO_INSTALL))) return(err)
@@ -543,6 +665,8 @@ render_panel_prevalence <- function(out_dir) {
     warning("order relative table not found; Order panel skipped: ", order_file)
   }
 
+  # Top-9 phyla by total relative abundance, computed row-wise (no melt).
+  # Only the top-5 get bright colours; the 6th-10th phyla are grey.
   phy_tab <- data.table::fread(abund_file, header = TRUE, sep = "\t", skip = 1)
   sample_cols_phy <- setdiff(names(phy_tab), names(phy_tab)[1])
   data.table::setnames(phy_tab, names(phy_tab)[1], "Taxon")
@@ -567,8 +691,12 @@ render_panel_prevalence <- function(out_dir) {
 
   if (nrow(prev_tabs) == 0) return("no prevalence data after cleaning")
 
+  # Colour by parent phylum: top-5 phyla get their panel colour, everything
+  # else (6th-10th phyla and all non-top-5 classes/orders) is grey.
   prev_tabs[, ColorKey := ifelse(parent_phylum %in% top5, parent_phylum, "Other")]
   prev_tabs[, ColorKey := factor(ColorKey, levels = c(top5, "Other"))]
+  # Taxon names sit inside the bars: white on the bright phylum colours, dark
+  # grey on the light "Other" bars.
   prev_tabs[, TextColor := ifelse(ColorKey == "Other", "#303030", "white")]
 
   level_levels <- c("Phylum", "Class", "Order")[c("Phylum", "Class", "Order") %in%
@@ -576,6 +704,8 @@ render_panel_prevalence <- function(out_dir) {
 
   make_plot <- function(lvl) {
     sub <- prev_tabs[Level == lvl]
+    # Longest bar at the top: on a discrete y-axis ggplot2 draws the FIRST level
+    # at the bottom and the LAST at the top, so levels run shortest -> longest.
     sub[, Taxon_final := factor(Taxon_final,
                                 levels = sub$Taxon_final[order(sub$Count)])]
     ggplot(sub, aes(x = Count, y = Taxon_final, fill = ColorKey)) +
@@ -619,6 +749,11 @@ render_panel_prevalence <- function(out_dir) {
   }
 
   plots <- lapply(level_levels, make_plot)
+  # guides="collect" without an outer override lets the assembled patchwork
+  # inherit theme_classic()'s default legend.position="right", which pushes the
+  # collected legend into its own right-hand column and squeezes the three
+  # panels into ~2/3 of the canvas. The `&` operator forces the assembly-level
+  # theme so the single shared legend sits on top and the panels fill the width.
   combined <- (patchwork::wrap_plots(plots, ncol = length(level_levels),
                                      guides = "collect")) &
     theme(legend.position = "top")
@@ -631,7 +766,9 @@ render_panel_prevalence <- function(out_dir) {
   invisible(NULL)
 }
 
-# Panel C : global sampling world map
+# ============================================================================
+# Panel C : global sampling world map (merged from global_sampling_world_map_enhanced.R)
+# ============================================================================
 render_panel_C_world_map <- function(out_dir) {
   if (!is.null(err <- load_libs(c("tidyverse", "sf", "countrycode", "rnaturalearth",
                                   "rnaturalearthdata", "ggrepel", "scales",
@@ -641,6 +778,7 @@ render_panel_C_world_map <- function(out_dir) {
 
   sf_use_s2(FALSE)
 
+  # base_sz = master font-size knob for panel C.
   base_sz  <- as.numeric(Sys.getenv("FIG1_C_BASE_SZ", unset = "22"))
   text_sz  <- base_sz / .pt
 
@@ -674,6 +812,8 @@ render_panel_C_world_map <- function(out_dir) {
     "Others"      = "#117733"
   )
 
+  # Read and clean metadata. Always prefer the *_cleaned columns; fall back to
+  # the raw columns only when no clean variant exists in this metadata file.
   md_raw <- read_tsv(metadata_path, show_col_types = FALSE)
   col_site    <- pick_meta_col(md_raw, "site_cleaned",    "site")
   col_country <- pick_meta_col(md_raw, "country_cleaned", "country")
@@ -722,6 +862,7 @@ render_panel_C_world_map <- function(out_dir) {
     filter(!Continent %in% c("Other", "Antarctica")) %>%
     mutate(Continent = factor(Continent, levels = continent_order))
 
+  # Continent-level summary
   continent_summary <- meta_clean %>%
     group_by(Continent) %>%
     summarise(
@@ -751,6 +892,7 @@ render_panel_C_world_map <- function(out_dir) {
       )
     )
 
+  # Absolute safe-zone coordinates for country info boxes
   continent_coords <- data.frame(
     Continent = c("NAM", "SA", "EU", "AS", "AF", "OA"),
     lon_pie   = c(-175, -135,  -40,  145,   -40,   75),
@@ -766,6 +908,7 @@ render_panel_C_world_map <- function(out_dir) {
       )
     )
 
+  # Country-level summary (BioProject count per country, for gray points)
   country_summary <- meta_clean %>%
     group_by(Country_Cleaned, Continent) %>%
     summarise(
@@ -795,6 +938,7 @@ render_panel_C_world_map <- function(out_dir) {
     ) %>%
     select(-Temp_Continent)
 
+  # Randomly distributed gray points: one per BioProject within each country
   set.seed(42)
   bp_points <- lapply(seq_len(nrow(country_summary)), function(i) {
     cs <- country_summary[i, ]
@@ -820,6 +964,7 @@ render_panel_C_world_map <- function(out_dir) {
   }) %>%
     bind_rows()
 
+  # Pie charts per continent as grobs
   site_continent_data <- meta_clean %>%
     filter(!is.na(Site_Cleaned)) %>%
     count(Continent, Site_Cleaned) %>%
@@ -852,6 +997,7 @@ render_panel_C_world_map <- function(out_dir) {
     )
   })
 
+  # Core map rendering
   p_map_base <- ggplot() +
     geom_sf(data = world_sf, aes(fill = Continent), color = "#D5D0C5", linewidth = 0.3) +
     scale_fill_manual(values = scales::alpha(continent_colors, 0.6),
@@ -882,6 +1028,7 @@ render_panel_C_world_map <- function(out_dir) {
     coord_sf(xlim = c(-180, 180), ylim = c(-55, 75), expand = FALSE, clip = "off") +
     theme_map
 
+  # Transparent legend
   p_site_legend <- ggplot(data.frame(Site = factor(site_cols_ordered, levels = site_cols_ordered)),
                           aes(x = 1, y = 1, fill = Site)) +
     geom_point(shape = 21, size = 0, color = NA, stroke = 0) +
@@ -904,6 +1051,7 @@ render_panel_C_world_map <- function(out_dir) {
       plot.margin = margin(0, 0, 0, 0)
     )
 
+  # Composite map
   p_final_map <- p_map_base +
     inset_element(
       p_site_legend,
@@ -922,12 +1070,17 @@ render_panel_C_world_map <- function(out_dir) {
   invisible(NULL)
 }
 
+# ============================================================================
 # Panel D : phylum-level relative abundance, stacked bars by continent x site
+#   (merged from backup/Figure1_composite_v2.R, "Panel c")
+#   X = continent (NA/SA/EU/AS/AF/OA), faceted by site, fill = top-9 phyla + Others
+# ============================================================================
 render_panel_D_phylum_continent <- function(out_dir) {
   if (!is.null(err <- load_libs(c("tidyverse", "data.table"), AUTO_INSTALL))) return(err)
   if (!file.exists(abund_file) || !file.exists(metadata_path))
     return(sprintf("inputs not found (need %s and %s)", abund_file, metadata_path))
 
+  # base_sz = master font-size knob for panel D.
   base_sz <- as.numeric(Sys.getenv("FIG1_D_BASE_SZ", unset = "26"))
 
   metadata_raw <- readr::read_tsv(metadata_path, show_col_types = FALSE)
@@ -956,6 +1109,8 @@ render_panel_D_phylum_continent <- function(out_dir) {
                          continent_group != "NA"]
   merged_dt[, site_cleaned    := tolower(trimws(as.character(site_cleaned)))]
   merged_dt[, continent_group := trimws(as.character(continent_group))]
+  # Show every oral site category present (ordered by sample count); the
+  # "Other"/unclassified category is left out of the figure.
   merged_dt <- merged_dt[!(site_cleaned %in% c("other", "others", "other",
                                                "others (specify)", "other (specify)"))]
   merged_dt <- merged_dt[continent_group %in% target_continents]
@@ -965,6 +1120,7 @@ render_panel_D_phylum_continent <- function(out_dir) {
   merged_dt[, site_display := site_label_map[site_cleaned]]
   merged_dt[, site_display := factor(site_display, levels = site_labels)]
 
+  # One shared global-top-9 / color map for every phylum-colored panel.
   rel_long[, parent_phylum := Phylum_clean]
   global_top9    <- global_top_phyla(rel_long, 9)
   unified_colors <- phylum_color_map(global_top9)
@@ -975,6 +1131,8 @@ render_panel_D_phylum_continent <- function(out_dir) {
   plot_data[, Mean_Abundance := Mean_Abundance / sum(Mean_Abundance),
             by = .(site_display, continent_group)]
 
+  # Within each site facet, order continents so the dominant phylum decreases from
+  # left to right; the dominant phylum is drawn at the bar bottom.
   dominant_phylum <- global_top9[1]
   combined_levels <- character(0)
   for (s in site_labels) {
@@ -998,6 +1156,9 @@ render_panel_D_phylum_continent <- function(out_dir) {
   }
 
   other_phyla     <- setdiff(global_top9, dominant_phylum)
+  # Stack order: "Other" at the very top, remaining phyla in descending
+  # abundance, dominant phylum at the bar bottom. ggplot2 draws the FIRST factor
+  # level at the TOP of a stacked bar, so levels are listed top-to-bottom.
   stack_order     <- c("Other", rev(other_phyla), dominant_phylum)
   plot_data[, Phylum_group := factor(Phylum_group, levels = stack_order)]
 
@@ -1040,6 +1201,7 @@ render_panel_D_phylum_continent <- function(out_dir) {
   invisible(NULL)
 }
 
+# ============================================================================
 # Panel E (supplementary) : phylum-level relative abundance, stacked bars by
 #   age group x site. Shares the global top-9 and color map with the other
 #   phylum-colored panels (D, E and the phylum x continent supp panel).
@@ -1049,6 +1211,7 @@ render_panel_E_phylum_age <- function(out_dir) {
   if (!file.exists(abund_file) || !file.exists(metadata_path))
     return(sprintf("inputs not found (need %s and %s)", abund_file, metadata_path))
 
+  # base_sz = master font-size knob for panel E (aligned with panel D).
   base_sz <- as.numeric(Sys.getenv("FIG1_E_BASE_SZ", unset = "26"))
 
   rel <- data.table::fread(abund_file, header = TRUE, sep = "\t", skip = 1)
@@ -1081,6 +1244,8 @@ render_panel_E_phylum_age <- function(out_dir) {
   merged <- merged[!is.na(age_cleaned_group) & age_cleaned_group != ""]
   merged[, site_cleaned := tolower(trimws(as.character(site_cleaned)))]
   merged[, age_cleaned_group := gsub("＞", ">", age_cleaned_group)]
+  # Show every oral site category present (ordered by sample count); the
+  # "Other"/unclassified category is left out of the figure.
   merged <- merged[!(site_cleaned %in% c("other", "others", "other",
                                          "others (specify)", "other (specify)"))]
   merged <- merged[age_cleaned_group %in% age_order]
@@ -1105,6 +1270,9 @@ render_panel_E_phylum_age <- function(out_dir) {
 
   dominant_phylum <- global_top9[1]
   other_phyla     <- setdiff(global_top9, dominant_phylum)
+  # Stack order: "Other" at the very top, remaining phyla in descending
+  # abundance, dominant phylum at the bar bottom (matching the continent panel).
+  # ggplot2 draws the FIRST factor level at the TOP of a stacked bar.
   stack_order     <- c("Other", rev(other_phyla), dominant_phylum)
   plot_data[, Phylum_group := factor(Phylum_group, levels = stack_order)]
 
@@ -1146,6 +1314,9 @@ render_panel_E_phylum_age <- function(out_dir) {
   invisible(NULL)
 }
 
+# ============================================================================
+# Main
+# ============================================================================
 render_all_panels <- function() {
   if (!dir.exists(PANEL_DIR)) dir.create(PANEL_DIR, recursive = TRUE)
   jobs <- list(
@@ -1163,6 +1334,8 @@ render_all_panels <- function() {
   for (k in names(jobs)) {
     j <- jobs[[k]]
     cat("== rendering panel", k, "-", j$name, "... ")
+    # quiet suppresses the harmless sf "planar"/countrycode/geom_point
+    # warnings of the map panel (errors still surface via tryCatch).
     run <- function() {
       if (isTRUE(j$quiet)) suppressMessages(suppressWarnings(j$fn(PANEL_DIR)))
       else j$fn(PANEL_DIR)

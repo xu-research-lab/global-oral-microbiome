@@ -1,0 +1,38 @@
+2026-07-23 17:01:45,287 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Using device: cuda
+2026-07-23 17:01:45,752 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 17:01:45,752 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Loading datasets...
+2026-07-23 17:01:47,499 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Datasets loaded. Train samples: 21, Val samples: 3, Test samples: 26
+2026-07-23 17:01:47,499 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Number of nodes: 619
+2026-07-23 17:01:47,499 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Detected input node feature dimension: 32
+2026-07-23 17:01:53,517 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Model initialized. Trainable parameters: 225,073
+2026-07-23 17:01:53,517 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Starting training for fold tongue_Periodontal_Disease_PRJNA1154284...
+2026-07-23 17:01:57,045 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 001 | Train Loss: 0.6948 AUC: 0.4182 | Val Loss: 0.8346 AUC: 0.0000 | Test AUC: 0.5972
+2026-07-23 17:02:00,073 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 002 | Train Loss: 0.6935 AUC: 0.4909 | Val Loss: 0.7479 AUC: 0.0000 | Test AUC: 0.5972
+2026-07-23 17:02:02,991 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 003 | Train Loss: 0.6917 AUC: 0.7000 | Val Loss: 0.7211 AUC: 0.0000 | Test AUC: 0.6319
+2026-07-23 17:02:06,031 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 004 | Train Loss: 0.6909 AUC: 0.7273 | Val Loss: 0.7068 AUC: 0.0000 | Test AUC: 0.7292
+2026-07-23 17:02:08,879 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 005 | Train Loss: 0.6900 AUC: 0.8182 | Val Loss: 0.6943 AUC: 0.0000 | Test AUC: 0.7778
+2026-07-23 17:02:12,038 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 006 | Train Loss: 0.6923 AUC: 0.5364 | Val Loss: 0.6873 AUC: 0.0000 | Test AUC: 0.7708
+2026-07-23 17:02:15,249 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 007 | Train Loss: 0.6897 AUC: 0.6273 | Val Loss: 0.6837 AUC: 0.0000 | Test AUC: 0.7500
+2026-07-23 17:02:18,227 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 008 | Train Loss: 0.6899 AUC: 0.6273 | Val Loss: 0.6807 AUC: 0.0000 | Test AUC: 0.7292
+2026-07-23 17:02:21,315 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 009 | Train Loss: 0.6871 AUC: 0.6636 | Val Loss: 0.6775 AUC: 0.0000 | Test AUC: 0.7014
+2026-07-23 17:02:24,319 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 010 | Train Loss: 0.6864 AUC: 0.6545 | Val Loss: 0.6717 AUC: 0.0000 | Test AUC: 0.6875
+2026-07-23 17:02:27,280 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 011 | Train Loss: 0.6863 AUC: 0.6909 | Val Loss: 0.6662 AUC: 0.0000 | Test AUC: 0.6458
+2026-07-23 17:02:30,169 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 012 | Train Loss: 0.6851 AUC: 0.6818 | Val Loss: 0.6605 AUC: 0.5000 | Test AUC: 0.6458
+2026-07-23 17:02:32,956 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 013 | Train Loss: 0.6822 AUC: 0.6818 | Val Loss: 0.6568 AUC: 0.5000 | Test AUC: 0.6458
+2026-07-23 17:02:35,842 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 014 | Train Loss: 0.6810 AUC: 0.7000 | Val Loss: 0.6525 AUC: 0.5000 | Test AUC: 0.6597
+2026-07-23 17:02:38,881 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 015 | Train Loss: 0.6754 AUC: 0.7455 | Val Loss: 0.6487 AUC: 0.5000 | Test AUC: 0.6597
+2026-07-23 17:02:42,029 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 016 | Train Loss: 0.6752 AUC: 0.6909 | Val Loss: 0.6474 AUC: 0.5000 | Test AUC: 0.6667
+2026-07-23 17:02:44,900 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 017 | Train Loss: 0.6718 AUC: 0.7182 | Val Loss: 0.6485 AUC: 0.0000 | Test AUC: 0.6736
+2026-07-23 17:02:47,576 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 018 | Train Loss: 0.6694 AUC: 0.7364 | Val Loss: 0.6476 AUC: 0.0000 | Test AUC: 0.6736
+2026-07-23 17:02:50,572 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 019 | Train Loss: 0.6673 AUC: 0.7545 | Val Loss: 0.6460 AUC: 0.0000 | Test AUC: 0.6736
+2026-07-23 17:02:53,433 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 020 | Train Loss: 0.6659 AUC: 0.7455 | Val Loss: 0.6461 AUC: 0.0000 | Test AUC: 0.6806
+2026-07-23 17:02:56,438 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 021 | Train Loss: 0.6633 AUC: 0.7364 | Val Loss: 0.6478 AUC: 0.0000 | Test AUC: 0.6806
+2026-07-23 17:02:59,435 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 022 | Train Loss: 0.6577 AUC: 0.7455 | Val Loss: 0.6493 AUC: 0.0000 | Test AUC: 0.6736
+2026-07-23 17:03:02,509 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 023 | Train Loss: 0.6495 AUC: 0.7818 | Val Loss: 0.6513 AUC: 0.0000 | Test AUC: 0.6944
+2026-07-23 17:03:05,496 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Epoch 024 | Train Loss: 0.6458 AUC: 0.7818 | Val Loss: 0.6542 AUC: 0.0000 | Test AUC: 0.7014
+2026-07-23 17:03:05,496 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Early stopping triggered at epoch 24: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 17:03:05,496 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Training for fold tongue_Periodontal_Disease_PRJNA1154284 finished. Best Val Loss: 0.6460
+2026-07-23 17:03:06,191 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Metrics plot saved to ./result/metrics_plot_tongue_Periodontal_Disease_PRJNA1154284.png
+2026-07-23 17:03:06,191 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Loading best model from ./result/tongue_Periodontal_Disease_PRJNA1154284_test_model.pt for final prediction...
+2026-07-23 17:03:07,290 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Saving binary classification predictions to ./result/predictions_tongue_Periodontal_Disease_PRJNA1154284.csv
+2026-07-23 17:03:07,300 - TrainFoldtongue_Periodontal_Disease_PRJNA1154284 - INFO - Predictions saved successfully.

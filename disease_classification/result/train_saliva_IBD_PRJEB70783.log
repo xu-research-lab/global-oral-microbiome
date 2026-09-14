@@ -1,0 +1,20 @@
+2026-07-23 16:20:28,751 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Using device: cuda
+2026-07-23 16:20:29,233 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:20:29,233 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Loading datasets...
+2026-07-23 16:21:38,720 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Datasets loaded. Train samples: 18, Val samples: 3, Test samples: 1658
+2026-07-23 16:21:38,721 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Number of nodes: 2171
+2026-07-23 16:21:38,721 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:21:45,083 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Model initialized. Trainable parameters: 274,737
+2026-07-23 16:21:45,084 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Starting training for fold saliva_IBD_PRJEB70783...
+2026-07-23 16:21:50,645 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Epoch 001 | Train Loss: 0.6940 AUC: 0.5432 | Val Loss: 0.6724 AUC: 1.0000 | Test AUC: 0.5061
+2026-07-23 16:21:55,684 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Epoch 002 | Train Loss: 0.6951 AUC: 0.3827 | Val Loss: 0.6850 AUC: 1.0000 | Test AUC: 0.5194
+2026-07-23 16:22:00,777 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Epoch 003 | Train Loss: 0.6936 AUC: 0.5802 | Val Loss: 0.6929 AUC: 1.0000 | Test AUC: 0.5520
+2026-07-23 16:22:05,286 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Epoch 004 | Train Loss: 0.6927 AUC: 0.6420 | Val Loss: 0.6952 AUC: 1.0000 | Test AUC: 0.5418
+2026-07-23 16:22:10,279 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Epoch 005 | Train Loss: 0.6926 AUC: 0.6296 | Val Loss: 0.6972 AUC: 1.0000 | Test AUC: 0.5173
+2026-07-23 16:22:14,838 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Epoch 006 | Train Loss: 0.6944 AUC: 0.3580 | Val Loss: 0.6986 AUC: 1.0000 | Test AUC: 0.5340
+2026-07-23 16:22:14,839 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Early stopping triggered at epoch 6: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:22:14,839 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Training for fold saliva_IBD_PRJEB70783 finished. Best Val Loss: 0.6724
+2026-07-23 16:22:15,552 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_IBD_PRJEB70783.png
+2026-07-23 16:22:15,552 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Loading best model from ./result/saliva_IBD_PRJEB70783_test_model.pt for final prediction...
+2026-07-23 16:22:18,203 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Saving binary classification predictions to ./result/predictions_saliva_IBD_PRJEB70783.csv
+2026-07-23 16:22:18,287 - TrainFoldsaliva_IBD_PRJEB70783 - INFO - Predictions saved successfully.

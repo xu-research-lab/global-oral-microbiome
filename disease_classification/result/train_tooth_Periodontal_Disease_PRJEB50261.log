@@ -1,0 +1,22 @@
+2026-07-23 16:46:45,502 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Using device: cuda
+2026-07-23 16:46:45,942 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:46:45,942 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Loading datasets...
+2026-07-23 16:47:16,997 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Datasets loaded. Train samples: 169, Val samples: 19, Test samples: 786
+2026-07-23 16:47:16,997 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Number of nodes: 1671
+2026-07-23 16:47:16,997 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:47:23,341 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Model initialized. Trainable parameters: 258,737
+2026-07-23 16:47:23,341 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Starting training for fold tooth_Periodontal_Disease_PRJEB50261...
+2026-07-23 16:47:28,222 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Epoch 001 | Train Loss: 0.6927 AUC: 0.4491 | Val Loss: 0.6920 AUC: 0.9432 | Test AUC: 0.6042
+2026-07-23 16:47:32,431 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Epoch 002 | Train Loss: 0.6900 AUC: 0.5567 | Val Loss: 0.6818 AUC: 0.9432 | Test AUC: 0.6161
+2026-07-23 16:47:36,675 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Epoch 003 | Train Loss: 0.6889 AUC: 0.5735 | Val Loss: 0.6756 AUC: 0.8523 | Test AUC: 0.6637
+2026-07-23 16:47:40,632 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Epoch 004 | Train Loss: 0.6865 AUC: 0.6062 | Val Loss: 0.6789 AUC: 0.9205 | Test AUC: 0.6666
+2026-07-23 16:47:44,910 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Epoch 005 | Train Loss: 0.6846 AUC: 0.6254 | Val Loss: 0.6963 AUC: 0.8977 | Test AUC: 0.5596
+2026-07-23 16:47:48,931 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Epoch 006 | Train Loss: 0.6804 AUC: 0.6582 | Val Loss: 0.7023 AUC: 0.8750 | Test AUC: 0.5518
+2026-07-23 16:47:53,141 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Epoch 007 | Train Loss: 0.6740 AUC: 0.6845 | Val Loss: 0.7132 AUC: 0.7841 | Test AUC: 0.5412
+2026-07-23 16:47:57,076 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Epoch 008 | Train Loss: 0.6693 AUC: 0.6759 | Val Loss: 0.7065 AUC: 0.8068 | Test AUC: 0.5527
+2026-07-23 16:47:57,076 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Early stopping triggered at epoch 8: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:47:57,076 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Training for fold tooth_Periodontal_Disease_PRJEB50261 finished. Best Val Loss: 0.6756
+2026-07-23 16:47:57,743 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Metrics plot saved to ./result/metrics_plot_tooth_Periodontal_Disease_PRJEB50261.png
+2026-07-23 16:47:57,744 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Loading best model from ./result/tooth_Periodontal_Disease_PRJEB50261_test_model.pt for final prediction...
+2026-07-23 16:47:59,697 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Saving binary classification predictions to ./result/predictions_tooth_Periodontal_Disease_PRJEB50261.csv
+2026-07-23 16:47:59,704 - TrainFoldtooth_Periodontal_Disease_PRJEB50261 - INFO - Predictions saved successfully.

@@ -1,0 +1,28 @@
+2026-07-23 15:19:43,098 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Using device: cuda
+2026-07-23 15:19:43,517 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:19:43,517 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Loading datasets...
+2026-07-23 15:19:48,642 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Datasets loaded. Train samples: 123, Val samples: 14, Test samples: 49
+2026-07-23 15:19:48,642 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Number of nodes: 1145
+2026-07-23 15:19:48,642 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:19:52,228 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Model initialized. Trainable parameters: 241,905
+2026-07-23 15:19:52,229 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Starting training for fold saliva_Obesity_PRJEB15057...
+2026-07-23 15:19:55,390 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 001 | Train Loss: 0.6864 AUC: 0.4082 | Val Loss: 0.6876 AUC: 0.3958 | Test AUC: 0.5717
+2026-07-23 15:19:58,376 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 002 | Train Loss: 0.6850 AUC: 0.4444 | Val Loss: 0.6837 AUC: 0.4167 | Test AUC: 0.7100
+2026-07-23 15:20:01,406 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 003 | Train Loss: 0.6832 AUC: 0.5370 | Val Loss: 0.6834 AUC: 0.3958 | Test AUC: 0.7367
+2026-07-23 15:20:04,393 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 004 | Train Loss: 0.6824 AUC: 0.5347 | Val Loss: 0.6829 AUC: 0.4583 | Test AUC: 0.7250
+2026-07-23 15:20:07,280 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 005 | Train Loss: 0.6818 AUC: 0.5283 | Val Loss: 0.6820 AUC: 0.5208 | Test AUC: 0.7500
+2026-07-23 15:20:09,996 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 006 | Train Loss: 0.6810 AUC: 0.5272 | Val Loss: 0.6824 AUC: 0.3750 | Test AUC: 0.7383
+2026-07-23 15:20:12,847 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 007 | Train Loss: 0.6801 AUC: 0.5515 | Val Loss: 0.6822 AUC: 0.3542 | Test AUC: 0.7500
+2026-07-23 15:20:15,504 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 008 | Train Loss: 0.6788 AUC: 0.5692 | Val Loss: 0.6820 AUC: 0.4167 | Test AUC: 0.7483
+2026-07-23 15:20:18,187 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 009 | Train Loss: 0.6791 AUC: 0.5103 | Val Loss: 0.6818 AUC: 0.3958 | Test AUC: 0.7567
+2026-07-23 15:20:20,899 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 010 | Train Loss: 0.6790 AUC: 0.5237 | Val Loss: 0.6821 AUC: 0.3750 | Test AUC: 0.7483
+2026-07-23 15:20:23,756 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 011 | Train Loss: 0.6776 AUC: 0.5417 | Val Loss: 0.6842 AUC: 0.3958 | Test AUC: 0.7483
+2026-07-23 15:20:26,491 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 012 | Train Loss: 0.6771 AUC: 0.5447 | Val Loss: 0.6878 AUC: 0.3958 | Test AUC: 0.7300
+2026-07-23 15:20:29,087 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 013 | Train Loss: 0.6755 AUC: 0.5901 | Val Loss: 0.6858 AUC: 0.4167 | Test AUC: 0.6517
+2026-07-23 15:20:32,188 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Epoch 014 | Train Loss: 0.6744 AUC: 0.6013 | Val Loss: 0.6947 AUC: 0.3750 | Test AUC: 0.7150
+2026-07-23 15:20:32,188 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Early stopping triggered at epoch 14: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:20:32,188 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Training for fold saliva_Obesity_PRJEB15057 finished. Best Val Loss: 0.6818
+2026-07-23 15:20:32,990 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Obesity_PRJEB15057.png
+2026-07-23 15:20:32,990 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Loading best model from ./result/saliva_Obesity_PRJEB15057_test_model.pt for final prediction...
+2026-07-23 15:20:33,805 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Obesity_PRJEB15057.csv
+2026-07-23 15:20:33,809 - TrainFoldsaliva_Obesity_PRJEB15057 - INFO - Predictions saved successfully.

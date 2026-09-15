@@ -1,0 +1,20 @@
+2026-07-23 16:55:45,728 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Using device: cuda
+2026-07-23 16:55:46,185 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:55:46,185 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Loading datasets...
+2026-07-23 16:56:02,912 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Datasets loaded. Train samples: 575, Val samples: 64, Test samples: 89
+2026-07-23 16:56:02,913 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Number of nodes: 1165
+2026-07-23 16:56:02,913 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:56:07,917 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Model initialized. Trainable parameters: 242,545
+2026-07-23 16:56:07,932 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Starting training for fold tooth_Dental_Caries_PRJEB86033...
+2026-07-23 16:56:11,978 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Epoch 001 | Train Loss: 0.7007 AUC: 0.5271 | Val Loss: 0.6808 AUC: 0.6043 | Test AUC: 0.5227
+2026-07-23 16:56:16,264 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Epoch 002 | Train Loss: 0.6869 AUC: 0.5597 | Val Loss: 0.8581 AUC: 0.6073 | Test AUC: 0.5335
+2026-07-23 16:56:20,148 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Epoch 003 | Train Loss: 0.6776 AUC: 0.5439 | Val Loss: 1.0030 AUC: 0.5992 | Test AUC: 0.5681
+2026-07-23 16:56:23,700 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Epoch 004 | Train Loss: 0.6645 AUC: 0.5889 | Val Loss: 0.9859 AUC: 0.5374 | Test AUC: 0.6259
+2026-07-23 16:56:27,318 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Epoch 005 | Train Loss: 0.6579 AUC: 0.6240 | Val Loss: 1.0782 AUC: 0.5749 | Test AUC: 0.5867
+2026-07-23 16:56:30,778 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Epoch 006 | Train Loss: 0.6505 AUC: 0.6255 | Val Loss: 2.0887 AUC: 0.4656 | Test AUC: 0.6424
+2026-07-23 16:56:30,779 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Early stopping triggered at epoch 6: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:56:30,779 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Training for fold tooth_Dental_Caries_PRJEB86033 finished. Best Val Loss: 0.6808
+2026-07-23 16:56:31,606 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Metrics plot saved to ./result/metrics_plot_tooth_Dental_Caries_PRJEB86033.png
+2026-07-23 16:56:31,607 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Loading best model from ./result/tooth_Dental_Caries_PRJEB86033_test_model.pt for final prediction...
+2026-07-23 16:56:32,500 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Saving binary classification predictions to ./result/predictions_tooth_Dental_Caries_PRJEB86033.csv
+2026-07-23 16:56:32,504 - TrainFoldtooth_Dental_Caries_PRJEB86033 - INFO - Predictions saved successfully.

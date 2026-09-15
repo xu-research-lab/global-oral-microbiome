@@ -1,0 +1,23 @@
+2026-07-23 15:21:41,720 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Using device: cuda
+2026-07-23 15:21:42,136 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:21:42,136 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Loading datasets...
+2026-07-23 15:21:47,300 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Datasets loaded. Train samples: 105, Val samples: 12, Test samples: 69
+2026-07-23 15:21:47,300 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Number of nodes: 1145
+2026-07-23 15:21:47,300 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:21:50,862 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Model initialized. Trainable parameters: 241,905
+2026-07-23 15:21:50,863 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Starting training for fold saliva_Obesity_qiita_11259...
+2026-07-23 15:21:54,381 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Epoch 001 | Train Loss: 0.6930 AUC: 0.4869 | Val Loss: 0.6962 AUC: 0.5833 | Test AUC: 0.3945
+2026-07-23 15:21:57,263 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Epoch 002 | Train Loss: 0.6924 AUC: 0.5182 | Val Loss: 0.6948 AUC: 0.6111 | Test AUC: 0.3536
+2026-07-23 15:22:00,187 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Epoch 003 | Train Loss: 0.6913 AUC: 0.5926 | Val Loss: 0.6926 AUC: 0.6111 | Test AUC: 0.3509
+2026-07-23 15:22:03,174 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Epoch 004 | Train Loss: 0.6917 AUC: 0.5690 | Val Loss: 0.6913 AUC: 0.6389 | Test AUC: 0.3618
+2026-07-23 15:22:06,019 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Epoch 005 | Train Loss: 0.6891 AUC: 0.6267 | Val Loss: 0.6993 AUC: 0.6944 | Test AUC: 0.3864
+2026-07-23 15:22:08,748 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Epoch 006 | Train Loss: 0.6891 AUC: 0.6089 | Val Loss: 0.7024 AUC: 0.6944 | Test AUC: 0.3936
+2026-07-23 15:22:11,600 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Epoch 007 | Train Loss: 0.6869 AUC: 0.6271 | Val Loss: 0.7106 AUC: 0.6944 | Test AUC: 0.3873
+2026-07-23 15:22:14,433 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Epoch 008 | Train Loss: 0.6871 AUC: 0.5879 | Val Loss: 0.7121 AUC: 0.6944 | Test AUC: 0.3864
+2026-07-23 15:22:17,106 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Epoch 009 | Train Loss: 0.6832 AUC: 0.6282 | Val Loss: 0.6985 AUC: 0.6944 | Test AUC: 0.3745
+2026-07-23 15:22:17,106 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Early stopping triggered at epoch 9: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:22:17,106 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Training for fold saliva_Obesity_qiita_11259 finished. Best Val Loss: 0.6913
+2026-07-23 15:22:17,803 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Obesity_qiita_11259.png
+2026-07-23 15:22:17,803 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Loading best model from ./result/saliva_Obesity_qiita_11259_test_model.pt for final prediction...
+2026-07-23 15:22:18,879 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Obesity_qiita_11259.csv
+2026-07-23 15:22:18,883 - TrainFoldsaliva_Obesity_qiita_11259 - INFO - Predictions saved successfully.

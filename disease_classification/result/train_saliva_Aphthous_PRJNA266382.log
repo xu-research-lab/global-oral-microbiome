@@ -1,0 +1,33 @@
+2026-07-23 16:24:58,517 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Using device: cuda
+2026-07-23 16:24:58,989 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:24:58,989 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Loading datasets...
+2026-07-23 16:25:01,868 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Datasets loaded. Train samples: 60, Val samples: 7, Test samples: 17
+2026-07-23 16:25:01,868 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Number of nodes: 971
+2026-07-23 16:25:01,868 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:25:08,632 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Model initialized. Trainable parameters: 236,337
+2026-07-23 16:25:08,633 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Starting training for fold saliva_Aphthous_PRJNA266382...
+2026-07-23 16:25:12,443 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 001 | Train Loss: 0.6996 AUC: 0.3445 | Val Loss: 0.6916 AUC: 0.5000 | Test AUC: 0.5278
+2026-07-23 16:25:15,150 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 002 | Train Loss: 0.6959 AUC: 0.4892 | Val Loss: 0.6913 AUC: 0.5000 | Test AUC: 0.5278
+2026-07-23 16:25:17,942 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 003 | Train Loss: 0.6930 AUC: 0.5024 | Val Loss: 0.6901 AUC: 1.0000 | Test AUC: 0.3333
+2026-07-23 16:25:20,797 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 004 | Train Loss: 0.6919 AUC: 0.5048 | Val Loss: 0.6861 AUC: 0.9167 | Test AUC: 0.3056
+2026-07-23 16:25:23,597 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 005 | Train Loss: 0.6895 AUC: 0.5275 | Val Loss: 0.6850 AUC: 0.9167 | Test AUC: 0.4028
+2026-07-23 16:25:26,506 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 006 | Train Loss: 0.6880 AUC: 0.5000 | Val Loss: 0.6820 AUC: 0.9167 | Test AUC: 0.3889
+2026-07-23 16:25:29,452 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 007 | Train Loss: 0.6858 AUC: 0.5132 | Val Loss: 0.6807 AUC: 0.9167 | Test AUC: 0.3472
+2026-07-23 16:25:32,156 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 008 | Train Loss: 0.6823 AUC: 0.5622 | Val Loss: 0.6785 AUC: 0.9167 | Test AUC: 0.3889
+2026-07-23 16:25:35,202 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 009 | Train Loss: 0.6810 AUC: 0.5993 | Val Loss: 0.6729 AUC: 0.9167 | Test AUC: 0.3750
+2026-07-23 16:25:38,258 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 010 | Train Loss: 0.6810 AUC: 0.5478 | Val Loss: 0.6690 AUC: 0.9167 | Test AUC: 0.3333
+2026-07-23 16:25:41,170 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 011 | Train Loss: 0.6789 AUC: 0.5311 | Val Loss: 0.6670 AUC: 0.9167 | Test AUC: 0.3194
+2026-07-23 16:25:43,852 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 012 | Train Loss: 0.6767 AUC: 0.5562 | Val Loss: 0.6646 AUC: 0.9167 | Test AUC: 0.3194
+2026-07-23 16:25:46,820 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 013 | Train Loss: 0.6716 AUC: 0.5957 | Val Loss: 0.6559 AUC: 0.9167 | Test AUC: 0.3194
+2026-07-23 16:25:49,663 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 014 | Train Loss: 0.6693 AUC: 0.6005 | Val Loss: 0.6546 AUC: 0.9167 | Test AUC: 0.3194
+2026-07-23 16:25:52,339 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 015 | Train Loss: 0.6685 AUC: 0.5550 | Val Loss: 0.6741 AUC: 0.9167 | Test AUC: 0.3333
+2026-07-23 16:25:55,173 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 016 | Train Loss: 0.6702 AUC: 0.5144 | Val Loss: 0.6841 AUC: 0.9167 | Test AUC: 0.3333
+2026-07-23 16:25:58,099 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 017 | Train Loss: 0.6619 AUC: 0.6089 | Val Loss: 0.7121 AUC: 0.9167 | Test AUC: 0.3333
+2026-07-23 16:26:01,048 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 018 | Train Loss: 0.6610 AUC: 0.5610 | Val Loss: 0.7609 AUC: 0.9167 | Test AUC: 0.3333
+2026-07-23 16:26:04,145 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Epoch 019 | Train Loss: 0.6561 AUC: 0.5993 | Val Loss: 0.8431 AUC: 0.9167 | Test AUC: 0.3611
+2026-07-23 16:26:04,145 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Early stopping triggered at epoch 19: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:26:04,145 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Training for fold saliva_Aphthous_PRJNA266382 finished. Best Val Loss: 0.6546
+2026-07-23 16:26:04,950 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Aphthous_PRJNA266382.png
+2026-07-23 16:26:04,950 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Loading best model from ./result/saliva_Aphthous_PRJNA266382_test_model.pt for final prediction...
+2026-07-23 16:26:05,843 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Aphthous_PRJNA266382.csv
+2026-07-23 16:26:05,848 - TrainFoldsaliva_Aphthous_PRJNA266382 - INFO - Predictions saved successfully.

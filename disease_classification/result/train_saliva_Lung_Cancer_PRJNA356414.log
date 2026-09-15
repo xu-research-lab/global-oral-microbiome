@@ -1,0 +1,27 @@
+2026-07-23 16:31:17,494 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Using device: cuda
+2026-07-23 16:31:17,971 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:31:17,971 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Loading datasets...
+2026-07-23 16:34:43,242 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Datasets loaded. Train samples: 5116, Val samples: 569, Test samples: 20
+2026-07-23 16:34:43,242 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Number of nodes: 1919
+2026-07-23 16:34:43,242 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:34:49,636 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Model initialized. Trainable parameters: 266,673
+2026-07-23 16:34:49,636 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Starting training for fold saliva_Lung_Cancer_PRJNA356414...
+2026-07-23 16:35:08,812 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 001 | Train Loss: 0.6759 AUC: 0.5117 | Val Loss: 0.6774 AUC: 0.5157 | Test AUC: 0.8900
+2026-07-23 16:35:25,945 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 002 | Train Loss: 0.6715 AUC: 0.5425 | Val Loss: 0.6717 AUC: 0.5442 | Test AUC: 0.8900
+2026-07-23 16:35:42,710 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 003 | Train Loss: 0.6701 AUC: 0.5505 | Val Loss: 0.7674 AUC: 0.5671 | Test AUC: 0.8800
+2026-07-23 16:35:59,427 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 004 | Train Loss: 0.6680 AUC: 0.5635 | Val Loss: 0.8241 AUC: 0.5701 | Test AUC: 0.8500
+2026-07-23 16:36:16,120 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 005 | Train Loss: 0.6663 AUC: 0.5733 | Val Loss: 0.6716 AUC: 0.5519 | Test AUC: 0.8900
+2026-07-23 16:36:33,251 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 006 | Train Loss: 0.6648 AUC: 0.5794 | Val Loss: 0.8479 AUC: 0.5619 | Test AUC: 0.8900
+2026-07-23 16:36:45,541 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 007 | Train Loss: 0.6663 AUC: 0.5729 | Val Loss: 0.7464 AUC: 0.5647 | Test AUC: 0.8800
+2026-07-23 16:37:02,754 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 008 | Train Loss: 0.6620 AUC: 0.5887 | Val Loss: 0.6673 AUC: 0.5670 | Test AUC: 0.9100
+2026-07-23 16:37:20,521 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 009 | Train Loss: 0.6614 AUC: 0.5904 | Val Loss: 0.6882 AUC: 0.5724 | Test AUC: 0.9100
+2026-07-23 16:37:38,809 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 010 | Train Loss: 0.6625 AUC: 0.5873 | Val Loss: 0.6708 AUC: 0.5594 | Test AUC: 0.9000
+2026-07-23 16:37:56,299 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 011 | Train Loss: 0.6602 AUC: 0.5964 | Val Loss: 0.6684 AUC: 0.5674 | Test AUC: 0.8700
+2026-07-23 16:38:14,130 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 012 | Train Loss: 0.6590 AUC: 0.6003 | Val Loss: 0.9010 AUC: 0.5657 | Test AUC: 0.8900
+2026-07-23 16:38:31,748 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Epoch 013 | Train Loss: 0.6604 AUC: 0.5947 | Val Loss: 0.7042 AUC: 0.5605 | Test AUC: 0.9400
+2026-07-23 16:38:31,748 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Early stopping triggered at epoch 13: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:38:31,748 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Training for fold saliva_Lung_Cancer_PRJNA356414 finished. Best Val Loss: 0.6673
+2026-07-23 16:38:32,716 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Lung_Cancer_PRJNA356414.png
+2026-07-23 16:38:32,716 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Loading best model from ./result/saliva_Lung_Cancer_PRJNA356414_test_model.pt for final prediction...
+2026-07-23 16:38:33,850 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Lung_Cancer_PRJNA356414.csv
+2026-07-23 16:38:33,856 - TrainFoldsaliva_Lung_Cancer_PRJNA356414 - INFO - Predictions saved successfully.

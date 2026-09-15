@@ -1,0 +1,31 @@
+2026-07-23 15:20:38,256 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Using device: cuda
+2026-07-23 15:20:38,676 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:20:38,676 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Loading datasets...
+2026-07-23 15:20:43,736 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Datasets loaded. Train samples: 106, Val samples: 12, Test samples: 68
+2026-07-23 15:20:43,736 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Number of nodes: 1145
+2026-07-23 15:20:43,736 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:20:47,436 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Model initialized. Trainable parameters: 241,905
+2026-07-23 15:20:47,436 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Starting training for fold saliva_Obesity_PRJNA587625...
+2026-07-23 15:20:50,335 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 001 | Train Loss: 0.6864 AUC: 0.4980 | Val Loss: 0.6783 AUC: 0.4571 | Test AUC: 0.5286
+2026-07-23 15:20:53,202 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 002 | Train Loss: 0.6846 AUC: 0.5301 | Val Loss: 0.6779 AUC: 0.5143 | Test AUC: 0.5243
+2026-07-23 15:20:56,089 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 003 | Train Loss: 0.6829 AUC: 0.5661 | Val Loss: 0.6767 AUC: 0.5143 | Test AUC: 0.5191
+2026-07-23 15:20:58,985 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 004 | Train Loss: 0.6825 AUC: 0.5519 | Val Loss: 0.6754 AUC: 0.5429 | Test AUC: 0.5269
+2026-07-23 15:21:01,941 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 005 | Train Loss: 0.6823 AUC: 0.5486 | Val Loss: 0.6779 AUC: 0.5143 | Test AUC: 0.5382
+2026-07-23 15:21:04,634 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 006 | Train Loss: 0.6828 AUC: 0.5133 | Val Loss: 0.6751 AUC: 0.4857 | Test AUC: 0.5460
+2026-07-23 15:21:07,394 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 007 | Train Loss: 0.6814 AUC: 0.5180 | Val Loss: 0.6777 AUC: 0.5714 | Test AUC: 0.5599
+2026-07-23 15:21:10,046 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 008 | Train Loss: 0.6777 AUC: 0.6109 | Val Loss: 0.6891 AUC: 0.6286 | Test AUC: 0.5894
+2026-07-23 15:21:12,680 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 009 | Train Loss: 0.6766 AUC: 0.6182 | Val Loss: 0.6728 AUC: 0.6000 | Test AUC: 0.6033
+2026-07-23 15:21:15,542 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 010 | Train Loss: 0.6794 AUC: 0.5421 | Val Loss: 0.6909 AUC: 0.5143 | Test AUC: 0.5773
+2026-07-23 15:21:18,382 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 011 | Train Loss: 0.6749 AUC: 0.5767 | Val Loss: 0.7224 AUC: 0.6000 | Test AUC: 0.5842
+2026-07-23 15:21:21,127 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 012 | Train Loss: 0.6702 AUC: 0.6386 | Val Loss: 0.6645 AUC: 0.6286 | Test AUC: 0.5911
+2026-07-23 15:21:23,915 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 013 | Train Loss: 0.6743 AUC: 0.5752 | Val Loss: 0.7118 AUC: 0.5429 | Test AUC: 0.5174
+2026-07-23 15:21:26,862 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 014 | Train Loss: 0.6643 AUC: 0.6474 | Val Loss: 0.6863 AUC: 0.5714 | Test AUC: 0.5608
+2026-07-23 15:21:29,727 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 015 | Train Loss: 0.6551 AUC: 0.6670 | Val Loss: 0.8378 AUC: 0.5714 | Test AUC: 0.5460
+2026-07-23 15:21:32,495 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 016 | Train Loss: 0.6519 AUC: 0.6561 | Val Loss: 0.7511 AUC: 0.5143 | Test AUC: 0.5330
+2026-07-23 15:21:35,349 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Epoch 017 | Train Loss: 0.6445 AUC: 0.6543 | Val Loss: 0.6833 AUC: 0.5143 | Test AUC: 0.5356
+2026-07-23 15:21:35,350 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Early stopping triggered at epoch 17: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:21:35,350 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Training for fold saliva_Obesity_PRJNA587625 finished. Best Val Loss: 0.6645
+2026-07-23 15:21:36,008 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Obesity_PRJNA587625.png
+2026-07-23 15:21:36,008 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Loading best model from ./result/saliva_Obesity_PRJNA587625_test_model.pt for final prediction...
+2026-07-23 15:21:36,904 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Obesity_PRJNA587625.csv
+2026-07-23 15:21:36,911 - TrainFoldsaliva_Obesity_PRJNA587625 - INFO - Predictions saved successfully.

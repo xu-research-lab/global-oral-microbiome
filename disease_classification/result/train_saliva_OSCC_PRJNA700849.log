@@ -1,0 +1,25 @@
+2026-07-23 15:25:51,167 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Using device: cuda
+2026-07-23 15:25:51,599 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:25:51,599 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Loading datasets...
+2026-07-23 15:26:23,841 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Datasets loaded. Train samples: 647, Val samples: 72, Test samples: 22
+2026-07-23 15:26:23,841 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Number of nodes: 2333
+2026-07-23 15:26:23,841 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:26:27,418 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Model initialized. Trainable parameters: 279,921
+2026-07-23 15:26:27,418 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Starting training for fold saliva_OSCC_PRJNA700849...
+2026-07-23 15:26:31,669 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 001 | Train Loss: 0.6907 AUC: 0.5088 | Val Loss: 0.6951 AUC: 0.4729 | Test AUC: 0.3333
+2026-07-23 15:26:36,012 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 002 | Train Loss: 0.6894 AUC: 0.5181 | Val Loss: 0.9916 AUC: 0.4520 | Test AUC: 0.2857
+2026-07-23 15:26:39,900 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 003 | Train Loss: 0.6858 AUC: 0.5418 | Val Loss: 1.8994 AUC: 0.4574 | Test AUC: 0.3619
+2026-07-23 15:26:43,906 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 004 | Train Loss: 0.6800 AUC: 0.5604 | Val Loss: 0.6782 AUC: 0.6525 | Test AUC: 0.3714
+2026-07-23 15:26:48,057 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 005 | Train Loss: 0.6741 AUC: 0.6169 | Val Loss: 1.5101 AUC: 0.4768 | Test AUC: 0.4476
+2026-07-23 15:26:51,953 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 006 | Train Loss: 0.6642 AUC: 0.6637 | Val Loss: 0.6735 AUC: 0.6006 | Test AUC: 0.5714
+2026-07-23 15:26:55,970 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 007 | Train Loss: 0.6519 AUC: 0.6736 | Val Loss: 0.8510 AUC: 0.6548 | Test AUC: 0.7905
+2026-07-23 15:26:59,838 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 008 | Train Loss: 0.6248 AUC: 0.7259 | Val Loss: 0.7079 AUC: 0.6827 | Test AUC: 0.9143
+2026-07-23 15:27:03,814 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 009 | Train Loss: 0.6005 AUC: 0.7649 | Val Loss: 0.8390 AUC: 0.8375 | Test AUC: 0.8286
+2026-07-23 15:27:07,995 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 010 | Train Loss: 0.5599 AUC: 0.8053 | Val Loss: 0.9582 AUC: 0.7314 | Test AUC: 0.9714
+2026-07-23 15:27:12,074 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Epoch 011 | Train Loss: 0.5362 AUC: 0.8204 | Val Loss: 1.3204 AUC: 0.8421 | Test AUC: 0.9333
+2026-07-23 15:27:12,075 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Early stopping triggered at epoch 11: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:27:12,075 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Training for fold saliva_OSCC_PRJNA700849 finished. Best Val Loss: 0.6735
+2026-07-23 15:27:12,757 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_OSCC_PRJNA700849.png
+2026-07-23 15:27:12,757 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Loading best model from ./result/saliva_OSCC_PRJNA700849_test_model.pt for final prediction...
+2026-07-23 15:27:13,741 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Saving binary classification predictions to ./result/predictions_saliva_OSCC_PRJNA700849.csv
+2026-07-23 15:27:13,748 - TrainFoldsaliva_OSCC_PRJNA700849 - INFO - Predictions saved successfully.

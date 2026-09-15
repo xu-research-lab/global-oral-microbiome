@@ -1,0 +1,29 @@
+2026-07-23 16:59:44,407 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Using device: cuda
+2026-07-23 16:59:44,847 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:59:44,847 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Loading datasets...
+2026-07-23 17:00:01,843 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Datasets loaded. Train samples: 619, Val samples: 69, Test samples: 40
+2026-07-23 17:00:01,843 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Number of nodes: 1165
+2026-07-23 17:00:01,843 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Detected input node feature dimension: 32
+2026-07-23 17:00:06,718 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Model initialized. Trainable parameters: 242,545
+2026-07-23 17:00:06,719 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Starting training for fold tooth_Dental_Caries_PRJNA681486...
+2026-07-23 17:00:10,967 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 001 | Train Loss: 0.7001 AUC: 0.5031 | Val Loss: 0.6911 AUC: 0.5207 | Test AUC: 0.5700
+2026-07-23 17:00:15,093 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 002 | Train Loss: 0.6925 AUC: 0.4980 | Val Loss: 0.6729 AUC: 0.6190 | Test AUC: 0.6400
+2026-07-23 17:00:18,935 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 003 | Train Loss: 0.6836 AUC: 0.5529 | Val Loss: 0.6703 AUC: 0.6974 | Test AUC: 0.6800
+2026-07-23 17:00:22,770 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 004 | Train Loss: 0.6747 AUC: 0.5780 | Val Loss: 0.6910 AUC: 0.7052 | Test AUC: 0.6775
+2026-07-23 17:00:26,343 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 005 | Train Loss: 0.6643 AUC: 0.6238 | Val Loss: 0.6443 AUC: 0.7086 | Test AUC: 0.6800
+2026-07-23 17:00:30,010 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 006 | Train Loss: 0.6685 AUC: 0.6036 | Val Loss: 0.7537 AUC: 0.7155 | Test AUC: 0.6925
+2026-07-23 17:00:34,264 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 007 | Train Loss: 0.6586 AUC: 0.6289 | Val Loss: 0.6944 AUC: 0.7164 | Test AUC: 0.7075
+2026-07-23 17:00:38,052 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 008 | Train Loss: 0.6594 AUC: 0.6242 | Val Loss: 0.7062 AUC: 0.7259 | Test AUC: 0.6975
+2026-07-23 17:00:41,861 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 009 | Train Loss: 0.6518 AUC: 0.6384 | Val Loss: 1.0056 AUC: 0.7121 | Test AUC: 0.6975
+2026-07-23 17:00:45,695 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 010 | Train Loss: 0.6508 AUC: 0.6398 | Val Loss: 0.6044 AUC: 0.7319 | Test AUC: 0.7000
+2026-07-23 17:00:49,509 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 011 | Train Loss: 0.6434 AUC: 0.6622 | Val Loss: 0.6381 AUC: 0.7250 | Test AUC: 0.6900
+2026-07-23 17:00:53,250 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 012 | Train Loss: 0.6462 AUC: 0.6508 | Val Loss: 0.6070 AUC: 0.7302 | Test AUC: 0.7075
+2026-07-23 17:00:57,275 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 013 | Train Loss: 0.6337 AUC: 0.6852 | Val Loss: 1.2818 AUC: 0.7448 | Test AUC: 0.6925
+2026-07-23 17:01:01,199 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 014 | Train Loss: 0.6355 AUC: 0.6738 | Val Loss: 2.0247 AUC: 0.7293 | Test AUC: 0.7275
+2026-07-23 17:01:04,934 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Epoch 015 | Train Loss: 0.6274 AUC: 0.6860 | Val Loss: 1.7615 AUC: 0.6966 | Test AUC: 0.7225
+2026-07-23 17:01:04,934 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Early stopping triggered at epoch 15: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 17:01:04,934 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Training for fold tooth_Dental_Caries_PRJNA681486 finished. Best Val Loss: 0.6044
+2026-07-23 17:01:05,794 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Metrics plot saved to ./result/metrics_plot_tooth_Dental_Caries_PRJNA681486.png
+2026-07-23 17:01:05,794 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Loading best model from ./result/tooth_Dental_Caries_PRJNA681486_test_model.pt for final prediction...
+2026-07-23 17:01:06,918 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Saving binary classification predictions to ./result/predictions_tooth_Dental_Caries_PRJNA681486.csv
+2026-07-23 17:01:06,923 - TrainFoldtooth_Dental_Caries_PRJNA681486 - INFO - Predictions saved successfully.

@@ -1,0 +1,33 @@
+2026-07-23 15:15:04,693 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Using device: cuda
+2026-07-23 15:15:05,119 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:15:05,119 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Loading datasets...
+2026-07-23 15:15:09,070 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Datasets loaded. Train samples: 92, Val samples: 11, Test samples: 24
+2026-07-23 15:15:09,070 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Number of nodes: 1175
+2026-07-23 15:15:09,070 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:15:12,701 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Model initialized. Trainable parameters: 242,865
+2026-07-23 15:15:12,701 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Starting training for fold saliva_Obstructive_Sleep_Apnea_PRJNA544600...
+2026-07-23 15:15:15,713 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 001 | Train Loss: 0.6951 AUC: 0.5827 | Val Loss: 0.7330 AUC: 0.6667 | Test AUC: 0.6815
+2026-07-23 15:15:18,641 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 002 | Train Loss: 0.6911 AUC: 0.5545 | Val Loss: 0.7256 AUC: 0.6667 | Test AUC: 0.6741
+2026-07-23 15:15:21,836 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 003 | Train Loss: 0.6861 AUC: 0.7004 | Val Loss: 0.7344 AUC: 0.6667 | Test AUC: 0.6667
+2026-07-23 15:15:24,731 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 004 | Train Loss: 0.6825 AUC: 0.6710 | Val Loss: 0.7247 AUC: 0.6667 | Test AUC: 0.6741
+2026-07-23 15:15:27,567 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 005 | Train Loss: 0.6780 AUC: 0.7206 | Val Loss: 0.7061 AUC: 0.6667 | Test AUC: 0.6741
+2026-07-23 15:15:30,401 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 006 | Train Loss: 0.6719 AUC: 0.7598 | Val Loss: 0.6937 AUC: 0.6667 | Test AUC: 0.6815
+2026-07-23 15:15:33,562 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 007 | Train Loss: 0.6678 AUC: 0.7200 | Val Loss: 0.6833 AUC: 0.6667 | Test AUC: 0.6889
+2026-07-23 15:15:36,471 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 008 | Train Loss: 0.6611 AUC: 0.7347 | Val Loss: 0.6679 AUC: 0.6667 | Test AUC: 0.6889
+2026-07-23 15:15:39,353 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 009 | Train Loss: 0.6533 AUC: 0.8064 | Val Loss: 0.6615 AUC: 0.6667 | Test AUC: 0.6963
+2026-07-23 15:15:42,163 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 010 | Train Loss: 0.6473 AUC: 0.7390 | Val Loss: 0.6667 AUC: 0.6250 | Test AUC: 0.6963
+2026-07-23 15:15:44,991 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 011 | Train Loss: 0.6383 AUC: 0.7463 | Val Loss: 0.6619 AUC: 0.5000 | Test AUC: 0.7037
+2026-07-23 15:15:47,699 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 012 | Train Loss: 0.6286 AUC: 0.7047 | Val Loss: 0.6446 AUC: 0.4167 | Test AUC: 0.6815
+2026-07-23 15:15:50,655 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 013 | Train Loss: 0.6170 AUC: 0.7132 | Val Loss: 0.6227 AUC: 0.3750 | Test AUC: 0.6667
+2026-07-23 15:15:53,551 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 014 | Train Loss: 0.6051 AUC: 0.7194 | Val Loss: 0.5998 AUC: 0.4583 | Test AUC: 0.6519
+2026-07-23 15:15:56,315 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 015 | Train Loss: 0.5933 AUC: 0.7010 | Val Loss: 0.6062 AUC: 0.4167 | Test AUC: 0.6370
+2026-07-23 15:15:58,999 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 016 | Train Loss: 0.5788 AUC: 0.6844 | Val Loss: 0.6102 AUC: 0.4167 | Test AUC: 0.6370
+2026-07-23 15:16:01,862 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 017 | Train Loss: 0.5669 AUC: 0.6973 | Val Loss: 0.6033 AUC: 0.4167 | Test AUC: 0.6444
+2026-07-23 15:16:04,593 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 018 | Train Loss: 0.5513 AUC: 0.7292 | Val Loss: 0.6067 AUC: 0.4167 | Test AUC: 0.6444
+2026-07-23 15:16:07,298 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Epoch 019 | Train Loss: 0.5343 AUC: 0.7414 | Val Loss: 0.6086 AUC: 0.5000 | Test AUC: 0.6593
+2026-07-23 15:16:07,298 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Early stopping triggered at epoch 19: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:16:07,298 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Training for fold saliva_Obstructive_Sleep_Apnea_PRJNA544600 finished. Best Val Loss: 0.5998
+2026-07-23 15:16:08,105 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Obstructive_Sleep_Apnea_PRJNA544600.png
+2026-07-23 15:16:08,105 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Loading best model from ./result/saliva_Obstructive_Sleep_Apnea_PRJNA544600_test_model.pt for final prediction...
+2026-07-23 15:16:08,967 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Obstructive_Sleep_Apnea_PRJNA544600.csv
+2026-07-23 15:16:08,972 - TrainFoldsaliva_Obstructive_Sleep_Apnea_PRJNA544600 - INFO - Predictions saved successfully.

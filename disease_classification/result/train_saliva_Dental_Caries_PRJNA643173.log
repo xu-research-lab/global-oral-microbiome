@@ -1,0 +1,36 @@
+2026-07-23 16:29:46,903 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Using device: cuda
+2026-07-23 16:29:47,375 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:29:47,375 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Loading datasets...
+2026-07-23 16:29:53,842 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Datasets loaded. Train samples: 113, Val samples: 13, Test samples: 42
+2026-07-23 16:29:53,842 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Number of nodes: 1601
+2026-07-23 16:29:53,842 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:30:00,344 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Model initialized. Trainable parameters: 256,497
+2026-07-23 16:30:00,344 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Starting training for fold saliva_Dental_Caries_PRJNA643173...
+2026-07-23 16:30:04,256 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 001 | Train Loss: 0.6999 AUC: 0.5167 | Val Loss: 0.7187 AUC: 0.5238 | Test AUC: 0.6833
+2026-07-23 16:30:07,556 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 002 | Train Loss: 0.6994 AUC: 0.4505 | Val Loss: 0.7007 AUC: 0.5238 | Test AUC: 0.6979
+2026-07-23 16:30:10,942 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 003 | Train Loss: 0.6976 AUC: 0.5391 | Val Loss: 0.6960 AUC: 0.5476 | Test AUC: 0.7390
+2026-07-23 16:30:13,867 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 004 | Train Loss: 0.6972 AUC: 0.4846 | Val Loss: 0.6952 AUC: 0.5000 | Test AUC: 0.7507
+2026-07-23 16:30:16,934 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 005 | Train Loss: 0.6962 AUC: 0.5113 | Val Loss: 0.6957 AUC: 0.5238 | Test AUC: 0.7977
+2026-07-23 16:30:20,011 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 006 | Train Loss: 0.6953 AUC: 0.5299 | Val Loss: 0.6936 AUC: 0.5952 | Test AUC: 0.8035
+2026-07-23 16:30:23,181 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 007 | Train Loss: 0.6962 AUC: 0.3934 | Val Loss: 0.6916 AUC: 0.5952 | Test AUC: 0.7419
+2026-07-23 16:30:26,269 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 008 | Train Loss: 0.6935 AUC: 0.5530 | Val Loss: 0.6899 AUC: 0.6190 | Test AUC: 0.7361
+2026-07-23 16:30:29,294 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 009 | Train Loss: 0.6927 AUC: 0.5810 | Val Loss: 0.6884 AUC: 0.6190 | Test AUC: 0.6510
+2026-07-23 16:30:32,160 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 010 | Train Loss: 0.6943 AUC: 0.4855 | Val Loss: 0.6879 AUC: 0.6190 | Test AUC: 0.6628
+2026-07-23 16:30:35,232 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 011 | Train Loss: 0.6895 AUC: 0.6359 | Val Loss: 0.6873 AUC: 0.6190 | Test AUC: 0.6745
+2026-07-23 16:30:38,294 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 012 | Train Loss: 0.6898 AUC: 0.5927 | Val Loss: 0.6868 AUC: 0.5952 | Test AUC: 0.6979
+2026-07-23 16:30:41,426 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 013 | Train Loss: 0.6881 AUC: 0.5873 | Val Loss: 0.6855 AUC: 0.5952 | Test AUC: 0.6979
+2026-07-23 16:30:44,738 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 014 | Train Loss: 0.6860 AUC: 0.5987 | Val Loss: 0.6925 AUC: 0.5952 | Test AUC: 0.6100
+2026-07-23 16:30:47,827 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 015 | Train Loss: 0.6844 AUC: 0.5880 | Val Loss: 0.7282 AUC: 0.5238 | Test AUC: 0.5777
+2026-07-23 16:30:50,764 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 016 | Train Loss: 0.6784 AUC: 0.6289 | Val Loss: 0.7144 AUC: 0.5238 | Test AUC: 0.5953
+2026-07-23 16:30:53,922 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 017 | Train Loss: 0.6800 AUC: 0.5895 | Val Loss: 0.6753 AUC: 0.5952 | Test AUC: 0.6540
+2026-07-23 16:30:57,057 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 018 | Train Loss: 0.6798 AUC: 0.5848 | Val Loss: 0.6924 AUC: 0.5714 | Test AUC: 0.6012
+2026-07-23 16:31:00,164 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 019 | Train Loss: 0.6820 AUC: 0.5627 | Val Loss: 0.7152 AUC: 0.5000 | Test AUC: 0.6217
+2026-07-23 16:31:03,368 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 020 | Train Loss: 0.6739 AUC: 0.6103 | Val Loss: 0.7111 AUC: 0.6429 | Test AUC: 0.6598
+2026-07-23 16:31:06,423 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 021 | Train Loss: 0.6658 AUC: 0.6390 | Val Loss: 0.7072 AUC: 0.6190 | Test AUC: 0.6540
+2026-07-23 16:31:09,499 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Epoch 022 | Train Loss: 0.6623 AUC: 0.6431 | Val Loss: 0.7250 AUC: 0.5476 | Test AUC: 0.6628
+2026-07-23 16:31:09,499 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Early stopping triggered at epoch 22: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:31:09,499 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Training for fold saliva_Dental_Caries_PRJNA643173 finished. Best Val Loss: 0.6753
+2026-07-23 16:31:10,214 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Dental_Caries_PRJNA643173.png
+2026-07-23 16:31:10,214 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Loading best model from ./result/saliva_Dental_Caries_PRJNA643173_test_model.pt for final prediction...
+2026-07-23 16:31:11,272 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Dental_Caries_PRJNA643173.csv
+2026-07-23 16:31:11,298 - TrainFoldsaliva_Dental_Caries_PRJNA643173 - INFO - Predictions saved successfully.

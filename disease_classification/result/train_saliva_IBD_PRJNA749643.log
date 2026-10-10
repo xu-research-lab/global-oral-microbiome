@@ -1,0 +1,23 @@
+2026-07-23 16:22:24,016 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Using device: cuda
+2026-07-23 16:22:24,486 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:22:24,486 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Loading datasets...
+2026-07-23 16:23:35,427 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Datasets loaded. Train samples: 1492, Val samples: 166, Test samples: 21
+2026-07-23 16:23:35,427 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Number of nodes: 2171
+2026-07-23 16:23:35,427 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:23:41,836 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Model initialized. Trainable parameters: 274,737
+2026-07-23 16:23:41,837 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Starting training for fold saliva_IBD_PRJNA749643...
+2026-07-23 16:23:50,501 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Epoch 001 | Train Loss: 0.6152 AUC: 0.5144 | Val Loss: 0.5347 AUC: 0.5481 | Test AUC: 0.5909
+2026-07-23 16:23:58,071 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Epoch 002 | Train Loss: 0.5125 AUC: 0.5159 | Val Loss: 0.6009 AUC: 0.5143 | Test AUC: 0.5455
+2026-07-23 16:24:05,595 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Epoch 003 | Train Loss: 0.5095 AUC: 0.5068 | Val Loss: 0.5525 AUC: 0.5223 | Test AUC: 0.5455
+2026-07-23 16:24:12,859 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Epoch 004 | Train Loss: 0.5074 AUC: 0.5328 | Val Loss: 0.5068 AUC: 0.5446 | Test AUC: 0.5636
+2026-07-23 16:24:20,693 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Epoch 005 | Train Loss: 0.5087 AUC: 0.5197 | Val Loss: 0.6546 AUC: 0.5303 | Test AUC: 0.5455
+2026-07-23 16:24:28,516 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Epoch 006 | Train Loss: 0.5091 AUC: 0.5292 | Val Loss: 0.5163 AUC: 0.5330 | Test AUC: 0.5909
+2026-07-23 16:24:35,886 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Epoch 007 | Train Loss: 0.5076 AUC: 0.5315 | Val Loss: 0.5233 AUC: 0.5270 | Test AUC: 0.5364
+2026-07-23 16:24:43,462 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Epoch 008 | Train Loss: 0.5102 AUC: 0.5068 | Val Loss: 0.6857 AUC: 0.5218 | Test AUC: 0.5909
+2026-07-23 16:24:51,191 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Epoch 009 | Train Loss: 0.5056 AUC: 0.5507 | Val Loss: 0.7225 AUC: 0.5129 | Test AUC: 0.5909
+2026-07-23 16:24:51,191 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Early stopping triggered at epoch 9: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:24:51,191 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Training for fold saliva_IBD_PRJNA749643 finished. Best Val Loss: 0.5068
+2026-07-23 16:24:51,893 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_IBD_PRJNA749643.png
+2026-07-23 16:24:51,893 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Loading best model from ./result/saliva_IBD_PRJNA749643_test_model.pt for final prediction...
+2026-07-23 16:24:52,992 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Saving binary classification predictions to ./result/predictions_saliva_IBD_PRJNA749643.csv
+2026-07-23 16:24:52,997 - TrainFoldsaliva_IBD_PRJNA749643 - INFO - Predictions saved successfully.

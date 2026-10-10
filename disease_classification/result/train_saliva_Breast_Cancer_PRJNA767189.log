@@ -1,0 +1,26 @@
+2026-07-23 15:58:55,781 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Using device: cuda
+2026-07-23 15:58:56,231 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:58:56,232 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Loading datasets...
+2026-07-23 16:00:36,487 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Datasets loaded. Train samples: 1492, Val samples: 166, Test samples: 897
+2026-07-23 16:00:36,487 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Number of nodes: 2145
+2026-07-23 16:00:36,487 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:00:42,400 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Model initialized. Trainable parameters: 273,905
+2026-07-23 16:00:42,401 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Starting training for fold saliva_Breast_Cancer_PRJNA767189...
+2026-07-23 16:00:51,476 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 001 | Train Loss: 0.6536 AUC: 0.5245 | Val Loss: 0.7949 AUC: 0.5809 | Test AUC: 0.6466
+2026-07-23 16:00:59,596 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 002 | Train Loss: 0.5189 AUC: 0.5269 | Val Loss: 0.5089 AUC: 0.4955 | Test AUC: 0.6376
+2026-07-23 16:01:05,855 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 003 | Train Loss: 0.5088 AUC: 0.5203 | Val Loss: 0.5093 AUC: 0.5833 | Test AUC: 0.6090
+2026-07-23 16:01:12,446 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 004 | Train Loss: 0.5075 AUC: 0.5396 | Val Loss: 0.5918 AUC: 0.5775 | Test AUC: 0.6093
+2026-07-23 16:01:20,558 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 005 | Train Loss: 0.5049 AUC: 0.5578 | Val Loss: 0.5685 AUC: 0.5804 | Test AUC: 0.6012
+2026-07-23 16:01:28,512 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 006 | Train Loss: 0.5055 AUC: 0.5600 | Val Loss: 0.6878 AUC: 0.5695 | Test AUC: 0.6258
+2026-07-23 16:01:36,793 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 007 | Train Loss: 0.5091 AUC: 0.5217 | Val Loss: 0.5026 AUC: 0.5742 | Test AUC: 0.5962
+2026-07-23 16:01:44,696 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 008 | Train Loss: 0.5076 AUC: 0.5480 | Val Loss: 0.5704 AUC: 0.5816 | Test AUC: 0.6127
+2026-07-23 16:01:52,930 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 009 | Train Loss: 0.5072 AUC: 0.5416 | Val Loss: 0.7502 AUC: 0.5437 | Test AUC: 0.5447
+2026-07-23 16:02:01,003 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 010 | Train Loss: 0.5067 AUC: 0.5591 | Val Loss: 0.6683 AUC: 0.5631 | Test AUC: 0.6174
+2026-07-23 16:02:09,520 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 011 | Train Loss: 0.5024 AUC: 0.5819 | Val Loss: 0.7280 AUC: 0.5611 | Test AUC: 0.6019
+2026-07-23 16:02:17,427 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Epoch 012 | Train Loss: 0.4982 AUC: 0.6035 | Val Loss: 0.5354 AUC: 0.5314 | Test AUC: 0.5478
+2026-07-23 16:02:17,427 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Early stopping triggered at epoch 12: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:02:17,427 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Training for fold saliva_Breast_Cancer_PRJNA767189 finished. Best Val Loss: 0.5026
+2026-07-23 16:02:18,241 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Breast_Cancer_PRJNA767189.png
+2026-07-23 16:02:18,241 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Loading best model from ./result/saliva_Breast_Cancer_PRJNA767189_test_model.pt for final prediction...
+2026-07-23 16:02:20,302 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Breast_Cancer_PRJNA767189.csv
+2026-07-23 16:02:20,309 - TrainFoldsaliva_Breast_Cancer_PRJNA767189 - INFO - Predictions saved successfully.

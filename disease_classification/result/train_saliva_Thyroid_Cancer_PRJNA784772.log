@@ -1,0 +1,40 @@
+2026-07-23 16:44:39,533 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Using device: cuda
+2026-07-23 16:44:39,970 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:44:39,970 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Loading datasets...
+2026-07-23 16:44:44,235 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Datasets loaded. Train samples: 26, Val samples: 3, Test samples: 102
+2026-07-23 16:44:44,236 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Number of nodes: 1161
+2026-07-23 16:44:44,236 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:44:51,070 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Model initialized. Trainable parameters: 242,417
+2026-07-23 16:44:51,071 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Starting training for fold saliva_Thyroid_Cancer_PRJNA784772...
+2026-07-23 16:44:54,251 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 001 | Train Loss: 0.6939 AUC: 0.6864 | Val Loss: 0.6842 AUC: 0.5000 | Test AUC: 0.6097
+2026-07-23 16:44:57,019 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 002 | Train Loss: 0.6948 AUC: 0.6686 | Val Loss: 0.6741 AUC: 1.0000 | Test AUC: 0.7161
+2026-07-23 16:44:59,730 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 003 | Train Loss: 0.6951 AUC: 0.5740 | Val Loss: 0.6702 AUC: 1.0000 | Test AUC: 0.7073
+2026-07-23 16:45:02,667 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 004 | Train Loss: 0.6944 AUC: 0.6805 | Val Loss: 0.6725 AUC: 1.0000 | Test AUC: 0.7214
+2026-07-23 16:45:05,266 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 005 | Train Loss: 0.6944 AUC: 0.6391 | Val Loss: 0.6716 AUC: 1.0000 | Test AUC: 0.7331
+2026-07-23 16:45:07,773 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 006 | Train Loss: 0.6946 AUC: 0.5385 | Val Loss: 0.6664 AUC: 1.0000 | Test AUC: 0.7173
+2026-07-23 16:45:10,278 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 007 | Train Loss: 0.6938 AUC: 0.6627 | Val Loss: 0.6630 AUC: 1.0000 | Test AUC: 0.7859
+2026-07-23 16:45:12,909 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 008 | Train Loss: 0.6939 AUC: 0.5858 | Val Loss: 0.6619 AUC: 1.0000 | Test AUC: 0.7508
+2026-07-23 16:45:15,671 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 009 | Train Loss: 0.6939 AUC: 0.5325 | Val Loss: 0.6609 AUC: 1.0000 | Test AUC: 0.7657
+2026-07-23 16:45:18,327 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 010 | Train Loss: 0.6946 AUC: 0.5325 | Val Loss: 0.6585 AUC: 1.0000 | Test AUC: 0.7609
+2026-07-23 16:45:21,055 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 011 | Train Loss: 0.6932 AUC: 0.5917 | Val Loss: 0.6562 AUC: 1.0000 | Test AUC: 0.7714
+2026-07-23 16:45:23,845 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 012 | Train Loss: 0.6935 AUC: 0.5799 | Val Loss: 0.6529 AUC: 1.0000 | Test AUC: 0.7560
+2026-07-23 16:45:26,773 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 013 | Train Loss: 0.6898 AUC: 0.7219 | Val Loss: 0.6485 AUC: 1.0000 | Test AUC: 0.6823
+2026-07-23 16:45:29,435 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 014 | Train Loss: 0.6895 AUC: 0.6864 | Val Loss: 0.6439 AUC: 1.0000 | Test AUC: 0.6415
+2026-07-23 16:45:31,989 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 015 | Train Loss: 0.6924 AUC: 0.5740 | Val Loss: 0.6396 AUC: 1.0000 | Test AUC: 0.6347
+2026-07-23 16:45:34,852 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 016 | Train Loss: 0.6874 AUC: 0.7278 | Val Loss: 0.6356 AUC: 1.0000 | Test AUC: 0.6242
+2026-07-23 16:45:37,723 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 017 | Train Loss: 0.6858 AUC: 0.7160 | Val Loss: 0.6325 AUC: 1.0000 | Test AUC: 0.6185
+2026-07-23 16:45:40,312 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 018 | Train Loss: 0.6863 AUC: 0.6746 | Val Loss: 0.6301 AUC: 1.0000 | Test AUC: 0.6165
+2026-07-23 16:45:43,182 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 019 | Train Loss: 0.6875 AUC: 0.6627 | Val Loss: 0.6285 AUC: 1.0000 | Test AUC: 0.6169
+2026-07-23 16:45:45,888 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 020 | Train Loss: 0.6850 AUC: 0.6746 | Val Loss: 0.6275 AUC: 1.0000 | Test AUC: 0.6185
+2026-07-23 16:45:48,542 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 021 | Train Loss: 0.6835 AUC: 0.6746 | Val Loss: 0.6271 AUC: 1.0000 | Test AUC: 0.6190
+2026-07-23 16:45:51,554 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 022 | Train Loss: 0.6835 AUC: 0.6746 | Val Loss: 0.6283 AUC: 1.0000 | Test AUC: 0.6173
+2026-07-23 16:45:54,162 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 023 | Train Loss: 0.6774 AUC: 0.7160 | Val Loss: 0.6300 AUC: 1.0000 | Test AUC: 0.6173
+2026-07-23 16:45:56,992 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 024 | Train Loss: 0.6743 AUC: 0.7337 | Val Loss: 0.6318 AUC: 1.0000 | Test AUC: 0.6177
+2026-07-23 16:45:59,521 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 025 | Train Loss: 0.6765 AUC: 0.6982 | Val Loss: 0.6322 AUC: 1.0000 | Test AUC: 0.6181
+2026-07-23 16:46:02,364 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Epoch 026 | Train Loss: 0.6740 AUC: 0.7160 | Val Loss: 0.6317 AUC: 1.0000 | Test AUC: 0.6181
+2026-07-23 16:46:02,364 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Early stopping triggered at epoch 26: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:46:02,364 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Training for fold saliva_Thyroid_Cancer_PRJNA784772 finished. Best Val Loss: 0.6271
+2026-07-23 16:46:03,065 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Thyroid_Cancer_PRJNA784772.png
+2026-07-23 16:46:03,065 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Loading best model from ./result/saliva_Thyroid_Cancer_PRJNA784772_test_model.pt for final prediction...
+2026-07-23 16:46:04,157 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Thyroid_Cancer_PRJNA784772.csv
+2026-07-23 16:46:04,162 - TrainFoldsaliva_Thyroid_Cancer_PRJNA784772 - INFO - Predictions saved successfully.

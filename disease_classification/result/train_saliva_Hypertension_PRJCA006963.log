@@ -1,0 +1,27 @@
+2026-07-23 15:12:34,208 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Using device: cuda
+2026-07-23 15:12:34,612 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:12:34,612 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Loading datasets...
+2026-07-23 15:12:39,712 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Datasets loaded. Train samples: 54, Val samples: 7, Test samples: 103
+2026-07-23 15:12:39,712 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Number of nodes: 1285
+2026-07-23 15:12:39,712 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:12:43,259 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Model initialized. Trainable parameters: 246,385
+2026-07-23 15:12:43,260 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Starting training for fold saliva_Hypertension_PRJCA006963...
+2026-07-23 15:12:46,189 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 001 | Train Loss: 0.6991 AUC: 0.3684 | Val Loss: 0.6750 AUC: 0.5000 | Test AUC: 0.2851
+2026-07-23 15:12:49,071 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 002 | Train Loss: 0.6947 AUC: 0.6165 | Val Loss: 0.6530 AUC: 0.6000 | Test AUC: 0.2997
+2026-07-23 15:12:51,692 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 003 | Train Loss: 0.6933 AUC: 0.5489 | Val Loss: 0.6515 AUC: 0.6000 | Test AUC: 0.3450
+2026-07-23 15:12:54,506 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 004 | Train Loss: 0.6894 AUC: 0.6256 | Val Loss: 0.6503 AUC: 0.6000 | Test AUC: 0.3806
+2026-07-23 15:12:57,211 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 005 | Train Loss: 0.6873 AUC: 0.5970 | Val Loss: 0.6385 AUC: 0.6000 | Test AUC: 0.4020
+2026-07-23 15:13:00,318 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 006 | Train Loss: 0.6812 AUC: 0.6421 | Val Loss: 0.6166 AUC: 0.6000 | Test AUC: 0.4059
+2026-07-23 15:13:03,077 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 007 | Train Loss: 0.6797 AUC: 0.6211 | Val Loss: 0.5991 AUC: 0.6000 | Test AUC: 0.4220
+2026-07-23 15:13:05,808 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 008 | Train Loss: 0.6748 AUC: 0.6165 | Val Loss: 0.5853 AUC: 0.6000 | Test AUC: 0.4444
+2026-07-23 15:13:08,771 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 009 | Train Loss: 0.6695 AUC: 0.6256 | Val Loss: 0.5986 AUC: 0.6000 | Test AUC: 0.4596
+2026-07-23 15:13:11,284 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 010 | Train Loss: 0.6609 AUC: 0.6556 | Val Loss: 0.6879 AUC: 0.6000 | Test AUC: 0.4776
+2026-07-23 15:13:13,972 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 011 | Train Loss: 0.6549 AUC: 0.6602 | Val Loss: 0.9136 AUC: 0.7000 | Test AUC: 0.4859
+2026-07-23 15:13:16,510 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 012 | Train Loss: 0.6436 AUC: 0.6797 | Val Loss: 1.2691 AUC: 0.7000 | Test AUC: 0.4942
+2026-07-23 15:13:19,235 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Epoch 013 | Train Loss: 0.6407 AUC: 0.6722 | Val Loss: 1.6082 AUC: 0.7000 | Test AUC: 0.4990
+2026-07-23 15:13:19,236 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Early stopping triggered at epoch 13: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:13:19,236 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Training for fold saliva_Hypertension_PRJCA006963 finished. Best Val Loss: 0.5853
+2026-07-23 15:13:19,865 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Hypertension_PRJCA006963.png
+2026-07-23 15:13:19,865 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Loading best model from ./result/saliva_Hypertension_PRJCA006963_test_model.pt for final prediction...
+2026-07-23 15:13:20,793 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Hypertension_PRJCA006963.csv
+2026-07-23 15:13:20,797 - TrainFoldsaliva_Hypertension_PRJCA006963 - INFO - Predictions saved successfully.

@@ -1,0 +1,26 @@
+2026-07-23 15:40:37,653 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Using device: cuda
+2026-07-23 15:40:38,113 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:40:38,113 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Loading datasets...
+2026-07-23 15:41:07,402 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Datasets loaded. Train samples: 597, Val samples: 67, Test samples: 134
+2026-07-23 15:41:07,402 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Number of nodes: 1859
+2026-07-23 15:41:07,402 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:41:14,697 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Model initialized. Trainable parameters: 264,753
+2026-07-23 15:41:14,698 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Starting training for fold saliva_Periodontal_Disease_PRJEB42371...
+2026-07-23 15:41:20,317 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 001 | Train Loss: 0.6875 AUC: 0.5747 | Val Loss: 0.7826 AUC: 0.5733 | Test AUC: 0.6543
+2026-07-23 15:41:24,879 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 002 | Train Loss: 0.6309 AUC: 0.6661 | Val Loss: 0.7120 AUC: 0.6190 | Test AUC: 0.6856
+2026-07-23 15:41:29,829 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 003 | Train Loss: 0.6114 AUC: 0.6731 | Val Loss: 2.4136 AUC: 0.6229 | Test AUC: 0.7225
+2026-07-23 15:41:34,619 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 004 | Train Loss: 0.6045 AUC: 0.6837 | Val Loss: 0.6669 AUC: 0.6295 | Test AUC: 0.7193
+2026-07-23 15:41:39,313 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 005 | Train Loss: 0.6089 AUC: 0.6772 | Val Loss: 2.2988 AUC: 0.6448 | Test AUC: 0.7385
+2026-07-23 15:44:00,986 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 006 | Train Loss: 0.6028 AUC: 0.6912 | Val Loss: 0.7264 AUC: 0.6314 | Test AUC: 0.7196
+2026-07-23 15:44:04,701 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 007 | Train Loss: 0.6039 AUC: 0.6943 | Val Loss: 0.6386 AUC: 0.6514 | Test AUC: 0.7360
+2026-07-23 15:44:08,556 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 008 | Train Loss: 0.5979 AUC: 0.6948 | Val Loss: 0.7270 AUC: 0.6648 | Test AUC: 0.7269
+2026-07-23 15:44:12,419 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 009 | Train Loss: 0.5932 AUC: 0.7086 | Val Loss: 1.2500 AUC: 0.6781 | Test AUC: 0.7387
+2026-07-23 15:44:17,182 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 010 | Train Loss: 0.5907 AUC: 0.7182 | Val Loss: 1.7298 AUC: 0.6829 | Test AUC: 0.7439
+2026-07-23 15:44:21,850 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 011 | Train Loss: 0.5944 AUC: 0.7132 | Val Loss: 2.1780 AUC: 0.7095 | Test AUC: 0.7447
+2026-07-23 15:44:26,369 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Epoch 012 | Train Loss: 0.5737 AUC: 0.7474 | Val Loss: 1.0492 AUC: 0.6848 | Test AUC: 0.7358
+2026-07-23 15:44:26,369 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Early stopping triggered at epoch 12: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:44:26,369 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Training for fold saliva_Periodontal_Disease_PRJEB42371 finished. Best Val Loss: 0.6386
+2026-07-23 15:44:27,049 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Periodontal_Disease_PRJEB42371.png
+2026-07-23 15:44:27,049 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Loading best model from ./result/saliva_Periodontal_Disease_PRJEB42371_test_model.pt for final prediction...
+2026-07-23 15:44:28,230 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Periodontal_Disease_PRJEB42371.csv
+2026-07-23 15:44:28,265 - TrainFoldsaliva_Periodontal_Disease_PRJEB42371 - INFO - Predictions saved successfully.

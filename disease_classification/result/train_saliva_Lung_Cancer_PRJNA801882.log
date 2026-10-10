@@ -1,0 +1,29 @@
+2026-07-23 16:38:39,375 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Using device: cuda
+2026-07-23 16:38:39,811 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:38:39,811 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Loading datasets...
+2026-07-23 16:42:00,078 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Datasets loaded. Train samples: 18, Val samples: 2, Test samples: 5685
+2026-07-23 16:42:00,078 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Number of nodes: 1919
+2026-07-23 16:42:00,078 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:42:05,909 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Model initialized. Trainable parameters: 266,673
+2026-07-23 16:42:05,909 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Starting training for fold saliva_Lung_Cancer_PRJNA801882...
+2026-07-23 16:42:13,966 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 001 | Train Loss: 0.6938 AUC: 0.5309 | Val Loss: 0.6934 AUC: 1.0000 | Test AUC: 0.5465
+2026-07-23 16:42:20,799 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 002 | Train Loss: 0.6926 AUC: 0.6790 | Val Loss: 0.6922 AUC: 1.0000 | Test AUC: 0.5207
+2026-07-23 16:42:30,389 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 003 | Train Loss: 0.6922 AUC: 0.6914 | Val Loss: 0.6914 AUC: 1.0000 | Test AUC: 0.5275
+2026-07-23 16:42:40,285 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 004 | Train Loss: 0.6933 AUC: 0.4938 | Val Loss: 0.6907 AUC: 1.0000 | Test AUC: 0.5293
+2026-07-23 16:42:49,532 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 005 | Train Loss: 0.6911 AUC: 0.6420 | Val Loss: 0.6897 AUC: 1.0000 | Test AUC: 0.5281
+2026-07-23 16:42:59,208 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 006 | Train Loss: 0.6887 AUC: 0.7901 | Val Loss: 0.6899 AUC: 1.0000 | Test AUC: 0.5213
+2026-07-23 16:43:08,374 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 007 | Train Loss: 0.6881 AUC: 0.7654 | Val Loss: 0.6892 AUC: 1.0000 | Test AUC: 0.5228
+2026-07-23 16:43:18,150 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 008 | Train Loss: 0.6879 AUC: 0.7407 | Val Loss: 0.6883 AUC: 1.0000 | Test AUC: 0.5237
+2026-07-23 16:43:28,172 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 009 | Train Loss: 0.6863 AUC: 0.7654 | Val Loss: 0.6882 AUC: 1.0000 | Test AUC: 0.5260
+2026-07-23 16:43:38,026 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 010 | Train Loss: 0.6790 AUC: 0.9383 | Val Loss: 0.6882 AUC: 1.0000 | Test AUC: 0.5272
+2026-07-23 16:43:47,466 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 011 | Train Loss: 0.6814 AUC: 0.7531 | Val Loss: 0.6891 AUC: 1.0000 | Test AUC: 0.5273
+2026-07-23 16:43:56,636 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 012 | Train Loss: 0.6790 AUC: 0.7407 | Val Loss: 0.6932 AUC: 1.0000 | Test AUC: 0.5252
+2026-07-23 16:44:06,230 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 013 | Train Loss: 0.6773 AUC: 0.7654 | Val Loss: 0.7007 AUC: 1.0000 | Test AUC: 0.5251
+2026-07-23 16:44:15,870 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 014 | Train Loss: 0.6719 AUC: 0.7901 | Val Loss: 0.7146 AUC: 1.0000 | Test AUC: 0.5244
+2026-07-23 16:44:25,677 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Epoch 015 | Train Loss: 0.6695 AUC: 0.7901 | Val Loss: 0.7347 AUC: 1.0000 | Test AUC: 0.5254
+2026-07-23 16:44:25,677 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Early stopping triggered at epoch 15: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:44:25,677 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Training for fold saliva_Lung_Cancer_PRJNA801882 finished. Best Val Loss: 0.6882
+2026-07-23 16:44:26,435 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Lung_Cancer_PRJNA801882.png
+2026-07-23 16:44:26,436 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Loading best model from ./result/saliva_Lung_Cancer_PRJNA801882_test_model.pt for final prediction...
+2026-07-23 16:44:33,768 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Lung_Cancer_PRJNA801882.csv
+2026-07-23 16:44:33,814 - TrainFoldsaliva_Lung_Cancer_PRJNA801882 - INFO - Predictions saved successfully.

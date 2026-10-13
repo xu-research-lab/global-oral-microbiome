@@ -1,0 +1,27 @@
+2026-07-23 16:02:25,710 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Using device: cuda
+2026-07-23 16:02:26,176 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:02:26,177 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Loading datasets...
+2026-07-23 16:08:00,336 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Datasets loaded. Train samples: 5116, Val samples: 569, Test samples: 1658
+2026-07-23 16:08:00,336 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Number of nodes: 2499
+2026-07-23 16:08:00,336 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:08:07,245 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Model initialized. Trainable parameters: 285,233
+2026-07-23 16:08:07,245 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Starting training for fold saliva_Colorectal_Cancer_PRJEB70783...
+2026-07-23 16:08:31,668 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 001 | Train Loss: 0.6764 AUC: 0.5134 | Val Loss: 0.6873 AUC: 0.5408 | Test AUC: 0.5411
+2026-07-23 16:08:56,390 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 002 | Train Loss: 0.6725 AUC: 0.5295 | Val Loss: 0.6975 AUC: 0.5447 | Test AUC: 0.5398
+2026-07-23 16:09:20,528 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 003 | Train Loss: 0.6708 AUC: 0.5473 | Val Loss: 0.7031 AUC: 0.5790 | Test AUC: 0.5356
+2026-07-23 16:09:42,446 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 004 | Train Loss: 0.6691 AUC: 0.5556 | Val Loss: 0.7621 AUC: 0.5564 | Test AUC: 0.5451
+2026-07-23 16:10:01,126 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 005 | Train Loss: 0.6690 AUC: 0.5585 | Val Loss: 0.7275 AUC: 0.5580 | Test AUC: 0.5464
+2026-07-23 16:10:20,406 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 006 | Train Loss: 0.6670 AUC: 0.5685 | Val Loss: 0.6717 AUC: 0.5663 | Test AUC: 0.5452
+2026-07-23 16:10:39,577 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 007 | Train Loss: 0.6651 AUC: 0.5765 | Val Loss: 0.9574 AUC: 0.5713 | Test AUC: 0.5437
+2026-07-23 16:10:55,624 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 008 | Train Loss: 0.6666 AUC: 0.5704 | Val Loss: 0.6713 AUC: 0.5696 | Test AUC: 0.5450
+2026-07-23 16:11:12,552 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 009 | Train Loss: 0.6647 AUC: 0.5779 | Val Loss: 0.6720 AUC: 0.5662 | Test AUC: 0.5436
+2026-07-23 16:11:29,422 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 010 | Train Loss: 0.6649 AUC: 0.5796 | Val Loss: 0.7379 AUC: 0.5709 | Test AUC: 0.5343
+2026-07-23 16:11:53,040 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 011 | Train Loss: 0.6638 AUC: 0.5813 | Val Loss: 0.7662 AUC: 0.5706 | Test AUC: 0.5353
+2026-07-23 16:12:16,743 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 012 | Train Loss: 0.6633 AUC: 0.5839 | Val Loss: 0.7171 AUC: 0.5695 | Test AUC: 0.5320
+2026-07-23 16:12:39,843 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Epoch 013 | Train Loss: 0.6629 AUC: 0.5849 | Val Loss: 0.7511 AUC: 0.5608 | Test AUC: 0.5378
+2026-07-23 16:12:39,844 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Early stopping triggered at epoch 13: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:12:39,844 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Training for fold saliva_Colorectal_Cancer_PRJEB70783 finished. Best Val Loss: 0.6713
+2026-07-23 16:12:40,524 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Colorectal_Cancer_PRJEB70783.png
+2026-07-23 16:12:40,524 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Loading best model from ./result/saliva_Colorectal_Cancer_PRJEB70783_test_model.pt for final prediction...
+2026-07-23 16:12:43,820 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Colorectal_Cancer_PRJEB70783.csv
+2026-07-23 16:12:43,848 - TrainFoldsaliva_Colorectal_Cancer_PRJEB70783 - INFO - Predictions saved successfully.

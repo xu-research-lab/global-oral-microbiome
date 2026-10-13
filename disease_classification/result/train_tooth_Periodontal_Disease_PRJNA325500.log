@@ -1,0 +1,26 @@
+2026-07-23 16:52:24,032 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Using device: cuda
+2026-07-23 16:52:24,490 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 16:52:24,490 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Loading datasets...
+2026-07-23 16:52:56,406 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Datasets loaded. Train samples: 830, Val samples: 93, Test samples: 51
+2026-07-23 16:52:56,406 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Number of nodes: 1671
+2026-07-23 16:52:56,406 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Detected input node feature dimension: 32
+2026-07-23 16:53:01,366 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Model initialized. Trainable parameters: 258,737
+2026-07-23 16:53:01,367 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Starting training for fold tooth_Periodontal_Disease_PRJNA325500...
+2026-07-23 16:53:06,705 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 001 | Train Loss: 0.6851 AUC: 0.5815 | Val Loss: 0.6820 AUC: 0.5256 | Test AUC: 0.4614
+2026-07-23 16:53:11,705 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 002 | Train Loss: 0.6484 AUC: 0.6915 | Val Loss: 0.8306 AUC: 0.6515 | Test AUC: 0.5046
+2026-07-23 16:53:16,397 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 003 | Train Loss: 0.5515 AUC: 0.8108 | Val Loss: 0.9614 AUC: 0.8319 | Test AUC: 0.6343
+2026-07-23 16:53:21,166 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 004 | Train Loss: 0.4701 AUC: 0.8565 | Val Loss: 0.5915 AUC: 0.8528 | Test AUC: 0.6590
+2026-07-23 16:53:25,457 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 005 | Train Loss: 0.4487 AUC: 0.8667 | Val Loss: 3.8501 AUC: 0.8105 | Test AUC: 0.6080
+2026-07-23 16:53:29,992 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 006 | Train Loss: 0.4365 AUC: 0.8691 | Val Loss: 1.6703 AUC: 0.9003 | Test AUC: 0.6651
+2026-07-23 16:53:34,591 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 007 | Train Loss: 0.4266 AUC: 0.8795 | Val Loss: 0.4722 AUC: 0.9012 | Test AUC: 0.6775
+2026-07-23 16:53:39,069 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 008 | Train Loss: 0.4237 AUC: 0.8815 | Val Loss: 2.3256 AUC: 0.8998 | Test AUC: 0.6744
+2026-07-23 16:53:43,054 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 009 | Train Loss: 0.4105 AUC: 0.8897 | Val Loss: 1.9542 AUC: 0.9136 | Test AUC: 0.6713
+2026-07-23 16:53:47,186 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 010 | Train Loss: 0.3986 AUC: 0.8955 | Val Loss: 2.4645 AUC: 0.8751 | Test AUC: 0.6235
+2026-07-23 16:53:52,168 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 011 | Train Loss: 0.3837 AUC: 0.9057 | Val Loss: 2.9098 AUC: 0.9027 | Test AUC: 0.6821
+2026-07-23 16:53:57,250 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Epoch 012 | Train Loss: 0.3662 AUC: 0.9119 | Val Loss: 3.6410 AUC: 0.9221 | Test AUC: 0.6806
+2026-07-23 16:53:57,250 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Early stopping triggered at epoch 12: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 16:53:57,250 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Training for fold tooth_Periodontal_Disease_PRJNA325500 finished. Best Val Loss: 0.4722
+2026-07-23 16:53:57,897 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Metrics plot saved to ./result/metrics_plot_tooth_Periodontal_Disease_PRJNA325500.png
+2026-07-23 16:53:57,897 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Loading best model from ./result/tooth_Periodontal_Disease_PRJNA325500_test_model.pt for final prediction...
+2026-07-23 16:53:59,125 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Saving binary classification predictions to ./result/predictions_tooth_Periodontal_Disease_PRJNA325500.csv
+2026-07-23 16:53:59,131 - TrainFoldtooth_Periodontal_Disease_PRJNA325500 - INFO - Predictions saved successfully.

@@ -1,0 +1,21 @@
+2026-07-23 15:35:33,369 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Using device: cuda
+2026-07-23 15:35:33,804 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:35:33,804 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Loading datasets...
+2026-07-23 15:36:16,809 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Datasets loaded. Train samples: 1112, Val samples: 124, Test samples: 120
+2026-07-23 15:36:16,810 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Number of nodes: 1685
+2026-07-23 15:36:16,810 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:36:23,500 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Model initialized. Trainable parameters: 259,185
+2026-07-23 15:36:23,501 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Starting training for fold saliva_Head_and_Neck_Cancer_PRJNA666972...
+2026-07-23 15:36:30,371 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Epoch 001 | Train Loss: 0.6706 AUC: 0.6468 | Val Loss: 2.1580 AUC: 0.5693 | Test AUC: 0.5725
+2026-07-23 15:36:36,088 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Epoch 002 | Train Loss: 0.6334 AUC: 0.6935 | Val Loss: 0.7475 AUC: 0.6045 | Test AUC: 0.5767
+2026-07-23 15:36:42,046 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Epoch 003 | Train Loss: 0.6150 AUC: 0.7213 | Val Loss: 0.7714 AUC: 0.6477 | Test AUC: 0.5714
+2026-07-23 15:36:48,212 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Epoch 004 | Train Loss: 0.5941 AUC: 0.7543 | Val Loss: 1.7622 AUC: 0.6867 | Test AUC: 0.5829
+2026-07-23 15:36:53,615 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Epoch 005 | Train Loss: 0.5533 AUC: 0.8062 | Val Loss: 1.2969 AUC: 0.7028 | Test AUC: 0.5801
+2026-07-23 15:36:59,536 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Epoch 006 | Train Loss: 0.5214 AUC: 0.8280 | Val Loss: 3.5424 AUC: 0.7804 | Test AUC: 0.5951
+2026-07-23 15:37:05,298 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Epoch 007 | Train Loss: 0.4955 AUC: 0.8452 | Val Loss: 6.1782 AUC: 0.8168 | Test AUC: 0.5243
+2026-07-23 15:37:05,299 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Early stopping triggered at epoch 7: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:37:05,299 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Training for fold saliva_Head_and_Neck_Cancer_PRJNA666972 finished. Best Val Loss: 0.7475
+2026-07-23 15:37:05,960 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Head_and_Neck_Cancer_PRJNA666972.png
+2026-07-23 15:37:05,960 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Loading best model from ./result/saliva_Head_and_Neck_Cancer_PRJNA666972_test_model.pt for final prediction...
+2026-07-23 15:37:06,853 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Head_and_Neck_Cancer_PRJNA666972.csv
+2026-07-23 15:37:06,858 - TrainFoldsaliva_Head_and_Neck_Cancer_PRJNA666972 - INFO - Predictions saved successfully.

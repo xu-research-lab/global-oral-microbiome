@@ -1,0 +1,31 @@
+2026-07-23 15:09:38,901 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Using device: cuda
+2026-07-23 15:09:39,648 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:09:39,648 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Loading datasets...
+2026-07-23 15:09:55,768 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Datasets loaded. Train samples: 210, Val samples: 24, Test samples: 192
+2026-07-23 15:09:55,768 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Number of nodes: 1955
+2026-07-23 15:09:55,768 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:09:59,408 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Model initialized. Trainable parameters: 267,825
+2026-07-23 15:09:59,409 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Starting training for fold saliva_Gastroesophageal_Reflux_Disease_PRJCA005537...
+2026-07-23 15:10:02,947 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 001 | Train Loss: 0.6953 AUC: 0.4561 | Val Loss: 0.6787 AUC: 0.4370 | Test AUC: 0.4181
+2026-07-23 15:10:05,857 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 002 | Train Loss: 0.6894 AUC: 0.5243 | Val Loss: 0.6826 AUC: 0.4000 | Test AUC: 0.4397
+2026-07-23 15:10:08,825 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 003 | Train Loss: 0.6855 AUC: 0.5220 | Val Loss: 0.6752 AUC: 0.4444 | Test AUC: 0.4328
+2026-07-23 15:10:11,805 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 004 | Train Loss: 0.6814 AUC: 0.5316 | Val Loss: 0.6656 AUC: 0.4296 | Test AUC: 0.4374
+2026-07-23 15:10:15,099 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 005 | Train Loss: 0.6764 AUC: 0.5538 | Val Loss: 0.6652 AUC: 0.4593 | Test AUC: 0.4413
+2026-07-23 15:10:18,455 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 006 | Train Loss: 0.6707 AUC: 0.5711 | Val Loss: 0.6901 AUC: 0.4741 | Test AUC: 0.4420
+2026-07-23 15:10:21,886 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 007 | Train Loss: 0.6662 AUC: 0.5817 | Val Loss: 0.6660 AUC: 0.5556 | Test AUC: 0.4277
+2026-07-23 15:10:24,896 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 008 | Train Loss: 0.6612 AUC: 0.5863 | Val Loss: 0.6504 AUC: 0.6074 | Test AUC: 0.4084
+2026-07-23 15:10:28,248 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 009 | Train Loss: 0.6585 AUC: 0.5796 | Val Loss: 0.6968 AUC: 0.8593 | Test AUC: 0.5371
+2026-07-23 15:10:31,370 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 010 | Train Loss: 0.6539 AUC: 0.6279 | Val Loss: 0.7058 AUC: 0.6222 | Test AUC: 0.5430
+2026-07-23 15:10:34,486 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 011 | Train Loss: 0.6401 AUC: 0.6750 | Val Loss: 0.8446 AUC: 0.6444 | Test AUC: 0.4280
+2026-07-23 15:10:37,836 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 012 | Train Loss: 0.6453 AUC: 0.6399 | Val Loss: 0.6264 AUC: 0.7481 | Test AUC: 0.4420
+2026-07-23 15:10:41,131 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 013 | Train Loss: 0.6376 AUC: 0.6684 | Val Loss: 1.0520 AUC: 0.7926 | Test AUC: 0.4588
+2026-07-23 15:10:44,585 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 014 | Train Loss: 0.6347 AUC: 0.6686 | Val Loss: 1.9299 AUC: 0.7778 | Test AUC: 0.5163
+2026-07-23 15:10:47,702 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 015 | Train Loss: 0.6284 AUC: 0.6794 | Val Loss: 0.9842 AUC: 0.8296 | Test AUC: 0.5736
+2026-07-23 15:10:50,660 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 016 | Train Loss: 0.6162 AUC: 0.7173 | Val Loss: 0.7839 AUC: 0.8148 | Test AUC: 0.5821
+2026-07-23 15:10:53,649 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Epoch 017 | Train Loss: 0.6100 AUC: 0.7188 | Val Loss: 0.7783 AUC: 0.8074 | Test AUC: 0.5939
+2026-07-23 15:10:53,649 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Early stopping triggered at epoch 17: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:10:53,649 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Training for fold saliva_Gastroesophageal_Reflux_Disease_PRJCA005537 finished. Best Val Loss: 0.6264
+2026-07-23 15:10:54,496 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_Gastroesophageal_Reflux_Disease_PRJCA005537.png
+2026-07-23 15:10:54,496 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Loading best model from ./result/saliva_Gastroesophageal_Reflux_Disease_PRJCA005537_test_model.pt for final prediction...
+2026-07-23 15:10:55,559 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Saving binary classification predictions to ./result/predictions_saliva_Gastroesophageal_Reflux_Disease_PRJCA005537.csv
+2026-07-23 15:10:55,565 - TrainFoldsaliva_Gastroesophageal_Reflux_Disease_PRJCA005537 - INFO - Predictions saved successfully.

@@ -1,0 +1,21 @@
+2026-07-23 15:54:48,158 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Using device: cuda
+2026-07-23 15:54:48,601 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:54:48,601 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Loading datasets...
+2026-07-23 15:55:03,843 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Datasets loaded. Train samples: 196, Val samples: 22, Test samples: 209
+2026-07-23 15:55:03,844 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Number of nodes: 1759
+2026-07-23 15:55:03,844 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:55:09,308 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Model initialized. Trainable parameters: 261,553
+2026-07-23 15:55:09,309 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Starting training for fold saliva_COVID-19_PRJNA896341...
+2026-07-23 15:55:13,351 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Epoch 001 | Train Loss: 0.6865 AUC: 0.5595 | Val Loss: 0.6893 AUC: 0.4667 | Test AUC: 0.7691
+2026-07-23 15:55:16,636 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Epoch 002 | Train Loss: 0.6855 AUC: 0.5114 | Val Loss: 0.6871 AUC: 0.7500 | Test AUC: 0.8036
+2026-07-23 15:55:20,030 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Epoch 003 | Train Loss: 0.6827 AUC: 0.5396 | Val Loss: 0.7055 AUC: 0.7667 | Test AUC: 0.8055
+2026-07-23 15:55:23,776 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Epoch 004 | Train Loss: 0.6805 AUC: 0.5348 | Val Loss: 0.8409 AUC: 0.7917 | Test AUC: 0.8139
+2026-07-23 15:55:27,420 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Epoch 005 | Train Loss: 0.6780 AUC: 0.5385 | Val Loss: 0.8938 AUC: 0.7917 | Test AUC: 0.8302
+2026-07-23 15:55:30,497 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Epoch 006 | Train Loss: 0.6740 AUC: 0.5737 | Val Loss: 0.7495 AUC: 0.7917 | Test AUC: 0.8356
+2026-07-23 15:55:33,936 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Epoch 007 | Train Loss: 0.6727 AUC: 0.5079 | Val Loss: 0.7925 AUC: 0.7917 | Test AUC: 0.8307
+2026-07-23 15:55:33,937 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Early stopping triggered at epoch 7: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:55:33,937 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Training for fold saliva_COVID-19_PRJNA896341 finished. Best Val Loss: 0.6871
+2026-07-23 15:55:34,719 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_COVID-19_PRJNA896341.png
+2026-07-23 15:55:34,719 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Loading best model from ./result/saliva_COVID-19_PRJNA896341_test_model.pt for final prediction...
+2026-07-23 15:55:35,681 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Saving binary classification predictions to ./result/predictions_saliva_COVID-19_PRJNA896341.csv
+2026-07-23 15:55:35,686 - TrainFoldsaliva_COVID-19_PRJNA896341 - INFO - Predictions saved successfully.

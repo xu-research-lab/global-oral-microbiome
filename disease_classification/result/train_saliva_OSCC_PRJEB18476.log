@@ -1,0 +1,20 @@
+2026-07-23 15:22:23,204 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Using device: cuda
+2026-07-23 15:22:23,623 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:22:23,624 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Loading datasets...
+2026-07-23 15:22:56,991 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Datasets loaded. Train samples: 648, Val samples: 72, Test samples: 21
+2026-07-23 15:22:56,992 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Number of nodes: 2333
+2026-07-23 15:22:56,992 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:23:00,659 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Model initialized. Trainable parameters: 279,921
+2026-07-23 15:23:00,660 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Starting training for fold saliva_OSCC_PRJEB18476...
+2026-07-23 15:23:05,203 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Epoch 001 | Train Loss: 0.6915 AUC: 0.5099 | Val Loss: 0.6989 AUC: 0.4923 | Test AUC: 0.3455
+2026-07-23 15:23:09,374 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Epoch 002 | Train Loss: 0.6893 AUC: 0.5405 | Val Loss: 1.0899 AUC: 0.4977 | Test AUC: 0.2909
+2026-07-23 15:23:13,725 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Epoch 003 | Train Loss: 0.6853 AUC: 0.5590 | Val Loss: 1.6865 AUC: 0.4985 | Test AUC: 0.4182
+2026-07-23 15:23:17,911 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Epoch 004 | Train Loss: 0.6795 AUC: 0.5682 | Val Loss: 2.2535 AUC: 0.5255 | Test AUC: 0.4136
+2026-07-23 15:23:22,109 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Epoch 005 | Train Loss: 0.6744 AUC: 0.6449 | Val Loss: 2.6804 AUC: 0.5441 | Test AUC: 0.3818
+2026-07-23 15:23:26,045 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Epoch 006 | Train Loss: 0.6609 AUC: 0.6496 | Val Loss: 0.7138 AUC: 0.6904 | Test AUC: 0.6273
+2026-07-23 15:23:26,045 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Early stopping triggered at epoch 6: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:23:26,045 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Training for fold saliva_OSCC_PRJEB18476 finished. Best Val Loss: 0.6989
+2026-07-23 15:23:26,877 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_OSCC_PRJEB18476.png
+2026-07-23 15:23:26,877 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Loading best model from ./result/saliva_OSCC_PRJEB18476_test_model.pt for final prediction...
+2026-07-23 15:23:27,838 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Saving binary classification predictions to ./result/predictions_saliva_OSCC_PRJEB18476.csv
+2026-07-23 15:23:27,843 - TrainFoldsaliva_OSCC_PRJEB18476 - INFO - Predictions saved successfully.

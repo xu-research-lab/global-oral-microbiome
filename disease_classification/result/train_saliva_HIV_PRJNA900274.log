@@ -1,0 +1,23 @@
+2026-07-23 15:18:59,179 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Using device: cuda
+2026-07-23 15:18:59,600 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:18:59,600 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Loading datasets...
+2026-07-23 15:19:06,254 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Datasets loaded. Train samples: 114, Val samples: 13, Test samples: 115
+2026-07-23 15:19:06,254 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Number of nodes: 1241
+2026-07-23 15:19:06,254 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:19:09,846 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Model initialized. Trainable parameters: 244,977
+2026-07-23 15:19:09,847 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Starting training for fold saliva_HIV_PRJNA900274...
+2026-07-23 15:19:13,130 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Epoch 001 | Train Loss: 0.7051 AUC: 0.5305 | Val Loss: 0.6811 AUC: 0.6944 | Test AUC: 0.5469
+2026-07-23 15:19:16,069 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Epoch 002 | Train Loss: 0.6988 AUC: 0.5873 | Val Loss: 0.6727 AUC: 0.5278 | Test AUC: 0.5832
+2026-07-23 15:19:18,791 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Epoch 003 | Train Loss: 0.6887 AUC: 0.6588 | Val Loss: 0.6299 AUC: 0.5278 | Test AUC: 0.5859
+2026-07-23 15:19:21,961 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Epoch 004 | Train Loss: 0.6769 AUC: 0.6895 | Val Loss: 0.6167 AUC: 0.5556 | Test AUC: 0.5895
+2026-07-23 15:19:25,009 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Epoch 005 | Train Loss: 0.6619 AUC: 0.6980 | Val Loss: 0.8434 AUC: 0.6111 | Test AUC: 0.5998
+2026-07-23 15:19:27,853 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Epoch 006 | Train Loss: 0.6388 AUC: 0.7140 | Val Loss: 1.4611 AUC: 0.6111 | Test AUC: 0.6101
+2026-07-23 15:19:30,737 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Epoch 007 | Train Loss: 0.6170 AUC: 0.7186 | Val Loss: 1.8620 AUC: 0.6389 | Test AUC: 0.6183
+2026-07-23 15:19:33,607 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Epoch 008 | Train Loss: 0.6082 AUC: 0.7046 | Val Loss: 1.3815 AUC: 0.6389 | Test AUC: 0.6234
+2026-07-23 15:19:36,493 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Epoch 009 | Train Loss: 0.5761 AUC: 0.6902 | Val Loss: 0.7221 AUC: 0.6667 | Test AUC: 0.6279
+2026-07-23 15:19:36,493 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Early stopping triggered at epoch 9: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:19:36,493 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Training for fold saliva_HIV_PRJNA900274 finished. Best Val Loss: 0.6167
+2026-07-23 15:19:37,190 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_HIV_PRJNA900274.png
+2026-07-23 15:19:37,191 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Loading best model from ./result/saliva_HIV_PRJNA900274_test_model.pt for final prediction...
+2026-07-23 15:19:38,310 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Saving binary classification predictions to ./result/predictions_saliva_HIV_PRJNA900274.csv
+2026-07-23 15:19:38,319 - TrainFoldsaliva_HIV_PRJNA900274 - INFO - Predictions saved successfully.

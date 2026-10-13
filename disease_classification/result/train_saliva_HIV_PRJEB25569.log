@@ -1,0 +1,36 @@
+2026-07-23 15:16:54,299 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Using device: cuda
+2026-07-23 15:16:54,720 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 15:16:54,720 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Loading datasets...
+2026-07-23 15:17:01,309 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Datasets loaded. Train samples: 177, Val samples: 20, Test samples: 45
+2026-07-23 15:17:01,310 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Number of nodes: 1241
+2026-07-23 15:17:01,310 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Detected input node feature dimension: 32
+2026-07-23 15:17:04,858 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Model initialized. Trainable parameters: 244,977
+2026-07-23 15:17:04,859 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Starting training for fold saliva_HIV_PRJEB25569...
+2026-07-23 15:17:08,219 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 001 | Train Loss: 0.6972 AUC: 0.5331 | Val Loss: 0.6955 AUC: 0.7917 | Test AUC: 0.5480
+2026-07-23 15:17:11,261 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 002 | Train Loss: 0.6907 AUC: 0.6409 | Val Loss: 0.6720 AUC: 0.8750 | Test AUC: 0.5202
+2026-07-23 15:17:14,339 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 003 | Train Loss: 0.6819 AUC: 0.6399 | Val Loss: 0.6935 AUC: 0.8854 | Test AUC: 0.5076
+2026-07-23 15:17:17,059 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 004 | Train Loss: 0.6702 AUC: 0.6450 | Val Loss: 1.1505 AUC: 0.8854 | Test AUC: 0.5354
+2026-07-23 15:17:19,986 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 005 | Train Loss: 0.6515 AUC: 0.6612 | Val Loss: 2.1403 AUC: 0.9062 | Test AUC: 0.5808
+2026-07-23 15:17:23,169 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 006 | Train Loss: 0.6392 AUC: 0.6725 | Val Loss: 1.4390 AUC: 0.9167 | Test AUC: 0.6162
+2026-07-23 15:17:26,089 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 007 | Train Loss: 0.6302 AUC: 0.6660 | Val Loss: 0.6026 AUC: 0.9271 | Test AUC: 0.6490
+2026-07-23 15:17:29,193 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 008 | Train Loss: 0.6206 AUC: 0.6839 | Val Loss: 0.7051 AUC: 0.0625 | Test AUC: 0.3485
+2026-07-23 15:17:32,283 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 009 | Train Loss: 0.6100 AUC: 0.7155 | Val Loss: 0.7006 AUC: 0.0729 | Test AUC: 0.3712
+2026-07-23 15:17:35,186 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 010 | Train Loss: 0.6090 AUC: 0.7302 | Val Loss: 0.7041 AUC: 0.0729 | Test AUC: 0.3763
+2026-07-23 15:17:38,031 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 011 | Train Loss: 0.5996 AUC: 0.7294 | Val Loss: 0.6109 AUC: 0.9271 | Test AUC: 0.5884
+2026-07-23 15:17:41,175 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 012 | Train Loss: 0.6076 AUC: 0.6985 | Val Loss: 0.5947 AUC: 0.8750 | Test AUC: 0.5758
+2026-07-23 15:17:44,142 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 013 | Train Loss: 0.5942 AUC: 0.7280 | Val Loss: 0.7084 AUC: 0.7812 | Test AUC: 0.6465
+2026-07-23 15:17:47,115 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 014 | Train Loss: 0.5890 AUC: 0.7362 | Val Loss: 0.7182 AUC: 0.9062 | Test AUC: 0.7020
+2026-07-23 15:17:50,253 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 015 | Train Loss: 0.5771 AUC: 0.7578 | Val Loss: 0.7303 AUC: 0.8750 | Test AUC: 0.6591
+2026-07-23 15:17:53,278 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 016 | Train Loss: 0.5904 AUC: 0.7410 | Val Loss: 0.7494 AUC: 0.9167 | Test AUC: 0.6742
+2026-07-23 15:17:56,295 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 017 | Train Loss: 0.5826 AUC: 0.7360 | Val Loss: 0.5150 AUC: 0.9375 | Test AUC: 0.6616
+2026-07-23 15:17:59,453 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 018 | Train Loss: 0.5646 AUC: 0.7656 | Val Loss: 0.7139 AUC: 0.9375 | Test AUC: 0.6667
+2026-07-23 15:18:02,418 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 019 | Train Loss: 0.5640 AUC: 0.7690 | Val Loss: 0.7163 AUC: 0.9271 | Test AUC: 0.6591
+2026-07-23 15:18:05,396 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 020 | Train Loss: 0.5628 AUC: 0.7612 | Val Loss: 0.7158 AUC: 0.9271 | Test AUC: 0.6692
+2026-07-23 15:18:08,429 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 021 | Train Loss: 0.5516 AUC: 0.7817 | Val Loss: 1.1069 AUC: 0.6042 | Test AUC: 0.5884
+2026-07-23 15:18:11,483 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Epoch 022 | Train Loss: 0.5216 AUC: 0.8536 | Val Loss: 1.1717 AUC: 0.6458 | Test AUC: 0.6061
+2026-07-23 15:18:11,483 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Early stopping triggered at epoch 22: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 15:18:11,483 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Training for fold saliva_HIV_PRJEB25569 finished. Best Val Loss: 0.5150
+2026-07-23 15:18:12,110 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Metrics plot saved to ./result/metrics_plot_saliva_HIV_PRJEB25569.png
+2026-07-23 15:18:12,111 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Loading best model from ./result/saliva_HIV_PRJEB25569_test_model.pt for final prediction...
+2026-07-23 15:18:13,139 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Saving binary classification predictions to ./result/predictions_saliva_HIV_PRJEB25569.csv
+2026-07-23 15:18:13,149 - TrainFoldsaliva_HIV_PRJEB25569 - INFO - Predictions saved successfully.

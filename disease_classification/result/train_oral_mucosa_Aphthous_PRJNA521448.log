@@ -1,0 +1,22 @@
+2026-07-23 17:04:16,437 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Using device: cuda
+2026-07-23 17:04:16,869 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Detected 2 classes in metadata column 'group': [1 0]
+2026-07-23 17:04:16,870 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Loading datasets...
+2026-07-23 17:04:19,646 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Datasets loaded. Train samples: 35, Val samples: 4, Test samples: 76
+2026-07-23 17:04:19,646 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Number of nodes: 761
+2026-07-23 17:04:19,646 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Detected input node feature dimension: 32
+2026-07-23 17:04:25,169 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Model initialized. Trainable parameters: 229,617
+2026-07-23 17:04:25,170 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Starting training for fold oral_mucosa_Aphthous_PRJNA521448...
+2026-07-23 17:04:28,527 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Epoch 001 | Train Loss: 0.6922 AUC: 0.5850 | Val Loss: 0.6938 AUC: 0.5000 | Test AUC: 0.7167
+2026-07-23 17:04:31,059 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Epoch 002 | Train Loss: 0.6933 AUC: 0.4085 | Val Loss: 0.6933 AUC: 0.7500 | Test AUC: 0.6788
+2026-07-23 17:04:33,772 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Epoch 003 | Train Loss: 0.6932 AUC: 0.4412 | Val Loss: 0.6931 AUC: 0.7500 | Test AUC: 0.7182
+2026-07-23 17:04:36,518 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Epoch 004 | Train Loss: 0.6928 AUC: 0.5098 | Val Loss: 0.6931 AUC: 0.7500 | Test AUC: 0.7311
+2026-07-23 17:04:39,500 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Epoch 005 | Train Loss: 0.6939 AUC: 0.3987 | Val Loss: 0.6931 AUC: 0.7500 | Test AUC: 0.7076
+2026-07-23 17:04:42,612 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Epoch 006 | Train Loss: 0.6913 AUC: 0.6830 | Val Loss: 0.6931 AUC: 0.7500 | Test AUC: 0.7030
+2026-07-23 17:04:45,606 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Epoch 007 | Train Loss: 0.6931 AUC: 0.4902 | Val Loss: 0.6933 AUC: 0.7500 | Test AUC: 0.6515
+2026-07-23 17:04:48,507 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Epoch 008 | Train Loss: 0.6938 AUC: 0.3497 | Val Loss: 0.6934 AUC: 1.0000 | Test AUC: 0.6682
+2026-07-23 17:04:48,507 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Early stopping triggered at epoch 8: validation loss did not improve for 5 consecutive epochs.
+2026-07-23 17:04:48,507 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Training for fold oral_mucosa_Aphthous_PRJNA521448 finished. Best Val Loss: 0.6931
+2026-07-23 17:04:49,326 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Metrics plot saved to ./result/metrics_plot_oral_mucosa_Aphthous_PRJNA521448.png
+2026-07-23 17:04:49,326 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Loading best model from ./result/oral_mucosa_Aphthous_PRJNA521448_test_model.pt for final prediction...
+2026-07-23 17:04:50,412 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Saving binary classification predictions to ./result/predictions_oral_mucosa_Aphthous_PRJNA521448.csv
+2026-07-23 17:04:50,486 - TrainFoldoral_mucosa_Aphthous_PRJNA521448 - INFO - Predictions saved successfully.

@@ -1,0 +1,106 @@
+"Disease","bioproject_id","Site","n"
+"Aphthous","PRJNA266382","Oral mucosa",39
+"Aphthous","PRJNA266382","Saliva",17
+"Aphthous","PRJNA413647","Saliva",89
+"Aphthous","PRJNA521448","Oral mucosa",84
+"Aphthous","PRJNA521448","Tongue",36
+"Breast Cancer","PRJEB70783","Saliva",1465
+"Breast Cancer","PRJNA767189","Saliva",796
+"COVID-19","PRJEB62655","Saliva",129
+"COVID-19","PRJNA660302","Tongue",392
+"COVID-19","PRJNA692359","Oral swab",41
+"COVID-19","PRJNA767939","Saliva",37
+"COVID-19","PRJNA780671","Saliva",54
+"COVID-19","PRJNA896341","Saliva",209
+"Colorectal Cancer","PRJEB70783","Saliva",1377
+"Colorectal Cancer","PRJNA801882","Saliva",4379
+"Dental Caries","PRJEB86033","Tooth",89
+"Dental Caries","PRJNA330533","Tooth",37
+"Dental Caries","PRJNA339212","Saliva",42
+"Dental Caries","PRJNA383868","Tooth",488
+"Dental Caries","PRJNA493618","Saliva",28
+"Dental Caries","PRJNA555320","Tooth",80
+"Dental Caries","PRJNA622300","Saliva",56
+"Dental Caries","PRJNA643173","Saliva",42
+"Dental Caries","PRJNA681486","Tooth",40
+"Diabetes","PRJEB11419","Other",739
+"Diabetes","PRJNA759836","Saliva",66
+"Esophageal Cancer","PRJNA660092","Saliva",90
+"Esophageal Cancer","PRJNA853196","Tongue",87
+"Gastroesophageal Reflux Disease","PRJCA005537","Saliva",192
+"Gastroesophageal Reflux Disease","PRJNA639327","Saliva",106
+"Gastroesophageal Reflux Disease","PRJNA674379","Saliva",128
+"HIV","PRJDB9093","Saliva",33
+"HIV","PRJEB25569","Saliva",45
+"HIV","PRJNA278076","Oral mucosa",16
+"HIV","PRJNA278076","Saliva",14
+"HIV","PRJNA278076","Tongue",16
+"HIV","PRJNA278076","Tooth",12
+"HIV","PRJNA330897","Oral mucosa",50
+"HIV","PRJNA330897","Saliva",49
+"HIV","PRJNA330897","Tooth",50
+"HIV","PRJNA739016","Oral swab",45
+"HIV","PRJNA900274","Saliva",115
+"Head and Neck Cancer","PRJEB37445","Saliva",994
+"Head and Neck Cancer","PRJNA421234","Saliva",21
+"Head and Neck Cancer","PRJNA666972","Saliva",120
+"Head and Neck Cancer","PRJNA744870","Saliva",153
+"Head and Neck Cancer","PRJNA901226","Oral mucosa",231
+"Head and Neck Cancer","PRJNA901226","Saliva",68
+"Head and Neck Cancer","PRJNA901226","Tongue",61
+"Hypertension","PRJCA006963","Saliva",50
+"Hypertension","PRJNA764503","Saliva",61
+"Hypertension","PRJNA764503","Tooth",62
+"IBD","PRJEB11419","Other",949
+"IBD","PRJEB70783","Saliva",1518
+"IBD","PRJNA749643","Saliva",21
+"Lung Cancer","PRJNA356414","Saliva",20
+"Lung Cancer","PRJNA801882","Saliva",4704
+"OSCC","PRJEB18476","Saliva",21
+"OSCC","PRJEB39064","Saliva",54
+"OSCC","PRJEB4953","Gingiva",2
+"OSCC","PRJEB4953","Oral mucosa",11
+"OSCC","PRJEB4953","Tongue",13
+"OSCC","PRJNA386665","Saliva",251
+"OSCC","PRJNA666746","Other",50
+"OSCC","PRJNA700849","Saliva",22
+"OSCC","PRJNA730970","Other",37
+"OSCC","PRJNA751046","Saliva",112
+"OSCC","PRJNA756784","Saliva",59
+"OSCC","PRJNA997108","Saliva",202
+"Obesity","PRJEB15057","Saliva",49
+"Obesity","PRJNA587625","Saliva",68
+"Obesity","qiita_11259","Saliva",50
+"Obstructive Sleep Apnea","PRJCA006963","Saliva",80
+"Obstructive Sleep Apnea","PRJNA544600","Saliva",24
+"Oral Lichen Planus","PRJNA306560","Saliva",55
+"Oral Lichen Planus","PRJNA598825","Oral mucosa",30
+"Periodontal Disease","PRJEB42371","Saliva",134
+"Periodontal Disease","PRJEB50261","Tooth",788
+"Periodontal Disease","PRJEB50306","Saliva",309
+"Periodontal Disease","PRJEB6047","Tongue",24
+"Periodontal Disease","PRJEB6047","Tooth",24
+"Periodontal Disease","PRJEB61123","Saliva",72
+"Periodontal Disease","PRJNA1154284","Tongue",26
+"Periodontal Disease","PRJNA1154284","Tooth",26
+"Periodontal Disease","PRJNA321534","Saliva",63
+"Periodontal Disease","PRJNA321534","Tooth",69
+"Periodontal Disease","PRJNA325500","Tooth",51
+"Periodontal Disease","PRJNA547446","Gingiva",25
+"Periodontal Disease","PRJNA547446","Tooth",20
+"Periodontal Disease","PRJNA578492","Saliva",71
+"Periodontal Disease","PRJNA579148","Gingiva",58
+"Periodontal Disease","PRJNA650272","Gingiva",25
+"Periodontal Disease","PRJNA660085","Tooth",22
+"Periodontal Disease","PRJNA664107","Gingiva",16
+"Periodontal Disease","PRJNA664107","Tooth",30
+"Periodontal Disease","PRJNA670573","Gingiva",108
+"Periodontal Disease","PRJNA670573","Tooth",45
+"Periodontal Disease","PRJNA721290","Saliva",34
+"Periodontal Disease","PRJNA735261","Tooth",18
+"Periodontal Disease","PRJNA739492","Saliva",143
+"RA","PRJNA578951","Saliva",51
+"RA","PRJNA656387","Tongue",197
+"RA","PRJNA841771","Other",189
+"Thyroid Cancer","PRJNA784772","Saliva",102
+"Thyroid Cancer","PRJNA863466","Saliva",29

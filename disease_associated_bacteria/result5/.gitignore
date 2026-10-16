@@ -1,0 +1,11 @@
+# raw inputs (see README) and regenerated intermediates
+data/
+eligible_diseases.*
+genus_table_*.tsv
+data_cleaning_report*.csv
+metadata_after_cleaning.tsv
+*/disease_results/
+*/*_all_results.tsv
+*/*_run_summary.csv
+*/*_significant_genera_q0.05.tsv
+method_comparison_three/consensus_bubble/

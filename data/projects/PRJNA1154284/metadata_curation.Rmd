@@ -5,144 +5,290 @@ output: github_document
 
 # Step 1: Obtain Initial Metadata from Each Project
 
-To obtain the initial metadata:
-1. Search for the BioProject ID (e.g., "PRJEBXXXX") on the [NCBI SRA website](https://www.ncbi.nlm.nih.gov/Traces/study/).
-2. In the "Select" table, click on "Metadata" and download the file.
-3. The downloaded file is typically named "SraRunTable.csv" and contains metadata for the project.
+This step sets the project directory and loads the raw SRA metadata.
 
 ```{r message=FALSE, warning=FALSE}
-# Load necessary libraries
+# Load libraries
 library(dplyr)
 library(ggplot2)
 library(cowplot)
 
-# Set working directory (update this path to your local directory)
-setwd("E:/bioproject/PRJNA1154284")
+# (1) Setting working directory
+project_id <- "PRJNA1154284"
 
-# Read the initial metadata files
-initial_meta <- read.csv("SraRunTable.csv", header = T) 
+base_dir <- "E:/工作区/VSCode/RNAproject/collect_metadata_respon/project"
+setwd(file.path(base_dir, project_id))
 
-# Display the first few rows of the metadata
-head(initial_meta)
+# (2) Loading raw SRA metadata file
+sra_file <- "SraRunTable.csv"
+initial_meta <- read.csv(sra_file, header = TRUE, stringsAsFactors = FALSE, check.names = FALSE)
 ```
 
-# Step 2: Create a Uniform Metadata Template
+# Step 2: Data Overview
 
-The uniform metadata should include the following columns:
+First, you need to get an overview of the data, which includes two steps: reading the article and reading the initial metadata. This step is very IMPORTANT!
 
-1. **BioProject**: Project ID (e.g., "PRJNA339212")
-2. **Run**: Sample ID (e.g., "ERRXXXXXX" or "SRRXXXXXX")
-3. **sample_name**: Original sample name submitted by the authors (not the database-assigned ID)
-4. **Age**: Age of the subject (if available)
-5. **BMI**: Body Mass Index (if available)
-6. **Sex**: Sex of the subject ("F" or "M")
-7. **Region**: Targeted 16S rRNA region (e.g., "V3-V4")
-8. **Platform**: Sequencing platform (e.g., "Illumina MiSeq")
-9. **Country**: Country of sample origin (e.g., "China")
-10. **Site**: Sample site (e.g., "saliva", "dental plaque")
-11. **public_time**: Data release date (format: "YYYY-MM-DD")
-12. **PCR_primers**: PCR primers used (e.g., "515F-806R")
-13. **title**: Title of the associated publication
-14. **Disease_study**: Whether the study involves a disease ("YES" or "NO")
-15. **Status**: Disease status (e.g., "T2DM", "HC"). Note: If the study includes both disease and healthy samples, this must be specified per sample.
-16. **matched_samples**: matched samples ("YES" or "NO")
+```{r message=FALSE, warning=FALSE}
+# (1) Read the article in the following order: abstract, the beginning of the results section, and the methods.
+# Paper summary used for this project:
+# - Title: Supragingival Plaque Microbiomes in a Diverse South Florida Population
+# - Study design: oral-site matched sampling study in a diverse South Florida cohort with one participant sampled again one year later
+# - Deposited sequencing rows: 135 total oral samples from 26 participants; 25 participants sampled once at five oral sites and one participant (FN54) sampled at the same five sites twice
+# - Sample type for this metadata: four supragingival plaque quadrants plus tongue scrape
+# - Participant eligibility in Methods: adults aged 18-40 years, South Florida residents, no active periodontal disease, and no antibiotic use in the last 3 months
+# - Sequencing from Methods: 16S rRNA gene V4 region amplified with primers 515F and 806R and sequenced on Illumina MiSeq V3 600-cycle chemistry
+# - Health groups from Table 1 / Results: periodontally healthy, localized gingivitis, generalized gingivitis
+# - The paper reports 131 samples in downstream analyses because four deposited samples were omitted for low sequencing reads, but the SRA deposit contains 135 oral samples
+# - Supplementary Materials mention Supplemental Table S1 with sequencing statistics; this is useful for checking the 131-vs-135 discrepancy, but it is not currently required as a join table for the 19-column metadata export
+
+# (2) IMPORTANT: MUST go through each column of initial_meta
+head(initial_meta, 10)
+colnames(initial_meta)
+table(initial_meta$Instrument)
+table(initial_meta$isolation_source)
+table(initial_meta$HOST)
+table(initial_meta$geo_loc_name_country)
+table(sub("-.*$", "", initial_meta$`Sample Name`))
+table(sub(".*-", "", initial_meta$`Sample Name`))
+table(initial_meta$ReleaseDate)
+# Relevant raw-table overview for the 19-column export:
+# - Already present in SRA: sample_id (Run), bioproject (BioProject), country (geo_loc_name_country), public_time (ReleaseDate), site clues (isolation_source, Sample Name), matched/cohort structure clues (Sample Name)
+# - Must come from the paper: title, sequencing_region, platform, pcr_primers, disease_study, status, age, bmi, sex
+# - Still needs manual confirmation from paper/supplement context rather than SRA alone: participant-level status labels, participant-level demographics, and whether any deposited rows should be excluded from analysis-only summaries but retained in metadata export
+# Raw-table summary checked for this project:
+# - All deposited rows are human oral amplicon samples from USA.
+# - isolation_source separates 108 Plaque rows from 27 Tongue scrape rows.
+# - Sample names follow subject-site format: FNxx-UR/UL/LR/LL/T.
+# - FN54a and FN54b represent the same participant sampled at two timepoints one year apart.
+# - SRA contains enough information to standardize sample_id, subject grouping, site, country, and release date, but not participant demographics or gingival-health status.
+```
+
+# Step 3: Removing Control and Non-human Samples
+
+First, we need to remove control samples(including both negative controls and positive controls) and non-human samples.
+
 ```{r}
-# Create a uniform metadata dataframe
-metadata <- data.frame(
-  BioProject = initial_meta$BioProject,
-  Run = initial_meta$Run,
-  sample_name = initial_meta$Sample.Name,
-  Age = "18-60", 
-  BMI = NA,  
-  Sex = NA,
-  Region = "V4",
-  Platform = initial_meta$Instrument,
-  Country = initial_meta$geo_loc_name_country,
-  Site = initial_meta$isolation_source,
-  public_time = initial_meta$ReleaseDate,
-  stringsAsFactors = FALSE
+# (1) Parameter setup
+control_column <- ""
+control_keywords <- c()
+
+species_column <- "HOST"
+unique(initial_meta[[species_column]])
+non_human_keywords <- c()
+
+# (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
+n_samples <- nrow(initial_meta)
+# Control evaluation
+if (length(control_keywords) > 0) {
+  if (is.null(control_column) || control_column == "") {
+    stop("Error: control_keywords provided but control_column is missing.")
+  }
+
+  if (!(control_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+  }
+
+  control_pattern <- paste(control_keywords, collapse = "|")
+  control_text <- initial_meta[[control_column]]
+  is_control <- grepl(control_pattern, control_text)
+
+} else {
+  is_control <- rep(FALSE, n_samples)
+}
+
+# Non-human evaluation
+if (length(non_human_keywords) > 0) {
+  if (is.null(species_column) || species_column == "") {
+    stop("Error: non_human_keywords provided but species_column is missing.")
+  }
+
+  if (!(species_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
+  }
+
+  non_human_pattern <- paste(non_human_keywords, collapse = "|")
+  species_text <- initial_meta[[species_column]]
+  is_non_human <- grepl(non_human_pattern, species_text)
+} else {
+  is_non_human <- rep(FALSE, n_samples)
+}
+
+# Execute removal
+samples_to_remove <- is_control | is_non_human
+initial_meta <- initial_meta[!samples_to_remove, ]
+
+cat("Initial samples counts:", n_samples, "\n")
+cat("Removed control samples:", sum(is_control), "\n")
+cat("Removed non-human samples:", sum(is_non_human), "\n")
+cat("Total samples removed ", sum(samples_to_remove), "\n")
+cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
+```
+
+# Step 4: Creating a Uniform Metadata Template
+
+This step converts the raw SRA table into the standard metadata format used in our meta-analysis.
+
+```{r}
+raw_subject_code <- sub("-.*$", "", initial_meta$`Sample Name`)
+subject_id <- sub("[ab]$", "", raw_subject_code)
+
+# Table 1 contains participant-level age, BMI, sex, and gingival-health labels.
+# The 26-row lookup table below transcribes those values once, then joins them to all site-level rows.
+subject_info <- tibble::tribble(
+  ~subject_id, ~age, ~bmi, ~sex, ~status,
+  "FN02", 20, 34.15, "M", "HC",
+  "FN08", 27, 25.80, "M", "localized gingivitis",
+  "FN10", 27, 18.89, "F", "localized gingivitis",
+  "FN11", 20, 25.10, "M", "HC",
+  "FN13", 24, 25.39, "M", "HC",
+  "FN16", 22, 33.90, "M", "localized gingivitis",
+  "FN22", 20, 28.06, "M", "localized gingivitis",
+  "FN24", 21, 23.13, "F", "generalized gingivitis",
+  "FN25", 38, 30.43, "M", "HC",
+  "FN26", 30, 44.24, "F", "HC",
+  "FN27", 18, 24.41, "F", "HC",
+  "FN31", 35, 20.45, "M", "HC",
+  "FN32", 33, 21.14, "F", "localized gingivitis",
+  "FN33", 30, 19.22, "M", "localized gingivitis",
+  "FN34", 29, 24.39, "M", "HC",
+  "FN35", 22, 21.41, "M", "HC",
+  "FN36", 37, 28.15, "F", "HC",
+  "FN37", 29, 21.11, "M", "generalized gingivitis",
+  "FN39", 31, 21.28, "F", "HC",
+  "FN40", 20, 24.03, "M", "HC",
+  "FN43", 33, 20.36, "M", "HC",
+  "FN47", 19, 22.31, "M", "HC",
+  "FN50", 19, 23.17, "F", "HC",
+  "FN52", 25, 36.02, "M", "HC",
+  "FN54", 26, 54.24, "M", "HC",
+  "FN71", 23, 20.17, "F", "HC"
 )
-```
-# Step 3: Manually Add Information from the Publication
 
-Some information (e.g. PCR primers, study title, disease status) must be manually extracted from the publication and added to the metadata.
+metadata <- initial_meta %>%
+  transmute(
+    bioproject = BioProject,
+    sample_id = Run,
+    raw_subject_id = `Sample Name`,
+    subject_id = subject_id,
+    age = NA_real_,
+    age_info = NA_character_,
+    bmi = NA_real_,
+    sex = NA_character_,
+    sequencing_region = "V4",
+    platform = "Illumina MiSeq",
+    country = geo_loc_name_country,
+    raw_site = isolation_source,
+    site = ifelse(isolation_source == "Tongue scrape", "tongue dorsum", "supragingival plaque"),
+    site_group = "pending",
+    public_time = sub("T.*$", "", ReleaseDate),
+    pcr_primers = "515F-806R",
+    title = "Supragingival Plaque Microbiomes in a Diverse South Florida Population",
+    disease_study = "yes",
+    status = NA_character_,
+    matched_samples = "pending",
+    is_time_series = ifelse(grepl("^FN54[ab]$", raw_subject_code), "yes", "no")
+  )
+
+metadata <- metadata %>%
+  left_join(subject_info, by = "subject_id", suffix = c("", ".subject")) %>%
+  mutate(
+    age = age.subject,
+    bmi = bmi.subject,
+    sex = sex.subject,
+    status = status.subject
+  ) %>%
+  select(-age.subject, -bmi.subject, -sex.subject, -status.subject)
+
+# Source notes for non-obvious fields:
+# - raw_subject_id preserves the deposited Sample Name used to derive subject_id.
+# - subject_id removes the oral-site suffix from Sample Name and also collapses FN54a/FN54b to FN54 because the paper states one participant was sampled twice one year apart.
+# - age, bmi, sex, and status are mapped from paper Table 1 at the participant level, then propagated to all rows from that participant.
+# - age_info is left as NA because exact participant ages are available from Table 1, so an approximate-age field is unnecessary.
+# - country follows the SRA geo_loc_name_country field (USA); the paper gives the more specific recruitment geography South Florida, which is recorded here only in the evidence notes.
+# - raw_site preserves the original SRA isolation_source values.
+# - site uses the SRA isolation_source values together with the paper Methods: Tongue scrape is recorded as tongue dorsum, and plaque rows are standardized to supragingival plaque rather than keeping quadrant suffixes as separate exported site labels.
+# - sequencing_region, platform, and pcr_primers come from the Methods section: V4 amplified with 515F/806R and sequenced on Illumina MiSeq V3 600-cycle chemistry.
+# - disease_study is yes because the cohort includes localized and generalized gingivitis in addition to healthy participants.
+# - The paper reports 131 samples in downstream analyses after low-read filtering, but all 135 deposited human oral SRA rows are retained in this metadata table.
+# - is_time_series is yes only for FN54a/FN54b rows because the paper reports one participant sampled twice one year apart; all other repeated rows are matched oral-site samples rather than longitudinal follow-up.
+metadata$public_time <- as.Date(metadata$public_time)
+```
+
+# Step 5: Manually solving pending issues
+
+This step involves two parts: (1) handle the columns with the `raw_` prefix, and next (2) handle the `site_group` and `matched_samples` columns.
+
 ```{r}
-# Add information obtained from the publication
-metadata$PCR_primers <- "515F-806R"
-metadata$title <- "Supragingival plaque microbiomes in a diverse south florida population"
-metadata$Disease_study <- "NO"
-# Assign disease status based on sample_name patterns
-metadata$Status <- "HC"
-
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- gsub("-.*", "", metadata$sample_name)
-
-# Check initial data distribution
-cat("Initial sample distribution:\n")
-table(metadata$sample_name)
-table(metadata$Site)
-
-# Calculate sampling frequency per subject
-sample_counts <- table(metadata$sample_name)
-cat("\nNumber of samples per subject:\n")
-print(sample_counts)
-
-# Create matched_samples column
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
-
-cat("\nMatched samples distribution:\n")
-table(metadata$matched_samples)
-
-# Identify samples for removal: single samples excluding saliva and tongue coat
-single_samples <- names(sample_counts[sample_counts == 1])
-samples_to_remove <- metadata$sample_name %in% single_samples & 
-                     !(metadata$Site %in% c("saliva", "tongue coat", "Tongue coating"))
-
-cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
-
-# Remove identified samples
-metadata_clean <- metadata[!samples_to_remove, ]
-
-cat("\nFinal sample distribution after cleaning:\n")
-table(metadata_clean$sample_name)
-table(metadata_clean$Site)
-table(metadata_clean$matched_samples)
-
-# Use cleaned dataset for subsequent analysis
-metadata <- metadata_clean
+# (1) raw_subject_id and raw_site are already carried in metadata to preserve the deposited Sample Name and isolation_source used for subject/site standardization.
+metadata <- metadata
 ```
-# Step 4: Summarize and Validate the Metadata
+
 ```{r}
-# Check the number of unique runs and sample names
-print(paste("Number of unique runs:", length(unique(metadata$Run))))
-print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
+# (2) Filling the 'site_group' and 'matched_samples' columns
+unique(metadata$site)
+Oral_site = c("supragingival plaque", "tongue dorsum")
+Gut_site = c("feces")
+
+metadata <- metadata %>%
+  mutate(site_group = case_when(
+    site %in% Oral_site ~ "oral",
+    site %in% Gut_site ~ "gut",
+    TRUE ~ "other"
+  ))
+
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+  "yes",
+  "no"
+)
+# matched_samples is yes because each participant contributes biologically matched oral samples across multiple sites in the same study design; FN54 additionally contributes a second visit one year later.
 ```
-# Step 5: Visualize the Metadata
-```{r,fig.width=8, fig.height=6, fig.align='center',include=FALSE}
-# Select columns for visualization
+
+```{r}
+# (3) check if there is pending value in metadata. If there is pending value, go on modify the metadata.
+has_pending <- function(col) {
+  if (is.character(col) || is.factor(col)) {
+    any(col == "pending", na.rm = TRUE)
+  } else {
+    FALSE
+  }
+}
+
+any_pending_value <- any(sapply(metadata, has_pending))
+
+if (!any_pending_value) {
+  message("Good! No cell contains the value 'pending'.")
+} else {
+  pending_cols <- names(metadata)[sapply(metadata, has_pending)]
+  message("Columns containing 'pending': ", paste(pending_cols, collapse = ", "))
+  message("Please continue to resolve these pending columns!")
+}
+```
+
+# Step 6: Visualize the Metadata
+
+This step makes a quick set of plots for checking the distribution of key metadata fields.
+
+```{r}
 plot_data <- metadata %>%
-  select(-BioProject, -Run, -sample_name, -title)
+  select(-bioproject, -sample_id, -subject_id, -title)
 
-# Function to create simple plots for each column
 create_simple_plots <- function(data) {
   plots <- list()
-  
+  continuous_vars <- c("age", "bmi")
+
   for (col in colnames(data)) {
-    # Check if the column is all NA
     if (all(is.na(data[[col]]))) {
-      # Create an empty plot with text indicating all NA
       p <- ggplot() +
         annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
         labs(title = col) +
         theme_void()
-    } else if (is.numeric(data[[col]])) {
-      # Numeric variable: histogram
+    } else if (col %in% continuous_vars && is.numeric(data[[col]])) {
       p <- ggplot(data, aes(x = .data[[col]])) +
         geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
-        labs(title = col) +
+        labs(title = col, x = col, y = "Count") +
         theme_minimal()
     } else {
-      # Categorical variable: bar plot (remove NA values)
       count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
       p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
         geom_col(fill = "red", alpha = 0.6) +
@@ -152,25 +298,22 @@ create_simple_plots <- function(data) {
     }
     plots[[col]] <- p
   }
-  
+
   return(plots)
 }
 
-# Generate and arrange plots
 plots <- create_simple_plots(plot_data)
-p<-plot_grid(plots$Age, 
-          plots$BMI, 
-          plots$Sex, 
-          plots$Region, 
-          plots$Platform, 
-          plots$Country, 
-          plots$Site,
-          plots$public_time, 
-          plots$PCR_primers,
-          plots$Disease_study,
-          plots$Status,
-          plots$matched_samples,# add 
-          ncol = 3, align = "hv", axis = "lb")
+p <- plot_grid(plots$age,
+               plots$bmi,
+               plots$sex,
+               plots$site,
+               plots$site_group,
+               plots$sequencing_region,
+               plots$platform,
+               plots$country,
+               plots$status,
+               plots$matched_samples,
+               ncol = 3, align = "hv", axis = "lb")
 ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 ```
 
@@ -178,23 +321,17 @@ ggsave("Metadata_Summary.png", plot = p, width = 8, height = 6, dpi = 150)
 knitr::include_graphics("Metadata_Summary.png")
 ```
 
-# Step 6: Finalize and Export the Metadata
+# Step 7: Sort and export the metadata
+
+This step saves the cleaned metadata table as the final `metadata_v2.csv` file.
+
 ```{r}
-# Reorder columns to match the desired format
-metadata <- metadata[, c(
-  "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
-  "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status", "matched_samples"
-)]
+fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
+                "country", "site", "site_group", "disease_study", "status",
+                "title", "public_time", "matched_samples", "is_time_series")
+metadata <- metadata %>%
+  select(all_of(fixed_cols), starts_with("raw_"))
 
-# Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
-head(metadata)
+write.csv(metadata, file = "metadata_v2.csv", quote = TRUE, row.names = FALSE)
 ```
-## Notes for Students:
-
-1. **Metadata Accuracy**: Always cross-check the metadata with the original publication to ensure accuracy.
-2. **Manual Entries**: Columns like `PCR_primers`, and `Status` often require manual entry based on the publication.
-3. **Disease Status**: Be careful when assigning `Status`—some studies include both disease and healthy samples.
-4. **Visualization**: The plots help quickly identify the distribution of values in each column, which is useful for quality control.
-5. **Reproducibility**: Update the working directory and file paths to match your local environment.

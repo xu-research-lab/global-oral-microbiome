@@ -36,7 +36,7 @@ library(cowplot)
 # EDIT HERE: change project_id for each study
 project_id <- "PRJNA615768"
 
-base_dir <- "/Users/dongbiao/Documents/软件开发/oral/metadata_collect"
+base_dir <- "/home/dongbiao/word_embedding_microbiome/all_data/oral/global-oral-microbiome/data/projects"
 setwd(file.path(base_dir, project_id))
 
 # (2) Loading raw SRA metadata file
@@ -195,7 +195,7 @@ metadata <- data.frame(
   site = "pending",
   site_group = "pending",
   public_time = initial_meta$ReleaseDate,
-  pcr_primers = "V3-V4",  # From paper Methods: 16S_V3_F and 16S_V4_R primers targeting V3-V4
+  pcr_primers = NA,  # From paper Methods: 16S_V3_F and 16S_V4_R primers targeting V3-V4
   title = "Association between the microbiomes of tonsil and saliva samples isolated from pediatric patients subjected to tonsillectomy for the treatment of tonsillar hyperplasia",  # From paper title
   disease_study = "yes",  # All subjects diagnosed with tonsillar hyperplasia (benign condition requiring tonsillectomy)
   status = "tonsillar hyperplasia",  # All subjects have tonsillar hyperplasia; no HC group

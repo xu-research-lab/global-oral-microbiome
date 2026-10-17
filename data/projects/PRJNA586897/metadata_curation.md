@@ -3,478 +3,454 @@ R Notebook: Metadata Processing Workflow
 
 # Step 1: Obtain Initial Metadata from Each Project
 
-To obtain the initial metadata: 1. Search for the BioProject ID (e.g.,
-“PRJEBXXXX”) on the [NCBI SRA
-website](https://www.ncbi.nlm.nih.gov/Traces/study/). 2. In the “Select”
-table, click on “Metadata” and download the file. 3. The downloaded file
-is typically named “SraRunTable.csv” and contains metadata for the
-project.
+This step sets the project directory, loads the raw SRA metadata, and
+optionally merges supplement tables.
 
 ``` r
-# Load necessary libraries
+# Load libraries
 library(dplyr)
 library(ggplot2)
 library(cowplot)
 
-# Set working directory (update this path to your local directory)
-setwd("D:/studylearning/董彪师兄项目/任务4_20251009/PRJNA586897")
+# (1) Setting working directory
+# EDIT HERE: change project_id for each study
+project_id <- "PRJNA586897"
 
-# Read the initial metadata files
-initial_meta<-read.csv("SraRunTable.csv",header = T)
+base_dir <- "D:/metadata_collect/oral_metadata_new/update"
+setwd(file.path(base_dir, project_id))
 
-# Display the first few rows of the metadata
-head(initial_meta)
+# (2) Loading raw SRA metadata file
+sra_file <- "SraRunTable.csv"
+initial_meta <- read.csv(sra_file, header = TRUE)
+
+# (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
+# supp_table <- read.csv("supplemental_table.csv", header = TRUE)
+# initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
 ```
 
-    ##           Run Assay.Type AvgSpotLen   Bases  BioProject    BioSample
-    ## 1 SRR10381652   AMPLICON        294 8348424 PRJNA586897 SAMN13174208
-    ## 2 SRR10381653   AMPLICON        298 6716920 PRJNA586897 SAMN13174207
-    ## 3 SRR10381654   AMPLICON        293 6095572 PRJNA586897 SAMN13174206
-    ## 4 SRR10381655   AMPLICON        299 4552275 PRJNA586897 SAMN13174205
-    ## 5 SRR10381656   AMPLICON        298 5830370 PRJNA586897 SAMN13174204
-    ## 6 SRR10381657   AMPLICON        298 7402022 PRJNA586897 SAMN13174203
-    ##                                  BioSampleModel   Bytes
-    ## 1 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 4949747
-    ## 2 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 3150670
-    ## 3 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 3642197
-    ## 4 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 2740937
-    ## 5 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 2697143
-    ## 6 MIMARKS.specimen,MIGS/MIMS/MIMARKS.human-oral 3415774
-    ##                        Center.Name Collection_Date Consent Cultivar
-    ## 1 INTERNATIONAL MEDICAL UNIVERSITY            2015  public       NA
-    ## 2 INTERNATIONAL MEDICAL UNIVERSITY            2015  public       NA
-    ## 3 INTERNATIONAL MEDICAL UNIVERSITY            2015  public       NA
-    ## 4 INTERNATIONAL MEDICAL UNIVERSITY            2015  public       NA
-    ## 5 INTERNATIONAL MEDICAL UNIVERSITY            2015  public       NA
-    ## 6 INTERNATIONAL MEDICAL UNIVERSITY            2015  public       NA
-    ##   DATASTORE.filetype DATASTORE.provider                     DATASTORE.region
-    ## 1   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 2   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 3   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 4   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 5   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ## 6   fastq,run.zq,sra         gs,ncbi,s3 gs.us-east1,ncbi.public,s3.us-east-1
-    ##   Ecotype env_broad_scale env_local_scale env_medium Experiment
-    ## 1      NA              NA              NA         NA SRX7082761
-    ## 2      NA              NA              NA         NA SRX7082760
-    ## 3      NA              NA              NA         NA SRX7082759
-    ## 4      NA              NA              NA         NA SRX7082758
-    ## 5      NA              NA              NA         NA SRX7082757
-    ## 6      NA              NA              NA         NA SRX7082756
-    ##   geo_loc_name_country geo_loc_name_country_continent geo_loc_name        HOST
-    ## 1            Hong Kong                           Asia    Hong Kong Homosapiens
-    ## 2            Hong Kong                           Asia    Hong Kong Homosapiens
-    ## 3            Hong Kong                           Asia    Hong Kong Homosapiens
-    ## 4            Hong Kong                           Asia    Hong Kong Homosapiens
-    ## 5            Hong Kong                           Asia    Hong Kong Homosapiens
-    ## 6            Hong Kong                           Asia    Hong Kong Homosapiens
-    ##       Instrument isol_growth_condt isolate              lat_lon Library.Name
-    ## 1 Illumina MiSeq                NA      NA 22.3193 N 114.1694 E         E082
-    ## 2 Illumina MiSeq                NA      NA 22.3193 N 114.1694 E         E081
-    ## 3 Illumina MiSeq                NA      NA 22.3193 N 114.1694 E         E080
-    ## 4 Illumina MiSeq                NA      NA 22.3193 N 114.1694 E         E056
-    ## 5 Illumina MiSeq                NA      NA 22.3193 N 114.1694 E         E055
-    ## 6 Illumina MiSeq                NA      NA 22.3193 N 114.1694 E         E054
-    ##   LibraryLayout LibrarySelection LibrarySource         Organism Platform
-    ## 1        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
-    ## 2        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
-    ## 3        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
-    ## 4        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
-    ## 5        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
-    ## 6        PAIRED              PCR   METAGENOMIC human metagenome ILLUMINA
-    ##            ReleaseDate          create_date version sample_id Sample.Name
-    ## 1 2019-11-01T00:00:00Z 2019-11-01T03:41:00Z       1      E082        E082
-    ## 2 2019-11-01T00:00:00Z 2019-11-01T03:41:00Z       1      E081        E081
-    ## 3 2019-11-01T00:00:00Z 2019-11-01T03:41:00Z       1      E080        E080
-    ## 4 2019-11-01T00:00:00Z 2019-11-01T03:42:00Z       1      E056        E056
-    ## 5 2019-11-01T00:00:00Z 2019-11-01T03:42:00Z       1      E055        E055
-    ## 6 2019-11-01T00:00:00Z 2019-11-01T03:42:00Z       1      E054        E054
-    ##   SRA.Study strain
-    ## 1 SRP227886     NA
-    ## 2 SRP227886     NA
-    ## 3 SRP227886     NA
-    ## 4 SRP227886     NA
-    ## 5 SRP227886     NA
-    ## 6 SRP227886     NA
+# Step 2: Data Overview
 
-# Step 2: Create a Uniform Metadata Template
-
-The uniform metadata should include the following columns:
-
-1.  **BioProject**: Project ID (e.g., “PRJNA339212”)
-2.  **Run**: Sample ID (e.g., “ERRXXXXXX” or “SRRXXXXXX”)
-3.  **sample_name**: Original sample name submitted by the authors (not
-    the database-assigned ID)
-4.  **Age**: Age of the subject (if available)
-5.  **BMI**: Body Mass Index (if available)
-6.  **Sex**: Sex of the subject (“F” or “M”)
-7.  **Region**: Targeted 16S rRNA region (e.g., “V3-V4”)
-8.  **Platform**: Sequencing platform (e.g., “Illumina MiSeq”)
-9.  **Country**: Country of sample origin (e.g., “China”)
-10. **Site**: Sample site (e.g., “saliva”, “dental plaque”)
-11. **public_time**: Data release date (format: “YYYY-MM-DD”)
-12. **PCR_primers**: PCR primers used (e.g., “515F-806R”)
-13. **title**: Title of the associated publication
-14. **Disease_study**: Whether the study involves a disease (“YES” or
-    “NO”)
-15. **Status**: Disease status (e.g., “T2DM”, “HC”). Note: If the study
-    includes both disease and healthy samples, this must be specified
-    per sample.
+First, you need to get an overview of the data, which includes two
+steps: reading the article and reading the initial metadata. This step
+is very IMPORTANT!
 
 ``` r
-# Create a uniform metadata dataframe
+# (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
+
+# Paper summary for PRJNA586897:
+# - Title: Long-term impact of oral surgery with or without amoxicillin on the oral microbiome
+# - Sampling site: saliva (unstimulated saliva)
+# - 16S rRNA V4 region, primers 319F-806R, Illumina MiSeq
+# - Country: Hong Kong
+# - Age range: 18-45 years
+# - Time series: yes, 7 time points (B, 1W, 2W, 3W, 1M, 3M, 6M)
+# - Groups: EA (extraction + amoxicillin, n=15), E (extraction only, n=16), C (control, n=10)
+# - Pilot study (X/XA groups) used shotgun HiSeq, not included in 16S analysis
+# - Follow-up study (E/EA/C groups) used 16S MiSeq, this is what we curate
+
+# (2) IMPORTANT: MUST go through each column of initial_meta
+# head(initial_meta, 10)
+
+# IMPORTANT: Check the unique values in the column of interest or query column.
+table(initial_meta$geo_loc_name_country)
+```
+
+    ## 
+    ## Hong Kong 
+    ##       300
+
+``` r
+# From initial_meta column 'geo_loc_name_country': all "Hong Kong"
+table(initial_meta$Organism)
+```
+
+    ## 
+    ## human metagenome 
+    ##              300
+
+``` r
+# From initial_meta column 'Organism': all "Homo sapiens"
+table(initial_meta$platform..exp.)
+```
+
+    ## < table of extent 0 >
+
+``` r
+# From initial_meta column 'platform..exp.': all "ILLUMINA" (paper says MiSeq specifically)
+# Sample name prefixes: E*, EA*, C* (follow-up 16S); X*, XA* (pilot shotgun)
+table(substr(initial_meta$Sample.Name, 1, 2))
+```
+
+    ## 
+    ##  C0  C1  E0  E1  E2  E3  E4  EA 
+    ##  23  42  35  28  28  14  13 117
+
+# Step 3: Removing Control and Non-human Samples
+
+First, we need to remove control samples(including both negative
+controls and positive controls) and non-human samples.
+
+``` r
+# (1) EDIT HERE: Parameter setup
+# No negative/positive control samples found in metadata or paper
+control_column <- ""
+# unique(initial_meta[[control_column]])
+control_keywords <- c()
+
+# All samples are Homo sapiens; no non-human samples present
+species_column <- "Organism"
+unique(initial_meta[[species_column]])
+```
+
+    ## [1] "human metagenome"
+
+``` r
+non_human_keywords <- c()
+
+# Filter out pilot study samples (shotgun HiSeq, not 16S MiSeq)
+# Paper: pilot study (X/XA) used shotgun metagenomic on Illumina HiSeq
+# Follow-up study (E/EA/C) used 16S rRNA on Illumina MiSeq
+# Sample_name prefix: X/XA = pilot, E/EA/C = follow-up
+initial_meta <- initial_meta[!grepl("^(X|XA)", initial_meta$Sample.Name), ]
+cat("Removed pilot study samples:", sum(grepl("^(X|XA)", initial_meta$Sample.Name)), "\n")
+```
+
+    ## Removed pilot study samples: 0
+
+``` r
+cat("Remaining follow-up study samples:", nrow(initial_meta), "\n")
+```
+
+    ## Remaining follow-up study samples: 300
+
+``` r
+# (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
+n_samples <- nrow(initial_meta)
+# Control evaluation
+if (length(control_keywords) > 0) {
+  if (is.null(control_column) || control_column == "") {
+    stop("Error: control_keywords provided but control_column is missing.")
+  }
+
+  if (!(control_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+  }
+
+  control_pattern <- paste(control_keywords, collapse = "|")
+  control_text <- initial_meta[[control_column]]
+  is_control <- grepl(control_pattern, control_text)
+
+} else {
+  is_control <- rep(FALSE, n_samples)
+}
+
+# Non-human evaluation
+if (length(non_human_keywords) > 0) {
+  if (is.null(species_column) || species_column == "") {
+    stop("Error: non_human_keywords provided but species_column is missing.")
+  }
+
+  if (!(species_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
+  }
+
+  non_human_pattern <- paste(non_human_keywords, collapse = "|")
+  species_text <- initial_meta[[species_column]]
+  is_non_human <- grepl(non_human_pattern, species_text)
+} else {
+  is_non_human <- rep(FALSE, n_samples)
+}
+
+# Execute removal
+samples_to_remove <- is_control | is_non_human
+initial_meta <- initial_meta[!samples_to_remove, ]
+
+cat("Initial samples counts:", n_samples, "\n")
+```
+
+    ## Initial samples counts: 300
+
+``` r
+cat("Removed control samples:", sum(is_control), "\n")
+```
+
+    ## Removed control samples: 0
+
+``` r
+cat("Removed non-human samples:", sum(is_non_human), "\n")
+```
+
+    ## Removed non-human samples: 0
+
+``` r
+cat("Total samples removed ", sum(samples_to_remove), "\n")
+```
+
+    ## Total samples removed  0
+
+``` r
+cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
+```
+
+    ## Remaining samples after Step 2: 300
+
+# Step 4: Creating a Uniform Metadata Template
+
+This step converts the raw SRA table into the standard metadata format
+used in our meta-analysis. The uniform metadata should include the
+following columns: 1. **bioproject**: Project ID from SRA or other
+database e.g. `PRJNA1234`, `CNP1234`, ‘OEP1234’, ‘qiita_1234’ 2.
+**sample_id**: SRA sample/run ID. Unique id for each sample!
+e.g. `DRR1234567`, `ERR1234567` and `SRR1234567`. If no such column
+exists, can use column like sample_name. 3. **subject_id**: subject id
+for each person if available. e.g. `patient_01`, `Host_03_before`,
+`subject12` 4. **age**: Age of the subject if available. e.g. `35`, `42`
+\| not `adult`, `chilren` 5. **age_info**: If the age is not explicitly
+stated but approximate age range information is available, mark it in
+this column. e.g., `18-55`, `children`, `infant`, `elder` 6. **bmi**:
+Body Mass Index if available. e.g. `22.5`, `18.9` \| not `normal`,
+`overweight` 7. **sex**: Sex of the subject. Mandatory to write as M/F
+\| not `female`, `woman` 8. **sequencing_region**: Targeted 16S rRNA
+region. e.g. `V3-V4`, `V4` 9. **platform**: Sequencing platform.
+e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent` 10.
+**country**: Country of sample origin. e.g. `China`, `Japan` \| not city
+name like `Beijing` 11. **site**: Sampling site. For oral and gut sites,
+specify the exact sites as detailed as possible. e.g. `saliva`,
+`tongue coating` \| not broad term like `oral` 12. **site_group**: only
+accepts one of following three values: ‘oral’, ‘gut’, or ‘other’. 13.
+**public_time**: Data release date. e.g. `2021-06-22` \| not `June 2021`
+14. **pcr_primers**: PCR primers used. e.g. `515F-806R`, `27F-338R` \|
+not primer sequences 15. **title**: Title of the associated publication.
+16. **disease_study**: Whether the study involves disease samples. If
+it’s not clear, can record as NA. Only three values accepted: ‘yes’,
+‘no’ or NA 17. **status**: Disease status for each sample if available,
+else record as NA. Only accept following abbreviations. HC: healthy
+control CD: Crohn’s disease CRC: colorectal cancer COPD: chronic
+obstructive pulmonary disease HIV: human immunodeficiency virus ICU:
+intensive care unit OSCC: oral squamous cell carcinoma RA: rheumatoid
+arthritis UC: ulcerative colitis 18. **matched_samples**: Whether the
+subject has matched samples. Only accept ‘yes’ or ‘no’. 19.
+**is_time_series**: Whether the study is a time series study. Only
+accept ‘yes’ or ‘no’.
+
+``` r
+# Extract columns from initial_meta as follows: (1) No modification needed -> extract directly. (2) Modification needed -> create a new column with the prefix raw_ and mark the original column as "pending". (3) Need to find or determine based on the article.
 metadata <- data.frame(
-  BioProject = initial_meta$BioProject,
-  Run = initial_meta$Run,
-  sample_name = initial_meta$Sample.Name,
-  Age = NA,
-  BMI = NA,
-  Sex= NA,
-  Region = "V4",
-  Platform = initial_meta$Instrument,
-  Country = initial_meta$geo_loc_name_country,
-  Site = "saliva",
+  bioproject = initial_meta$BioProject,
+  sample_id = initial_meta$Run,
+  # From initial_meta column 'Sample.Name'; proxy for subject ID (no per-person ID in SRA metadata)
+  subject_id = initial_meta$Sample.Name,
+  # No individual age data in SRA metadata
+  age = NA,
+  age_info = NA,
+  # No BMI data in SRA metadata
+  bmi = NA,
+  # No sex data in SRA metadata
+  sex = NA,
+  # Pending: will be filled from paper (V4 region)
+  sequencing_region = NA,
+  # From paper Methods: "sequenced on the Illumina Miseq System"
+  platform = "Illumina MiSeq",
+  # Paper Methods: Prince Philip Dental Hospital, Hong Kong; geo_loc_name_country="Hong Kong" -> China
+  country = "China",
+  # From paper: "Three milliliters of unstimulated saliva were collected"
+  site = "saliva",
+  site_group = "pending",
+  # From initial_meta column 'ReleaseDate'
   public_time = initial_meta$ReleaseDate,
+  # From paper Methods: "PCR primers 319F and 806R targeting the 16S rRNA gene V4"
+  pcr_primers = "319F-806R",
+  # From paper title
+  title = "Long-term impact of oral surgery with or without amoxicillin on the oral microbiome-A prospective cohort study",
+  # From paper: prospective cohort study on third molar extraction patients
+  disease_study = "yes",
+  # EA/E = extraction patients; C = healthy control per paper study design
+  status = "pending",
+  matched_samples = "pending",
+  # From paper: same subjects sampled at 7 time points (B, 1W, 2W, 3W, 1M, 3M, 6M)
+  is_time_series = "no",
   stringsAsFactors = FALSE
 )
+metadata$public_time <- as.Date(metadata$public_time)
 ```
 
-# Step 3: Manually Add Information from the Publication
+# Step 5: Manually solving pending issues
 
-Some information (e.g. PCR primers, study title, disease status) must be
-manually extracted from the publication and added to the metadata.
+This step involves two parts: (1) handle the columns with the `raw_`
+prefix, and next (2) handle the `site_group` and `matched_samples`
+columns.
 
 ``` r
-# Add information obtained from the publication
-metadata$PCR_primers <- "319F-806R"  # Update based on the publication
-metadata$title <- "Long-term impact of oral surgery with or without amoxicillin on the oral microbiome-A prospective cohort study"
-metadata$Disease_study <- "NO"
-metadata$Status <- NA_character_
+# (1) Handle the columns with the `raw_` prefix.
+# Create group column from Sample.Name prefix (EA/E/C -> descriptive group)
+# Need to use subject_id which maps to Sample.Name
+metadata <- metadata %>%
+  mutate(raw_group = case_when(
+    grepl("^EA", subject_id) ~ "extraction_antibiotics",
+    grepl("^E", subject_id) ~ "extraction_no_antibiotics",
+    grepl("^C", subject_id) ~ "control",
+    TRUE ~ NA_character_
+  )) # From Sample.Name prefix: EA=extraction with amoxicillin, E=extraction without, C=control
 
-#extract subject id by remove prefix of sample_name
-#metadata$sample_name <- gsub("_st|_sal", "", metadata$sample_name)
+# subject_id: use sample_id as proxy (no per-person ID available in SRA metadata)
+# Note: this identifies samples, not unique persons; true subject tracking not possible from SRA alone
 
-# Check initial data distribution
-cat("Initial sample distribution:\n")
+# age_info: "18-45" from paper inclusion criteria "Age = 18-45 Years"
+metadata <- metadata %>%
+  mutate(age_info = "18-45")
+
+# sequencing_region: "V4" from paper Methods
+# "PCR primers 319F and 806R targeting the 16S rRNA gene V4"
+metadata$sequencing_region <- "V4"
+
+# status: C = "HC" (healthy control, no extraction); E/EA = "third molar extraction" (extraction patients)
+# Paper: Group C recruited as control without extraction; E/EA from waiting list for third molar extractions
+# subject_id maps to Sample.Name (EA*/E*/C* prefix), sample_id maps to Run (SRR*)
+metadata <- metadata %>%
+  mutate(status = case_when(
+    grepl("^C", subject_id) ~ "HC",
+    grepl("^EA", subject_id) ~ "third molar extraction with amoxicillin",
+    grepl("^E", subject_id) ~ "third molar extraction without amoxicillin",
+    TRUE ~ NA_character_
+  )) # C=healthy control; EA=extraction+amoxicillin; E=extraction only (full names, not in standard abbreviations)
 ```
-
-    ## Initial sample distribution:
 
 ``` r
-table(metadata$sample_name)
+# (2) Filling the 'site_group' and 'matched_samples' columns
+# editing site_group
+unique(metadata$site)
 ```
 
-    ## 
-    ##  C030  C031  C032  C033  C034  C035  C040  C041  C042  C044  C045  C050  C051 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C052  C053  C054  C055  C070  C071  C072  C073  C074  C075  C100  C101  C102 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C103  C104  C105  C110  C111  C112  C113  C114  C115  C130  C131  C132  C133 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C134  C135  C140  C141  C142  C143  C144  C145  C150  C151  C152  C153  C154 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C155  C160  C161  C162  C163  C164  C165  C170  C171  C172  C173  C174  C175 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E020  E021  E022  E023  E024  E025  E026  E030  E031  E032  E033  E034  E035 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E036  E050  E051  E052  E053  E054  E055  E056  E080  E081  E082  E083  E084 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E085  E086  E090  E091  E092  E093  E094  E095  E096  E110  E111  E112  E113 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E114  E115  E116  E120  E121  E122  E123  E124  E125  E126  E130  E131  E132 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E133  E134  E135  E136  E140  E141  E142  E143  E144  E145  E146  E210  E211 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E212  E213  E214  E215  E216  E240  E241  E242  E243  E244  E245  E246  E280 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E281  E282  E283  E284  E285  E286  E290  E291  E292  E293  E294  E295  E296 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E330  E331  E332  E333  E334  E335  E336  E350  E351  E352  E353  E354  E355 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E356  E401  E402  E403  E404  E405  E406  E410  E411  E412  E413  E414  E415 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E416 EA010 EA011 EA012 EA013 EA014 EA015 EA016 EA040 EA041 EA042 EA043 EA045 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA046 EA060 EA061 EA062 EA063 EA064 EA065 EA066 EA070 EA071 EA072 EA073 EA074 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA075 EA076 EA150 EA151 EA152 EA153 EA154 EA155 EA156 EA160 EA161 EA162 EA163 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA164 EA165 EA166 EA170 EA171 EA172 EA173 EA174 EA175 EA176 EA180 EA181 EA182 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA183 EA184 EA185 EA186 EA200 EA201 EA202 EA203 EA204 EA205 EA206 EA220 EA221 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA222 EA223 EA224 EA225 EA226 EA250 EA251 EA252 EA253 EA254 EA255 EA256 EA260 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA261 EA262 EA263 EA264 EA265 EA266 EA270 EA271 EA272 EA273 EA274 EA275 EA276 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA300 EA301 EA302 EA303 EA304 EA305 EA306 EA340 EA341 EA342 EA343 EA344 EA345 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA346 EA370 EA371 EA372 EA373 EA374 EA375 EA376 EA421 EA422 EA423 EA424 EA425 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA426 
-    ##     1
+    ## [1] "saliva"
 
 ``` r
-table(metadata$Site)
-```
+# EDIT HERE: add oral sites
+Oral_site = c("saliva")
+# EDIT HERE: add gut sites
+Gut_site = c()
+# just run
+metadata <- metadata %>%
+  mutate(site_group = case_when(
+    site %in% Oral_site ~ "oral",
+    site %in% Gut_site ~ "gut",
+    TRUE ~ "other"
+  ))
 
-    ## 
-    ## saliva 
-    ##    300
+# editing matched_samples, just run.
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+  "yes",
+  "no"
+)
+
+# Remove temporary raw columns not in the 19-column template
+metadata <- metadata %>% select(-raw_group)
+```
 
 ``` r
-# Calculate sampling frequency per subject
-sample_counts <- table(metadata$sample_name)
-cat("\nNumber of samples per subject:\n")
+# (3) check if there is pending value in metadata. If there is pending value, go on modify the metadata.
+# Function to check if a column contains "pending"
+has_pending <- function(col) {
+  if (is.character(col) || is.factor(col)) {
+    any(col == "pending", na.rm = TRUE)
+  } else {
+    FALSE
+  }
+}
+
+# Check for any pending value
+any_pending_value <- any(sapply(metadata, has_pending))
+
+if (!any_pending_value) {
+  message("Good! No cell contains the value 'pending'.")
+} else {
+  pending_cols <- names(metadata)[sapply(metadata, has_pending)]
+  message("Columns containing 'pending': ", paste(pending_cols, collapse = ", "))
+  message("Please continue to resolve these pending columns!")
+}
 ```
 
-    ## 
-    ## Number of samples per subject:
+    ## Good! No cell contains the value 'pending'.
+
+# Step 6: Visualize the Metadata
+
+This step makes a quick set of plots for checking the distribution of
+key metadata fields.
 
 ``` r
-print(sample_counts)
-```
+# Select columns for visualization, just run
+plot_data <- metadata %>%
+  select(-bioproject, -sample_id, -subject_id, -title)
 
-    ## 
-    ##  C030  C031  C032  C033  C034  C035  C040  C041  C042  C044  C045  C050  C051 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C052  C053  C054  C055  C070  C071  C072  C073  C074  C075  C100  C101  C102 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C103  C104  C105  C110  C111  C112  C113  C114  C115  C130  C131  C132  C133 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C134  C135  C140  C141  C142  C143  C144  C145  C150  C151  C152  C153  C154 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C155  C160  C161  C162  C163  C164  C165  C170  C171  C172  C173  C174  C175 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E020  E021  E022  E023  E024  E025  E026  E030  E031  E032  E033  E034  E035 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E036  E050  E051  E052  E053  E054  E055  E056  E080  E081  E082  E083  E084 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E085  E086  E090  E091  E092  E093  E094  E095  E096  E110  E111  E112  E113 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E114  E115  E116  E120  E121  E122  E123  E124  E125  E126  E130  E131  E132 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E133  E134  E135  E136  E140  E141  E142  E143  E144  E145  E146  E210  E211 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E212  E213  E214  E215  E216  E240  E241  E242  E243  E244  E245  E246  E280 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E281  E282  E283  E284  E285  E286  E290  E291  E292  E293  E294  E295  E296 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E330  E331  E332  E333  E334  E335  E336  E350  E351  E352  E353  E354  E355 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E356  E401  E402  E403  E404  E405  E406  E410  E411  E412  E413  E414  E415 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E416 EA010 EA011 EA012 EA013 EA014 EA015 EA016 EA040 EA041 EA042 EA043 EA045 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA046 EA060 EA061 EA062 EA063 EA064 EA065 EA066 EA070 EA071 EA072 EA073 EA074 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA075 EA076 EA150 EA151 EA152 EA153 EA154 EA155 EA156 EA160 EA161 EA162 EA163 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA164 EA165 EA166 EA170 EA171 EA172 EA173 EA174 EA175 EA176 EA180 EA181 EA182 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA183 EA184 EA185 EA186 EA200 EA201 EA202 EA203 EA204 EA205 EA206 EA220 EA221 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA222 EA223 EA224 EA225 EA226 EA250 EA251 EA252 EA253 EA254 EA255 EA256 EA260 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA261 EA262 EA263 EA264 EA265 EA266 EA270 EA271 EA272 EA273 EA274 EA275 EA276 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA300 EA301 EA302 EA303 EA304 EA305 EA306 EA340 EA341 EA342 EA343 EA344 EA345 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA346 EA370 EA371 EA372 EA373 EA374 EA375 EA376 EA421 EA422 EA423 EA424 EA425 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA426 
-    ##     1
+create_simple_plots <- function(data) {
+  plots <- list()
+  continuous_vars <- c("age", "bmi")
+
+  for (col in colnames(data)) {
+    if (all(is.na(data[[col]]))) {
+      p <- ggplot() +
+        annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
+        labs(title = col) +
+        theme_void()
+    } else if (col %in% continuous_vars && is.numeric(data[[col]])) {
+      p <- ggplot(data, aes(x = .data[[col]])) +
+        geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
+        labs(title = col, x = col, y = "Count") +
+        theme_minimal()
+    } else {
+      count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
+      p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
+        geom_col(fill = "red", alpha = 0.6) +
+        labs(title = col, x = NULL, y = "Count") +
+        theme_minimal() +
+        theme(axis.text.x = element_text(angle = 15, hjust = 1))
+    }
+    plots[[col]] <- p
+  }
+
+  return(plots)
+}
+
+# Generate and arrange plots
+plots <- create_simple_plots(plot_data)
+p <- plot_grid(plots$age,
+               plots$age_info,
+               plots$bmi,
+               plots$sex,
+               plots$site,
+               plots$site_group,
+               plots$sequencing_region,
+               plots$platform,
+               plots$country,
+               plots$pcr_primers,
+               plots$status,
+               plots$matched_samples,
+               ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
+```
 
 ``` r
-# Create matched_samples column
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
-
-cat("\nMatched samples distribution:\n")
+# Insert Metadata_Summary_v2.png into the current Rmd output
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
-    ## 
-    ## Matched samples distribution:
+![](Metadata_Summary_v2.png)<!-- -->
+
+# Step 7: Sort and export the metadata
+
+This step saves the cleaned metadata table as the final `metadata.csv`
+file.
 
 ``` r
-table(metadata$matched_samples)
+# Reorder the data frame
+fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
+                "country", "site", "site_group", "disease_study", "status",
+                "title", "public_time", "matched_samples", "is_time_series")
+metadata <- metadata %>%
+  select(all_of(fixed_cols), everything())
+
+# save metadata
+# head(metadata)
+write.csv(metadata, file = "metadata_v2.csv", quote = TRUE)
 ```
-
-    ## 
-    ##  NO 
-    ## 300
-
-``` r
-# Identify samples for removal: single samples excluding saliva
-single_samples <- names(sample_counts[sample_counts == 1])
-samples_to_remove <- metadata$sample_name %in% single_samples & !(metadata$Site %in% c("saliva"))
-
-cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
-```
-
-    ## 
-    ## Number of samples to be removed: 0
-
-``` r
-# Remove identified samples
-metadata_clean <- metadata[!samples_to_remove, ]
-
-cat("\nFinal sample distribution after cleaning:\n")
-```
-
-    ## 
-    ## Final sample distribution after cleaning:
-
-``` r
-table(metadata_clean$sample_name)
-```
-
-    ## 
-    ##  C030  C031  C032  C033  C034  C035  C040  C041  C042  C044  C045  C050  C051 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C052  C053  C054  C055  C070  C071  C072  C073  C074  C075  C100  C101  C102 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C103  C104  C105  C110  C111  C112  C113  C114  C115  C130  C131  C132  C133 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C134  C135  C140  C141  C142  C143  C144  C145  C150  C151  C152  C153  C154 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  C155  C160  C161  C162  C163  C164  C165  C170  C171  C172  C173  C174  C175 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E020  E021  E022  E023  E024  E025  E026  E030  E031  E032  E033  E034  E035 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E036  E050  E051  E052  E053  E054  E055  E056  E080  E081  E082  E083  E084 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E085  E086  E090  E091  E092  E093  E094  E095  E096  E110  E111  E112  E113 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E114  E115  E116  E120  E121  E122  E123  E124  E125  E126  E130  E131  E132 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E133  E134  E135  E136  E140  E141  E142  E143  E144  E145  E146  E210  E211 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E212  E213  E214  E215  E216  E240  E241  E242  E243  E244  E245  E246  E280 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E281  E282  E283  E284  E285  E286  E290  E291  E292  E293  E294  E295  E296 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E330  E331  E332  E333  E334  E335  E336  E350  E351  E352  E353  E354  E355 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E356  E401  E402  E403  E404  E405  E406  E410  E411  E412  E413  E414  E415 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ##  E416 EA010 EA011 EA012 EA013 EA014 EA015 EA016 EA040 EA041 EA042 EA043 EA045 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA046 EA060 EA061 EA062 EA063 EA064 EA065 EA066 EA070 EA071 EA072 EA073 EA074 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA075 EA076 EA150 EA151 EA152 EA153 EA154 EA155 EA156 EA160 EA161 EA162 EA163 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA164 EA165 EA166 EA170 EA171 EA172 EA173 EA174 EA175 EA176 EA180 EA181 EA182 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA183 EA184 EA185 EA186 EA200 EA201 EA202 EA203 EA204 EA205 EA206 EA220 EA221 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA222 EA223 EA224 EA225 EA226 EA250 EA251 EA252 EA253 EA254 EA255 EA256 EA260 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA261 EA262 EA263 EA264 EA265 EA266 EA270 EA271 EA272 EA273 EA274 EA275 EA276 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA300 EA301 EA302 EA303 EA304 EA305 EA306 EA340 EA341 EA342 EA343 EA344 EA345 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA346 EA370 EA371 EA372 EA373 EA374 EA375 EA376 EA421 EA422 EA423 EA424 EA425 
-    ##     1     1     1     1     1     1     1     1     1     1     1     1     1 
-    ## EA426 
-    ##     1
-
-``` r
-table(metadata_clean$Site)
-```
-
-    ## 
-    ## saliva 
-    ##    300
-
-``` r
-table(metadata_clean$matched_samples)
-```
-
-    ## 
-    ##  NO 
-    ## 300
-
-``` r
-# Use cleaned dataset for subsequent analysis
-metadata <- metadata_clean
-```
-
-# Step 4: Summarize and Validate the Metadata
-
-``` r
-# Check the number of unique runs and sample names
-print(paste("Number of unique runs:", length(unique(metadata$Run))))
-```
-
-    ## [1] "Number of unique runs: 300"
-
-``` r
-print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
-```
-
-    ## [1] "Number of unique sample names: 300"
-
-# Step 5: Visualize the Metadata
-
-``` r
-knitr::include_graphics("Metadata_Summary.png")
-```
-
-<img src="Metadata_Summary.png" width="1200" />
-
-# Step 6: Finalize and Export the Metadata
-
-``` r
-# Reorder columns to match the desired format
-metadata <- metadata[, c(
-  "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
-  "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
-)]
-
-# Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
-head(metadata)
-```
-
-    ##    BioProject         Run sample_name Age BMI Sex Region       Platform
-    ## 1 PRJNA586897 SRR10381652        E082  NA  NA  NA     V4 Illumina MiSeq
-    ## 2 PRJNA586897 SRR10381653        E081  NA  NA  NA     V4 Illumina MiSeq
-    ## 3 PRJNA586897 SRR10381654        E080  NA  NA  NA     V4 Illumina MiSeq
-    ## 4 PRJNA586897 SRR10381655        E056  NA  NA  NA     V4 Illumina MiSeq
-    ## 5 PRJNA586897 SRR10381656        E055  NA  NA  NA     V4 Illumina MiSeq
-    ## 6 PRJNA586897 SRR10381657        E054  NA  NA  NA     V4 Illumina MiSeq
-    ##     Country   Site          public_time PCR_primers
-    ## 1 Hong Kong saliva 2019-11-01T00:00:00Z   319F-806R
-    ## 2 Hong Kong saliva 2019-11-01T00:00:00Z   319F-806R
-    ## 3 Hong Kong saliva 2019-11-01T00:00:00Z   319F-806R
-    ## 4 Hong Kong saliva 2019-11-01T00:00:00Z   319F-806R
-    ## 5 Hong Kong saliva 2019-11-01T00:00:00Z   319F-806R
-    ## 6 Hong Kong saliva 2019-11-01T00:00:00Z   319F-806R
-    ##                                                                                                            title
-    ## 1 Long-term impact of oral surgery with or without amoxicillin on the oral microbiome-A prospective cohort study
-    ## 2 Long-term impact of oral surgery with or without amoxicillin on the oral microbiome-A prospective cohort study
-    ## 3 Long-term impact of oral surgery with or without amoxicillin on the oral microbiome-A prospective cohort study
-    ## 4 Long-term impact of oral surgery with or without amoxicillin on the oral microbiome-A prospective cohort study
-    ## 5 Long-term impact of oral surgery with or without amoxicillin on the oral microbiome-A prospective cohort study
-    ## 6 Long-term impact of oral surgery with or without amoxicillin on the oral microbiome-A prospective cohort study
-    ##   Disease_study Status matched_samples
-    ## 1            NO   <NA>              NO
-    ## 2            NO   <NA>              NO
-    ## 3            NO   <NA>              NO
-    ## 4            NO   <NA>              NO
-    ## 5            NO   <NA>              NO
-    ## 6            NO   <NA>              NO
-
-## Notes for Students:
-
-1.  **Metadata Accuracy**: Always cross-check the metadata with the
-    original publication to ensure accuracy.
-2.  **Manual Entries**: Columns like `PCR_primers`, and `Status` often
-    require manual entry based on the publication.
-3.  **Disease Status**: Be careful when assigning `Status`—some studies
-    include both disease and healthy samples.
-4.  **Visualization**: The plots help quickly identify the distribution
-    of values in each column, which is useful for quality control.
-5.  **Reproducibility**: Update the working directory and file paths to
-    match your local environment.

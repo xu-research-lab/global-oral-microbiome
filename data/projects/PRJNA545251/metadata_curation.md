@@ -3,565 +3,391 @@ R Notebook: Metadata Processing Workflow
 
 # Step 1: Obtain Initial Metadata from Each Project
 
-To obtain the initial metadata: 1. Search for the BioProject ID (e.g.,
-“PRJEBXXXX”) on the [NCBI SRA
-website](https://www.ncbi.nlm.nih.gov/Traces/study/). 2. In the “Select”
-table, click on “Metadata” and download the file. 3. The downloaded file
-is typically named “SraRunTable.csv” and contains metadata for the
-project.
+This step sets the project directory, loads the raw SRA metadata, and
+optionally merges supplement tables.
 
 ``` r
-# Load necessary libraries
+# Load libraries
 library(dplyr)
 library(ggplot2)
 library(cowplot)
 
-# Set working directory (update this path to your local directory)
-setwd("D:/studylearning/董彪师兄项目/任务3_20251004/PRJNA545251")
+# =============================================================
+# Curation Notes - PRJNA545251
+# age        : initial_meta column 'AGE'
+# age_info   : "18-26" per paper Methods "adult females (18-26 years old)"
+# bmi        : computed from initial_meta 'Weight_(kg)' and 'Height_(cm)', kg/m^2
+# sex        : initial_meta 'sex'; all "female" -> "F"
+# subject_id : Sample Name with trailing O/G stripped; O=oral, G=gut; same base = matched pair
+# platform   : Paper Methods — Illumina MiSeq (CSV Platform column only says "ILLUMINA")
+# region     : Paper Methods, "16S rRNA gene V4 sequencing" -> "V4"
+# pcr_primers: Paper Methods — "V4 specific primers", exact names not specified
+# site       : initial_meta 'isolation_source'; "Buccal Microbiome" -> "buccal mucosa", "Stool Microbiome" -> "stool"
+# disease_study : "no" — healthy cohort, paper title confirms
+# is_time_series: "no" — cross-sectional design; single sampling per subject
+# matched_samples: computed — many subjects have paired oral+stool samples
+# country    : initial_meta 'geo_loc_name_country'
+# public_time: initial_meta 'ReleaseDate' (2019-07-31)
+# controls   : none found
+# non-human  : none found (all Homo sapiens)
+# =============================================================
 
-# Read the initial metadata files
-initial_meta<-read.csv("SraRunTable.csv",header = T)
+# (1) Setting working directory
+project_id <- "PRJNA545251"
 
-# Display the first few rows of the metadata
-head(initial_meta)
+base_dir <- "D:/metadata_collect/oral_metadata_new/update"
+setwd(file.path(base_dir, project_id))
+
+# (2) Loading raw SRA metadata file
+sra_file <- "SraRunTable.csv"
+initial_meta <- read.csv(sra_file, header = TRUE)
+
+# (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
+# supp_table <- read.csv("supplemental_table.csv", header = TRUE)
+# initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
 ```
 
-    ##          Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample
-    ## 1 SRR9606767   AMPLICON        502 24381638 PRJNA545251 SAMN12146872
-    ## 2 SRR9606768   AMPLICON        502  9696632 PRJNA545251 SAMN12146466
-    ## 3 SRR9606769   AMPLICON        502 13459122 PRJNA545251 SAMN12146467
-    ## 4 SRR9606770   AMPLICON        502 12763350 PRJNA545251 SAMN12146468
-    ## 5 SRR9606771   AMPLICON        502 10962174 PRJNA545251 SAMN12146469
-    ## 6 SRR9606772   AMPLICON        502 13569562 PRJNA545251 SAMN12146462
-    ##                BioSampleModel    Bytes               Center.Name
-    ## 1 Metagenome or environmental 16470910 J. CRAIG VENTER INSTITUTE
-    ## 2 Metagenome or environmental  5866172 J. CRAIG VENTER INSTITUTE
-    ## 3 Metagenome or environmental  8459680 J. CRAIG VENTER INSTITUTE
-    ## 4 Metagenome or environmental  7947251 J. CRAIG VENTER INSTITUTE
-    ## 5 Metagenome or environmental  6683284 J. CRAIG VENTER INSTITUTE
-    ## 6 Metagenome or environmental  8141590 J. CRAIG VENTER INSTITUTE
-    ##   Collection_Date Consent DATASTORE.filetype DATASTORE.provider
-    ## 1            2018  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 2            2018  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 3            2018  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 4            2018  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 5            2018  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 6            2018  public   fastq,run.zq,sra         gs,ncbi,s3
-    ##                       DATASTORE.region Experiment geo_loc_name_country
-    ## 1 gs.us-east1,ncbi.public,s3.us-east-1 SRX6370646             Thailand
-    ## 2 gs.us-east1,ncbi.public,s3.us-east-1 SRX6370645                Chile
-    ## 3 gs.us-east1,ncbi.public,s3.us-east-1 SRX6370644                Chile
-    ## 4 gs.us-east1,ncbi.public,s3.us-east-1 SRX6370643                Chile
-    ## 5 gs.us-east1,ncbi.public,s3.us-east-1 SRX6370642                Chile
-    ## 6 gs.us-east1,ncbi.public,s3.us-east-1 SRX6370641                Chile
-    ##   geo_loc_name_country_continent geo_loc_name         HOST     Instrument
-    ## 1                           Asia     Thailand Homo sapiens Illumina MiSeq
-    ## 2                  South America        Chile Homo sapiens Illumina MiSeq
-    ## 3                  South America        Chile Homo sapiens Illumina MiSeq
-    ## 4                  South America        Chile Homo sapiens Illumina MiSeq
-    ## 5                  South America        Chile Homo sapiens Illumina MiSeq
-    ## 6                  South America        Chile Homo sapiens Illumina MiSeq
-    ##    isolation_source              lat_lon Library.Name LibraryLayout
-    ## 1 Buccal Microbiome 13.7309 N 100.5348 E    OR000541O        PAIRED
-    ## 2  Stool Microbiome  33.4464 S 70.6402 W    Q0000212G        PAIRED
-    ## 3  Stool Microbiome  33.4464 S 70.6402 W    Q0000213G        PAIRED
-    ## 4  Stool Microbiome  33.4464 S 70.6402 W    Q0000214G        PAIRED
-    ## 5  Stool Microbiome  33.4464 S 70.6402 W    Q0000215G        PAIRED
-    ## 6  Stool Microbiome  33.4464 S 70.6402 W    Q0000207G        PAIRED
-    ##   LibrarySelection LibrarySource         Organism Platform          ReleaseDate
-    ## 1              PCR   METAGENOMIC human metagenome ILLUMINA 2019-07-31T00:00:00Z
-    ## 2              PCR   METAGENOMIC human metagenome ILLUMINA 2019-07-31T00:00:00Z
-    ## 3              PCR   METAGENOMIC human metagenome ILLUMINA 2019-07-31T00:00:00Z
-    ## 4              PCR   METAGENOMIC human metagenome ILLUMINA 2019-07-31T00:00:00Z
-    ## 5              PCR   METAGENOMIC human metagenome ILLUMINA 2019-07-31T00:00:00Z
-    ## 6              PCR   METAGENOMIC human metagenome ILLUMINA 2019-07-31T00:00:00Z
-    ##   Sample_ID Sample.Name SRA.Study          create_date version    sex
-    ## 1 OR000541O   OR000541O SRP212190 2019-06-27T23:47:00Z       1 female
-    ## 2 Q0000212G   Q0000212G SRP212190 2019-06-27T23:47:00Z       1 female
-    ## 3 Q0000213G   Q0000213G SRP212190 2019-06-27T23:47:00Z       1 female
-    ## 4 Q0000214G   Q0000214G SRP212190 2019-06-27T23:47:00Z       1 female
-    ## 5 Q0000215G   Q0000215G SRP212190 2019-06-27T23:47:00Z       1 female
-    ## 6 Q0000207G   Q0000207G SRP212190 2019-06-27T23:47:00Z       1 female
-    ##   Weight_.kg. Height_.cm.   AGE ethnicity
-    ## 1          57         161 23.48      Thai
-    ## 2          58         163 25.04   Mapuche
-    ## 3          48         160 22.11          
-    ## 4          57         165 19.74          
-    ## 5          45         150 22.66          
-    ## 6          56         154 22.59
+# Step 2: Data Overview
 
-# Step 2: Create a Uniform Metadata Template
-
-The uniform metadata should include the following columns:
-
-1.  **BioProject**: Project ID (e.g., “PRJNA339212”)
-2.  **Run**: Sample ID (e.g., “ERRXXXXXX” or “SRRXXXXXX”)
-3.  **sample_name**: Original sample name submitted by the authors (not
-    the database-assigned ID)
-4.  **Age**: Age of the subject (if available)
-5.  **BMI**: Body Mass Index (if available)
-6.  **Sex**: Sex of the subject (“F” or “M”)
-7.  **Region**: Targeted 16S rRNA region (e.g., “V3-V4”)
-8.  **Platform**: Sequencing platform (e.g., “Illumina MiSeq”)
-9.  **Country**: Country of sample origin (e.g., “China”)
-10. **Site**: Sample site (e.g., “saliva”, “dental plaque”)
-11. **public_time**: Data release date (format: “YYYY-MM-DD”)
-12. **PCR_primers**: PCR primers used (e.g., “515F-806R”)
-13. **title**: Title of the associated publication
-14. **Disease_study**: Whether the study involves a disease (“YES” or
-    “NO”)
-15. **Status**: Disease status (e.g., “T2DM”, “HC”). Note: If the study
-    includes both disease and healthy samples, this must be specified
-    per sample.
+First, you need to get an overview of the data, which includes two
+steps: reading the article and reading the initial metadata. This step
+is very IMPORTANT!
 
 ``` r
-# Create a uniform metadata dataframe
+# (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
+
+# (2) IMPORTANT: MUST go through each column of initial_meta
+# head(initial_meta, 10)
+
+# IMPORTANT: Check the unique values in the column of interest or query column.
+# lapply(initial_meta[c('isolation_source')], table) # site: "Buccal Microbiome", "Stool Microbiome"
+# table(initial_meta$sex) # all "female"
+# table(initial_meta$geo_loc_name_country) # Thailand, Chile, Barbados, South Africa
+# table(initial_meta$Platform) # all "ILLUMINA"
+# unique(initial_meta$anonymized_name) # subject IDs
+```
+
+# Step 3: Removing Control and Non-human Samples
+
+First, we need to remove control samples(including both negative
+controls and positive controls) and non-human samples.
+
+``` r
+# (1) EDIT HERE: Parameter setup
+control_column <- ""   # no control column in this dataset
+# unique(initial_meta[[control_column]])
+control_keywords <- c()     # no controls
+
+species_column <- "Organism"          # column name in initial_meta
+unique(initial_meta[[species_column]])
+```
+
+    ## [1] "human metagenome"
+
+``` r
+non_human_keywords <- c("XXXX")            # Enter exact keywords
+
+
+# (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
+n_samples <- nrow(initial_meta)
+# Control evaluation
+if (length(control_keywords) > 0) {
+  if (is.null(control_column) || control_column == "") {
+    stop("Error: control_keywords provided but control_column is missing.")
+  }
+
+  if (!(control_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+  }
+
+  control_pattern <- paste(control_keywords, collapse = "|")
+  control_text <- initial_meta[[control_column]]
+  is_control <- grepl(control_pattern, control_text)
+
+} else {
+  is_control <- rep(FALSE, n_samples)
+}
+
+# Non-human evaluation
+if (length(non_human_keywords) > 0) {
+  if (is.null(species_column) || species_column == "") {
+    stop("Error: non_human_keywords provided but species_column is missing.")
+  }
+
+  if (!(species_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
+  }
+
+  non_human_pattern <- paste(non_human_keywords, collapse = "|")
+  species_text <- initial_meta[[species_column]]
+  is_non_human <- grepl(non_human_pattern, species_text)
+} else {
+  is_non_human <- rep(FALSE, n_samples)
+}
+
+# Execute removal
+samples_to_remove <- is_control | is_non_human
+initial_meta <- initial_meta[!samples_to_remove, ]
+
+cat("Initial samples counts:",n_samples,"\n")
+```
+
+    ## Initial samples counts: 614
+
+``` r
+cat("Removed control samples:", sum(is_control), "\n")
+```
+
+    ## Removed control samples: 0
+
+``` r
+cat("Removed non-human samples:", sum(is_non_human), "\n")
+```
+
+    ## Removed non-human samples: 0
+
+``` r
+cat("Total samples removed ", sum(samples_to_remove), "\n")
+```
+
+    ## Total samples removed  0
+
+``` r
+cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
+```
+
+    ## Remaining samples after Step 2: 614
+
+# Step 4: Creating a Uniform Metadata Template
+
+This step converts the raw SRA table into the standard metadata format
+used in our meta-analysis. The uniform metadata should include the
+following columns: 1. **bioproject**: Project ID from SRA or other
+database e.g. `PRJNA1234`, `CNP1234`, ‘OEP1234’, ‘qiita_1234’ 2.
+**sample_id**: SRA sample/run ID. Unique id for each sample!
+e.g. `DRR1234567`, `ERR1234567` and `SRR1234567`. If no such column
+exists, can use column like sample_name. 3. **subject_id**: subject id
+for each person if available. e.g. `patient_01`, `Host_03_before`,
+`subject12` 4. **age**: Age of the subject if available. e.g. `35`, `42`
+\| not `adult`, `chilren` 5. **age_info**: If the age is not explicitly
+stated but approximate age range information is available, mark it in
+this column. e.g., `18-55`, `children`, `infant`, `elder` 6. **bmi**:
+Body Mass Index if available. e.g. `22.5`, `18.9` \| not `normal`,
+`overweight` 7. **sex**: Sex of the subject. Mandatory to write as M/F
+\| not `female`, `woman` 8. **sequencing_region**: Targeted 16S rRNA
+region. e.g. `V3-V4`, `V4` 9. **platform**: Sequencing platform.
+e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent` 10.
+**country**: Country of sample origin. e.g. `China`, `Japan` \| not city
+name like `Beijing` 11. **site**: Sampling site. For oral and gut sites,
+specify the exact sites as detailed as possible. For example, if it is
+known to be supragingival plaque, do not record it as ‘dental plaque’,
+unless the original text provides only a vague description.
+e.g. `saliva`, `tongue coating` \| not broad term like `oral` 12.
+**site_group**: only accepts one of following three values: ‘oral’,
+‘gut’, or ‘other’. 13. **public_time**: Data release date.
+e.g. `2021-06-22` \| not `June 2021` 14. **pcr_primers**: PCR primers
+used. e.g. `515F-806R`, `27F-338R` \| not primer sequences 15.
+**title**: Title of the associated publication. 16. **disease_study**:
+Whether the study involves disease samples. If it’s not clear, can
+record as NA. Only three values accepted: ‘yes’, ‘no’ or NA 17.
+**status**: Disease status for each sample if available, else record as
+NA. Only accept following abbreviations, Write full names for all other
+diseases. HC: healthy control CD: Crohn’s disease CRC: colorectal cancer
+COPD: chronic obstructive pulmonary disease HIV: human immunodeficiency
+virus ICU: intensive care unit OSCC: oral squamous cell carcinoma RA:
+rheumatoid arthritis UC: ulcerative colitis 18. **matched_samples**:
+Whether the subject has matched samples. Only accept ‘yes’ or ‘no’. 19.
+**is_time_series**: Whether the study is a time series study. Only
+accept ‘yes’ or ‘no’.
+
+``` r
+# Extract columns from initial_meta as follows: (1) No modification needed -> extract directly. (2) Modification needed -> create a new column with the prefix raw_ and mark the original column as "pending". (3) Need to find or determine based on the article.
 metadata <- data.frame(
-  BioProject = initial_meta$BioProject,
-  Run = initial_meta$Run,
-  sample_name = initial_meta$Sample.Name,
-  Age = initial_meta$AGE,
-  BMI = NA,
-  Sex= initial_meta$sex,
-  Region = "V4",
-  Platform = initial_meta$Instrument,
-  Country = initial_meta$geo_loc_name_country,
-  Site = initial_meta$isolation_source,
+  bioproject = initial_meta$BioProject,
+  sample_id = initial_meta$Run,
+  subject_id = sub("[OG]$", "", initial_meta$Sample.Name), # Strip trailing O/G; O=oral, G=gut; same base = same subject
+  age = initial_meta$AGE,
+  age_info = "18-26", # Paper Methods: "adult females (18-26 years old)"
+  raw_weight = initial_meta$Weight_.kg.,
+  bmi = "pending", # compute from Weight_(kg) and Height_(cm)
+  raw_sex = initial_meta$sex,
+  sex = "pending", # all "female" -> "F"
+  sequencing_region = "V4", # Paper Methods: "16S rRNA gene V4 sequencing"
+  platform = "Illumina MiSeq", # Paper Methods section
+  country = initial_meta$geo_loc_name_country,
+  raw_site = initial_meta$isolation_source,
+  site = "pending", # "Buccal Microbiome" -> "buccal mucosa", "Stool Microbiome" -> "stool"
+  site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
+  pcr_primers = NA_character_, # Paper Methods: "V4 specific primers", exact names not specified
+  title = "Sampling from four geographically divergent young female populations demonstrates forensic geolocation potential in microbiomes", # Paper title
+  disease_study = "no", # Paper: healthy cohort
+  status = "HC", # Paper: all participants are healthy young females
+  matched_samples = "pending", # modify later
+  is_time_series = "no", # Cross-sectional design; no repeated sampling of same individual
   stringsAsFactors = FALSE
+)
+metadata$public_time <- as.Date(metadata$public_time)
+```
+
+# Step 5: Manually solving pending issues
+
+This step involves two parts: (1) handle the columns with the `raw_`
+prefix, and next (2) handle the `site_group` and `matched_samples`
+columns.
+
+``` r
+# (1) Handle the columns with the `raw_` prefix.
+# In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata$sex <- ifelse(
+  metadata$raw_sex == "female", "F",
+  ifelse(metadata$raw_sex == "male", "M", "F")
+) # Paper Methods: all participants are healthy females (18-26 years old); NA sex rows (6 samples) have valid human metadata -> set to "F"
+
+metadata$site <- gsub(" Microbiome", "", metadata$raw_site)
+metadata$site <- ifelse(metadata$site == "Buccal", "buccal mucosa", metadata$site) # Paper Methods: "buccal mucosa (oral)"
+metadata$site <- ifelse(metadata$site == "Stool", "stool", metadata$site)
+
+metadata$bmi <- ifelse(
+  !is.na(metadata$raw_weight) & !is.na(initial_meta$Height_.cm.) & initial_meta$Height_.cm. > 50,
+  round(metadata$raw_weight / (initial_meta$Height_.cm. / 100)^2, 2),
+  NA_real_
+) # BMI = kg/m^2; Height < 50cm is data error (e.g. row 148 with Height=2)
+```
+
+``` r
+# (2) Filling the 'site_group' and 'matched_samples' columns
+# editing site_group
+unique(metadata$site)
+```
+
+    ## [1] "buccal mucosa" "stool"
+
+``` r
+# EDIT HERE: add oral sites
+Oral_site = c("buccal mucosa")
+# EDIT HERE: add gut sites
+Gut_site = c("stool")
+# just run
+metadata <- metadata %>%
+  mutate(site_group = case_when(
+    site %in% Oral_site ~ "oral",
+    site %in% Gut_site ~ "gut",
+    TRUE ~ "other"
+  ))
+
+# editing matched_samples, just run.
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1,
+  "yes",
+  "no"
 )
 ```
 
-# Step 3: Manually Add Information from the Publication
-
-Some information (e.g. PCR primers, study title, disease status) must be
-manually extracted from the publication and added to the metadata.
-
 ``` r
-# Add information obtained from the publication
-metadata$PCR_primers <- NA_character_  # Update based on the publication
-metadata$title <- "Sampling from four geographically divergent young female populations demonstrates forensic geolocation potential in microbiomes"
-metadata$Disease_study <- "NO"
-metadata$Status <- "HC"
-metadata <- metadata %>% 
-  mutate(Site=case_when(
-    grepl("B",Site)~"buccal mucosa",
-    grepl("S",Site)~"stool"
-  ))
-#extract subject id by remove prefix of sample_name
-metadata$sample_name <- sub(".$", "", metadata$sample_name)
+# (3) check if there is pending value in metadata. If there is pending value, go on modify the metadata.
+# Function to check if a column contains "pending"
+has_pending <- function(col) {
+  if (is.character(col) || is.factor(col)) {
+    any(col == "pending", na.rm = TRUE)
+  } else {
+    FALSE
+  }
+}
 
-# Check initial data distribution
-cat("Initial sample distribution:\n")
+# Check for any pending value
+any_pending_value <- any(sapply(metadata, has_pending))
+
+if (!any_pending_value) {
+  message("Good! No cell contains the value 'pending'.")
+} else {
+  pending_cols <- names(metadata)[sapply(metadata, has_pending)]
+  message("Columns containing 'pending': ", paste(pending_cols, collapse = ", "))
+  message("Please continue to resolve these pending columns!")
+}
 ```
 
-    ## Initial sample distribution:
+    ## Good! No cell contains the value 'pending'.
+
+# Step 6: Visualize the Metadata
+
+This step makes a quick set of plots for checking the distribution of
+key metadata fields.
 
 ``` r
-table(metadata$sample_name)
-```
+# Select columns for visualization, just run
+plot_data <- metadata %>%
+  select(-bioproject, -sample_id, -subject_id, -title)
 
-    ## 
-    ## GU000522 GU000533 GU000560 GU000566 GU000574 GU000585 GU000593 GU000597 
-    ##        2        2        2        2        2        2        2        2 
-    ## GU000611 GU000612 GU000614 GU000618 GU000628 GU000636 GU000649 OR000523 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000524 OR000528 OR000530 OR000531 OR000532 OR000539 OR000540 OR000541 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000542 OR000543 OR000545 OR000547 OR000549 OR000550 OR000563 OR000568 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000570 OR000572 OR000573 OR000575 OR000576 OR000577 OR000578 OR000581 
-    ##        1        2        2        2        1        2        2        2 
-    ## OR000582 OR000584 OR000586 OR000587 OR000591 OR000592 OR000595 OR000600 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000601 OR000604 OR000606 OR000607 OR000615 OR000619 OR000625 OR000627 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000631 OR000632 OR000639 OR000641 OR000643 OR000644 OR000647 OR000648 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000650 Q0000001 Q0000004 Q0000005 Q0000008 Q0000009 Q0000012 Q0000013 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000016 Q0000017 Q0000020 Q0000021 Q0000022 Q0000023 Q0000028 Q0000029 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000031 Q0000033 Q0000034 Q0000035 Q0000054 Q0000055 Q0000056 Q0000057 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000058 Q0000059 Q0000060 Q0000061 Q0000062 Q0000068 Q0000069 Q0000070 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000071 Q0000074 Q0000076 Q0000078 Q0000082 Q0000083 Q0000084 Q0000087 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000090 Q0000092 Q0000094 Q0000095 Q0000096 Q0000099 Q0000101 Q0000104 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000105 Q0000106 Q0000111 Q0000113 Q0000116 Q0000117 Q0000118 Q0000119 
-    ##        2        2        2        2        1        2        2        2 
-    ## Q0000121 Q0000123 Q0000124 Q0000125 Q0000126 Q0000132 Q0000133 Q0000134 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000135 Q0000136 Q0000137 Q0000139 Q0000140 Q0000142 Q0000143 Q0000145 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000146 Q0000147 Q0000148 Q0000149 Q0000150 Q0000151 Q0000152 Q0000153 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000154 Q0000155 Q0000156 Q0000159 Q0000162 Q0000163 Q0000165 Q0000166 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000167 Q0000168 Q0000169 Q0000170 Q0000172 Q0000173 Q0000174 Q0000175 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000176 Q0000177 Q0000178 Q0000179 Q0000180 Q0000181 Q0000183 Q0000185 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000186 Q0000187 Q0000188 Q0000189 Q0000190 Q0000192 Q0000193 Q0000197 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000199 Q0000200 Q0000201 Q0000202 Q0000203 Q0000204 Q0000205 Q0000206 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000207 Q0000208 Q0000209 Q0000210 Q0000212 Q0000213 Q0000214 Q0000215 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000216 Q0000217 Q0000218 Q0000220 Q0000221 Q0000223 Q0000224 Q0000225 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000226 Q0000227 Q0000228 Q0000229 Q0000231 Q0000233 Q0000234 Q0000236 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000237 Q0000239 Q0000240 Q0000241 Q0000242 Q0000243 Q0000244 Q0000245 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000247 Q0000248 Q0000249 Q0000250 Q0000251 Q0000252 Q0000253 Q0000254 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000255 Q0000258 Q0000259 Q0000260 Q0000261 Q0000392 Q0000393 Q0000394 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000395 Q0000396 Q0000397 Q0000398 Q0000399 Q0000400 Q0000401 Q0000402 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000403 Q0000404 Q0000405 Q0000406 Q0000407 Q0000408 Q0000409 Q0000410 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000411 Q0000412 Q0000413 Q0000414 Q0000415 Q0000416 Q0000417 Q0000418 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000419 Q0000420 Q0000421 Q0000422 Q0000423 Q0000424 Q0000425 Q0000426 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000427 Q0000428 Q0000429 Q0000430 Q0000431 Q0000432 Q0000433 Q0000434 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000435 Q0000436 Q0000437 Q0000438 Q0000439 Q0000534 Q0000535 Q0000537 
-    ##        2        1        2        2        2        2        2        2 
-    ## Q0000544 Q0000546 Q0000552 Q0000559 Q0000562 Q0000564 Q0000565 Q0000569 
-    ##        2        2        2        1        2        2        2        2 
-    ## Q0000579 Q0000580 Q0000583 Q0000590 Q0000596 Q0000598 Q0000602 Q0000605 
-    ##        2        2        2        2        2        1        2        2 
-    ## Q0000609 Q0000613 Q0000617 Q0000620 Q0000621 Q0000623 Q0000624 Q0000626 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000630 Q0000635 Q0000637 Q0000640 Q0000642 QR000003 
-    ##        2        2        2        2        2        2
+create_simple_plots <- function(data) {
+  plots <- list()
+  continuous_vars <- c("age", "bmi")
+
+  for (col in colnames(data)) {
+    if (all(is.na(data[[col]]))) {
+      p <- ggplot() +
+        annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
+        labs(title = col) +
+        theme_void()
+    } else if (col %in% continuous_vars && is.numeric(data[[col]])) {
+      p <- ggplot(data, aes(x = .data[[col]])) +
+        geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
+        labs(title = col, x = col, y = "Count") +
+        theme_minimal()
+    } else {
+      count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
+      p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
+        geom_col(fill = "red", alpha = 0.6) +
+        labs(title = col, x = NULL, y = "Count") +
+        theme_minimal() +
+        theme(axis.text.x = element_text(angle = 15, hjust = 1))
+    }
+    plots[[col]] <- p
+  }
+
+  return(plots)
+}
+
+# Generate and arrange plots
+plots <- create_simple_plots(plot_data)
+p <- plot_grid(plots$age,
+               plots$age_info,
+               plots$bmi,
+               plots$sex,
+               plots$site,
+               plots$site_group,
+               plots$sequencing_region,
+               plots$platform,
+               plots$country,
+               plots$pcr_primers,
+               plots$status,
+               plots$matched_samples,
+               ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
+```
 
 ``` r
-table(metadata$Site)
+# Insert Metadata_Summary_v2.png into the current Rmd output
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
-    ## 
-    ## buccal mucosa         stool 
-    ##           309           305
+![](Metadata_Summary_v2.png)<!-- -->
+
+# Step 7: Sort and export the metadata
+
+This step saves the cleaned metadata table as the final `metadata.csv`
+file.
 
 ``` r
-# Calculate sampling frequency per subject
-sample_counts <- table(metadata$sample_name)
-cat("\nNumber of samples per subject:\n")
+# Reorder the data frame
+fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers",
+                "country", "site", "site_group", "disease_study", "status",
+                "title", "public_time", "matched_samples", "is_time_series")
+metadata <- metadata %>%
+  select(all_of(fixed_cols), everything())
+
+# save metadata
+# head(metadata)
+write.csv(metadata, file = "metadata_v2.csv", quote = TRUE)
 ```
-
-    ## 
-    ## Number of samples per subject:
-
-``` r
-print(sample_counts)
-```
-
-    ## 
-    ## GU000522 GU000533 GU000560 GU000566 GU000574 GU000585 GU000593 GU000597 
-    ##        2        2        2        2        2        2        2        2 
-    ## GU000611 GU000612 GU000614 GU000618 GU000628 GU000636 GU000649 OR000523 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000524 OR000528 OR000530 OR000531 OR000532 OR000539 OR000540 OR000541 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000542 OR000543 OR000545 OR000547 OR000549 OR000550 OR000563 OR000568 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000570 OR000572 OR000573 OR000575 OR000576 OR000577 OR000578 OR000581 
-    ##        1        2        2        2        1        2        2        2 
-    ## OR000582 OR000584 OR000586 OR000587 OR000591 OR000592 OR000595 OR000600 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000601 OR000604 OR000606 OR000607 OR000615 OR000619 OR000625 OR000627 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000631 OR000632 OR000639 OR000641 OR000643 OR000644 OR000647 OR000648 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000650 Q0000001 Q0000004 Q0000005 Q0000008 Q0000009 Q0000012 Q0000013 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000016 Q0000017 Q0000020 Q0000021 Q0000022 Q0000023 Q0000028 Q0000029 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000031 Q0000033 Q0000034 Q0000035 Q0000054 Q0000055 Q0000056 Q0000057 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000058 Q0000059 Q0000060 Q0000061 Q0000062 Q0000068 Q0000069 Q0000070 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000071 Q0000074 Q0000076 Q0000078 Q0000082 Q0000083 Q0000084 Q0000087 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000090 Q0000092 Q0000094 Q0000095 Q0000096 Q0000099 Q0000101 Q0000104 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000105 Q0000106 Q0000111 Q0000113 Q0000116 Q0000117 Q0000118 Q0000119 
-    ##        2        2        2        2        1        2        2        2 
-    ## Q0000121 Q0000123 Q0000124 Q0000125 Q0000126 Q0000132 Q0000133 Q0000134 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000135 Q0000136 Q0000137 Q0000139 Q0000140 Q0000142 Q0000143 Q0000145 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000146 Q0000147 Q0000148 Q0000149 Q0000150 Q0000151 Q0000152 Q0000153 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000154 Q0000155 Q0000156 Q0000159 Q0000162 Q0000163 Q0000165 Q0000166 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000167 Q0000168 Q0000169 Q0000170 Q0000172 Q0000173 Q0000174 Q0000175 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000176 Q0000177 Q0000178 Q0000179 Q0000180 Q0000181 Q0000183 Q0000185 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000186 Q0000187 Q0000188 Q0000189 Q0000190 Q0000192 Q0000193 Q0000197 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000199 Q0000200 Q0000201 Q0000202 Q0000203 Q0000204 Q0000205 Q0000206 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000207 Q0000208 Q0000209 Q0000210 Q0000212 Q0000213 Q0000214 Q0000215 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000216 Q0000217 Q0000218 Q0000220 Q0000221 Q0000223 Q0000224 Q0000225 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000226 Q0000227 Q0000228 Q0000229 Q0000231 Q0000233 Q0000234 Q0000236 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000237 Q0000239 Q0000240 Q0000241 Q0000242 Q0000243 Q0000244 Q0000245 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000247 Q0000248 Q0000249 Q0000250 Q0000251 Q0000252 Q0000253 Q0000254 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000255 Q0000258 Q0000259 Q0000260 Q0000261 Q0000392 Q0000393 Q0000394 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000395 Q0000396 Q0000397 Q0000398 Q0000399 Q0000400 Q0000401 Q0000402 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000403 Q0000404 Q0000405 Q0000406 Q0000407 Q0000408 Q0000409 Q0000410 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000411 Q0000412 Q0000413 Q0000414 Q0000415 Q0000416 Q0000417 Q0000418 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000419 Q0000420 Q0000421 Q0000422 Q0000423 Q0000424 Q0000425 Q0000426 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000427 Q0000428 Q0000429 Q0000430 Q0000431 Q0000432 Q0000433 Q0000434 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000435 Q0000436 Q0000437 Q0000438 Q0000439 Q0000534 Q0000535 Q0000537 
-    ##        2        1        2        2        2        2        2        2 
-    ## Q0000544 Q0000546 Q0000552 Q0000559 Q0000562 Q0000564 Q0000565 Q0000569 
-    ##        2        2        2        1        2        2        2        2 
-    ## Q0000579 Q0000580 Q0000583 Q0000590 Q0000596 Q0000598 Q0000602 Q0000605 
-    ##        2        2        2        2        2        1        2        2 
-    ## Q0000609 Q0000613 Q0000617 Q0000620 Q0000621 Q0000623 Q0000624 Q0000626 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000630 Q0000635 Q0000637 Q0000640 Q0000642 QR000003 
-    ##        2        2        2        2        2        2
-
-``` r
-# Create matched_samples column
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
-
-cat("\nMatched samples distribution:\n")
-```
-
-    ## 
-    ## Matched samples distribution:
-
-``` r
-table(metadata$matched_samples)
-```
-
-    ## 
-    ##  NO YES 
-    ##   6 608
-
-``` r
-# Identify samples for removal: single samples excluding saliva 
-single_samples <- names(sample_counts[sample_counts == 1])
-samples_to_remove <- metadata$sample_name %in% single_samples & !(metadata$Site %in% c("buccal mucosa"))
-
-cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
-```
-
-    ## 
-    ## Number of samples to be removed: 1
-
-``` r
-# Remove identified samples
-metadata_clean <- metadata[!samples_to_remove, ]
-
-cat("\nFinal sample distribution after cleaning:\n")
-```
-
-    ## 
-    ## Final sample distribution after cleaning:
-
-``` r
-table(metadata_clean$sample_name)
-```
-
-    ## 
-    ## GU000522 GU000533 GU000560 GU000566 GU000574 GU000585 GU000593 GU000597 
-    ##        2        2        2        2        2        2        2        2 
-    ## GU000611 GU000612 GU000614 GU000618 GU000628 GU000636 GU000649 OR000523 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000524 OR000528 OR000530 OR000531 OR000532 OR000539 OR000540 OR000541 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000542 OR000543 OR000545 OR000547 OR000549 OR000550 OR000563 OR000568 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000570 OR000572 OR000573 OR000575 OR000576 OR000577 OR000578 OR000581 
-    ##        1        2        2        2        1        2        2        2 
-    ## OR000582 OR000584 OR000586 OR000587 OR000591 OR000592 OR000595 OR000600 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000601 OR000604 OR000606 OR000607 OR000615 OR000619 OR000625 OR000627 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000631 OR000632 OR000639 OR000641 OR000643 OR000644 OR000647 OR000648 
-    ##        2        2        2        2        2        2        2        2 
-    ## OR000650 Q0000001 Q0000004 Q0000005 Q0000008 Q0000009 Q0000012 Q0000013 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000016 Q0000017 Q0000020 Q0000021 Q0000022 Q0000023 Q0000028 Q0000029 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000031 Q0000033 Q0000034 Q0000035 Q0000054 Q0000055 Q0000056 Q0000057 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000058 Q0000059 Q0000060 Q0000061 Q0000062 Q0000068 Q0000069 Q0000070 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000071 Q0000074 Q0000076 Q0000078 Q0000082 Q0000083 Q0000084 Q0000087 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000090 Q0000092 Q0000094 Q0000095 Q0000096 Q0000099 Q0000101 Q0000104 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000105 Q0000106 Q0000111 Q0000113 Q0000117 Q0000118 Q0000119 Q0000121 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000123 Q0000124 Q0000125 Q0000126 Q0000132 Q0000133 Q0000134 Q0000135 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000136 Q0000137 Q0000139 Q0000140 Q0000142 Q0000143 Q0000145 Q0000146 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000147 Q0000148 Q0000149 Q0000150 Q0000151 Q0000152 Q0000153 Q0000154 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000155 Q0000156 Q0000159 Q0000162 Q0000163 Q0000165 Q0000166 Q0000167 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000168 Q0000169 Q0000170 Q0000172 Q0000173 Q0000174 Q0000175 Q0000176 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000177 Q0000178 Q0000179 Q0000180 Q0000181 Q0000183 Q0000185 Q0000186 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000187 Q0000188 Q0000189 Q0000190 Q0000192 Q0000193 Q0000197 Q0000199 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000200 Q0000201 Q0000202 Q0000203 Q0000204 Q0000205 Q0000206 Q0000207 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000208 Q0000209 Q0000210 Q0000212 Q0000213 Q0000214 Q0000215 Q0000216 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000217 Q0000218 Q0000220 Q0000221 Q0000223 Q0000224 Q0000225 Q0000226 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000227 Q0000228 Q0000229 Q0000231 Q0000233 Q0000234 Q0000236 Q0000237 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000239 Q0000240 Q0000241 Q0000242 Q0000243 Q0000244 Q0000245 Q0000247 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000248 Q0000249 Q0000250 Q0000251 Q0000252 Q0000253 Q0000254 Q0000255 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000258 Q0000259 Q0000260 Q0000261 Q0000392 Q0000393 Q0000394 Q0000395 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000396 Q0000397 Q0000398 Q0000399 Q0000400 Q0000401 Q0000402 Q0000403 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000404 Q0000405 Q0000406 Q0000407 Q0000408 Q0000409 Q0000410 Q0000411 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000412 Q0000413 Q0000414 Q0000415 Q0000416 Q0000417 Q0000418 Q0000419 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000420 Q0000421 Q0000422 Q0000423 Q0000424 Q0000425 Q0000426 Q0000427 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000428 Q0000429 Q0000430 Q0000431 Q0000432 Q0000433 Q0000434 Q0000435 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000436 Q0000437 Q0000438 Q0000439 Q0000534 Q0000535 Q0000537 Q0000544 
-    ##        1        2        2        2        2        2        2        2 
-    ## Q0000546 Q0000552 Q0000559 Q0000562 Q0000564 Q0000565 Q0000569 Q0000579 
-    ##        2        2        1        2        2        2        2        2 
-    ## Q0000580 Q0000583 Q0000590 Q0000596 Q0000598 Q0000602 Q0000605 Q0000609 
-    ##        2        2        2        2        1        2        2        2 
-    ## Q0000613 Q0000617 Q0000620 Q0000621 Q0000623 Q0000624 Q0000626 Q0000630 
-    ##        2        2        2        2        2        2        2        2 
-    ## Q0000635 Q0000637 Q0000640 Q0000642 QR000003 
-    ##        2        2        2        2        2
-
-``` r
-table(metadata_clean$Site)
-```
-
-    ## 
-    ## buccal mucosa         stool 
-    ##           309           304
-
-``` r
-table(metadata_clean$matched_samples)
-```
-
-    ## 
-    ##  NO YES 
-    ##   5 608
-
-``` r
-# Use cleaned dataset for subsequent analysis
-metadata <- metadata_clean
-```
-
-# Step 4: Summarize and Validate the Metadata
-
-``` r
-# Check the number of unique runs and sample names
-print(paste("Number of unique runs:", length(unique(metadata$Run))))
-```
-
-    ## [1] "Number of unique runs: 613"
-
-``` r
-print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
-```
-
-    ## [1] "Number of unique sample names: 309"
-
-# Step 5: Visualize the Metadata
-
-``` r
-knitr::include_graphics("Metadata_Summary.png")
-```
-
-<img src="Metadata_Summary.png" width="1200" />
-
-# Step 6: Finalize and Export the Metadata
-
-``` r
-# Reorder columns to match the desired format
-metadata <- metadata[, c(
-  "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
-  "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
-)]
-
-# Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
-head(metadata)
-```
-
-    ##    BioProject        Run sample_name   Age BMI    Sex Region       Platform
-    ## 1 PRJNA545251 SRR9606767    OR000541 23.48  NA female     V4 Illumina MiSeq
-    ## 2 PRJNA545251 SRR9606768    Q0000212 25.04  NA female     V4 Illumina MiSeq
-    ## 3 PRJNA545251 SRR9606769    Q0000213 22.11  NA female     V4 Illumina MiSeq
-    ## 4 PRJNA545251 SRR9606770    Q0000214 19.74  NA female     V4 Illumina MiSeq
-    ## 5 PRJNA545251 SRR9606771    Q0000215 22.66  NA female     V4 Illumina MiSeq
-    ## 6 PRJNA545251 SRR9606772    Q0000207 22.59  NA female     V4 Illumina MiSeq
-    ##    Country          Site          public_time PCR_primers
-    ## 1 Thailand buccal mucosa 2019-07-31T00:00:00Z        <NA>
-    ## 2    Chile         stool 2019-07-31T00:00:00Z        <NA>
-    ## 3    Chile         stool 2019-07-31T00:00:00Z        <NA>
-    ## 4    Chile         stool 2019-07-31T00:00:00Z        <NA>
-    ## 5    Chile         stool 2019-07-31T00:00:00Z        <NA>
-    ## 6    Chile         stool 2019-07-31T00:00:00Z        <NA>
-    ##                                                                                                                             title
-    ## 1 Sampling from four geographically divergent young female populations demonstrates forensic geolocation potential in microbiomes
-    ## 2 Sampling from four geographically divergent young female populations demonstrates forensic geolocation potential in microbiomes
-    ## 3 Sampling from four geographically divergent young female populations demonstrates forensic geolocation potential in microbiomes
-    ## 4 Sampling from four geographically divergent young female populations demonstrates forensic geolocation potential in microbiomes
-    ## 5 Sampling from four geographically divergent young female populations demonstrates forensic geolocation potential in microbiomes
-    ## 6 Sampling from four geographically divergent young female populations demonstrates forensic geolocation potential in microbiomes
-    ##   Disease_study Status matched_samples
-    ## 1            NO     HC             YES
-    ## 2            NO     HC             YES
-    ## 3            NO     HC             YES
-    ## 4            NO     HC             YES
-    ## 5            NO     HC             YES
-    ## 6            NO     HC             YES
-
-## Notes for Students:
-
-1.  **Metadata Accuracy**: Always cross-check the metadata with the
-    original publication to ensure accuracy.
-2.  **Manual Entries**: Columns like `PCR_primers`, and `Status` often
-    require manual entry based on the publication.
-3.  **Disease Status**: Be careful when assigning `Status`—some studies
-    include both disease and healthy samples.
-4.  **Visualization**: The plots help quickly identify the distribution
-    of values in each column, which is useful for quality control.
-5.  **Reproducibility**: Update the working directory and file paths to
-    match your local environment.

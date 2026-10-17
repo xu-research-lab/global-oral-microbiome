@@ -3,1104 +3,536 @@ R Notebook: Metadata Processing Workflow
 
 # Step 1: Obtain Initial Metadata from Each Project
 
-To obtain the initial metadata: 1. Search for the BioProject ID (e.g.,
-“PRJEBXXXX”) on the [NCBI SRA
-website](https://www.ncbi.nlm.nih.gov/Traces/study/). 2. In the “Select”
-table, click on “Metadata” and download the file. 3. The downloaded file
-is typically named “SraRunTable.csv” and contains metadata for the
-project.
+This step sets the project directory, loads the raw SRA metadata, and
+optionally merges supplement tables.
 
 ``` r
-# Load necessary libraries
+# Load libraries
 library(dplyr)
 library(ggplot2)
 library(cowplot)
 
-# Set working directory (update this path to your local directory)
-setwd("D:/studylearning/董彪师兄项目/任务/张辰飞/PRJNA744870")
+# (1) Setting working directory
+# EDIT HERE: change project_id for each study
+project_id <- "PRJNA744870" 
 
-# Read the initial metadata files
-initial_meta<-read.csv("SraRunTable.csv",header = T)
+base_dir <- "E:/oral/26/metadata-2604/Oral-Metadata-YL-03"
+setwd(file.path(base_dir, project_id))
 
-# Combine the two metadata files
-#meta <- rbind(initial_meta, initial_meta1)
+# (2) Loading raw SRA metadata file
+sra_file <- "SraRunTable.csv"
+initial_meta <- read.csv(sra_file, header = TRUE)
 
-#Remove entries non-oral samples
-#initial_meta <- subset(initial_meta,isolate %in% c("saliva","tongue coat"))
-
-# Check the number of samples containing "HT" in Sample.Name (e.g., healthy controls)
-#nrow(subset(meta, grepl("HT", Sample.Name)))
-
-# Display the first few rows of the metadata
-head(initial_meta)
+# (3) OPTIONAL: If extra metadata (e.g., Table.x or supplemental materials) are available from the article, you may need to merge the file with initial_meta manually. Below is example code for merging. Depending on the specific case of each study, you can customize the code as needed.
+# supp_table <- read.csv("supplemental_table.csv", header = TRUE)
+# initial_meta <- left_join(initial_meta, supp_table, by = merge_col_name)
 ```
 
-    ##           Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample
-    ## 1 SRR15719926   AMPLICON        602 23042754 PRJNA744870 SAMN21215907
-    ## 2 SRR15719937   AMPLICON        602 23526160 PRJNA744870 SAMN21215897
-    ## 3 SRR15719951   AMPLICON        602 28818944 PRJNA744870 SAMN21215884
-    ## 4 SRR15719961   AMPLICON        602 22373932 PRJNA744870 SAMN21215816
-    ## 5 SRR15719966   AMPLICON        602  4212796 PRJNA744870 SAMN21215815
-    ## 6 SRR15719973   AMPLICON        602 36488424 PRJNA744870 SAMN21215951
-    ##                BioSampleModel    Bytes                         Center.Name
-    ## 1 Metagenome or environmental 15416009 THE CHINESE UNIVERSITY OF HONG KONG
-    ## 2 Metagenome or environmental 15389328 THE CHINESE UNIVERSITY OF HONG KONG
-    ## 3 Metagenome or environmental 17930945 THE CHINESE UNIVERSITY OF HONG KONG
-    ## 4 Metagenome or environmental 13334903 THE CHINESE UNIVERSITY OF HONG KONG
-    ## 5 Metagenome or environmental  2130157 THE CHINESE UNIVERSITY OF HONG KONG
-    ## 6 Metagenome or environmental 22725477 THE CHINESE UNIVERSITY OF HONG KONG
-    ##   Collection_Date Consent DATASTORE.filetype DATASTORE.provider
-    ## 1            2016  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 2            2016  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 3            2016  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 4            2016  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 5            2016  public   fastq,run.zq,sra         gs,ncbi,s3
-    ## 6            2016  public   fastq,run.zq,sra         gs,ncbi,s3
-    ##                       DATASTORE.region  Experiment geo_loc_name_country
-    ## 1 gs.us-east1,ncbi.public,s3.us-east-1 SRX12015501            Hong Kong
-    ## 2 gs.us-east1,ncbi.public,s3.us-east-1 SRX12015490            Hong Kong
-    ## 3 gs.us-east1,ncbi.public,s3.us-east-1 SRX12015476            Hong Kong
-    ## 4 gs.us-east1,ncbi.public,s3.us-east-1 SRX12015466            Hong Kong
-    ## 5 gs.us-east1,ncbi.public,s3.us-east-1 SRX12015461            Hong Kong
-    ## 6 gs.us-east1,ncbi.public,s3.us-east-1 SRX12015834            Hong Kong
-    ##   geo_loc_name_country_continent geo_loc_name         HOST     Instrument
-    ## 1                           Asia    Hong Kong Homo sapiens Illumina MiSeq
-    ## 2                           Asia    Hong Kong Homo sapiens Illumina MiSeq
-    ## 3                           Asia    Hong Kong Homo sapiens Illumina MiSeq
-    ## 4                           Asia    Hong Kong Homo sapiens Illumina MiSeq
-    ## 5                           Asia    Hong Kong Homo sapiens Illumina MiSeq
-    ## 6                           Asia    Hong Kong Homo sapiens Illumina MiSeq
-    ##   lat_lon             Library.Name LibraryLayout LibrarySelection LibrarySource
-    ## 1 missing    Health26-Oral-16SV3V4        PAIRED              PCR       GENOMIC
-    ## 2 missing    Health16-Oral-16SV3V4        PAIRED              PCR       GENOMIC
-    ## 3 missing    Health03-Oral-16SV3V4        PAIRED              PCR       GENOMIC
-    ## 4 missing Patient11-PostM3-16SV3V4        PAIRED              PCR       GENOMIC
-    ## 5 missing Patient10-PostM3-16SV3V4        PAIRED              PCR       GENOMIC
-    ## 6 missing    Health70-Oral-16SV3V4        PAIRED              PCR       GENOMIC
-    ##          Organism Platform          ReleaseDate          create_date version
-    ## 1 oral metagenome ILLUMINA 2021-09-28T00:00:00Z 2021-09-04T12:36:00Z       1
-    ## 2 oral metagenome ILLUMINA 2021-09-28T00:00:00Z 2021-09-04T12:36:00Z       1
-    ## 3 oral metagenome ILLUMINA 2021-09-28T00:00:00Z 2021-09-04T12:37:00Z       1
-    ## 4 oral metagenome ILLUMINA 2021-09-28T00:00:00Z 2021-09-04T12:36:00Z       1
-    ## 5 oral metagenome ILLUMINA 2021-09-28T00:00:00Z 2021-09-04T12:36:00Z       1
-    ## 6 oral metagenome ILLUMINA 2021-09-28T00:00:00Z 2021-09-04T12:36:00Z       1
-    ##   Sample.Name SRA.Study   isolate sample_type   strain isolation_source
-    ## 1    Health26 SRP328065  Health26  oral rinse Bacteria               NA
-    ## 2    Health16 SRP328065  Health16  oral rinse Bacteria               NA
-    ## 3    Health03 SRP328065  Health03  oral rinse Bacteria               NA
-    ## 4   Patient11 SRP328065 Patient11  oral rinse Bacteria               NA
-    ## 5   Patient10 SRP328065 Patient10  oral rinse Bacteria               NA
-    ## 6    Health70 SRP328065  Health70  oral rinse Bacteria               NA
+# Step 2: Data Overview
 
-# Step 2: Create a Uniform Metadata Template
-
-The uniform metadata should include the following columns:
-
-1.  **BioProject**: Project ID (e.g., “PRJNA339212”)
-2.  **Run**: Sample ID (e.g., “ERRXXXXXX” or “SRRXXXXXX”)
-3.  **sample_name**: Original sample name submitted by the authors (not
-    the database-assigned ID)
-4.  **Age**: Age of the subject (if available)
-5.  **BMI**: Body Mass Index (if available)
-6.  **Sex**: Sex of the subject (“F” or “M”)
-7.  **Region**: Targeted 16S rRNA region (e.g., “V3-V4”)
-8.  **Platform**: Sequencing platform (e.g., “Illumina MiSeq”)
-9.  **Country**: Country of sample origin (e.g., “China”)
-10. **Site**: Sample site (e.g., “saliva”, “dental plaque”)
-11. **public_time**: Data release date (format: “YYYY-MM-DD”)
-12. **PCR_primers**: PCR primers used (e.g., “515F-806R”)
-13. **title**: Title of the associated publication
-14. **Disease_study**: Whether the study involves a disease (“YES” or
-    “NO”)
-15. **Status**: Disease status (e.g., “T2DM”, “HC”). Note: If the study
-    includes both disease and healthy samples, this must be specified
-    per sample.
-16. **matched_samples**: matched samples (“YES” or “NO”)
+First, you need to get an overview of the data, which includes two
+steps: reading the article and reading the initial metadata. This step
+is very IMPORTANT!
 
 ``` r
-# Create a uniform metadata dataframe
+# (1) Read the article in the following order: abstract, the beginning of the results section, and the methods. Understand the sample size, experimental design, and disease group overview. Clarify the sampling sites; for oral and gut samples, specify the exact sites like supragingival plaque, tongue, etc.
+
+# (2) IMPORTANT: MUST go through each column of initial_meta
+head(initial_meta, 10)
+```
+
+    ##            Run Assay.Type AvgSpotLen    Bases  BioProject    BioSample
+    ## 1  SRR15719926   AMPLICON        602 23042754 PRJNA744870 SAMN21215907
+    ## 2  SRR15719937   AMPLICON        602 23526160 PRJNA744870 SAMN21215897
+    ## 3  SRR15719951   AMPLICON        602 28818944 PRJNA744870 SAMN21215884
+    ## 4  SRR15719961   AMPLICON        602 22373932 PRJNA744870 SAMN21215816
+    ## 5  SRR15719966   AMPLICON        602  4212796 PRJNA744870 SAMN21215815
+    ## 6  SRR15719973   AMPLICON        602 36488424 PRJNA744870 SAMN21215951
+    ## 7  SRR15719989   AMPLICON        602  5851440 PRJNA744870 SAMN21215830
+    ## 8  SRR15720004   AMPLICON        602  4814194 PRJNA744870 SAMN21215826
+    ## 9  SRR15720010   AMPLICON        602  7121058 PRJNA744870 SAMN21215825
+    ## 10 SRR15720015   AMPLICON        602 21083244 PRJNA744870 SAMN21215837
+    ##                 BioSampleModel    Bytes                         Center.Name
+    ## 1  Metagenome or environmental 15416009 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 2  Metagenome or environmental 15389328 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 3  Metagenome or environmental 17930945 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 4  Metagenome or environmental 13334903 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 5  Metagenome or environmental  2130157 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 6  Metagenome or environmental 22725477 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 7  Metagenome or environmental  2882275 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 8  Metagenome or environmental  2357889 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 9  Metagenome or environmental  3421802 THE CHINESE UNIVERSITY OF HONG KONG
+    ## 10 Metagenome or environmental 12511086 THE CHINESE UNIVERSITY OF HONG KONG
+    ##    Collection_Date Consent DATASTORE.filetype DATASTORE.provider
+    ## 1             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 2             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 3             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 4             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 5             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 6             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 7             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 8             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 9             2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ## 10            2016  public   fastq,run.zq,sra         gs,ncbi,s3
+    ##                        DATASTORE.region  Experiment geo_loc_name_country
+    ## 1  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015501            Hong Kong
+    ## 2  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015490            Hong Kong
+    ## 3  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015476            Hong Kong
+    ## 4  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015466            Hong Kong
+    ## 5  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015461            Hong Kong
+    ## 6  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015834            Hong Kong
+    ## 7  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015818            Hong Kong
+    ## 8  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015803            Hong Kong
+    ## 9  gs.us-east1,ncbi.public,s3.us-east-1 SRX12015797            Hong Kong
+    ## 10 gs.us-east1,ncbi.public,s3.us-east-1 SRX12015792            Hong Kong
+    ##    geo_loc_name_country_continent geo_loc_name         HOST     Instrument
+    ## 1                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 2                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 3                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 4                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 5                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 6                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 7                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 8                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 9                            Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ## 10                           Asia    Hong Kong Homo sapiens Illumina MiSeq
+    ##    lat_lon             Library.Name LibraryLayout LibrarySelection
+    ## 1  missing    Health26-Oral-16SV3V4        PAIRED              PCR
+    ## 2  missing    Health16-Oral-16SV3V4        PAIRED              PCR
+    ## 3  missing    Health03-Oral-16SV3V4        PAIRED              PCR
+    ## 4  missing Patient11-PostM3-16SV3V4        PAIRED              PCR
+    ## 5  missing Patient10-PostM3-16SV3V4        PAIRED              PCR
+    ## 6  missing    Health70-Oral-16SV3V4        PAIRED              PCR
+    ## 7  missing Patient25-PostM1-16SV3V4        PAIRED              PCR
+    ## 8  missing Patient21-PostM6-16SV3V4        PAIRED              PCR
+    ## 9  missing Patient20-PostM3-16SV3V4        PAIRED              PCR
+    ## 10 missing Patient32-PostM3-16SV3V4        PAIRED              PCR
+    ##    LibrarySource        Organism Platform          ReleaseDate
+    ## 1        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 2        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 3        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 4        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 5        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 6        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 7        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 8        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 9        GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ## 10       GENOMIC oral metagenome ILLUMINA 2021-09-28T00:00:00Z
+    ##             create_date version Sample.Name SRA.Study   isolate sample_type
+    ## 1  2021-09-04T12:36:00Z       1    Health26 SRP328065  Health26  oral rinse
+    ## 2  2021-09-04T12:36:00Z       1    Health16 SRP328065  Health16  oral rinse
+    ## 3  2021-09-04T12:37:00Z       1    Health03 SRP328065  Health03  oral rinse
+    ## 4  2021-09-04T12:36:00Z       1   Patient11 SRP328065 Patient11  oral rinse
+    ## 5  2021-09-04T12:36:00Z       1   Patient10 SRP328065 Patient10  oral rinse
+    ## 6  2021-09-04T12:36:00Z       1    Health70 SRP328065  Health70  oral rinse
+    ## 7  2021-09-04T12:36:00Z       1   Patient25 SRP328065 Patient25  oral rinse
+    ## 8  2021-09-04T12:36:00Z       1   Patient21 SRP328065 Patient21  oral rinse
+    ## 9  2021-09-04T12:36:00Z       1   Patient20 SRP328065 Patient20  oral rinse
+    ## 10 2021-09-04T12:37:00Z       1   Patient32 SRP328065 Patient32  oral rinse
+    ##      strain isolation_source
+    ## 1  Bacteria               NA
+    ## 2  Bacteria               NA
+    ## 3  Bacteria               NA
+    ## 4  Bacteria               NA
+    ## 5  Bacteria               NA
+    ## 6  Bacteria               NA
+    ## 7  Bacteria               NA
+    ## 8  Bacteria               NA
+    ## 9  Bacteria               NA
+    ## 10 Bacteria               NA
+
+``` r
+# IMPORTANT: Check the unique values in the column of interest or query column.
+lapply(initial_meta[c('sample_type')], table) # site
+```
+
+    ## $sample_type
+    ## 
+    ## oral rinse 
+    ##        384
+
+``` r
+lapply(initial_meta[c('Organism')], table) # organism
+```
+
+    ## $Organism
+    ## 
+    ## human oral metagenome       oral metagenome 
+    ##                     4                   380
+
+``` r
+table(initial_meta$Sample.Name) # subject id
+```
+
+    ## 
+    ##   Health01   Health02   Health03   Health04   Health05   Health06   Health07 
+    ##          1          1          1          1          1          1          1 
+    ##   Health08   Health09   Health10   Health11   Health12   Health13   Health14 
+    ##          1          1          1          1          1          1          1 
+    ##   Health15   Health16   Health17   Health18   Health19   Health20   Health21 
+    ##          1          1          1          1          1          1          1 
+    ##   Health22   Health23   Health24   Health25   Health26   Health27   Health28 
+    ##          1          1          1          1          1          1          1 
+    ##   Health29   Health30   Health31   Health32   Health33   Health34   Health35 
+    ##          1          1          1          1          1          1          1 
+    ##   Health36   Health37   Health38   Health39   Health40   Health41   Health42 
+    ##          1          1          1          1          1          1          1 
+    ##   Health43   Health44   Health45   Health46   Health47   Health48   Health49 
+    ##          1          1          1          1          1          1          1 
+    ##   Health50   Health51   Health52   Health53   Health54   Health55   Health56 
+    ##          1          1          1          1          1          1          1 
+    ##   Health57   Health58   Health59   Health60   Health61   Health62   Health63 
+    ##          1          1          1          1          1          1          1 
+    ##   Health64   Health65   Health66   Health67   Health68   Health69   Health70 
+    ##          1          1          1          1          1          1          1 
+    ##   Health71   Health72   Health73   Health74   Health75   Health76  Patient01 
+    ##          1          1          1          1          1          1          4 
+    ## Patient01R  Patient02  Patient03  Patient04  Patient05  Patient06  Patient07 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient08  Patient09  Patient10  Patient11  Patient12  Patient13  Patient14 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient15  Patient16  Patient17  Patient18  Patient19  Patient20  Patient21 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient22  Patient23  Patient24  Patient25  Patient26  Patient27  Patient28 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient29  Patient30  Patient31  Patient32  Patient33  Patient34  Patient35 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient36  Patient37  Patient38  Patient39  Patient40  Patient41  Patient42 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient43  Patient44  Patient45  Patient46  Patient47  Patient48  Patient49 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient50  Patient51  Patient52  Patient53  Patient54  Patient55  Patient56 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient57  Patient58  Patient59  Patient60  Patient61  Patient62  Patient63 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient64  Patient65  Patient66  Patient67  Patient68  Patient69  Patient70 
+    ##          4          4          4          4          4          4          4 
+    ##  Patient71  Patient72  Patient73  Patient74  Patient75  Patient76 
+    ##          4          4          4          4          4          4
+
+``` r
+#table(initial_meta$sequencing_meth..exp.) # output is Sequencing by synthesis
+table(initial_meta$Platform) # output is Illumina. according to the methods,  Illumina is correct.
+```
+
+    ## 
+    ## ILLUMINA 
+    ##      384
+
+``` r
+#table(initial_meta$target_subfragment) # output is V4
+```
+
+# Step 3: Removing Control and Non-human Samples
+
+First, we need to remove control samples(including both negative
+controls and positive controls) and non-human samples.
+
+``` r
+# (1) EDIT HERE: Parameter setup
+control_column <- "" # column name in initial_meta
+# unique(initial_meta[[control_column]])
+control_keywords <- c() # Enter exact keywords
+
+species_column <- "" # column name in initial_meta
+unique(initial_meta[[species_column]])
+```
+
+    ## NULL
+
+``` r
+non_human_keywords <- c() # Enter exact keywords
+
+# (2) Remove controls and non-human samples. DO NOT need to modify code in this part, just run it.
+n_samples <- nrow(initial_meta)
+# Control evaluation
+if (length(control_keywords) > 0) {
+  if (is.null(control_column) || control_column == "") {
+    stop("Error: control_keywords provided but control_column is missing.")
+  }
+  
+  if (!(control_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", control_column))
+  }
+  
+  control_pattern <- paste(control_keywords, collapse = "|")
+  control_text <- initial_meta[[control_column]]
+  is_control <- grepl(control_pattern, control_text)
+  
+} else {
+  is_control <- rep(FALSE, n_samples)
+}
+
+# Non-human evaluation
+if (length(non_human_keywords) > 0) {
+  if (is.null(species_column) || species_column == "") {
+    stop("Error: non_human_keywords provided but species_column is missing.")
+  }
+  
+  if (!(species_column %in% colnames(initial_meta))) {
+    stop(sprintf("Error: Column '%s' not found in initial_meta.", species_column))
+  }
+  
+  non_human_pattern <- paste(non_human_keywords, collapse = "|")
+  species_text <- initial_meta[[species_column]]
+  is_non_human <- grepl(non_human_pattern, species_text)
+} else {
+  is_non_human <- rep(FALSE, n_samples)
+}
+
+# Execute removal
+samples_to_remove <- is_control | is_non_human
+initial_meta <- initial_meta[!samples_to_remove, ]
+
+cat("Initial samples counts:",n_samples,"\n")
+```
+
+    ## Initial samples counts: 384
+
+``` r
+cat("Removed control samples:", sum(is_control), "\n")
+```
+
+    ## Removed control samples: 0
+
+``` r
+cat("Removed non-human samples:", sum(is_non_human), "\n")
+```
+
+    ## Removed non-human samples: 0
+
+``` r
+cat("Total samples removed ", sum(samples_to_remove), "\n")
+```
+
+    ## Total samples removed  0
+
+``` r
+cat("Remaining samples after Step 2:", nrow(initial_meta), "\n")
+```
+
+    ## Remaining samples after Step 2: 384
+
+# Step 4: Creating a Uniform Metadata Template
+
+This step converts the raw SRA table into the standard metadata format
+used in our meta-analysis. The uniform metadata should include the
+following columns: 1. **bioproject**: Project ID from SRA or other
+database e.g. `PRJNA1234`, `CNP1234`, ‘OEP1234’, ‘qiita_1234’ 2.
+**sample_id**: SRA sample/run ID. Unique id for each sample!
+e.g. `DRR1234567`, `ERR1234567` and `SRR1234567`. If no such column
+exists, can use column like sample_name. 3. **subject_id**: subject id
+for each person if available. e.g. `patient_01`, `Host_03_before`,
+`subject12` 4. **age**: Age of the subject if available. e.g. `35`, `42`
+\| not `adult`, `chilren` 5. **age_info**: If the age is not explicitly
+stated but approximate age range information is available, mark it in
+this column. e.g., `18-55`, `children`, `infant`, `elder` 6. **bmi**:
+Body Mass Index if available. e.g. `22.5`, `18.9` \| not `normal`,
+`overweight` 7. **sex**: Sex of the subject. Mandatory to write as M/F
+\| not `female`, `woman` 8. **sequencing_region**: Targeted 16S rRNA
+region. e.g. `V3-V4`, `V4` 9. **platform**: Sequencing platform.
+e.g. `Illumina MiSeq`, `454 GS FLX Titanium`, `Ion Torrent` 10.
+**country**: Country of sample origin. e.g. `China`, `Japan` \| not city
+name like `Beijing` 11. **site**: Sampling site. For oral and gut sites,
+specify the exact sites as detailed as possible. For example, if it is
+known to be supragingival plaque, do not record it as ‘dental plaque’,
+unless the original text provides only a vague description.
+e.g. `saliva`, `tongue coating` \| not broad term like `oral` 12.
+**site_group**: only accepts one of following three values: ‘oral’,
+‘gut’, or ‘other’. 13. **public_time**: Data release date.
+e.g. `2021-06-22` \| not `June 2021` 14. **pcr_primers**: PCR primers
+used. e.g. `515F-806R`, `27F-338R` \| not primer sequences 15.
+**title**: Title of the associated publication. 16. **disease_study**:
+Whether the study involves disease samples. If it’s not clear, can
+record as NA. Only three values accepted: ‘yes’, ‘no’ or NA 17.
+**status**: Disease status for each sample if available, else record as
+NA. Only accept following abbreviations, Write full names for all other
+diseases. HC: healthy control CD: Crohn’s disease CRC: colorectal cancer
+COPD: chronic obstructive pulmonary disease HIV: human immunodeficiency
+virus ICU: intensive care unit OSCC: oral squamous cell carcinoma RA:
+rheumatoid arthritis UC: ulcerative colitis 18. **matched_samples**:
+Whether the subject has matched samples. Only accept ‘yes’ or ‘no’. 19.
+**is_time_series**: Whether the study is a time series study. Only
+accept ‘yes’ or ‘no’.
+
+``` r
+# Extract columns from initial_meta as follows: (1) No modification needed → extract directly. (2) Modification needed → create a new column with the prefix raw_ and mark the original column as “pending”. (3) Need to find or determine based on the article.
 metadata <- data.frame(
-  BioProject = initial_meta$BioProject,
-  Run = initial_meta$Run,
-  sample_name = initial_meta$Library.Name,
-  Age = NA,
-  BMI = NA,
-  Sex= NA,
-  Region = "V3-V4",
-  Platform = initial_meta$Instrument,
-  Country = "China",
-  Site = initial_meta$sample_type,
+  bioproject = initial_meta$BioProject,
+  sample_id = initial_meta$Run,
+  subject_id = initial_meta$Sample.Name,
+  age = NA, 
+  age_info = "above 18 years old", # extract from methods section 
+  bmi = NA,
+  sex = NA,
+  sequencing_region = "V3-V4", # extract from methods section
+  platform = "Illumina MiSeq", # extract from methods section, NOT initial_meta
+  country = "China",
+  site = initial_meta$sample_type, 
+  site_group = "pending", # modify later
   public_time = initial_meta$ReleaseDate,
+  pcr_primers = "341F-806R", # Format: xxF-xxR
+  title = "Restoration of the oral microbiota after surgery for head and neck squamous cell carcinoma is associated with patient outcomes", # extract from article
+  disease_study = "yes", # determine according to the article
+  raw_status = initial_meta$Sample.Name,
+  status = "pending", # modify later
+  matched_samples = "pending", # modify later
+  is_time_series = "no", 
   stringsAsFactors = FALSE
+)
+metadata$public_time <- as.Date(metadata$public_time)
+```
+
+# Step 5: Manually solving pending issues
+
+This step involves two parts: (1) handle the columns with the `raw_`
+prefix, and next (2) handle the `site_group` and `matched_samples`
+columns.
+
+``` r
+# (1) Handle the columns with the `raw_` prefix.
+# In this part, you need to customize the code based on the situation of the raw_ columns to obtain the content of the target columns. IMPORTANT: Add comments if the modification is not straightforward!!
+metadata <- metadata %>%
+  mutate(status = case_when(
+    grepl("Patient", raw_status) ~ "head and neck squamous cell carcinoma",
+    grepl("Health", raw_status) ~ "HC",
+    TRUE ~ NA_character_
+  )) # according to the 'Sample.Name' column of initial_meta
+```
+
+``` r
+# (2) Filling the 'site_group' and 'matched_samples' columns
+# editing site_group
+unique(metadata$site)
+```
+
+    ## [1] "oral rinse"
+
+``` r
+# EDIT HERE: add oral sites
+Oral_site = unique(metadata$site)
+# EDIT HERE: add gut sites
+Gut_site = c()
+# just run
+metadata <- metadata %>%
+  mutate(site_group = case_when(
+    site %in% Oral_site ~ "oral",
+    site %in% Gut_site ~ "gut",
+    TRUE ~ "other" 
+  ))
+
+# editing matched_samples, just run.
+metadata$matched_samples <- ifelse(
+  ave(metadata$subject_id, metadata$subject_id, FUN = length) > 1, 
+  "yes", 
+  "no"
 )
 ```
 
-# Step 3: Manually Add Information from the Publication
-
-Some information (e.g. PCR primers, study title, disease status) must be
-manually extracted from the publication and added to the metadata.
-
 ``` r
-# Add information obtained from the publication
-metadata$PCR_primers <- "341F-806R"
-metadata$title <- "Restoration of the Oral Microbiota After Surgery for Head and Neck Squamous Cell Carcinoma Is Associated With Patient Outcomes"
-metadata$Disease_study <- "YES"
-# Assign disease status based on sample_name patterns
-metadata <- metadata %>% 
-  mutate(Status = case_when(
-    grepl("Patient",sample_name) ~ "HNSCC",
-    grepl("Health",sample_name) ~ "HC"
-  ))
+# (3) check if there is pending value in metadata. If there is pending value, go on modify the metadata.
+# Function to check if a column contains "pending"
+has_pending <- function(col) {
+  if (is.character(col) || is.factor(col)) {
+    any(col == "pending", na.rm = TRUE)
+  } else {
+    FALSE
+  }
+}
 
+# Check for any pending value
+any_pending_value <- any(sapply(metadata, has_pending))
 
-#extract subject id by remove prefix of sample_name
-#metadata$sample_name <- gsub("T|CR|CS|C|N|S", "", metadata$sample_name)
-
-# Check initial data distribution
-cat("Initial sample distribution:\n")
+if (!any_pending_value) {
+  message("Good! No cell contains the value 'pending'.")
+} else {
+  pending_cols <- names(metadata)[sapply(metadata, has_pending)]
+  message("Columns containing 'pending': ", paste(pending_cols, collapse = ", "))
+  message("Please continue to resolve these pending columns!")
+}
 ```
 
-    ## Initial sample distribution:
+    ## Good! No cell contains the value 'pending'.
+
+# Step 6: Visualize the Metadata
+
+This step makes a quick set of plots for checking the distribution of
+key metadata fields.
 
 ``` r
-table(metadata$sample_name)
-```
+# Select columns for visualization, just run
+plot_data <- metadata %>%
+  select(-bioproject, -sample_id, -subject_id, -title)
 
-    ## 
-    ##     Health01-Oral-16SV3V4     Health02-Oral-16SV3V4     Health03-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health04-Oral-16SV3V4     Health05-Oral-16SV3V4     Health06-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health07-Oral-16SV3V4     Health08-Oral-16SV3V4     Health09-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health10-Oral-16SV3V4     Health11-Oral-16SV3V4     Health12-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health13-Oral-16SV3V4     Health14-Oral-16SV3V4     Health15-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health16-Oral-16SV3V4     Health17-Oral-16SV3V4     Health18-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health19-Oral-16SV3V4     Health20-Oral-16SV3V4     Health21-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health22-Oral-16SV3V4     Health23-Oral-16SV3V4     Health24-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health25-Oral-16SV3V4     Health26-Oral-16SV3V4     Health27-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health28-Oral-16SV3V4     Health29-Oral-16SV3V4     Health30-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health31-Oral-16SV3V4     Health32-Oral-16SV3V4     Health33-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health34-Oral-16SV3V4     Health35-Oral-16SV3V4     Health36-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health37-Oral-16SV3V4     Health38-Oral-16SV3V4     Health39-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health40-Oral-16SV3V4     Health41-Oral-16SV3V4     Health42-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health43-Oral-16SV3V4     Health44-Oral-16SV3V4     Health45-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health46-Oral-16SV3V4     Health47-Oral-16SV3V4     Health48-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health49-Oral-16SV3V4     Health50-Oral-16SV3V4     Health51-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health52-Oral-16SV3V4     Health53-Oral-16SV3V4     Health54-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health55-Oral-16SV3V4     Health56-Oral-16SV3V4     Health57-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health58-Oral-16SV3V4     Health59-Oral-16SV3V4     Health60-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health61-Oral-16SV3V4     Health62-Oral-16SV3V4     Health63-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health64-Oral-16SV3V4     Health65-Oral-16SV3V4     Health66-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health67-Oral-16SV3V4     Health68-Oral-16SV3V4     Health69-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health70-Oral-16SV3V4     Health71-Oral-16SV3V4     Health72-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health73-Oral-16SV3V4     Health74-Oral-16SV3V4     Health75-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health76-Oral-16SV3V4  Patient01-PostM1-16SV3V4  Patient01-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient01-PostM6-16SV3V4     Patient01-Pre-16SV3V4 Patient01R-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ## Patient01R-PostM3-16SV3V4 Patient01R-PostM6-16SV3V4    Patient01R-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient02-PostM1-16SV3V4  Patient02-PostM3-16SV3V4  Patient02-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient02-Pre-16SV3V4  Patient03-PostM1-16SV3V4  Patient03-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient03-PostM6-16SV3V4     Patient03-Pre-16SV3V4  Patient04-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient04-PostM3-16SV3V4  Patient04-PostM6-16SV3V4     Patient04-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient05-PostM1-16SV3V4  Patient05-PostM3-16SV3V4  Patient05-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient05-Pre-16SV3V4  Patient06-PostM1-16SV3V4  Patient06-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient06-PostM6-16SV3V4     Patient06-Pre-16SV3V4  Patient07-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient07-PostM3-16SV3V4  Patient07-PostM6-16SV3V4     Patient07-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient08-PostM1-16SV3V4  Patient08-PostM3-16SV3V4  Patient08-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient08-Pre-16SV3V4  Patient09-PostM1-16SV3V4  Patient09-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient09-PostM6-16SV3V4     Patient09-Pre-16SV3V4  Patient10-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient10-PostM3-16SV3V4  Patient10-PostM6-16SV3V4     Patient10-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient11-PostM1-16SV3V4  Patient11-PostM3-16SV3V4  Patient11-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient11-Pre-16SV3V4  Patient12-PostM1-16SV3V4  Patient12-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient12-PostM6-16SV3V4     Patient12-Pre-16SV3V4  Patient13-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient13-PostM3-16SV3V4  Patient13-PostM6-16SV3V4     Patient13-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient14-PostM1-16SV3V4  Patient14-PostM3-16SV3V4  Patient14-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient14-Pre-16SV3V4  Patient15-PostM1-16SV3V4  Patient15-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient15-PostM6-16SV3V4     Patient15-Pre-16SV3V4  Patient16-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient16-PostM3-16SV3V4  Patient16-PostM6-16SV3V4     Patient16-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient17-PostM1-16SV3V4  Patient17-PostM3-16SV3V4  Patient17-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient17-Pre-16SV3V4  Patient18-PostM1-16SV3V4  Patient18-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient18-PostM6-16SV3V4     Patient18-Pre-16SV3V4  Patient19-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient19-PostM3-16SV3V4  Patient19-PostM6-16SV3V4     Patient19-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient20-PostM1-16SV3V4  Patient20-PostM3-16SV3V4  Patient20-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient20-Pre-16SV3V4  Patient21-PostM1-16SV3V4  Patient21-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient21-PostM6-16SV3V4     Patient21-Pre-16SV3V4  Patient22-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient22-PostM3-16SV3V4  Patient22-PostM6-16SV3V4     Patient22-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient23-PostM1-16SV3V4  Patient23-PostM3-16SV3V4  Patient23-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient23-Pre-16SV3V4  Patient24-PostM1-16SV3V4  Patient24-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient24-PostM6-16SV3V4     Patient24-Pre-16SV3V4  Patient25-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient25-PostM3-16SV3V4  Patient25-PostM6-16SV3V4     Patient25-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient26-PostM1-16SV3V4  Patient26-PostM3-16SV3V4  Patient26-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient26-Pre-16SV3V4  Patient27-PostM1-16SV3V4  Patient27-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient27-PostM6-16SV3V4     Patient27-Pre-16SV3V4  Patient28-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient28-PostM3-16SV3V4  Patient28-PostM6-16SV3V4     Patient28-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient29-PostM1-16SV3V4  Patient29-PostM3-16SV3V4  Patient29-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient29-Pre-16SV3V4  Patient30-PostM1-16SV3V4  Patient30-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient30-PostM6-16SV3V4     Patient30-Pre-16SV3V4  Patient31-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient31-PostM3-16SV3V4  Patient31-PostM6-16SV3V4     Patient31-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient32-PostM1-16SV3V4  Patient32-PostM3-16SV3V4  Patient32-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient32-Pre-16SV3V4  Patient33-PostM1-16SV3V4  Patient33-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient33-PostM6-16SV3V4     Patient33-Pre-16SV3V4  Patient34-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient34-PostM3-16SV3V4  Patient34-PostM6-16SV3V4     Patient34-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient35-PostM1-16SV3V4  Patient35-PostM3-16SV3V4  Patient35-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient35-Pre-16SV3V4  Patient36-PostM1-16SV3V4  Patient36-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient36-PostM6-16SV3V4     Patient36-Pre-16SV3V4  Patient37-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient37-PostM3-16SV3V4  Patient37-PostM6-16SV3V4     Patient37-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient38-PostM1-16SV3V4  Patient38-PostM3-16SV3V4  Patient38-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient38-Pre-16SV3V4  Patient39-PostM1-16SV3V4  Patient39-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient39-PostM6-16SV3V4     Patient39-Pre-16SV3V4  Patient40-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient40-PostM3-16SV3V4  Patient40-PostM6-16SV3V4     Patient40-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient41-PostM1-16SV3V4  Patient41-PostM3-16SV3V4  Patient41-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient41-Pre-16SV3V4  Patient42-PostM1-16SV3V4  Patient42-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient42-PostM6-16SV3V4     Patient42-Pre-16SV3V4  Patient43-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient43-PostM3-16SV3V4  Patient43-PostM6-16SV3V4     Patient43-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient44-PostM1-16SV3V4  Patient44-PostM3-16SV3V4  Patient44-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient44-Pre-16SV3V4  Patient45-PostM1-16SV3V4  Patient45-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient45-PostM6-16SV3V4     Patient45-Pre-16SV3V4  Patient46-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient46-PostM3-16SV3V4  Patient46-PostM6-16SV3V4     Patient46-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient47-PostM1-16SV3V4  Patient47-PostM3-16SV3V4  Patient47-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient47-Pre-16SV3V4  Patient48-PostM1-16SV3V4  Patient48-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient48-PostM6-16SV3V4     Patient48-Pre-16SV3V4  Patient49-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient49-PostM3-16SV3V4  Patient49-PostM6-16SV3V4     Patient49-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient50-PostM1-16SV3V4  Patient50-PostM3-16SV3V4  Patient50-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient50-Pre-16SV3V4  Patient51-PostM1-16SV3V4  Patient51-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient51-PostM6-16SV3V4     Patient51-Pre-16SV3V4  Patient52-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient52-PostM3-16SV3V4  Patient52-PostM6-16SV3V4     Patient52-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient53-PostM1-16SV3V4  Patient53-PostM3-16SV3V4  Patient53-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient53-Pre-16SV3V4  Patient54-PostM1-16SV3V4  Patient54-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient54-PostM6-16SV3V4     Patient54-Pre-16SV3V4  Patient55-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient55-PostM3-16SV3V4  Patient55-PostM6-16SV3V4     Patient55-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient56-PostM1-16SV3V4  Patient56-PostM3-16SV3V4  Patient56-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient56-Pre-16SV3V4  Patient57-PostM1-16SV3V4  Patient57-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient57-PostM6-16SV3V4     Patient57-Pre-16SV3V4  Patient58-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient58-PostM3-16SV3V4  Patient58-PostM6-16SV3V4     Patient58-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient59-PostM1-16SV3V4  Patient59-PostM3-16SV3V4  Patient59-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient59-Pre-16SV3V4  Patient60-PostM1-16SV3V4  Patient60-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient60-PostM6-16SV3V4     Patient60-Pre-16SV3V4  Patient61-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient61-PostM3-16SV3V4  Patient61-PostM6-16SV3V4     Patient61-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient62-PostM1-16SV3V4  Patient62-PostM3-16SV3V4  Patient62-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient62-Pre-16SV3V4  Patient63-PostM1-16SV3V4  Patient63-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient63-PostM6-16SV3V4     Patient63-Pre-16SV3V4  Patient64-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient64-PostM3-16SV3V4  Patient64-PostM6-16SV3V4     Patient64-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient65-PostM1-16SV3V4  Patient65-PostM3-16SV3V4  Patient65-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient65-Pre-16SV3V4  Patient66-PostM1-16SV3V4  Patient66-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient66-PostM6-16SV3V4     Patient66-Pre-16SV3V4  Patient67-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient67-PostM3-16SV3V4  Patient67-PostM6-16SV3V4     Patient67-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient68-PostM1-16SV3V4  Patient68-PostM3-16SV3V4  Patient68-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient68-Pre-16SV3V4  Patient69-PostM1-16SV3V4  Patient69-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient69-PostM6-16SV3V4     Patient69-Pre-16SV3V4  Patient70-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient70-PostM3-16SV3V4  Patient70-PostM6-16SV3V4     Patient70-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient71-PostM1-16SV3V4  Patient71-PostM3-16SV3V4  Patient71-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient71-Pre-16SV3V4  Patient72-PostM1-16SV3V4  Patient72-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient72-PostM6-16SV3V4     Patient72-Pre-16SV3V4  Patient73-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient73-PostM3-16SV3V4  Patient73-PostM6-16SV3V4     Patient73-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient74-PostM1-16SV3V4  Patient74-PostM3-16SV3V4  Patient74-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient74-Pre-16SV3V4  Patient75-PostM1-16SV3V4  Patient75-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient75-PostM6-16SV3V4     Patient75-Pre-16SV3V4  Patient76-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient76-PostM3-16SV3V4  Patient76-PostM6-16SV3V4     Patient76-Pre-16SV3V4 
-    ##                         1                         1                         1
+create_simple_plots <- function(data) {
+  plots <- list()
+  continuous_vars <- c("age", "bmi")
+
+  for (col in colnames(data)) {
+    if (all(is.na(data[[col]]))) {
+      p <- ggplot() +
+        annotate("text", x = 0.5, y = 0.5, label = "this column is NA", size = 6) +
+        labs(title = col) +
+        theme_void()
+    } else if (col %in% continuous_vars && is.numeric(data[[col]])) {
+      p <- ggplot(data, aes(x = .data[[col]])) +
+        geom_histogram(fill = "blue", alpha = 0.6, bins = 20, na.rm = TRUE) +
+        labs(title = col, x = col, y = "Count") +
+        theme_minimal()
+    } else {
+      count_data <- as.data.frame(table(data[[col]], useNA = "ifany"))
+      p <- ggplot(count_data, aes(x = reorder(Var1, -Freq), y = Freq)) +
+        geom_col(fill = "red", alpha = 0.6) +
+        labs(title = col, x = NULL, y = "Count") +
+        theme_minimal() +
+        theme(axis.text.x = element_text(angle = 15, hjust = 1))
+    }
+    plots[[col]] <- p
+  }
+
+  return(plots)
+}
+
+# Generate and arrange plots
+plots <- create_simple_plots(plot_data)
+p <- plot_grid(plots$age,
+               plots$age_info,
+               plots$bmi,
+               plots$sex,
+               plots$site,
+               plots$site_group,
+               plots$sequencing_region,
+               plots$platform,
+               plots$country,
+               plots$pcr_primers,
+               plots$status,
+               plots$matched_samples,
+               ncol = 3, align = "hv", axis = "lb")
+ggsave("Metadata_Summary_v2.png", plot = p, width = 8, height = 6, dpi = 150)
+```
 
 ``` r
-table(metadata$Site)
+# Insert Metadata_Summary.png into the current Rmd output
+knitr::include_graphics("Metadata_Summary_v2.png")
 ```
 
-    ## 
-    ## oral rinse 
-    ##        384
+<img src="Metadata_Summary_v2.png" alt="" width="1200" />
+
+# Step 7: Sort and export the metadata
+
+This step saves the cleaned metadata table as the final `metadata.csv`
+file.
 
 ``` r
-# Calculate sampling frequency per subject
-sample_counts <- table(metadata$sample_name)
-cat("\nNumber of samples per subject:\n")
+# Reorder the data frame
+fixed_cols <- c("bioproject", "sample_id", "subject_id", "age", "age_info",
+                "bmi", "sex", "platform", "sequencing_region", "pcr_primers", 
+                "country", "site", "site_group", "disease_study", "status", 
+                "title", "public_time", "matched_samples", "is_time_series")  
+metadata <- metadata %>%
+  select(all_of(fixed_cols), everything())
+
+# save metadata 
+# head(metadata)
+write.csv(metadata, file = "metadata_v2.csv", quote = TRUE)
 ```
-
-    ## 
-    ## Number of samples per subject:
-
-``` r
-print(sample_counts)
-```
-
-    ## 
-    ##     Health01-Oral-16SV3V4     Health02-Oral-16SV3V4     Health03-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health04-Oral-16SV3V4     Health05-Oral-16SV3V4     Health06-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health07-Oral-16SV3V4     Health08-Oral-16SV3V4     Health09-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health10-Oral-16SV3V4     Health11-Oral-16SV3V4     Health12-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health13-Oral-16SV3V4     Health14-Oral-16SV3V4     Health15-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health16-Oral-16SV3V4     Health17-Oral-16SV3V4     Health18-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health19-Oral-16SV3V4     Health20-Oral-16SV3V4     Health21-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health22-Oral-16SV3V4     Health23-Oral-16SV3V4     Health24-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health25-Oral-16SV3V4     Health26-Oral-16SV3V4     Health27-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health28-Oral-16SV3V4     Health29-Oral-16SV3V4     Health30-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health31-Oral-16SV3V4     Health32-Oral-16SV3V4     Health33-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health34-Oral-16SV3V4     Health35-Oral-16SV3V4     Health36-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health37-Oral-16SV3V4     Health38-Oral-16SV3V4     Health39-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health40-Oral-16SV3V4     Health41-Oral-16SV3V4     Health42-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health43-Oral-16SV3V4     Health44-Oral-16SV3V4     Health45-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health46-Oral-16SV3V4     Health47-Oral-16SV3V4     Health48-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health49-Oral-16SV3V4     Health50-Oral-16SV3V4     Health51-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health52-Oral-16SV3V4     Health53-Oral-16SV3V4     Health54-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health55-Oral-16SV3V4     Health56-Oral-16SV3V4     Health57-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health58-Oral-16SV3V4     Health59-Oral-16SV3V4     Health60-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health61-Oral-16SV3V4     Health62-Oral-16SV3V4     Health63-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health64-Oral-16SV3V4     Health65-Oral-16SV3V4     Health66-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health67-Oral-16SV3V4     Health68-Oral-16SV3V4     Health69-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health70-Oral-16SV3V4     Health71-Oral-16SV3V4     Health72-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health73-Oral-16SV3V4     Health74-Oral-16SV3V4     Health75-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health76-Oral-16SV3V4  Patient01-PostM1-16SV3V4  Patient01-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient01-PostM6-16SV3V4     Patient01-Pre-16SV3V4 Patient01R-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ## Patient01R-PostM3-16SV3V4 Patient01R-PostM6-16SV3V4    Patient01R-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient02-PostM1-16SV3V4  Patient02-PostM3-16SV3V4  Patient02-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient02-Pre-16SV3V4  Patient03-PostM1-16SV3V4  Patient03-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient03-PostM6-16SV3V4     Patient03-Pre-16SV3V4  Patient04-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient04-PostM3-16SV3V4  Patient04-PostM6-16SV3V4     Patient04-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient05-PostM1-16SV3V4  Patient05-PostM3-16SV3V4  Patient05-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient05-Pre-16SV3V4  Patient06-PostM1-16SV3V4  Patient06-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient06-PostM6-16SV3V4     Patient06-Pre-16SV3V4  Patient07-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient07-PostM3-16SV3V4  Patient07-PostM6-16SV3V4     Patient07-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient08-PostM1-16SV3V4  Patient08-PostM3-16SV3V4  Patient08-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient08-Pre-16SV3V4  Patient09-PostM1-16SV3V4  Patient09-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient09-PostM6-16SV3V4     Patient09-Pre-16SV3V4  Patient10-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient10-PostM3-16SV3V4  Patient10-PostM6-16SV3V4     Patient10-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient11-PostM1-16SV3V4  Patient11-PostM3-16SV3V4  Patient11-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient11-Pre-16SV3V4  Patient12-PostM1-16SV3V4  Patient12-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient12-PostM6-16SV3V4     Patient12-Pre-16SV3V4  Patient13-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient13-PostM3-16SV3V4  Patient13-PostM6-16SV3V4     Patient13-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient14-PostM1-16SV3V4  Patient14-PostM3-16SV3V4  Patient14-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient14-Pre-16SV3V4  Patient15-PostM1-16SV3V4  Patient15-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient15-PostM6-16SV3V4     Patient15-Pre-16SV3V4  Patient16-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient16-PostM3-16SV3V4  Patient16-PostM6-16SV3V4     Patient16-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient17-PostM1-16SV3V4  Patient17-PostM3-16SV3V4  Patient17-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient17-Pre-16SV3V4  Patient18-PostM1-16SV3V4  Patient18-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient18-PostM6-16SV3V4     Patient18-Pre-16SV3V4  Patient19-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient19-PostM3-16SV3V4  Patient19-PostM6-16SV3V4     Patient19-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient20-PostM1-16SV3V4  Patient20-PostM3-16SV3V4  Patient20-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient20-Pre-16SV3V4  Patient21-PostM1-16SV3V4  Patient21-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient21-PostM6-16SV3V4     Patient21-Pre-16SV3V4  Patient22-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient22-PostM3-16SV3V4  Patient22-PostM6-16SV3V4     Patient22-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient23-PostM1-16SV3V4  Patient23-PostM3-16SV3V4  Patient23-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient23-Pre-16SV3V4  Patient24-PostM1-16SV3V4  Patient24-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient24-PostM6-16SV3V4     Patient24-Pre-16SV3V4  Patient25-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient25-PostM3-16SV3V4  Patient25-PostM6-16SV3V4     Patient25-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient26-PostM1-16SV3V4  Patient26-PostM3-16SV3V4  Patient26-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient26-Pre-16SV3V4  Patient27-PostM1-16SV3V4  Patient27-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient27-PostM6-16SV3V4     Patient27-Pre-16SV3V4  Patient28-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient28-PostM3-16SV3V4  Patient28-PostM6-16SV3V4     Patient28-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient29-PostM1-16SV3V4  Patient29-PostM3-16SV3V4  Patient29-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient29-Pre-16SV3V4  Patient30-PostM1-16SV3V4  Patient30-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient30-PostM6-16SV3V4     Patient30-Pre-16SV3V4  Patient31-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient31-PostM3-16SV3V4  Patient31-PostM6-16SV3V4     Patient31-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient32-PostM1-16SV3V4  Patient32-PostM3-16SV3V4  Patient32-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient32-Pre-16SV3V4  Patient33-PostM1-16SV3V4  Patient33-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient33-PostM6-16SV3V4     Patient33-Pre-16SV3V4  Patient34-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient34-PostM3-16SV3V4  Patient34-PostM6-16SV3V4     Patient34-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient35-PostM1-16SV3V4  Patient35-PostM3-16SV3V4  Patient35-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient35-Pre-16SV3V4  Patient36-PostM1-16SV3V4  Patient36-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient36-PostM6-16SV3V4     Patient36-Pre-16SV3V4  Patient37-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient37-PostM3-16SV3V4  Patient37-PostM6-16SV3V4     Patient37-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient38-PostM1-16SV3V4  Patient38-PostM3-16SV3V4  Patient38-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient38-Pre-16SV3V4  Patient39-PostM1-16SV3V4  Patient39-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient39-PostM6-16SV3V4     Patient39-Pre-16SV3V4  Patient40-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient40-PostM3-16SV3V4  Patient40-PostM6-16SV3V4     Patient40-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient41-PostM1-16SV3V4  Patient41-PostM3-16SV3V4  Patient41-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient41-Pre-16SV3V4  Patient42-PostM1-16SV3V4  Patient42-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient42-PostM6-16SV3V4     Patient42-Pre-16SV3V4  Patient43-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient43-PostM3-16SV3V4  Patient43-PostM6-16SV3V4     Patient43-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient44-PostM1-16SV3V4  Patient44-PostM3-16SV3V4  Patient44-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient44-Pre-16SV3V4  Patient45-PostM1-16SV3V4  Patient45-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient45-PostM6-16SV3V4     Patient45-Pre-16SV3V4  Patient46-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient46-PostM3-16SV3V4  Patient46-PostM6-16SV3V4     Patient46-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient47-PostM1-16SV3V4  Patient47-PostM3-16SV3V4  Patient47-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient47-Pre-16SV3V4  Patient48-PostM1-16SV3V4  Patient48-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient48-PostM6-16SV3V4     Patient48-Pre-16SV3V4  Patient49-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient49-PostM3-16SV3V4  Patient49-PostM6-16SV3V4     Patient49-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient50-PostM1-16SV3V4  Patient50-PostM3-16SV3V4  Patient50-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient50-Pre-16SV3V4  Patient51-PostM1-16SV3V4  Patient51-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient51-PostM6-16SV3V4     Patient51-Pre-16SV3V4  Patient52-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient52-PostM3-16SV3V4  Patient52-PostM6-16SV3V4     Patient52-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient53-PostM1-16SV3V4  Patient53-PostM3-16SV3V4  Patient53-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient53-Pre-16SV3V4  Patient54-PostM1-16SV3V4  Patient54-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient54-PostM6-16SV3V4     Patient54-Pre-16SV3V4  Patient55-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient55-PostM3-16SV3V4  Patient55-PostM6-16SV3V4     Patient55-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient56-PostM1-16SV3V4  Patient56-PostM3-16SV3V4  Patient56-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient56-Pre-16SV3V4  Patient57-PostM1-16SV3V4  Patient57-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient57-PostM6-16SV3V4     Patient57-Pre-16SV3V4  Patient58-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient58-PostM3-16SV3V4  Patient58-PostM6-16SV3V4     Patient58-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient59-PostM1-16SV3V4  Patient59-PostM3-16SV3V4  Patient59-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient59-Pre-16SV3V4  Patient60-PostM1-16SV3V4  Patient60-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient60-PostM6-16SV3V4     Patient60-Pre-16SV3V4  Patient61-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient61-PostM3-16SV3V4  Patient61-PostM6-16SV3V4     Patient61-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient62-PostM1-16SV3V4  Patient62-PostM3-16SV3V4  Patient62-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient62-Pre-16SV3V4  Patient63-PostM1-16SV3V4  Patient63-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient63-PostM6-16SV3V4     Patient63-Pre-16SV3V4  Patient64-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient64-PostM3-16SV3V4  Patient64-PostM6-16SV3V4     Patient64-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient65-PostM1-16SV3V4  Patient65-PostM3-16SV3V4  Patient65-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient65-Pre-16SV3V4  Patient66-PostM1-16SV3V4  Patient66-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient66-PostM6-16SV3V4     Patient66-Pre-16SV3V4  Patient67-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient67-PostM3-16SV3V4  Patient67-PostM6-16SV3V4     Patient67-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient68-PostM1-16SV3V4  Patient68-PostM3-16SV3V4  Patient68-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient68-Pre-16SV3V4  Patient69-PostM1-16SV3V4  Patient69-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient69-PostM6-16SV3V4     Patient69-Pre-16SV3V4  Patient70-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient70-PostM3-16SV3V4  Patient70-PostM6-16SV3V4     Patient70-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient71-PostM1-16SV3V4  Patient71-PostM3-16SV3V4  Patient71-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient71-Pre-16SV3V4  Patient72-PostM1-16SV3V4  Patient72-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient72-PostM6-16SV3V4     Patient72-Pre-16SV3V4  Patient73-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient73-PostM3-16SV3V4  Patient73-PostM6-16SV3V4     Patient73-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient74-PostM1-16SV3V4  Patient74-PostM3-16SV3V4  Patient74-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient74-Pre-16SV3V4  Patient75-PostM1-16SV3V4  Patient75-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient75-PostM6-16SV3V4     Patient75-Pre-16SV3V4  Patient76-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient76-PostM3-16SV3V4  Patient76-PostM6-16SV3V4     Patient76-Pre-16SV3V4 
-    ##                         1                         1                         1
-
-``` r
-# Create matched_samples column
-metadata$matched_samples <- ifelse(metadata$sample_name %in% names(sample_counts[sample_counts >= 2]), "YES", "NO")
-
-cat("\nMatched samples distribution:\n")
-```
-
-    ## 
-    ## Matched samples distribution:
-
-``` r
-table(metadata$matched_samples)
-```
-
-    ## 
-    ##  NO 
-    ## 384
-
-``` r
-# Identify samples for removal: single samples excluding oral rinse
-single_samples <- names(sample_counts[sample_counts == 1])
-samples_to_remove <- metadata$sample_name %in% single_samples & !(metadata$Site %in% c("oral rinse"))
-
-cat("\nNumber of samples to be removed:", sum(samples_to_remove), "\n")
-```
-
-    ## 
-    ## Number of samples to be removed: 0
-
-``` r
-# Remove identified samples
-metadata_clean <- metadata[!samples_to_remove, ]
-
-cat("\nFinal sample distribution after cleaning:\n")
-```
-
-    ## 
-    ## Final sample distribution after cleaning:
-
-``` r
-table(metadata_clean$sample_name)
-```
-
-    ## 
-    ##     Health01-Oral-16SV3V4     Health02-Oral-16SV3V4     Health03-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health04-Oral-16SV3V4     Health05-Oral-16SV3V4     Health06-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health07-Oral-16SV3V4     Health08-Oral-16SV3V4     Health09-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health10-Oral-16SV3V4     Health11-Oral-16SV3V4     Health12-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health13-Oral-16SV3V4     Health14-Oral-16SV3V4     Health15-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health16-Oral-16SV3V4     Health17-Oral-16SV3V4     Health18-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health19-Oral-16SV3V4     Health20-Oral-16SV3V4     Health21-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health22-Oral-16SV3V4     Health23-Oral-16SV3V4     Health24-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health25-Oral-16SV3V4     Health26-Oral-16SV3V4     Health27-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health28-Oral-16SV3V4     Health29-Oral-16SV3V4     Health30-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health31-Oral-16SV3V4     Health32-Oral-16SV3V4     Health33-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health34-Oral-16SV3V4     Health35-Oral-16SV3V4     Health36-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health37-Oral-16SV3V4     Health38-Oral-16SV3V4     Health39-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health40-Oral-16SV3V4     Health41-Oral-16SV3V4     Health42-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health43-Oral-16SV3V4     Health44-Oral-16SV3V4     Health45-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health46-Oral-16SV3V4     Health47-Oral-16SV3V4     Health48-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health49-Oral-16SV3V4     Health50-Oral-16SV3V4     Health51-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health52-Oral-16SV3V4     Health53-Oral-16SV3V4     Health54-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health55-Oral-16SV3V4     Health56-Oral-16SV3V4     Health57-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health58-Oral-16SV3V4     Health59-Oral-16SV3V4     Health60-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health61-Oral-16SV3V4     Health62-Oral-16SV3V4     Health63-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health64-Oral-16SV3V4     Health65-Oral-16SV3V4     Health66-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health67-Oral-16SV3V4     Health68-Oral-16SV3V4     Health69-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health70-Oral-16SV3V4     Health71-Oral-16SV3V4     Health72-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health73-Oral-16SV3V4     Health74-Oral-16SV3V4     Health75-Oral-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Health76-Oral-16SV3V4  Patient01-PostM1-16SV3V4  Patient01-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient01-PostM6-16SV3V4     Patient01-Pre-16SV3V4 Patient01R-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ## Patient01R-PostM3-16SV3V4 Patient01R-PostM6-16SV3V4    Patient01R-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient02-PostM1-16SV3V4  Patient02-PostM3-16SV3V4  Patient02-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient02-Pre-16SV3V4  Patient03-PostM1-16SV3V4  Patient03-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient03-PostM6-16SV3V4     Patient03-Pre-16SV3V4  Patient04-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient04-PostM3-16SV3V4  Patient04-PostM6-16SV3V4     Patient04-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient05-PostM1-16SV3V4  Patient05-PostM3-16SV3V4  Patient05-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient05-Pre-16SV3V4  Patient06-PostM1-16SV3V4  Patient06-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient06-PostM6-16SV3V4     Patient06-Pre-16SV3V4  Patient07-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient07-PostM3-16SV3V4  Patient07-PostM6-16SV3V4     Patient07-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient08-PostM1-16SV3V4  Patient08-PostM3-16SV3V4  Patient08-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient08-Pre-16SV3V4  Patient09-PostM1-16SV3V4  Patient09-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient09-PostM6-16SV3V4     Patient09-Pre-16SV3V4  Patient10-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient10-PostM3-16SV3V4  Patient10-PostM6-16SV3V4     Patient10-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient11-PostM1-16SV3V4  Patient11-PostM3-16SV3V4  Patient11-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient11-Pre-16SV3V4  Patient12-PostM1-16SV3V4  Patient12-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient12-PostM6-16SV3V4     Patient12-Pre-16SV3V4  Patient13-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient13-PostM3-16SV3V4  Patient13-PostM6-16SV3V4     Patient13-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient14-PostM1-16SV3V4  Patient14-PostM3-16SV3V4  Patient14-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient14-Pre-16SV3V4  Patient15-PostM1-16SV3V4  Patient15-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient15-PostM6-16SV3V4     Patient15-Pre-16SV3V4  Patient16-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient16-PostM3-16SV3V4  Patient16-PostM6-16SV3V4     Patient16-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient17-PostM1-16SV3V4  Patient17-PostM3-16SV3V4  Patient17-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient17-Pre-16SV3V4  Patient18-PostM1-16SV3V4  Patient18-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient18-PostM6-16SV3V4     Patient18-Pre-16SV3V4  Patient19-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient19-PostM3-16SV3V4  Patient19-PostM6-16SV3V4     Patient19-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient20-PostM1-16SV3V4  Patient20-PostM3-16SV3V4  Patient20-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient20-Pre-16SV3V4  Patient21-PostM1-16SV3V4  Patient21-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient21-PostM6-16SV3V4     Patient21-Pre-16SV3V4  Patient22-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient22-PostM3-16SV3V4  Patient22-PostM6-16SV3V4     Patient22-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient23-PostM1-16SV3V4  Patient23-PostM3-16SV3V4  Patient23-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient23-Pre-16SV3V4  Patient24-PostM1-16SV3V4  Patient24-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient24-PostM6-16SV3V4     Patient24-Pre-16SV3V4  Patient25-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient25-PostM3-16SV3V4  Patient25-PostM6-16SV3V4     Patient25-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient26-PostM1-16SV3V4  Patient26-PostM3-16SV3V4  Patient26-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient26-Pre-16SV3V4  Patient27-PostM1-16SV3V4  Patient27-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient27-PostM6-16SV3V4     Patient27-Pre-16SV3V4  Patient28-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient28-PostM3-16SV3V4  Patient28-PostM6-16SV3V4     Patient28-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient29-PostM1-16SV3V4  Patient29-PostM3-16SV3V4  Patient29-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient29-Pre-16SV3V4  Patient30-PostM1-16SV3V4  Patient30-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient30-PostM6-16SV3V4     Patient30-Pre-16SV3V4  Patient31-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient31-PostM3-16SV3V4  Patient31-PostM6-16SV3V4     Patient31-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient32-PostM1-16SV3V4  Patient32-PostM3-16SV3V4  Patient32-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient32-Pre-16SV3V4  Patient33-PostM1-16SV3V4  Patient33-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient33-PostM6-16SV3V4     Patient33-Pre-16SV3V4  Patient34-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient34-PostM3-16SV3V4  Patient34-PostM6-16SV3V4     Patient34-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient35-PostM1-16SV3V4  Patient35-PostM3-16SV3V4  Patient35-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient35-Pre-16SV3V4  Patient36-PostM1-16SV3V4  Patient36-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient36-PostM6-16SV3V4     Patient36-Pre-16SV3V4  Patient37-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient37-PostM3-16SV3V4  Patient37-PostM6-16SV3V4     Patient37-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient38-PostM1-16SV3V4  Patient38-PostM3-16SV3V4  Patient38-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient38-Pre-16SV3V4  Patient39-PostM1-16SV3V4  Patient39-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient39-PostM6-16SV3V4     Patient39-Pre-16SV3V4  Patient40-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient40-PostM3-16SV3V4  Patient40-PostM6-16SV3V4     Patient40-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient41-PostM1-16SV3V4  Patient41-PostM3-16SV3V4  Patient41-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient41-Pre-16SV3V4  Patient42-PostM1-16SV3V4  Patient42-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient42-PostM6-16SV3V4     Patient42-Pre-16SV3V4  Patient43-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient43-PostM3-16SV3V4  Patient43-PostM6-16SV3V4     Patient43-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient44-PostM1-16SV3V4  Patient44-PostM3-16SV3V4  Patient44-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient44-Pre-16SV3V4  Patient45-PostM1-16SV3V4  Patient45-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient45-PostM6-16SV3V4     Patient45-Pre-16SV3V4  Patient46-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient46-PostM3-16SV3V4  Patient46-PostM6-16SV3V4     Patient46-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient47-PostM1-16SV3V4  Patient47-PostM3-16SV3V4  Patient47-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient47-Pre-16SV3V4  Patient48-PostM1-16SV3V4  Patient48-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient48-PostM6-16SV3V4     Patient48-Pre-16SV3V4  Patient49-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient49-PostM3-16SV3V4  Patient49-PostM6-16SV3V4     Patient49-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient50-PostM1-16SV3V4  Patient50-PostM3-16SV3V4  Patient50-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient50-Pre-16SV3V4  Patient51-PostM1-16SV3V4  Patient51-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient51-PostM6-16SV3V4     Patient51-Pre-16SV3V4  Patient52-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient52-PostM3-16SV3V4  Patient52-PostM6-16SV3V4     Patient52-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient53-PostM1-16SV3V4  Patient53-PostM3-16SV3V4  Patient53-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient53-Pre-16SV3V4  Patient54-PostM1-16SV3V4  Patient54-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient54-PostM6-16SV3V4     Patient54-Pre-16SV3V4  Patient55-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient55-PostM3-16SV3V4  Patient55-PostM6-16SV3V4     Patient55-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient56-PostM1-16SV3V4  Patient56-PostM3-16SV3V4  Patient56-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient56-Pre-16SV3V4  Patient57-PostM1-16SV3V4  Patient57-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient57-PostM6-16SV3V4     Patient57-Pre-16SV3V4  Patient58-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient58-PostM3-16SV3V4  Patient58-PostM6-16SV3V4     Patient58-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient59-PostM1-16SV3V4  Patient59-PostM3-16SV3V4  Patient59-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient59-Pre-16SV3V4  Patient60-PostM1-16SV3V4  Patient60-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient60-PostM6-16SV3V4     Patient60-Pre-16SV3V4  Patient61-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient61-PostM3-16SV3V4  Patient61-PostM6-16SV3V4     Patient61-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient62-PostM1-16SV3V4  Patient62-PostM3-16SV3V4  Patient62-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient62-Pre-16SV3V4  Patient63-PostM1-16SV3V4  Patient63-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient63-PostM6-16SV3V4     Patient63-Pre-16SV3V4  Patient64-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient64-PostM3-16SV3V4  Patient64-PostM6-16SV3V4     Patient64-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient65-PostM1-16SV3V4  Patient65-PostM3-16SV3V4  Patient65-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient65-Pre-16SV3V4  Patient66-PostM1-16SV3V4  Patient66-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient66-PostM6-16SV3V4     Patient66-Pre-16SV3V4  Patient67-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient67-PostM3-16SV3V4  Patient67-PostM6-16SV3V4     Patient67-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient68-PostM1-16SV3V4  Patient68-PostM3-16SV3V4  Patient68-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient68-Pre-16SV3V4  Patient69-PostM1-16SV3V4  Patient69-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient69-PostM6-16SV3V4     Patient69-Pre-16SV3V4  Patient70-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient70-PostM3-16SV3V4  Patient70-PostM6-16SV3V4     Patient70-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient71-PostM1-16SV3V4  Patient71-PostM3-16SV3V4  Patient71-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient71-Pre-16SV3V4  Patient72-PostM1-16SV3V4  Patient72-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient72-PostM6-16SV3V4     Patient72-Pre-16SV3V4  Patient73-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient73-PostM3-16SV3V4  Patient73-PostM6-16SV3V4     Patient73-Pre-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient74-PostM1-16SV3V4  Patient74-PostM3-16SV3V4  Patient74-PostM6-16SV3V4 
-    ##                         1                         1                         1 
-    ##     Patient74-Pre-16SV3V4  Patient75-PostM1-16SV3V4  Patient75-PostM3-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient75-PostM6-16SV3V4     Patient75-Pre-16SV3V4  Patient76-PostM1-16SV3V4 
-    ##                         1                         1                         1 
-    ##  Patient76-PostM3-16SV3V4  Patient76-PostM6-16SV3V4     Patient76-Pre-16SV3V4 
-    ##                         1                         1                         1
-
-``` r
-table(metadata_clean$Site)
-```
-
-    ## 
-    ## oral rinse 
-    ##        384
-
-``` r
-table(metadata_clean$matched_samples)
-```
-
-    ## 
-    ##  NO 
-    ## 384
-
-``` r
-# Use cleaned dataset for subsequent analysis
-metadata <- metadata_clean
-```
-
-# Step 4: Summarize and Validate the Metadata
-
-``` r
-# Check the number of unique runs and sample names
-print(paste("Number of unique runs:", length(unique(metadata$Run))))
-```
-
-    ## [1] "Number of unique runs: 384"
-
-``` r
-print(paste("Number of unique sample names:", length(unique(metadata$sample_name))))
-```
-
-    ## [1] "Number of unique sample names: 384"
-
-# Step 5: Visualize the Metadata
-
-``` r
-knitr::include_graphics("Metadata_Summary.png")
-```
-
-<img src="Metadata_Summary.png" width="1200" />
-
-# Step 6: Finalize and Export the Metadata
-
-``` r
-# Reorder columns to match the desired format
-metadata <- metadata[, c(
-  "BioProject", "Run", "sample_name", "Age", "BMI", "Sex", 
-  "Region", "Platform", "Country", "Site", "public_time", 
-  "PCR_primers", "title", "Disease_study", "Status","matched_samples"
-)]
-
-# Export the uniform metadata to a CSV file
-write.csv(metadata, file = "metadata.csv", quote = FALSE)
-head(metadata)
-```
-
-    ##    BioProject         Run              sample_name Age BMI Sex Region
-    ## 1 PRJNA744870 SRR15719926    Health26-Oral-16SV3V4  NA  NA  NA  V3-V4
-    ## 2 PRJNA744870 SRR15719937    Health16-Oral-16SV3V4  NA  NA  NA  V3-V4
-    ## 3 PRJNA744870 SRR15719951    Health03-Oral-16SV3V4  NA  NA  NA  V3-V4
-    ## 4 PRJNA744870 SRR15719961 Patient11-PostM3-16SV3V4  NA  NA  NA  V3-V4
-    ## 5 PRJNA744870 SRR15719966 Patient10-PostM3-16SV3V4  NA  NA  NA  V3-V4
-    ## 6 PRJNA744870 SRR15719973    Health70-Oral-16SV3V4  NA  NA  NA  V3-V4
-    ##         Platform Country       Site          public_time PCR_primers
-    ## 1 Illumina MiSeq   China oral rinse 2021-09-28T00:00:00Z   341F-806R
-    ## 2 Illumina MiSeq   China oral rinse 2021-09-28T00:00:00Z   341F-806R
-    ## 3 Illumina MiSeq   China oral rinse 2021-09-28T00:00:00Z   341F-806R
-    ## 4 Illumina MiSeq   China oral rinse 2021-09-28T00:00:00Z   341F-806R
-    ## 5 Illumina MiSeq   China oral rinse 2021-09-28T00:00:00Z   341F-806R
-    ## 6 Illumina MiSeq   China oral rinse 2021-09-28T00:00:00Z   341F-806R
-    ##                                                                                                                            title
-    ## 1 Restoration of the Oral Microbiota After Surgery for Head and Neck Squamous Cell Carcinoma Is Associated With Patient Outcomes
-    ## 2 Restoration of the Oral Microbiota After Surgery for Head and Neck Squamous Cell Carcinoma Is Associated With Patient Outcomes
-    ## 3 Restoration of the Oral Microbiota After Surgery for Head and Neck Squamous Cell Carcinoma Is Associated With Patient Outcomes
-    ## 4 Restoration of the Oral Microbiota After Surgery for Head and Neck Squamous Cell Carcinoma Is Associated With Patient Outcomes
-    ## 5 Restoration of the Oral Microbiota After Surgery for Head and Neck Squamous Cell Carcinoma Is Associated With Patient Outcomes
-    ## 6 Restoration of the Oral Microbiota After Surgery for Head and Neck Squamous Cell Carcinoma Is Associated With Patient Outcomes
-    ##   Disease_study Status matched_samples
-    ## 1           YES     HC              NO
-    ## 2           YES     HC              NO
-    ## 3           YES     HC              NO
-    ## 4           YES  HNSCC              NO
-    ## 5           YES  HNSCC              NO
-    ## 6           YES     HC              NO
-
-## Notes for Students:
-
-1.  **Metadata Accuracy**: Always cross-check the metadata with the
-    original publication to ensure accuracy.
-2.  **Manual Entries**: Columns like `PCR_primers`, and `Status` often
-    require manual entry based on the publication.
-3.  **Disease Status**: Be careful when assigning `Status`—some studies
-    include both disease and healthy samples.
-4.  **Visualization**: The plots help quickly identify the distribution
-    of values in each column, which is useful for quality control.
-5.  **Reproducibility**: Update the working directory and file paths to
-    match your local environment.

@@ -33,10 +33,12 @@ The merged raw metadata table was generated from the curated metadata base table
 
 | File | Samples | Studies | Subjects | Description |
 |---|---:|---:|---:|---|
-| `metadata_all_for_qc_raw.tsv` | 114,959 | 334 | 45,619 | Raw merged metadata (DADA2 + CR>0). Preserves the authoritative metadata base and adds QC metrics. |
-| `metadata_all_qc.tsv` | 108,691 | 288 | 43,506 | QC-filtered metadata for all body sites. |
-| `metadata_oral_qc.tsv` | 80,788 | 288 | 42,224 | QC-filtered oral subset before subject/site deduplication. |
-| `metadata_oral_qc_dedup.tsv` | 51,186 | 288 | 42,224 | QC-filtered oral subset deduplicated to one sample per study × `subject_id` x `site_cleaned`. |
+| `metadata_all_for_qc_raw.tsv` | 114,959 | 334 | 53,525 | Raw merged metadata (DADA2 + CR>0). Preserves the authoritative metadata base and adds QC metrics. |
+| `metadata_all_qc.tsv` | 108,691 | 288 | 50,054 | QC-filtered metadata for all body sites. |
+| `metadata_oral_qc.tsv` | 80,788 | 288 | 48,752 | QC-filtered oral subset before subject/site deduplication. |
+| `metadata_oral_qc_dedup.tsv` | 51,186 | 288 | 48,752 | QC-filtered oral subset deduplicated to one sample per study × `subject_id` × `site_cleaned`. |
+
+**Subject counting:** `subject_id` is only unique *within* a study (the same identifier, e.g. `B1`, is reused across different BioProjects). The Subjects column therefore counts distinct `subject_id` within each study and sums across studies — equivalently, the number of distinct (`bioproject_id`, `subject_id`) pairs. Pooling all studies and taking a global unique count undercounts individuals.
 
 ### BIOM Feature Tables
 

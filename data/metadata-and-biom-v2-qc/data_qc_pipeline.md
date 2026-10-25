@@ -17,7 +17,7 @@
 | Studies removed | 46 |
 | Oral QC samples | 80,788 |
 | Oral dedup samples | 51,186 |
-| Unique subjects (dedup) | 42,224 |
+| Subjects (dedup, per-study) | 48,752 |
 | Oral samples in raw | 85,268 |
 
 ## 2. Filter Pipeline
@@ -111,10 +111,10 @@ Filtering is **dataset-level only**. All thresholds computed on **oral samples**
 | `metadata_all_for_qc_raw.tsv` | 114,959 | — | 334 | — | 47 MB |
 | `metadata_all_qc.tsv` | 108,691 | — | 288 | — | 45 MB |
 | `metadata_oral_qc.tsv` | 80,788 | — | 288 | — | 33 MB |
-| `metadata_oral_qc_dedup.tsv` | 51,186 | — | 288 | 42,224 | 21 MB |
+| `metadata_oral_qc_dedup.tsv` | 51,186 | — | 288 | 48,752 | 21 MB |
 | `biom_all_qc.biom` | 108,691 | 61,235 | — | — | 72 MB |
 | `biom_oral_qc.biom` | 80,788 | 61,235 | — | — | 53 MB |
-| `biom_oral_qc_dedup.biom` | 46,223 | 61,235 | — | — | 38 MB |
+| `biom_oral_qc_dedup.biom` | 51,186 | 61,235 | — | — | 38 MB |
 | `biom_all_qc.qza` | — | — | — | — | 62 MB |
 | `genus_table_all_qc.qza` | — | — | — | — | 31 MB |
 | `genus_table_relabund_all_qc.qza` | — | — | — | — | 78 MB |

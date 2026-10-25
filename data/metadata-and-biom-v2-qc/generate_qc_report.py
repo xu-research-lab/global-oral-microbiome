@@ -44,6 +44,16 @@ def load_tsv(path):
         return list(csv.DictReader(f, delimiter='\t'))
 
 
+def count_subjects(rows):
+    """Number of individuals: distinct subject_id per study, summed across studies.
+
+    subject_id is only unique within a study, so a global unique count would
+    undercount individuals.
+    """
+    return len({(r['bioproject_id'], r['subject_id']) for r in rows
+                if r.get('subject_id') not in (None, '', 'NA')})
+
+
 print("Loading data...")
 raw_rows = load_tsv(RAW)
 qc_rows = load_tsv(ALL_QC)
@@ -58,7 +68,7 @@ n_oral = len(oral_rows)
 n_dedup = len(dedup_rows)
 n_studies_raw = len(set(r['bioproject_id'] for r in raw_rows))
 n_studies_qc = len(set(r['bioproject_id'] for r in qc_rows))
-n_subjects = len(set(r['subject_id'] for r in dedup_rows))
+n_subjects = count_subjects(dedup_rows)
 n_oral_raw = sum(1 for r in raw_rows if r.get('site_group') == 'oral')
 
 n_chim_studies = sum(1 for r in removed_studies if 'chimera' in r['step_name'].lower())
@@ -242,7 +252,7 @@ Filtering is **dataset-level only**. All thresholds computed on **oral samples**
 | `metadata_oral_qc_dedup.tsv` | {n_dedup:,} | — | {n_studies_qc} | {n_subjects:,} | {size_mb(ORAL_DEDUP):.0f} MB |
 | `biom_all_qc.biom` | 108,691 | 61,235 | — | — | {size_mb(f'{OUT_DIR}/biom_all_qc.biom'):.0f} MB |
 | `biom_oral_qc.biom` | 80,788 | 61,235 | — | — | {size_mb(f'{OUT_DIR}/biom_oral_qc.biom'):.0f} MB |
-| `biom_oral_qc_dedup.biom` | 46,223 | 61,235 | — | — | {size_mb(f'{OUT_DIR}/biom_oral_qc_dedup.biom'):.0f} MB |
+| `biom_oral_qc_dedup.biom` | {n_dedup:,} | 61,235 | — | — | {size_mb(f'{OUT_DIR}/biom_oral_qc_dedup.biom'):.0f} MB |
 | `biom_all_qc.qza` | — | — | — | — | {size_mb(f'{OUT_DIR}/biom_all_qc.qza'):.0f} MB |
 | `genus_table_all_qc.qza` | — | — | — | — | {size_mb(f'{OUT_DIR}/genus_table_all_qc.qza'):.0f} MB |
 | `genus_table_relabund_all_qc.qza` | — | — | — | — | {size_mb(f'{OUT_DIR}/genus_table_relabund_all_qc.qza'):.0f} MB |

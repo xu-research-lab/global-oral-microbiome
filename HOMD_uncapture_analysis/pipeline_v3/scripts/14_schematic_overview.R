@@ -19,8 +19,8 @@ FIGOUT  <- file.path(PIPE_V3, "analysis_report", "figs")
 dir.create(FIGOUT, showWarnings = FALSE, recursive = TRUE)
 
 # ---- change these in one place if the figure is renumbered ----------------
-FIG_A <- "Fig. 1B, 1C"
-FIG_C <- "Fig. 1D"
+FIG_A <- "Fig. 2B, 2C"
+FIG_C <- "Fig. 2D"
 
 # ---- palette: matches the quantitative figures ---------------------------
 COL_GAP  <- "#B2182B"   # below the species boundary / not represented
@@ -252,7 +252,7 @@ ARROWS <- data.frame(
 )
 
 # `sc` = physical width of the block relative to its 7.09-in design width;
-# `title = NULL` drops the block title (the composite relies on the Figure 1
+# `title = NULL` drops the block title (the composite relies on the Figure 2
 # legend for it).
 build_flow <- function(sc = 1, letter = "a", title = "the data set",
                        let_mm = SZ_TAG) {

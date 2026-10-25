@@ -29,7 +29,7 @@ FIGOUT  <- file.path(PIPE_V3, "analysis_report", "figs")
 dir.create(FIGOUT, showWarnings = FALSE, recursive = TRUE)
 
 # ---- palette ---------------------------------------------------------------
-# grey / blue / orange for the three weightings, as elsewhere in Figure 1; the
+# grey / blue / orange for the three weightings, as elsewhere in Figure 2; the
 # composition's facet strips are filled with the same three, so a facet and its
 # curve read as the same quantity.  The two identity bands no longer carry a
 # colour of their own -- the composition labels them on the axis instead.

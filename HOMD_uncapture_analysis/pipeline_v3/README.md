@@ -1,6 +1,6 @@
 # HOMD comprehensiveness of the oral 16S ASV catalogue
 
-The analysis behind Figure 1, the disease figures and the two supplementary
+The analysis behind Figure 2, the disease figures and the two supplementary
 tables: cluster the SEPP-inserted ASVs into phylotypes, annotate each phylotype
 against the reference tree, ask which eHOMD species it represents, and test the
 supported phylotypes for differential prevalence and abundance across cohorts.
@@ -84,7 +84,7 @@ The exact running order is in [`analysis_report/sync_manifest.md`](analysis_repo
 
 ## Outputs
 
-- `analysis_report/figs/fig_v3_master_alt.{pdf,png}` — Figure 1, panels A–D
+- `analysis_report/figs/fig_v3_master_alt.{pdf,png}` — Figure 2, panels A–D
 - `analysis_report/figs/fig_v3_supported_singleton_top40_profile.*` — Fig. S1
 - `analysis_report/figs/fig_*_prevalence_sig.*`, `fig_*_ctrl_only.*`,
   `fig_oscc_*` — disease figures

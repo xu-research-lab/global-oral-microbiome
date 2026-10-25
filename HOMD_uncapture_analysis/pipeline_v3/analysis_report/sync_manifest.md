@@ -12,7 +12,7 @@ All paths are relative to `pipeline_v3/`.
 
 ## 1. Figures
 
-### Figure 1 — composite
+### Figure 2 — composite
 
 | Panel | Files | Built by |
 |---|---|---|
@@ -306,7 +306,7 @@ deleted after a run.
 
 ## 10. Checks before pushing
 
-1. Figure 1 opens from `fig_v3_master_alt.pdf` and shows panels A–D in order.
+1. Figure 2 opens from `fig_v3_master_alt.pdf` and shows panels A–D in order.
 2. Panel A is the flow only (no block b/c/d), produced with `FLOW_ONLY`.
 3. Decide what the panel C results paragraph should say now that the figure is
    the genus identity curves rather than the species quadrant.

@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# ALTERNATIVE page layout for Figure 1 -- two columns:
+# ALTERNATIVE page layout for Figure 2 -- two columns:
 #
 #   left  (2/3 of the width)   A  the data-set flow, above
 #                              B (coverage)  |  C (species quadrant)

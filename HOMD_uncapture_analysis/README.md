@@ -1,6 +1,6 @@
 # HOMD comprehensiveness of the global oral 16S ASV catalogue
 
-This directory contains the analysis behind Figure 1, the supplementary figure,
+This directory contains the analysis behind Figure 2, the supplementary figure,
 the disease figures and the two supplementary tables. It asks two questions of a
 global collection of oral 16S ASV tables:
 
@@ -180,12 +180,12 @@ Scripts in `pipeline_v3/scripts/`:
 | `13r_homd_lt_fractions.py` | Fraction of ASVs / reads / subjects below each identity threshold, per phylum. |
 | `13z2_homd_phylum_band_composition.py` | Phylum composition of the < 97 % and ≥ 97 % bands. |
 | `13z3_homd_genus_identity_curves.py` | Per-genus identity curves. |
-| `12j_plot_supported_asv_profiles_v3.R` | Figure 1 panel D and supplementary Figure S1. |
-| `13z_plot_homd_phylum_coverage_panel_v3.R` | Figure 1 panel B; sources `13z2_panel_homd_band_composition.R`. |
+| `12j_plot_supported_asv_profiles_v3.R` | Figure 2 panel D and supplementary Figure S1. |
+| `13z_plot_homd_phylum_coverage_panel_v3.R` | Figure 2 panel B; sources `13z2_panel_homd_band_composition.R`. |
 | `13z2_panel_homd_band_composition.R` | Lower half of panel B. |
-| `13z3_plot_homd_genus_identity_curves_numbered.R` | Figure 1 panel C. |
-| `14_schematic_overview.R` | Figure 1 panel A when run with `FLOW_ONLY`; the panel A counts are hard-coded in its `CARDS` table. |
-| `15_alt_layout.R` | Assembles Figure 1 from panels A–D. |
+| `13z3_plot_homd_genus_identity_curves_numbered.R` | Figure 2 panel C. |
+| `14_schematic_overview.R` | Figure 2 panel A when run with `FLOW_ONLY`; the panel A counts are hard-coded in its `CARDS` table. |
+| `15_alt_layout.R` | Assembles Figure 2 from panels A–D. |
 | `17b_plot_cluster_prevalence.R` | One-phylotype prevalence figure. |
 | `17c_plot_significant_clusters.R` | Prevalence and abundance figures for the significant phylotypes. |
 | `17d_capnocytophaga_control.py`, `17d_plot_capnocytophaga_control.R` | Control figure for the covered part of *Capnocytophaga*. |

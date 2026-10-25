@@ -1,0 +1,10 @@
+{
+  "generated": "2026-10-25T12:48:32.625370",
+  "level": "genus (taxonomy.tsv, g__ aggregation, unit-sum renorm)",
+  "repeats": 5,
+  "scope": "OVO only (OVA skipped \u2014 two-panel OVO figure needs none)",
+  "script": "run_oral_gut_genus_5rep_ovoonly.py",
+  "seed": 42,
+  "taxonomy": "/beegfs/huangxiaochang/global_oral/taxonomy.tsv",
+  "trees": 200
+}

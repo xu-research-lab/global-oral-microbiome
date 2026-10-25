@@ -1,0 +1,7 @@
+Continent1	Continent2	Comparison	N1	N2	N_Enriched_Continent1.cfg	N_Enriched_Continent2.cfg	N_Significant	N_Enriched_Continent1	N_Enriched_Continent2
+Other	Africa	Africa_enrich	30645	1370	82	83	165	82	83
+Other	Asia	Asia_enrich	23110	8905	83	107	190	83	107
+Other	Europe	Europe_enrich	27196	4819	65	110	175	65	110
+Other	North America	North_America_enrich	15455	16560	120	74	194	120	74
+Other	Oceania	Oceania_enrich	31805	210	33	79	112	33	79
+Other	South America	South_America_enrich	31864	151	82	25	107	82	25

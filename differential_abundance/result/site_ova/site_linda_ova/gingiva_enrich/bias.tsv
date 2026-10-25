@@ -1,0 +1,19 @@
+variable	bias
+site_cleanedgingiva	0.157422648043841
+age_cleaned_groupOther	0.153694156108945
+age_cleaned_group＞60 years	0.0714458280851621
+age_cleaned_group12-18 years	0.0294350950389416
+sex_cleanedUnknown	0.0513176836107912
+sex_cleanedM	-0.0272985234723534
+platform_cleaned454 GS FLX Titanium	0.788423556793267
+platform_cleanedOther	-0.0514194358070134
+platform_cleanedIllumina HiSeq	-0.169213119324693
+sequencing_region_cleanedV3-V4	-0.189463490923013
+sequencing_region_cleanedV4-V5	-0.160925898019864
+sequencing_region_cleanedOther	-0.0179714958632735
+sequencing_region_cleanedV1-V3	0.0179598216230911
+sequencing_region_cleanedV3-V5	0.158312254825745
+bmi_cleaned_groupOther	0.140441801601247
+continent_groupAsia	-0.122865081695559
+continent_groupEurope	0.0214857723529588
+continent_groupOther	-0.0185137496629184

@@ -1,0 +1,26 @@
+{
+  "group": "HC",
+  "weight": "uw",
+  "n_units": 35,
+  "n_samples": 2045,
+  "n_genera": 522,
+  "k_min": 5,
+  "repro_thr": 0.6,
+  "consensus_thr": 0.2,
+  "pooling_engine": "netmoss2::getNetwork",
+  "pooling_detail": {
+    "engine": "netmoss2",
+    "package_version": "0.2.0",
+    "getnetwork_patched": true,
+    "patched_source": "/home/zhangyuchen/global_oral/global-oral-microbiome/network/script_hc_pd_dc_oscc/install_netmoss2.sh",
+    "n_studies": 35,
+    "n_taxa": 522,
+    "n_nonfinite": 45,
+    "n_data_check_failures": 0,
+    "wall_sec": 29,
+    "py_vs_r_max_abs_diff": 7.979727989493313e-16,
+    "n_nonfinite_substituted_pairs": 45
+  },
+  "baseline": 229,
+  "final": 229
+}

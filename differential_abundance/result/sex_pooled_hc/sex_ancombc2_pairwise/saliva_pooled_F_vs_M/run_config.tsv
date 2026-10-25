@@ -1,0 +1,2 @@
+pair_index	comparison	site	continent	sex1	sex2	n1	n2	fix_formula	rand_formula	p_adj_method	prv_cut	lib_cut	group_coef	struc_zero	neg_lb	alpha	n_cl	counts_tsv	metadata_file	scope
+1	saliva_pooled_F_vs_M	saliva	pooled	F	M	5379	6010	sex_cleaned + continent_group + age_cleaned_group + platform_cleaned + sequencing_region_cleaned + bmi_cleaned_group	(1|bioproject_id)	BH	0.01	0	sex_cleanedM	FALSE	FALSE	0.05	8	data/metadata-and-biom-v2-qc/genus_table_counts.tsv	data/metadata-and-biom-v2-qc/metadata_oral_qc_dedup.tsv	hc

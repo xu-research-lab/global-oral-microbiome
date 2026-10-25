@@ -1,0 +1,2 @@
+pair_index	comparison	target	n1	n2	formula	feature_dat_type	prev_filter	is_winsor	outlier_pct	p_adj_method	alpha	n_cores	counts_tsv	metadata_file	scope
+6	gingiva_enrich	gingiva	46297	416	~ site_cleaned + age_cleaned_group + sex_cleaned + platform_cleaned + sequencing_region_cleaned + bmi_cleaned_group + continent_group + (1|bioproject_id)	count	0.01	FALSE	0.03	BH	0.05	8	data/metadata-and-biom-v2-qc/genus_table_counts.tsv	data/metadata-and-biom-v2-qc/metadata_oral_qc_dedup.tsv	all

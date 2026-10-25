@@ -1,0 +1,5 @@
+Counts: distinct DA genera supported by >=2 (or >=3) methods in the target OVA comparison.
+Enriched: unique highest arithmetic mean relative abundance across plotted groups (zeros included).
+Depleted: unique lowest mean. Tied extrema and intermediate means are not counted.
+Require significant MaAsLin2 and >=2 (or >=3) significant methods with the matching coefficient sign (FDR < 0.05).
+Counts include all eligible genera; Figure B shows up to top N enriched candidates per target using identical eligibility.

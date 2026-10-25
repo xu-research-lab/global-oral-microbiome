@@ -1,0 +1,22 @@
+variable	bias
+age_cleaned_group＞60 years	0.0537968952805713
+sex_cleanedUnknown	0.0470422902907042
+sex_cleanedF	0.0411617200432944
+platform_cleaned454 GS FLX Titanium	0.887086930749153
+platform_cleanedOther	-0.0677971297099179
+platform_cleanedIon Torrent	-0.373611194999292
+sequencing_region_cleanedV3-V4	-0.132181967854573
+sequencing_region_cleanedOther	0.0378360620730569
+sequencing_region_cleanedV1-V2	0.262517991506728
+sequencing_region_cleanedV1-V3	-0.124771525024754
+sequencing_region_cleanedV6-V8	-0.0501952784950534
+sequencing_region_cleanedUnknown	-0.394902366755117
+bmi_cleaned_groupUnknown	-0.0356507046093245
+bmi_cleaned_group24.0-28.0	-0.00341249132309596
+bmi_cleaned_group≥28.0	-0.012481843809945
+bmi_cleaned_group＜18.5	-0.0210016977278823
+continent_groupAsia	-0.266940551760043
+continent_groupEurope	-0.075028136741579
+continent_groupAfrica	-0.072403700285331
+continent_groupOceania	-0.405949522102782
+continent_groupOther	0.625553881915002

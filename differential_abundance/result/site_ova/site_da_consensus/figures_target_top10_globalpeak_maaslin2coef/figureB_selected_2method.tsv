@@ -1,0 +1,53 @@
+feature	target	target_mean_abundance	maaslin2_coef	maaslin2_padj	n_methods	n_positive_sig_methods	peak_target	n_enriched_targets	coef_rank_in_target	display_rank_in_target
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Micrococcaceae;g__Rothia	saliva	0.0575653649372071	1.05309963669501	4.73873434290563e-47	3	3	saliva	2	1	1
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Rhodococcus_376336	saliva	0.000156085326858473	0.110651673484053	0.00216642743343056	2	2	saliva	1	2	2
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Corynebacterium	tooth	0.0463947926036085	4.14900450814978	1.0736846462382e-175	3	3	tooth	1	1	1
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Actinomyces	tooth	0.0381509603412744	2.5667538609028	4.31062824671245e-120	3	3	tooth	1	7	2
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales_B_877923;f__Flavobacteriaceae;g__Capnocytophaga	tooth	0.0379796399948098	3.29877562958397	5.07963079879518e-141	3	3	tooth	2	2	3
+d__Bacteria;p__Campylobacterota_A;c__Campylobacteria;o__Campylobacterales;f__Campylobacteraceae;g__Campylobacter_B	tooth	0.00844816382646753	3.23873696929985	5.15768354798471e-114	3	3	tooth	1	3	4
+d__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Leptotrichiaceae;g__Leptotrichia_A_993641	tooth	0.00810608167077645	2.39875230169058	1.42040143882068e-67	3	3	tooth	1	9	5
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Peptidiphaga	tooth	0.00660162572057096	2.52371293424201	1.68331350335454e-80	3	3	tooth	1	8	6
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Cardiobacteriales;f__Cardiobacteriaceae;g__Cardiobacterium	tooth	0.00583669211654316	2.60664445504569	1.67752303780441e-75	3	3	tooth	1	6	7
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Kingella_B_563201	tooth	0.00481808503080139	3.0033606480288	1.31922239313459e-120	3	3	tooth	1	5	8
+d__Bacteria;p__Spirochaetota;c__Spirochaetia;o__Treponematales;f__Treponemataceae;g__Treponema_D	tooth	0.00432204207725099	2.10718715810407	1.00422988884819e-53	3	3	tooth	1	10	9
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Eikenella_561455	tooth	0.00392537353601731	3.0817361019541	2.56545498427212e-107	3	3	tooth	1	4	10
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus	oral mucosa	0.406391092775258	0.670476875460159	5.27521242749952e-30	3	3	oral mucosa	3	4	1
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Haemophilus_D_735815	oral mucosa	0.0717892571701362	0.618409171387871	3.66347413784252e-05	2	2	oral mucosa	3	6	2
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Staphylococcales;f__Gemellaceae;g__Gemella	oral mucosa	0.0351308649350334	2.14059773206008	1.33367513564661e-68	3	3	oral mucosa	3	1	3
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Haemophilus_D_734546	oral mucosa	0.0158291397164102	0.62967885564777	0.00187959183575376	3	3	oral mucosa	3	5	4
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Haemophilus_A	oral mucosa	0.0141305030989566	1.35714730393212	2.88350208816167e-08	3	3	oral mucosa	3	2	5
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus	oral mucosa	0.00625835275290481	0.462596633432693	0.0391971262604993	2	2	oral mucosa	1	8	6
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Enterobacteriaceae_A_725029;g__Escherichia	oral mucosa	0.00400180294376059	0.604072023705987	1.56130758063831e-06	2	2	oral mucosa	2	7	7
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales_A_650611;f__Pseudomonadaceae;g__Pseudomonas_E_647464	oral mucosa	0.00381630768216616	0.385134494245911	0.00760018567527557	2	2	oral mucosa	2	9	8
+d__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Cyanobacteriales;f__Coleofasciculaceae;g__Caldora	oral mucosa	0.00304120347251126	0.27598712607183	0.0322347646932404	2	2	oral mucosa	1	10	9
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Xanthomonadaceae;g__Stenotrophomonas_A_615274	oral mucosa	0.00161028804975621	1.03967285591784	2.72713391321791e-29	3	3	oral mucosa	2	3	10
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Prevotella	oral swab	0.187021960056889	1.68427336909283	1.06494653278548e-51	3	3	oral swab	3	9	1
+d__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Leptotrichiaceae;g__Leptotrichia_A_993758	oral swab	0.0553769691270193	1.98914223921041	2.76642291751043e-41	3	3	oral swab	2	5	2
+d__Bacteria;p__Campylobacterota_A;c__Campylobacteria;o__Campylobacterales;f__Campylobacteraceae;g__Campylobacter_A_477346	oral swab	0.00878179458645434	1.2260090915351	6.82508403849513e-23	3	3	oral swab	3	10	3
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__Lachnoanaerobaculum	oral swab	0.0084711850397148	1.94355713789595	1.11257352014265e-47	3	3	oral swab	2	7	4
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__Oribacterium	oral swab	0.00676457893024288	1.91671353789739	4.58153492228536e-37	3	3	oral swab	3	8	5
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Veillonellales;f__Megasphaeraceae;g__Anaeroglobus_38550	oral swab	0.00551202173357217	4.34682394191111	4.39077112958729e-111	3	3	oral swab	3	1	6
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__F0428	oral swab	0.0051420519411929	3.16827883855639	2.45728090116886e-80	3	3	oral swab	2	3	7
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Bifidobacteriaceae;g__Bifidobacterium_388775	oral swab	0.00402611055305003	2.09958190501103	1.82755459132512e-26	3	3	oral swab	1	4	8
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__Moryella	oral swab	0.00296492000716295	3.53510680343648	1.59869334053317e-91	3	3	oral swab	2	2	9
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae_A_595421;g__Burkholderia	oral swab	0.000841915180159991	1.95313244626713	5.65770832781808e-127	2	2	oral swab	1	6	10
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Neisseria_563205	tongue	0.118390489587349	1.04575477476018	1.31774299766565e-08	2	2	tongue	2	7	1
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella_A	tongue	0.103831358349609	1.39397531674922	5.9177943243724e-38	3	3	tongue	2	5	2
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Pauljensenia	tongue	0.0350034511659498	2.5934163366394	5.20450960263824e-74	3	3	tongue	3	1	3
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Aerococcaceae;g__Granulicatella	tongue	0.029786252729542	1.66467845949585	2.42438403923513e-52	3	3	tongue	2	3	4
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Nanosynbacteraceae;g__Nanosynbacter	tongue	0.00652582070935363	0.627954084160892	0.00504615217460805	3	3	tongue	3	9	5
+d__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Atopobiaceae;g__Lancefieldella	tongue	0.00650018458167033	2.45596892255149	9.84710528605038e-47	3	3	tongue	3	2	6
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Bulleidia	tongue	0.0046187632349512	1.37177011808145	8.26044139521396e-19	3	3	tongue	3	6	7
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Peptostreptococcaceae_256921;g__Peptostreptococcus	tongue	0.00375805642238441	0.725263982388638	0.00126904112002842	2	2	tongue	3	8	8
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Anaerovoracaceae;g__Eubacterium_B	tongue	0.00282844466994938	1.48184277803083	3.10162827424787e-12	3	3	tongue	3	4	9
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Enterobacteriaceae_A_725029;g__Salmonella	tongue	0.000923521728855304	0.163790492053422	6.58526822153394e-06	3	3	tongue	1	10	10
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Haemophilus_D_736121	gingiva	0.0351281568864277	5.41592068410101	9.30707331683324e-150	3	3	gingiva	3	1	1
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Alloprevotella	gingiva	0.0228603691892274	1.62752324847204	1.21769283491381e-06	3	3	gingiva	2	3	2
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__F0422	gingiva	0.0164668461031352	4.16465220161828	3.1882880297291e-45	3	3	gingiva	2	2	3
+d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae_486827;g__Sphingomonas_L_486704	gingiva	0.00245324340149274	0.500681024694516	0.000160865985578363	2	2	gingiva	3	5	4
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Rhodanobacteraceae;g__Rhodanobacter_613036	gingiva	0.00220136970404931	0.611667672911033	5.66562101200606e-21	2	2	gingiva	1	4	5
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae_A_595421;g__Pelomonas	gingiva	0.00167767646549304	0.285727163883857	0.0111509765832569	2	2	gingiva	3	10	6
+d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhodobacterales;f__Rhodobacteraceae;g__Paracoccus	gingiva	0.000660144996325955	0.407898962481816	2.04197841344392e-09	2	2	gingiva	2	6	7
+d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Caulobacterales;f__Caulobacteraceae;g__Brevundimonas	gingiva	0.000497852617790816	0.355616641226579	0.00169506928586036	2	2	gingiva	3	8	8
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales_B_877923;f__Weeksellaceae;g__Elizabethkingia	gingiva	0.000369833804687104	0.304393555446642	1.84361714989186e-10	3	3	gingiva	1	9	9
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales_B_877923;f__Flavobacteriaceae;g__Flavobacterium	gingiva	0.000161673828518854	0.393179147688994	1.3101125566554e-07	2	2	gingiva	2	7	10

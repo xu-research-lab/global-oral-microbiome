@@ -1,0 +1,25 @@
+variable	bias
+continent_groupAsia	-0.039207894869503
+age_cleaned_group＞60 years	-0.00154107899106167
+age_cleaned_group3-12 years	0.322273620102925
+age_cleaned_groupUnknown	0.03835630983741
+age_cleaned_group12-18 years	-0.277264433327017
+age_cleaned_group6-36 months	0.530234429481585
+age_cleaned_group0-6 months	1.12155677223748
+sex_cleanedUnknown	0.173902627176857
+sex_cleanedF	0.063621670248765
+platform_cleaned454 GS FLX Titanium	0.75463293896099
+platform_cleanedOther	-0.479070793443983
+platform_cleanedIllumina HiSeq	-0.449721698819145
+platform_cleanedIon Torrent	-0.0453597381748985
+sequencing_region_cleanedV3-V4	-0.159325019715371
+sequencing_region_cleanedV4-V5	0.13247892168084
+sequencing_region_cleanedV1-V2	0.563152059444208
+sequencing_region_cleanedV6-V8	0.525155499966167
+sequencing_region_cleanedV1-V3	0.148675415300844
+sequencing_region_cleanedOther	-0.133791041419257
+sequencing_region_cleanedUnknown	-0.452153956118536
+bmi_cleaned_groupUnknown	-0.247400470196593
+bmi_cleaned_group24.0-28.0	0.0248510802474841
+bmi_cleaned_group≥28.0	0.0374453969587676
+bmi_cleaned_group＜18.5	-0.0350291302651024

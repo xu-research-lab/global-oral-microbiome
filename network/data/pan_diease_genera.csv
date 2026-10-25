@@ -1,0 +1,306 @@
+﻿Disease,Genus,Direction,n_methods,methods
+Breast Cancer,Aggregatibacter_736122,-,2,LinDA+MaAsLin2
+Breast Cancer,Bacteroides_H_857956,-,2,LinDA+MaAsLin2
+Breast Cancer,Bulleidia,-,2,LinDA+MaAsLin2
+Breast Cancer,Catonella,-,2,LinDA+MaAsLin2
+Breast Cancer,Centipeda,-,2,LinDA+MaAsLin2
+Breast Cancer,Corynebacterium,-,2,LinDA+MaAsLin2
+Breast Cancer,Dialister_36337,-,2,LinDA+MaAsLin2
+Breast Cancer,Dialister_37762,-,2,LinDA+MaAsLin2
+Breast Cancer,Eikenella_561455,+,2,LinDA+MaAsLin2
+Breast Cancer,Eubacterium_B,-,2,LinDA+MaAsLin2
+Breast Cancer,F0428,-,2,LinDA+MaAsLin2
+Breast Cancer,Filifactor,-,3,ANCOMBC2+LinDA+MaAsLin2
+Breast Cancer,Fusobacterium_C,-,3,ANCOMBC2+LinDA+MaAsLin2
+Breast Cancer,Gemella,-,3,ANCOMBC2+LinDA+MaAsLin2
+Breast Cancer,HOT-345,-,2,LinDA+MaAsLin2
+Breast Cancer,Haemophilus_A,-,2,LinDA+MaAsLin2
+Breast Cancer,Haemophilus_D_735815,-,2,LinDA+MaAsLin2
+Breast Cancer,Hornefia_231746,-,2,LinDA+MaAsLin2
+Breast Cancer,Lachnoanaerobaculum,-,2,LinDA+MaAsLin2
+Breast Cancer,Leptotrichia_A_993758,-,2,LinDA+MaAsLin2
+Breast Cancer,Limosilactobacillus,+,2,LinDA+MaAsLin2
+Breast Cancer,Nanosynbacter,-,2,LinDA+MaAsLin2
+Breast Cancer,Neisseria_563205,-,2,LinDA+MaAsLin2
+Breast Cancer,Oribacterium,-,2,LinDA+MaAsLin2
+Breast Cancer,Parvimonas,-,2,LinDA+MaAsLin2
+Breast Cancer,Peptostreptococcus,-,2,LinDA+MaAsLin2
+Breast Cancer,Porphyromonas_A,-,2,LinDA+MaAsLin2
+Breast Cancer,Prevotella,-,2,LinDA+MaAsLin2
+Breast Cancer,Pseudoleptotrichia,-,2,LinDA+MaAsLin2
+Breast Cancer,Scardovia,+,2,LinDA+MaAsLin2
+Breast Cancer,Tannerella,-,2,LinDA+MaAsLin2
+Breast Cancer,Treponema_B_986141,-,3,ANCOMBC2+LinDA+MaAsLin2
+Breast Cancer,Treponema_B_986142,-,2,LinDA+MaAsLin2
+Breast Cancer,Treponema_C,-,2,LinDA+MaAsLin2
+COVID-19,Actinomyces,-,2,LinDA+MaAsLin2
+COVID-19,Aggregatibacter_736122,-,2,LinDA+MaAsLin2
+COVID-19,Anaeroglobus_38550,+,2,LinDA+MaAsLin2
+COVID-19,Bulleidia,-,2,LinDA+MaAsLin2
+COVID-19,Capnocytophaga,+,2,ANCOMBC2+LinDA
+COVID-19,Catonella,-,2,LinDA+MaAsLin2
+COVID-19,Eubacterium_B,-,3,ANCOMBC2+LinDA+MaAsLin2
+COVID-19,Filifactor,-,2,LinDA+MaAsLin2
+COVID-19,Fusobacterium_C,-,3,ANCOMBC2+LinDA+MaAsLin2
+COVID-19,Gemella,-,2,LinDA+MaAsLin2
+COVID-19,HOT-345,-,2,LinDA+MaAsLin2
+COVID-19,Haemophilus_A,-,2,LinDA+MaAsLin2
+COVID-19,Haemophilus_D_735815,-,3,ANCOMBC2+LinDA+MaAsLin2
+COVID-19,Hornefia_231746,-,2,LinDA+MaAsLin2
+COVID-19,Nanosynbacter,-,2,LinDA+MaAsLin2
+COVID-19,Neisseria_563205,-,3,ANCOMBC2+LinDA+MaAsLin2
+COVID-19,Oribacterium,-,2,LinDA+MaAsLin2
+COVID-19,Parvimonas,-,2,LinDA+MaAsLin2
+COVID-19,Pauljensenia,-,2,LinDA+MaAsLin2
+COVID-19,Peptostreptococcus,-,2,LinDA+MaAsLin2
+COVID-19,Porphyromonas_A,-,3,ANCOMBC2+LinDA+MaAsLin2
+COVID-19,Rothia,-,2,LinDA+MaAsLin2
+COVID-19,Selenomonas_A_42762,+,2,LinDA+MaAsLin2
+COVID-19,Tannerella,-,2,LinDA+MaAsLin2
+Colorectal Cancer,Leptotrichia_A_993758,+,2,LinDA+MaAsLin2
+Dental Caries,Anaeroglobus_38550,+,2,LinDA+MaAsLin2
+Dental Caries,Bifidobacterium_388775,+,2,LinDA+MaAsLin2
+Dental Caries,Centipeda,+,2,ANCOMBC2+LinDA
+Dental Caries,Gemella,-,2,LinDA+MaAsLin2
+Dental Caries,Lancefieldella,+,2,LinDA+MaAsLin2
+Dental Caries,Prevotella,+,3,ANCOMBC2+LinDA+MaAsLin2
+Dental Caries,Scardovia,+,2,LinDA+MaAsLin2
+Dental Caries,Selenomonas_A_42762,+,2,LinDA+MaAsLin2
+Dental Caries,Veillonella_A,+,3,ANCOMBC2+LinDA+MaAsLin2
+Diabetes,Dialister_36337,+,2,LinDA+MaAsLin2
+Diabetes,F0428,-,2,LinDA+MaAsLin2
+Diabetes,Kingella_B_563201,+,2,LinDA+MaAsLin2
+Diabetes,Ligilactobacillus,+,2,LinDA+MaAsLin2
+Diabetes,Limosilactobacillus,+,2,LinDA+MaAsLin2
+Diabetes,Scardovia,+,2,LinDA+MaAsLin2
+Diabetes,Treponema_B_986141,+,2,LinDA+MaAsLin2
+Esophageal Cancer,Anaeroglobus_38550,+,3,ANCOMBC2+LinDA+MaAsLin2
+Esophageal Cancer,Capnocytophaga,+,3,ANCOMBC2+LinDA+MaAsLin2
+Esophageal Cancer,Dialister_37762,+,3,ANCOMBC2+LinDA+MaAsLin2
+Esophageal Cancer,Haemophilus_D_735815,-,2,LinDA+MaAsLin2
+Esophageal Cancer,Lancefieldella,+,3,ANCOMBC2+LinDA+MaAsLin2
+Esophageal Cancer,Leptotrichia_A_993758,+,3,ANCOMBC2+LinDA+MaAsLin2
+Esophageal Cancer,Mogibacterium_A,+,2,LinDA+MaAsLin2
+Esophageal Cancer,Tannerella,+,2,LinDA+MaAsLin2
+Gastroesophageal Reflux Disease,Cardiobacterium,-,2,LinDA+MaAsLin2
+Gastroesophageal Reflux Disease,Gemella,-,2,LinDA+MaAsLin2
+Gastroesophageal Reflux Disease,Hornefia_231746,-,2,LinDA+MaAsLin2
+Gastroesophageal Reflux Disease,Lancefieldella,+,2,LinDA+MaAsLin2
+Gastroesophageal Reflux Disease,Lautropia,-,2,LinDA+MaAsLin2
+Gastroesophageal Reflux Disease,Treponema_B_986141,-,2,LinDA+MaAsLin2
+Gastroesophageal Reflux Disease,Treponema_B_986142,-,2,LinDA+MaAsLin2
+Gastroesophageal Reflux Disease,Treponema_D,-,2,LinDA+MaAsLin2
+Gastroesophageal Reflux Disease,Veillonella_A,+,2,LinDA+MaAsLin2
+HIV,Actinomyces,-,2,LinDA+MaAsLin2
+HIV,Bacteroides_H_857956,-,2,LinDA+MaAsLin2
+HIV,Cardiobacterium,-,2,LinDA+MaAsLin2
+HIV,Catonella,-,2,LinDA+MaAsLin2
+HIV,Centipeda,-,2,LinDA+MaAsLin2
+HIV,Corynebacterium,-,2,LinDA+MaAsLin2
+HIV,Dialister_36337,-,2,LinDA+MaAsLin2
+HIV,F0428,-,2,LinDA+MaAsLin2
+HIV,HOT-345,-,2,LinDA+MaAsLin2
+HIV,Haemophilus_A,-,2,LinDA+MaAsLin2
+HIV,Lachnoanaerobaculum,-,2,LinDA+MaAsLin2
+HIV,Leptotrichia_A_993641,-,2,LinDA+MaAsLin2
+HIV,Leptotrichia_A_993758,-,2,LinDA+MaAsLin2
+HIV,Ligilactobacillus,-,2,LinDA+MaAsLin2
+HIV,Mogibacterium_A,-,2,LinDA+MaAsLin2
+HIV,Pseudoleptotrichia,-,2,LinDA+MaAsLin2
+HIV,Selenomonas_A_42762,-,2,LinDA+MaAsLin2
+HIV,Treponema_B_986142,-,2,LinDA+MaAsLin2
+HIV,Treponema_C,-,2,LinDA+MaAsLin2
+HIV,Treponema_D,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Aggregatibacter_736122,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Anaeroglobus_38550,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Bacteroides_H_857956,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Bifidobacterium_388775,+,2,LinDA+MaAsLin2
+Head and Neck Cancer,Bulleidia,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Cardiobacterium,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Catonella,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Centipeda,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Corynebacterium,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Dialister_36337,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Dialister_37762,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Eikenella_561455,+,2,LinDA+MaAsLin2
+Head and Neck Cancer,Eubacterium_B,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,F0428,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Filifactor,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Fusobacterium_C,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,HOT-345,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Haemophilus_A,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Haemophilus_D_735815,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Hornefia_231746,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Kingella_B_563201,+,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Lachnoanaerobaculum,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Lactobacillus,+,2,LinDA+MaAsLin2
+Head and Neck Cancer,Lancefieldella,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Leptotrichia_A_993641,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Leptotrichia_A_993758,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Ligilactobacillus,+,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Limosilactobacillus,+,2,LinDA+MaAsLin2
+Head and Neck Cancer,Mogibacterium_A,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Nanosynbacter,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Neisseria_563205,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Oribacterium,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Parvimonas,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Pauljensenia,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Peptostreptococcus,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Porphyromonas_A,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Prevotella,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Pseudoleptotrichia,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Rothia,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Scardovia,+,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Selenomonas_A_42762,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Tannerella,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Treponema_B_986141,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Treponema_B_986142,-,3,ANCOMBC2+LinDA+MaAsLin2
+Head and Neck Cancer,Treponema_C,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Treponema_D,-,2,LinDA+MaAsLin2
+Head and Neck Cancer,Veillonella_A,-,2,LinDA+MaAsLin2
+Hypertension,Bacteroides_H_857956,-,2,LinDA+MaAsLin2
+Hypertension,HOT-345,-,2,LinDA+MaAsLin2
+Hypertension,Parvimonas,-,2,LinDA+MaAsLin2
+Hypertension,Phocaeicola_A,-,2,LinDA+MaAsLin2
+IBD,Kingella_B_563201,+,2,LinDA+MaAsLin2
+IBD,Limosilactobacillus,+,2,LinDA+MaAsLin2
+IBD,Scardovia,+,2,LinDA+MaAsLin2
+Lung Cancer,Actinomyces,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Aggregatibacter_736122,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Bifidobacterium_388775,+,2,LinDA+MaAsLin2
+Lung Cancer,Bulleidia,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Capnocytophaga,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Cardiobacterium,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Catonella,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Centipeda,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Corynebacterium,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Dialister_36337,-,2,LinDA+MaAsLin2
+Lung Cancer,Dialister_37762,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Eikenella_561455,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Eubacterium_B,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,F0428,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Fusobacterium_C,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Gemella,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,HOT-345,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Haemophilus_A,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Haemophilus_D_735815,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Kingella_B_563201,-,2,LinDA+MaAsLin2
+Lung Cancer,Lachnoanaerobaculum,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Lactobacillus,+,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Lautropia,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Leptotrichia_A_993641,-,2,LinDA+MaAsLin2
+Lung Cancer,Leptotrichia_A_993758,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Ligilactobacillus,+,2,LinDA+MaAsLin2
+Lung Cancer,Limosilactobacillus,+,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Mogibacterium_A,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Neisseria_563205,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Oribacterium,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Parvimonas,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Pauljensenia,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Peptostreptococcus,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Porphyromonas_A,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Prevotella,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Pseudoleptotrichia,-,3,ANCOMBC2+LinDA+MaAsLin2
+Lung Cancer,Selenomonas_A_42762,-,2,LinDA+MaAsLin2
+Lung Cancer,Tannerella,-,2,LinDA+MaAsLin2
+OSCC,Actinomyces,-,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Anaeroglobus_38550,-,2,LinDA+MaAsLin2
+OSCC,Bacteroides_H_857956,+,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Bifidobacterium_388775,+,2,LinDA+MaAsLin2
+OSCC,Capnocytophaga,+,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Cardiobacterium,-,2,LinDA+MaAsLin2
+OSCC,Corynebacterium,-,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Dialister_36337,+,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Eikenella_561455,+,2,LinDA+MaAsLin2
+OSCC,Eubacterium_B,-,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,F0428,-,2,LinDA+MaAsLin2
+OSCC,Haemophilus_D_735815,-,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Lachnoanaerobaculum,-,2,LinDA+MaAsLin2
+OSCC,Lactobacillus,+,2,LinDA+MaAsLin2
+OSCC,Lautropia,-,2,LinDA+MaAsLin2
+OSCC,Leptotrichia_A_993758,-,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Nanosynbacter,-,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Neisseria_563205,-,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Oribacterium,-,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Parvimonas,+,2,LinDA+MaAsLin2
+OSCC,Pauljensenia,-,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Peptostreptococcus,+,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Phocaeicola_A,+,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Rothia,-,3,ANCOMBC2+LinDA+MaAsLin2
+OSCC,Selenomonas_A_42762,+,2,LinDA+MaAsLin2
+OSCC,Treponema_D,+,2,LinDA+MaAsLin2
+OSCC,Veillonella_A,-,3,ANCOMBC2+LinDA+MaAsLin2
+Obstructive Sleep Apnea,Lactobacillus,-,2,LinDA+MaAsLin2
+Periodontal Disease,Actinomyces,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Aggregatibacter_736122,-,2,ANCOMBC2+LinDA
+Periodontal Disease,Anaeroglobus_38550,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Bacteroides_H_857956,+,2,LinDA+MaAsLin2
+Periodontal Disease,Bifidobacterium_388775,+,2,LinDA+MaAsLin2
+Periodontal Disease,Bulleidia,+,2,LinDA+MaAsLin2
+Periodontal Disease,Capnocytophaga,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Cardiobacterium,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Corynebacterium,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Dialister_36337,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Dialister_37762,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Eikenella_561455,-,2,ANCOMBC2+LinDA
+Periodontal Disease,Eubacterium_B,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Filifactor,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Fusobacterium_C,+,2,LinDA+MaAsLin2
+Periodontal Disease,Gemella,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Haemophilus_A,-,2,LinDA+MaAsLin2
+Periodontal Disease,Haemophilus_D_735815,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Hornefia_231746,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Kingella_B_563201,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Lachnoanaerobaculum,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Lancefieldella,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Lautropia,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Leptotrichia_A_993641,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Mogibacterium_A,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Nanosynbacter,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Neisseria_563205,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Oribacterium,+,2,LinDA+MaAsLin2
+Periodontal Disease,Parvimonas,+,2,LinDA+MaAsLin2
+Periodontal Disease,Pauljensenia,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Peptostreptococcus,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Phocaeicola_A,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Porphyromonas_A,+,2,LinDA+MaAsLin2
+Periodontal Disease,Prevotella,+,2,LinDA+MaAsLin2
+Periodontal Disease,Pseudoleptotrichia,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Rothia,-,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Scardovia,+,2,LinDA+MaAsLin2
+Periodontal Disease,Selenomonas_A_42762,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Tannerella,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Treponema_B_986141,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Treponema_B_986142,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Treponema_C,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Treponema_D,+,3,ANCOMBC2+LinDA+MaAsLin2
+Periodontal Disease,Veillonella_A,-,3,ANCOMBC2+LinDA+MaAsLin2
+RA,Bacteroides_H_857956,-,2,LinDA+MaAsLin2
+RA,Lactobacillus,+,2,LinDA+MaAsLin2
+RA,Lancefieldella,+,3,ANCOMBC2+LinDA+MaAsLin2
+RA,Leptotrichia_A_993641,-,2,LinDA+MaAsLin2
+RA,Limosilactobacillus,+,2,LinDA+MaAsLin2
+RA,Pauljensenia,+,3,ANCOMBC2+LinDA+MaAsLin2
+RA,Phocaeicola_A,-,2,LinDA+MaAsLin2
+Thyroid Cancer,Anaeroglobus_38550,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Bacteroides_H_857956,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Bifidobacterium_388775,+,3,ANCOMBC2+LinDA+MaAsLin2
+Thyroid Cancer,Catonella,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Centipeda,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Dialister_36337,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Dialister_37762,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Filifactor,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Fusobacterium_C,+,3,ANCOMBC2+LinDA+MaAsLin2
+Thyroid Cancer,Haemophilus_A,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Lautropia,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Ligilactobacillus,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Limosilactobacillus,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Neisseria_563205,+,3,ANCOMBC2+LinDA+MaAsLin2
+Thyroid Cancer,Parvimonas,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Phocaeicola_A,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Rothia,-,2,LinDA+MaAsLin2
+Thyroid Cancer,Selenomonas_A_42762,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Treponema_B_986141,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Treponema_B_986142,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Treponema_C,+,2,LinDA+MaAsLin2
+Thyroid Cancer,Veillonella_A,+,3,ANCOMBC2+LinDA+MaAsLin2

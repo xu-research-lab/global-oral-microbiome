@@ -1,0 +1,61 @@
+feature	target	target_mean_abundance	maaslin2_coef	maaslin2_padj	n_methods	n_positive_sig_methods	peak_target	n_enriched_targets	coef_rank_in_target	display_rank_in_target
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Enterobacteriaceae_A_725029;g__Enterobacter_B_713587	Africa	0.0197770973296832	1.8270417280165	5.65539922681519e-199	3	3	Africa	3	6	1
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Anaerovoracaceae;g__Eubacterium_B	Africa	0.00469127622068124	3.46428981667724	3.48022694749726e-149	3	3	Africa	2	1	2
+d__Bacteria;p__Patescibacteria;c__JAEDAM01;o__Absconditabacterales;f__Absconditicoccaceae;g__HOT-345	Africa	0.00176122706152222	1.68584009729736	7.00878917717617e-39	3	3	Africa	2	8	3
+d__Bacteria;p__Spirochaetota;c__Spirochaetia;o__Treponematales;f__Treponemataceae;g__Treponema_B_986141	Africa	0.00141682927463552	2.32302818273508	3.94311707617996e-76	3	3	Africa	2	2	4
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Mycoplasmatales;f__Metamycoplasmataceae;g__Metamycoplasma	Africa	0.000955615353597175	1.88637110923583	2.89693780964692e-65	3	3	Africa	2	5	5
+d__Bacteria;p__Spirochaetota;c__Spirochaetia;o__Treponematales;f__Treponemataceae;g__Treponema_B_986142	Africa	0.00083541639381819	1.71742042292635	4.8214846288376e-58	3	3	Africa	2	7	6
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Vallitaleaceae_A_116062;g__W11650	Africa	0.000586797679888437	2.21058446700594	1.2617020887316e-158	3	3	Africa	2	3	7
+d__Bacteria;p__Desulfobacterota_G_459543;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfomicrobiaceae;g__Desulfomicrobium	Africa	0.000244608770887251	1.9809471338012	0	3	3	Africa	2	4	8
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Filifactoraceae;g__Peptoanaerobacter_235884	Africa	0.000208726812692852	1.50916964980252	6.40019226091062e-114	3	3	Africa	2	10	9
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Tissierellales;f__Peptoniphilaceae;g__W5053	Africa	0.000203518234126935	1.67290494079235	1.09544732167655e-276	3	3	Africa	2	9	10
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Neisseria_563205	Asia	0.134527612579942	1.8212473890207	5.69449508602825e-232	3	3	Asia	4	3	1
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Nanosynbacteraceae;g__Nanosynbacter	Asia	0.00661677343356648	2.43133021911377	5.31466812984275e-281	3	3	Asia	3	2	2
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Filifactoraceae;g__Filifactor	Asia	0.00191866903859023	2.49030187941366	2.35298492225293e-307	3	3	Asia	2	1	3
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Nanosyncoccaceae;g__Nanosyncoccus	Asia	0.00187544067038208	1.68856770996848	2.09561466618034e-177	3	3	Asia	3	6	4
+d__Bacteria;p__Patescibacteria;c__JAEDAM01;o__BD1-5;f__UBA2023;g__GN02-873	Asia	0.000647908195937772	1.79721163142755	0	3	3	Asia	1	4	5
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Nanoperiomorbaceae;g__Nanoperiomorbus	Asia	0.000571995769640591	1.75911587268953	0	3	3	Asia	1	5	6
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Anaerovoracaceae;g__Eubacterium_N_234271	Asia	0.000564943278380415	1.45510683554488	1.2494236111345e-169	3	3	Asia	2	7	7
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides_H_857956	Asia	0.000477523481990635	1.22499335287416	4.25720425898335e-139	3	3	Asia	2	10	8
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales_B_877923;f__Weeksellaceae;g__Spodiobacter	Asia	0.000334612640785526	1.2567268088716	0	2	2	Asia	2	8	9
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Anaerovoracaceae;g__Hornefia_231746	Asia	0.000319977940138322	1.22748884589105	1.62435277982714e-124	3	3	Asia	2	9	10
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Staphylococcales;f__Gemellaceae;g__Gemella	Europe	0.0376206146158925	1.66093282285793	4.07485005917549e-159	3	3	Europe	1	1	1
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Actinomyces	Europe	0.011455795349902	0.633526187587523	3.96645174188625e-24	3	3	Europe	3	8	2
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Haemophilus_D_736121	Europe	0.00913129450903488	1.18321006881599	9.32943240691508e-73	3	3	Europe	2	4	3
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__F0422	Europe	0.00902624710404848	1.42680872008683	4.39701944461796e-54	3	3	Europe	1	2	4
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Nanogingivalaceae;g__Nanogingivalis	Europe	0.00109113393718333	1.04906911390734	1.06295678561438e-67	3	3	Europe	2	5	5
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Cardiobacteriales;f__Cardiobacteriaceae;g__Cardiobacterium	Europe	0.000789930662123103	1.34886187724276	6.41706242468638e-59	2	2	Europe	1	3	6
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__GCA-001735895;f__GCA-001735895;g__GCA-001735895	Europe	0.00047566177106884	0.776624667393234	8.57881064719321e-160	3	3	Europe	1	6	7
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Bacillales_B_306089;f__Bacillaceae_H_294103;g__Bacillus_P_294101	Europe	0.000281545735060147	0.423792638450258	2.83191584481799e-69	3	2	Europe	1	9	8
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Rhodanobacteraceae;g__Rhodanobacter_613036	Europe	9.34302472273069e-05	0.303377438197291	7.8643160464994e-75	3	3	Europe	1	10	9
+d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales_505101;f__Xanthobacteraceae;g__Bradyrhizobium_503372	Europe	4.58895771849117e-05	0.685912270574255	3.19933779134067e-128	3	2	Europe	2	7	10
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus	North America	0.320320049686414	0.721077084981988	3.21300908323243e-304	3	3	North America	2	6	1
+d__Bacteria;p__Patescibacteria;c__Paceibacteria;o__UBA9973;f__UBA5272;g__UBA11704	North America	0.00698499052202643	1.9230557023657	0	3	3	North America	3	1	2
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus	North America	0.00204574636258058	0.612876895988401	2.18795280155043e-21	3	3	North America	1	8	3
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Lactobacillaceae;g__Limosilactobacillus	North America	0.00171308784060776	0.394289784013979	4.31535024323824e-09	3	3	North America	1	9	4
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Bifidobacteriaceae;g__Bifidobacterium_388775	North America	0.000939139204441501	1.02784184918989	1.12593335783383e-56	3	3	North America	1	4	5
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Kingella_B_563201	North America	0.000913657415647793	1.04823194039063	1.67173343933856e-63	3	3	North America	3	3	6
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Bifidobacteriaceae;g__Scardovia	North America	0.000898742901948578	0.809257162148054	1.75563029007023e-35	3	3	North America	1	5	7
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Bifidobacteriaceae;g__Alloscardovia	North America	0.000363779397259124	1.05218314598322	8.70387756742231e-104	3	3	North America	2	2	8
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__UBA9339;f__UBA9339;g__UBA9339	North America	0.000216076632851128	0.661019863224787	5.6090560748776e-126	3	3	North America	3	7	9
+d__Bacteria;p__Elusimicrobiota;c__UBA8919;o__UBA8919;f__UBA8919;g__UBA9627	North America	0.000113905985129082	0.322969610928754	7.80646799704864e-74	3	3	North America	2	10	10
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella_A	Oceania	0.120036704753929	1.47212656213118	2.7937160813734e-22	3	3	Oceania	2	9	1
+d__Bacteria;p__Patescibacteria;c__Paceibacteria;o__Paceibacterales;f__Staskawiczbacteraceae;g__GWA2-37-10	Oceania	0.0375657797450102	2.63661590987875	1.26805894773648e-50	3	3	Oceania	2	1	2
+d__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Leptotrichiaceae;g__Leptotrichia_A_993758	Oceania	0.0240090726623679	1.6044002918099	2.42745606630526e-11	3	3	Oceania	3	6	3
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Veillonellales;f__Megasphaeraceae;g__Anaeroglobus_38550	Oceania	0.00962765348523602	2.1201881104162	3.61261420687234e-10	3	3	Oceania	2	4	4
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Selenomonadales;f__Selenomonadaceae_42771;g__Centipeda	Oceania	0.00702448954773371	1.45619575897702	8.86605378109427e-08	3	3	Oceania	3	10	5
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__Lachnoanaerobaculum	Oceania	0.00535650859273479	1.90454587578491	6.37249151776048e-18	3	3	Oceania	2	5	6
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__Moryella	Oceania	0.00410625080379731	2.2762682417995	1.29633777830847e-14	3	3	Oceania	3	2	7
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Bacillales_B_310392;f__Bacillaceae_G;g__Bacillus_A	Oceania	0.00180074943814065	1.47309541028936	1.07097267617685e-106	2	2	Oceania	1	8	8
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Enterococcaceae;g__Enterococcus_A	Oceania	0.000205079933622142	2.25133676521723	7.24277077453002e-40	2	2	Oceania	3	3	9
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Defluviitaleaceae;g__Defluviitalea_A	Oceania	0.000111509626488778	1.54484770274476	7.41309072095252e-103	2	2	Oceania	2	7	10
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Staphylococcales;f__Staphylococcaceae;g__Staphylococcus	South America	0.0361640376389956	2.27770270295362	4.86804511630144e-17	3	3	South America	2	3	1
+d__Bacteria;p__Patescibacteria;c__Paceibacteria;o__UBA6257;f__XYB1-36-10;g__XYB1-36-10	South America	0.0279072810988984	4.08394123873372	2.34494704760575e-62	2	2	South America	4	1	2
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Enterobacteriaceae_A_725029;g__Escherichia	South America	0.0176417397727431	1.33898651999379	8.59339901761606e-19	2	2	South America	2	7	3
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Enterobacteriaceae_A_725029;g__Klebsiella_724518	South America	0.0151672886433861	1.43607080814675	1.22337684029875e-23	3	3	South America	4	6	4
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales_A_660879;f__Moraxellaceae;g__Moraxella_C_651924	South America	0.00244808885122299	2.58351561419905	7.50646151781689e-59	2	2	South America	4	2	5
+d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae_486827;g__Sphingomonas_L_486704	South America	0.00138153009435136	1.9158433212214	3.16041097359548e-63	3	3	South America	2	5	6
+d__Bacteria;p__Patescibacteria;c__Paceibacteria;o__UBA9973;f__UBA5272;g__UBA5272	South America	0.000655384611143092	2.08515765710411	2.09592020908493e-32	2	2	South America	4	4	7
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Kingella_B_561456	South America	0.00061624094999245	1.00397095070725	1.07970366378158e-10	2	2	South America	3	9	8
+d__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Leptotrichiaceae;g__Pseudostreptobacillus	South America	0.000220599075413835	0.955436510508715	2.79186724053071e-23	2	2	South America	2	10	9
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Carnobacteriaceae;g__Dolosigranulum	South America	0.00011779855726739	1.21719539904686	2.25007873977366e-105	2	2	South America	1	8	10

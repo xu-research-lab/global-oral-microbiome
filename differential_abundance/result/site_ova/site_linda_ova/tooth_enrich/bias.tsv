@@ -1,0 +1,31 @@
+variable	bias
+site_cleanedtooth	-0.00582263287080464
+age_cleaned_group＞60 years	0.0725694400564493
+age_cleaned_group3-12 years	-0.0393887565348658
+age_cleaned_groupUnknown	-0.0582484731162142
+age_cleaned_group12-18 years	-0.000853330900018274
+age_cleaned_group6-36 months	-0.0350897616930325
+age_cleaned_group0-6 months	0.665662631641092
+sex_cleanedUnknown	-0.0171526892648031
+sex_cleanedM	-0.0309573177178285
+platform_cleaned454 GS FLX Titanium	0.735051615281341
+platform_cleanedIllumina HiSeq	-0.193104664339405
+platform_cleanedIllumina NovaSeq	-0.316010884229221
+platform_cleanedOther	-0.0315991638019354
+platform_cleanedIllumina NextSeq	-0.118073025633456
+sequencing_region_cleanedV3-V4	-0.144016897618414
+sequencing_region_cleanedV4-V5	-0.133599444455028
+sequencing_region_cleanedV1-V3	0.00438118426613278
+sequencing_region_cleanedOther	-0.0936675928547946
+sequencing_region_cleanedV1-V2	0.137436150285158
+sequencing_region_cleanedV3-V5	0.133401647227303
+sequencing_region_cleanedV3	-0.721375629717656
+bmi_cleaned_groupUnknown	-0.0761264345486433
+bmi_cleaned_group24.0-28.0	-0.0099794116852779
+bmi_cleaned_group≥28.0	-0.0432091812773726
+bmi_cleaned_group＜18.5	0.0112610332438581
+continent_groupAsia	-0.111813209232674
+continent_groupEurope	0.0158747803906859
+continent_groupOther	0.0232167508989518
+continent_groupOceania	-0.158046551115515
+continent_groupSouth America	-0.00626203029812131

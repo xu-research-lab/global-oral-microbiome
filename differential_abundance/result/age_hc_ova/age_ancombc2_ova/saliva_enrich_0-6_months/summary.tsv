@@ -1,0 +1,2 @@
+Age1	Age2	Site	Comparison	N1	N2	N_Significant	N_Enriched_Age1	N_Enriched_Age2	Formula
+Other	0-6 months	saliva	saliva_enrich_0-6_months	16574	786	35	16	19	age_cleaned_group + sex_cleaned + platform_cleaned + sequencing_region_cleaned + bmi_cleaned_group + continent_group + (1|bioproject_id)

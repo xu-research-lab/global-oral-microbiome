@@ -1,0 +1,11 @@
+{
+  "engine": "netmoss2",
+  "package_version": "0.2.0",
+  "getnetwork_patched": true,
+  "patched_source": "/home/zhangyuchen/global_oral/global-oral-microbiome/network/script_hc_pd_dc_oscc/install_netmoss2.sh",
+  "n_studies": 35,
+  "n_taxa": 522,
+  "n_nonfinite": 45,
+  "n_data_check_failures": 0,
+  "wall_sec": 29
+}

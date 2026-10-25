@@ -1,0 +1,7 @@
+design	comparison	N_union	N_linda_only	N_maaslin2_only	N_ancombc2_only	N_linda_maaslin2	N_linda_ancombc2	N_maaslin2_ancombc2	N_all_three	N_robust_any2
+ova	Africa_enrich	229	5	17	11	32	18	36	110	196
+ova	Asia_enrich	237	10	12	4	33	18	31	129	211
+ova	Europe_enrich	233	16	19	2	40	24	37	95	196
+ova	North_America_enrich	236	2	5	11	20	21	26	151	218
+ova	Oceania_enrich	182	20	48	11	65	5	11	22	103
+ova	South_America_enrich	145	4	13	22	64	1	3	38	106

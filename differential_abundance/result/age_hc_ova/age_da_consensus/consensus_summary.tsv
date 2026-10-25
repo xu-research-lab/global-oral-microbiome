@@ -1,0 +1,7 @@
+design	comparison	N_union	N_linda_only	N_maaslin2_only	N_ancombc2_only	N_linda_maaslin2	N_linda_ancombc2	N_maaslin2_ancombc2	N_all_three	N_robust_any2
+ova	saliva_enrich_0-6_months	88	1	0	6	52	2	0	27	81
+ova	saliva_enrich_12-18_years	36	11	1	0	20	0	0	4	24
+ova	saliva_enrich_18-60_years	84	17	0	6	37	5	0	19	61
+ova	saliva_enrich_3-12_years	80	2	3	10	28	2	0	35	65
+ova	saliva_enrich_6-36_months	71	3	0	2	30	1	0	35	66
+ova	saliva_enrich_gt60_years	87	17	0	4	50	3	0	13	66

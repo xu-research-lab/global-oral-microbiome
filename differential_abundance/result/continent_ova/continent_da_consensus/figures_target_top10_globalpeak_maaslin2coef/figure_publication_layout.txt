@@ -1,0 +1,5 @@
+Standalone Figure A: 70 x 57 mm.
+Standalone Figure B: 120 x 205 mm.
+Genus/count text: 7.5 pt; axes/legends: 7 pt. Figure B legends are on the right.
+PNG: 300 dpi. PDF: vector artwork with embedded fonts.
+Saved plotting values, genus order and group colors are preserved.

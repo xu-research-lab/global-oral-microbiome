@@ -1,0 +1,2 @@
+feature	genus_short	variable	baseMean	log2FoldChange	lfcSE	stat	pvalue	padj	reject	df	direction	enriched_in	Site1	Site2	Comparison
+d__Bacteria;p__Patescibacteria;c__JAEDAM01;o__BD1-5;f__UBA2023;g__GN02-873	GN02-873	site_cleanedgingiva		-1.717111433439	0.568354445306413	-3.02119821111501	0.00261757362471733	0.0397002359966507	TRUE		up_in_reference	Other	Other	gingiva	gingiva_enrich

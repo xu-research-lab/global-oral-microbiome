@@ -1,0 +1,2 @@
+Site1	Site2	Comparison	N1	N2	N_Significant	N_Enriched_Site1	N_Enriched_Site2	Formula
+Other	oral swab	oral_swab_enrich	43138	3575	50	24	26	site_cleaned + age_cleaned_group + sex_cleaned + platform_cleaned + sequencing_region_cleaned + bmi_cleaned_group + continent_group + (1|bioproject_id)

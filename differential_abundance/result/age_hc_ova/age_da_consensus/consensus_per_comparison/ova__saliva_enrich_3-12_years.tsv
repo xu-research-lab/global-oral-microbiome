@@ -1,0 +1,81 @@
+feature	in_linda	in_maaslin2	in_ancombc2	n_methods	all_three	robust	direction_consensus	design	comparison
+d__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Fusobacteriaceae;g__Fusobacterium_C	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__Oribacterium	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Prevotella	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Actinomyces	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Corynebacterium	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales_B_877923;f__Flavobacteriaceae;g__Capnocytophaga	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Haemophilus_D_735815	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Campylobacterota_A;c__Campylobacteria;o__Campylobacterales;f__Campylobacteraceae;g__Campylobacter_A_477346	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__Catonella	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae_A_595425;g__Lautropia	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Leptotrichiaceae;g__Leptotrichia_A_993758	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__Lachnoanaerobaculum	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Pauljensenia	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Aggregatibacter_736122	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Aerococcaceae;g__Granulicatella	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Bulleidia	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__Veillonella_A	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Nanosyncoccaceae;g__Nanosyncoccus	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Haemophilus_A	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Aerococcaceae;g__Abiotrophia	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Porphyromonadaceae;g__Porphyromonas_A	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Peptostreptococcaceae_256921;g__Peptostreptococcus	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__GCA-001735895;f__GCA-001735895;g__GCA-001735895	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Cardiobacteriales;f__Cardiobacteriaceae;g__Cardiobacterium	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Kingella_B_563201	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Nanosynbacteraceae;g__Nanosynbacter	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Neisseria_563205	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Selenomonadales;f__Selenomonadaceae_42771;g__Centipeda	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Anaerovoracaceae;g__Eubacterium_B	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Rhodanobacteraceae;g__Rhodanobacter_613036	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:Other	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Actinomycetaceae;g__Peptidiphaga	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Atopobiaceae;g__Lancefieldella	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Micrococcaceae;g__Rothia	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Kingella_A	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Tannerella	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae_A_595421;g__Pelomonas	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Nanosynbacteraceae;g__	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Staphylococcales;f__Staphylococcaceae;g__Staphylococcus	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:Other	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Leptotrichiaceae;g__Pseudoleptotrichia	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Leptotrichiaceae;g__Leptotrichia_A_993641	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Mannheimia	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Veillonellales;f__Veillonellaceae;g__F0422	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:Other	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae_A_595421;g__Ralstonia	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:Other	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Kingella_B_561456	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Propionibacteriales;f__Propionibacteriaceae;g__Arachnia	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Anaerovoracaceae;g__Mogibacterium_A	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__Johnsonella	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Haemophilus_D_734546	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Lachnospirales;f__Lachnospiraceae;g__F0428	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Peptostreptococcales;f__Filifactoraceae;g__	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Haemophilus_D_736121	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Saccharimonadaceae;g__Saccharimonas	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Simonsiella	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Staphylococcales;f__Gemellaceae;g__Gemella	TRUE	FALSE	TRUE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Nanogingivalaceae;g__Nanogingivalis	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:Other	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Spirochaetota;c__Spirochaetia;o__Treponematales;f__Treponemataceae;g__Treponema_B_986142	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Tissierellales;f__Peptoniphilaceae;g__Parvimonas	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_C;c__Negativicutes;o__Veillonellales;f__Megasphaeraceae;g__Anaeroglobus_38550	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Aggregatibacter_736224	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Patescibacteria;c__JAEDAM01;o__BD1-5;f__UBA6164;g__JAACSU01	TRUE	TRUE	TRUE	3	TRUE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Neisseriaceae;g__Eikenella_561455	TRUE	FALSE	FALSE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales_505101;f__Xanthobacteraceae;g__Bradyrhizobium_503372	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:Other	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__UBA10027;g__SDRW01	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Campylobacterota_A;c__Campylobacteria;o__Campylobacterales;f__Campylobacteraceae;g__Campylobacter_B	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Streptococcaceae;g__Lactococcus_A_346120	TRUE	FALSE	FALSE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Leptotrichiaceae;g__Pseudostreptobacillus	TRUE	TRUE	FALSE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales_737866;f__Pasteurellaceae;g__Rodentibacter_A_734545	TRUE	FALSE	TRUE	2	FALSE	TRUE	agreed:3-12 years	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus	FALSE	TRUE	FALSE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Rhodococcus_376336	FALSE	TRUE	FALSE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Lactobacillales;f__Carnobacteriaceae;g__Dolosigranulum	FALSE	TRUE	FALSE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Alloprevotella	FALSE	FALSE	TRUE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhodobacterales;f__Rhodobacteraceae;g__Paracoccus	FALSE	FALSE	TRUE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_A_368345;c__Clostridia_258483;o__Eubacteriales;f__Eubacteriaceae;g__Pseudoramibacter	FALSE	FALSE	TRUE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae_486827;g__Sphingomonas_L_486704	FALSE	FALSE	TRUE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Atopobiaceae;g__Fannyhessea	FALSE	FALSE	TRUE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Bacillota_I;c__Bacilli_A;o__Erysipelotrichales;f__Coprobacillaceae;g__Eggerthia	FALSE	FALSE	TRUE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales_A_660879;f__Moraxellaceae;g__Moraxella_A	FALSE	FALSE	TRUE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Patescibacteria;c__Paceibacteria;o__UBA6257;f__XYB1-36-10;g__XYB1-36-10	FALSE	FALSE	TRUE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales_A_660879;f__Moraxellaceae;g__Moraxella_C_651924	FALSE	FALSE	TRUE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years
+d__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Cyanobacteriales;f__Coleofasciculaceae;g__Caldora	FALSE	FALSE	TRUE	1	FALSE	FALSE	discordant	ova	saliva_enrich_3-12_years

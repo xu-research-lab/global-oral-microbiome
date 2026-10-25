@@ -1,0 +1,15 @@
+variable	bias
+continent_groupSouth America	0.595504067714835
+age_cleaned_groupOther	0.212217068802219
+age_cleaned_group3-12 years	0.384274745295246
+age_cleaned_group12-18 years	-0.239151817833587
+age_cleaned_group6-36 months	0.535412024011783
+sex_cleanedUnknown	0.155753154704228
+sex_cleanedF	0.0763560848538141
+platform_cleanedOther	0.0223246669779382
+sequencing_region_cleanedV3-V4	-0.115275518268821
+sequencing_region_cleanedOther	0.354653263886097
+bmi_cleaned_groupUnknown	-0.20942986491646
+bmi_cleaned_group24.0-28.0	0.185236342956202
+bmi_cleaned_group≥28.0	0.289933821680486
+bmi_cleaned_group＜18.5	-0.091444502190292

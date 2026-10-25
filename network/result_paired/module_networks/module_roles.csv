@@ -1,0 +1,25 @@
+module,health_status,module_hub,main_connector
+HC-M1,Healthy control,Treponema_D,Tannerella
+HC-M2,Healthy control,Haemophilus_D_735815,Centipeda
+HC-M3,Healthy control,Prevotella,Veillonella_A
+HC-M4,Healthy control,Capnocytophaga,Leptotrichia_A_993758
+HC-M5,Healthy control,Sphingomonas_L_486704,Flavobacterium
+HC-M6,Healthy control,Limosilactobacillus,Porphyromonas_A
+HC-M7,Healthy control,Parabacteroides_B_862066,
+PD-M1,Periodontal disease,Treponema_D,Granulicatella
+PD-M2,Periodontal disease,Neisseria_563205,Rothia
+PD-M3,Periodontal disease,Lancefieldella,Veillonella_A
+PD-M4,Periodontal disease,Peptostreptococcus,Alloprevotella
+PD-M5,Periodontal disease,Haemophilus_D_735815,Streptococcus
+PD-M6,Periodontal disease,Scardovia,Scardovia
+OSCC-M1,OSCC,Treponema_C,Alloprevotella
+OSCC-M2,OSCC,Bulleidia,Peptostreptococcus
+OSCC-M3,OSCC,Granulicatella,Leptotrichia_A_993758
+OSCC-M4,OSCC,Scardovia,Porphyromonas_A
+OSCC-M5,OSCC,Bacteroides_H_857956,Phocaeicola_A
+DC-M1,Dental caries,Catonella,Lachnoanaerobaculum
+DC-M2,Dental caries,Streptococcus,Centipeda
+DC-M3,Dental caries,F0058,Tannerella
+DC-M4,Dental caries,Capnocytophaga,Fusobacterium_C
+DC-M5,Dental caries,,Kingella_B_563201
+DC-M6,Dental caries,,Haemophilus_D_734546

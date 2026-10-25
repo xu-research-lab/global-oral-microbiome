@@ -1,0 +1,2 @@
+Site1	Site2	Comparison	N1	N2	N_Significant	N_Enriched_Site1	N_Enriched_Site2	Formula
+Other	oral mucosa	oral_mucosa_enrich	43166	3547	57	25	32	~ site_cleaned + age_cleaned_group + sex_cleaned + platform_cleaned + sequencing_region_cleaned + bmi_cleaned_group + continent_group + (1|bioproject_id)

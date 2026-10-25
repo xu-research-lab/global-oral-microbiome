@@ -1,0 +1,11 @@
+variable	bias
+continent_groupOceania	-0.240587022267957
+age_cleaned_groupOther	0.307502734931843
+age_cleaned_group＞60 years	0.0841880611410351
+sex_cleanedUnknown	0.163969924408338
+sex_cleanedF	0.0583584361154983
+platform_cleanedOther	0.18025509801257
+sequencing_region_cleanedV3-V4	-0.203220899113908
+sequencing_region_cleanedOther	0.244542725379329
+sequencing_region_cleanedV6-V8	0.38766105806673
+bmi_cleaned_groupOther	0.163553292635758

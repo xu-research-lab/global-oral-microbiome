@@ -1,0 +1,5 @@
+group,weight,pooling_engine,n_units,n_samples,n_genera,baseline,final,n_nodes
+HC,uw,netmoss2::getNetwork,35,2045,522,229,229,89
+PD,uw,netmoss2::getNetwork,18,1047,412,398,398,91
+DC,uw,netmoss2::getNetwork,9,390,139,160,160,49
+OSCC,uw,netmoss2::getNetwork,10,401,311,287,287,79

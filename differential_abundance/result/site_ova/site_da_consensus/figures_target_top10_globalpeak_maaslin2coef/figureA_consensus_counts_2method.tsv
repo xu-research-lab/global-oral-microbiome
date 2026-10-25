@@ -1,0 +1,13 @@
+target	direction	n_genera
+gingiva	Depleted	13
+gingiva	Enriched	12
+oral mucosa	Depleted	6
+oral mucosa	Enriched	14
+oral swab	Depleted	4
+oral swab	Enriched	23
+saliva	Depleted	4
+saliva	Enriched	2
+tongue	Depleted	43
+tongue	Enriched	11
+tooth	Depleted	6
+tooth	Enriched	44

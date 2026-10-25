@@ -1,0 +1,88 @@
+"Category","Disease","bioproject_id","Continent","Country","Region","n_case","n_hc","n_samples"
+"Malignancies","Lung Cancer","PRJNA356414","Europe","Italy","V3-V4",10,10,20
+"Malignancies","Lung Cancer","PRJNA801882","North America","United States","V4",1306,3398,4704
+"Oral and dental diseases","Periodontal Disease","PRJEB42371","North America","United States","V4",39,95,134
+"Oral and dental diseases","Periodontal Disease","PRJEB50261","North America","United States","V3-V4",310,478,788
+"Oral and dental diseases","Periodontal Disease","PRJEB50306","North America","United States","V4",167,142,309
+"Oral and dental diseases","Periodontal Disease","PRJEB6047","North America","Canada","V3",26,22,48
+"Oral and dental diseases","Periodontal Disease","PRJEB61123","Asia","Republic of Korea","V3-V4",64,8,72
+"Oral and dental diseases","Periodontal Disease","PRJNA1154284","North America","United States","V4",16,36,52
+"Oral and dental diseases","Periodontal Disease","PRJNA321534","North America","United States","V4",93,39,132
+"Oral and dental diseases","Periodontal Disease","PRJNA325500","South America","Brazil","V4",27,24,51
+"Oral and dental diseases","Periodontal Disease","PRJNA547446","Asia","China","V4-V5",20,25,45
+"Oral and dental diseases","Periodontal Disease","PRJNA578492","Asia","China","V3-V4",57,14,71
+"Oral and dental diseases","Periodontal Disease","PRJNA579148","Asia","China","V3-V4",30,28,58
+"Oral and dental diseases","Periodontal Disease","PRJNA650272","Europe","Hungary","V3-V4",21,4,25
+"Oral and dental diseases","Periodontal Disease","PRJNA660085","South America","Brazil","V3-V4",18,4,22
+"Oral and dental diseases","Periodontal Disease","PRJNA664107","Europe","Russia","V3-V4",30,16,46
+"Oral and dental diseases","Periodontal Disease","PRJNA670573","Europe","Czech Republic","V4-V5",45,108,153
+"Oral and dental diseases","Periodontal Disease","PRJNA721290","Asia","China","V3-V4",25,9,34
+"Oral and dental diseases","Periodontal Disease","PRJNA735261","South America","Brazil","V3-V4",9,9,18
+"Oral and dental diseases","Periodontal Disease","PRJNA739492","North America","United States","V1-V3",66,77,143
+"Malignancies","Colorectal Cancer","PRJEB70783","North America","Canada","V4-V5",20,1357,1377
+"Malignancies","Colorectal Cancer","PRJNA801882","North America","United States","V4",981,3398,4379
+"Malignancies","Head and Neck Cancer","PRJEB37445","Asia","China","V3-V4",499,495,994
+"Malignancies","Head and Neck Cancer","PRJNA421234","Oceania","New Zealand","V3-V4",14,7,21
+"Malignancies","Head and Neck Cancer","PRJNA666972","Asia","China","V3-V4",56,64,120
+"Malignancies","Head and Neck Cancer","PRJNA744870","Asia","China","V3-V4",77,76,153
+"Malignancies","Head and Neck Cancer","PRJNA901226","Oceania","Australia","V3-V4",117,243,360
+"Infectious and immune-mediated diseases","COVID-19","PRJEB62655","North America","United States","V4",72,57,129
+"Infectious and immune-mediated diseases","COVID-19","PRJNA660302","Asia","China","V3-V4",242,150,392
+"Infectious and immune-mediated diseases","COVID-19","PRJNA692359","Europe","Italy","V2-V3",26,15,41
+"Infectious and immune-mediated diseases","COVID-19","PRJNA767939","Asia","Bangladesh","V3-V4",22,15,37
+"Infectious and immune-mediated diseases","COVID-19","PRJNA780671","Asia","India","V4",30,24,54
+"Infectious and immune-mediated diseases","COVID-19","PRJNA896341","North America","Mexico","V1-V3",178,31,209
+"Malignancies","Breast Cancer","PRJEB70783","North America","Canada","V4-V5",108,1357,1465
+"Malignancies","Breast Cancer","PRJNA767189","Africa","Ghana","V4",385,411,796
+"Malignancies","OSCC","PRJEB18476","Europe","Austria","V4",11,10,21
+"Malignancies","OSCC","PRJEB39064","Asia","China","V3-V4",27,27,54
+"Malignancies","OSCC","PRJEB4953","North America","United States","V4",16,10,26
+"Malignancies","OSCC","PRJNA386665","Asia","China","V4",124,127,251
+"Malignancies","OSCC","PRJNA666746","Asia","India","V3-V4",34,16,50
+"Malignancies","OSCC","PRJNA700849","South America","Brazil","V4",15,7,22
+"Malignancies","OSCC","PRJNA730970","Asia","China","V4-V5",22,15,37
+"Malignancies","OSCC","PRJNA751046","Asia","India","V6-V8",36,76,112
+"Malignancies","OSCC","PRJNA756784","Asia","India","V3",19,40,59
+"Malignancies","OSCC","PRJNA997108","Europe","Finland","V4",99,103,202
+"Gastrointestinal diseases","IBD","PRJEB11419","North America","United States","V4",228,721,949
+"Gastrointestinal diseases","IBD","PRJEB70783","North America","Canada","V4-V5",161,1357,1518
+"Gastrointestinal diseases","IBD","PRJNA749643","Europe","Spain","V3-V4",10,11,21
+"Oral and dental diseases","Dental Caries","PRJEB86033","Asia","China","V3-V4",51,38,89
+"Oral and dental diseases","Dental Caries","PRJNA330533","Asia","China","V4",25,12,37
+"Oral and dental diseases","Dental Caries","PRJNA339212","Asia","China","V1-V2",21,21,42
+"Oral and dental diseases","Dental Caries","PRJNA383868","Oceania","Australia","V4",175,313,488
+"Oral and dental diseases","Dental Caries","PRJNA493618","Asia","China","V3-V4",13,15,28
+"Oral and dental diseases","Dental Caries","PRJNA555320","North America","Canada","V4",40,40,80
+"Oral and dental diseases","Dental Caries","PRJNA622300","North America","United States","V1-V3",34,22,56
+"Oral and dental diseases","Dental Caries","PRJNA643173","Europe","Spain","V3-V4",11,31,42
+"Oral and dental diseases","Dental Caries","PRJNA681486","Europe","Sweden","V3-V4",20,20,40
+"Infectious and immune-mediated diseases","HIV","PRJDB9093","Asia","Japan","V3-V4",20,13,33
+"Infectious and immune-mediated diseases","HIV","PRJEB25569","Europe","Spain","V3-V4",33,12,45
+"Infectious and immune-mediated diseases","HIV","PRJNA278076","North America","United States","V1-V3",43,15,58
+"Infectious and immune-mediated diseases","HIV","PRJNA330897","North America","United States","V4",119,30,149
+"Infectious and immune-mediated diseases","HIV","PRJNA739016","Asia","China","V4-V5",30,15,45
+"Infectious and immune-mediated diseases","HIV","PRJNA900274","Europe","Sweden","V3-V4",58,57,115
+"Infectious and immune-mediated diseases","RA","PRJNA578951","Asia","China","V3-V4",28,23,51
+"Infectious and immune-mediated diseases","RA","PRJNA656387","Oceania","Australia","Unknown",105,92,197
+"Infectious and immune-mediated diseases","RA","PRJNA841771","Asia","Kazakhstan","Unknown",75,114,189
+"Gastrointestinal diseases","Gastroesophageal Reflux Disease","PRJCA005537","Asia","China","V3-V4",86,106,192
+"Gastrointestinal diseases","Gastroesophageal Reflux Disease","PRJNA639327","Asia","China","V3-V4",55,51,106
+"Gastrointestinal diseases","Gastroesophageal Reflux Disease","PRJNA674379","North America","United States","V1-V3",36,92,128
+"Oral and dental diseases","Aphthous","PRJNA266382","Asia","Republic of Korea","V1-V3",29,27,56
+"Oral and dental diseases","Aphthous","PRJNA413647","Asia","China","V3-V4",47,42,89
+"Oral and dental diseases","Aphthous","PRJNA521448","Europe","Czech Republic","V3-V4",99,21,120
+"Cardiometabolic and sleep-related disorders","Hypertension","PRJCA006963","Asia","China","V3-V4",23,27,50
+"Cardiometabolic and sleep-related disorders","Hypertension","PRJNA764503","Asia","China","V3-V4",81,42,123
+"Cardiometabolic and sleep-related disorders","Obesity","PRJEB15057","Europe","Italy","V4",24,25,49
+"Cardiometabolic and sleep-related disorders","Obesity","PRJNA587625","Asia","Qatar","V3-V4",36,32,68
+"Cardiometabolic and sleep-related disorders","Obesity","qiita_11259","North America","United States","V4",25,25,50
+"Malignancies","Esophageal Cancer","PRJNA660092","Asia","China","V3-V4",39,51,90
+"Malignancies","Esophageal Cancer","PRJNA853196","Asia","China","V3-V4",48,39,87
+"Malignancies","Thyroid Cancer","PRJNA784772","Asia","China","V3-V4",62,40,102
+"Malignancies","Thyroid Cancer","PRJNA863466","Asia","China","V3-V4",14,15,29
+"Cardiometabolic and sleep-related disorders","Obstructive Sleep Apnea","PRJCA006963","Asia","China","V3-V4",53,27,80
+"Cardiometabolic and sleep-related disorders","Obstructive Sleep Apnea","PRJNA544600","Asia","China","V3-V4",15,9,24
+"Oral and dental diseases","Oral Lichen Planus","PRJNA306560","Asia","China","V4",37,18,55
+"Oral and dental diseases","Oral Lichen Planus","PRJNA598825","Europe","Sweden","V3-V4",18,12,30
+"Cardiometabolic and sleep-related disorders","Diabetes","PRJEB11419","North America","United States","V4",18,721,739
+"Cardiometabolic and sleep-related disorders","Diabetes","PRJNA759836","Asia","Israel","V4",37,29,66

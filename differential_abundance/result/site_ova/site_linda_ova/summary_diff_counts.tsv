@@ -1,0 +1,7 @@
+Site1	Site2	Comparison	N1	N2	N_Enriched_Site1.cfg	N_Enriched_Site2.cfg	N_Significant	N_Enriched_Site1	N_Enriched_Site2
+Other	gingiva	gingiva_enrich	46297	416	49	26	75	49	26
+Other	oral mucosa	oral_mucosa_enrich	43166	3547	25	32	57	25	32
+Other	oral swab	oral_swab_enrich	43138	3575	50	54	104	50	54
+Other	saliva	saliva_enrich	14698	32015	51	68	119	51	68
+Other	tongue	tongue_enrich	44725	1988	59	23	82	59	23
+Other	tooth	tooth_enrich	41541	5172	60	59	119	60	59

@@ -1,0 +1,15 @@
+variable	bias
+age_cleaned_group0-6 months	0.937247167939125
+sex_cleanedUnknown	-0.0977749469497031
+sex_cleanedF	0.0438537605946334
+platform_cleaned454 GS FLX Titanium	0.885816207962969
+platform_cleanedIllumina HiSeq	-0.382462510159431
+platform_cleanedOther	-0.147368628618808
+sequencing_region_cleanedV3-V4	-0.0997253127779165
+sequencing_region_cleanedOther	-0.0549681725962016
+sequencing_region_cleanedV1-V2	0.189220232787818
+sequencing_region_cleanedV1-V3	-0.210479543782173
+bmi_cleaned_groupOther	0.0261062180081286
+continent_groupAsia	-0.241541066857394
+continent_groupEurope	-0.197747097443565
+continent_groupOther	-0.0814544363003835

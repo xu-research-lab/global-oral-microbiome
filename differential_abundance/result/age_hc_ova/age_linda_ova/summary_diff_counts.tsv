@@ -1,0 +1,7 @@
+Age1	Age2	Comparison	Site	N1	N2	N_Enriched_Age1.cfg	N_Enriched_Age2.cfg	N_Significant	N_Enriched_Age1	N_Enriched_Age2
+Other	＞60 years	saliva_enrich_gt60_years	saliva	13160	4200	50	33	83	50	33
+Other	0-6 months	saliva_enrich_0-6_months	saliva	16574	786	77	5	82	77	5
+Other	12-18 years	saliva_enrich_12-18_years	saliva	16044	1316	30	5	35	30	5
+Other	18-60 years	saliva_enrich_18-60_years	saliva	8773	8587	25	53	78	25	53
+Other	3-12 years	saliva_enrich_3-12_years	saliva	15432	1928	6	61	67	6	61
+Other	6-36 months	saliva_enrich_6-36_months	saliva	16817	543	5	64	69	5	64

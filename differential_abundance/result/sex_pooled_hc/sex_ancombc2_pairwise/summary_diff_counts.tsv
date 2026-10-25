@@ -1,0 +1,3 @@
+Sex1	Sex2	Comparison	Site	Continent	N1	N2	N_Enriched_Sex1.cfg	N_Enriched_Sex2.cfg	N_Significant	N_Enriched_Sex1	N_Enriched_Sex2
+F	M	saliva_pooled_F_vs_M	saliva	pooled	5379	6010	4	35	39	4	35
+M	F	saliva_pooled_M_vs_F	saliva	pooled	6010	5379			39	35	4

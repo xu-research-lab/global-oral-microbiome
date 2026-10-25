@@ -1,0 +1,17 @@
+variable	bias
+age_cleaned_group6-36 months	-0.591308072949175
+sex_cleanedUnknown	0.17180408106266
+sex_cleanedF	0.0410567337188113
+platform_cleanedOther	0.36452172242882
+platform_cleanedIllumina HiSeq	-0.315130972055742
+sequencing_region_cleanedV3-V4	0.063915954546615
+sequencing_region_cleanedOther	0.136302600611046
+sequencing_region_cleanedV1-V2	0.542544074087231
+sequencing_region_cleanedV1-V3	-0.0051785245714767
+bmi_cleaned_groupUnknown	-0.0280730819444427
+bmi_cleaned_groupOther	-0.00542206130058953
+bmi_cleaned_group＜18.5	-0.0181162704169404
+continent_groupAsia	-0.444385740073382
+continent_groupEurope	-0.26523373074697
+continent_groupOther	-0.417155523626244
+continent_groupSouth America	0.685624326295581

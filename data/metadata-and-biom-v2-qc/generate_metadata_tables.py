@@ -43,6 +43,16 @@ FUNNEL_SUMMARY = f'{QC_DIR}/filter_funnel_summary.tsv'
 REMOVED_STUDIES = f'{QC_DIR}/removed_studies_by_step.tsv'
 
 
+def count_subjects(rows):
+    """Number of individuals: distinct subject_id per study, summed across studies.
+
+    subject_id is only unique within a study (the same value recurs in other
+    studies), so a global unique count would undercount individuals.
+    """
+    return len({(r['bioproject_id'], r['subject_id']) for r in rows
+                if r.get('subject_id') not in (None, '', 'NA')})
+
+
 def dedupe_fieldnames(fieldnames):
     seen = set()
     deduped = []
@@ -228,7 +238,7 @@ def main():
     n_all = len(all_qc_rows)
     n_oral = len(oral_rows)
     n_dedup = len(dedup_rows)
-    n_subjects = len(set(r['subject_id'] for r in dedup_rows))
+    n_subjects = count_subjects(dedup_rows)
     n_studies_all = len(set(r['bioproject_id'] for r in all_qc_rows))
     n_studies_oral = len(set(r['bioproject_id'] for r in oral_rows))
     oral_sites = Counter(r.get('site_cleaned', r.get('site', '')) for r in oral_rows)

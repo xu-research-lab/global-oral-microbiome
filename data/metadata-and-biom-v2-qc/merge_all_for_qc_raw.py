@@ -74,6 +74,21 @@ def unique_nonempty(values):
     return len({norm(v) for v in values if norm(v) and norm(v) != 'NA'})
 
 
+def count_subjects(rows, study_key='bioproject_id', subject_key='subject_id'):
+    """Number of individuals: distinct subject_id per study, summed across studies.
+
+    subject_id is only unique within a study (the same value recurs in other
+    studies), so a global unique count would undercount individuals.
+    """
+    pairs = set()
+    for r in rows:
+        study = norm(r.get(study_key))
+        subject = norm(r.get(subject_key))
+        if subject and subject != 'NA':
+            pairs.add((study, subject))
+    return len(pairs)
+
+
 def to_float(value):
     try:
         if norm(value) in {'', 'NA'}:
@@ -94,7 +109,7 @@ def main():
                        if f not in ('bioproject', 'sample_id', 'subject_id')]
     base_studies = unique_nonempty(r.get('bioproject') for r in meta_rows)
     base_samples = unique_nonempty(r.get('sample_id') for r in meta_rows)
-    base_subjects = unique_nonempty(r.get('subject_id') for r in meta_rows)
+    base_subjects = count_subjects(meta_rows, study_key='bioproject')
     print(f'  base rows: {len(meta_rows)}')
     print(f'  base studies: {base_studies}')
     print(f'  base samples: {base_samples}')
@@ -273,7 +288,7 @@ def main():
     out_rows = len(merged)
     out_studies = unique_nonempty(r.get('bioproject_id') for r in merged)
     out_samples = unique_nonempty(r.get('sample_id') for r in merged)
-    out_subjects = unique_nonempty(r.get('subject_id') for r in merged)
+    out_subjects = count_subjects(merged)
 
     print(f'\nStep 11: Written {out_rows} rows to {OUT}')
     print(f'  Columns: {len(out_fields)}')

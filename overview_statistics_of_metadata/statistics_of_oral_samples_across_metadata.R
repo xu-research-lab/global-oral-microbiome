@@ -11,14 +11,8 @@ find_script_dir <- function() {
   normalizePath(getwd())
 }
 script_dir <- find_script_dir()
-SERVER_ROOT <- "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-map-2/04-patch-pipeline-map/03-patch-pipeline-map"
-LOCAL_BASE  <- normalizePath(file.path(script_dir, "..", ".."))
-on_server   <- dir.exists(file.path(SERVER_ROOT, "input"))
-if (on_server) {
-  BASE_DIR  <- SERVER_ROOT
-} else {
-  BASE_DIR  <- LOCAL_BASE
-}
+PROJECT_ROOT <- normalizePath(file.path(script_dir, ".."))
+BASE_DIR     <- PROJECT_ROOT
 
 PANEL_DIR <- file.path(script_dir, "results", "Fig1")
 BASE_DIR    <- Sys.getenv("FIG1_BASE_DIR",  unset = BASE_DIR)

@@ -11,18 +11,9 @@ find_script_dir <- function() {
   normalizePath(getwd())
 }
 script_dir <- find_script_dir()
-SERVER_ROOT <- "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-map-2/04-patch-pipeline-map/03-patch-pipeline-map"
-SERVER_METADATA <- file.path(
-  SERVER_ROOT, "input", "metadata_oral_qc.tsv"
-)
-
-LOCAL_BASE  <- normalizePath(file.path(script_dir, "..", ".."))
-on_server   <- dir.exists(file.path(SERVER_ROOT, "input"))
-if (on_server) {
-  BASE_DIR  <- SERVER_ROOT
-} else {
-  BASE_DIR  <- LOCAL_BASE
-}
+PROJECT_ROOT <- normalizePath(file.path(script_dir, ".."))
+DATA_DIR     <- file.path(PROJECT_ROOT, "data", "metadata-and-biom-v2-qc")
+BASE_DIR     <- PROJECT_ROOT
 
 PANEL_DIR <- file.path(script_dir, "results", "Fig1")
 BASE_DIR    <- Sys.getenv("FIG1_BASE_DIR",  unset = BASE_DIR)
@@ -55,11 +46,7 @@ fig1_site_colors <- c(
 
 metadata_path <- Sys.getenv(
   "FIG1_METADATA",
-  unset = if (on_server) {
-    SERVER_METADATA
-  } else {
-    file.path(LOCAL_BASE, "input", "metadata_oral_qc.tsv")
-  }
+  unset = file.path(DATA_DIR, "metadata_oral_qc.tsv")
 )
 
 panel_png <- c(
@@ -170,15 +157,23 @@ render_panel_C_world_map <- function(out_dir) {
     filter(!Continent %in% c("Other", "Antarctica")) %>%
     mutate(Continent = factor(Continent, levels = continent_order))
 
+  # Count subjects once per (BioProject, subject_id) across the whole compendium,
+  # assigning each subject to the continent of its first sample, so the six
+  # continent cards sum to the global unique-subject total.
+  subject_counts <- meta_clean %>%
+    distinct(BioProject, subject_id, .keep_all = TRUE) %>%
+    count(Continent, name = "n_subj")
+
   continent_summary <- meta_clean %>%
     group_by(Continent) %>%
     summarise(
       n_countries = n_distinct(Country_Cleaned),
       n_bp   = n_distinct(BioProject),
-      n_subj = n_distinct(subject_id),
       n_samp = n(),
       .groups = "drop"
     ) %>%
+    left_join(subject_counts, by = "Continent") %>%
+    mutate(n_subj = coalesce(n_subj, 0L)) %>%
     mutate(
       Card_Title = case_when(
         Continent == "NAM" ~ "NA",
@@ -207,6 +202,9 @@ render_panel_C_world_map <- function(out_dir) {
   continent_summary <- continent_summary %>%
     left_join(continent_coords, by = "Continent") %>%
     mutate(lon_lab = lon_pie + 9.5)
+
+  cat("Total unique (BioProject, subject_id) subjects:",
+      sum(continent_summary$n_subj), "\n")
 
   country_summary <- meta_clean %>%
     group_by(Country_Cleaned, Continent) %>%

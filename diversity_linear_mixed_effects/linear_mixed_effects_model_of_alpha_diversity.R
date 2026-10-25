@@ -40,17 +40,10 @@ find_script_dir <- function() {
 }
 script_dir <- find_script_dir()
 
-SERVER_ROOT <- "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-map-2/04-patch-pipeline-map/03-patch-pipeline-map"
-SERVER_METADATA_DEDUP <- file.path(SERVER_ROOT, "input", "metadata_oral_qc_dedup.tsv")
-SERVER_ALPHA_DIR <- file.path(SERVER_ROOT, "overview_figure_1", "Fig1-0926",
-                              "results", "Fig3", "alpha_fig3")
-on_server <- dir.exists(file.path(SERVER_ROOT, "input"))
+PROJECT_ROOT <- normalizePath(file.path(script_dir, ".."))
+DATA_DIR     <- file.path(PROJECT_ROOT, "data", "metadata-and-biom-v2-qc")
 
-out_dir <- if (on_server) {
-  SERVER_ALPHA_DIR
-} else {
-  file.path(script_dir, "results", "Fig3", "alpha_fig3")
-}
+out_dir <- file.path(script_dir, "results", "Fig3", "alpha_fig3")
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 setwd(out_dir)
 cat("Output dir:", out_dir, "\n")
@@ -58,11 +51,7 @@ cat("========================================\n")
 cat("Step 1: Load and prepare data\n")
 cat("========================================\n")
 
-metadata_path <- if (on_server) {
-  SERVER_METADATA_DEDUP
-} else {
-  file.path(script_dir, "..", "..", "input", "metadata_oral_qc_dedup.tsv")
-}
+metadata_path <- file.path(DATA_DIR, "metadata_oral_qc_dedup.tsv")
 cat("Metadata file:", metadata_path, "\n")
 metadata <- read.table(metadata_path,
                        header = TRUE, sep = "\t",

@@ -12,18 +12,9 @@ find_script_dir <- function() {
 }
 script_dir <- find_script_dir()
 
-SERVER_ROOT <- "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-map-2/04-patch-pipeline-map/03-patch-pipeline-map"
-SERVER_METADATA <- file.path(
-  SERVER_ROOT, "input", "metadata_oral_qc.tsv"
-)
-
-LOCAL_BASE  <- normalizePath(file.path(script_dir, "..", ".."))
-on_server   <- dir.exists(file.path(SERVER_ROOT, "input"))
-if (on_server) {
-  BASE_DIR  <- SERVER_ROOT
-} else {
-  BASE_DIR  <- LOCAL_BASE
-}
+PROJECT_ROOT <- normalizePath(file.path(script_dir, ".."))
+DATA_DIR     <- file.path(PROJECT_ROOT, "data", "metadata-and-biom-v2-qc")
+BASE_DIR     <- PROJECT_ROOT
 
 PANEL_DIR <- file.path(script_dir, "results", "Fig1")
 BASE_DIR    <- Sys.getenv("FIG1_BASE_DIR",  unset = BASE_DIR)
@@ -41,11 +32,7 @@ fig1_panel_in <- function(x) x * FIG1_PANEL_SCALE
 
 metadata_path <- Sys.getenv(
   "FIG1_METADATA",
-  unset = if (on_server) {
-    SERVER_METADATA
-  } else {
-    file.path(LOCAL_BASE, "input", "metadata_oral_qc.tsv")
-  }
+  unset = file.path(DATA_DIR, "metadata_oral_qc.tsv")
 )
 
 panel_png <- c(

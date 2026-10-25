@@ -13,45 +13,22 @@ find_script_dir <- function() {
 }
 script_dir <- find_script_dir()
 
-SERVER_ROOT <- "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-map-2/04-patch-pipeline-map/03-patch-pipeline-map"
-SERVER_BIOM_DEDUP <- file.path(
-  SERVER_ROOT, "input", "biom_oral_qc_dedup.biom"
-)
-SERVER_METADATA_DEDUP <- file.path(
-  SERVER_ROOT, "input", "metadata_oral_qc_dedup.tsv"
-)
-SERVER_TAXONOMY <- file.path(SERVER_ROOT, "input", "taxonomy.tsv")
-SERVER_OUT_DIR <- file.path(
-  SERVER_ROOT, "overview_figure_1", "Fig1-1002", "results", "Fig3"
-)
+PROJECT_ROOT <- normalizePath(file.path(script_dir, ".."))
+DATA_DIR     <- file.path(PROJECT_ROOT, "data", "metadata-and-biom-v2-qc")
 
-LOCAL_BASE <- normalizePath(file.path(script_dir, "..", ".."))
-on_server  <- dir.exists(file.path(SERVER_ROOT, "input"))
-BASE_DIR   <- if (on_server) SERVER_ROOT else LOCAL_BASE
-PANEL_DIR  <- Sys.getenv(
+BASE_DIR  <- PROJECT_ROOT
+PANEL_DIR <- Sys.getenv(
   "FIG3_PANEL_DIR",
-  unset = if (on_server) SERVER_OUT_DIR else file.path(script_dir, "results", "Fig3")
+  unset = file.path(script_dir, "results", "Fig3")
 )
 INPUT_CACHE_DIR <- file.path(PANEL_DIR, ".input_cache_0922")
 
-INPUT_BIOM <- if (on_server) {
-  SERVER_BIOM_DEDUP
-} else {
-  file.path(LOCAL_BASE, "input", "biom_oral_qc_dedup.biom")
-}
-INPUT_TAXONOMY <- if (on_server) {
-  SERVER_TAXONOMY
-} else {
-  file.path(LOCAL_BASE, "input", "taxonomy.tsv")
-}
+INPUT_BIOM <- file.path(DATA_DIR, "biom_oral_qc_dedup.biom")
+INPUT_TAXONOMY <- file.path(DATA_DIR, "taxonomy.tsv")
 
 metadata_path <- Sys.getenv("FIG1_METADATA",
-                            unset = if (on_server) {
-                              SERVER_METADATA_DEDUP
-                            } else {
-                              file.path(LOCAL_BASE, "input",
-                                        "metadata_oral_qc_dedup.tsv")
-                            })
+                            unset = file.path(DATA_DIR,
+                                              "metadata_oral_qc_dedup.tsv"))
 abund_file <- Sys.getenv(
   "FIG1_PHYLUM_TABLE",
   unset = file.path(INPUT_CACHE_DIR, "genus-relative-table_0922.tsv")

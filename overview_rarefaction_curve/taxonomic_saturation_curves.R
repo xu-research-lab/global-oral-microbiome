@@ -26,14 +26,12 @@ first_existing <- function(paths) {
 }
 
 biom_file <- first_existing(c(
-  file.path(out_dir, "..", "input_1021", "biom_oral_qc.biom"),
-  "D:/YL2025/2026/global-oral-github-YL-v2/global-oral-microbiome/data/metadata-and-biom-v2-qc/biom_oral_qc.biom",
-  "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-pipeline-map/input/biom_oral_qc.biom"
+  file.path(out_dir, "..", "data", "metadata-and-biom-v2-qc", "biom_oral_qc.biom"),
+  file.path(out_dir, "..", "input_1021", "biom_oral_qc.biom")
 ))
 taxonomy_file <- first_existing(c(
-  file.path(out_dir, "..", "input_1021", "taxonomy.tsv"),
-  "D:/YL2026/launch/Inkscape/Inkscape-backup/global-oral/manuscript/261021/input_1021/taxonomy.tsv",
-  "/home/yanglun/YSD/global_oral/global_oral_v2/oral-v2-02/01-overview-sampling-distribution/02-patch-pipeline-map/input/taxonomy.tsv"
+  file.path(out_dir, "..", "data", "metadata-and-biom-v2-qc", "taxonomy.tsv"),
+  file.path(out_dir, "..", "input_1021", "taxonomy.tsv")
 ))
 
 tsv_out <- file.path(out_dir, "rarefaction_pcofg.tsv")

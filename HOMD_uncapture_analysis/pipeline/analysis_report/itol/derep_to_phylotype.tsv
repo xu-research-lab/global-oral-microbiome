@@ -1,0 +1,1310 @@
+tip	phylotype	novelty	gg2_name	subjects	bps	reads	asvs	continents
+DEREP_154458	EDGE_101602	novel_all_refs	UBA5272 sp002408565	117	6	2360	3	{'Oceania', 'North America', 'Europe', 'Asia'}
+DEREP_364023	EDGE_101602	novel_all_refs	UBA5272 sp002408565	117	6	2360	3	{'Oceania', 'North America', 'Europe', 'Asia'}
+DEREP_447864	EDGE_101602	novel_all_refs	UBA5272 sp002408565	117	6	2360	3	{'Oceania', 'North America', 'Europe', 'Asia'}
+DEREP_97955	EDGE_111272	known_not_in_homd	UBA5272 sp002408565	153	9	4311	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_251728	EDGE_111272	known_not_in_homd	UBA5272 sp002408565	153	9	4311	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_492457	EDGE_111272	known_not_in_homd	UBA5272 sp002408565	153	9	4311	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1080444	EDGE_111272	known_not_in_homd	UBA5272 sp002408565	153	9	4311	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_2713	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_4981	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_10003	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_14390	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_15130	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_16292	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_19556	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_20527	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_20881	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_33160	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_36518	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_39527	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_49467	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_50432	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_51172	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_52470	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_52727	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_58562	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_61092	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_62744	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_67679	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_72830	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_76172	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_81140	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_81228	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_85206	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_96019	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_97732	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_98293	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_105612	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_107453	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_107864	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_115116	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_115403	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_117196	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_118787	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_121677	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_132425	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_136431	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_141357	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_151002	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_153208	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_155196	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_155853	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_162367	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_164622	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_166933	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_177248	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_190386	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_191835	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_204082	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_235160	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_246262	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_249443	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_249775	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_250882	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_253813	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_282766	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_283754	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_287547	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_290935	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_307296	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_311100	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_321210	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_322420	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_341918	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_346973	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_348198	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_349587	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_352258	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_355461	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_366694	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_377491	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_378316	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_380311	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_392256	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_421857	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_423369	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_427169	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_438851	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_444664	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_468298	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_474600	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_485112	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_513212	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_519629	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_546906	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_560917	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_561071	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_573714	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_579708	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_582062	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_603314	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_603315	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_616705	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_623852	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_625794	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_647212	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_666931	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_677129	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_687643	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_726287	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_772212	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_803116	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_809578	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_821822	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_862355	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_890097	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_943278	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1004068	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1011534	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1011535	EDGE_112323	known_not_in_homd	Capnocytophaga	1846	36	887163	112	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_142477	EDGE_135701	known_not_in_homd		130	5	2554	3	{'Oceania', 'North America', 'Europe', 'South America'}
+DEREP_299278	EDGE_135701	known_not_in_homd		130	5	2554	3	{'Oceania', 'North America', 'Europe', 'South America'}
+DEREP_748170	EDGE_135701	known_not_in_homd		130	5	2554	3	{'Oceania', 'North America', 'Europe', 'South America'}
+DEREP_1144	EDGE_137864	known_not_in_homd	Bacteroides_H_857956 fragilis	393	11	1179219	10	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_3793	EDGE_137864	known_not_in_homd	Bacteroides_H_857956 fragilis	393	11	1179219	10	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_6721	EDGE_137864	known_not_in_homd	Bacteroides_H_857956 fragilis	393	11	1179219	10	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_6755	EDGE_137864	known_not_in_homd	Bacteroides_H_857956 fragilis	393	11	1179219	10	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_7283	EDGE_137864	known_not_in_homd	Bacteroides_H_857956 fragilis	393	11	1179219	10	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_36662	EDGE_137864	known_not_in_homd	Bacteroides_H_857956 fragilis	393	11	1179219	10	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_52464	EDGE_137864	known_not_in_homd	Bacteroides_H_857956 fragilis	393	11	1179219	10	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_58411	EDGE_137864	known_not_in_homd	Bacteroides_H_857956 fragilis	393	11	1179219	10	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_77250	EDGE_137864	known_not_in_homd	Bacteroides_H_857956 fragilis	393	11	1179219	10	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_218736	EDGE_137864	known_not_in_homd	Bacteroides_H_857956 fragilis	393	11	1179219	10	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_22952	EDGE_140427	known_not_in_homd	Lepagella muris_A	246	7	51875	9	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_35092	EDGE_140427	known_not_in_homd	Lepagella muris_A	246	7	51875	9	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_52018	EDGE_140427	known_not_in_homd	Lepagella muris_A	246	7	51875	9	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_82938	EDGE_140427	known_not_in_homd	Lepagella muris_A	246	7	51875	9	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_131616	EDGE_140427	known_not_in_homd	Lepagella muris_A	246	7	51875	9	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_502793	EDGE_140427	known_not_in_homd	Lepagella muris_A	246	7	51875	9	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_635950	EDGE_140427	known_not_in_homd	Lepagella muris_A	246	7	51875	9	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_779956	EDGE_140427	known_not_in_homd	Lepagella muris_A	246	7	51875	9	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_823862	EDGE_140427	known_not_in_homd	Lepagella muris_A	246	7	51875	9	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_23889	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_71144	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_84969	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_111469	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_142582	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_182558	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_209879	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_282447	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_566218	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_581085	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_620517	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_640298	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_663003	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_675212	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_682380	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_711141	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_815201	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_866282	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_939512	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1042857	EDGE_140733	novel_all_refs	Perlabentimonas gracilis	803	21	40426	20	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_71709	EDGE_15856	novel_all_refs	Micavibrio_B_508717 sp002423285	124	9	11948	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_85789	EDGE_15856	novel_all_refs	Micavibrio_B_508717 sp002423285	124	9	11948	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_157491	EDGE_15856	novel_all_refs	Micavibrio_B_508717 sp002423285	124	9	11948	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_175504	EDGE_15856	novel_all_refs	Micavibrio_B_508717 sp002423285	124	9	11948	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_138245	EDGE_160013	known_not_in_homd	GCA-2749205	104	4	2805	2	{'North America', 'Europe', 'Asia'}
+DEREP_235268	EDGE_160013	known_not_in_homd	GCA-2749205	104	4	2805	2	{'North America', 'Europe', 'Asia'}
+DEREP_51566	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_72889	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_94258	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_160297	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_278024	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_299526	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_387305	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_409357	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_410343	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_441894	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_514260	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_578604	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_591153	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_612989	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_638566	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_650949	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_655492	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_694132	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_708048	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_876377	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_888201	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_970695	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1005586	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1016157	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1036049	EDGE_160023	known_not_in_homd	Treponema_B_986141 putidum	81	19	22454	25	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_127243	EDGE_175610	novel_all_refs		148	6	2199	1	{'Oceania', 'North America', 'Europe', 'South America'}
+DEREP_100471	EDGE_176467	known_not_in_homd	XYB1-36-10 sp001821375	158	6	3507	3	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_454614	EDGE_176467	known_not_in_homd	XYB1-36-10 sp001821375	158	6	3507	3	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_797310	EDGE_176467	known_not_in_homd	XYB1-36-10 sp001821375	158	6	3507	3	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_40361	EDGE_19603	known_not_in_homd	Enterococcus_A avium	168	10	23276	5	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_41091	EDGE_19603	known_not_in_homd	Enterococcus_A avium	168	10	23276	5	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_305203	EDGE_19603	known_not_in_homd	Enterococcus_A avium	168	10	23276	5	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_501624	EDGE_19603	known_not_in_homd	Enterococcus_A avium	168	10	23276	5	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_506284	EDGE_19603	known_not_in_homd	Enterococcus_A avium	168	10	23276	5	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_74744	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_78520	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_114596	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_163917	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_169318	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_195969	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_246926	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_257889	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_286951	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_333001	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_350335	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_387760	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_398271	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_411531	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_423074	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_481841	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_502233	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_594695	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_601610	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_604140	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_630813	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_636619	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_692223	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_710992	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_759498	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_802324	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_802325	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_914187	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1058804	EDGE_207640	known_not_in_homd	Wolinella succinogenes	158	26	22400	29	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_9015	EDGE_215543	known_not_in_homd	Brevundimonas huaxiensis	422	16	88739	3	{'North America', 'South America', 'Africa'}
+DEREP_32113	EDGE_215543	known_not_in_homd	Brevundimonas huaxiensis	422	16	88739	3	{'North America', 'South America', 'Africa'}
+DEREP_957691	EDGE_215543	known_not_in_homd	Brevundimonas huaxiensis	422	16	88739	3	{'North America', 'South America', 'Africa'}
+DEREP_103110	EDGE_229563	known_not_in_homd		107	8	3095	2	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_827311	EDGE_229563	known_not_in_homd		107	8	3095	2	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_25865	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_71436	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_81587	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_92792	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_136309	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_139647	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_215789	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_231070	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_246187	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_360966	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_420032	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_555802	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_666049	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_675846	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_727649	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_748629	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_769453	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_814680	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_818686	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_820357	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_908789	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_912446	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_994497	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1039508	EDGE_262631	known_not_in_homd	Hylemonella	260	16	41707	24	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_18192	EDGE_263382	known_not_in_homd	Tepidimonas taiwanensis	359	3	31597	1	{'Oceania', 'North America', 'Asia'}
+DEREP_23933	EDGE_265582	known_not_in_homd	Solimicrobium	339	2	22613	4	{'North America', 'Asia'}
+DEREP_635237	EDGE_265582	known_not_in_homd	Solimicrobium	339	2	22613	4	{'North America', 'Asia'}
+DEREP_775249	EDGE_265582	known_not_in_homd	Solimicrobium	339	2	22613	4	{'North America', 'Asia'}
+DEREP_795223	EDGE_265582	known_not_in_homd	Solimicrobium	339	2	22613	4	{'North America', 'Asia'}
+DEREP_66601	EDGE_27881	novel_all_refs	UBA5272 sp002408565	179	13	11094	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_71775	EDGE_27881	novel_all_refs	UBA5272 sp002408565	179	13	11094	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_511773	EDGE_27881	novel_all_refs	UBA5272 sp002408565	179	13	11094	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_660021	EDGE_27881	novel_all_refs	UBA5272 sp002408565	179	13	11094	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_6809	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_14569	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_20238	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_36981	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_39261	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_41410	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_45776	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_52502	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_54276	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_60849	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_68491	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_69796	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_78594	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_91149	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_95417	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_117298	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_140533	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_144893	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_185787	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_216153	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_233409	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_288036	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_309987	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_348330	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_354167	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_354625	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_398595	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_455679	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_456767	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_491246	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_597968	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_605278	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_618717	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_821927	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_846581	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_989953	EDGE_284787	known_not_in_homd	Neisseria subflava	758	32	273859	36	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_2010	EDGE_301803	known_not_in_homd	Pseudomonas_E_647464	281	15	532940	2	{'North America', 'Europe', 'South America'}
+DEREP_4707	EDGE_301803	known_not_in_homd	Pseudomonas_E_647464	281	15	532940	2	{'North America', 'Europe', 'South America'}
+DEREP_60430	EDGE_30676	novel_all_refs		174	7	12454	9	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_108190	EDGE_30676	novel_all_refs		174	7	12454	9	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_150530	EDGE_30676	novel_all_refs		174	7	12454	9	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_309859	EDGE_30676	novel_all_refs		174	7	12454	9	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_427420	EDGE_30676	novel_all_refs		174	7	12454	9	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_564463	EDGE_30676	novel_all_refs		174	7	12454	9	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_570293	EDGE_30676	novel_all_refs		174	7	12454	9	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_595987	EDGE_30676	novel_all_refs		174	7	12454	9	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1000040	EDGE_30676	novel_all_refs		174	7	12454	9	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_7184	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_16059	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_29802	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_36440	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_43349	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_52563	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_57113	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_73243	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_74649	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_87806	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_111570	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_120457	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_138624	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_152934	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_205169	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_225403	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_283800	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_311599	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_332002	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_355315	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_368804	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_393819	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_432382	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_441409	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_478874	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_577894	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_599270	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_602804	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_628719	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_629186	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_635685	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_740457	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_762959	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_769361	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_820182	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_927099	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_938717	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1071882	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1077362	EDGE_309337	known_not_in_homd	Faucicola mancuniensis	513	19	217622	39	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1253	EDGE_315416	known_not_in_homd	Acinetobacter ursingii	280	19	888053	3	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_3133	EDGE_315416	known_not_in_homd	Acinetobacter ursingii	280	19	888053	3	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_13251	EDGE_315416	known_not_in_homd	Acinetobacter ursingii	280	19	888053	3	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_18737	EDGE_342214	known_not_in_homd		3328	23	52938	3	{'North America', 'Africa', 'Oceania', 'Europe', 'South America'}
+DEREP_33593	EDGE_342214	known_not_in_homd		3328	23	52938	3	{'North America', 'Africa', 'Oceania', 'Europe', 'South America'}
+DEREP_50890	EDGE_342214	known_not_in_homd		3328	23	52938	3	{'North America', 'Africa', 'Oceania', 'Europe', 'South America'}
+DEREP_41283	EDGE_365498	novel_all_refs	UBA2135	158	10	11253	2	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_412839	EDGE_365498	novel_all_refs	UBA2135	158	10	11253	2	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_9060	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_132537	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_140959	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_174330	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_192361	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_204659	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_213647	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_217370	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_217646	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_414379	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_500554	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_715384	EDGE_392759	known_not_in_homd	Streptobacillus felis	97	5	84176	12	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1763	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_3868	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_4284	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_4365	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_4373	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_6681	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_9186	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_12911	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_13304	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_14046	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_14690	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_15400	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_16503	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_17167	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_24609	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_25846	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_27125	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_29328	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_29344	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_30697	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_31081	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_33089	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_37181	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_37697	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_42102	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_42164	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_43498	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_45169	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_47932	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_47945	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_48116	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_55185	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_59278	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_63227	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_67825	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_70040	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_71300	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_71499	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_78216	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_79232	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_80183	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_81279	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_81418	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_81629	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_87919	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_88959	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_97542	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_105740	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_107413	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_112915	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_116289	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_117133	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_117305	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_117788	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_118434	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_121889	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_122831	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_123557	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_125692	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_127998	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_128756	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_133345	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_136475	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_137334	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_137486	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_138246	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_141499	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_146662	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_147719	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_152404	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_155489	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_158246	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_161661	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_165073	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_171946	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_180699	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_181941	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_182235	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_183344	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_183746	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_191785	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_194331	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_194787	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_195239	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_203535	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_206021	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_214250	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_218734	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_221961	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_222864	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_237508	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_241694	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_246636	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_256371	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_260776	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_266128	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_266927	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_278656	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_284322	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_285655	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_289342	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_290910	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_292690	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_293284	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_298617	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_298656	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_306637	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_309027	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_314896	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_316661	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_319664	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_324410	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_335059	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_336667	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_336958	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_339130	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_344093	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_348066	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_350505	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_352630	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_357473	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_359638	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_362213	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_364125	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_367620	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_368387	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_368788	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_376103	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_377674	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_378770	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_386406	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_389392	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_389886	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_395708	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_399231	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_399422	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_402551	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_405707	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_411033	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_418656	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_419269	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_439099	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_449978	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_463704	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_472185	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_477158	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_493601	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_496788	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_499697	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_511186	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_518453	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_535247	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_536983	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_539723	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_558586	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_571050	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_582919	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_594348	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_598699	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_627563	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_643748	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_647092	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_660950	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_671487	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_671878	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_693116	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_697748	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_708241	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_754613	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_755330	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_779690	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_780094	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_795329	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_847600	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_862409	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_877910	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_897622	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_899082	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_899694	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_903359	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_934320	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1004153	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1031360	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1036539	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1043863	EDGE_392764	known_not_in_homd	Pseudostreptobacillus hongkongensis	1368	25	2012125	185	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_346	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_358	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1648	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_2002	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_3089	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_4523	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_6359	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_6852	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_6947	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_7240	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_7249	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_9615	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_10363	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_11546	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_11817	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_12214	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_13901	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_14482	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_17632	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_18609	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_19543	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_25446	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_26787	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_30626	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_31390	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_32701	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_39109	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_40631	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_54204	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_54596	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_67943	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_68217	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_78677	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_79447	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_87017	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_94870	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_97535	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_104714	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_112035	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_114089	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_119203	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_130271	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_131842	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_143522	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_145987	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_160395	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_164695	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_170966	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_193298	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_199108	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_217037	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_218020	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_223729	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_229625	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_235506	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_237400	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_275654	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_279469	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_280699	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_282257	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_282545	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_284107	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_299787	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_302553	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_309625	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_310345	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_313810	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_314358	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_318196	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_324200	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_326864	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_332268	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_336198	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_351633	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_357506	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_358008	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_365178	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_369760	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_369820	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_373674	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_383310	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_396587	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_409658	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_419869	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_423840	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_432527	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_477892	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_478360	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_483071	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_503771	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_516748	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_517132	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_519256	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_519654	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_531172	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_538825	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_539030	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_540291	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_564429	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_565963	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_570807	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_575950	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_580546	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_580776	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_591171	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_594765	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_605711	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_620038	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_627104	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_642465	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_644214	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_648653	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_654772	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_664966	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_682169	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_705345	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_755179	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_758760	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_765388	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_776002	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_786925	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_801368	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_801369	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_810610	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_814466	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_835765	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_853847	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_868199	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_868201	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_868890	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_870417	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_926392	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_932365	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_937799	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_945139	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_957996	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_982191	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1049730	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1052261	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1060863	EDGE_393610	known_not_in_homd	Caldora sp010672925	2547	27	6372739	140	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_7478	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_8251	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_12469	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_19985	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_21413	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_29254	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_45819	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_54882	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_55108	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_57758	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_61112	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_64722	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_67165	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_70054	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_76159	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_77504	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_84110	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_93389	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_103048	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_124907	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_151627	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_169762	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_176744	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_197496	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_198576	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_211657	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_216823	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_242724	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_248784	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_251823	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_266650	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_287291	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_297379	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_304393	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_306805	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_310145	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_317200	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_331578	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_349175	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_357272	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_372929	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_373612	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_388514	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_406919	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_421194	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_422937	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_427236	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_428135	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_452646	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_457686	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_465010	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_522697	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_568313	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_570454	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_589458	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_629370	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_632356	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_653233	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_662713	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_692351	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_706299	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_806518	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_910225	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_913752	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1010902	EDGE_393615	known_not_in_homd		288	22	393015	65	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_652	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1842	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_2083	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_2526	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_3074	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_3583	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_5405	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_5693	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_7266	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_8710	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_9727	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_13256	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_13660	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_16388	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_18035	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_19620	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_20647	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_21105	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_21455	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_23120	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_24880	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_27926	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_29204	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_29356	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_33300	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_36020	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_36917	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_41867	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_43875	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_54036	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_54823	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_54982	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_61057	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_62845	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_69395	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_70529	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_82842	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_83387	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_84624	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_91293	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_92610	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_94423	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_95879	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_112036	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_114888	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_130614	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_135712	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_153542	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_153881	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_158935	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_160268	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_165870	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_174695	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_176560	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_178178	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_180341	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_182643	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_183259	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_203755	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_221076	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_223383	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_227672	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_238720	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_255794	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_265026	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_286628	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_286629	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_288856	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_289983	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_297180	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_301599	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_307499	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_311690	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_321655	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_325492	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_340063	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_342089	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_342676	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_346190	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_357080	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_367399	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_368490	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_370948	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_373340	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_377289	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_382147	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_385116	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_390508	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_391425	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_396775	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_400035	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_400675	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_401212	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_401626	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_407298	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_409659	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_417981	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_419195	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_420132	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_420306	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_421591	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_429117	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_432412	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_437191	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_437248	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_439689	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_444679	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_454925	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_469035	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_474066	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_480465	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_482521	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_483120	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_488470	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_491059	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_495411	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_495841	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_501486	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_502648	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_503770	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_514523	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_536699	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_540747	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_542775	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_544143	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_547974	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_552214	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_558089	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_558182	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_602275	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_605830	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_611817	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_629263	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_629267	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_631420	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_631422	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_641648	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_642099	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_646427	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_648652	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_648654	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_651075	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_660368	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_674757	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_674758	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_678327	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_683743	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_684701	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_687365	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_700618	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_703427	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_717055	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_719410	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_720393	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_727683	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_732503	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_735669	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_735670	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_738368	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_740822	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_742053	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_742055	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_743534	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_755181	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_765384	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_770441	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_793808	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_794236	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_802502	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_810445	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_814464	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_814672	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_831410	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_835758	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_849254	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_849468	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_858690	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_858694	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_864029	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_865480	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_886764	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_893365	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_904578	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_909934	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_910754	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_915531	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_919047	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_962205	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_964600	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_984302	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_998600	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_998614	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1005663	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1032054	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1032061	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1037308	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1049392	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1052679	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1060861	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1078234	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1078238	EDGE_393623	known_not_in_homd		1208	21	3698157	201	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_77645	EDGE_395278	novel_all_refs		156	7	6686	2	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_128854	EDGE_395278	novel_all_refs		156	7	6686	2	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_16319	EDGE_430609	known_not_in_homd	Thermus_A thermophilus	960	11	47764	7	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_69594	EDGE_430609	known_not_in_homd	Thermus_A thermophilus	960	11	47764	7	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_80113	EDGE_430609	known_not_in_homd	Thermus_A thermophilus	960	11	47764	7	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_196111	EDGE_430609	known_not_in_homd	Thermus_A thermophilus	960	11	47764	7	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_292325	EDGE_430609	known_not_in_homd	Thermus_A thermophilus	960	11	47764	7	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_600288	EDGE_430609	known_not_in_homd	Thermus_A thermophilus	960	11	47764	7	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_921687	EDGE_430609	known_not_in_homd	Thermus_A thermophilus	960	11	47764	7	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe'}
+DEREP_127538	EDGE_468429	known_not_in_homd	UBA5272 sp002408565	122	7	3343	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_212446	EDGE_468429	known_not_in_homd	UBA5272 sp002408565	122	7	3343	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_912325	EDGE_468429	known_not_in_homd	UBA5272 sp002408565	122	7	3343	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_931141	EDGE_468429	known_not_in_homd	UBA5272 sp002408565	122	7	3343	4	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_121577	EDGE_470252	novel_all_refs	Defluviitalea_A phaphyphila	98	4	6635	6	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_175281	EDGE_470252	novel_all_refs	Defluviitalea_A phaphyphila	98	4	6635	6	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_181549	EDGE_470252	novel_all_refs	Defluviitalea_A phaphyphila	98	4	6635	6	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_192086	EDGE_470252	novel_all_refs	Defluviitalea_A phaphyphila	98	4	6635	6	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_378017	EDGE_470252	novel_all_refs	Defluviitalea_A phaphyphila	98	4	6635	6	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_929772	EDGE_470252	novel_all_refs	Defluviitalea_A phaphyphila	98	4	6635	6	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_4064	EDGE_488261	novel_all_refs	UBA9339 sp001801345	1867	17	184768	3	{'North America', 'South America', 'Europe', 'Africa'}
+DEREP_103892	EDGE_488261	novel_all_refs	UBA9339 sp001801345	1867	17	184768	3	{'North America', 'South America', 'Europe', 'Africa'}
+DEREP_391854	EDGE_488261	novel_all_refs	UBA9339 sp001801345	1867	17	184768	3	{'North America', 'South America', 'Europe', 'Africa'}
+DEREP_1598	EDGE_488275	novel_all_refs	2-01-FULL-45-33 sp001778875	1491	13	473423	3	{'North America', 'South America'}
+DEREP_175021	EDGE_488275	novel_all_refs	2-01-FULL-45-33 sp001778875	1491	13	473423	3	{'North America', 'South America'}
+DEREP_779987	EDGE_488275	novel_all_refs	2-01-FULL-45-33 sp001778875	1491	13	473423	3	{'North America', 'South America'}
+DEREP_9830	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_14757	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_23526	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_26194	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_28570	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_35240	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_40726	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_41303	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_60699	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_65793	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_68769	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_73449	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_77783	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_82339	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_84993	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_85594	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_90731	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_92878	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_95949	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_118603	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_121719	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_128275	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_129851	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_133078	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_147172	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_148049	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_148265	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_158010	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_172573	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_172725	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_186756	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_187783	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_193192	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_220420	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_221559	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_222889	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_225500	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_227020	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_255877	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_257658	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_258466	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_260475	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_267345	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_271998	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_274065	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_282184	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_282660	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_298626	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_300551	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_303451	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_333405	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_359553	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_364009	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_364010	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_364156	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_365398	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_374290	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_408481	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_472343	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_485991	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_500139	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_523110	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_537540	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_553519	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_571213	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_584621	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_601321	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_629486	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_637413	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_655055	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_655071	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_672178	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_674075	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_674290	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_677771	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_695795	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_754965	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_759378	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_759948	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_775276	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_791098	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_799612	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_807511	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_817711	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_821950	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_831879	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_843377	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_844993	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_861840	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_873592	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_888782	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_897211	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_960694	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_965745	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_989987	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_993160	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_998163	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_999406	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1015241	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1029342	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1034629	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1041924	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1054458	EDGE_489621	known_not_in_homd	UBA660	1676	30	298425	103	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_21672	EDGE_490475	known_not_in_homd	Scybalousia	460	5	30517	10	{'North America', 'Europe', 'Asia'}
+DEREP_107168	EDGE_490475	known_not_in_homd	Scybalousia	460	5	30517	10	{'North America', 'Europe', 'Asia'}
+DEREP_183813	EDGE_490475	known_not_in_homd	Scybalousia	460	5	30517	10	{'North America', 'Europe', 'Asia'}
+DEREP_452109	EDGE_490475	known_not_in_homd	Scybalousia	460	5	30517	10	{'North America', 'Europe', 'Asia'}
+DEREP_462039	EDGE_490475	known_not_in_homd	Scybalousia	460	5	30517	10	{'North America', 'Europe', 'Asia'}
+DEREP_480858	EDGE_490475	known_not_in_homd	Scybalousia	460	5	30517	10	{'North America', 'Europe', 'Asia'}
+DEREP_751136	EDGE_490475	known_not_in_homd	Scybalousia	460	5	30517	10	{'North America', 'Europe', 'Asia'}
+DEREP_830577	EDGE_490475	known_not_in_homd	Scybalousia	460	5	30517	10	{'North America', 'Europe', 'Asia'}
+DEREP_990041	EDGE_490475	known_not_in_homd	Scybalousia	460	5	30517	10	{'North America', 'Europe', 'Asia'}
+DEREP_1019347	EDGE_490475	known_not_in_homd	Scybalousia	460	5	30517	10	{'North America', 'Europe', 'Asia'}
+DEREP_16817	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_39765	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_59018	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_71331	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_96257	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_100793	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_162752	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_170008	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_182147	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_345240	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_368641	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_381058	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_410153	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_630817	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_801413	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1011027	EDGE_490476	known_not_in_homd	Faecimonas sp900554315	1104	20	70727	16	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_209867	EDGE_497065	known_not_in_homd	Dubosiella newyorkensis	97	6	2442	6	{'North America', 'Asia', 'Europe', 'South America'}
+DEREP_322427	EDGE_497065	known_not_in_homd	Dubosiella newyorkensis	97	6	2442	6	{'North America', 'Asia', 'Europe', 'South America'}
+DEREP_419397	EDGE_497065	known_not_in_homd	Dubosiella newyorkensis	97	6	2442	6	{'North America', 'Asia', 'Europe', 'South America'}
+DEREP_443621	EDGE_497065	known_not_in_homd	Dubosiella newyorkensis	97	6	2442	6	{'North America', 'Asia', 'Europe', 'South America'}
+DEREP_651081	EDGE_497065	known_not_in_homd	Dubosiella newyorkensis	97	6	2442	6	{'North America', 'Asia', 'Europe', 'South America'}
+DEREP_723544	EDGE_497065	known_not_in_homd	Dubosiella newyorkensis	97	6	2442	6	{'North America', 'Asia', 'Europe', 'South America'}
+DEREP_65975	EDGE_502385	known_not_in_homd	Eperythrozoon_B haematobovis	134	2	5726	1	{'North America', 'Europe', 'Asia'}
+DEREP_42306	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_81628	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_136678	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_168234	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_185068	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_233485	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_305097	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_347558	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_363573	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_379767	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_439651	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_473835	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_521209	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_525823	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_647898	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_805626	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_813754	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_826836	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_915208	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_950965	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_969287	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_990972	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1076216	EDGE_553807	known_not_in_homd	Anaerovoracaceae	226	23	23886	23	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_49955	EDGE_593012	novel_all_refs	UBA2135	108	6	15256	5	{'Oceania', 'North America', 'Europe', 'Asia'}
+DEREP_110726	EDGE_593012	novel_all_refs	UBA2135	108	6	15256	5	{'Oceania', 'North America', 'Europe', 'Asia'}
+DEREP_121537	EDGE_593012	novel_all_refs	UBA2135	108	6	15256	5	{'Oceania', 'North America', 'Europe', 'Asia'}
+DEREP_187422	EDGE_593012	novel_all_refs	UBA2135	108	6	15256	5	{'Oceania', 'North America', 'Europe', 'Asia'}
+DEREP_305110	EDGE_593012	novel_all_refs	UBA2135	108	6	15256	5	{'Oceania', 'North America', 'Europe', 'Asia'}
+DEREP_7855	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_13909	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_54879	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_58121	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_60319	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_79204	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_84074	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_92232	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_101650	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_104925	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_140412	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_150110	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_159142	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_161732	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_171894	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_172755	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_191440	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_203933	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_205038	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_209628	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_225407	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_257861	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_258677	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_259235	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_281827	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_314898	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_401095	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_409621	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_467918	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_489101	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_494495	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_550455	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_553547	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_575336	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_581274	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_604344	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_620720	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_629670	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_674263	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_680300	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_687702	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_703303	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_725716	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_770286	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_797776	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_803657	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_826131	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_850634	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_917213	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_950188	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_957431	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_985645	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_991039	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_992497	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1043877	EDGE_606903	known_not_in_homd	Chordicoccus	556	25	192253	55	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_69649	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_121168	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_142423	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_157678	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_159812	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_172405	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_178098	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_218026	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_250961	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_372812	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_476100	EDGE_610908	known_not_in_homd	Lachnospiraceae	494	20	17797	11	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_4159	EDGE_615564	known_not_in_homd	Blautia_A_141781 wexlerae	664	13	326767	8	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_8526	EDGE_615564	known_not_in_homd	Blautia_A_141781 wexlerae	664	13	326767	8	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_9432	EDGE_615564	known_not_in_homd	Blautia_A_141781 wexlerae	664	13	326767	8	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_261917	EDGE_615564	known_not_in_homd	Blautia_A_141781 wexlerae	664	13	326767	8	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_356302	EDGE_615564	known_not_in_homd	Blautia_A_141781 wexlerae	664	13	326767	8	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_657731	EDGE_615564	known_not_in_homd	Blautia_A_141781 wexlerae	664	13	326767	8	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_679178	EDGE_615564	known_not_in_homd	Blautia_A_141781 wexlerae	664	13	326767	8	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_1076660	EDGE_615564	known_not_in_homd	Blautia_A_141781 wexlerae	664	13	326767	8	{'North America', 'Africa', 'Asia', 'Europe', 'South America'}
+DEREP_56658	EDGE_626242	known_not_in_homd	Oribacterium asaccharolyticum	92	2	7056	1	{'North America', 'Europe', 'Asia'}
+DEREP_30648	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_69059	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_78406	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_86296	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_107975	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_118018	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_122716	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_132675	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_134326	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_139641	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_153505	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_154627	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_158981	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_183030	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_195902	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_196004	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_200442	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_203666	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_208913	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_214771	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_237180	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_245052	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_256510	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_296921	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_298407	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_305217	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_309666	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_351265	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_369957	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_398608	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_478101	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_487020	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_487021	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_528817	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_535034	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_543770	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_551425	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_618722	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_628857	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_730143	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_864197	EDGE_643266	known_not_in_homd	Lachnospiraceae	150	28	64185	41	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_136200	EDGE_643642	novel_all_refs		192	4	1991	1	{'North America', 'Europe', 'Asia'}
+DEREP_90803	EDGE_650048	novel_all_refs	UBA5272 sp002408565	114	6	6325	3	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_112457	EDGE_650048	novel_all_refs	UBA5272 sp002408565	114	6	6325	3	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_917860	EDGE_650048	novel_all_refs	UBA5272 sp002408565	114	6	6325	3	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1252	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_4755	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_10536	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_17079	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_24832	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_32835	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_62451	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_90940	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_173654	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_239746	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_263295	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_272223	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_437354	EDGE_655198	known_not_in_homd	Phascolarctobacterium_A_40086 faecium	510	18	900492	13	{'North America', 'Africa', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_82771	EDGE_6559	known_not_in_homd	Enterococcus_A avium	140	7	4833	2	{'Oceania', 'North America', 'Europe', 'Asia'}
+DEREP_266950	EDGE_6559	known_not_in_homd	Enterococcus_A avium	140	7	4833	2	{'Oceania', 'North America', 'Europe', 'Asia'}
+DEREP_13241	EDGE_657631	known_not_in_homd	Eperythrozoon_A ovis	628	3	46722	2	{'North America', 'Europe', 'Asia'}
+DEREP_922310	EDGE_657631	known_not_in_homd	Eperythrozoon_A ovis	628	3	46722	2	{'North America', 'Europe', 'Asia'}
+DEREP_12970	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_144995	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_173839	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_187610	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_219446	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_310021	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_338925	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_375454	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_378780	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_480021	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_511720	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_648286	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_667180	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_693400	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_722343	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_740082	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_964532	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}
+DEREP_1058858	EDGE_660042	known_not_in_homd	Nanosyncoccus sp003979185	660	33	56264	18	{'North America', 'Asia', 'Oceania', 'Europe', 'South America'}

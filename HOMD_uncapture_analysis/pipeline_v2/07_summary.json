@@ -1,0 +1,14 @@
+{
+  "total_phylotypes": 34671,
+  "strict_candidates": 71,
+  "strict_cutoffs": {
+    "clean_phylotype": true,
+    "candidate_novel": true,
+    "max_subject_prevalence_min": 50,
+    "n_bioprojects_min": 5,
+    "n_regions_min": 2
+  },
+  "strict_by_novelty": {
+    "homd_uncaptured": 71
+  }
+}

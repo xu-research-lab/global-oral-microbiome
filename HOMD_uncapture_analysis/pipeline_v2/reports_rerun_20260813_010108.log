@@ -1,0 +1,84 @@
+===== STEP: 05_phylotype_analysis =====
+[05_phylo] Loading support floor passed ASVs...
+[05_phylo]   54,290 ASVs
+[05_phylo] 
+Loading SEPP placements...
+[05_phylo]   Reused: 54,132
+[05_phylo]   Loading new SEPP placements from /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/sepp_missing/placements_export/placements.json...
+[05_phylo]   New placements: 145
+[05_phylo]   Merged placements: 54,277
+[05_phylo]   Median pendant_length: 0.0100
+[05_phylo]   Median like_weight_ratio: 0.3006
+[05_phylo]   Unique phylotypes (edges): 23,088
+[05_phylo] 
+Merging placements with ASV metadata...
+[05_phylo]   WARNING: 13 ASVs without SEPP placement
+[05_phylo]   Missing: ['DEREP_272528', 'DEREP_430364', 'DEREP_444619', 'DEREP_567367', 'DEREP_768634', 'DEREP_858384', 'DEREP_865209', 'DEREP_900750', 'DEREP_912230', 'DEREP_926475']...
+[05_phylo]   Merged: 54,277 ASVs with placement
+[05_phylo]   subject_prevalence merged | max=4,405
+[05_phylo] 
+Splitting phylotypes by within-edge position distance (T=0.05)...
+[05_phylo]   multi-ASV edges: 8,851 | split into >1 phylotype: 1,391 (15.7%)
+[05_phylo]   phylotypes after split: 24,986
+[05_phylo] 
+Computing phylotype-level statistics...
+[05_phylo] 
+=== Phylotype Analysis Summary ===
+[05_phylo] Total ASVs with placement: 54,277
+[05_phylo] Total phylotypes: 24,986
+[05_phylo] Mean ASVs/phylotype: 2.17
+[05_phylo] Median ASVs/phylotype: 1
+[05_phylo] Single-ASV phylotypes: 16,312
+[05_phylo] Multi-ASV phylotypes: 8,674 (cross-region unification)
+[05_phylo] 
+Multi-ASV phylotype size distribution:
+[05_phylo]   2-3 ASVs: 4,002 phylotypes
+[05_phylo]   3-4 ASVs: 2,570 phylotypes
+[05_phylo]   5-9 ASVs: 1,481 phylotypes
+[05_phylo]   10-19 ASVs: 461 phylotypes
+[05_phylo]   20-49 ASVs: 136 phylotypes
+[05_phylo]   50+ ASVs: 24 phylotypes
+[05_phylo] 
+Phylotype bioproject distribution:
+[05_phylo]   1 BPs: 0 phylotypes
+[05_phylo]   2-4 BPs: 18,954 phylotypes
+[05_phylo]   5-9 BPs: 3,508 phylotypes
+[05_phylo]   10-19 BPs: 1,703 phylotypes
+[05_phylo]   20-49 BPs: 719 phylotypes
+[05_phylo]   50+ BPs: 102 phylotypes
+[05_phylo] 
+Top 20 phylotype genera:
+[05_phylo]   Unknown: 12,619 phylotypes
+[05_phylo]   Unannotated: 6,199 phylotypes
+[05_phylo]   Rickettsia: 77 phylotypes
+[05_phylo]   UBA5272: 76 phylotypes
+[05_phylo]   GWA2-37-10: 73 phylotypes
+[05_phylo]   Flavipsychrobacter: 71 phylotypes
+[05_phylo]   Prevotella: 69 phylotypes
+[05_phylo]   Flavobacterium: 66 phylotypes
+[05_phylo]   O2-02-FULL-42-17: 62 phylotypes
+[05_phylo]   Nocardioides_A_392796: 53 phylotypes
+[05_phylo]   XYB1-36-10: 52 phylotypes
+[05_phylo]   GWA2-33-14: 51 phylotypes
+[05_phylo]   Buchnera: 50 phylotypes
+[05_phylo]   Brachyspira: 50 phylotypes
+[05_phylo]   Deinococcus_B: 44 phylotypes
+[05_phylo]   Ehrlichia: 38 phylotypes
+[05_phylo]   Hymenobacter_910554: 36 phylotypes
+[05_phylo]   UBA2163: 31 phylotypes
+[05_phylo]   GWC2-33-13: 30 phylotypes
+[05_phylo]   Bacteroides_H_857956: 27 phylotypes
+[05_phylo] 
+Saved: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/05_phylotypes_all.tsv (3,904,253 bytes)
+[05_phylo] Saved: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/05_asv_phylotype_assignments.tsv
+[05_phylo] Saved: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/05_summary.json
+[05_phylo] Done!
+===== STEP: 05c_phylogenetic_annotation =====
+[05c_phylo_ann] Parsing jplace reference tree...
+[05c_phylo_ann]   nodes: 684,652 | tips: 353,383
+[05c_phylo_ann] Loading GG2 2022.10 taxonomy...
+Traceback (most recent call last):
+  File "05c_phylogenetic_annotation.py", line 126, in <module>
+    with open(GAPPA / "gg2_2022.10_tree_taxonomy.tsv") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/gappa/gg2_2022.10_tree_taxonomy.tsv'
+FAILED: 05c_phylogenetic_annotation

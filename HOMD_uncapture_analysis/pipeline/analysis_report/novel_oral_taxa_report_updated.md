@@ -1,6 +1,13 @@
 # Novel Oral Taxa Not in HOMD — Analysis Report (Updated)
 
-**Date**: 2026-07-23
+**Date**: 2026-07-28
+
+> **Note**: This is a summary report. See `pipeline_report_comprehensive.md` for the complete pipeline documentation with figures and full phylotype list (56 candidate novel oral phylotypes).
+
+![Figure 1: HOMD Identity Capture](../../figures/fig1_asv_weighted_identity_capture.png)
+![Figure 3: Pipeline Funnel](../../figures/fig3_pipeline_funnel.png)
+![Figure 2: Prevalence by Identity](../../figures/fig2_prevalence_by_identity.png)
+![Figure 5: Phylogenetic Tree](phylotypes_ggtree_rect.png)
 
 ## ASV Funnel — Each Filter Step
 

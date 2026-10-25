@@ -1,0 +1,77 @@
+=== pipeline_v2 Step 02: Contamination Firewall ===
+Started at Fri Jul 31 13:41:45 CST 2026
+Host: cu05
+
+[02_contam] Loading candidates from step 01...
+[02_contam]   1,136,142 candidate ASVs (HOMD-uncaptured + non-chimeric)
+[02_contam] 
+Loading control ASV data...
+[02_contam]   HOMD-uncaptured control ASVs: 4,367
+[02_contam] 
+=== Stage 1: 97% Clustering with Control ASVs ===
+[02_contam]   Using existing: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/tmp_97cluster/clusters.uc
+[02_contam] Parsing UC clusters...
+[02_contam]   Total clusters: 351,775
+[02_contam]   Clusters with control HOMD-uncaptured: 2,641
+[02_contam]   Candidate ASVs flagged: 125,253
+[02_contam]   Stage 1 flagged: 125,253 / 1,136,142 (11.0%)
+[02_contam] 
+=== Stage 2: GG2 Genus Annotation + Contaminant List ===
+[02_contam] Loading GG2 taxonomy.tsv...
+[02_contam]   Genus-mapped GG2 IDs: 290,541 / 337,506
+[02_contam]   ASVs to annotate (Stage 1 clean): 1,010,889
+[02_contam]   Running vsearch vs GG2 (1,010,889 queries)...
+[02_contam]   vsearch done
+[02_contam] Mapping GG2 hits to genera via taxonomy.tsv...
+[02_contam]   Annotated: 1,007,979
+[02_contam]   Unknown genus: 648,360 (64.3%)
+[02_contam]   Unique genera: 7,247
+[02_contam]   Top 20 genera:
+[02_contam]     Unknown: 648,360
+[02_contam]     Flavipsychrobacter: 14,909
+[02_contam]     Prevotella: 10,499
+[02_contam]     UBA5272: 4,440
+[02_contam]     Alloprevotella: 3,960
+[02_contam]     Rickettsia: 3,849
+[02_contam]     XYB1-36-10: 3,421
+[02_contam]     GWA2-37-10: 3,290
+[02_contam]     Buchnera: 2,936
+[02_contam]     Porphyromonas_A: 2,724
+[02_contam]     O2-02-FULL-42-17: 2,703
+[02_contam]     Brachyspira: 2,597
+[02_contam]     Ehrlichia: 2,578
+[02_contam]     Neisseria_563205: 2,535
+[02_contam]     Actinomyces: 2,404
+[02_contam]     Corynebacterium: 2,334
+[02_contam]     Capnocytophaga: 2,120
+[02_contam]     Deinococcus_B: 2,101
+[02_contam]     Nocardioides_A_392796: 2,089
+[02_contam]     GWA2-33-14: 1,986
+[02_contam] 
+Checking against contaminant genus list...
+[02_contam]   664 contaminant genera
+[02_contam]   Stage 2 flagged: 61,425
+[02_contam] 
+=== Contamination Firewall Summary ===
+[02_contam] Total candidates: 1,136,142
+[02_contam]   Stage 1 (97% cluster): 125,253
+[02_contam]   Stage 2 (genus list):  61,425
+[02_contam]   Any flag: 186,678 (16.4%)
+[02_contam]   Clean: 949,464 (83.6%)
+[02_contam]     clean: 949,464
+[02_contam]     cluster97: 125,253
+[02_contam]     genus_list: 61,425
+[02_contam] 
+By n_bioprojects:
+[02_contam]   1 BP: 1,043,457 total, 162,152 flagged (15.5%)
+[02_contam]   2-4: 87,143 total, 21,118 flagged (24.2%)
+[02_contam]   5-9: 4,856 total, 3,042 flagged (62.6%)
+[02_contam]   10-19: 626 total, 346 flagged (55.3%)
+[02_contam]   20-49: 60 total, 20 flagged (33.3%)
+[02_contam]   50+: 0 total, 0 flagged (0.0%)
+[02_contam] 
+Saved: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/02_contamination_flagged.tsv (650,241,530 bytes)
+[02_contam] Saved summary: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2/02_summary.json
+[02_contam] Done!
+
+=== Done at Fri Jul 31 13:53:27 CST 2026 ===

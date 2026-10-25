@@ -1,0 +1,72 @@
+phylotype_id	anchor_tip	novelty_class	species_label	phylo_genus	phylo_species	rep_gg2_genus	has_species	oral_clade	max_subject_prevalence	max_prevalence	n_bioprojects_total	n_continents	n_regions	n_members	n_flagged	tree_label	tree_label_novel
+NOVEL_EDGE_112323	DEREP_4981	homd_uncaptured	Capnocytophaga	Capnocytophaga		Unknown	0	True	1154	1846	216	6	9	112	0		0
+NOVEL_EDGE_140733_0	DEREP_23889	homd_uncaptured	CAG-873	CAG-873		Perlabentimonas	0	False	803	803	5	2	2	1	0		0
+NOVEL_EDGE_6279_0	DEREP_12832	homd_uncaptured	Coraliomargarita	Coraliomargarita		Unknown	0	False	793	801	5	2	2	1	0	Coraliomargarita	1
+NOVEL_EDGE_610973_0	DEREP_19885	homd_uncaptured	Clostridium	Clostridium		Unknown	0	False	676	900	13	3	2	1	0	Clostridium	1
+NOVEL_EDGE_489621_1	DEREP_14757	homd_uncaptured	NOVEL_EDGE_489621_1			Unknown	0	False	671	696	6	3	2	1	0		0
+NOVEL_EDGE_489621_3	DEREP_28570	homd_uncaptured	NOVEL_EDGE_489621_3			Unknown	0	False	640	885	37	6	2	9	0		0
+NOVEL_EDGE_660042_0	DEREP_12970	homd_uncaptured	Nanosyncoccus sp902761145	Nanosyncoccus	Nanosyncoccus sp902761145	Nanosyncoccus	1	True	637	660	48	5	2	7	0		0
+NOVEL_EDGE_610973_1	DEREP_23349	homd_uncaptured	Clostridium	Clostridium		Unknown	0	False	547	802	13	3	2	1	0	Clostridium	1
+NOVEL_EDGE_160015_0	DEREP_17538	homd_uncaptured	GCA-2749205	GCA-2749205		Unknown	0	False	489	492	65	6	4	25	0		0
+NOVEL_EDGE_6279_1	DEREP_20587	homd_uncaptured	Coraliomargarita	Coraliomargarita		UBA12465	0	False	482	482	5	2	2	1	0	Coraliomargarita	1
+NOVEL_EDGE_95552	DEREP_14483	homd_uncaptured	Bergeyella	Bergeyella		Spodiobacter	0	False	480	480	68	4	4	37	0	Bergeyella	1
+Faucicola_mancuniensis	DEREP_29802	homd_uncaptured	Faucicola mancuniensis	Faucicola	Faucicola mancuniensis	Moraxella_A	1	False	478	513	129	6	11	35	0	Faucicola mancuniensis	1
+NOVEL_EDGE_128650_0	DEREP_40304	homd_uncaptured	Prevotella	Prevotella		Unknown	0	True	435	482	12	3	2	1	0		0
+NOVEL_EDGE_160014	DEREP_33783	homd_uncaptured	GCA-2749205	GCA-2749205		Unknown	0	False	434	450	80	5	7	29	0		0
+NOVEL_EDGE_392857_1	DEREP_24825	homd_uncaptured	Leptotrichia_A_993758 trevisanii	Leptotrichia	Leptotrichia_A_993758 trevisanii	Leptotrichia_A_993758	1	True	431	473	13	3	2	1	0		0
+NOVEL_EDGE_603957	DEREP_15572	homd_uncaptured	Lachnoanaerobaculum orale	Lachnoanaerobaculum	Lachnoanaerobaculum orale	Unknown	1	True	411	663	34	6	3	9	0		0
+NOVEL_EDGE_417683_0	DEREP_13722	homd_uncaptured	NOVEL_EDGE_417683_0			Unknown	0	False	403	494	11	3	2	1	0		0
+NOVEL_EDGE_6279_3	DEREP_30237	homd_uncaptured	Coraliomargarita	Coraliomargarita		Unknown	0	False	353	353	5	2	2	1	0	Coraliomargarita	1
+NOVEL_EDGE_6279_2	DEREP_28426	homd_uncaptured	Coraliomargarita	Coraliomargarita		UBA12465	0	False	312	319	5	2	2	1	0	Coraliomargarita	1
+NOVEL_EDGE_142981_4	DEREP_78072	homd_uncaptured	NOVEL_EDGE_142981_4			Unknown	0	False	306	306	5	2	2	1	0		0
+NOVEL_EDGE_658314_0	DEREP_30579	homd_uncaptured	UBA1406	UBA1406		UBA12465	0	False	293	293	5	2	2	1	0		0
+NOVEL_EDGE_661358_0	DEREP_34760	homd_uncaptured	1-14-0-10-49-17 sp002778575	1-14-0-10-49-17	1-14-0-10-49-17 sp002778575	Unknown	1	False	251	253	5	2	2	1	0		0
+NOVEL_EDGE_284615_0	DEREP_58840	homd_uncaptured	Snodgrassella	Snodgrassella		Unknown	0	False	235	461	35	6	2	5	0		0
+NOVEL_EDGE_365313	DEREP_89532	homd_uncaptured	Aggregatibacter	Aggregatibacter		Unknown	0	True	218	218	72	4	2	32	0		0
+NOVEL_EDGE_128234_0	DEREP_142161	homd_uncaptured	Prevotella	Prevotella		Unknown	0	True	205	251	13	3	2	1	0		0
+NOVEL_EDGE_193653_0	DEREP_6878	homd_uncaptured	Desulfovibrio	Desulfovibrio		Unknown	0	True	202	222	83	5	7	37	0		0
+NOVEL_EDGE_6279_4	DEREP_38991	homd_uncaptured	Coraliomargarita	Coraliomargarita		GWA1-44-25	0	False	197	198	5	2	2	1	0	Coraliomargarita	1
+Pseudoalteromonas_luteoviolacea_G	DEREP_36729	homd_uncaptured	Pseudoalteromonas luteoviolacea_G	Pseudoalteromonas	Pseudoalteromonas luteoviolacea_G	Unknown	1	False	174	174	8	4	3	4	0		0
+NOVEL_EDGE_603974_1	DEREP_120365	homd_uncaptured	Stomatobaculum	Stomatobaculum		Unknown	0	True	163	170	6	3	2	1	0		0
+Lewinella_A_cohaerens	DEREP_36865	homd_uncaptured	Lewinella cohaerens	Lewinella	Lewinella_A cohaerens	Unknown	1	False	154	154	6	3	8	13	0	Lewinella_A cohaerens	1
+NOVEL_EDGE_603974_0	DEREP_84799	homd_uncaptured	Stomatobaculum	Stomatobaculum		Unknown	0	True	154	162	6	3	2	1	0		0
+NOVEL_EDGE_489621_2	DEREP_23526	homd_uncaptured	NOVEL_EDGE_489621_2			Unknown	0	False	152	915	10	2	2	1	0		0
+NOVEL_EDGE_160004_3	DEREP_100388	homd_uncaptured	Treponema_B_986142 vincentii	Treponema	Treponema_B_986142 vincentii	Unknown	1	True	150	168	12	3	2	1	0		0
+NOVEL_EDGE_535874_2	DEREP_124468	homd_uncaptured	Peptoanaerobacter	Peptoanaerobacter		Peptoanaerobacter_235884	0	True	140	145	6	3	2	1	0		0
+NOVEL_EDGE_396323	DEREP_80552	homd_uncaptured	SIO2C1 sp010672925	SIO2C1	SIO2C1 sp010672925	Unknown	1	False	137	137	6	3	3	4	0		0
+NOVEL_EDGE_6279_6	DEREP_61581	homd_uncaptured	Coraliomargarita	Coraliomargarita		Unknown	0	False	132	132	5	2	2	1	0	Coraliomargarita	1
+Streptobacillus_hongkongensis	DEREP_30393	homd_uncaptured	Streptobacillus hongkongensis	Streptobacillus	Streptobacillus hongkongensis	Pseudostreptobacillus	1	False	129	206	40	6	4	7	0	Streptobacillus hongkongensis	1
+Aquabacter_cavernae	DEREP_26551	homd_uncaptured	Aquabacter cavernae	Aquabacter	Aquabacter cavernae	Unknown	1	False	124	669	11	5	2	5	0	Aquabacter cavernae	1
+NOVEL_EDGE_660043_0	DEREP_164248	homd_uncaptured	Nanosyncoccus sp003979185	Nanosyncoccus	Nanosyncoccus sp003979185	Nanosyncoccus	1	True	121	121	25	5	2	5	0		0
+NOVEL_EDGE_6661_0	DEREP_150454	homd_uncaptured	Merdousia gallistercoris	Merdousia	Merdousia gallistercoris	Unknown	1	False	120	120	5	2	2	1	0	Merdousia gallistercoris	1
+NOVEL_EDGE_535874_1	DEREP_33704	homd_uncaptured	Peptoanaerobacter	Peptoanaerobacter		Peptoanaerobacter_235884	0	True	117	497	10	2	2	1	0		0
+NOVEL_EDGE_533239	DEREP_149425	homd_uncaptured	NOVEL_EDGE_533239			Unknown	0	False	110	110	72	5	3	23	0		0
+NOVEL_EDGE_601145_0	DEREP_83184	homd_uncaptured	UMGS1994 sp900553945	UMGS1994	UMGS1994 sp900553945	Unknown	1	False	106	107	5	2	2	1	0		0
+NOVEL_EDGE_207640_2	DEREP_114596	homd_uncaptured	Wolinella	Wolinella		Wolinella	0	False	105	106	25	2	2	10	0	Wolinella	1
+Schleiferilactobacillus_harbinensis	DEREP_8141	homd_uncaptured	Schleiferilactobacillus harbinensis	Schleiferilactobacillus	Schleiferilactobacillus harbinensis	Schleiferilactobacillus	1	False	97	120	16	4	4	6	0	Schleiferilactobacillus harbinensis	1
+NOVEL_EDGE_661963_9	DEREP_333849	homd_uncaptured	GWA2-37-10	GWA2-37-10		Unknown	0	False	96	96	5	2	2	1	0		0
+NOVEL_EDGE_209476_20	DEREP_70105	homd_uncaptured	Kordiimonas sp002401685	Kordiimonas	Kordiimonas sp002401685	Unknown	1	False	94	177	8	4	2	1	0	Kordiimonas sp002401685	1
+NOVEL_EDGE_658314_1	DEREP_92222	homd_uncaptured	UBA1406	UBA1406		XYB1-36-10	0	False	88	88	5	2	2	1	0		0
+NOVEL_EDGE_316985	DEREP_97733	homd_uncaptured	Glaciecola	Glaciecola		Glaciecola_662442	0	False	87	87	6	2	3	3	0		0
+NOVEL_EDGE_6279_12	DEREP_111298	homd_uncaptured	Coraliomargarita	Coraliomargarita		XYB1-36-10	0	False	84	84	5	2	2	1	0	Coraliomargarita	1
+NOVEL_EDGE_392643_1	DEREP_87007	homd_uncaptured	Fusobacterium_C periodonticum_D	Fusobacterium	Fusobacterium_C periodonticum_D	Fusobacterium_C	1	True	82	82	5	2	2	1	0		0
+NOVEL_EDGE_658314_3	DEREP_99150	homd_uncaptured	UBA1406	UBA1406		Unknown	0	False	81	81	5	2	2	1	0		0
+NOVEL_EDGE_658683_0	DEREP_92453	homd_uncaptured	JAACSU01 sp010119145	JAACSU01	JAACSU01 sp010119145	Unknown	1	False	76	76	41	5	3	26	0		0
+Pauljensenia_hongkongensis	DEREP_31196	homd_uncaptured	Pauljensenia hongkongensis	Pauljensenia	Pauljensenia hongkongensis	Unknown	1	False	76	80	11	3	2	22	0	Pauljensenia hongkongensis	1
+NOVEL_EDGE_205706_1	DEREP_103047	homd_uncaptured	Campylobacter_B hyointestinalis_477078	Campylobacter	Campylobacter_B hyointestinalis_477078	Unknown	1	True	75	102	9	3	2	1	0		0
+Alteromonas_F_mediterranea	DEREP_82068	homd_uncaptured	Alteromonas mediterranea	Alteromonas	Alteromonas_F mediterranea	Alteromonas_F_662371	1	False	74	74	6	2	3	2	0		0
+Rhodanobacter_glycinis	DEREP_272562	homd_uncaptured	Rhodanobacter glycinis	Rhodanobacter	Rhodanobacter glycinis	Rhodanobacter_613036	1	False	72	76	9	5	2	4	0	Rhodanobacter glycinis	1
+Filomicrobium_fusiforme	DEREP_98129	homd_uncaptured	Filomicrobium fusiforme		Filomicrobium fusiforme	Unknown	1	False	70	70	6	3	3	8	0		0
+Planktomarina_temperata	DEREP_73643	homd_uncaptured	Planktomarina temperata	Planktomarina	Planktomarina temperata	Unknown	1	False	67	67	6	2	3	5	0		0
+Fructilactobacillus_sanfranciscensis	DEREP_29455	homd_uncaptured	Fructilactobacillus sanfranciscensis	Fructilactobacillus	Fructilactobacillus sanfranciscensis	Unknown	1	False	67	90	38	5	5	11	0	Fructilactobacillus sanfranciscensis	1
+NOVEL_EDGE_128234_3	DEREP_290477	homd_uncaptured	Prevotella	Prevotella		Unknown	0	True	62	65	6	3	2	1	0		0
+NOVEL_EDGE_140349_2	DEREP_207617	homd_uncaptured	Coprobacter secundus	Coprobacter	Coprobacter secundus	Unknown	1	False	59	59	5	2	2	1	0	Coprobacter secundus	1
+NOVEL_EDGE_142981_12	DEREP_166581	homd_uncaptured	NOVEL_EDGE_142981_12			Unknown	0	False	57	58	6	3	2	1	0		0
+NOVEL_EDGE_128103_0	DEREP_304391	homd_uncaptured	UBA6382 sp900316315	UBA6382	UBA6382 sp900316315	UBA6382	1	False	55	56	6	3	2	1	0		0
+NOVEL_EDGE_657761_0	DEREP_130912	homd_uncaptured	9FT-COMBO-53-11 sp001772805	9FT-COMBO-53-11	9FT-COMBO-53-11 sp001772805	UBA5272	1	False	55	55	5	2	2	1	0		0
+Lentibacter_algarum	DEREP_129423	homd_uncaptured	Lentibacter algarum	Lentibacter	Lentibacter algarum	Unknown	1	False	54	54	7	2	3	3	0	Lentibacter algarum	1
+NOVEL_EDGE_129471_3	DEREP_94700	homd_uncaptured	Prevotella seregens	Prevotella	Prevotella seregens	Unknown	1	True	54	67	6	3	2	1	0		0
+NOVEL_EDGE_128641_2	DEREP_132372	homd_uncaptured	Prevotella	Prevotella		Unknown	0	True	52	52	5	2	2	1	0		0
+NOVEL_EDGE_3244_0	DEREP_62577	homd_uncaptured	TA-21 sp005877075	TA-21	TA-21 sp005877075	TA-21	1	False	50	50	12	3	4	8	0		0
+NOVEL_EDGE_532520_1	DEREP_59625	homd_uncaptured	Parvimonas	Parvimonas		Unknown	0	True	50	65	6	3	2	1	0		0
+NOVEL_EDGE_662197	DEREP_271343	homd_uncaptured	GWA2-37-10	GWA2-37-10		Unknown	0	False	50	50	5	2	2	1	0		0

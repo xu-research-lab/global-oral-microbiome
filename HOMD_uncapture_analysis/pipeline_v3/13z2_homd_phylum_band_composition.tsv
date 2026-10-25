@@ -1,0 +1,37 @@
+metric	band	phylum_grp	value	share
+ASVs	<97% identity	Bacillota	261216.000000	0.429814
+ASVs	<97% identity	Bacteroidota	88793.000000	0.146103
+ASVs	<97% identity	Pseudomonadota	145804.000000	0.239911
+ASVs	<97% identity	Actinomycetota	51729.000000	0.085117
+ASVs	<97% identity	Fusobacteriota	12753.000000	0.020984
+ASVs	<97% identity	Other phyla	47447.000000	0.078071
+ASVs	>=97% identity	Bacillota	308422.000000	0.319477
+ASVs	>=97% identity	Bacteroidota	263336.000000	0.272775
+ASVs	>=97% identity	Pseudomonadota	154296.000000	0.159826
+ASVs	>=97% identity	Actinomycetota	96212.000000	0.099661
+ASVs	>=97% identity	Fusobacteriota	73022.000000	0.075639
+ASVs	>=97% identity	Other phyla	70109.000000	0.072622
+Prevalence	<97% identity	Bacillota	851066.000000	0.480525
+Prevalence	<97% identity	Bacteroidota	261740.000000	0.147783
+Prevalence	<97% identity	Pseudomonadota	367360.000000	0.207417
+Prevalence	<97% identity	Actinomycetota	135884.000000	0.076722
+Prevalence	<97% identity	Fusobacteriota	43738.000000	0.024695
+Prevalence	<97% identity	Other phyla	111328.000000	0.062858
+Prevalence	>=97% identity	Bacillota	3861709.000000	0.329815
+Prevalence	>=97% identity	Bacteroidota	2881631.000000	0.246110
+Prevalence	>=97% identity	Pseudomonadota	1895205.000000	0.161863
+Prevalence	>=97% identity	Actinomycetota	1458220.000000	0.124541
+Prevalence	>=97% identity	Fusobacteriota	952233.000000	0.081327
+Prevalence	>=97% identity	Other phyla	659713.000000	0.056344
+Reads	<97% identity	Bacillota	133536959.000000	0.551321
+Reads	<97% identity	Bacteroidota	46510196.000000	0.192022
+Reads	<97% identity	Pseudomonadota	37270925.000000	0.153877
+Reads	<97% identity	Actinomycetota	10432938.000000	0.043073
+Reads	<97% identity	Fusobacteriota	6176680.000000	0.025501
+Reads	<97% identity	Other phyla	8284825.000000	0.034205
+Reads	>=97% identity	Bacillota	2512370099.000000	0.433172
+Reads	>=97% identity	Bacteroidota	1027623163.000000	0.177178
+Reads	>=97% identity	Pseudomonadota	1135686191.000000	0.195810
+Reads	>=97% identity	Actinomycetota	709752902.000000	0.122373
+Reads	>=97% identity	Fusobacteriota	312241044.000000	0.053835
+Reads	>=97% identity	Other phyla	102262746.000000	0.017632

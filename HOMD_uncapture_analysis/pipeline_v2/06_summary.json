@@ -1,0 +1,10 @@
+{
+  "total_phylotypes": 34671,
+  "by_class": {
+    "homd_captured": 334,
+    "homd_uncaptured": 34337
+  },
+  "candidate_novel": 7054,
+  "subject_gate": "max_subject_prevalence >= 10",
+  "method": "05d tree-distance species anchor vs HOMD species set (+ HOMD sequence safety net)"
+}

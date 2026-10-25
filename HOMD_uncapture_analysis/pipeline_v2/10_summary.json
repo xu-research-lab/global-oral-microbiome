@@ -1,0 +1,17 @@
+{
+  "n_asvs_annotated": 52086,
+  "tier_species": 30062,
+  "tier_sgb": 6291,
+  "tier_none": 15733,
+  "ambiguous_species": 7329,
+  "n_phylotypes": 26311,
+  "n_phylotypes_clean": 16722,
+  "n_phylotypes_gg2_anchored": 18940,
+  "n_credible_candidates_subj10": 1630,
+  "cutoffs": {
+    "species_id": 99.0,
+    "sgb_id": 97.0,
+    "qcov_min": 100.0,
+    "ambiguity_delta": 0.5
+  }
+}

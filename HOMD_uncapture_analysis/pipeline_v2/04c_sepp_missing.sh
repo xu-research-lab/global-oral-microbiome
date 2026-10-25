@@ -1,6 +1,6 @@
 #!/bin/bash
-# pipeline_v2: SEPP placement for 140 missing ASVs
-# Run directly (not sbatch) - only 140 sequences, ~a few minutes
+# pipeline_v2 Step 04c: SEPP placement for the candidates that step 04b could
+# not reuse.  Run directly (not sbatch); the query is a few hundred sequences.
 
 set -e
 

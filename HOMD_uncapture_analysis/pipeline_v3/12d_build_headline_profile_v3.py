@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+"""pipeline_v3 step 12d: build supported-catalog profile, one row per derep ASV.
+
+For each supported cluster, list every member derep ASV (from the master ASV
+table) with its own per-ASV metadata, plus cluster-level aggregates so the
+file is self-contained.  homd_capture is a cluster-level flag (annotation-first logic, 2026-08-29):
+  homd_captured   if any member ASV has a SPECIES-level tree annotation that is
+                  present in the HOMD catalog (cluster_novelty_class)
+  homd_uncaptured otherwise
+"""
+import csv
+import os
+
+PIPE_V3 = "/beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v3"
+PIPE_V2 = "/beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v2"
+
+def load_supported():
+    sup = {}
+    with open(os.path.join(PIPE_V3, "08_supported_clusters.tsv")) as f:
+        for r in csv.DictReader(f, delimiter="\t"):
+            cid = int(float(r["cluster_id"]))
+            sup[cid] = r
+    return sup
+
+def load_phylum():
+    phy = {}
+    with open(os.path.join(PIPE_V3, "05_candidate_novel_with_phylum.tsv")) as f:
+        for r in csv.DictReader(f, delimiter="\t"):
+            if r["cluster_id"] in ("", "NA", "nan"):
+                continue
+            phy[int(float(r["cluster_id"]))] = r.get("gg2_phylum", "")
+    return phy
+
+def load_sites(derep_ids):
+    want = set(derep_ids)
+    sites = {}
+    with open(os.path.join(PIPE_V2, "01_chimera_filtered.tsv")) as f:
+        rd = csv.DictReader(f, delimiter="\t")
+        for r in rd:
+            d = r["derep_id"]
+            if d in want:
+                sites[d] = r.get("sites", "")
+    return sites
+
+def main():
+    sup = load_supported()
+    phy = load_phylum()
+    all_derep = [d for r in sup.values() for d in r["member_derep_ids"].split(";")]
+    sites = load_sites(all_derep)
+
+    rows = []
+    with open(os.path.join(PIPE_V3, "07_master_asv_table.tsv")) as f:
+        rd = csv.DictReader(f, delimiter="\t")
+        for r in rd:
+            if r["cluster_id"] in ("", "NA", "nan"):
+                continue
+            cid = int(float(r["cluster_id"]))
+            if cid not in sup:
+                continue
+            s = sup[cid]
+            n_derep = len(s["member_derep_ids"].split(";"))
+            ann_level = s.get("annotation_level", "")
+            captured = (s.get("cluster_novelty_class", "homd_uncaptured") == "homd_captured")
+            rows.append({
+                "cluster_id": cid,
+                "derep_id": r["derep_id"],
+                "n_derep_asvs": n_derep,
+                "subject_prevalence": r["subject_prevalence"],
+                "n_bioprojects": r["n_bioprojects"],
+                "total_reads": r["total_reads"],
+                "regions": r["amplicon_regions"],
+                "sites": sites.get(r["derep_id"], ""),
+                "continents": r["continents"],
+                "countries": r["countries"],
+                "bioprojects": r.get("bioprojects", ""),
+                "homd_identity": r["homd_identity"],
+                "gg2_species": r["nearest_ref_species"],
+                "gg2_genus": r["nearest_ref_genus"],
+                "gg2_phylum": phy.get(cid, ""),
+                "annotation": r.get("annotation", ""),
+                "annotation_level": ann_level,
+                "annotation_lineage": r.get("annotation_lineage", ""),
+                "annotation_distance": r.get("annotation_distance", ""),
+                "homd_capture": "homd_captured" if captured else "homd_uncaptured",
+                "cluster_n_bioprojects": s["n_bioprojects_total"],
+                "cluster_total_reads": s["total_reads_sum"],
+                "cluster_regions": s["regions"],
+                "cluster_continents": s["continents"],
+            })
+
+    # order clusters by max subject prevalence (desc), then by cluster_id
+    rows.sort(key=lambda r: (-float(r["subject_prevalence"]), r["cluster_id"], r["derep_id"]))
+
+    cols = ["cluster_id", "derep_id", "n_derep_asvs", "subject_prevalence",
+            "n_bioprojects", "total_reads", "regions", "sites", "continents",
+            "countries", "bioprojects", "homd_identity", "gg2_species", "gg2_genus",
+            "gg2_phylum", "annotation", "annotation_level", "annotation_lineage",
+            "annotation_distance",
+            "homd_capture", "cluster_n_bioprojects",
+            "cluster_total_reads", "cluster_regions", "cluster_continents"]
+    out = os.path.join(PIPE_V3, "12d_headline_profile_v3.tsv")
+    with open(out, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=cols, delimiter="\t")
+        w.writeheader()
+        for r in rows:
+            w.writerow(r)
+    n_clusters = len({r["cluster_id"] for r in rows})
+    print(f"wrote {len(rows)} derep-ASV rows across {n_clusters} supported clusters -> {out}")
+
+if __name__ == "__main__":
+    main()

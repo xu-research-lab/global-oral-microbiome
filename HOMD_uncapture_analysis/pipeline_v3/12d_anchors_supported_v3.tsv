@@ -1,0 +1,487 @@
+anchor_tip	cluster_id	n_members	max_subject_prevalence	n_bioprojects_total	n_continents	n_regions	oral_clade	tree_label	phylum	rep_nearest_ref_dist	headline
+DEREP_307	c44826	2	3427	7	3	3	False	GWA2-37-10	Patescibacteria	7e-06	True
+DEREP_9830	s28239	1	1531	17	6	1	False		Firmicutes_D	0.087595	True
+DEREP_4981	c21907	112	1154	216	6	9	True	Capnocytophaga	Bacteroidota	1.3e-05	True
+DEREP_4535	s5074	1	1022	14	6	1	True	Fusobacterium russii	Fusobacteriota	0.05783	True
+DEREP_17270	s22190	1	898	17	6	1	False	Peptoanaerobacter stomatis	unknown	0.124148	False
+DEREP_23889	s21680	1	803	5	2	2	False	CAG-873	Bacteroidota	0.504736	True
+DEREP_12832	s20791	1	793	5	2	2	False	Coraliomargarita	Verrucomicrobiota	1.749277	True
+DEREP_6809	s22473	1	740	32	4	1	False	Neisseria bacilliformis	unknown	0.053622	False
+DEREP_19885	s21884	1	676	13	3	2	False	Clostridium	Firmicutes_A	0.195206	True
+DEREP_14757	s27473	1	671	6	3	2	False		Firmicutes_D	0.095299	True
+DEREP_23029	s11322	1	658	28	5	1	False	Propionivibrio dicarboxylicus	Proteobacteria	0.111173	True
+DEREP_28570	s28541	1	640	21	5	1	False		Firmicutes_D	0.050259	True
+DEREP_2910	s10843	1	638	19	5	1	True	Fusobacterium	Fusobacteriota	0.036263	True
+DEREP_12970	s6587	1	637	33	5	1	True	Nanosyncoccus	Patescibacteria	0.021727	True
+DEREP_11314	s7265	1	550	20	5	1	True	Fusobacterium russii	Fusobacteriota	0.049078	True
+DEREP_23349	s20329	1	547	13	3	2	False	Clostridium	Firmicutes_A	0.193749	True
+DEREP_7855	s17108	1	537	25	5	1	False	Enterocloster	Firmicutes_A	0.112435	True
+DEREP_30829	s24911	1	521	21	5	1	False	Peptoanaerobacter stomatis	unknown	0.124726	False
+DEREP_12911	s28154	1	520	14	4	1	False	Leptotrichiaceae	Fusobacteriota	0.060879	True
+DEREP_17538	s24041	1	489	5	2	2	False	GCA-2749205	Spirochaetota	0.029095	True
+DEREP_20587	c22819	2	482	5	2	2	False	Coraliomargarita	Verrucomicrobiota	1.662537	True
+DEREP_14483	c28404	45	480	71	4	4	True	Weeksellaceae	Bacteroidota	7e-06	True
+DEREP_29802	c15795	39	478	131	6	11	False	Faucicola mancuniensis	Proteobacteria	1.3e-05	True
+DEREP_10946	c42048	2	478	42	5	1	False	Enterocloster	Firmicutes_A	0.103267	True
+DEREP_21935	s28089	1	475	28	5	1	False	Eubacterium yurii	unknown	0.105225	False
+DEREP_6222	s19521	1	454	21	4	1	False	UMGS1994	Firmicutes_A	0.259806	True
+DEREP_85937	s14147	1	444	2	2	1	False	MED727	Proteobacteria	1.99999	True
+DEREP_40304	s23995	1	435	12	3	2	True	Prevotella	Bacteroidota	0.146541	True
+DEREP_33783	s27133	1	434	27	4	1	False	GCA-2749205	Spirochaetota	0.013145	True
+DEREP_24825	s27754	1	431	13	3	2	True	Leptotrichia trevisanii	Fusobacteriota	0.043529	True
+DEREP_40052	s10000	1	428	21	5	1	False	Copromonas	Firmicutes_A	0.058539	True
+DEREP_3868	s19392	1	412	23	4	1	False	Leptotrichiaceae	Fusobacteriota	0.061597	True
+DEREP_15572	s14418	1	411	16	6	1	True	Lachnospiraceae	Firmicutes_A	0.050152	True
+DEREP_13825	s24474	1	409	11	3	1	True	Treponema succinifaciens	Spirochaetota	0.181502	True
+DEREP_13909	s13289	1	409	2	2	1	False	Enterocloster	Firmicutes_A	0.086231	True
+DEREP_13722	s9799	1	403	11	3	2	False		Actinobacteriota	0.057315	True
+DEREP_79707	s8040	1	402	14	5	1	False		Bacteroidota	0.448069	True
+DEREP_97153	s13575	1	397	2	2	1	False	MED727	Proteobacteria	1.99999	True
+DEREP_14569	s21391	1	396	4	3	1	False	Neisseria bacilliformis	unknown	0.05401	False
+DEREP_67948	s9354	1	395	9	3	1	True	Parvimonas	Firmicutes_A	0.183084	True
+DEREP_2676	c30760	2	382	9	5	1	True	Leptotrichia	Fusobacteriota	0.092125	True
+DEREP_24311	s9330	1	362	3	2	1	True	Alkalihalobacillus alkalilacus	Firmicutes_D	0.0381	True
+DEREP_32171	s24749	1	361	16	6	1	False	Clostridium	Firmicutes_A	0.194815	True
+DEREP_80653	s8538	1	354	11	3	1	False		Bacteroidota	0.44888	True
+DEREP_30237	s21564	1	353	5	2	2	False	Coraliomargarita	Verrucomicrobiota	1.842526	True
+DEREP_44557	s6762	1	344	8	3	1	False	Snodgrassella	Proteobacteria	0.054023	True
+DEREP_28932	s9448	1	343	18	6	1	False		Firmicutes_A	0.187604	True
+DEREP_39119	s28382	1	341	10	2	1	False	Eubacterium yurii	unknown	0.105354	False
+DEREP_24153	s9506	1	327	10	3	1	False	2011-GWC2-44-17	Patescibacteria	0.940187	True
+DEREP_13591	s14499	1	316	21	5	1	False	Centipeda flueggei	unknown	0.019939	False
+DEREP_28426	s25123	1	312	5	2	2	False	Coraliomargarita	Verrucomicrobiota	1.846155	True
+DEREP_78072	s25020	1	306	5	2	2	False		Bacteroidota	0.621433	True
+DEREP_35240	s26736	1	302	2	2	1	False		Firmicutes_D	0.121709	True
+DEREP_67551	s27639	1	294	4	3	1	False		Firmicutes_D	0.12631	True
+DEREP_30579	s1001	1	293	5	2	2	False	UBA1406	Patescibacteria	2.075613	True
+DEREP_23933	s14155	1	281	2	2	1	False	Noviherbaspirillum	Proteobacteria	0.120197	True
+DEREP_51224	s21293	1	267	25	4	1	False	Paramuribaculum	Bacteroidota	0.526061	True
+DEREP_25865	s24283	1	259	9	5	1	True	Comamonas odontotermitis	Proteobacteria	0.046333	True
+DEREP_19654	s7695	1	257	18	4	1	True	Eikenella	Proteobacteria	0.032114	True
+DEREP_82073	c42702	9	252	33	6	2	False	Treponema vincentii	unknown	0.008249	False
+DEREP_34760	s5702	1	251	5	2	2	False	1-14-0-10-49-17	Patescibacteria	1.729098	True
+DEREP_105203	s20909	1	247	4	2	1	False	Paramuribaculum	Bacteroidota	0.510928	True
+DEREP_124215	s19223	1	246	10	3	1	False	UBA6382	Bacteroidota	0.203679	True
+DEREP_9104	s18233	1	240	4	2	1	False	Chryseolinea serpens	Bacteroidota	0.396772	True
+DEREP_36576	s6626	1	237	12	4	1	False	JAAGVW01	Verrucomicrobiota	1.99769	True
+DEREP_58840	s14750	1	235	20	5	1	False	Snodgrassella	Proteobacteria	0.05031	True
+DEREP_111469	s17818	1	234	21	5	1	False	CAG-873	Bacteroidota	0.652239	True
+DEREP_53635	s19941	1	227	17	6	1	False	Clostridium	Firmicutes_A	0.193364	True
+DEREP_142941	s16024	1	225	10	6	1	True	Eubacterium	Firmicutes_A	0.191598	True
+DEREP_82339	s26286	1	222	30	5	1	False		Firmicutes_D	0.10997	True
+DEREP_78294	s23408	1	222	25	4	1	False		Firmicutes_D	0.079152	True
+DEREP_84556	s7444	1	222	2	2	1	False	CAG-314	Firmicutes_A	0.238902	True
+DEREP_79212	s18769	1	221	15	6	1	False	Coprobacter secundus	Bacteroidota	0.476608	True
+DEREP_66822	s5221	1	220	8	4	1	False		Firmicutes_A	0.126721	True
+DEREP_89532	c16868	32	218	72	4	2	True	Aggregatibacter	Proteobacteria	1.2e-05	True
+DEREP_28960	s14991	1	218	8	3	2	True	Lachnospiraceae	Firmicutes_A	0.050152	True
+DEREP_105805	s27228	1	218	7	2	1	False	GCA-2749205	Spirochaetota	0.013286	True
+DEREP_15037	s13644	1	213	10	6	1	True	Leptotrichia	Fusobacteriota	0.098112	True
+DEREP_110785	s13516	1	210	10	3	1	False	Wolinella succinogenes	Campylobacterota	0.04665	True
+DEREP_29381	s16280	1	209	8	4	1	False		Bacteroidota	0.583195	True
+DEREP_15100	s9064	1	208	8	2	1	True	Treponema succinifaciens	Spirochaetota	0.196704	True
+DEREP_54928	s24649	1	207	26	5	1	True	Bacteroides gallinarum	Bacteroidota	0.178383	True
+DEREP_100844	s19919	1	207	11	3	1	False	UBA737	Firmicutes_A	0.176853	True
+DEREP_21804	c18484	2	207	5	2	1	False	Roseibacillus	Verrucomicrobiota	1.999998	True
+DEREP_142161	s22002	1	205	13	3	2	True	Prevotella	Bacteroidota	0.137042	True
+DEREP_6878	s9634	1	202	24	5	1	True	Desulfovibrio	Desulfobacterota_I	0.005496	True
+DEREP_40726	s28061	1	202	13	5	1	False		Firmicutes_D	0.08731	True
+DEREP_65240	s8012	1	198	11	4	1	False	JAAGVW01	Verrucomicrobiota	1.88988	True
+DEREP_38991	s23738	1	197	5	2	2	False	Coraliomargarita	Verrucomicrobiota	1.934655	True
+DEREP_14562	s17467	1	194	2	2	1	True	Rothia	Actinobacteriota	0.170117	True
+DEREP_21290	s22578	1	189	11	4	1	False	Lacrimispora	Firmicutes_A	0.027828	True
+DEREP_51631	s20543	1	188	9	3	1	False	GCA-2749205	Spirochaetota	0.034443	True
+DEREP_16681	s11762	1	184	12	4	1	False	Salinivirga	Bacteroidota	0.424367	True
+DEREP_88974	s20145	1	175	11	3	1	False	GCA-2749205	Spirochaetota	0.034405	True
+DEREP_36729	c15805	2	174	6	3	3	False	Pseudoalteromonas luteoviolacea_G	Proteobacteria	7e-06	True
+DEREP_20238	s7697	1	172	2	2	1	False	Neisseria bacilliformis	unknown	0.063681	False
+DEREP_71156	s9979	1	171	7	3	1	False		Firmicutes_A	0.187931	True
+DEREP_71575	s19570	1	169	9	3	1	False	Catonella morbi	unknown	0.178123	False
+DEREP_108190	s6635	1	169	7	5	1	False		Marinisomatota	0.666898	True
+DEREP_42306	s6973	1	169	2	2	1	False		Firmicutes_A	0.142602	True
+DEREP_42044	s20122	1	167	10	4	1	False		Bacteroidota	0.585907	True
+DEREP_64473	s13166	1	166	7	5	1	False	Acholeplasmatales	Firmicutes_D	0.289369	True
+DEREP_16940	s20921	1	164	13	4	1	False	Porphyromonas uenonis	unknown	0.054869	False
+DEREP_71937	s18190	1	163	10	3	1	False	Catonella morbi	unknown	0.191541	False
+DEREP_120365	s9988	1	163	6	3	2	False	Stomatobaculum longum	unknown	0.127236	False
+DEREP_34775	s21043	1	162	22	5	1	False	Actinomycetaceae	Actinobacteriota	0.084143	True
+DEREP_151700	s6218	1	162	18	4	1	True	Treponema	Spirochaetota	0.040672	True
+DEREP_69347	s17098	1	161	12	4	1	False	UMGS1994	Firmicutes_A	0.14079	True
+DEREP_81628	s11495	1	160	23	5	1	False		Firmicutes_A	0.15238	True
+DEREP_33089	s28176	1	160	12	3	1	False	Leptotrichiaceae	Fusobacteriota	0.061372	True
+DEREP_54778	s23994	1	158	8	3	1	True	Prevotella	Bacteroidota	0.16587	True
+DEREP_83177	c29569	19	157	52	4	7	True	Desulfovibrio	Desulfobacterota_I	0.005496	True
+DEREP_30880	s12334	1	157	26	5	1	False	Treponema vincentii	unknown	0.05635	False
+DEREP_39666	s15231	1	157	18	5	1	True	Treponema succinifaciens	Spirochaetota	0.182402	True
+DEREP_116406	s17302	1	156	13	3	1	False	Porphyromonas uenonis	unknown	0.028991	False
+DEREP_41091	s14547	1	155	10	5	1	False	Pedosphaera parvula	Verrucomicrobiota	0.716562	True
+DEREP_50459	s16599	1	155	6	2	1	True	Lachnoanaerobaculum	Firmicutes_A	0.139698	True
+DEREP_84799	s9457	1	154	6	3	2	False	Stomatobaculum longum	unknown	0.133719	False
+DEREP_23526	s28263	1	152	10	2	2	False		Firmicutes_D	0.087626	True
+DEREP_90872	s13486	1	152	8	3	1	False	Treponema vincentii	unknown	0.056447	False
+DEREP_78520	s3580	1	150	26	5	1	False	Wolinella succinogenes	Campylobacterota	0.033996	True
+DEREP_100388	s21713	1	150	12	3	2	False	Treponema vincentii	unknown	0.049511	False
+DEREP_29328	s18468	1	148	6	2	1	False	Leptotrichiaceae	Fusobacteriota	0.060882	True
+DEREP_70844	s17251	1	147	19	5	1	False	Capnocytophaga sputigena	unknown	0.022422	False
+DEREP_67232	s17100	1	144	10	3	1	True	Oribacterium	Firmicutes_A	0.130696	True
+DEREP_30648	s22919	1	143	28	5	1	True	Eubacterium	Firmicutes_A	0.146546	True
+DEREP_20867	s24677	1	141	18	5	1	True	Treponema succinifaciens	Spirochaetota	0.181502	True
+DEREP_72794	c7147	2	141	3	2	1	False	Anaerobacillus isosaccharinicus	Firmicutes_D	0.021596	True
+DEREP_53957	s5053	1	140	14	3	1	False	J044	Proteobacteria	0.26965	True
+DEREP_45776	s23097	1	140	7	2	1	False	Neisseria bacilliformis	unknown	0.045491	False
+DEREP_124468	s18543	1	140	6	3	2	False	Peptoanaerobacter stomatis	unknown	0.119286	False
+DEREP_48116	s28819	1	139	19	4	1	False	Leptotrichiaceae	Fusobacteriota	0.018723	True
+DEREP_34453	s25049	1	139	9	4	1	False	Simonsiella muelleri	unknown	0.042416	False
+DEREP_148768	s22880	1	139	6	3	1	False	Fimenecus	Firmicutes_A	0.163759	True
+DEREP_20953	s22606	1	137	7	2	1	False	Anaerostipes hadrus	Firmicutes_A	1.999996	True
+DEREP_19241	s24866	1	136	27	4	1	True	Treponema succinifaciens	Spirochaetota	0.181176	True
+DEREP_50408	s26983	1	135	13	5	1	True	Comamonas odontotermitis	Proteobacteria	0.04282	True
+DEREP_37181	s20223	1	135	7	2	1	False	Leptotrichiaceae	Fusobacteriota	0.061631	True
+DEREP_114027	s23775	1	134	14	5	1	True	Prevotella	Bacteroidota	0.146448	True
+DEREP_36634	s5608	1	133	25	5	1	False		Firmicutes_A	0.23086	True
+DEREP_53488	s26698	1	133	21	5	1	False	Prevotella oulorum	unknown	0.118032	False
+DEREP_25204	s20510	1	133	13	4	1	False	Porphyromonas uenonis	unknown	0.054869	False
+DEREP_67171	s27478	1	133	8	2	1	False	Eubacterium yurii	unknown	0.105246	False
+DEREP_140047	s4798	1	133	6	3	1	False		Firmicutes_A	0.23098	True
+DEREP_66601	s12269	1	132	13	5	1	False	GCA-002708715	Marinisomatota	0.937383	True
+DEREP_137074	s22004	1	132	10	3	1	True	Prevotella oralis	Bacteroidota	0.128821	True
+DEREP_61581	s7524	1	132	5	2	2	False	Coraliomargarita	Verrucomicrobiota	1.835758	True
+DEREP_37604	c1821	4	131	12	3	1	False	Thermus thermophilus	unknown	0.007757	False
+DEREP_29549	s10868	1	130	7	4	1	True	Actinomyces weissii	Actinobacteriota	0.034954	True
+DEREP_30393	s28966	1	129	9	5	1	False	Streptobacillus hongkongensis	Fusobacteriota	7e-06	True
+DEREP_81510	s10245	1	129	7	3	1	False	Snodgrassella	Proteobacteria	0.062527	True
+DEREP_44785	s26643	1	127	7	4	1	True	Comamonas odontotermitis	Proteobacteria	0.042891	True
+DEREP_142423	s14431	1	126	18	4	1	False	Clostridium	Firmicutes_A	0.161184	True
+DEREP_41283	s16424	1	126	10	5	1	False	Avibacterium	Proteobacteria	0.97978	True
+DEREP_26551	c19843	4	124	9	5	2	False	Aquabacter cavernae	Proteobacteria	1.2e-05	True
+DEREP_95065	s21834	1	124	7	2	1	False		Firmicutes_A	0.207766	True
+DEREP_74698	s19447	1	122	10	4	1	False	CAG-710	Firmicutes_D	0.078906	True
+DEREP_1743	s24345	1	122	9	3	1	False	Blautia wexlerae	Firmicutes_A	8e-06	True
+DEREP_110668	s20771	1	120	20	5	1	False	Catonella morbi	unknown	0.17474	False
+DEREP_150454	s2560	1	120	5	2	2	False	Merdousia gallistercoris	Verrucomicrobiota	1.614932	True
+DEREP_56487	s13104	1	118	8	4	1	False	Pauljensenia	Actinobacteriota	0.049371	True
+DEREP_100471	s13500	1	118	6	4	1	False	PSRF01	Acidobacteriota	0.313691	True
+DEREP_14904	s5689	1	117	20	5	1	False	2011-GWC2-44-17	Patescibacteria	0.940187	True
+DEREP_33704	s22540	1	117	10	2	2	False	Peptoanaerobacter stomatis	unknown	0.124249	False
+DEREP_55362	s23658	1	117	8	2	1	False		Firmicutes_D	0.079306	True
+DEREP_77783	s28553	1	117	7	2	1	False		Firmicutes_D	0.050279	True
+DEREP_92804	s20675	1	116	9	5	1	False	Acholeplasma	Firmicutes_D	0.268318	True
+DEREP_63552	s2259	1	116	7	4	1	False	SDRW01	Patescibacteria	0.053599	True
+DEREP_84493	s19001	1	114	7	5	1	False	Acholeplasmataceae	Firmicutes_D	0.251444	True
+DEREP_102105	s2676	1	113	9	3	1	False	CACZYB01	Proteobacteria	0.28943	True
+DEREP_112457	s17179	1	113	5	4	1	False	Anaerostipes hadrus	Firmicutes_A	0.22212	True
+DEREP_41608	s2522	1	112	17	4	1	False	Schwartzia succinivorans	Firmicutes_C	0.178371	True
+DEREP_1317	s12262	1	112	10	4	1	False	Roseibacillus	Verrucomicrobiota	1.999998	True
+DEREP_127243	s14658	1	112	6	4	1	False		Acidobacteriota	1.999996	True
+DEREP_77645	s21792	1	111	7	5	1	False	SIO2C1	Cyanobacteria	0.603814	True
+DEREP_257889	s4232	1	111	3	2	1	False	Wolinella succinogenes	Campylobacterota	0.03401	True
+DEREP_149425	c7928	25	110	72	5	3	False		Firmicutes_A	7e-06	True
+DEREP_90418	s27181	1	109	9	3	1	True	Treponema	Spirochaetota	0.056308	True
+DEREP_8946	s10409	1	109	7	3	1	True	Peptoanaerobacter	Firmicutes_A	0.124994	True
+DEREP_1867	c31920	2	108	8	3	2	False	Roseburia inulinivorans	Firmicutes_A	7e-06	True
+DEREP_73009	s13719	1	108	8	2	1	False		Firmicutes_D	0.074919	True
+DEREP_133166	s23774	1	106	6	3	1	True	Prevotella	Bacteroidota	0.16599	True
+DEREP_83184	s13278	1	106	5	2	2	False	UMGS1994	Firmicutes_A	0.177901	True
+DEREP_145151	s25004	1	106	2	2	1	True	Bacteroides gallinarum	Bacteroidota	0.1805	True
+DEREP_33137	s21981	1	105	13	4	1	False	Aquimarina	Bacteroidota	0.300808	True
+DEREP_114596	s2665	1	105	8	2	1	False	Wolinella succinogenes	Campylobacterota	0.030855	True
+DEREP_71230	s27313	1	104	18	5	1	False	Prevotella oulorum	unknown	0.117173	False
+DEREP_95248	s27960	1	104	7	3	1	True	Treponema	Spirochaetota	0.061938	True
+DEREP_83003	s12531	1	104	5	2	1	False	Actinomycetaceae	Actinobacteriota	0.106133	True
+DEREP_84993	s28514	1	103	15	4	1	False		Firmicutes_D	0.05009	True
+DEREP_60319	s16605	1	103	13	3	1	False	Enterocloster	Firmicutes_A	0.112435	True
+DEREP_97955	s18260	1	103	9	5	1	False	Myroides ceti	Bacteroidota	0.410274	True
+DEREP_175504	s2290	1	103	9	5	1	False	UBA1100	Verrucomicrobiota	0.298975	True
+DEREP_78493	s26851	1	103	7	2	1	False	GCA-2749205	Spirochaetota	0.013278	True
+DEREP_135204	s23096	1	103	2	2	1	False	Snodgrassella	Proteobacteria	0.07983	True
+DEREP_81587	s22466	1	102	16	5	1	True	Comamonas odontotermitis	Proteobacteria	0.053637	True
+DEREP_28021	s20517	1	102	14	4	1	False		Bacteroidota	0.585907	True
+DEREP_103110	s17917	1	102	8	5	1	False	CACZYB01	Proteobacteria	1.373225	True
+DEREP_144426	s25631	1	102	8	3	1	False	Capsularis zoogleoformans	unknown	0.256859	False
+DEREP_2222	c30689	11	101	18	4	1	False	Halomonas	Proteobacteria	7e-06	True
+DEREP_89252	s13015	1	101	7	3	1	False	Propionivibrio dicarboxylicus	Proteobacteria	0.111589	True
+DEREP_85829	s27155	1	101	2	2	1	False	Eubacterium yurii	unknown	0.085081	False
+DEREP_30105	c6615	40	100	108	6	4	False	Selenomonas sputigena	unknown	1.2e-05	False
+DEREP_26207	c19540	2	100	16	5	1	False	2011-GWC2-44-17	Patescibacteria	0.940187	True
+DEREP_33402	s8951	1	100	15	5	1	False	Centipeda flueggei	unknown	0.014193	False
+DEREP_68769	s26177	1	100	11	2	1	False		Firmicutes_D	0.110396	True
+DEREP_82599	s19468	1	100	7	5	1	False		Firmicutes_A	0.156671	True
+DEREP_186683	s4632	1	100	2	2	1	False	UBA8914	Proteobacteria	0.201259	True
+DEREP_73449	s24901	1	99	13	2	1	False		Firmicutes_D	0.108703	True
+DEREP_66194	s8751	1	98	13	6	1	False		Actinobacteriota	0.057274	True
+DEREP_138823	s9893	1	98	5	2	1	False	Copromorpha	Firmicutes_A	0.160613	True
+DEREP_121577	s16986	1	98	4	2	1	True	Streptococcus ratti	Firmicutes_D	0.44751	True
+DEREP_8141	c16086	6	97	16	4	4	False	Schleiferilactobacillus harbinensis	Firmicutes_D	8e-06	True
+DEREP_21861	s28417	1	97	8	3	1	True	Leptotrichia trevisanii	Fusobacteriota	0.039172	True
+DEREP_136941	s10524	1	96	6	3	1	True	Oribacterium	Firmicutes_A	0.186478	True
+DEREP_333849	s27008	1	96	5	2	2	False	GWA2-37-10	Patescibacteria	0.084134	True
+DEREP_112917	s24526	1	96	4	2	1	False		Firmicutes_D	0.078972	True
+DEREP_23574	s15774	1	95	5	2	1	True	Treponema succinifaciens	Spirochaetota	0.182402	True
+DEREP_103600	s18510	1	95	2	2	1	False	Streptococcus ilei	unknown	0.143546	False
+DEREP_189129	s5317	1	94	4	3	1	False	XYC2-FULL-35-21	Bacteroidota	0.170647	True
+DEREP_82771	s3162	1	93	7	4	1	False	UBA12508	Verrucomicrobiota	0.91438	True
+DEREP_223721	s24311	1	93	4	3	1	False		Firmicutes_D	0.238085	True
+DEREP_479827	s20230	1	93	2	2	1	False	SIO2C1	Cyanobacteria	0.277206	True
+DEREP_221559	s26570	1	92	12	3	1	False		Firmicutes_D	0.108652	True
+DEREP_207665	s4115	1	92	9	5	1	True	Nanosyncoccus	Patescibacteria	0.022848	True
+DEREP_69059	s9489	1	92	7	2	1	True	Eubacterium	Firmicutes_A	0.086568	True
+DEREP_134245	s23054	1	91	14	3	1	False	GCA-2749205	Spirochaetota	0.037037	True
+DEREP_59415	s23773	1	91	5	2	1	True	Prevotella dentasini	Bacteroidota	0.146385	True
+DEREP_142477	s27176	1	91	5	3	1	False	Bacteroides caccae	unknown	1.099356	False
+DEREP_84969	s23314	1	91	4	2	1	False	CAG-873	Bacteroidota	0.526886	True
+DEREP_78164	s7378	1	91	3	2	1	True	Alkalihalobacillus alkalilacus	Firmicutes_D	0.041054	True
+DEREP_60439	s2525	1	90	13	4	1	True	Centipeda	Firmicutes_C	0.040717	True
+DEREP_84649	s28956	1	89	11	4	1	False	Streptobacillus hongkongensis	Fusobacteriota	7e-06	True
+DEREP_253357	s27305	1	89	4	2	1	False	GWA2-37-10	Patescibacteria	0.178028	True
+DEREP_92222	s4110	1	88	5	2	2	False	UBA1406	Patescibacteria	1.915319	True
+DEREP_55664	s9989	1	87	20	4	1	True	Oribacterium	Firmicutes_A	0.133324	True
+DEREP_58032	s25931	1	87	10	4	1	True	Helicobacter pylori_CI	Campylobacterota	0.248429	True
+DEREP_97733	c18976	3	87	6	2	3	False	Glaciecola	Proteobacteria	7e-06	True
+DEREP_91267	s630	1	87	4	3	1	False	Anaeroferrophillalia	Desulfobacterota_C	0.310512	True
+DEREP_102344	s7231	1	86	17	4	1	False		Proteobacteria	0.141011	True
+DEREP_81279	s28827	1	86	3	2	1	False	Leptotrichiaceae	Fusobacteriota	0.018733	True
+DEREP_98471	s5877	1	85	14	5	1	False	Snodgrassella	Proteobacteria	0.053981	True
+DEREP_38627	s4856	1	85	14	4	1	False	Centipeda artemidis	unknown	0.042594	False
+DEREP_42544	s28395	1	85	13	4	1	True	Leptotrichia trevisanii	Fusobacteriota	0.038823	True
+DEREP_154458	s24612	1	85	6	4	1	False	Tenacibaculum	Bacteroidota	0.29267	True
+DEREP_138320	s18312	1	85	6	2	1	False	Paramuribaculum	Bacteroidota	0.509455	True
+DEREP_242087	s1202	1	85	3	3	1	False	UBA1565	Elusimicrobiota	0.225767	True
+DEREP_134141	s27202	1	84	14	3	1	False	Eubacterium yurii	unknown	0.115878	False
+DEREP_17866	s24262	1	84	10	2	1	True	Treponema succinifaciens	Spirochaetota	0.181382	True
+DEREP_111298	s6172	1	84	5	2	2	False	Coraliomargarita	Verrucomicrobiota	1.94197	True
+DEREP_49955	s22575	1	84	4	3	1	False	CAG-273	Firmicutes_A	1.982376	True
+DEREP_47409	s25828	1	84	3	3	6	False		Firmicutes_D	0.085726	True
+DEREP_53217	s23250	1	83	9	5	1	False	Polaribacter	Bacteroidota	0.472766	True
+DEREP_81700	s18606	1	83	8	2	1	False	UMGS1994	Firmicutes_A	0.260441	True
+DEREP_127538	s29258	1	83	7	4	1	True	Lactococcus taiwanensis	Firmicutes_D	0.305896	True
+DEREP_65793	s26654	1	83	6	2	1	False		Firmicutes_D	0.108613	True
+DEREP_281469	s3840	1	83	4	3	1	False	UBA9732	Spirochaetota	0.16047	True
+DEREP_132849	s26928	1	83	2	2	1	True	Ottowia	Proteobacteria	0.068122	True
+DEREP_144214	s26541	1	82	9	2	1	False	GCA-2749205	Spirochaetota	0.013326	True
+DEREP_101096	s27520	1	82	8	2	1	False	Eubacterium yurii	unknown	0.105342	False
+DEREP_87007	s2706	1	82	5	2	2	True	Fusobacterium	Fusobacteriota	0.059407	True
+DEREP_99150	s3132	1	81	5	2	2	False	UBA1406	Patescibacteria	2.016967	True
+DEREP_127411	s11708	1	81	5	4	1	False	GCA-002707645	Marinisomatota	0.615324	True
+DEREP_118090	s13671	1	81	5	3	1	False	Pauljensenia	Actinobacteriota	0.051839	True
+DEREP_208954	s481	1	81	4	3	1	False	Actinomarina	Actinobacteriota	0.532713	True
+DEREP_34454	s5446	1	81	2	2	1	False	Kangiellaceae	Proteobacteria	0.199812	True
+DEREP_158981	s22600	1	81	2	2	1	True	Eubacterium	Firmicutes_A	0.14669	True
+DEREP_120070	s27496	1	80	9	2	1	False	GCA-2749205	Spirochaetota	0.013258	True
+DEREP_71709	s2023	1	80	8	3	1	False	UBA1100	Verrucomicrobiota	0.298975	True
+DEREP_121797	s18516	1	80	3	2	2	False	CAG-710	Firmicutes_D	0.080227	True
+DEREP_139641	s17688	1	80	2	2	1	True	Eubacterium	Firmicutes_A	0.15602	True
+DEREP_141779	s19464	1	79	15	5	1	False	Acholeplasma	Firmicutes_D	0.290246	True
+DEREP_39713	s1517	1	79	11	5	1	False	Schwartzia succinivorans	Firmicutes_C	0.170348	True
+DEREP_59416	s23808	1	79	8	4	1	False		Bacteroidota	0.584079	True
+DEREP_138625	s19260	1	79	6	2	1	False	Paramuribaculum	Bacteroidota	0.510191	True
+DEREP_127128	s11042	1	79	5	3	1	False	F0428	Firmicutes_A	0.059032	True
+DEREP_74744	s10718	1	79	2	2	1	False	Wolinella succinogenes	Campylobacterota	0.026213	True
+DEREP_18225	s7001	1	78	20	4	1	False	CAG-314	Firmicutes_A	0.238753	True
+DEREP_72737	s24537	1	78	17	4	1	False	Eubacterium yurii	unknown	0.112222	False
+DEREP_141400	c45567	4	78	14	3	2	False	GCA-2749205	Spirochaetota	0.006035	True
+DEREP_180071	s3918	1	78	6	3	1	False	CACZYB01	Proteobacteria	0.268388	True
+DEREP_323938	s18525	1	78	5	3	1	False	UBA4951	Firmicutes_D	0.043615	True
+DEREP_304792	s19138	1	78	4	3	1	False	GWA2-37-10	Patescibacteria	0.294692	True
+DEREP_172270	s28199	1	78	4	2	1	False	Bacteroides stercoris	unknown	0.56999	False
+DEREP_51661	s20837	1	78	3	3	6	False	Tenacibaculum aiptasiae	Bacteroidota	0.973399	True
+DEREP_171379	s26070	1	78	2	2	1	False		Firmicutes_D	0.07721	True
+DEREP_127258	s23992	1	76	18	5	1	True	Prevotella dentasini	Bacteroidota	0.146161	True
+DEREP_194995	s17354	1	76	16	5	1	False	Wolinella succinogenes	Campylobacterota	0.044266	True
+DEREP_86247	s29244	1	76	10	5	1	True	Escherichia	Proteobacteria	0.513432	True
+DEREP_92453	s3134	1	76	3	3	1	False	JAACSU01	Patescibacteria	0.089406	True
+DEREP_72889	s27615	1	75	19	5	1	True	Treponema pedis	Spirochaetota	0.091726	True
+DEREP_191593	s24674	1	75	17	5	1	False	Treponema vincentii	unknown	0.010789	False
+DEREP_103047	s1620	1	75	9	3	2	True	Campylobacter	Campylobacterota	0.076513	True
+DEREP_221928	s20827	1	75	8	5	1	False	Elizabethkingia	Bacteroidota	0.480808	True
+DEREP_314969	s23888	1	75	7	2	1	False		Firmicutes_D	0.079351	True
+DEREP_262580	s14051	1	75	5	3	1	False		Bacteroidota	0.102775	True
+DEREP_244290	s3790	1	75	3	2	1	True	Nanosyncoccus	Patescibacteria	0.086094	True
+DEREP_104198	s11037	1	75	2	2	1	False	UMGS1994	Firmicutes_A	0.179588	True
+DEREP_78406	s10560	1	75	2	2	1	True	Eubacterium	Firmicutes_A	0.132463	True
+DEREP_88249	s10139	1	75	2	2	1	True	Treponema succinifaciens	Spirochaetota	0.195356	True
+DEREP_248100	s15773	1	74	8	3	1	True	Treponema	Spirochaetota	0.088771	True
+DEREP_141778	s20544	1	74	8	3	1	True	Treponema	Spirochaetota	0.106317	True
+DEREP_82068	c40654	2	74	6	2	3	False	Alteromonas mediterranea	Proteobacteria	7e-06	True
+DEREP_130499	s2836	1	74	6	3	1	False	Schwartzia succinivorans	Firmicutes_C	0.178536	True
+DEREP_79008	s25479	1	74	2	2	1	True	Prevotella bryantii	Bacteroidota	0.121758	True
+DEREP_163163	s22753	1	73	14	4	1	False	GCA-2749205	Spirochaetota	0.037012	True
+DEREP_36981	s20603	1	73	7	3	1	False	Neisseria bacilliformis	unknown	0.054419	False
+DEREP_49240	s7856	1	73	3	2	1	True	Peptoniphilaceae	Firmicutes_A	0.16064	True
+DEREP_83812	s4925	1	72	17	5	1	False	UBA9732	Spirochaetota	0.156438	True
+DEREP_272562	c15882	4	72	9	5	2	False	Rhodanobacter glycinis	Proteobacteria	7e-06	True
+DEREP_133078	s28187	1	72	7	5	1	False		Firmicutes_D	0.079096	True
+DEREP_92759	s19065	1	72	7	5	1	False	CAG-273	Firmicutes_A	1.883296	True
+DEREP_273122	s19833	1	72	3	2	1	False	Actinomycetaceae	Actinobacteriota	0.08496	True
+DEREP_86296	s18181	1	71	25	5	1	True	Eubacterium	Firmicutes_A	0.155864	True
+DEREP_50820	s27943	1	71	17	5	1	False		Firmicutes_D	0.215523	True
+DEREP_14862	7846	1	71	2	2	1	True	Arachnia	Actinobacteriota	0.01188	True
+DEREP_105407	s27794	1	70	12	6	1	True	Leptotrichia trevisanii	Fusobacteriota	0.043529	True
+DEREP_127268	s13931	1	70	11	3	1	False	Centipeda flueggei	unknown	0.019939	False
+DEREP_25436	s23831	1	70	8	2	1	True	Treponema succinifaciens	Spirochaetota	0.181738	True
+DEREP_193442	c20931	2	70	5	3	1	False	Pannonibacter indicus	unknown	7e-06	False
+DEREP_216497	s25016	1	70	2	2	1	False	CAG-873	Bacteroidota	0.318147	True
+DEREP_91536	s14217	1	69	8	3	1	True	Leptotrichia	Fusobacteriota	0.098112	True
+DEREP_144995	s12805	1	69	6	2	1	True	Nanosyncoccus	Patescibacteria	0.101783	True
+DEREP_90390	s5419	1	69	2	2	1	False	UBA5951	Proteobacteria	1.222915	True
+DEREP_32809	c6621	4	68	26	5	1	False	2011-GWC2-44-17	Patescibacteria	0.940187	True
+DEREP_76630	s7532	1	68	13	5	1	False	Pedosphaera parvula	Verrucomicrobiota	0.6496	True
+DEREP_37869	s15767	1	68	11	4	1	False	P3	Bacteroidota	0.359098	True
+DEREP_102624	s27131	1	68	9	4	1	False	Bacteroides ovatus	unknown	0.93078	False
+DEREP_70352	s9261	1	68	7	5	1	True	Arcanobacterium	Actinobacteriota	1.999999	True
+DEREP_142678	s8168	1	68	6	3	1	False	Snodgrassella	Proteobacteria	0.046367	True
+DEREP_100389	s17955	1	68	6	5	1	True	Haemophilus	Proteobacteria	1.280156	True
+DEREP_277957	s703	1	68	2	2	1	False		Myxococcota_A_437813	0.503166	True
+DEREP_29455	c21350	11	67	38	5	5	False	Fructilactobacillus sanfranciscensis	Firmicutes_D	7e-06	True
+DEREP_148989	s23876	1	67	8	3	2	False	Peptidiphaga gingivicola	unknown	0.024981	False
+DEREP_47132	c36553	2	67	8	4	1	False	Phnomibacter ginsenosidimutans	Bacteroidota	1.294915	True
+DEREP_52268	s23368	1	67	8	3	1	False	Simonsiella muelleri	unknown	0.038856	False
+DEREP_126847	c45660	2	67	7	2	3	False	Pelagibacter	Proteobacteria	7e-06	True
+DEREP_73643	c28618	4	67	6	2	3	False	Planktomarina temperata	Proteobacteria	7e-06	True
+DEREP_187783	s27245	1	67	6	2	1	False		Firmicutes_D	0.11518	True
+DEREP_210781	s4983	1	67	5	3	1	False	Sulfurimonas gotlandica	Campylobacterota	2.022601	True
+DEREP_98685	s5655	1	67	3	3	1	False	CAG-475	Firmicutes_A	0.086637	True
+DEREP_283220	s11706	1	67	3	2	1	False	Pedosphaera parvula	Verrucomicrobiota	0.161315	True
+DEREP_127080	s24734	1	66	7	2	1	False	Peptoanaerobacter stomatis	unknown	0.124898	False
+DEREP_106032	s10315	1	66	6	2	1	False	Actinomycetaceae	Actinobacteriota	0.090293	True
+DEREP_138826	s17781	1	66	3	2	1	False	UBA6382	Bacteroidota	0.212986	True
+DEREP_71436	s25938	1	66	2	2	1	True	Comamonas odontotermitis	Proteobacteria	0.054051	True
+DEREP_175798	s13976	1	65	6	4	1	False		Verrucomicrobiota	0.610004	True
+DEREP_90318	s1336	1	65	5	5	1	False	SDRK01	Patescibacteria	0.052782	True
+DEREP_127269	s26473	1	65	5	3	1	False		Firmicutes_D	0.244888	True
+DEREP_72050	s10688	1	65	5	2	1	True	Treponema succinifaciens	Spirochaetota	0.176149	True
+DEREP_108024	s13667	1	65	4	3	1	True	Actinomyces	Actinobacteriota	0.064224	True
+DEREP_217212	s1513	1	65	3	3	1	False	Massilibacillus massiliensis	Firmicutes_C	0.523222	True
+DEREP_178769	s8725	1	65	3	3	1	False	Prochlorococcus marinus_32507	Cyanobacteria	0.569809	True
+DEREP_20328	c30158	3	64	17	5	1	False	UBA2170	Patescibacteria	3.392949	True
+DEREP_53817	s25798	1	64	17	4	1	True	Treponema	Spirochaetota	0.089612	True
+DEREP_36760	s15549	1	64	11	4	1	True	Lachnospiraceae	Firmicutes_A	0.071329	True
+DEREP_113089	s18653	1	64	6	2	1	True	Eubacterium ventriosum	Firmicutes_A	0.115435	True
+DEREP_229430	s8645	1	64	5	4	1	False	Nitrosomonas stercoris	unknown	0.558618	False
+DEREP_43827	s226	1	64	3	3	6	False	Natronoarchaeum rubrum	Halobacteriota	0.518614	True
+DEREP_107034	s16582	1	64	3	3	1	False	CAG-273	Firmicutes_A	0.070938	True
+DEREP_109018	s10768	1	64	2	2	1	False	Azospirillum largimobile	Proteobacteria	0.21706	True
+DEREP_51566	s27229	1	64	2	2	1	True	Treponema pedis	Spirochaetota	0.116952	True
+DEREP_133126	s11206	1	63	14	4	1	False	Salinivirga	Bacteroidota	0.424367	True
+DEREP_133120	s26944	1	63	8	2	1	False	Eubacterium yurii	unknown	0.105166	False
+DEREP_54290	s15440	1	63	3	3	6	False	CAG-417	Firmicutes_D	0.062605	True
+DEREP_184989	s16008	1	63	2	2	1	False	Onthovivens	Firmicutes_D	0.08594	True
+DEREP_39601	s23151	1	62	16	5	1	False		Firmicutes_D	0.281462	True
+DEREP_2419	c5422	5	62	15	4	1	False	Megamonas funiformis	Firmicutes_C	7e-06	True
+DEREP_48603	s21109	1	62	14	3	1	False	Fimenecus	Firmicutes_A	0.163597	True
+DEREP_138990	s2402	1	62	8	5	1	False	Rappaport israeli	Proteobacteria	0.132613	True
+DEREP_290477	s21254	1	62	6	3	2	True	Prevotella	Bacteroidota	0.145362	True
+DEREP_101483	s14292	1	62	6	2	1	False		Firmicutes_D	0.075745	True
+DEREP_58287	s27248	1	62	5	2	1	False	Eubacterium yurii	unknown	0.113151	False
+DEREP_202754	s27888	1	62	4	3	1	False	Bacteroides caccae	unknown	0.809972	False
+DEREP_17300	s26807	1	62	3	3	1	True	Leptotrichia	Fusobacteriota	0.119232	True
+DEREP_557633	s26553	1	62	2	2	1	False	Pelagibacter	Proteobacteria	1.999998	True
+DEREP_122596	s9316	1	62	2	2	1	False	Bacillaceae_H_294103	Firmicutes_D	0.03731	True
+DEREP_136839	s23053	1	61	15	4	1	False	Treponema vincentii	unknown	0.068704	False
+DEREP_212520	s2901	1	61	6	2	1	False	Ornithospirochaeta	Spirochaetota	0.160686	True
+DEREP_121111	s26472	1	61	6	3	1	False		Firmicutes_D	0.092903	True
+DEREP_78378	s21163	1	61	4	2	1	False	Catonella morbi	unknown	0.175221	False
+DEREP_24692	s27716	1	61	3	2	2	True	Leptotrichia trevisanii	Fusobacteriota	0.043259	True
+DEREP_193192	s28214	1	61	3	2	2	False		Firmicutes_D	0.08757	True
+DEREP_182555	s3516	1	61	2	2	1	False	SHUM01	Acidobacteriota	1.661947	True
+DEREP_31492	c17453	4	60	22	4	1	False	2011-GWC2-44-17	Patescibacteria	0.940187	True
+DEREP_240955	s18279	1	60	12	4	1	False	UBA6382	Bacteroidota	0.212625	True
+DEREP_43530	s28977	1	60	7	3	1	False	Streptobacillus hongkongensis	Fusobacteriota	7e-06	True
+DEREP_112571	s20389	1	60	6	5	1	False	Sphingobacterium composti	Bacteroidota	0.09338	True
+DEREP_116519	s9612	1	60	6	4	1	False		Acidobacteriota	0.276937	True
+DEREP_123799	c9690	2	60	5	4	1	True	Selenomonas ruminantium_E	Firmicutes_C	0.119334	True
+DEREP_361113	s9807	1	60	5	3	1	False	Isoptericola dokdonensis	Actinobacteriota	1.33328	True
+DEREP_201743	s25720	1	60	4	3	1	False	Faecalimonas umbilicata	Firmicutes_A	1.999996	True
+DEREP_106917	s18532	1	60	3	3	6	False	Clostridium	Firmicutes_A	0.635418	True
+DEREP_128286	s11391	1	60	3	3	1	False	Dolichospermum	Cyanobacteria	0.367838	True
+DEREP_23955	s11655	1	59	15	5	1	False	2011-GWC2-44-17	Patescibacteria	0.940187	True
+DEREP_102455	c2177	22	59	10	5	4	False		Zixibacteria	7e-06	True
+DEREP_58121	s18614	1	59	7	4	1	False	Enterocloster	Firmicutes_A	0.123509	True
+DEREP_207617	s15732	1	59	5	2	2	False	Coprobacter secundus	Bacteroidota	0.467839	True
+DEREP_255795	s7857	1	59	5	2	1	False		Firmicutes_A	0.222341	True
+DEREP_238584	s15543	1	59	4	2	1	False	UMGS1994	Firmicutes_A	0.292658	True
+DEREP_110361	s10789	1	59	4	2	1	True	Eikenella	Proteobacteria	0.043438	True
+DEREP_106116	s18424	1	59	2	2	1	False	Paracoccus yeei	unknown	0.399826	False
+DEREP_23845	c8052	2	58	19	5	1	False	2011-GWC2-44-17	Patescibacteria	0.940187	True
+DEREP_56744	c29573	2	58	10	5	1	True	Helicobacter pylori_CI	Campylobacterota	1.051857	True
+DEREP_270918	s23236	1	58	2	2	1	False	Hymenobacter qilianensis	Bacteroidota	0.456839	True
+DEREP_54355	s28515	1	57	11	4	1	False	Eubacterium yurii	unknown	0.105354	False
+DEREP_8161	s6142	1	57	10	4	1	False	UBA2170	Patescibacteria	3.072353	True
+DEREP_237464	s15535	1	57	8	4	1	False	CAG-273	Firmicutes_A	0.558722	True
+DEREP_114953	s10514	1	57	7	4	1	False	UMGS1994	Firmicutes_A	0.154761	True
+DEREP_166581	s25178	1	57	6	3	2	False		Bacteroidota	0.612733	True
+DEREP_220927	s20055	1	57	6	5	1	False		Bacteroidota	0.580828	True
+DEREP_291333	s28826	1	57	6	4	1	True	Klebsiella variicola	Proteobacteria	0.734515	True
+DEREP_148822	s5898	1	57	6	2	1	False	J044	Proteobacteria	0.263463	True
+DEREP_206069	s6216	1	57	3	2	1	True	Treponema	Spirochaetota	0.45474	True
+DEREP_203788	s26293	1	57	3	2	1	False	Fimenecus	Firmicutes_A	0.165327	True
+DEREP_190161	s23960	1	57	3	2	1	False	Ginsengibacter hankyongi	Bacteroidota	0.085328	True
+DEREP_426439	s675	1	57	3	2	1	False	UBA5232	Patescibacteria	0.080109	True
+DEREP_77037	s2061	1	57	2	2	1	False	Treponemataceae	Spirochaetota	0.208193	True
+DEREP_155221	s2951	1	56	13	4	1	False	UBA923	Bdellovibrionota_E	0.334847	True
+DEREP_276230	c23435	4	56	10	4	2	False		Proteobacteria	0.006601	True
+DEREP_247928	s19651	1	56	10	5	1	False	UBA6382	Bacteroidota	0.203502	True
+DEREP_117064	s3623	1	56	9	4	1	False	Rappaport israeli	Proteobacteria	0.091443	True
+DEREP_131499	s15321	1	56	9	5	1	False	Propionivibrio dicarboxylicus	Proteobacteria	0.119456	True
+DEREP_86407	s6947	1	56	8	3	1	True	Peptoniphilaceae	Firmicutes_A	0.160445	True
+DEREP_71075	s8227	1	56	6	5	1	False	SIO2C1	Cyanobacteria	1.476589	True
+DEREP_80183	s28789	1	56	6	3	1	False	Leptotrichiaceae	Fusobacteriota	0.006786	True
+DEREP_153088	s14652	1	55	17	5	1	True	Treponema	Spirochaetota	0.05611	True
+DEREP_95417	s16396	1	55	15	2	1	False	Neisseria bacilliformis	unknown	0.055097	False
+DEREP_128195	s21540	1	55	11	4	1	False	Catonella morbi	unknown	0.193103	False
+DEREP_121719	s25691	1	55	10	3	1	False		Firmicutes_D	0.107194	True
+DEREP_14301	s2847	1	55	9	4	1	False	Saccharimonas aalborgensis	unknown	0.049973	False
+DEREP_111943	s16967	1	55	8	4	1	False	Streptomyces mirabilis	Actinobacteriota	1.999999	True
+DEREP_304391	s20064	1	55	6	3	2	False	UBA6382	Bacteroidota	0.238662	True
+DEREP_130912	s758	1	55	5	2	2	False	9FT-COMBO-53-11	Patescibacteria	2.146855	True
+DEREP_312152	s11855	1	55	3	2	1	False	CACZYB01	Proteobacteria	0.166084	True
+DEREP_201323	32458	1	55	2	2	1	False	Halomonas stevensii	Proteobacteria	7e-06	True
+DEREP_25164	s21076	1	55	2	2	1	False		Firmicutes_A	0.209906	True
+DEREP_81179	s3970	1	55	2	2	1	False	SIO2C1	Cyanobacteria	0.313931	True
+DEREP_100137	s18802	1	54	10	3	1	False		Bacteroidota	0.590034	True
+DEREP_129423	c29601	2	54	7	2	3	False	Lentibacter algarum	Proteobacteria	7e-06	True
+DEREP_380366	c14392	2	54	7	3	1	False	Pedosphaera parvula	Verrucomicrobiota	0.6496	True
+DEREP_94700	s27024	1	54	6	3	2	True	Prevotella	Bacteroidota	0.203244	True
+DEREP_277181	s21840	1	54	6	5	1	False	Paraclostridium	Firmicutes_A	0.233962	True
+DEREP_80724	s26860	1	54	6	4	1	True	Comamonas odontotermitis	Proteobacteria	0.050587	True
+DEREP_120341	s23331	1	54	5	2	1	False	Treponema vincentii	unknown	0.068884	False
+DEREP_136200	s20761	1	54	4	3	1	True	Eubacterium	Firmicutes_A	0.496843	True
+DEREP_217481	s7405	1	54	4	3	1	False	Copromorpha	Firmicutes_A	0.065585	True
+DEREP_10175	s761	1	54	3	3	6	False	UBA1396	Patescibacteria	0.623265	True
+DEREP_144855	s22604	1	54	2	2	1	False	KM106-2	Firmicutes_A	0.728144	True
+DEREP_131117	s11595	1	53	13	3	1	False	Copromonas	Firmicutes_A	0.095664	True
+DEREP_238172	s19983	1	53	9	5	1	False	Catonella morbi	unknown	0.177854	False
+DEREP_51601	s25057	1	53	6	3	1	True	Leptotrichia	Fusobacteriota	0.117273	True
+DEREP_130625	s21568	1	53	6	4	1	False	Sphingobacterium composti	Bacteroidota	0.09338	True
+DEREP_513669	s15893	1	53	5	3	1	True	Pseudomonas kuykendallii	Proteobacteria	0.605412	True
+DEREP_60258	s16825	1	53	3	2	1	False	Limimorpha	Bacteroidota	0.215826	True
+DEREP_454614	s14067	1	53	2	2	1	False	PSRF01	Acidobacteriota	0.313691	True
+DEREP_105516	s24697	1	52	14	4	1	False	Snodgrassella	Proteobacteria	0.078439	True
+DEREP_42102	s3634	1	52	14	4	1	False	Leptotrichiaceae	Fusobacteriota	0.074505	True
+DEREP_90731	s25548	1	52	7	3	1	False		Firmicutes_D	0.107737	True
+DEREP_50974	s15345	1	52	7	3	1	False	Alteromonas	Proteobacteria	0.111369	True
+DEREP_159559	s2531	1	52	6	3	1	False	JAACSU01	Patescibacteria	0.086526	True
+DEREP_132372	s25152	1	52	5	2	2	True	Prevotella	Bacteroidota	0.172358	True
+DEREP_182871	s28646	1	52	5	3	1	False	Acinetobacter baumannii	unknown	1.999996	False
+DEREP_125859	s15439	1	52	5	2	1	False		Firmicutes_D	0.076437	True
+DEREP_225577	s22039	1	52	4	2	1	False	Paramuribaculum	Bacteroidota	0.51702	True
+DEREP_257397	s25745	1	52	3	3	1	False	Elizabethkingia	Bacteroidota	1.48877	True
+DEREP_27870	c37571	2	51	16	5	1	False	UBA2170	Patescibacteria	2.626032	True
+DEREP_1012	s28113	1	51	16	5	1	False	Gemmiger qucibialis	Firmicutes_A	3e-05	True
+DEREP_72164	s18866	1	51	14	4	1	False	Devosia	Proteobacteria	0.285601	True
+DEREP_182558	s24243	1	51	14	4	1	False	CAG-873	Bacteroidota	0.458339	True
+DEREP_79210	c46270	5	51	12	5	4	False	Gemmiger qucibialis	Firmicutes_A	7e-06	True
+DEREP_195011	s22999	1	51	12	5	1	True	Prevotella	Bacteroidota	0.136957	True
+DEREP_118643	s24003	1	51	9	4	1	False	Capsularis zoogleoformans	unknown	0.094139	False
+DEREP_13957	s18194	1	51	8	4	1	False	UBA2170	Patescibacteria	3.392949	True
+DEREP_60472	s21681	1	51	8	2	1	False	Porphyromonas uenonis	unknown	0.054973	False
+DEREP_147557	s25214	1	51	7	5	1	False	Perspicuibacter marinus	unknown	0.951983	False
+DEREP_115599	s22075	1	51	6	2	1	False	GCA-2749205	Spirochaetota	0.041239	True
+DEREP_159812	s15003	1	51	5	2	1	False	Clostridium	Firmicutes_A	0.161692	True
+DEREP_96639	s13279	1	51	5	3	1	False	UMGS1994	Firmicutes_A	0.289262	True
+DEREP_114827	s27558	1	51	5	2	1	False		Firmicutes_D	0.145337	True
+DEREP_204727	s16499	1	51	4	3	1	False	UBA2212	Firmicutes_D	1.999997	True
+DEREP_41303	s28582	1	51	4	3	1	False		Firmicutes_D	0.028156	True
+DEREP_150959	s16846	1	51	4	2	1	False	Wolinella succinogenes	Campylobacterota	0.04433	True
+DEREP_457776	s27730	1	51	4	2	1	False	GWA2-37-10	Patescibacteria	0.084134	True
+DEREP_123833	s28036	1	51	4	3	1	False		Firmicutes_D	0.219096	True
+DEREP_500886	s6480	1	51	2	2	1	True	Peptococcus niger	Firmicutes_B_370539	0.209645	True

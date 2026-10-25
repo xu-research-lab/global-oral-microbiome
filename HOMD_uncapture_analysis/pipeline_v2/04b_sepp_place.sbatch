@@ -9,7 +9,7 @@
 #SBATCH --time=48:00:00
 
 # ============================================================
-# pipeline_v2 Step 04: SEPP placement onto GG2 backbone
+# pipeline_v2 Step 04b: SEPP placement onto GG2 backbone
 # ============================================================
 
 set -e

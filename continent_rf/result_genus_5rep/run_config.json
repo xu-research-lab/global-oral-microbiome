@@ -1,10 +1,12 @@
 {
-  "generated": "2026-10-25T12:48:32.625370",
+  "generated": "2026-10-26T13:16:23.530248",
   "level": "genus (taxonomy.tsv, g__ aggregation, unit-sum renorm)",
   "repeats": 5,
   "scope": "OVO only (OVA skipped \u2014 two-panel OVO figure needs none)",
   "script": "run_oral_gut_genus_5rep_ovoonly.py",
   "seed": 42,
+  "split_mode": "project",
+  "split_unit": "project (whole BioProject shares one fold)",
   "taxonomy": "/beegfs/huangxiaochang/global_oral/taxonomy.tsv",
   "trees": 200
 }

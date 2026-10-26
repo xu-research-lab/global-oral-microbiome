@@ -157,23 +157,27 @@ render_panel_C_world_map <- function(out_dir) {
     filter(!Continent %in% c("Other", "Antarctica")) %>%
     mutate(Continent = factor(Continent, levels = continent_order))
 
-  # Count subjects once per (BioProject, subject_id) across the whole compendium,
-  # assigning each subject to the continent of its first sample, so the six
-  # continent cards sum to the global unique-subject total.
   subject_counts <- meta_clean %>%
     distinct(BioProject, subject_id, .keep_all = TRUE) %>%
     count(Continent, name = "n_subj")
+
+  bp_counts <- meta_clean %>%
+    count(BioProject, Continent, name = "n_bp_samples") %>%
+    group_by(BioProject) %>%
+    slice_max(n_bp_samples, n = 1, with_ties = FALSE) %>%
+    ungroup() %>%
+    count(Continent, name = "n_bp")
 
   continent_summary <- meta_clean %>%
     group_by(Continent) %>%
     summarise(
       n_countries = n_distinct(Country_Cleaned),
-      n_bp   = n_distinct(BioProject),
       n_samp = n(),
       .groups = "drop"
     ) %>%
+    left_join(bp_counts, by = "Continent") %>%
     left_join(subject_counts, by = "Continent") %>%
-    mutate(n_subj = coalesce(n_subj, 0L)) %>%
+    mutate(n_bp = coalesce(n_bp, 0L), n_subj = coalesce(n_subj, 0L)) %>%
     mutate(
       Card_Title = case_when(
         Continent == "NAM" ~ "NA",
@@ -259,7 +263,8 @@ render_panel_C_world_map <- function(out_dir) {
       if (cs$iso3c == "BRB") {
         return(data.frame(
           iso3c = "BRB", lon = rep(-59.5, cs$n_studies),
-          lat = rep(13.2, cs$n_studies), n_studies = cs$n_studies
+          lat = rep(13.2, cs$n_studies), n_studies = cs$n_studies,
+          n_samples = cs$n_samples
         ))
       }
       return(NULL)
@@ -269,10 +274,12 @@ render_panel_C_world_map <- function(out_dir) {
       iso3c = cs$iso3c,
       lon   = coords[, 1],
       lat   = coords[, 2],
-      n_studies = cs$n_studies
+      n_studies = cs$n_studies,
+      n_samples = cs$n_samples
     )
   }) %>%
-    bind_rows()
+    bind_rows() %>%
+    mutate(n_samples_plot = pmin(pmax(n_samples, 10), 1000))
 
   site_continent_data <- meta_clean %>%
     filter(!is.na(Site_Cleaned)) %>%
@@ -315,16 +322,16 @@ render_panel_C_world_map <- function(out_dir) {
 
   p_map_base <- ggplot() +
     geom_sf(data = world_sf, fill = "#F1F3F5", color = "#CBD5E1", linewidth = 0.3) +
-    geom_point(data = bp_points, aes(x = lon, y = lat, size = n_studies),
+    geom_point(data = bp_points, aes(x = lon, y = lat, size = n_samples_plot),
                shape = 21, fill = "#0F766E", color = "white", stroke = 0.3,
                alpha = 0.65) +
     scale_size_continuous(
       trans  = "log10",
       name   = "Number of samples",
       range  = c(1.3, 6.8),
-      limits = c(1, 150),
-      breaks = c(1, 10, 100),
-      labels = c("1", "10", "100"),
+      limits = c(10, 1500),
+      breaks = c(10, 100, 1000),
+      labels = c("10", "100", "1,000"),
       guide  = guide_legend(override.aes = list(color = "white", fill = "#0F766E",
                                                 shape = 21, stroke = 0.45,
                                                 alpha = 0.95))

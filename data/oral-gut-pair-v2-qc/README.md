@@ -42,19 +42,16 @@ The following sections provide visual summaries and detailed breakdowns of the Q
 
 ### Figure 1: Metadata Column Overview
 
-![Figure 1 — First 40 columns of metadata_oral_gut_pair_v2_merge_qc.csv](scripts/figure/figure1.jpg)
 
 The first 40 columns of `metadata_oral_gut_pair_v2_merge_qc.csv` contain the core metadata fields including sample identifiers, BioProject accession, body site, disease status, time point, demographic information, and sequencing metadata.
 
 ### Figure 2: Oral-Gut Pair Study Landscape
 
-![Figure 2 — Overview of oral-gut pair studies in metadata_oral_gut_pair_v2_merge_qc.csv](scripts/figure/figure2.jpg)
 
 An overview of the 45 oral-gut pair studies in the primary metadata table. The figure summarizes key study-level characteristics including sample counts, disease types, and study designs.
 
 ### Figure 3: Paired Sample Counts and Time-Series Studies
 
-![Figure 3 — Paired sample distribution and time-series study counts](scripts/figure/figure3.jpg)
 
 Key statistics for the primary paired dataset:
 
@@ -75,8 +72,6 @@ Key statistics for the primary paired dataset:
 
 ### Figure 4: Additional Oral Site Samples
 
-![Figure 4 — Breakdown of metadata_pair_v2_additional_oral_site_merge_qc.csv](scripts/figure/figure4.jpg)
-
 Breakdown of the 89 additional oral site samples (`metadata_pair_v2_additional_oral_site_merge_qc.csv`) by site and disease status.
 
 > **Disease abbreviations used in the figures:**
@@ -87,7 +82,6 @@ Breakdown of the 89 additional oral site samples (`metadata_pair_v2_additional_o
 
 ### Figure 5: Status-Unknown Samples
 
-![Figure 5 — Breakdown of metadata_pair_v2_status_unknown_merge_qc.csv](scripts/figure/figure5.jpg)
 
 Breakdown of the 1,004 status-unknown samples (`metadata_pair_v2_status_unknown_merge_qc.csv`). These samples come from 3 BioProjects and include longitudinal cohorts where disease labels could not be reliably assigned.
 
@@ -95,7 +89,6 @@ Breakdown of the 1,004 status-unknown samples (`metadata_pair_v2_status_unknown_
 
 ### Figure 6: Excluded Studies
 
-![Figure 6 — Studies excluded during QC filtering](scripts/figure/figure6.jpg)
 
 Summary of the **9 studies** that were excluded during the quality control process. These studies were removed due to insufficient metadata quality, ambiguous sample annotations, or other QC criteria.
 

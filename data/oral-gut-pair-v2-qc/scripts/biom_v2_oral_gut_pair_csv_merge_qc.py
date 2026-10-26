@@ -56,7 +56,7 @@ filtered_table = table.filter(keep_samples, axis='sample', inplace=False)
 
 # [MODIFIED] Do NOT remove empty observations to preserve the original feature space
 print("  -> Retaining all original observations (even if their counts are zero in these samples)...")
-# filtered_table.remove_empty(axis='observation', inplace=True)  <-- 这一行已被移除
+# filtered_table.remove_empty(axis='observation', inplace=True) 
 
 print(f"  -> Filtered BIOM shape: {filtered_table.shape[1]} samples, {filtered_table.shape[0]} observations")
 

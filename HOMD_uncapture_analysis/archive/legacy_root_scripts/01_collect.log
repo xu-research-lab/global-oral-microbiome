@@ -1,0 +1,27 @@
+[collect] retained bioprojects: 334
+[collect] processed 50/334 projects; ASVs=453,724
+[collect] processed 100/334 projects; ASVs=951,651
+[collect] processed 150/334 projects; ASVs=1,622,455
+[collect] processed 200/334 projects; ASVs=2,119,335
+[collect] processed 250/334 projects; ASVs=2,544,592
+[collect] processed 300/334 projects; ASVs=2,935,668
+[collect] complete: ASVs=3,396,776; exact derep sequences=2,844,174
+[collect] regions: ['V3-V4', 'V1-V2', 'V4', 'V1-V3', 'V2', 'V6-V8', 'V4-V5', 'V2-V3,V4-V5', 'V3', 'V5-V7', 'V1', 'V1-V3,V7-V9', 'NA', 'V3-V5', 'V5', 'V2,V3,V4,V6-V7,V8,V9', 'V2-V3']
+[collect]   NA: 44,820 ASVs, 44,158 unique sequences
+[collect]   V1: 5,747 ASVs, 5,747 unique sequences
+[collect]   V1-V2: 112,788 ASVs, 103,973 unique sequences
+[collect]   V1-V3: 317,289 ASVs, 303,479 unique sequences
+[collect]   V1-V3,V7-V9: 5,910 ASVs, 5,910 unique sequences
+[collect]   V2: 18,327 ASVs, 18,327 unique sequences
+[collect]   V2,V3,V4,V6-V7,V8,V9: 36,539 ASVs, 34,161 unique sequences
+[collect]   V2-V3: 5,451 ASVs, 5,451 unique sequences
+[collect]   V2-V3,V4-V5: 10,687 ASVs, 10,687 unique sequences
+[collect]   V3: 14,868 ASVs, 14,868 unique sequences
+[collect]   V3-V4: 1,648,694 ASVs, 1,346,219 unique sequences
+[collect]   V3-V5: 84,786 ASVs, 84,786 unique sequences
+[collect]   V4: 807,317 ASVs, 692,379 unique sequences
+[collect]   V4-V5: 179,503 ASVs, 113,068 unique sequences
+[collect]   V5: 664 ASVs, 664 unique sequences
+[collect]   V5-V7: 34,144 ASVs, 34,144 unique sequences
+[collect]   V6-V8: 69,242 ASVs, 68,231 unique sequences
+[collect] stats: /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/collect_stats.json

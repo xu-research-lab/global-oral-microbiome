@@ -1,0 +1,17 @@
+metric	value
+input_rows	2844174
+homd_uncaptured	1843301
+after_relaxed_support_floor	69820
+tier_low_rare_tail	43157
+tier_medium	20673
+tier_high	5990
+region_V1	270
+region_V1-V2	1968
+region_V1-V3	1298
+region_V2	270
+region_V2,V3,V4,V6-V7,V8,V9	202
+region_V3	3
+region_V3-V4	35491
+region_V4	20567
+region_V4-V5	14293
+region_V6-V8	5708

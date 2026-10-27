@@ -1,0 +1,16 @@
+cohort	n_disease	n_hc	n_subject_disease	n_studies_disease
+Colorectal Cancer	1001	4755	1001	2
+Lung Cancer	1348	3408	1348	3
+Periodontal Disease	1408	1138	1139	28
+IBD	421	2089	421	4
+Breast Cancer	517	1768	517	3
+Head and Neck Cancer	827	885	827	6
+OSCC	913	431	571	17
+Dental Caries	493	512	479	12
+COVID-19	570	292	570	6
+HIV	470	142	315	8
+Pancreatic Cancer	274	285	274	2
+Nonmalignant Breast Disease	102	411	102	1
+Gastroesophageal Reflux Disease	191	249	191	4
+RA	208	229	208	3
+Autoimmune Hepatitis	149	235	149	1

@@ -1,0 +1,9 @@
+{
+  "n_rows": 54277,
+  "n_columns": 52,
+  "n_with_cluster": 54277,
+  "n_covered": 2256,
+  "n_novel": 52021,
+  "n_contamination_flagged": 21662,
+  "n_in_candidate_novel_clusters": 15589
+}

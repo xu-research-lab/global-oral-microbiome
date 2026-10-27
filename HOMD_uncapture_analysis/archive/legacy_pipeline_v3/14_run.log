@@ -1,0 +1,16 @@
+[14] 486 clusters, 900 member dereps
+[14] metadata: 51186 samples, 288 projects
+[14] 25/288 projects
+[14] 50/288 projects
+[14] 75/288 projects
+[14] 100/288 projects
+[14] 125/288 projects
+[14] 150/288 projects
+[14] 175/288 projects
+[14] 200/288 projects
+[14] 225/288 projects
+[14] 250/288 projects
+[14] 275/288 projects
+[14] 288/288 projects
+[14] matrix (486, 51186); non-zero cells 78,946 / 24,876,396; clusters with no reads 0
+[14] {"n_clusters": 486, "n_member_dereps": 900, "n_samples": 51186, "n_projects": 288, "samples_not_found": 0, "nonzero_cells": 78946, "clusters_without_reads": 0, "total_reads_all_asvs": 3268383592, "total_cluster_reads": 8194098}

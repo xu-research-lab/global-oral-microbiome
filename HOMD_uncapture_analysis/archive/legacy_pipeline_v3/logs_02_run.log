@@ -1,0 +1,19 @@
+[02_cluster_agg] Loading asv_clusters.tsv ...
+[02_cluster_agg]   54,277 ASVs
+[02_cluster_agg]   singletons (TreeCluster cluster -1): 29,279 ASVs -> 29,279 size-1 clusters
+[02_cluster_agg]   updated asv_clusters.tsv with singleton cluster ids
+[02_cluster_agg] Loading v2 support metadata ...
+[02_cluster_agg]   support metadata: 54,290 ASVs
+[02_cluster_agg] Aggregating per cluster ...
+/beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v3/02_cluster_aggregate.py:127: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  "rep_derep_id": g.apply(lambda x: x.loc[x["subject_prevalence"].idxmax(), "asv_id"]).values,
+[02_cluster_agg] Classifying cluster novelty from the tree annotation ...
+[02_cluster_agg]   saved /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v3/02_clusters_aggregated.tsv (38,549 rows)
+[02_cluster_agg] 
+=== Cluster aggregation summary ===
+[02_cluster_agg] clusters: 38,549 | homd_captured: 2,269 | homd_uncaptured: 36,280
+[02_cluster_agg] candidate_novel (uncaptured & subjects>=10): 7,201
+[02_cluster_agg] clean clusters: 26,686
+[02_cluster_agg] singleton clusters (TreeCluster -1, neg ids): 29,279 | size-1 clusters: 34,422
+[02_cluster_agg]   saved 02_summary.json
+[02_cluster_agg] Done!

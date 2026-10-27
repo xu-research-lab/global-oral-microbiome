@@ -1,0 +1,283 @@
+"feature"	"metadata"	"value"	"name"	"coef"	"null_hypothesis"	"stderr"	"pval_individual"	"qval_individual"	"pval_joint"	"qval_joint"	"error"	"model"	"N"	"N_not_zero"
+"-14547"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-3.59250342078512	0	1.41136677885489	0.0109150314297225	0.802254810084606	0.0109150314297225	0.753137168650855	NA	"prevalence"	384	6
+"-6587"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-3.68164640431834	0	1.38006282174743	0.00763637205476643	0.802254810084606	0.00763637205476643	0.753137168650855	NA	"prevalence"	384	13
+"21907"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-3.22726952893025	0	1.38650789357856	0.0199320595225097	0.976670916602973	0.0199320595225097	0.916874738035444	NA	"prevalence"	384	21
+"-27133"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-3.10821130004012	0	1.4048202218051	0.0269298488137725	0.989671943906141	0.0269298488137725	0.929079784075153	NA	"prevalence"	384	9
+"21907"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.00277313557970413	0.16461034138291	0.67098190140227	0.819604717874919	1	0.260278910075627	1	NA	"abundance"	384	21
+"21907"	"condition"	"Disease"	"conditionDisease"	-0.311629087924302	-8.105400169524e-05	1.44277923852915	0.7722872726417	1	0.948146913799045	1	NA	"abundance"	384	21
+"21907"	"sex_cleaned"	"F"	"sex_cleanedF"	-0.0731096297281143	0.560896371748783	1.57259333939091	0.718180703439522	1	0.484027978487297	1	NA	"abundance"	384	21
+"21907"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	0.125228840637044	1.24886559370013	2.73451948810872	0.726321644289781	1	0.866216615599582	1	NA	"abundance"	384	21
+"6615"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.329282670563529	0.16461034138291	0.727036582455214	0.418944653023528	1	0.662374683750052	1	NA	"abundance"	384	14
+"6615"	"condition"	"Disease"	"conditionDisease"	0.265294848976055	-8.105400169524e-05	1.36000109333322	0.792899517455938	1	0.957109390130017	1	NA	"abundance"	384	14
+"6615"	"sex_cleaned"	"F"	"sex_cleanedF"	1.12198811790319	0.560896371748783	1.26577821265992	0.446323532986549	1	0.693442369875503	1	NA	"abundance"	384	14
+"6615"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	2.49769018494661	1.24886559370013	1.58558065469928	0.446168355399572	1	0.65498994386259	1	NA	"abundance"	384	14
+"6615"	"site_cleaned"	"tooth"	"site_cleanedtooth"	4.78395686032105	2.3917094618133	1.29850654064612	0.446942567031708	1	0.127269418998583	1	NA	"abundance"	384	14
+"ZZ_other"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-6.19877977076049e-05	0.16461034138291	0.000132073117325097	0.425461537979552	1	0.425461537979552	1	NA	"abundance"	384	384
+"ZZ_other"	"condition"	"Disease"	"conditionDisease"	-8.105400169524e-05	-8.105400169524e-05	0.000207056931951351	1	1	1	1	NA	"abundance"	384	384
+"ZZ_other"	"sex_cleaned"	"F"	"sex_cleanedF"	-0.000195374405623675	0.560896371748783	0.00020417256423736	0.425443452830601	1	0.425443452830601	1	NA	"abundance"	384	384
+"ZZ_other"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	4.10024536416658e-05	1.24886559370013	0.000301404764014122	0.425442145370413	1	0.425442145370413	1	NA	"abundance"	384	384
+"ZZ_other"	"site_cleaned"	"tooth"	"site_cleanedtooth"	-0.000537936694450373	2.3917094618133	0.000306536145093768	0.425441772124414	1	0.425441772124414	1	NA	"abundance"	384	384
+"-14547"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.250858394483771	0	0.489666145024632	0.608437594957165	1	0.608437594957165	1	NA	"prevalence"	384	6
+"-14547"	"condition"	"Disease"	"conditionDisease"	0.0608966723199737	0	1.02185639737178	0.952478870778951	1	0.952478870778951	1	NA	"prevalence"	384	6
+"-14547"	"sex_cleaned"	"F"	"sex_cleanedF"	-0.0434805132925441	0	1.00526366445769	0.965499980389658	1	0.965499980389658	1	NA	"prevalence"	384	6
+"-14547"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.000366046887006589	0	1.49421258882322	0.999804537079305	1	0.999804537079305	1	NA	"prevalence"	384	6
+"-14547"	"site_cleaned"	"tongue"	"site_cleanedtongue"	0.00145826732068751	0	2.62227406256174	0.999556290115766	1	0.999556290115766	1	NA	"prevalence"	384	6
+"-14547"	"site_cleaned"	"tooth"	"site_cleanedtooth"	-0.00186380094839199	0	1.5188343998328	0.999020895478747	1	0.999020895478747	1	NA	"prevalence"	384	6
+"-18312"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.3987658865012	0	0.377733271125515	0.291113921094982	1	0.291113921094982	1	NA	"prevalence"	384	8
+"-18312"	"condition"	"Disease"	"conditionDisease"	0.0789458743326646	0	0.607399709940804	0.896587382161012	1	0.896587382161012	1	NA	"prevalence"	384	8
+"-18312"	"sex_cleaned"	"F"	"sex_cleanedF"	0.81842539750817	0	0.630559440788459	0.194309546580517	1	0.194309546580517	1	NA	"prevalence"	384	8
+"-18312"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.00477534145305376	0	1.49569400084997	0.997452577370348	1	0.997452577370348	1	NA	"prevalence"	384	8
+"-18312"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	0.30200164950033	0	2.28722374054733	0.894953819797475	1	0.894953819797475	1	NA	"prevalence"	384	8
+"-18312"	"site_cleaned"	"tongue"	"site_cleanedtongue"	0.00161960304865895	0	2.62240969174375	0.999507225667648	1	0.999507225667648	1	NA	"prevalence"	384	8
+"-18312"	"site_cleaned"	"tooth"	"site_cleanedtooth"	-0.00601903976413931	0	1.52035404503628	0.996841205264605	1	0.996841205264605	1	NA	"prevalence"	384	8
+"-19260"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.188270019665769	0	0.341922358233885	0.581892730305141	1	0.581892730305141	1	NA	"prevalence"	384	8
+"-19260"	"condition"	"Disease"	"conditionDisease"	-1.3258554941596	0	0.669591747186513	0.0476928173884035	1	0.0476928173884035	1	NA	"prevalence"	384	8
+"-19260"	"sex_cleaned"	"F"	"sex_cleanedF"	0.420985677277725	0	0.628141753375437	0.502725155027715	1	0.502725155027715	1	NA	"prevalence"	384	8
+"-19260"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.00200017731352816	0	1.50297429512398	0.998938165388834	1	0.998938165388834	1	NA	"prevalence"	384	8
+"-19260"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-0.74730352536096	0	2.3047680163506	0.745754519923918	1	0.745754519923918	1	NA	"prevalence"	384	8
+"-19260"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.102053151041112	0	2.6226197965723	0.968960011263301	1	0.968960011263301	1	NA	"prevalence"	384	8
+"-19260"	"site_cleaned"	"tooth"	"site_cleanedtooth"	0.093020615729501	0	1.53435502457205	0.951657685312442	1	0.951657685312442	1	NA	"prevalence"	384	8
+"-19521"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.216510685457826	0	0.464816706709695	0.641360107425726	1	0.641360107425726	1	NA	"prevalence"	384	5
+"-19521"	"condition"	"Disease"	"conditionDisease"	-0.53548690879992	0	0.892848320880548	0.548672017934215	1	0.548672017934215	1	NA	"prevalence"	384	5
+"-19521"	"sex_cleaned"	"F"	"sex_cleanedF"	-0.462121210562613	0	0.927879907296454	0.618455923912649	1	0.618455923912649	1	NA	"prevalence"	384	5
+"-19521"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.00225800234599576	0	1.49511082241991	0.998794989309	1	0.998794989309	1	NA	"prevalence"	384	5
+"-19521"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-3.00402123130105	0	1.45342120577301	0.0387471482073123	1	0.0387471482073123	1	NA	"prevalence"	384	5
+"-19521"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.0348084302875348	0	2.62476761870248	0.989419141386724	1	0.989419141386724	1	NA	"prevalence"	384	5
+"-19521"	"site_cleaned"	"tooth"	"site_cleanedtooth"	0.0198347580024794	0	1.51977104706632	0.98958698552424	1	0.98958698552424	1	NA	"prevalence"	384	5
+"-21293"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.585818989460493	0	0.454259739767641	0.197185271086863	1	0.197185271086863	1	NA	"prevalence"	384	5
+"-21293"	"condition"	"Disease"	"conditionDisease"	-0.0615603398295067	0	0.781960937480993	0.937250887036892	1	0.937250887036892	1	NA	"prevalence"	384	5
+"-21293"	"sex_cleaned"	"F"	"sex_cleanedF"	0.16191759161849	0	0.773608511676568	0.834212709634518	1	0.834212709634518	1	NA	"prevalence"	384	5
+"-21293"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.00241920994524456	0	1.49545087806566	0.998709252539783	1	0.998709252539783	1	NA	"prevalence"	384	5
+"-21293"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-2.58415910618281	0	1.47851650678277	0.0804977332709942	1	0.0804977332709942	1	NA	"prevalence"	384	5
+"-21293"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.0111397351901992	0	2.62093838141209	0.996608773398887	1	0.996608773398887	1	NA	"prevalence"	384	5
+"-21293"	"site_cleaned"	"tooth"	"site_cleanedtooth"	0.00696533654799625	0	1.52045994335687	0.9963448461249	1	0.9963448461249	1	NA	"prevalence"	384	5
+"-22039"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.406523313286439	0	0.432324670225572	0.347053705417656	1	0.347053705417656	1	NA	"prevalence"	384	5
+"-22039"	"condition"	"Disease"	"conditionDisease"	0.0494820626247671	0	0.7093389356535	0.944386280041875	1	0.944386280041875	1	NA	"prevalence"	384	5
+"-22039"	"sex_cleaned"	"F"	"sex_cleanedF"	-0.617454186649273	0	0.733343870240577	0.399804251237722	1	0.399804251237722	1	NA	"prevalence"	384	5
+"-22039"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	0.00598610649732383	0	1.49567145086172	0.996806645470398	1	0.996806645470398	1	NA	"prevalence"	384	5
+"-22039"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	0.297199575797311	0	2.29639653969923	0.897025345232569	1	0.897025345232569	1	NA	"prevalence"	384	5
+"-22039"	"site_cleaned"	"tongue"	"site_cleanedtongue"	0.0128293669566163	0	2.62627408087337	0.99610234393201	1	0.99610234393201	1	NA	"prevalence"	384	5
+"-22039"	"site_cleaned"	"tooth"	"site_cleanedtooth"	-0.00375020612906844	0	1.51943311201565	0.998030694139459	1	0.998030694139459	1	NA	"prevalence"	384	5
+"-22473"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.142913266809263	0	0.463600075441014	0.757878087249546	1	0.757878087249546	1	NA	"prevalence"	384	4
+"-22473"	"condition"	"Disease"	"conditionDisease"	-0.176260054074952	0	0.841002394475853	0.833992917683462	1	0.833992917683462	1	NA	"prevalence"	384	4
+"-22473"	"sex_cleaned"	"F"	"sex_cleanedF"	-0.686568444579305	0	0.884139750233687	0.43743117185348	1	0.43743117185348	1	NA	"prevalence"	384	4
+"-22473"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	0.00194372732955694	0	1.49524685581963	0.99896280030027	1	0.99896280030027	1	NA	"prevalence"	384	4
+"-22473"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-2.15003289227799	0	1.49925402346716	0.151552730494896	1	0.151552730494896	1	NA	"prevalence"	384	4
+"-22473"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.0064535760507558	0	2.62653311922608	0.99803954365774	1	0.99803954365774	1	NA	"prevalence"	384	4
+"-22473"	"site_cleaned"	"tooth"	"site_cleanedtooth"	0.00320830164625315	0	1.51915820483662	0.998314953347895	1	0.998314953347895	1	NA	"prevalence"	384	4
+"-23408"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.212334755339136	0	0.480562392445411	0.658600371111368	1	0.658600371111368	1	NA	"prevalence"	384	4
+"-23408"	"condition"	"Disease"	"conditionDisease"	-0.534871466042353	0	0.892996021349924	0.549197640316131	1	0.549197640316131	1	NA	"prevalence"	384	4
+"-23408"	"sex_cleaned"	"F"	"sex_cleanedF"	-0.46297576525838	0	0.928204919795287	0.617930040420912	1	0.617930040420912	1	NA	"prevalence"	384	4
+"-23408"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.00227382653041834	0	1.49510739396438	0.998786541762482	1	0.998786541762482	1	NA	"prevalence"	384	4
+"-23408"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-2.6799339539429	0	1.47856101574925	0.0699045770818462	1	0.0699045770818462	1	NA	"prevalence"	384	4
+"-23408"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.0348152947023937	0	2.62477279102992	0.989417075758602	1	0.989417075758602	1	NA	"prevalence"	384	4
+"-23408"	"site_cleaned"	"tooth"	"site_cleanedtooth"	0.0198030717504073	0	1.51976598723358	0.989603584880164	1	0.989603584880164	1	NA	"prevalence"	384	4
+"-24262"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.486310784932092	0	0.444104676763557	0.273500691405557	1	0.273500691405557	1	NA	"prevalence"	384	5
+"-24262"	"condition"	"Disease"	"conditionDisease"	0.225047404312004	0	0.70624223339166	0.749988372220785	1	0.749988372220785	1	NA	"prevalence"	384	5
+"-24262"	"sex_cleaned"	"F"	"sex_cleanedF"	0.372741571064947	0	0.693250891612815	0.590803535395175	1	0.590803535395175	1	NA	"prevalence"	384	5
+"-24262"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	0.000215320698960717	0	1.49499819996376	0.999885082764158	1	0.999885082764158	1	NA	"prevalence"	384	5
+"-24262"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	0.414290516516773	0	2.29712671671574	0.856876535897349	1	0.856876535897349	1	NA	"prevalence"	384	5
+"-24262"	"site_cleaned"	"tongue"	"site_cleanedtongue"	0.0147668097472952	0	2.6231627234413	0.995508419216662	1	0.995508419216662	1	NA	"prevalence"	384	5
+"-24262"	"site_cleaned"	"tooth"	"site_cleanedtooth"	-0.0107529831932224	0	1.51917613300882	0.99435248655773	1	0.99435248655773	1	NA	"prevalence"	384	5
+"-24677"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.219448850486435	0	0.485780661116689	0.651452895144378	1	0.651452895144378	1	NA	"prevalence"	384	4
+"-24677"	"condition"	"Disease"	"conditionDisease"	0.810072732189017	0	0.942748042178247	0.390192962777701	1	0.390192962777701	1	NA	"prevalence"	384	4
+"-24677"	"sex_cleaned"	"F"	"sex_cleanedF"	0.125236946355391	0	0.830196162645987	0.880092280385558	1	0.880092280385558	1	NA	"prevalence"	384	4
+"-24677"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.000128959370441127	0	1.49466129101507	0.999931158523248	1	0.999931158523248	1	NA	"prevalence"	384	4
+"-24677"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-2.13271513889532	0	1.48348888241371	0.150537721381207	1	0.150537721381207	1	NA	"prevalence"	384	4
+"-24677"	"site_cleaned"	"tongue"	"site_cleanedtongue"	0.0373593421257315	0	2.625627837545	0.988647501344823	1	0.988647501344823	1	NA	"prevalence"	384	4
+"-24677"	"site_cleaned"	"tooth"	"site_cleanedtooth"	-0.0299638843332411	0	1.51846821543777	0.984256391429562	1	0.984256391429562	1	NA	"prevalence"	384	4
+"-26851"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.173323273743953	0	0.42498288316918	0.683394160192208	1	0.683394160192208	1	NA	"prevalence"	384	4
+"-26851"	"condition"	"Disease"	"conditionDisease"	-0.964643131121421	0	0.739228233914255	0.191915748727238	1	0.191915748727238	1	NA	"prevalence"	384	4
+"-26851"	"sex_cleaned"	"F"	"sex_cleanedF"	0.333786926223287	0	0.736607739116237	0.650447449634111	1	0.650447449634111	1	NA	"prevalence"	384	4
+"-26851"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.00245560368556955	0	1.4972271383357	0.9986913893426	1	0.9986913893426	1	NA	"prevalence"	384	4
+"-26851"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-0.326884464082748	0	2.31154080033525	0.887542815268066	1	0.887542815268066	1	NA	"prevalence"	384	4
+"-26851"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.0691487144344758	0	2.62014321563655	0.978945315889538	1	0.978945315889538	1	NA	"prevalence"	384	4
+"-26851"	"site_cleaned"	"tooth"	"site_cleanedtooth"	0.0593161095965095	0	1.5252193075723	0.968977916502327	1	0.968977916502327	1	NA	"prevalence"	384	4
+"-27133"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.2943558167088	0	0.383154777845559	0.442343078387695	1	0.442343078387695	1	NA	"prevalence"	384	9
+"-27133"	"condition"	"Disease"	"conditionDisease"	-0.258889996266853	0	0.738011880007641	0.72574304437745	1	0.72574304437745	1	NA	"prevalence"	384	9
+"-27133"	"sex_cleaned"	"F"	"sex_cleanedF"	-1.09882575588824	0	0.835571088478475	0.188489883103905	1	0.188489883103905	1	NA	"prevalence"	384	9
+"-27133"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	0.00177980032766167	0	1.49680238892069	0.999051260955603	1	0.999051260955603	1	NA	"prevalence"	384	9
+"-27133"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.00977138674338523	0	2.63145566750654	0.997037221337418	1	0.997037221337418	1	NA	"prevalence"	384	9
+"-27133"	"site_cleaned"	"tooth"	"site_cleanedtooth"	0.00208163153743294	0	1.52031494488462	0.998907528238391	1	0.998907528238391	1	NA	"prevalence"	384	9
+"-27248"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.618891669505188	0	0.474008195460049	0.191669549299742	1	0.191669549299742	1	NA	"prevalence"	384	4
+"-27248"	"condition"	"Disease"	"conditionDisease"	-0.271542236933184	0	0.744117553382608	0.715172268761249	1	0.715172268761249	1	NA	"prevalence"	384	4
+"-27248"	"sex_cleaned"	"F"	"sex_cleanedF"	-1.04594721365676	0	0.840098029621234	0.213120738748282	1	0.213120738748282	1	NA	"prevalence"	384	4
+"-27248"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	0.00354265650092994	0	1.49769908766233	0.998112686110501	1	0.998112686110501	1	NA	"prevalence"	384	4
+"-27248"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	0.320456177784274	0	2.31328344356773	0.889822578837214	1	0.889822578837214	1	NA	"prevalence"	384	4
+"-27248"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.00645738691799358	0	2.63105915830566	0.998041760430864	1	0.998041760430864	1	NA	"prevalence"	384	4
+"-27248"	"site_cleaned"	"tooth"	"site_cleanedtooth"	0.00334423531634174	0	1.52131062132655	0.998246044206777	1	0.998246044206777	1	NA	"prevalence"	384	4
+"-27496"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.307469631852954	0	0.39850330876813	0.440374450122354	1	0.440374450122354	1	NA	"prevalence"	384	6
+"-27496"	"condition"	"Disease"	"conditionDisease"	-0.307895125612831	0	0.650059758143165	0.635755744603534	1	0.635755744603534	1	NA	"prevalence"	384	6
+"-27496"	"sex_cleaned"	"F"	"sex_cleanedF"	0.853159210066762	0	0.693106435480162	0.218352443081268	1	0.218352443081268	1	NA	"prevalence"	384	6
+"-27496"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.00378959772906056	0	1.49607791205009	0.997978943301069	1	0.997978943301069	1	NA	"prevalence"	384	6
+"-27496"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	0.0886268602650482	0	2.29255386376834	0.969162602878314	1	0.969162602878314	1	NA	"prevalence"	384	6
+"-27496"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.02132512470354	0	2.62003461672705	0.99350588737079	1	0.99350588737079	1	NA	"prevalence"	384	6
+"-27496"	"site_cleaned"	"tooth"	"site_cleanedtooth"	0.0174971449028377	0	1.52195406149408	0.990827322186953	1	0.990827322186953	1	NA	"prevalence"	384	6
+"-28089"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.501242508566605	0	0.509305698916495	0.325032784145891	1	0.325032784145891	1	NA	"prevalence"	384	4
+"-28089"	"condition"	"Disease"	"conditionDisease"	0.284855810939033	0	0.972651111378415	0.769625072669524	1	0.769625072669524	1	NA	"prevalence"	384	4
+"-28089"	"sex_cleaned"	"F"	"sex_cleanedF"	-0.236190090795043	0	0.931270287338943	0.799788048386038	1	0.799788048386038	1	NA	"prevalence"	384	4
+"-28089"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	0.00624070495612925	0	1.49536511348705	0.996670145883498	1	0.996670145883498	1	NA	"prevalence"	384	4
+"-28089"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-2.17442275045759	0	1.4642572922363	0.137543702627665	1	0.137543702627665	1	NA	"prevalence"	384	4
+"-28089"	"site_cleaned"	"tongue"	"site_cleanedtongue"	0.0249425541678725	0	2.62502951202672	0.992418759740646	1	0.992418759740646	1	NA	"prevalence"	384	4
+"-28089"	"site_cleaned"	"tooth"	"site_cleanedtooth"	-0.0108475521459914	0	1.51931274195165	0.994303331626785	1	0.994303331626785	1	NA	"prevalence"	384	4
+"-6587"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.112282836475333	0	0.325520094091422	0.730144247042114	1	0.730144247042114	1	NA	"prevalence"	384	13
+"-6587"	"condition"	"Disease"	"conditionDisease"	-0.446204127594866	0	0.627316556592314	0.476904414697526	1	0.476904414697526	1	NA	"prevalence"	384	13
+"-6587"	"sex_cleaned"	"F"	"sex_cleanedF"	0.466557030995573	0	0.639663355984228	0.465769848332965	1	0.465769848332965	1	NA	"prevalence"	384	13
+"-6587"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.0029923489333206	0	1.49584985012455	0.998403885642771	1	0.998403885642771	1	NA	"prevalence"	384	13
+"-6587"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.033524079342809	0	2.61921883149186	0.989787941849422	1	0.989787941849422	1	NA	"prevalence"	384	13
+"-6587"	"site_cleaned"	"tooth"	"site_cleanedtooth"	0.0276718957815193	0	1.52189794707007	0.985493270457212	1	0.985493270457212	1	NA	"prevalence"	384	13
+"15795"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.211697390311882	0	0.357290684834773	0.553510837706267	1	0.553510837706267	1	NA	"prevalence"	384	9
+"15795"	"condition"	"Disease"	"conditionDisease"	0.264382977372832	0	0.624495199009301	0.672036490881784	1	0.672036490881784	1	NA	"prevalence"	384	9
+"15795"	"sex_cleaned"	"F"	"sex_cleanedF"	-0.257041223545037	0	0.615066379006975	0.676014308033051	1	0.676014308033051	1	NA	"prevalence"	384	9
+"15795"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	0.00450123019145476	0	1.49461882720791	0.997597075200721	1	0.997597075200721	1	NA	"prevalence"	384	9
+"15795"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-1.32530714635095	0	1.5794986806613	0.401431028509412	1	0.401431028509412	1	NA	"prevalence"	384	9
+"15795"	"site_cleaned"	"tongue"	"site_cleanedtongue"	0.0207743485562924	0	2.62416811656385	0.993683575859846	1	0.993683575859846	1	NA	"prevalence"	384	9
+"15795"	"site_cleaned"	"tooth"	"site_cleanedtooth"	-0.0104515275801434	0	1.51841691673956	0.994508065240178	1	0.994508065240178	1	NA	"prevalence"	384	9
+"21907"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.40240217579441	0	0.272620367829461	0.139929601762523	1	0.260278910075627	1	NA	"prevalence"	384	21
+"21907"	"condition"	"Disease"	"conditionDisease"	-0.0934211776578266	0	0.496090136980009	0.850629785064941	1	0.948146913799045	1	NA	"prevalence"	384	21
+"21907"	"sex_cleaned"	"F"	"sex_cleanedF"	-0.529640596929853	0	0.491986435496444	0.28168807505882	1	0.484027978487297	1	NA	"prevalence"	384	21
+"21907"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	-0.451738254919548	0	0.949482137250417	0.634235889676942	1	0.866216615599582	1	NA	"prevalence"	384	21
+"21907"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.429406480938206	0	2.51173313699667	0.864255035087973	1	0.864255035087973	1	NA	"prevalence"	384	21
+"21907"	"site_cleaned"	"tooth"	"site_cleanedtooth"	-1.23324189054572	0	1.23665577742193	0.318648310827496	1	0.318648310827496	1	NA	"prevalence"	384	21
+"6615"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.0154917795123533	0	0.378214795092798	0.96732757050164	1	0.662374683750052	1	NA	"prevalence"	384	14
+"6615"	"condition"	"Disease"	"conditionDisease"	-0.144256535621961	0	0.612277136311512	0.813737949947204	1	0.957109390130017	1	NA	"prevalence"	384	14
+"6615"	"sex_cleaned"	"F"	"sex_cleanedF"	0.277879095597709	0	0.554668565163152	0.616383627959192	1	0.693442369875503	1	NA	"prevalence"	384	14
+"6615"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	0.743699259594715	0	0.90774299803073	0.412624433486197	1	0.65498994386259	1	NA	"prevalence"	384	14
+"6615"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	-1.59284980728454	0	1.57688556116198	0.312435928623148	1	0.312435928623148	1	NA	"prevalence"	384	14
+"6615"	"site_cleaned"	"tongue"	"site_cleanedtongue"	0.872931493996364	0	2.56919344302266	0.734030727370988	1	0.734030727370988	1	NA	"prevalence"	384	14
+"6615"	"site_cleaned"	"tooth"	"site_cleanedtooth"	1.53801838590977	0	0.835976274014841	0.0657994963599	1	0.127269418998583	1	NA	"prevalence"	384	14
+"-14547"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.608437594957165	1	"No data points have the baseline factor level"	"abundance"	384	6
+"-14547"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.952478870778951	1	"No data points have the baseline factor level"	"abundance"	384	6
+"-14547"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.965499980389658	1	"No data points have the baseline factor level"	"abundance"	384	6
+"-14547"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.999804537079305	1	"No data points have the baseline factor level"	"abundance"	384	6
+"-14547"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.0109150314297225	0.753137168650855	"No data points have the baseline factor level"	"abundance"	384	6
+"-14547"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.999556290115766	1	"No data points have the baseline factor level"	"abundance"	384	6
+"-14547"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.999020895478747	1	"No data points have the baseline factor level"	"abundance"	384	6
+"-18312"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.291113921094982	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-18312"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.896587382161012	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-18312"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.194309546580517	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-18312"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.997452577370348	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-18312"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.894953819797475	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-18312"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.999507225667648	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-18312"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.996841205264605	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-19260"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.581892730305141	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-19260"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.0476928173884035	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-19260"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.502725155027715	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-19260"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.998938165388834	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-19260"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.745754519923918	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-19260"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.968960011263301	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-19260"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.951657685312442	1	"grouping factors must have > 1 sampled level"	"abundance"	384	8
+"-19521"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.641360107425726	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-19521"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.548672017934215	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-19521"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.618455923912649	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-19521"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.998794989309	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-19521"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.0387471482073123	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-19521"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.989419141386724	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-19521"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.98958698552424	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-21293"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.197185271086863	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-21293"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.937250887036892	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-21293"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.834212709634518	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-21293"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.998709252539783	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-21293"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.0804977332709942	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-21293"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.996608773398887	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-21293"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.9963448461249	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	5
+"-22039"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.347053705417656	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-22039"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.944386280041875	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-22039"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.399804251237722	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-22039"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.996806645470398	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-22039"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.897025345232569	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-22039"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.99610234393201	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-22039"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.998030694139459	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-22473"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.757878087249546	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-22473"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.833992917683462	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-22473"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.43743117185348	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-22473"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.99896280030027	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-22473"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.151552730494896	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-22473"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.99803954365774	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-22473"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.998314953347895	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-23408"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.658600371111368	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-23408"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.549197640316131	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-23408"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.617930040420912	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-23408"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.998786541762482	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-23408"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.0699045770818462	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-23408"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.989417075758602	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-23408"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.989603584880164	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	4
+"-24262"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.273500691405557	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-24262"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.749988372220785	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-24262"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.590803535395175	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-24262"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.999885082764158	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-24262"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.856876535897349	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-24262"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.995508419216662	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-24262"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.99435248655773	1	"grouping factors must have > 1 sampled level"	"abundance"	384	5
+"-24677"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.651452895144378	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-24677"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.390192962777701	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-24677"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.880092280385558	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-24677"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.999931158523248	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-24677"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.150537721381207	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-24677"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.988647501344823	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-24677"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.984256391429562	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-26851"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.683394160192208	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-26851"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.191915748727238	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-26851"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.650447449634111	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-26851"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.9986913893426	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-26851"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.887542815268066	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-26851"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.978945315889538	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-26851"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.968977916502327	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-27133"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.442343078387695	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"-27133"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.72574304437745	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"-27133"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.188489883103905	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"-27133"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.999051260955603	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"-27133"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.0269298488137725	0.929079784075153	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"-27133"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.997037221337418	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"-27133"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.998907528238391	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"-27248"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.191669549299742	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-27248"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.715172268761249	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-27248"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.213120738748282	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-27248"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.998112686110501	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-27248"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.889822578837214	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-27248"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.998041760430864	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-27248"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.998246044206777	1	"grouping factors must have > 1 sampled level"	"abundance"	384	4
+"-27496"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.440374450122354	1	"grouping factors must have > 1 sampled level"	"abundance"	384	6
+"-27496"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.635755744603534	1	"grouping factors must have > 1 sampled level"	"abundance"	384	6
+"-27496"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.218352443081268	1	"grouping factors must have > 1 sampled level"	"abundance"	384	6
+"-27496"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.997978943301069	1	"grouping factors must have > 1 sampled level"	"abundance"	384	6
+"-27496"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.969162602878314	1	"grouping factors must have > 1 sampled level"	"abundance"	384	6
+"-27496"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.99350588737079	1	"grouping factors must have > 1 sampled level"	"abundance"	384	6
+"-27496"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.990827322186953	1	"grouping factors must have > 1 sampled level"	"abundance"	384	6
+"-28089"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.325032784145891	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-28089"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.769625072669524	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-28089"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.799788048386038	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-28089"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.996670145883498	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-28089"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.137543702627665	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-28089"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.992418759740646	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-28089"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.994303331626785	1	"No data points have the baseline factor level"	"abundance"	384	4
+"-6587"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.730144247042114	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	13
+"-6587"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.476904414697526	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	13
+"-6587"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.465769848332965	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	13
+"-6587"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.998403885642771	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	13
+"-6587"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.00763637205476643	0.753137168650855	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	13
+"-6587"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.989787941849422	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	13
+"-6587"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.985493270457212	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	13
+"15795"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.553510837706267	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"15795"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.672036490881784	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"15795"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.676014308033051	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"15795"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	NA	NA	NA	NA	0.997597075200721	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"15795"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.401431028509412	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"15795"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.993683575859846	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"15795"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.994508065240178	1	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	384	9
+"21907"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.0199320595225097	0.916874738035444	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	384	21
+"21907"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.864255035087973	1	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	384	21
+"21907"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	NA	NA	NA	NA	0.318648310827496	1	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	384	21
+"6615"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	NA	NA	NA	NA	0.312435928623148	1	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	384	14
+"6615"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	NA	NA	NA	NA	0.734030727370988	1	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	384	14
+"ZZ_other"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	0.000892570279377975	0.000892570279377975	0.0015933807254649	NA	NA	NA	NA	"P-value became NA in median comparison, 
+            try rerunning without the median comparison"	"abundance"	384	384
+"ZZ_other"	"site_cleaned"	"tongue"	"site_cleanedtongue"	-0.000106620773796212	-0.000106620773796212	0.000529063046898428	NA	NA	NA	NA	"P-value became NA in median comparison, 
+            try rerunning without the median comparison"	"abundance"	384	384
+"ZZ_other"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	0	NA	NA	NA	0.425461537979552	1	"All logistic values are the same"	"prevalence"	384	384
+"ZZ_other"	"condition"	"Disease"	"conditionDisease"	NA	0	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	384	384
+"ZZ_other"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	0	NA	NA	NA	0.425443452830601	1	"All logistic values are the same"	"prevalence"	384	384
+"ZZ_other"	"site_cleaned"	"oral mucosa"	"site_cleanedoral mucosa"	NA	0	NA	NA	NA	0.425442145370413	1	"All logistic values are the same"	"prevalence"	384	384
+"ZZ_other"	"site_cleaned"	"oral swab"	"site_cleanedoral swab"	NA	0	NA	NA	NA	NA	NA	"All logistic values are the same"	"prevalence"	384	384
+"ZZ_other"	"site_cleaned"	"tongue"	"site_cleanedtongue"	NA	0	NA	NA	NA	NA	NA	"All logistic values are the same"	"prevalence"	384	384
+"ZZ_other"	"site_cleaned"	"tooth"	"site_cleanedtooth"	NA	0	NA	NA	NA	0.425441772124414	1	"All logistic values are the same"	"prevalence"	384	384

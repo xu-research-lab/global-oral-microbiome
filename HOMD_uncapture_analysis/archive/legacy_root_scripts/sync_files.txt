@@ -1,0 +1,175 @@
+# 待同步文件清单（相对 HOMD_uncapture_analysis/）
+#
+# 共 147 个文件，合计 316.2 MB
+# 生成依据：pipeline_v3/analysis_report/sync_manifest.md
+#
+# 用法（在 HOMD_uncapture_analysis/ 下执行）：
+#   sed '/^#/d;/^$/d' sync_files.txt | tr '\n' '\0' | xargs -0 git add --
+# 改名的三条还需单独暂存删除（本机 git 版本较老，git add <path> 不记录删除）：
+#   git add -A -- pipeline_v2/01_chimera_removal.py \
+#                 pipeline_v2/04_sepp_place.sbatch \
+#                 pipeline_v2/run_sepp_140_missing.sh
+# 注意：不要用 git add -A 加整个目录，该目录还有 18.3 GB 原始数据和中间文件不在本清单内。
+
+## 一、总说明与根目录文档（1）
+README.md
+
+## 二、根目录：建库与控制样本脚本（15）
+01_collect_asvs_and_abundance.py
+02_homd_mapping.sbatch
+03_chimera_removal.sbatch
+C01_find_control_samples.py
+C02_extract_control_sample_ids.py
+C04_convert_sra_to_fastq.sbatch
+C05_run_dada2_controls.sbatch
+C05b_dada2_PRJEB11419.sbatch
+C06_dada2_extra_controls.sbatch
+C07_control_quality_viz.sbatch
+C08_filter_genuine_controls.sbatch
+C08b_filter_genuine_controls_v2.py
+C09_build_contaminant_catalog.sbatch
+process_data.sh
+process_forwards.R
+
+## 三、pipeline_v2：候选集脚本（8）
+pipeline_v2/01_chimera_filter.py
+pipeline_v2/01b_subject_prevalence.py
+pipeline_v2/02_contamination_firewall.py
+pipeline_v2/02_contamination_firewall.sbatch
+pipeline_v2/04_support_floor.py
+pipeline_v2/04b_sepp_place.sbatch
+pipeline_v2/04c_sepp_missing.sh
+pipeline_v2/contaminant_genera.tsv
+
+## 四、pipeline_v2：上游数据与参考分类表（9）
+pipeline_v2/01b_derep_subject_prevalence.tsv
+pipeline_v2/01b_subject_stats.json
+pipeline_v2/02_summary.json
+pipeline_v2/04_summary.json
+pipeline_v2/04_support_floor_passed.tsv
+pipeline_v2/candidates_for_sepp.fasta
+pipeline_v2/candidates_missing_sepp.fasta
+pipeline_v2/gappa/gg2_2022.10_tree_taxonomy.tsv
+pipeline_v2/sepp_placements_reused.tsv
+
+## 五、pipeline_v3：phylotype 与建模脚本（41）
+pipeline_v3/01_treecluster_cluster.py
+pipeline_v3/01_treecluster_cluster.sbatch
+pipeline_v3/02_cluster_aggregate.py
+pipeline_v3/05_cluster_geography.py
+pipeline_v3/07_master_table.py
+pipeline_v3/07b_add_organelle_flags.py
+pipeline_v3/08_supported_clusters.py
+pipeline_v3/12d_build_anchors_v3.py
+pipeline_v3/12d_build_headline_profile_v3.py
+pipeline_v3/14_cluster_feature_profile.py
+pipeline_v3/15_cluster_cohort_detection.py
+pipeline_v3/15_plot_cluster_cohort_detection.R
+pipeline_v3/16_cluster_differential_wilcox.R
+pipeline_v3/17_maaslin3_disease.R
+pipeline_v3/20_rename_cluster_ids.py
+pipeline_v3/README.md
+pipeline_v3/analysis_report/HOMD_comprehensiveness_methods_results.md
+pipeline_v3/analysis_report/sync_manifest.md
+pipeline_v3/scripts/12j_plot_supported_asv_profiles_v3.R
+pipeline_v3/scripts/13b_extract_fasta.py
+pipeline_v3/scripts/13b_organelle_map.sbatch
+pipeline_v3/scripts/13c_organelle_annotate.py
+pipeline_v3/scripts/13d_homd_coverage_clean.py
+pipeline_v3/scripts/13r_homd_lt_fractions.py
+pipeline_v3/scripts/13z2_homd_phylum_band_composition.py
+pipeline_v3/scripts/13z2_panel_homd_band_composition.R
+pipeline_v3/scripts/13z3_homd_genus_identity_curves.py
+pipeline_v3/scripts/13z3_plot_homd_genus_identity_curves_numbered.R
+pipeline_v3/scripts/13z_plot_homd_phylum_coverage_panel_v3.R
+pipeline_v3/scripts/14_schematic_overview.R
+pipeline_v3/scripts/15_alt_layout.R
+pipeline_v3/scripts/17b_plot_cluster_prevalence.R
+pipeline_v3/scripts/17c_plot_significant_clusters.R
+pipeline_v3/scripts/17d_capnocytophaga_control.py
+pipeline_v3/scripts/17d_plot_capnocytophaga_control.R
+pipeline_v3/scripts/17e_21907_cohort_sensitivity_fit.R
+pipeline_v3/scripts/17e_plot_21907_cohort_sensitivity.R
+pipeline_v3/scripts/17f_ctrl_only_fit.R
+pipeline_v3/scripts/17f_plot_ctrl_only.R
+pipeline_v3/scripts/18_build_disease_feature_table.py
+pipeline_v3/scripts/19_build_supported_phylotype_table.py
+
+## 六、pipeline_v3：结果表（31）
+pipeline_v3/02_clusters_aggregated.tsv
+pipeline_v3/05_candidate_novel_with_phylum.tsv
+pipeline_v3/07_master_asv_table.tsv
+pipeline_v3/08_supported_clusters.tsv
+pipeline_v3/12d_anchors_supported_v3.tsv
+pipeline_v3/12d_headline_profile_v3.tsv
+pipeline_v3/13d_homd_phylum_coverage.tsv
+pipeline_v3/13r_homd_phylum_lt_fractions.tsv
+pipeline_v3/13r_homd_total_lt_fractions.tsv
+pipeline_v3/13z2_homd_phylum_band_composition.tsv
+pipeline_v3/13z3_homd_genus_identity_curves.tsv
+pipeline_v3/14_cluster_counts_dedup.tsv
+pipeline_v3/14_cluster_relabund_dedup.tsv
+pipeline_v3/14_cluster_sample_metadata.tsv
+pipeline_v3/14_supported_cluster_annotation.tsv
+pipeline_v3/15_cluster_cohort_detection.tsv
+pipeline_v3/16_cluster_differential_wilcox.tsv
+pipeline_v3/17_maaslin3_all_results.tsv
+pipeline_v3/17_maaslin3_significant.tsv
+pipeline_v3/17_maaslin3_status.tsv
+pipeline_v3/17d_capnocytophaga_control_asvs.tsv
+pipeline_v3/17d_capnocytophaga_control_persample.tsv
+pipeline_v3/17d_capnocytophaga_control_samples.tsv
+pipeline_v3/17e_21907_cohort_sensitivity_results.tsv
+pipeline_v3/17e_21907_cohort_sensitivity_samples.tsv
+pipeline_v3/17f_ctrl_only_results.tsv
+pipeline_v3/17f_ctrl_only_samples.tsv
+pipeline_v3/asv_clusters.tsv
+pipeline_v3/cluster_id_rename_map.tsv
+pipeline_v3/clusters.tsv
+pipeline_v3/summary.json
+
+## 七、附表（Supplementary Tables）（6）
+pipeline_v3/analysis_report/tables/README.md
+pipeline_v3/analysis_report/tables/TableS_differential_phylotypes_HNC_PD.tsv
+pipeline_v3/analysis_report/tables/TableS_differential_phylotypes_HNC_PD.xlsx
+pipeline_v3/analysis_report/tables/TableS_differential_phylotypes_HNC_PD_members.tsv
+pipeline_v3/analysis_report/tables/TableS_supported_phylotypes.tsv
+pipeline_v3/analysis_report/tables/TableS_supported_phylotypes.xlsx
+
+## 八、图（Figure 1、S1 与疾病图）（36）
+pipeline_v3/analysis_report/figs/fig_cluster_disease_cohort_prevalence.pdf
+pipeline_v3/analysis_report/figs/fig_cluster_disease_cohort_prevalence.png
+pipeline_v3/analysis_report/figs/fig_cluster_disease_cohort_prevalence_top30.pdf
+pipeline_v3/analysis_report/figs/fig_cluster_disease_cohort_prevalence_top30.png
+pipeline_v3/analysis_report/figs/fig_colorectal_cancer_prevalence_sig.pdf
+pipeline_v3/analysis_report/figs/fig_colorectal_cancer_prevalence_sig.png
+pipeline_v3/analysis_report/figs/fig_head_and_neck_cancer_abundance_sig.pdf
+pipeline_v3/analysis_report/figs/fig_head_and_neck_cancer_abundance_sig.png
+pipeline_v3/analysis_report/figs/fig_head_and_neck_cancer_ctrl_only.pdf
+pipeline_v3/analysis_report/figs/fig_head_and_neck_cancer_ctrl_only.png
+pipeline_v3/analysis_report/figs/fig_head_and_neck_cancer_prevalence_sig.pdf
+pipeline_v3/analysis_report/figs/fig_head_and_neck_cancer_prevalence_sig.png
+pipeline_v3/analysis_report/figs/fig_lung_cancer_prevalence_sig.pdf
+pipeline_v3/analysis_report/figs/fig_lung_cancer_prevalence_sig.png
+pipeline_v3/analysis_report/figs/fig_oscc_21907_cohort_sensitivity.pdf
+pipeline_v3/analysis_report/figs/fig_oscc_21907_cohort_sensitivity.png
+pipeline_v3/analysis_report/figs/fig_oscc_21907_prevalence.pdf
+pipeline_v3/analysis_report/figs/fig_oscc_21907_prevalence.png
+pipeline_v3/analysis_report/figs/fig_oscc_capnocytophaga_covered_prevalence.pdf
+pipeline_v3/analysis_report/figs/fig_oscc_capnocytophaga_covered_prevalence.png
+pipeline_v3/analysis_report/figs/fig_periodontal_disease_ctrl_only.pdf
+pipeline_v3/analysis_report/figs/fig_periodontal_disease_ctrl_only.png
+pipeline_v3/analysis_report/figs/fig_periodontal_disease_prevalence_sig.pdf
+pipeline_v3/analysis_report/figs/fig_periodontal_disease_prevalence_sig.png
+pipeline_v3/analysis_report/figs/fig_v3_flow_only.pdf
+pipeline_v3/analysis_report/figs/fig_v3_flow_only.png
+pipeline_v3/analysis_report/figs/fig_v3_homd_genus_identity_curves_numbered.pdf
+pipeline_v3/analysis_report/figs/fig_v3_homd_genus_identity_curves_numbered.png
+pipeline_v3/analysis_report/figs/fig_v3_master_alt.pdf
+pipeline_v3/analysis_report/figs/fig_v3_master_alt.png
+pipeline_v3/analysis_report/figs/fig_v3_panelB_coverage_v4.pdf
+pipeline_v3/analysis_report/figs/fig_v3_panelB_coverage_v4.png
+pipeline_v3/analysis_report/figs/fig_v3_supported_multi_asv_profile.pdf
+pipeline_v3/analysis_report/figs/fig_v3_supported_multi_asv_profile.png
+pipeline_v3/analysis_report/figs/fig_v3_supported_singleton_top40_profile.pdf
+pipeline_v3/analysis_report/figs/fig_v3_supported_singleton_top40_profile.png

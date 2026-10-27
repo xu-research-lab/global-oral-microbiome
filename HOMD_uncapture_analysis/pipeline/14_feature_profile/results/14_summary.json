@@ -1,0 +1,11 @@
+{
+  "n_clusters": 486,
+  "n_member_dereps": 900,
+  "n_samples": 51186,
+  "n_projects": 288,
+  "samples_not_found": 0,
+  "nonzero_cells": 78946,
+  "clusters_without_reads": 0,
+  "total_reads_all_asvs": 3268383592,
+  "total_cluster_reads": 8194098
+}

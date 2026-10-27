@@ -1,0 +1,5 @@
+"feature"	"metadata"	"value"	"name"	"coef"	"null_hypothesis"	"stderr"	"pval_individual"	"qval_individual"	"pval_joint"	"qval_joint"	"error"	"model"	"N"	"N_not_zero"
+"5422"	"site_cleaned"	"Other"	"site_cleanedOther"	8.54637570927849	0	2.2248506389782	0.000122371666387249	0.0243519616110626	0.000122371666387249	0.0231282449471901	NA	"prevalence"	566	50
+"-24345"	"site_cleaned"	"Other"	"site_cleanedOther"	6.9256815315277	0	1.95389185887402	0.000393273104492521	0.0391306738970059	0.000393273104492521	0.0371643083745433	NA	"prevalence"	566	47
+"-24345"	"site_cleaned"	"Other"	"site_cleanedOther"	NA	NA	NA	NA	NA	0.000393273104492521	0.0371643083745433	"No data points have the baseline factor level"	"abundance"	566	47
+"5422"	"site_cleaned"	"Other"	"site_cleanedOther"	NA	NA	NA	NA	NA	0.000122371666387249	0.0231282449471901	"No data points have the baseline factor level"	"abundance"	566	50

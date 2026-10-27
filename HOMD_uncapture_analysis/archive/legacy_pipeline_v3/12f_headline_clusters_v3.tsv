@@ -1,0 +1,18 @@
+cluster_id	annotation	annotation_distance_max	n_derep_asvs	max_subject_prevalence	n_bioprojects_total	total_reads	homd_identity_rep	cluster_regions	cluster_continents
+c15795	Faucicola mancuniensis	0.005515	39	478	131	217622.0	93.36283185840708	V1-V2;V1-V3;V2;V3;V3-V4;V4;V4-V5;V6-V7;V6-V8;V8;V9	Africa;Asia;Europe;North America;Oceania;South America
+c15805	Pseudoalteromonas luteoviolacea_G	7e-06	2	174	6	14947.0	90.61371841155234	V4;V4-V5;V6-V8	Europe;North America;Oceania
+c7147	Anaerobacillus isosaccharinicus	0.021596	2	141	3	6761.0	94.22382671480143	V3-V4	North America;Oceania
+c19843	Aquabacter cavernae	0.016869	4	124	9	20801.0	87.66519823788546	V3-V4;V4	Africa;Asia;Europe;North America;South America
+c31920	Roseburia inulinivorans	7e-06	2	108	8	478115.0	96.07329842931938	V3-V4;V4	Asia;Europe;North America
+c16086	Schleiferilactobacillus harbinensis	0.007193	6	97	16	92779.0	95.57522123893806	V1-V2;V1-V3;V3-V4;V4	Asia;Europe;North America;South America
+c40654	Alteromonas mediterranea	7e-06	2	74	6	5436.0	89.16967509025271	V4;V4-V5;V6-V8	Asia;North America
+c15882	Rhodanobacter glycinis	7e-06	4	72	9	1652.0	82.37885462555066	V1-V2;V4	Asia;Europe;North America;Oceania;South America
+c21350	Fructilactobacillus sanfranciscensis	0.007808	11	67	38	35492.0	93.80530973451329	V1-V2;V3-V4;V4;V4-V5;V6-V8	Asia;Europe;North America;Oceania;South America
+c28618	Planktomarina temperata	0.015049	4	67	6	5172.0	94.22382671480143	V3-V4;V4-V5;V6-V8	Asia;North America
+c36553	Phnomibacter ginsenosidimutans	1.29491	2	67	8	9207.0	46.18181818181818	V3-V4	Europe;North America;Oceania;South America
+c5422	Megamonas funiformis	0.007587	5	62	15	602270.0	88.54625550660793	V3-V4	Asia;Europe;North America;South America
+c9690	Selenomonas ruminantium_E	0.11662	2	60	5	2409.0	88.76811594202898	V3-V4	Asia;Europe;Oceania;South America
+c29573	Helicobacter pylori_CI	1.05185	2	58	10	15697.0	48.375451263537904	V3-V4	Asia;Europe;North America;Oceania;South America
+c14392	Pedosphaera parvula	0.5601	2	54	7	668.0	44.04332129963899	V3-V4	Asia;Europe;South America
+c29601	Lentibacter algarum	7e-06	2	54	7	2217.0	94.94584837545126	V3-V4;V4-V5;V6-V8	Asia;North America
+c46270	Gemmiger qucibialis	0.014031	5	51	12	10206.0	95.66787003610108	V3-V4;V4;V4-V5;V6-V8	Africa;Asia;Europe;North America;South America

@@ -1,0 +1,30 @@
+{
+  "n_candidate_novel": 7201,
+  "n_mapped_to_phylum": 7201,
+  "phylum_counts": {
+    "Proteobacteria": 1413,
+    "Bacteroidota": 1336,
+    "Firmicutes_A": 1262,
+    "Firmicutes_D": 530,
+    "Cyanobacteria": 366,
+    "Actinobacteriota": 325,
+    "Fusobacteriota": 273,
+    "Patescibacteria": 259,
+    "Acidobacteriota": 206,
+    "Planctomycetota": 204,
+    "Spirochaetota": 174,
+    "Verrucomicrobiota": 147,
+    "Desulfobacterota_I": 113,
+    "Firmicutes_C": 93,
+    "Campylobacterota": 51,
+    "Marinisomatota": 51,
+    "Chloroflexota": 47,
+    "Myxococcota_A_473307": 35,
+    "Deinococcota": 29,
+    "Thermoproteota": 24
+  },
+  "oral_clade": {
+    "in_homd_genus": 755,
+    "outside_homd_genus": 6446
+  }
+}

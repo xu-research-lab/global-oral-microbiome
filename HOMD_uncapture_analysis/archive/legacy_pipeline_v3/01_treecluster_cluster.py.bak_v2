@@ -1,0 +1,415 @@
+#!/usr/bin/env python3
+"""
+pipeline_v3 Step 01: TreeCluster OTU-like clustering + HOMD coverage annotation.
+
+Goal: group the SEPP-inserted ASVs into OTU-like clusters on the GG2 2022.10
+tree (keeping the backbone reference tips as cluster members), then annotate
+each ASV with its nearest reference genome and decide whether that reference
+species is covered by the HOMD catalog.
+
+Logic:
+  1. TreeCluster (max_clade, t=0.03): every cluster is a clade whose max
+     pairwise tree distance <= t. Backbone tips are kept (not pruned) so each
+     cluster carries its reference genomes for annotation.
+  2. For every ASV, compute the exact tree distance to the nearest reference
+     tip (bottom-up DP + walk-up), and to the nearest reference tip whose
+     species is in HOMD (or a GTDB->HOMD renamed epithet).
+  3. covered = nearest HOMD-species reference is within t (species boundary);
+     otherwise the ASV is a novel (HOMD-uncaptured) candidate.
+
+Outputs (pipeline_v3/):
+  - treecluster/clusters.tsv  : TreeCluster raw output (all tips)
+  - asv_clusters.tsv          : per-ASV cluster + nearest-ref annotation
+  - clusters.tsv              : per-cluster summary (ref species lists)
+  - summary.json
+"""
+import argparse
+import json
+import re
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+import pandas as pd
+from treeswift import read_tree_newick
+
+BASE = Path("/beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis")
+PIPE_V3 = BASE / "pipeline_v3"
+TREECLUSTER = "/home/huangxc/.local/bin/TreeCluster.py"
+TREE = BASE / "pipeline/05_sepp/tree_export/tree.nwk"
+TAXONOMY = BASE / "pipeline_v2/gappa/gg2_2022.10_tree_taxonomy.tsv"
+HOMD_FASTA = Path("/beegfs/huangxiaochang/global_oral/HOMD_16S_rRNA_RefSeq_V16.03_full.fasta")
+
+log = lambda s: print(f"[p3_01] {s}", flush=True)
+
+
+def load_homd_catalog(path):
+    homd_species, homd_epithets = set(), {}
+    with open(path) as f:
+        for line in f:
+            if line.startswith(">"):
+                parts = line.split()
+                if len(parts) >= 4:
+                    sp = f"{parts[2].strip()} {parts[3].strip()}"
+                    homd_species.add(sp)
+                    homd_epithets.setdefault(parts[3].strip(), set()).add(sp)
+    return homd_species, homd_epithets
+
+
+def get_tax_level(tax_str, level):
+    if not tax_str:
+        return None
+    for part in tax_str.split("; "):
+        if part.startswith(level + "__"):
+            v = part[len(level) + 2:].strip()
+            return v if v else None
+    return None
+
+
+def clean_species(s):
+    """GG2 s__ ('Treponema_B_986142 vincentii') -> 'Genus species', or None.
+
+    Placeholder species (spNNN) are not names -> None (unresolved)."""
+    if not isinstance(s, str) or not s:
+        return None
+    parts = s.split(" ")
+    if len(parts) < 2:
+        return None
+    genus = parts[0].split("_")[0]
+    sp = " ".join(parts[1:]).strip()
+    if re.fullmatch(r"sp\d+", sp):
+        return None
+    return f"{genus} {sp}".strip()
+
+
+def clean_genus(s):
+    """GTDB g__ ('Leptotrichia_A_993758') -> 'Leptotrichia' (strip strain token)."""
+    if not isinstance(s, str) or not s:
+        return None
+    return s.split("_")[0]
+
+
+def renamed_in_homd(sp, homd_epithets):
+    """GTDB genus != HOMD genus but the epithet matches exactly one HOMD species."""
+    if not isinstance(sp, str):
+        return False
+    parts = sp.split(" ")
+    if len(parts) < 2:
+        return False
+    return len(homd_epithets.get(parts[-1].strip(), ())) == 1
+
+
+LEVEL_NAMES = {"d": "domain", "p": "phylum", "c": "class", "o": "order",
+               "f": "family", "g": "genus", "s": "species"}
+
+
+def is_placeholder_species(s):
+    """GTDB placeholder species epithet (e.g. 'Dialister sp001553355')."""
+    if not isinstance(s, str) or not s:
+        return False
+    return bool(re.fullmatch(r"sp\d+", s.split(" ")[-1]))
+
+
+def lca_tax(tax_strings):
+    """Most specific taxonomy shared by all (resolved) reference labels.
+
+    Level-by-level: a level is kept only if every ref with a resolved label
+    agrees there; refs with empty labels do not constrain; a placeholder
+    species (spNNN) stops the LCA at genus (it is a distinct, unnamed species).
+    """
+    shared = []
+    for lv in ["d", "p", "c", "o", "f", "g", "s"]:
+        vals, stop = set(), False
+        for t in tax_strings:
+            v = get_tax_level(t, lv)
+            if lv == "s":
+                if v and is_placeholder_species(v):
+                    stop = True
+                    continue
+                v = clean_species(v)
+            if v:
+                vals.add(v)
+        if stop or len(vals) != 1:
+            break
+        shared.append(f"{lv}__{vals.pop()}")
+    return shared
+
+
+def format_annotation(shared):
+    """(label, level_name) from an LCA list, e.g. ['g__Streptococcus'] -> ('Streptococcus', 'genus')."""
+    if not shared:
+        return "", "none"
+    lv = shared[-1]
+    label = lv.split("__", 1)[1]
+    if lv.startswith("g"):
+        label = clean_genus(label)
+    return label, LEVEL_NAMES[lv[0]]
+
+
+def finest_named(tax_str, cap="s"):
+    """Finest resolved label at or coarser than cap level ('s'/'g'/...).
+
+    cap='g' means: never report a species (a singleton ASV is >threshold from
+    its nearest ref, so the species name would over-claim); fall back to
+    domain if nothing else is resolved."""
+    order = ["s", "g", "f", "o", "c", "p", "d"]
+    for lv in order:
+        if order.index(lv) < order.index(cap):
+            continue
+        v = get_tax_level(tax_str, lv)
+        if lv == "s":
+            v = clean_species(v)
+        elif lv == "g":
+            v = clean_genus(v)
+        if v:
+            return v, LEVEL_NAMES[lv]
+    return "", "none"
+
+
+def nearest_ref_dp(tree, ref_set):
+    """Bottom-up: best reference tip (label + dist) inside each subtree."""
+    for node in tree.traverse_postorder():
+        if node.is_leaf():
+            if node.label in ref_set:
+                node.best_ref, node.best_dist = node.label, 0.0
+            else:
+                node.best_ref, node.best_dist = None, float("inf")
+        else:
+            best_ref, best_dist = None, float("inf")
+            for c in node.children:
+                if c.best_ref is not None:
+                    d = c.best_dist + (c.edge_length or 0.0)
+                    if d < best_dist:
+                        best_dist, best_ref = d, c.best_ref
+            node.best_ref, node.best_dist = best_ref, best_dist
+
+
+def nearest_ref_for_tip(tip):
+    """Walk up from a tip, combining best refs of sibling subtrees (exact)."""
+    node, child = tip.parent, tip
+    dist_to_node = tip.edge_length or 0.0
+    best_ref, best_dist = None, float("inf")
+    while node is not None:
+        for c in node.children:
+            if c is child or c.best_ref is None:
+                continue
+            d = dist_to_node + c.best_dist + (c.edge_length or 0.0)
+            if d < best_dist:
+                best_dist, best_ref = d, c.best_ref
+        child = node
+        dist_to_node += (node.edge_length or 0.0)
+        node = node.parent
+    return best_ref, best_dist
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--tree", default=str(TREE))
+    ap.add_argument("--threshold", type=float, default=0.03)
+    ap.add_argument("--method", default="max_clade")
+    ap.add_argument("--treecluster", default=TREECLUSTER)
+    ap.add_argument("--treecluster-output", default=None,
+                    help="Reuse an existing TreeCluster output instead of re-running")
+    ap.add_argument("--taxonomy", default=str(TAXONOMY))
+    ap.add_argument("--homd-fasta", default=str(HOMD_FASTA))
+    ap.add_argument("--outdir", default=str(PIPE_V3))
+    args = ap.parse_args()
+
+    outdir = Path(args.outdir)
+    tc_dir = outdir / "treecluster"
+    tc_dir.mkdir(parents=True, exist_ok=True)
+    tc_out = Path(args.treecluster_output) if args.treecluster_output else tc_dir / "clusters.tsv"
+
+    # 1. TreeCluster
+    if not tc_out.exists():
+        log(f"Running TreeCluster {args.method} t={args.threshold} ...")
+        t0 = time.time()
+        subprocess.run([args.treecluster, "-i", args.tree, "-t", str(args.threshold),
+                        "-m", args.method, "-o", str(tc_out)], check=True)
+        log(f"  TreeCluster done in {time.time()-t0:.0f}s")
+    else:
+        log(f"Reusing TreeCluster output: {tc_out}")
+
+    cl = pd.read_csv(tc_out, sep="\t", dtype={"SequenceName": str, "ClusterNumber": int})
+    cl["is_asv"] = cl["SequenceName"].str.startswith("DEREP_")
+    log(f"TreeCluster: {len(cl):,} tips | {cl['ClusterNumber'].nunique():,} clusters")
+
+    # 2. Taxonomy + HOMD catalog
+    tax = {}
+    with open(args.taxonomy) as f:
+        for line in f:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) == 2:
+                tax[parts[0]] = parts[1]
+    homd_species, homd_epithets = load_homd_catalog(args.homd_fasta)
+    log(f"taxonomy tips: {len(tax):,} | HOMD species: {len(homd_species):,}")
+
+    # 3. Load tree
+    log(f"Loading tree: {args.tree}")
+    t0 = time.time()
+    tree = read_tree_newick(args.tree)
+    n_tips = sum(1 for _ in tree.traverse_leaves())
+    log(f"  loaded {n_tips:,} tips in {time.time()-t0:.0f}s")
+
+    # reference sets
+    ref_set = set()
+    homd_ref_set = set()
+    for node in tree.traverse_leaves():
+        if node.label is None:
+            continue
+        if node.label.startswith("DEREP_"):
+            continue
+        ref_set.add(node.label)
+        sp = clean_species(get_tax_level(tax.get(node.label), "s"))
+        if sp is not None and (sp in homd_species or renamed_in_homd(sp, homd_epithets)):
+            homd_ref_set.add(node.label)
+    log(f"ref tips: {len(ref_set):,} | ref tips w/ HOMD species: {len(homd_ref_set):,}")
+
+    # 4. DP + walk-up: nearest ref (any), then nearest HOMD-species ref
+    asv_tips = [n for n in tree.traverse_leaves() if n.label and n.label.startswith("DEREP_")]
+    log(f"ASV tips: {len(asv_tips):,}")
+
+    log("DP: nearest reference ...")
+    t0 = time.time()
+    nearest_ref_dp(tree, ref_set)
+    log(f"  done in {time.time()-t0:.0f}s")
+    log("Walking up for nearest reference ...")
+    t0 = time.time()
+    rows = []
+    for tip in asv_tips:
+        r, d = nearest_ref_for_tip(tip)
+        rows.append((tip.label, r, d))
+    log(f"  done in {time.time()-t0:.0f}s")
+    asv_nn = pd.DataFrame(rows, columns=["asv_id", "nearest_ref", "nearest_ref_dist"])
+    asv_nn["nearest_ref_dist"] = asv_nn["nearest_ref_dist"].round(6)
+
+    log("DP: nearest HOMD-species reference ...")
+    t0 = time.time()
+    nearest_ref_dp(tree, homd_ref_set)
+    log(f"  done in {time.time()-t0:.0f}s")
+    log("Walking up for nearest HOMD-species ref ...")
+    t0 = time.time()
+    rows_h = []
+    for tip in asv_tips:
+        rh, dh = nearest_ref_for_tip(tip)
+        rows_h.append((tip.label, rh, dh))
+    log(f"  done in {time.time()-t0:.0f}s")
+    asv_h = pd.DataFrame(rows_h, columns=["asv_id", "nearest_homd_ref", "nearest_homd_ref_dist"])
+    asv_h["nearest_homd_ref_dist"] = asv_h["nearest_homd_ref_dist"].round(6)
+
+    # 6. Merge with clusters + taxonomy
+    asv = cl[cl["is_asv"]].rename(columns={"SequenceName": "asv_id", "ClusterNumber": "cluster_id"})
+    asv = asv.merge(asv_nn, on="asv_id", how="left").merge(asv_h, on="asv_id", how="left")
+    asv["nearest_ref_tax"] = asv["nearest_ref"].map(tax)
+    asv["nearest_ref_species"] = asv["nearest_ref_tax"].map(lambda t: clean_species(get_tax_level(t, "s")))
+    asv["nearest_ref_genus"] = asv["nearest_ref_tax"].map(lambda t: get_tax_level(t, "g"))
+    asv["nearest_homd_ref_tax"] = asv["nearest_homd_ref"].map(tax)
+    asv["nearest_homd_ref_species"] = asv["nearest_homd_ref_tax"].map(lambda t: clean_species(get_tax_level(t, "s")))
+    asv["nearest_ref_in_homd"] = asv["nearest_ref_species"].map(lambda s: s in homd_species if s else False)
+    asv["nearest_ref_renamed"] = asv["nearest_ref_species"].map(
+        lambda s: renamed_in_homd(s, homd_epithets) if s else False)
+    asv["covered"] = asv["nearest_homd_ref_dist"] <= args.threshold
+    asv["annotation_resolution"] = asv["nearest_ref_tax"].map(
+        lambda t: "species" if get_tax_level(t, "s") else
+                  ("genus" if get_tax_level(t, "g") else
+                   ("family" if get_tax_level(t, "f") else
+                    ("order" if get_tax_level(t, "o") else
+                     ("class" if get_tax_level(t, "c") else
+                      ("phylum" if get_tax_level(t, "p") else "none"))))))
+
+    # cluster-level info
+    cl_size = cl.groupby("ClusterNumber").size().rename("cluster_size")
+    n_ref = cl[~cl["is_asv"]].groupby("ClusterNumber").size().rename("n_refs_in_cluster")
+    asv = asv.merge(cl_size, left_on="cluster_id", right_index=True, how="left")
+    asv = asv.merge(n_ref, left_on="cluster_id", right_index=True, how="left")
+    asv["n_refs_in_cluster"] = asv["n_refs_in_cluster"].fillna(0).astype(int)
+    asv.loc[asv["cluster_id"] == -1, "cluster_size"] = 1
+    asv.loc[asv["cluster_id"] == -1, "n_refs_in_cluster"] = 0
+
+    # any cluster ref species in HOMD (user's original cluster-level criterion);
+    # cluster -1 is the singleton bucket shared by all unclustered tips -> exclude
+    refs = cl[(~cl["is_asv"]) & (cl["ClusterNumber"] >= 0)].copy()
+    refs["species"] = refs["SequenceName"].map(lambda n: clean_species(get_tax_level(tax.get(n), "s")))
+    refs["sp_in_homd"] = refs["species"].map(lambda s: s in homd_species if s else False)
+    refs["sp_renamed"] = refs["species"].map(lambda s: renamed_in_homd(s, homd_epithets) if s else False)
+    cl_homd = refs.groupby("ClusterNumber").agg(
+        any_in_homd=("sp_in_homd", "any"),
+        any_renamed=("sp_renamed", "any"),
+        ref_species_list=("species", lambda s: ";".join(sorted(set(x for x in s.dropna())))),
+        homd_species_list=("species", lambda s: ";".join(sorted(set(
+            x for x in s.dropna() if x in homd_species or renamed_in_homd(x, homd_epithets))))),
+    ).reset_index()
+    asv = asv.merge(cl_homd, left_on="cluster_id", right_on="ClusterNumber", how="left")
+    asv["any_cluster_ref_species_in_homd"] = (asv["cluster_id"] >= 0) & (
+        asv["any_in_homd"].fillna(False) | asv["any_renamed"].fillna(False))
+
+    # 6b. Cluster LCA annotation (most specific taxonomy shared by cluster refs)
+    refs["tax"] = refs["SequenceName"].map(tax)
+    lca_rows = {}
+    for cid, grp in refs.groupby("ClusterNumber"):
+        lca_rows[cid] = format_annotation(lca_tax(list(grp["tax"].dropna())))
+    cl_lca = pd.DataFrame(lca_rows, index=["cluster_annotation", "cluster_annotation_level"]).T
+    cl_lca.index.name = "cluster_id"
+    asv = asv.merge(cl_lca, left_on="cluster_id", right_index=True, how="left")
+
+    # 6c. Per-ASV annotation: covered -> nearest HOMD species; else cluster LCA;
+    #     singletons/ASV-only clusters -> nearest ref capped at genus
+    def annotate(row):
+        if row["covered"]:
+            sp = row["nearest_homd_ref_species"]
+            if sp:
+                return sp, "species", "nearest_homd_ref"
+            v, lv = finest_named(row["nearest_homd_ref_tax"])
+            return v, lv, "nearest_homd_ref"
+        if row["n_refs_in_cluster"] > 0 and row["cluster_annotation"]:
+            return row["cluster_annotation"], row["cluster_annotation_level"], "cluster_refs"
+        v, lv = finest_named(row["nearest_ref_tax"], cap="g")
+        return v, lv, "nearest_ref"
+
+    asv[["annotation", "annotation_level", "annotation_basis"]] = asv.apply(
+        lambda r: pd.Series(annotate(r)), axis=1)
+
+    # 7. Outputs
+    out_cols = ["asv_id", "cluster_id", "cluster_size", "n_refs_in_cluster",
+                "annotation", "annotation_level", "annotation_basis",
+                "nearest_ref", "nearest_ref_species", "nearest_ref_genus", "nearest_ref_dist",
+                "nearest_ref_in_homd", "nearest_ref_renamed",
+                "nearest_homd_ref", "nearest_homd_ref_species", "nearest_homd_ref_dist",
+                "covered", "any_cluster_ref_species_in_homd", "annotation_resolution"]
+    asv[out_cols].to_csv(outdir / "asv_clusters.tsv", sep="\t", index=False)
+
+    cl_out = cl.groupby("ClusterNumber").size().rename("n_total").reset_index()
+    cl_out = cl_out[cl_out["ClusterNumber"] >= 0].rename(columns={"ClusterNumber": "cluster_id"})
+    cl_out["n_asv"] = cl[cl["is_asv"]].groupby("ClusterNumber").size().reindex(
+        cl_out["cluster_id"]).fillna(0).astype(int).values
+    cl_out["n_refs_in_cluster"] = n_ref.reindex(cl_out["cluster_id"]).fillna(0).astype(int).values
+    cl_out = cl_out.merge(cl_homd, left_on="cluster_id", right_on="ClusterNumber", how="left")
+    cl_out["ref_species_list"] = cl_out["ref_species_list"].fillna("")
+    cl_out["homd_species_list"] = cl_out["homd_species_list"].fillna("")
+    cl_out["any_in_homd"] = cl_out["any_in_homd"].fillna(False)
+    cl_out["any_renamed"] = cl_out["any_renamed"].fillna(False)
+    cl_out = cl_out[["cluster_id", "n_total", "n_asv", "n_refs_in_cluster",
+                     "ref_species_list", "homd_species_list", "any_in_homd", "any_renamed"]]
+    cl_out.to_csv(outdir / "clusters.tsv", sep="\t", index=False)
+
+    summary = {
+        "threshold": args.threshold,
+        "method": args.method,
+        "n_asv": int(len(asv)),
+        "n_clusters": int(cl["ClusterNumber"].nunique()),
+        "n_asv_singletons": int((asv["cluster_id"] == -1).sum()),
+        "n_asv_covered": int(asv["covered"].sum()),
+        "n_asv_novel": int((~asv["covered"]).sum()),
+        "n_asv_cluster_ref_in_homd": int(asv["any_cluster_ref_species_in_homd"].sum()),
+        "annotation_level_counts": asv["annotation_level"].value_counts().to_dict(),
+        "annotation_basis_counts": asv["annotation_basis"].value_counts().to_dict(),
+    }
+    with open(outdir / "summary.json", "w") as f:
+        json.dump(summary, f, indent=2)
+    log(f"summary: {json.dumps(summary)}")
+    log(f"wrote {outdir/'asv_clusters.tsv'}, {outdir/'clusters.tsv'}, {outdir/'summary.json'}")
+
+
+if __name__ == "__main__":
+    main()

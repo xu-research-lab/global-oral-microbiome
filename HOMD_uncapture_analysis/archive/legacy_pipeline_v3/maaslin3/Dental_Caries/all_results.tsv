@@ -1,0 +1,103 @@
+"feature"	"metadata"	"value"	"name"	"coef"	"null_hypothesis"	"stderr"	"pval_individual"	"qval_individual"	"pval_joint"	"qval_joint"	"error"	"model"	"N"	"N_not_zero"
+"-14418"	"sex_cleaned"	"M"	"sex_cleanedM"	-1.32602554303036	0	0.364675460856996	0.000276711229027587	0.00788627002728624	0.000276711229027587	0.00705613634020348	NA	"prevalence"	741	44
+"30760"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-2.50924393988619	0	0.673051371733587	0.000192882071559638	0.00788627002728624	0.000192882071559638	0.00705613634020348	NA	"prevalence"	741	29
+"-28827"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-2.17891976961316	0	0.689442789016968	0.00157548928801812	0.0275152752790245	0.00157548928801812	0.0267833178963081	NA	"prevalence"	741	20
+"21907"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.755570045364606	0	0.243680366765903	0.00193089651080874	0.0275152752790245	0.00385806466028203	0.0491903244185959	NA	"prevalence"	741	264
+"-5074"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-1.03537934740779	0	0.36737128490256	0.00482717789471513	0.0550298279997525	0.00482717789471513	0.0492372145260943	NA	"prevalence"	741	90
+"-14418"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-1.04264261926721	0	0.504471954681069	0.0387530066064862	0.315560196652816	0.0387530066064862	0.282343333847256	NA	"prevalence"	741	44
+"-9448"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-2.0461525303794	0	0.989801429684242	0.0387119803235331	0.315560196652816	0.0387119803235331	0.282343333847256	NA	"prevalence"	741	9
+"-18468"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-1.15723800027672	0	0.615725773690301	0.0601803725964491	0.4287851547497	0.0601803725964491	0.383649875302363	NA	"prevalence"	741	27
+"-5074"	"sex_cleaned"	"M"	"sex_cleanedM"	-0.427984260114226	0	0.235975448969032	0.0697268049902897	0.441603098271835	0.0697268049902897	0.395118561611642	NA	"prevalence"	741	90
+"-28239"	"sex_cleaned"	"M"	"sex_cleanedM"	0.573214745366426	0	0.33542835748535	0.0874687977851085	0.498572147375119	0.0874687977851085	0.446090868704053	NA	"prevalence"	741	37
+"-19941"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.746615071857542	0	0.453745409321896	0.0998771873453159	0.517545425334819	0.0998771873453159	0.463066959510101	NA	"prevalence"	741	47
+"21907"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.600742464244438	0.00335127018084374	0.333553599878363	0.155522895886107	0.530861897801619	0.00385806466028203	0.0491903244185959	NA	"abundance"	741	264
+"ZZ_other"	"condition"	"Disease"	"conditionDisease"	0.000920213651494087	-0.275601960181754	0.00060079521507876	0.153006701851785	0.530861897801619	0.153006701851785	0.502921797917324	NA	"abundance"	741	741
+"-14418"	"condition"	"Disease"	"conditionDisease"	-0.545401573232602	0	0.362324720241578	0.132251098892985	0.530861897801619	0.132251098892985	0.502921797917324	NA	"prevalence"	741	44
+"-18468"	"condition"	"Disease"	"conditionDisease"	-0.927674704704835	0	0.666080369293926	0.163699367614543	0.530861897801619	0.163699367614543	0.502921797917324	NA	"prevalence"	741	27
+"-24749"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.75691494727443	0	0.527526214803422	0.151333110844928	0.530861897801619	0.151333110844928	0.502921797917324	NA	"prevalence"	741	32
+"-9448"	"condition"	"Disease"	"conditionDisease"	0.809749751358824	0	0.586849692718608	0.167640599305775	0.530861897801619	0.167640599305775	0.502921797917324	NA	"prevalence"	741	9
+"15882"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.595270980575305	0	0.398300364204088	0.135037712478668	0.530861897801619	0.135037712478668	0.502921797917324	NA	"prevalence"	741	64
+"-28382"	"sex_cleaned"	"M"	"sex_cleanedM"	-1.20909517387505	0	0.90142035900616	0.179815852511662	0.539447557534985	0.179815852511662	0.509478248783042	NA	"prevalence"	741	8
+"-28827"	"sex_cleaned"	"M"	"sex_cleanedM"	-0.901473271910444	0	0.704665992337932	0.200794395956541	0.567431689273992	0.200794395956541	0.53308713966004	NA	"prevalence"	741	20
+"30760"	"condition"	"Disease"	"conditionDisease"	0.478612025315777	0	0.381008490741924	0.209053780258839	0.567431689273992	0.209053780258839	0.53308713966004	NA	"prevalence"	741	29
+"-20223"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.753115069429687	0	0.639478483514396	0.238915441507112	0.619008189359335	0.238915441507112	0.5802232150887	NA	"prevalence"	741	10
+"-18606"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.596737741317211	0	0.551166653805093	0.278949977927597	0.691310814864046	0.278949977927597	0.646656767013976	NA	"prevalence"	741	17
+"-20223"	"sex_cleaned"	"M"	"sex_cleanedM"	0.665954884785729	0	0.661891336973562	0.314348567402918	0.746577847581931	0.314348567402918	0.697033779893428	NA	"prevalence"	741	10
+"-19941"	"condition"	"Disease"	"conditionDisease"	0.292552475357118	0	0.305404494101673	0.338104087329234	0.770877319110654	0.338104087329234	0.718471185574623	NA	"prevalence"	741	47
+"-28382"	"condition"	"Disease"	"conditionDisease"	-0.707458003046033	0	0.789860168169475	0.370426368370958	0.784180503785606	0.370426368370958	0.728621156351403	NA	"prevalence"	741	8
+"15805"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.603064708424624	0	0.67475525560855	0.371453922845813	0.784180503785606	0.371453922845813	0.728621156351403	NA	"prevalence"	741	17
+"15795"	"sex_cleaned"	"M"	"sex_cleanedM"	1.08542588575981	0.223371523571319	1.02035975340095	0.440513772421673	0.871342642561483	0.686975161150173	0.971204801074029	NA	"abundance"	741	10
+"-24749"	"condition"	"Disease"	"conditionDisease"	-0.289852390489569	0	0.378097318028001	0.443314677794439	0.871342642561483	0.443314677794439	0.837372169167273	NA	"prevalence"	741	32
+"ZZ_other"	"sex_cleaned"	"M"	"sex_cleanedM"	-0.000851161370094433	0.223371523571319	0.00058326946239045	0.589144271536586	0.883716407304878	0.589144271536586	0.910495692374723	NA	"abundance"	741	741
+"-18606"	"condition"	"Disease"	"conditionDisease"	-0.378278849924626	0	0.65624176256835	0.564323118973091	0.883716407304878	0.564323118973091	0.910495692374723	NA	"prevalence"	741	17
+"-19941"	"sex_cleaned"	"M"	"sex_cleanedM"	-0.185536139309102	0	0.301035072622848	0.537678511716907	0.883716407304878	0.537678511716907	0.910495692374723	NA	"prevalence"	741	47
+"-20223"	"condition"	"Disease"	"conditionDisease"	-0.57566905430128	0	0.793264381088714	0.468024948870027	0.883716407304878	0.468024948870027	0.852474014013264	NA	"prevalence"	741	10
+"-28382"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.45020223000663	0	0.654042278836644	0.491239884175329	0.883716407304878	0.491239884175329	0.863904623894545	NA	"prevalence"	741	8
+"15795"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.406096322467649	0	0.70345562207881	0.563745078734768	0.883716407304878	0.809681643671866	0.971204801074029	NA	"prevalence"	741	10
+"15795"	"condition"	"Disease"	"conditionDisease"	-0.412943209828552	0	0.650323918201012	0.52544092930329	0.883716407304878	0.774793688419475	0.971204801074029	NA	"prevalence"	741	10
+"15882"	"condition"	"Disease"	"conditionDisease"	0.150397234223963	0	0.272076275361689	0.580416806958868	0.883716407304878	0.580416806958868	0.910495692374723	NA	"prevalence"	741	64
+"21907"	"sex_cleaned"	"M"	"sex_cleanedM"	0.103818119063556	0	0.166516673358276	0.532975833930237	0.883716407304878	0.781888428306843	0.971204801074029	NA	"prevalence"	741	264
+"15795"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.412101140579871	0.00335127018084374	2.22947783673766	0.847473481859195	1	0.809681643671866	0.971204801074029	NA	"abundance"	741	10
+"15795"	"condition"	"Disease"	"conditionDisease"	-0.53324023675948	-0.275601960181754	1.92530201344342	0.891488161444287	1	0.774793688419475	0.971204801074029	NA	"abundance"	741	10
+"21907"	"condition"	"Disease"	"conditionDisease"	-0.275601960181754	-0.275601960181754	0.258308575564031	1	1	0.980629275378038	1	NA	"abundance"	741	264
+"21907"	"sex_cleaned"	"M"	"sex_cleanedM"	0.223371523571319	0.223371523571319	0.247429021263151	1	1	0.781888428306843	0.971204801074029	NA	"abundance"	741	264
+"ZZ_other"	"age_cleaned"	"age_cleaned"	"age_cleaned"	0.00335127018084374	0.00335127018084374	0.000744271139267153	1	1	1	1	NA	"abundance"	741	741
+"-18468"	"sex_cleaned"	"M"	"sex_cleanedM"	-0.187048850302368	0	0.656125824244795	0.775582268054497	1	0.775582268054497	0.971204801074029	NA	"prevalence"	741	27
+"-18606"	"sex_cleaned"	"M"	"sex_cleanedM"	0.224848466528537	0	0.60982642189599	0.712344668593673	1	0.712344668593673	0.971204801074029	NA	"prevalence"	741	17
+"-24749"	"sex_cleaned"	"M"	"sex_cleanedM"	-0.00591511305321921	0	0.349837448334038	0.986509870411202	1	0.986509870411202	1	NA	"prevalence"	741	32
+"-28239"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.109124200483181	0	0.496443776157268	0.826017728610226	1	0.826017728610226	0.971204801074029	NA	"prevalence"	741	37
+"-28239"	"condition"	"Disease"	"conditionDisease"	-0.134200867953518	0	0.353227686389692	0.703999325395123	1	0.703999325395123	0.971204801074029	NA	"prevalence"	741	37
+"-28827"	"condition"	"Disease"	"conditionDisease"	0.0864385048075857	0	0.682381817298023	0.899200199146975	1	0.899200199146975	0.996939351228167	NA	"prevalence"	741	20
+"-5074"	"condition"	"Disease"	"conditionDisease"	0.0444454559088897	0	0.246557749336028	0.856945412712379	1	0.856945412712379	0.971204801074029	NA	"prevalence"	741	90
+"-9448"	"sex_cleaned"	"M"	"sex_cleanedM"	0.121849826322537	0	0.581235546684773	0.833949186481897	1	0.833949186481897	0.971204801074029	NA	"prevalence"	741	9
+"15795"	"sex_cleaned"	"M"	"sex_cleanedM"	0.201196983753153	0	0.56659929843837	0.722517885685073	1	0.686975161150173	0.971204801074029	NA	"prevalence"	741	10
+"15805"	"condition"	"Disease"	"conditionDisease"	-0.0919134789914839	0	0.476672688016792	0.847097555162579	1	0.847097555162579	0.971204801074029	NA	"prevalence"	741	17
+"15805"	"sex_cleaned"	"M"	"sex_cleanedM"	-0.000150249695463593	0	0.45263920034594	0.999735149076831	1	0.999735149076831	1	NA	"prevalence"	741	17
+"15882"	"sex_cleaned"	"M"	"sex_cleanedM"	-0.0122897603564245	0	0.263160626731391	0.962751848529207	1	0.962751848529207	1	NA	"prevalence"	741	64
+"21907"	"condition"	"Disease"	"conditionDisease"	0.0305177673394001	0	0.174060165043785	0.860821249387838	1	0.980629275378038	1	NA	"prevalence"	741	264
+"30760"	"sex_cleaned"	"M"	"sex_cleanedM"	-0.120351168044446	0	0.371614954682289	0.746044132847054	1	0.746044132847054	0.971204801074029	NA	"prevalence"	741	29
+"-14418"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.0387530066064862	0.282343333847256	"grouping factors must have > 1 sampled level"	"abundance"	741	44
+"-14418"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.132251098892985	0.502921797917324	"grouping factors must have > 1 sampled level"	"abundance"	741	44
+"-14418"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.000276711229027587	0.00705613634020348	"grouping factors must have > 1 sampled level"	"abundance"	741	44
+"-18468"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.0601803725964491	0.383649875302363	"grouping factors must have > 1 sampled level"	"abundance"	741	27
+"-18468"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.163699367614543	0.502921797917324	"grouping factors must have > 1 sampled level"	"abundance"	741	27
+"-18468"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.775582268054497	0.971204801074029	"grouping factors must have > 1 sampled level"	"abundance"	741	27
+"-18606"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.278949977927597	0.646656767013976	"grouping factors must have > 1 sampled level"	"abundance"	741	17
+"-18606"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.564323118973091	0.910495692374723	"grouping factors must have > 1 sampled level"	"abundance"	741	17
+"-18606"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.712344668593673	0.971204801074029	"grouping factors must have > 1 sampled level"	"abundance"	741	17
+"-19941"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.0998771873453159	0.463066959510101	"grouping factors must have > 1 sampled level"	"abundance"	741	47
+"-19941"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.338104087329234	0.718471185574623	"grouping factors must have > 1 sampled level"	"abundance"	741	47
+"-19941"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.537678511716907	0.910495692374723	"grouping factors must have > 1 sampled level"	"abundance"	741	47
+"-20223"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.238915441507112	0.5802232150887	"grouping factors must have > 1 sampled level"	"abundance"	741	10
+"-20223"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.468024948870027	0.852474014013264	"grouping factors must have > 1 sampled level"	"abundance"	741	10
+"-20223"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.314348567402918	0.697033779893428	"grouping factors must have > 1 sampled level"	"abundance"	741	10
+"-24749"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.151333110844928	0.502921797917324	"grouping factors must have > 1 sampled level"	"abundance"	741	32
+"-24749"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.443314677794439	0.837372169167273	"grouping factors must have > 1 sampled level"	"abundance"	741	32
+"-24749"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.986509870411202	1	"grouping factors must have > 1 sampled level"	"abundance"	741	32
+"-28239"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.826017728610226	0.971204801074029	"grouping factors must have > 1 sampled level"	"abundance"	741	37
+"-28239"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.703999325395123	0.971204801074029	"grouping factors must have > 1 sampled level"	"abundance"	741	37
+"-28239"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.0874687977851085	0.446090868704053	"grouping factors must have > 1 sampled level"	"abundance"	741	37
+"-28382"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.491239884175329	0.863904623894545	"grouping factors must have > 1 sampled level"	"abundance"	741	8
+"-28382"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.370426368370958	0.728621156351403	"grouping factors must have > 1 sampled level"	"abundance"	741	8
+"-28382"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.179815852511662	0.509478248783042	"grouping factors must have > 1 sampled level"	"abundance"	741	8
+"-28827"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.00157548928801812	0.0267833178963081	"grouping factors must have > 1 sampled level"	"abundance"	741	20
+"-28827"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.899200199146975	0.996939351228167	"grouping factors must have > 1 sampled level"	"abundance"	741	20
+"-28827"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.200794395956541	0.53308713966004	"grouping factors must have > 1 sampled level"	"abundance"	741	20
+"-5074"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.00482717789471513	0.0492372145260943	"grouping factors must have > 1 sampled level"	"abundance"	741	90
+"-5074"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.856945412712379	0.971204801074029	"grouping factors must have > 1 sampled level"	"abundance"	741	90
+"-5074"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.0697268049902897	0.395118561611642	"grouping factors must have > 1 sampled level"	"abundance"	741	90
+"-9448"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.0387119803235331	0.282343333847256	"grouping factors must have > 1 sampled level"	"abundance"	741	9
+"-9448"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.167640599305775	0.502921797917324	"grouping factors must have > 1 sampled level"	"abundance"	741	9
+"-9448"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.833949186481897	0.971204801074029	"grouping factors must have > 1 sampled level"	"abundance"	741	9
+"15805"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.371453922845813	0.728621156351403	"grouping factors must have > 1 sampled level"	"abundance"	741	17
+"15805"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.847097555162579	0.971204801074029	"grouping factors must have > 1 sampled level"	"abundance"	741	17
+"15805"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.999735149076831	1	"grouping factors must have > 1 sampled level"	"abundance"	741	17
+"15882"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.135037712478668	0.502921797917324	"grouping factors must have > 1 sampled level"	"abundance"	741	64
+"15882"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.580416806958868	0.910495692374723	"grouping factors must have > 1 sampled level"	"abundance"	741	64
+"15882"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.962751848529207	1	"grouping factors must have > 1 sampled level"	"abundance"	741	64
+"30760"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.000192882071559638	0.00705613634020348	"grouping factors must have > 1 sampled level"	"abundance"	741	29
+"30760"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.209053780258839	0.53308713966004	"grouping factors must have > 1 sampled level"	"abundance"	741	29
+"30760"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	NA	NA	NA	NA	0.746044132847054	0.971204801074029	"grouping factors must have > 1 sampled level"	"abundance"	741	29
+"ZZ_other"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	0	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	741	741
+"ZZ_other"	"condition"	"Disease"	"conditionDisease"	NA	0	NA	NA	NA	0.153006701851785	0.502921797917324	"All logistic values are the same"	"prevalence"	741	741
+"ZZ_other"	"sex_cleaned"	"M"	"sex_cleanedM"	NA	0	NA	NA	NA	0.589144271536586	0.910495692374723	"All logistic values are the same"	"prevalence"	741	741

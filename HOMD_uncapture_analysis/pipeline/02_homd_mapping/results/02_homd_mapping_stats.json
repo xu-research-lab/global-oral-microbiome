@@ -1,0 +1,13 @@
+{
+  "total_derep_sequences": 2844174,
+  "homd_captured": 997603,
+  "homd_uncaptured": 1846571,
+  "by_reason": {
+    "low_identity": 1804155,
+    "captured": 997603,
+    "no_hit": 39146,
+    "low_qcov": 3270
+  },
+  "identity_computation": "corrected_iddef1 = (alnlen-mism-gaps)/query_length*100",
+  "note": "vsearch --iddef 1 flag was ignored; id field reported tcov instead. Corrected in post-processing."
+}

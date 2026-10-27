@@ -1,0 +1,16 @@
+"feature"	"metadata"	"value"	"name"	"coef"	"null_hypothesis"	"stderr"	"pval_individual"	"qval_individual"	"pval_joint"	"qval_joint"	"error"	"model"	"N"	"N_not_zero"
+"21907"	"sex_cleaned"	"F"	"sex_cleanedF"	2.24034711484551	0	1.05581254396882	0.0338446665207476	0.101533999562243	0.0338446665207476	0.101533999562243	NA	"prevalence"	209	5
+"21907"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-0.0911792471808078	0	0.506939626852166	0.857260796703837	0.857260796703837	0.857260796703837	0.857260796703837	NA	"prevalence"	209	5
+"21907"	"condition"	"Disease"	"conditionDisease"	-0.322707411929109	0	0.857679384906831	0.706726242522323	0.857260796703837	0.706726242522323	0.857260796703837	NA	"prevalence"	209	5
+"21907"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	NA	NA	NA	NA	0.857260796703837	0.857260796703837	"No data points have the baseline factor level"	"abundance"	209	5
+"21907"	"condition"	"Disease"	"conditionDisease"	NA	NA	NA	NA	NA	0.706726242522323	0.857260796703837	"No data points have the baseline factor level"	"abundance"	209	5
+"21907"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	NA	NA	NA	NA	0.0338446665207476	0.101533999562243	"No data points have the baseline factor level"	"abundance"	209	5
+"ZZ_other"	"age_cleaned"	"age_cleaned"	"age_cleaned"	-9.99959059318381e-06	-9.99959059318381e-06	9.98051759524693e-06	NA	NA	NA	NA	"P-value became NA in median comparison, 
+            try rerunning without the median comparison"	"abundance"	209	209
+"ZZ_other"	"condition"	"Disease"	"conditionDisease"	4.72613958368729e-05	4.72613958368729e-05	2.29422523281559e-05	NA	NA	NA	NA	"P-value became NA in median comparison, 
+            try rerunning without the median comparison"	"abundance"	209	209
+"ZZ_other"	"sex_cleaned"	"F"	"sex_cleanedF"	-4.63886558568359e-05	-4.63886558568359e-05	1.84333028350616e-05	NA	NA	NA	NA	"P-value became NA in median comparison, 
+            try rerunning without the median comparison"	"abundance"	209	209
+"ZZ_other"	"age_cleaned"	"age_cleaned"	"age_cleaned"	NA	0	NA	NA	NA	NA	NA	"All logistic values are the same"	"prevalence"	209	209
+"ZZ_other"	"condition"	"Disease"	"conditionDisease"	NA	0	NA	NA	NA	NA	NA	"All logistic values are the same"	"prevalence"	209	209
+"ZZ_other"	"sex_cleaned"	"F"	"sex_cleanedF"	NA	0	NA	NA	NA	NA	NA	"All logistic values are the same"	"prevalence"	209	209

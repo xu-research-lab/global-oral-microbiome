@@ -1,0 +1,44 @@
+# SLURM logs and Python bytecode
+logs/
+__pycache__/
+*.pyc
+
+# Large regenerable intermediates.  These are produced by the steps they sit in
+# and are too big for version control; each step's README row says what
+# produces them.  Everything else under results/ is tracked.
+pipeline/06_control_catalog/work/
+pipeline/01_data_assembly/results/01_derep_summary.tsv
+pipeline/01_data_assembly/results/01_asv_abundance_metadata.tsv
+pipeline/01_data_assembly/results/01_derep_representatives.fa
+pipeline/01_data_assembly/results/by_region/
+pipeline/02_homd_mapping/results/02_derep_homd_annotated.tsv
+pipeline/02_homd_mapping/results/02_derep_vs_homd.hits.tsv
+pipeline/03_chimera_removal/results/03_derep_chimera_annotated.tsv
+pipeline/03_chimera_removal/results/03_chimeras.fa
+pipeline/03_chimera_removal/results/03_nonchimeras.fa
+pipeline/03_chimera_removal/results/03_combined_reference.fasta
+pipeline/03_chimera_removal/results/03_uchime_detailed.tsv
+pipeline/04_candidate_selection/results/04_candidates.tsv
+pipeline/05_organelle_removal/results/05_candidates.fasta
+pipeline/07_contamination_firewall/results/07_contamination_flagged.tsv
+pipeline/07_contamination_firewall/tmp_97cluster/
+pipeline/09_support_floor/results/sepp/
+pipeline/09_support_floor/results/sepp_missing/
+pipeline/09_support_floor/results/09_candidates_missing_sepp.fasta
+pipeline/16_maaslin3/results/maaslin3/
+pipeline/17_ctrl_only/results/maaslin3_ctrl_only/
+
+# Archive intermediates that were never tracked and are too large for GitHub.
+# The archive keeps the code and the small tables; reference FASTA files and
+# vsearch scratch directories are left on disk only.
+archive/legacy_pipeline_v2/03_clean_with_clusters.tsv
+archive/legacy_pipeline_v2/gg2_ref/
+archive/legacy_pipeline_v2/tmp_97cluster/
+archive/legacy_pipeline_v2/tmp_self_97cluster/
+archive/legacy_pipeline_v3/13b_uncaptured_asvs.fasta
+archive/legacy_pipeline/05_sepp/placements_export/
+archive/legacy_pipeline/03_decontam_genus/all_asv_seqs.fa
+archive/legacy_cluster_id_backup/
+
+# Scratch
+Rplots.pdf

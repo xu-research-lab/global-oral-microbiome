@@ -1,9 +1,0 @@
-[17] Colorectal Cancer                981 disease / 3398 HC, 1 projects, formula: condition + age_cleaned + sex_cleaned
-[17] done Colorectal Cancer              1.6 min, 58 rows
-[17] Lung Cancer                      1306 disease / 3398 HC, 1 projects, formula: condition + age_cleaned + sex_cleaned
-[17] done Lung Cancer                    2.2 min, 56 rows
-[17] IBD                              162 disease / 676 HC, 1 projects, formula: condition + age_cleaned + sex_cleaned
-[17] done IBD                            1.2 min, 22 rows
-[17] Head and Neck Cancer             117 disease / 243 HC, 1 projects, formula: condition + age_cleaned + sex_cleaned + site_cleaned
-[17] done Head and Neck Cancer           0.7 min, 230 rows
-[17] wrote /beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/pipeline_v3/17_maaslin3_all_results.tsv (542 rows across 9 cohorts)

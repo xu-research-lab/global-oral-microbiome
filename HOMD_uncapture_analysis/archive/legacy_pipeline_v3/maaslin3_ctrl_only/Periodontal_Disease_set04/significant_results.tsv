@@ -1,3 +1,0 @@
-"feature"	"metadata"	"value"	"name"	"coef"	"null_hypothesis"	"stderr"	"pval_individual"	"qval_individual"	"pval_joint"	"qval_joint"	"error"	"model"	"N"	"N_not_zero"
-"s27716"	"condition"	"Disease"	"conditionDisease"	2.78426139124363	0	0.921399590520901	0.0025129803361841	0.0150778820171046	0.00501964560219816	0.0200785824087926	NA	"prevalence"	132	33
-"s27716"	"condition"	"Disease"	"conditionDisease"	0.597505018678228	0.296901346041165	2.75593763989665	0.223791004275009	0.426469843944734	0.00501964560219816	0.0200785824087926	NA	"abundance"	132	33

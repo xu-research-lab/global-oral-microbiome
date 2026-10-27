@@ -1,5 +1,0 @@
-cluster_id	annotation	annotation_basis	n_ASV_members	members	refs_at_ancestor	ref_species_at_ancestor	d_tip_to_ancestor	hops_to_ref_ancestor
-c36553	Phnomibacter ginsenosidimutans	cluster_ancestor	2	DEREP_47132;DEREP_821111	1	Phnomibacter ginsenosidimutans	1.29491	1
-c29573	Helicobacter pylori_CI	cluster_ancestor	2	DEREP_48953;DEREP_56744	1	Helicobacter_E pylori_CI	1.05185	1
-c14392	Pedosphaera parvula	cluster_ancestor	2	DEREP_380366;DEREP_463765	2	Pedosphaera parvula	0.56010	1
-c9690	Selenomonas ruminantium_E	cluster_ancestor	2	DEREP_123799;DEREP_730509	4	Selenomonas_A ruminantium_E	0.11662	1

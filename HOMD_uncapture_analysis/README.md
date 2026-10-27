@@ -13,7 +13,6 @@ supplementary figures. It asks two questions of a global collection of oral
 
 ```
 pipeline/     the final analysis, ordered by step; start at pipeline/README.md
-archive/      superseded analysis schemes, kept for provenance, not runnable
 ```
 
 `pipeline/README.md` documents the 19 steps, the figure → script → table

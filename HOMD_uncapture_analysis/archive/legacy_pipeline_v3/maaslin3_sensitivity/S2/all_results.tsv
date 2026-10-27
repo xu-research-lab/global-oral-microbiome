@@ -1,5 +1,0 @@
-"feature"	"metadata"	"value"	"name"	"coef"	"null_hypothesis"	"stderr"	"pval_individual"	"qval_individual"	"pval_joint"	"qval_joint"	"error"	"model"	"N"	"N_not_zero"
-"21907"	"condition"	"Disease"	"conditionDisease"	-0.0904861714586307	-0.0452347467447865	0.510418520013211	0.639986382571599	0.702240365156725	0.870390195266117	0.870390195266117	NA	"abundance"	306	12
-"ZZ_other"	"condition"	"Disease"	"conditionDisease"	1.66779690576726e-05	-0.0452347467447865	1.6544441571213e-05	0.425561004867313	0.702240365156725	0.425561004867313	0.851122009734626	NA	"abundance"	306	306
-"21907"	"condition"	"Disease"	"conditionDisease"	-0.217593612234136	0	0.569172826102526	0.702240365156725	0.702240365156725	0.870390195266117	0.870390195266117	NA	"prevalence"	306	12
-"ZZ_other"	"condition"	"Disease"	"conditionDisease"	NA	0	NA	NA	NA	0.425561004867313	0.851122009734626	"All logistic values are the same"	"prevalence"	306	306

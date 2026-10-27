@@ -1,3 +1,0 @@
-"feature"	"metadata"	"value"	"name"	"coef"	"null_hypothesis"	"stderr"	"pval_individual"	"qval_individual"	"pval_joint"	"qval_joint"	"error"	"model"	"N"	"N_not_zero"
-"21907"	"site"	"tongue"	"sitetongue"	-1.75236511260002	0	0.403259673695554	1.38958457085691e-05	0.000208437685628537	2.77914983226102e-05	0.000277914983226102	NA	"prevalence"	787	184
-"21907"	"site"	"tongue"	"sitetongue"	-0.806827272824049	-0.402164599067638	0.773358292496538	0.435495651932143	0.502494982998627	2.77914983226102e-05	0.000277914983226102	NA	"abundance"	787	184

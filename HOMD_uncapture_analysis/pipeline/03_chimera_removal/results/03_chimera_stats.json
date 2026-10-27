@@ -1,0 +1,371 @@
+{
+  "total_derep_sequences": 2844174,
+  "chimera_flagged": 744715,
+  "chimera_pct": 26.18,
+  "homd_uncaptured_total": 1846571,
+  "homd_uncaptured_chimera": 710429,
+  "candidates_post_chimera": 1136142,
+  "candidate_pct": 39.95,
+  "per_region": {
+    "V1": {
+      "total": 4855,
+      "chimeras": 167,
+      "chimera_pct": 3.4,
+      "homd_uncaptured": 3259,
+      "candidates": 3117,
+      "candidate_pct": 64.2
+    },
+    "V1-V2": {
+      "total": 97878,
+      "chimeras": 13671,
+      "chimera_pct": 14.0,
+      "homd_uncaptured": 41465,
+      "candidates": 29677,
+      "candidate_pct": 30.3
+    },
+    "V1-V2;V1-V3": {
+      "total": 5002,
+      "chimeras": 179,
+      "chimera_pct": 3.6,
+      "homd_uncaptured": 336,
+      "candidates": 298,
+      "candidate_pct": 6.0
+    },
+    "V1-V2;V1-V3;V3-V4": {
+      "total": 3,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 0,
+      "candidates": 0,
+      "candidate_pct": 0.0
+    },
+    "V1-V2;V1-V3;V4": {
+      "total": 568,
+      "chimeras": 12,
+      "chimera_pct": 2.1,
+      "homd_uncaptured": 24,
+      "candidates": 22,
+      "candidate_pct": 3.9
+    },
+    "V1-V2;V1-V3;V4-V5": {
+      "total": 2,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 1,
+      "candidates": 1,
+      "candidate_pct": 50.0
+    },
+    "V1-V2;V2,V3,V4,V6-V7,V8,V9": {
+      "total": 1,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 0,
+      "candidates": 0,
+      "candidate_pct": 0.0
+    },
+    "V1-V2;V3-V4": {
+      "total": 271,
+      "chimeras": 2,
+      "chimera_pct": 0.7,
+      "homd_uncaptured": 18,
+      "candidates": 17,
+      "candidate_pct": 6.3
+    },
+    "V1-V2;V3-V4;V4": {
+      "total": 1,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 1,
+      "candidates": 1,
+      "candidate_pct": 100.0
+    },
+    "V1-V2;V4": {
+      "total": 243,
+      "chimeras": 6,
+      "chimera_pct": 2.5,
+      "homd_uncaptured": 14,
+      "candidates": 14,
+      "candidate_pct": 5.8
+    },
+    "V1-V2;V4-V5": {
+      "total": 4,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 2,
+      "candidates": 2,
+      "candidate_pct": 50.0
+    },
+    "V1-V3": {
+      "total": 297767,
+      "chimeras": 21608,
+      "chimera_pct": 7.3,
+      "homd_uncaptured": 143866,
+      "candidates": 128821,
+      "candidate_pct": 43.3
+    },
+    "V1-V3,V7-V9": {
+      "total": 5910,
+      "chimeras": 1716,
+      "chimera_pct": 29.0,
+      "homd_uncaptured": 2649,
+      "candidates": 1147,
+      "candidate_pct": 19.4
+    },
+    "V1-V3;V3-V4": {
+      "total": 10,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 3,
+      "candidates": 3,
+      "candidate_pct": 30.0
+    },
+    "V1-V3;V3-V5": {
+      "total": 2,
+      "chimeras": 1,
+      "chimera_pct": 50.0,
+      "homd_uncaptured": 0,
+      "candidates": 0,
+      "candidate_pct": 0.0
+    },
+    "V1-V3;V4": {
+      "total": 95,
+      "chimeras": 6,
+      "chimera_pct": 6.3,
+      "homd_uncaptured": 7,
+      "candidates": 6,
+      "candidate_pct": 6.3
+    },
+    "V1-V3;V4-V5": {
+      "total": 12,
+      "chimeras": 1,
+      "chimera_pct": 8.3,
+      "homd_uncaptured": 8,
+      "candidates": 8,
+      "candidate_pct": 66.7
+    },
+    "V1-V3;V4-V5;V6-V8": {
+      "total": 7,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 4,
+      "candidates": 4,
+      "candidate_pct": 57.1
+    },
+    "V1-V3;V6-V8": {
+      "total": 11,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 9,
+      "candidates": 9,
+      "candidate_pct": 81.8
+    },
+    "V1;V2": {
+      "total": 892,
+      "chimeras": 12,
+      "chimera_pct": 1.3,
+      "homd_uncaptured": 301,
+      "candidates": 293,
+      "candidate_pct": 32.8
+    },
+    "V2": {
+      "total": 17435,
+      "chimeras": 690,
+      "chimera_pct": 4.0,
+      "homd_uncaptured": 12944,
+      "candidates": 12300,
+      "candidate_pct": 70.5
+    },
+    "V2,V3,V4,V6-V7,V8,V9": {
+      "total": 34154,
+      "chimeras": 6558,
+      "chimera_pct": 19.2,
+      "homd_uncaptured": 13289,
+      "candidates": 7620,
+      "candidate_pct": 22.3
+    },
+    "V2,V3,V4,V6-V7,V8,V9;V3-V4": {
+      "total": 2,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 0,
+      "candidates": 0,
+      "candidate_pct": 0.0
+    },
+    "V2,V3,V4,V6-V7,V8,V9;V4": {
+      "total": 4,
+      "chimeras": 2,
+      "chimera_pct": 50.0,
+      "homd_uncaptured": 0,
+      "candidates": 0,
+      "candidate_pct": 0.0
+    },
+    "V2-V3": {
+      "total": 5450,
+      "chimeras": 11,
+      "chimera_pct": 0.2,
+      "homd_uncaptured": 4874,
+      "candidates": 4868,
+      "candidate_pct": 89.3
+    },
+    "V2-V3,V4-V5": {
+      "total": 10687,
+      "chimeras": 44,
+      "chimera_pct": 0.4,
+      "homd_uncaptured": 836,
+      "candidates": 823,
+      "candidate_pct": 7.7
+    },
+    "V2-V3;V3": {
+      "total": 1,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 0,
+      "candidates": 0,
+      "candidate_pct": 0.0
+    },
+    "V3": {
+      "total": 14824,
+      "chimeras": 1450,
+      "chimera_pct": 9.8,
+      "homd_uncaptured": 7772,
+      "candidates": 6397,
+      "candidate_pct": 43.2
+    },
+    "V3-V4": {
+      "total": 1337968,
+      "chimeras": 490494,
+      "chimera_pct": 36.7,
+      "homd_uncaptured": 911052,
+      "candidates": 434993,
+      "candidate_pct": 32.5
+    },
+    "V3-V4;V4": {
+      "total": 7155,
+      "chimeras": 296,
+      "chimera_pct": 4.1,
+      "homd_uncaptured": 1066,
+      "candidates": 840,
+      "candidate_pct": 11.7
+    },
+    "V3-V4;V4-V5": {
+      "total": 644,
+      "chimeras": 1,
+      "chimera_pct": 0.2,
+      "homd_uncaptured": 114,
+      "candidates": 114,
+      "candidate_pct": 17.7
+    },
+    "V3-V4;V4;V4-V5": {
+      "total": 121,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 7,
+      "candidates": 7,
+      "candidate_pct": 5.8
+    },
+    "V3-V4;V6-V8": {
+      "total": 2,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 1,
+      "candidates": 1,
+      "candidate_pct": 50.0
+    },
+    "V3-V5": {
+      "total": 84770,
+      "chimeras": 9938,
+      "chimera_pct": 11.7,
+      "homd_uncaptured": 34735,
+      "candidates": 28165,
+      "candidate_pct": 33.2
+    },
+    "V3-V5;V4": {
+      "total": 13,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 0,
+      "candidates": 0,
+      "candidate_pct": 0.0
+    },
+    "V3;V3-V4": {
+      "total": 42,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 7,
+      "candidates": 7,
+      "candidate_pct": 16.7
+    },
+    "V3;V3-V5": {
+      "total": 1,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 0,
+      "candidates": 0,
+      "candidate_pct": 0.0
+    },
+    "V4": {
+      "total": 682878,
+      "chimeras": 124430,
+      "chimera_pct": 18.2,
+      "homd_uncaptured": 501031,
+      "candidates": 381106,
+      "candidate_pct": 55.8
+    },
+    "V4-V5": {
+      "total": 101322,
+      "chimeras": 25740,
+      "chimera_pct": 25.4,
+      "homd_uncaptured": 68598,
+      "candidates": 43511,
+      "candidate_pct": 42.9
+    },
+    "V4-V5;V6-V8": {
+      "total": 9655,
+      "chimeras": 322,
+      "chimera_pct": 3.3,
+      "homd_uncaptured": 7830,
+      "candidates": 7524,
+      "candidate_pct": 77.9
+    },
+    "V4;V4-V5": {
+      "total": 1300,
+      "chimeras": 3,
+      "chimera_pct": 0.2,
+      "homd_uncaptured": 117,
+      "candidates": 116,
+      "candidate_pct": 8.9
+    },
+    "V4;V4-V5;V6-V8": {
+      "total": 1,
+      "chimeras": 0,
+      "chimera_pct": 0.0,
+      "homd_uncaptured": 1,
+      "candidates": 1,
+      "candidate_pct": 100.0
+    },
+    "V5": {
+      "total": 664,
+      "chimeras": 31,
+      "chimera_pct": 4.7,
+      "homd_uncaptured": 204,
+      "candidates": 189,
+      "candidate_pct": 28.5
+    },
+    "V5-V7": {
+      "total": 34144,
+      "chimeras": 12292,
+      "chimera_pct": 36.0,
+      "homd_uncaptured": 24106,
+      "candidates": 12245,
+      "candidate_pct": 35.9
+    },
+    "V6-V8": {
+      "total": 58555,
+      "chimeras": 23691,
+      "chimera_pct": 40.5,
+      "homd_uncaptured": 48852,
+      "candidates": 25537,
+      "candidate_pct": 43.6
+    }
+  }
+}

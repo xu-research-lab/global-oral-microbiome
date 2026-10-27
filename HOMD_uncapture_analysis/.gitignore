@@ -1,0 +1,38 @@
+# SLURM logs and Python bytecode
+logs/
+__pycache__/
+*.pyc
+
+# Large regenerable intermediates.  These are produced by the steps they sit in
+# and are too big for version control; each step's README row says what
+# produces them.  Everything else under results/ is tracked.
+pipeline/06_control_catalog/work/
+pipeline/01_data_assembly/results/01_derep_summary.tsv
+pipeline/01_data_assembly/results/01_asv_abundance_metadata.tsv
+pipeline/01_data_assembly/results/01_derep_representatives.fa
+pipeline/01_data_assembly/results/by_region/
+pipeline/02_homd_mapping/results/02_derep_homd_annotated.tsv
+pipeline/02_homd_mapping/results/02_derep_vs_homd.hits.tsv
+pipeline/03_chimera_removal/results/03_derep_chimera_annotated.tsv
+pipeline/03_chimera_removal/results/03_chimeras.fa
+pipeline/03_chimera_removal/results/03_nonchimeras.fa
+pipeline/03_chimera_removal/results/03_combined_reference.fasta
+pipeline/03_chimera_removal/results/03_uchime_detailed.tsv
+pipeline/04_candidate_selection/results/04_candidates.tsv
+pipeline/05_organelle_removal/results/05_candidates.fasta
+pipeline/07_contamination_firewall/results/07_contamination_flagged.tsv
+pipeline/07_contamination_firewall/tmp_97cluster/
+pipeline/09_support_floor/results/sepp/
+pipeline/09_support_floor/results/sepp_missing/
+pipeline/09_support_floor/results/09_candidates_missing_sepp.fasta
+pipeline/16_maaslin3/results/maaslin3/
+pipeline/17_ctrl_only/results/maaslin3_ctrl_only/
+
+# Kept on the analysis machine only, not published: superseded analysis
+# schemes, reference PDFs and the old-filename script copies.
+archive/
+docs/
+pipeline/unrenamed_backup/
+
+# Scratch
+Rplots.pdf

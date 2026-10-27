@@ -1,0 +1,83 @@
+{
+  "metadata_bioprojects": 334,
+  "projects_with_missing_inputs": 0,
+  "total_asvs": 3396776,
+  "exact_derep_sequences": 2844174,
+  "total_reads_matched": 6589593131.0,
+  "per_region": {
+    "V3-V4": {
+      "asvs": 1648694,
+      "derep_sequences": 1346219
+    },
+    "V1-V2": {
+      "asvs": 112788,
+      "derep_sequences": 103973
+    },
+    "V4": {
+      "asvs": 807317,
+      "derep_sequences": 692379
+    },
+    "V1-V3": {
+      "asvs": 317289,
+      "derep_sequences": 303479
+    },
+    "V2": {
+      "asvs": 18327,
+      "derep_sequences": 18327
+    },
+    "V6-V8": {
+      "asvs": 69242,
+      "derep_sequences": 68231
+    },
+    "V4-V5": {
+      "asvs": 179503,
+      "derep_sequences": 113068
+    },
+    "V2-V3,V4-V5": {
+      "asvs": 10687,
+      "derep_sequences": 10687
+    },
+    "V3": {
+      "asvs": 14868,
+      "derep_sequences": 14868
+    },
+    "V5-V7": {
+      "asvs": 34144,
+      "derep_sequences": 34144
+    },
+    "V1": {
+      "asvs": 5747,
+      "derep_sequences": 5747
+    },
+    "V1-V3,V7-V9": {
+      "asvs": 5910,
+      "derep_sequences": 5910
+    },
+    "NA": {
+      "asvs": 44820,
+      "derep_sequences": 44158
+    },
+    "V3-V5": {
+      "asvs": 84786,
+      "derep_sequences": 84786
+    },
+    "V5": {
+      "asvs": 664,
+      "derep_sequences": 664
+    },
+    "V2,V3,V4,V6-V7,V8,V9": {
+      "asvs": 36539,
+      "derep_sequences": 34161
+    },
+    "V2-V3": {
+      "asvs": 5451,
+      "derep_sequences": 5451
+    }
+  },
+  "outputs": {
+    "asv_table": "/beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/asv_abundance_metadata.tsv",
+    "derep_fasta": "/beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/exact_derep_representatives.fa",
+    "derep_table": "/beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/exact_derep_summary.tsv",
+    "project_summary": "/beegfs/huangxiaochang/global_oral/global-oral-microbiome/HOMD_uncapture_analysis/project_input_summary.tsv"
+  }
+}

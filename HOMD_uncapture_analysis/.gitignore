@@ -29,9 +29,10 @@ pipeline/16_maaslin3/results/maaslin3/
 pipeline/17_ctrl_only/results/maaslin3_ctrl_only/
 
 # Kept on the analysis machine only, not published: superseded analysis
-# schemes and reference PDFs.  They stay on disk for provenance.
+# schemes, reference PDFs and the old-filename script copies.
 archive/
 docs/
+pipeline/unrenamed_backup/
 
 # Scratch
 Rplots.pdf

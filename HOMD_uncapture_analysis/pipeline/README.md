@@ -149,6 +149,3 @@ The figure chain (step 19) is re-run from those tables and reproduces the
 committed PDFs. `19d` and `19g` fix a seed before their jittered point layers,
 so the scatter positions are stable between runs. The PDFs differ from the
 versions generated at submission time only in that jitter realisation.
-
-`unrenamed_backup/` holds the same scripts under their original filenames, with
-`MAPPING.tsv` giving the old path, the new path and the purpose of each.

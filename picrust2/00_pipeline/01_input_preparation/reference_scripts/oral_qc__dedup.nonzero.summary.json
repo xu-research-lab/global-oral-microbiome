@@ -1,0 +1,16 @@
+{
+  "input_biom": "00.data/biom_oral_qc_dedup.biom",
+  "input_fasta": "00.data/dna-sequences.fasta",
+  "output_biom": "01.filter_input/oral_qc__dedup.nonzero.feature_table.biom",
+  "output_fasta": "01.filter_input/oral_qc__dedup.nonzero.rep_seqs.fna",
+  "min_sample_count": 1.0,
+  "min_feature_count": 1.0,
+  "n_samples_before": 51159,
+  "n_samples_after": 51159,
+  "n_samples_dropped": 0,
+  "n_features_before": 61235,
+  "n_features_after": 35329,
+  "n_features_dropped": 25906,
+  "total_reads_before": 3033350124.0,
+  "total_reads_after": 3033350124.0
+}
